@@ -1,0 +1,22 @@
+{
+    "title": "For Japanese: Change command keys to eisuu and kana.",
+    "rules": [
+        {
+            "description": "Change command keys to eisuu and kana.",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("left_command", [], ["any"]) %>,
+                    "to": <%= to([["left_command"]]) %>,
+                    "to_if_alone": <%= to([["japanese_eisuu"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("right_command", [], ["any"]) %>,
+                    "to": <%= to([["right_command"]]) %>,
+                    "to_if_alone": <%= to([["japanese_kana"]]) %>
+                }
+            ]
+        }
+    ]
+}
