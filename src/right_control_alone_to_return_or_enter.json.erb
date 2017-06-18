@@ -1,0 +1,16 @@
+{
+    "title": "Send return_or_enter if right_control is pressed alone.",
+    "rules": [
+        {
+            "description": "Send return_or_enter if right_control is pressed alone.",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("right_control", [], ["any"]) %>,
+                    "to": <%= to([["right_control"]]) %>,
+                    "to_if_alone": <%= to([["return_or_enter"]]) %>
+                }
+            ]
+        }
+    ]
+}
