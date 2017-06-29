@@ -4,7 +4,7 @@
 
 complex_modifications for Karabiner-Elements.
 
-https://pqrs-org.github.io/KE-complex_modifications/
+https://pqrs.org/osx/karabiner/complex_modifications/
 
 ## Update docs
 
