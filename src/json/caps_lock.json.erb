@@ -11,6 +11,21 @@
                     "to_if_alone": <%= to([["escape"]]) %>
                 }
             ]
+        },
+        {
+            "description": "Change caps_lock key to command+control+option+shift. (Use shift+caps_lock as caps_lock)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("caps_lock", ["shift"], ["caps_lock"]) %>,
+                    "to": <%= to([["caps_lock"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("caps_lock", [], ["any"]) %>,
+                    "to": <%= to([["left_shift", ["left_command", "left_control", "left_option"]]]) %>
+                }
+            ]
         }
     ]
 }
