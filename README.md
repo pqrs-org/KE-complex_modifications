@@ -14,6 +14,6 @@ make
 
 ## Add rules
 
-1. Put a file to [src/json](tree/master/src/json). (or [docs/json](tree/master/docs/json) directly)
-2. Add `file_import_panel` to [src/index.html.erb](tree/master/src/index.html.erb).
+1. Put a file to [src/json](https://github.com/pqrs-org/KE-complex_modifications/tree/master/src/json). (or [docs/json](https://github.com/pqrs-org/KE-complex_modifications/tree/master/docs/json) directly)
+2. Add `file_import_panel` to [src/index.html.erb](https://github.com/pqrs-org/KE-complex_modifications/tree/master/src/index.html.erb).
 3. Run `make` in terminal.
