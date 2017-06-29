@@ -1,2 +1,3 @@
 all:
-	@for f in src/*.erb; do /usr/bin/ruby erb2json.rb < $$f > docs/json/`basename $$f .erb`; echo docs/json/`basename $$f .erb`; done
+	sh update-json.sh
+	/usr/bin/ruby erb2html.rb < src/index.html.erb > docs/index.html
