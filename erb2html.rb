@@ -28,7 +28,7 @@ def file_import_panel(json_file_path)
         <ul>
           #{rule_descriptions}
         </ul>
-        <a class="btn btn-primary btn-sm" style="margin-left: 40px" href="karabiner://assets/complex_modifications/import?url=#{u(json_url)}">Import</a>
+        <a class="btn btn-primary btn-sm" style="margin-left: 40px" href="karabiner://karabiner/assets/complex_modifications/import?url=#{u(json_url)}">Import</a>
       </div>
     </div>
   EOS
