@@ -1,7 +1,7 @@
 all:
-	sh update-json.sh
-	/usr/bin/ruby erb2html.rb < src/index.html.erb > docs/index.html
+	sh scripts/update-json.sh
+	/usr/bin/ruby scripts/erb2html.rb < src/index.html.erb > docs/index.html
 
 rebuild:
-	rm -f docs/json/*
+	touch src/json/*
 	$(MAKE) all
