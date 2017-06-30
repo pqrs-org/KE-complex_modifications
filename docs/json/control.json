@@ -1,6 +1,32 @@
 {
-  "title": "Change return_or_enter key",
+  "title": "Change control key",
   "rules": [
+    {
+      "description": "Post escape if left_control is pressed alone.",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_control",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_control"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "escape"
+            }
+          ]
+        }
+      ]
+    },
     {
       "description": "Post return_or_enter if right_control is pressed alone.",
       "manipulators": [
