@@ -20,6 +20,19 @@ make
 2. Add `file_import_panel` to [src/index.html.erb](https://github.com/pqrs-org/KE-complex_modifications/tree/master/src/index.html.erb).
 3. Run `make` in terminal.
 
+## Local testing
+
+1. Copy a json file to `~/.config/karabiner/assets/complex_modifications`.
+2. Import rules from Karabiner-Elements Preferences.
+
+### Example
+
+```
+$ cp docs/json/caps_lock.json ~/.config/karabiner/assets/complex_modifications
+```
+
+Then open `Karabiner-Elements Preferences > Complex Modifications > Rules > Add rule`
+
 ----------
 
 # Karabiner-Elements Usage
