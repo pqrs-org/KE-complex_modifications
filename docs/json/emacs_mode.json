@@ -2,7 +2,103 @@
     "title": "Emacs Mode",
     "rules": [
         {
-            "description": "Change Left_control P/N/B/F to Arrow Keys",
+            "description": "Change Left_control + D to Forward Delete",
+            "manipulators": [
+                {
+                    "from": {
+                        "key_code": "d",
+                        "modifiers": {
+                            "mandatory": ["left_control"],
+                            "optional": ["any"]
+                        }
+                    },
+                    "to": [{"key_code": "delete_forward"}],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "Change Left_control + H to Delete_or_Backspace",
+            "manipulators": [
+                {
+                    "from": {
+                        "key_code": "h",
+                        "modifiers": {
+                            "mandatory": ["left_control"],
+                            "optional": ["any"]
+                        }
+                    },
+                    "to": [{"key_code": "delete_or_backspace"}],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "Change Left_control + I to Tab",
+            "manipulators": [
+                {
+                    "from": {
+                        "key_code": "i",
+                        "modifiers": {
+                            "mandatory": ["left_control"],
+                            "optional": ["any"]
+                        }
+                    },
+                    "to": [{"key_code": "tab"}],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "Change Left_control + [ to Escape",
+            "manipulators": [
+                {
+                    "from": {
+                        "key_code": "open_bracket",
+                        "modifiers": {
+                            "mandatory": ["left_control"],
+                            "optional": ["any"]
+                        }
+                    },
+                    "to": [{"key_code": "escape"}],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "Change Left_control + J to Return_or_Enter",
+            "manipulators": [
+                {
+                    "from": {
+                        "key_code": "j",
+                        "modifiers": {
+                            "mandatory": ["left_control"],
+                            "optional": ["any"]
+                        }
+                    },
+                    "to": [{"key_code": "return_or_enter"}],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "Change Left_control + M to Carriage Return (rarely used)",
+            "manipulators": [
+                {
+                    "from": {
+                        "key_code": "m",
+                        "modifiers": {
+                            "mandatory": ["left_control"],
+                            "optional": ["any"]
+                        }
+                    },
+                    "to": [{"key_code": "return"}],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "Change Left_control + P/N/B/F to Arrow Keys",
             "manipulators": [
                 {
                     "from": {
@@ -78,6 +174,38 @@
                             "key_code": "right_arrow"
                         }
                     ],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "Change Left_control + V to Page_down",
+            "manipulators": [
+                {
+                    "from": {
+                        "key_code": "v",
+                        "modifiers": {
+                            "mandatory": ["left_control"],
+                            "optional": ["any"]
+                        }
+                    },
+                    "to": [{"key_code": "page_down"}],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "Change Left_option + V to Page_up",
+            "manipulators": [
+                {
+                    "from": {
+                        "key_code": "v",
+                        "modifiers": {
+                            "mandatory": ["left_option"],
+                            "optional": ["any"]
+                        }
+                    },
+                    "to": [{"key_code": "page_up"}],
                     "type": "basic"
                 }
             ]
