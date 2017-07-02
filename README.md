@@ -20,6 +20,8 @@ make
 2. Add `file_import_panel` to [src/index.html.erb](https://github.com/pqrs-org/KE-complex_modifications/tree/master/src/index.html.erb).
 3. Run `make` in terminal.
 
+Key name definitions are [here](https://github.com/tekezo/Karabiner-Elements/blob/master/src/apps/PreferencesWindow/PreferencesWindow/Resources/simple_modifications.json).
+
 ## Local testing
 
 1. Copy a json file to `~/.config/karabiner/assets/complex_modifications`.
