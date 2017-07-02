@@ -26,6 +26,17 @@
                     "to": <%= to([["left_shift", ["left_command", "left_control", "left_option"]]]) %>
                 }
             ]
+        },
+        {
+            "description": "Change caps_lock to control, or scape if alone.",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("caps_lock", [], ["any"]) %>,
+                    "to": <%= to([["left_control"]]) %>,
+                    "to_if_alone": <%= to([["escape"]]) %>
+                }
+            ]
         }
     ]
 }
