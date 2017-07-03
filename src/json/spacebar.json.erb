@@ -1,0 +1,16 @@
+{
+    "title": "Change spacebar",
+    "rules": [
+        {
+            "description": "Change spacebar to left_shift if pressed with other keys (Post spacebar when pressed alone)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("spacebar", [], ["any"]) %>,
+                    "to": <%= to([["left_shift"]]) %>,
+                    "to_if_alone": <%= to([["spacebar"]]) %>
+                }
+            ]
+        }
+    ]
+}
