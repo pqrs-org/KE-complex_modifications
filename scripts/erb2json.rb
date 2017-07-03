@@ -28,7 +28,7 @@ def to(events)
   events.each do |e|
     d = {}
     d['key_code'] = e[0]
-    unless e[1].nil? then
+    unless e[1].nil?
       d['modifiers'] = e[1]
     end
 
