@@ -1,0 +1,150 @@
+{
+    "title": "Emacs key bindings (rev 2)",
+    "rules": [
+        {
+            "description": "Emacs key bindings [control+d -> forward delete] (rev 2)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("d", ["control"], ["caps_lock", "option"]) %>,
+                    "to": <%= to([["delete_forward"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("emacs_key_bindings_exception") %> ]
+                }
+            ]
+        },
+        {
+            "description": "Emacs key bindings [control+h -> delete] (rev 2)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("h", ["control"], ["caps_lock", "option"]) %>,
+                    "to": <%= to([["delete_or_backspace"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("emacs_key_bindings_exception") %> ]
+                }
+            ]
+        },
+        {
+            "description": "Emacs key bindings [control+i -> tab] (rev 2)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("i", ["control"], ["caps_lock"]) %>,
+                    "to": <%= to([["tab"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("emacs_key_bindings_exception") %> ]
+                }
+            ]
+        },
+        {
+            "description": "Emacs key bindings [control+open_bracket -> escape] (rev 2)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("open_bracket", ["control"], ["caps_lock"]) %>,
+                    "to": <%= to([["escape"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("emacs_key_bindings_exception") %> ]
+                }
+            ]
+        },
+        {
+            "description": "Emacs key bindings [control+j -> return] (rev 2)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("j", ["control"], ["caps_lock", "shift", "option"]) %>,
+                    "to": <%= to([["return_or_enter"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("emacs_key_bindings_exception") %> ]
+                }
+            ]
+        },
+        {
+            "description": "Emacs key bindings [control+m -> return] (rev 2)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("m", ["control"], ["caps_lock", "shift", "option"]) %>,
+                    "to": <%= to([["return_or_enter"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("emacs_key_bindings_exception") %> ]
+                }
+            ]
+        },
+        {
+            "description": "Emacs key bindings [control+m -> return] (rev 2)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("m", ["control"], ["caps_lock", "shift", "option"]) %>,
+                    "to": <%= to([["return_or_enter"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("emacs_key_bindings_exception") %> ]
+                }
+            ]
+        },
+        {
+            "description": "Emacs key bindings [control+bfnp -> arrow keys] (rev 2)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("b", ["control"], ["caps_lock", "shift", "option"]) %>,
+                    "to": <%= to([["left_arrow"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("emacs_key_bindings_exception") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("f", ["control"], ["caps_lock", "shift", "option"]) %>,
+                    "to": <%= to([["right_arrow"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("emacs_key_bindings_exception") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("n", ["control"], ["caps_lock", "shift", "option"]) %>,
+                    "to": <%= to([["down_arrow"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("emacs_key_bindings_exception") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("p", ["control"], ["caps_lock", "shift", "option"]) %>,
+                    "to": <%= to([["up_arrow"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("emacs_key_bindings_exception") %> ]
+                }
+            ]
+        },
+        {
+            "description": "Emacs key bindings [control+v -> page_down] (rev 2)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("v", ["control"], ["caps_lock", "shift"]) %>,
+                    "to": <%= to([["page_down"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("emacs_key_bindings_exception") %> ]
+                }
+            ]
+        },
+        {
+            "description": "Emacs key bindings [option+v -> page_up] (rev 2)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("v", ["option"], ["caps_lock", "shift"]) %>,
+                    "to": <%= to([["page_up"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("emacs_key_bindings_exception") %> ]
+                }
+            ]
+        },
+        {
+            "description": "Emacs key bindings [option+bf -> option+arrow keys] (rev 2)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("b", ["option"], ["caps_lock", "shift"]) %>,
+                    "to": <%= to([["left_arrow", ["left_option"]]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("emacs_key_bindings_exception") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("f", ["option"], ["caps_lock", "shift"]) %>,
+                    "to": <%= to([["right_arrow", ["left_option"]]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("emacs_key_bindings_exception") %> ]
+                }
+            ]
+        }
+    ]
+}
