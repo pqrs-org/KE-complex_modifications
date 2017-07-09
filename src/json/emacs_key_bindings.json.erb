@@ -68,17 +68,6 @@
             ]
         },
         {
-            "description": "Emacs key bindings [control+m -> return] (rev 2)",
-            "manipulators": [
-                {
-                    "type": "basic",
-                    "from": <%= from("m", ["control"], ["caps_lock", "shift", "option"]) %>,
-                    "to": <%= to([["return_or_enter"]]) %>,
-                    "conditions": [ <%= frontmost_application_unless("emacs_key_bindings_exception") %> ]
-                }
-            ]
-        },
-        {
             "description": "Emacs key bindings [control+bfnp -> arrow keys] (rev 2)",
             "manipulators": [
                 {
