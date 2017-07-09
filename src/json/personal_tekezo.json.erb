@@ -2,7 +2,7 @@
     "title": "Personal rules (@tekezo)",
     "rules": [
         {
-            "description": "control+1/2/v/q to home/end/page_down/page_up",
+            "description": "Change control+1/2/v/q to home/end/page_down/page_up",
             "manipulators": [
                 {
                     "type": "basic",
@@ -27,7 +27,7 @@
             ]
         },
         {
-            "description": "extra emacs key bindings",
+            "description": "Extra emacs key bindings",
             "manipulators": [
                 {
                     "description": "Change control+u to delete-to-beginning-of-line",
@@ -48,6 +48,17 @@
                             <%= frontmost_application_unless("emacs") %>,
                             <%= frontmost_application_unless("terminal") %>
                     ]
+                }
+            ]
+        },
+        {
+            "description": "Change tab to command+`",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("tab", ["any"], []) %>,
+                    "to": <%= to([["left_command"]]) %>,
+                    "to_if_alone": <%= to([["grave_accent_and_tilde", ["left_command"]]]) %>
                 }
             ]
         }
