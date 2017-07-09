@@ -81,6 +81,51 @@
           ]
         }
       ]
+    },
+    {
+      "description": "Change control+u to delete-to-beginning-of-line",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "u",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "a",
+              "modifiers": [
+                "left_control",
+                "left_shift"
+              ]
+            },
+            {
+              "key_code": "delete_or_backspace"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$"
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }

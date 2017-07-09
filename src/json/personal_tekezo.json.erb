@@ -25,6 +25,17 @@
                     "to": <%= to([["page_up"]]) %>
                 }
             ]
+        },
+        {
+            "description": "Change control+u to delete-to-beginning-of-line",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("u", ["control"], ["caps_lock"]) %>,
+                    "to": <%= to([["a", ["left_control", "left_shift"]], ["delete_or_backspace"], ["vk_none"] ]) %>,
+                    "conditions": [ <%= frontmost_application_unless("terminal") %> ]
+                }
+            ]
         }
     ]
 }
