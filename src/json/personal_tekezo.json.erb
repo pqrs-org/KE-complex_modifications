@@ -1,0 +1,30 @@
+{
+    "title": "Personal rules (@tekezo)",
+    "rules": [
+        {
+            "description": "control+1/2/v/q to home/end/page_down/page_up",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("1", ["control"], ["any"]) %>,
+                    "to": <%= to([["home"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("2", ["control"], ["any"]) %>,
+                    "to": <%= to([["end"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("v", ["control"], ["any"]) %>,
+                    "to": <%= to([["page_down"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("q", ["control"], ["any"]) %>,
+                    "to": <%= to([["page_up"]]) %>
+                }
+            ]
+        }
+    ]
+}
