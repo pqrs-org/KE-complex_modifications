@@ -1,0 +1,66 @@
+{
+    "title": "Personal rules (@tekezo)",
+    "rules": [
+        {
+            "description": "Change control+1/2/v/q to home/end/page_down/page_up",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("1", ["control"], ["any"]) %>,
+                    "to": <%= to([["home"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("2", ["control"], ["any"]) %>,
+                    "to": <%= to([["end"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("v", ["control"], ["any"]) %>,
+                    "to": <%= to([["page_down"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("q", ["control"], ["any"]) %>,
+                    "to": <%= to([["page_up"]]) %>
+                }
+            ]
+        },
+        {
+            "description": "Extra emacs key bindings",
+            "manipulators": [
+                {
+                    "description": "Change control+u to delete-to-beginning-of-line",
+                    "type": "basic",
+                    "from": <%= from("u", ["control"], ["caps_lock"]) %>,
+                    "to": <%= to([["a", ["left_control", "left_shift"]], ["delete_or_backspace"], ["vk_none"]]) %>,
+                    "conditions": [
+                            <%= frontmost_application_unless("emacs") %>,
+                            <%= frontmost_application_unless("terminal") %>
+                    ]
+                },
+                {
+                    "description": "Change control+w to option+delete",
+                    "type": "basic",
+                    "from": <%= from("w", ["control"], ["caps_lock"]) %>,
+                    "to": <%= to([["delete_or_backspace", ["left_option"]]]) %>,
+                    "conditions": [
+                            <%= frontmost_application_unless("emacs") %>,
+                            <%= frontmost_application_unless("terminal") %>
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Change tab to command+`",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("tab", ["any"], []) %>,
+                    "to": <%= to([["left_command"]]) %>,
+                    "to_if_alone": <%= to([["grave_accent_and_tilde", ["left_command"]]]) %>
+                }
+            ]
+        }
+    ]
+}
