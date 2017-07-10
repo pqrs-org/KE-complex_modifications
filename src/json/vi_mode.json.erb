@@ -48,6 +48,14 @@
                     "conditions": [ <%= frontmost_application_unless("vi") %> ]
                 },
 
+                <%# change Control + Fn + Space to S + Space %>
+                {
+                    "type": "basic",
+                    "from": <%= from("spacebar", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["spacebar"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+
                 <%# change Control + Fn + Letter to S + Letter (except for H, J, K, L, S, F) %>
                 {
                     "type": "basic",
