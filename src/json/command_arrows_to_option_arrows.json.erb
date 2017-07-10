@@ -1,0 +1,50 @@
+{
+    "title": "Exchange Command + arrows keys and Option + arrows keys",
+    "rules": [
+        {
+            "description": "Exchange left comand + arrow keys and left option + arrow keys",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("right_arrow", ["left_command"], ["any"]) %>,
+                    "to": <%= to([["right_arrow", ["left_option"]]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("left_arrow", ["left_command"], ["any"]) %>,
+                    "to": <%= to([["left_arrow", ["left_option"]]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("up_arrow", ["left_command"], ["any"]) %>,
+                    "to": <%= to([["up_arrow", ["left_option"]]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("down_arrow", ["left_command"], ["any"]) %>,
+                    "to": <%= to([["down_arrow", ["left_option"]]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("right_arrow", ["left_option"], ["any"]) %>,
+                    "to": <%= to([["right_arrow", ["left_command"]]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("left_arrow", ["left_option"], ["any"]) %>,
+                    "to": <%= to([["left_arrow", ["left_command"]]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("up_arrow", ["left_option"], ["any"]) %>,
+                    "to": <%= to([["up_arrow", ["left_command"]]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("down_arrow", ["left_option"], ["any"]) %>,
+                    "to": <%= to([["down_arrow", ["left_command"]]]) %>
+                }
+            ]
+        }
+    ]
+}
