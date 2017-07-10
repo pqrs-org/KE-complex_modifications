@@ -114,6 +114,12 @@ def frontmost_application(type, app_alias)
                               x11_bundle_identifiers,
     }
     JSON.generate(data)
+  when 'vi'
+    data = {
+      'type' => type,
+      'bundle_identifiers' => vi_bundle_identifiers,
+    }
+    JSON.generate(data)
   else
     ''
   end

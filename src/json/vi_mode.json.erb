@@ -1,0 +1,216 @@
+{
+    "title": "Vi Mode (rev 2)",
+    "rules": [
+        {
+            "description": "Vi Mode #1 [S + H/J/K/L → Arrow Keys]",
+            "manipulators": [
+
+                <%# change S to Left_control + Fn if pressed with other keys %>
+                {
+                    "type": "basic",
+                    "from": <%= from("s", [], ["caps_lock"]) %>,
+                    "to": <%= to([["fn", ["left_control"]]]) %>,
+                    "to_if_alone": <%= to([["s"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+
+                <%# change Control + Fn + H/J/K/L to arrow keys %>
+                {
+                    "type": "basic",
+                    "from": <%= from("h", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["left_arrow"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("j", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["down_arrow"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("k", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["up_arrow"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("l", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["right_arrow"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+
+                <%# change Control + Fn + Return to S + Return %>
+                {
+                    "type": "basic",
+                    "from": <%= from("return_or_enter", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["return_or_enter"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+
+                <%# change Control + Fn + Letter to S + Letter (except for H, J, K, L, S, F) %>
+                {
+                    "type": "basic",
+                    "from": <%= from("a", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["a"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("b", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["b"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("c", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["c"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("d", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["d"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("e", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["e"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("g", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["g"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("i", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["i"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("m", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["m"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("n", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["n"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("o", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["o"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("p", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["p"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("q", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["q"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("r", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["r"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("t", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["t"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("u", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["u"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("v", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["v"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("w", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["w"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("x", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["x"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("y", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["y"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("z", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["z"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                }
+            ]
+        },
+        {
+            "description": "Vi Mode #2 (require #1) [S + F → Fn]",
+            "manipulators": [
+                <%# change Control + Fn + F to Fn %>
+                {
+                    "type": "basic",
+                    "from": <%= from("f", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["fn"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                }
+            ]
+        },
+        {
+            "description": "Vi Mode #3 (require #1 & #2) [S + F + H/J/K/L → Home / Page Down / Page Up / End]",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("h", ["fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["home"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("j", ["fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["page_down"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("k", ["fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["page_up"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("l", ["fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["end"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                }
+            ]
+        }
+    ]
+}
