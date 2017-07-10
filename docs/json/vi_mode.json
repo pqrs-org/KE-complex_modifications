@@ -1,454 +1,951 @@
 {
-    "title": "Vi Mode: S + H/J/K/L = Arrow Keys; S + F + H/J/K/L = Home / Page Down / Page Up / End",
-    "rules": [
+  "title": "Vi Mode (rev 2)",
+  "rules": [
+    {
+      "description": "Vi Mode #1 [S + H/J/K/L → Arrow Keys]",
+      "manipulators": [
         {
-            "description": "Change S to Left_control + Fn if pressed with other keys (Post S when pressed alone)",
-            "manipulators": [
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "s",
-                        "modifiers": {
-                            "optional": ["any"]
-                        }
-                    },
-                    "to": [{
-                        "key_code": "fn",
-                        "modifiers": ["left_control"]
-                    }],
-                    "to_if_alone": [{"key_code": "s"}]
-                }
-            ]
+          "type": "basic",
+          "from": {
+            "key_code": "s",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "fn",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "s"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^org\\.vim\\."
+              ]
+            }
+          ]
         },
         {
-            "description": "Change Left_control + Fn + H/J/K/L to Arrow Keys",
-            "manipulators": [
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "h",
-                        "modifiers": {
-                            "mandatory": ["left_control", "fn"],
-                            "optional": ["any"]
-                        }
-                    },
-                    "to": [{"key_code": "left_arrow"}]
-                },
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "j",
-                        "modifiers": {
-                            "mandatory": ["left_control", "fn"],
-                            "optional": ["any"]
-                        }
-                    },
-                    "to": [{"key_code": "down_arrow"}]
-                },
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "k",
-                        "modifiers": {
-                            "mandatory": ["left_control", "fn"],
-                            "optional": ["any"]
-                        }
-                    },
-                    "to": [{"key_code": "up_arrow"}]
-                },
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "l",
-                        "modifiers": {
-                            "mandatory": ["left_control", "fn"],
-                            "optional": ["any"]
-                        }
-                    },
-                    "to": [{"key_code": "right_arrow"}]
-                }
-            ]
+          "type": "basic",
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^org\\.vim\\."
+              ]
+            }
+          ]
         },
         {
-            "description": "Change Left_control + Fn + F to Fn",
-            "manipulators": [
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "f",
-                        "modifiers": {
-                            "mandatory": ["left_control", "fn"],
-                            "optional": ["any"]
-                        }
-                    },
-                    "to": [{"key_code": "fn"}]
-                }
-            ]
+          "type": "basic",
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "down_arrow"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^org\\.vim\\."
+              ]
+            }
+          ]
         },
         {
-            "description": "Change Fn + H/J/K/L to Home / Page Down / Page Up / End",
-            "manipulators": [
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "h",
-                        "modifiers": {
-                            "mandatory": ["fn"],
-                            "optional": ["any"]
-                        }
-                    },
-                    "to": [{"key_code": "home"}]
-                },
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "j",
-                        "modifiers": {
-                            "mandatory": ["fn"],
-                            "optional": ["any"]
-                        }
-                    },
-                    "to": [{"key_code": "page_down"}]
-                },
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "k",
-                        "modifiers": {
-                            "mandatory": ["fn"],
-                            "optional": ["any"]
-                        }
-                    },
-                    "to": [{"key_code": "page_up"}]
-                },
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "l",
-                        "modifiers": {
-                            "mandatory": ["fn"],
-                            "optional": ["any"]
-                        }
-                    },
-                    "to": [{"key_code": "end"}]
-                }
-            ]
+          "type": "basic",
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^org\\.vim\\."
+              ]
+            }
+          ]
         },
         {
-            "description": "Change Left_control + Fn + Letter (except for F, H, J, K, L, S) to S + Letter",
-            "manipulators": [
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "a",
-                        "modifiers": {
-                            "mandatory": ["left_control", "fn"],
-                            "optional": ["any"]
-                        }
-                    },
-                    "to": [
-                        {"key_code": "s"},
-                        {"key_code": "a"}
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "b",
-                        "modifiers": {
-                            "mandatory": ["left_control", "fn"],
-                            "optional": ["any"]
-                        }
-                    },
-                    "to": [
-                        {"key_code": "s"},
-                        {"key_code": "b"}
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "c",
-                        "modifiers": {
-                            "mandatory": ["left_control", "fn"],
-                            "optional": ["any"]
-                        }
-                    },
-                    "to": [
-                        {"key_code": "s"},
-                        {"key_code": "c"}
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "d",
-                        "modifiers": {
-                            "mandatory": ["left_control", "fn"],
-                            "optional": ["any"]
-                        }
-                    },
-                    "to": [
-                        {"key_code": "s"},
-                        {"key_code": "d"}
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "e",
-                        "modifiers": {
-                            "mandatory": ["left_control", "fn"],
-                            "optional": ["any"]
-                        }
-                    },
-                    "to": [
-                        {"key_code": "s"},
-                        {"key_code": "e"}
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "g",
-                        "modifiers": {
-                            "mandatory": ["left_control", "fn"],
-                            "optional": ["any"]
-                        }
-                    },
-                    "to": [
-                        {"key_code": "s"},
-                        {"key_code": "g"}
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "i",
-                        "modifiers": {
-                            "mandatory": ["left_control", "fn"],
-                            "optional": ["any"]
-                        }
-                    },
-                    "to": [
-                        {"key_code": "s"},
-                        {"key_code": "i"}
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "m",
-                        "modifiers": {
-                            "mandatory": ["left_control", "fn"],
-                            "optional": ["any"]
-                        }
-                    },
-                    "to": [
-                        {"key_code": "s"},
-                        {"key_code": "m"}
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "n",
-                        "modifiers": {
-                            "mandatory": ["left_control", "fn"],
-                            "optional": ["any"]
-                        }
-                    },
-                    "to": [
-                        {"key_code": "s"},
-                        {"key_code": "n"}
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "o",
-                        "modifiers": {
-                            "mandatory": ["left_control", "fn"],
-                            "optional": ["any"]
-                        }
-                    },
-                    "to": [
-                        {"key_code": "s"},
-                        {"key_code": "o"}
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "p",
-                        "modifiers": {
-                            "mandatory": ["left_control", "fn"],
-                            "optional": ["any"]
-                        }
-                    },
-                    "to": [
-                        {"key_code": "s"},
-                        {"key_code": "p"}
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "q",
-                        "modifiers": {
-                            "mandatory": ["left_control", "fn"],
-                            "optional": ["any"]
-                        }
-                    },
-                    "to": [
-                        {"key_code": "s"},
-                        {"key_code": "q"}
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "r",
-                        "modifiers": {
-                            "mandatory": ["left_control", "fn"],
-                            "optional": ["any"]
-                        }
-                    },
-                    "to": [
-                        {"key_code": "s"},
-                        {"key_code": "r"}
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "t",
-                        "modifiers": {
-                            "mandatory": ["left_control", "fn"],
-                            "optional": ["any"]
-                        }
-                    },
-                    "to": [
-                        {"key_code": "s"},
-                        {"key_code": "t"}
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "u",
-                        "modifiers": {
-                            "mandatory": ["left_control", "fn"],
-                            "optional": ["any"]
-                        }
-                    },
-                    "to": [
-                        {"key_code": "s"},
-                        {"key_code": "u"}
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "v",
-                        "modifiers": {
-                            "mandatory": ["left_control", "fn"],
-                            "optional": ["any"]
-                        }
-                    },
-                    "to": [
-                        {"key_code": "s"},
-                        {"key_code": "v"}
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "w",
-                        "modifiers": {
-                            "mandatory": ["left_control", "fn"],
-                            "optional": ["any"]
-                        }
-                    },
-                    "to": [
-                        {"key_code": "s"},
-                        {"key_code": "w"}
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "x",
-                        "modifiers": {
-                            "mandatory": ["left_control", "fn"],
-                            "optional": ["any"]
-                        }
-                    },
-                    "to": [
-                        {"key_code": "s"},
-                        {"key_code": "x"}
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "y",
-                        "modifiers": {
-                            "mandatory": ["left_control", "fn"],
-                            "optional": ["any"]
-                        }
-                    },
-                    "to": [
-                        {"key_code": "s"},
-                        {"key_code": "y"}
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "z",
-                        "modifiers": {
-                            "mandatory": ["left_control", "fn"],
-                            "optional": ["any"]
-                        }
-                    },
-                    "to": [
-                        {"key_code": "s"},
-                        {"key_code": "z"}
-                    ]
-                }
-            ]
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^org\\.vim\\."
+              ]
+            }
+          ]
         },
         {
-            "description": "Change Shift + Left_control + Fn to Shift + S",
-            "manipulators": [
-                {
-                    "type": "basic",
-                    "from": {
-                        "modifiers": {
-                            "mandatory": ["left_shift", "left_control", "fn"],
-                            "optional": ["any"]
-                        }
-                    },
-                    "to": [{
-                        "key_code": "s",
-                        "modifiers": ["left_shift"]
-                    }]
-                },
-                {
-                    "type": "basic",
-                    "from": {
-                        "modifiers": {
-                            "mandatory": ["right_shift", "left_control", "fn"],
-                            "optional": ["any"]
-                        }
-                    },
-                    "to": [{
-                        "key_code": "s",
-                        "modifiers": ["right_shift"]
-                    }]
-                }
-            ]
+          "type": "basic",
+          "from": {
+            "key_code": "return_or_enter",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "return_or_enter"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^org\\.vim\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "a",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "a"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^org\\.vim\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "b",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "b"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^org\\.vim\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "c",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "c"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^org\\.vim\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "d",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "d"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^org\\.vim\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "e",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "e"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^org\\.vim\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "g",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "g"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^org\\.vim\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "i"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^org\\.vim\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "m",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "m"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^org\\.vim\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "n",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "n"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^org\\.vim\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "o"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^org\\.vim\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "p",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "p"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^org\\.vim\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "q"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^org\\.vim\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "r",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "r"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^org\\.vim\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "t",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "t"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^org\\.vim\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "u",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "u"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^org\\.vim\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "v",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "v"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^org\\.vim\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "w",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "w"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^org\\.vim\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "x",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "x"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^org\\.vim\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "y",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "y"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^org\\.vim\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "z",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "z"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^org\\.vim\\."
+              ]
+            }
+          ]
         }
-    ]
+      ]
+    },
+    {
+      "description": "Vi Mode #2 (require #1) [S + F → Fn]",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "fn"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^org\\.vim\\."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Vi Mode #3 (require #1 & #2) [S + F + H/J/K/L → Home / Page Down / Page Up / End]",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "home"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^org\\.vim\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "page_down"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^org\\.vim\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "page_up"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^org\\.vim\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "end"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^org\\.vim\\."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
