@@ -1,5 +1,5 @@
 {
-    "title": "Vi Mode (rev 2)",
+    "title": "Vi Mode (rev 2.1)",
     "rules": [
         {
             "description": "Vi Mode #1 [S + H/J/K/L → Arrow Keys]",
@@ -48,11 +48,159 @@
                     "conditions": [ <%= frontmost_application_unless("vi") %> ]
                 },
 
-                <%# change Control + Fn + Space to S + Space %>
+                <%# change Control + Fn + Space/Tab to S + Space/Tab %>
                 {
                     "type": "basic",
                     "from": <%= from("spacebar", ["control", "fn"], ["caps_lock"]) %>,
                     "to": <%= to([["s"], ["spacebar"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("tab", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["tab"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+
+                <%# change Control + Fn + Punctuation Mark to S + Punctuation Mark %>
+                {
+                    "type": "basic",
+                    "from": <%= from("hyphen", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["hyphen"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("equal_sign", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["equal_sign"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("open_bracket", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["open_bracket"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("close_bracket", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["close_bracket"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("backslash", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["backslash"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("non_us_pound", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["non_us_pound"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("semicolon", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["semicolon"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("quote", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["quote"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("grave_accent_and_tilde", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["grave_accent_and_tilde"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("comma", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["comma"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("period", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["period"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("slash", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["slash"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("non_us_backslash", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["non_us_backslash"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+
+                <%# change Control + Fn + Number to S + Number %>
+                {
+                    "type": "basic",
+                    "from": <%= from("1", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["1"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("2", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["2"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("3", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["3"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("4", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["4"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("5", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["5"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("6", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["6"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("7", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["7"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("8", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["8"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("9", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["9"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("0", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["s"], ["0"]]) %>,
                     "conditions": [ <%= frontmost_application_unless("vi") %> ]
                 },
 
