@@ -1,0 +1,15 @@
+{
+    "title": "Change delete key",
+    "rules": [
+        {
+            "description": "Change shift + delete to forward delete",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("delete_or_backspace", ["shift"], ["caps_lock"]) %>,
+                    "to": <%= to([["delete_forward"]]) %>
+                }
+            ]
+        }
+    ]
+}
