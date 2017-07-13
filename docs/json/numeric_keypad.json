@@ -1,0 +1,199 @@
+{
+  "title": "Numeric Keypad",
+  "rules": [
+    {
+      "description": "Use a virtual numeric keypad by holding Tab. Pressing Tab alone sends Tab key",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "tab"
+          },
+          "to": [
+            {
+              "key_code": "fn",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "tab"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "keypad_0"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "m",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "keypad_1"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "comma",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "keypad_2"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "period",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "keypad_3"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "keypad_4"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "keypad_5"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "keypad_6"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "u",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "keypad_7"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "keypad_8"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "keypad_9"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
