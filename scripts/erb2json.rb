@@ -38,7 +38,7 @@ def to(events)
   JSON.generate(data)
 end
 
-def frontmost_application(type, app_alias)
+def frontmost_application(type, app_aliases)
   emacs_bundle_identifiers = [
     '^org\.gnu\.Emacs$',
     '^org\.gnu\.AquamacsEmacs$',
@@ -90,47 +90,52 @@ def frontmost_application(type, app_alias)
     '^org\.macports\.X11$',
   ]
 
-  case app_alias
-  when 'terminal'
-    data = {
-      'type' => type,
-      'bundle_identifiers' => terminal_bundle_identifiers,
-    }
-    JSON.generate(data)
-  when 'emacs'
-    data = {
-      'type' => type,
-      'bundle_identifiers' => emacs_bundle_identifiers,
-    }
-    JSON.generate(data)
-  when 'emacs_key_bindings_exception'
-    data = {
-      'type' => type,
-      'bundle_identifiers' => emacs_bundle_identifiers +
-                              remote_desktop_bundle_identifiers +
-                              terminal_bundle_identifiers +
-                              vi_bundle_identifiers +
-                              virtual_machine_bundle_identifiers +
-                              x11_bundle_identifiers,
-    }
-    JSON.generate(data)
-  when 'vi'
-    data = {
-      'type' => type,
-      'bundle_identifiers' => vi_bundle_identifiers,
-    }
-    JSON.generate(data)
-  else
-    ''
+  # ----------------------------------------
+
+  bundle_identifiers = []
+
+  unless app_aliases.is_a? Enumerable
+    app_aliases = [ app_aliases ]
+  end
+
+  app_aliases.each do |app_alias|
+    case app_alias
+    when 'terminal'
+      bundle_identifiers.concat(terminal_bundle_identifiers)
+
+    when 'emacs'
+      bundle_identifiers.concat(emacs_bundle_identifiers)
+
+    when 'emacs_key_bindings_exception'
+      bundle_identifiers.concat(emacs_bundle_identifiers)
+      bundle_identifiers.concat(remote_desktop_bundle_identifiers)
+      bundle_identifiers.concat(terminal_bundle_identifiers)
+      bundle_identifiers.concat(vi_bundle_identifiers)
+      bundle_identifiers.concat(virtual_machine_bundle_identifiers)
+      bundle_identifiers.concat(x11_bundle_identifiers)
+
+    when 'vi'
+      bundle_identifiers.concat(vi_bundle_identifiers)
+
+    else
+      $stderr << "unknown app_alias: #{app_alias}\n"
+    end
+  end
+
+  unless bundle_identifiers.empty?
+    JSON.generate({
+                    "type" => type,
+                    "bundle_identifiers" => bundle_identifiers,
+                  })
   end
 end
 
-def frontmost_application_if(app_alias)
-  frontmost_application('frontmost_application_if', app_alias)
+def frontmost_application_if(app_aliases)
+  frontmost_application('frontmost_application_if', app_aliases)
 end
 
-def frontmost_application_unless(app_alias)
-  frontmost_application('frontmost_application_unless', app_alias)
+def frontmost_application_unless(app_aliases)
+  frontmost_application('frontmost_application_unless', app_aliases)
 end
 
 template = ERB.new $stdin.read
