@@ -2,7 +2,7 @@
   "title": "Numeric Keypad",
   "rules": [
     {
-      "description": "Use a virtual numeric keypad by holding Tab. Pressing Tab alone sends Tab key",
+      "description": "Press Tab + Space/M/,/./J/K/L/U/I/O to numeric keys. Pressing Tab alone sends Tab key",
       "manipulators": [
         {
           "type": "basic",
@@ -192,7 +192,12 @@
               "key_code": "keypad_9"
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "description": "Press Tab + 7/8/9/0/p/;/slash to backspace/=/slash/*/-/+/enter.",
+      "manipulators": [
         {
           "type": "basic",
           "from": {
@@ -309,6 +314,50 @@
           "to": [
             {
               "key_code": "delete_or_backspace"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Press Tab + right_option to keypad_period",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_option",
+            "modifiers": {
+              "mandatory": [
+                "left_option",
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "keypad_period"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Press Tab + right_control to keypad_period",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_control",
+            "modifiers": {
+              "mandatory": [
+                "left_option",
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "keypad_period"
             }
           ]
         }

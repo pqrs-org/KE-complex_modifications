@@ -2,7 +2,7 @@
     "title": "Numeric Keypad",
     "rules": [
         {
-            "description": "Use a virtual numeric keypad by holding Tab. Pressing Tab alone sends Tab key",
+            "description": "Press Tab + Space/M/,/./J/K/L/U/I/O to numeric keys. Pressing Tab alone sends Tab key",
             "manipulators": [
                 <%# change Tab to Left_option + Fn if pressed with other keys %>
                 {
@@ -62,7 +62,12 @@
                     "type": "basic",
                     "from": <%= from("o", ["option","fn"], []) %>,
                     "to": <%= to([["keypad_9"]]) %>
-                },
+                }
+            ]
+        },
+        {
+            "description": "Press Tab + 7/8/9/0/p/;/slash to backspace/=/slash/*/-/+/enter.",
+            "manipulators": [
                 {
                     "type": "basic",
                     "from": <%= from("slash", ["option","fn"], []) %>,
@@ -97,6 +102,26 @@
                     "type": "basic",
                     "from": <%= from("7", ["option","fn"], []) %>,
                     "to": <%= to([["delete_or_backspace"]]) %>
+                }
+            ]
+        },
+        {
+            "description": "Press Tab + right_option to keypad_period",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("right_option", ["left_option","fn"], []) %>,
+                    "to": <%= to([["keypad_period"]]) %>
+                }
+            ]
+        },
+        {
+            "description": "Press Tab + right_control to keypad_period",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("right_control", ["left_option","fn"], []) %>,
+                    "to": <%= to([["keypad_period"]]) %>
                 }
             ]
         }
