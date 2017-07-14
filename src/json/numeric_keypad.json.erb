@@ -4,64 +4,99 @@
         {
             "description": "Use a virtual numeric keypad by holding Tab. Pressing Tab alone sends Tab key",
             "manipulators": [
-                <%# change Tab to Left_control + Fn if pressed with other keys %>
+                <%# change Tab to Left_option + Fn if pressed with other keys %>
                 {
                     "type": "basic",
                     "from": <%= from("tab", [], []) %>,
-                    "to": <%= to([["fn", ["left_control"]]]) %>,
+                    "to": <%= to([["fn", ["left_option"]]]) %>,
                     "to_if_alone": <%= to([["tab"]]) %>
                 },
 
-                <%# change Control + Fn + SPACEBAR/M/,/./J/K/L/U/I/O to numeric keypad %>
+                <%# change Option + Fn + SPACEBAR/M/,/./J/K/L/U/I/O to numeric keypad %>
                 {
                     "type": "basic",
-                    "from": <%= from("spacebar", ["control","fn"], []) %>,
+                    "from": <%= from("spacebar", ["option","fn"], []) %>,
                     "to": <%= to([["keypad_0"]]) %>
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("m", ["control","fn"], []) %>,
+                    "from": <%= from("m", ["option","fn"], []) %>,
                     "to": <%= to([["keypad_1"]]) %>
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("comma", ["control","fn"], []) %>,
+                    "from": <%= from("comma", ["option","fn"], []) %>,
                     "to": <%= to([["keypad_2"]]) %>
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("period", ["control","fn"], []) %>,
+                    "from": <%= from("period", ["option","fn"], []) %>,
                     "to": <%= to([["keypad_3"]]) %>
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("j", ["control","fn"], []) %>,
+                    "from": <%= from("j", ["option","fn"], []) %>,
                     "to": <%= to([["keypad_4"]]) %>
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("k", ["control","fn"], []) %>,
+                    "from": <%= from("k", ["option","fn"], []) %>,
                     "to": <%= to([["keypad_5"]]) %>
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("l", ["control","fn"], []) %>,
+                    "from": <%= from("l", ["option","fn"], []) %>,
                     "to": <%= to([["keypad_6"]]) %>
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("u", ["control","fn"], []) %>,
+                    "from": <%= from("u", ["option","fn"], []) %>,
                     "to": <%= to([["keypad_7"]]) %>
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("i", ["control","fn"], []) %>,
+                    "from": <%= from("i", ["option","fn"], []) %>,
                     "to": <%= to([["keypad_8"]]) %>
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("o", ["control","fn"], []) %>,
+                    "from": <%= from("o", ["option","fn"], []) %>,
                     "to": <%= to([["keypad_9"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("slash", ["option","fn"], []) %>,
+                    "to": <%= to([["keypad_enter"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("semicolon", ["option","fn"], []) %>,
+                    "to": <%= to([["keypad_plus"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("p", ["option","fn"], []) %>,
+                    "to": <%= to([["keypad_hyphen"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("0", ["option","fn"], []) %>,
+                    "to": <%= to([["keypad_asterisk"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("9", ["option","fn"], []) %>,
+                    "to": <%= to([["keypad_slash"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("8", ["option","fn"], []) %>,
+                    "to": <%= to([["keypad_equal_sign"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("7", ["option","fn"], []) %>,
+                    "to": <%= to([["delete_or_backspace"]]) %>
                 }
             ]
         }
