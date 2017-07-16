@@ -1,5 +1,5 @@
 {
-    "title": "Emacs key bindings (rev 2)",
+    "title": "Emacs key bindings (rev 3)",
     "rules": [
         {
             "description": "Emacs key bindings [control+d -> forward delete] (rev 2)",
@@ -35,13 +35,12 @@
             ]
         },
         {
-            "description": "Emacs key bindings [control+open_bracket -> escape] (rev 2)",
+            "description": "Emacs key bindings [control+open_bracket -> escape] (rev 3)",
             "manipulators": [
                 {
                     "type": "basic",
                     "from": <%= from("open_bracket", ["control"], ["caps_lock"]) %>,
-                    "to": <%= to([["escape"]]) %>,
-                    "conditions": [ <%= frontmost_application_unless("emacs_key_bindings_exception") %> ]
+                    "to": <%= to([["escape"]]) %>
                 }
             ]
         },

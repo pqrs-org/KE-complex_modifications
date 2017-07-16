@@ -1,0 +1,367 @@
+{
+  "title": "Numeric Keypad",
+  "rules": [
+    {
+      "description": "Press Tab + Space/M/,/./J/K/L/U/I/O to numeric keys. Pressing Tab alone sends Tab key",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "tab"
+          },
+          "to": [
+            {
+              "key_code": "fn",
+              "modifiers": [
+                "left_option"
+              ]
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "tab"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "mandatory": [
+                "option",
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "keypad_0"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "m",
+            "modifiers": {
+              "mandatory": [
+                "option",
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "keypad_1"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "comma",
+            "modifiers": {
+              "mandatory": [
+                "option",
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "keypad_2"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "period",
+            "modifiers": {
+              "mandatory": [
+                "option",
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "keypad_3"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "mandatory": [
+                "option",
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "keypad_4"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "mandatory": [
+                "option",
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "keypad_5"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "mandatory": [
+                "option",
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "keypad_6"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "u",
+            "modifiers": {
+              "mandatory": [
+                "option",
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "keypad_7"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "mandatory": [
+                "option",
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "keypad_8"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "mandatory": [
+                "option",
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "keypad_9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Press Tab + 7/8/9/0/p/;/slash to backspace/=/slash/*/-/+/enter.",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "slash",
+            "modifiers": {
+              "mandatory": [
+                "option",
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "keypad_enter"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "semicolon",
+            "modifiers": {
+              "mandatory": [
+                "option",
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "keypad_plus"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "p",
+            "modifiers": {
+              "mandatory": [
+                "option",
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "keypad_hyphen"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "0",
+            "modifiers": {
+              "mandatory": [
+                "option",
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "keypad_asterisk"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "9",
+            "modifiers": {
+              "mandatory": [
+                "option",
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "keypad_slash"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "8",
+            "modifiers": {
+              "mandatory": [
+                "option",
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "keypad_equal_sign"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "7",
+            "modifiers": {
+              "mandatory": [
+                "option",
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_or_backspace"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Press Tab + right_option to keypad_period",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_option",
+            "modifiers": {
+              "mandatory": [
+                "left_option",
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "keypad_period"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Press Tab + right_control to keypad_period",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_control",
+            "modifiers": {
+              "mandatory": [
+                "left_option",
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "keypad_period"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

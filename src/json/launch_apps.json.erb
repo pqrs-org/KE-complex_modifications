@@ -1,0 +1,52 @@
+{
+    "title": "Launch apps",
+    "rules": [
+        {
+            "description": "Launch apps by right shift+letters.",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("a", ["right_shift"], ["caps_lock"]) %>,
+                    "to": [
+                        { "shell_command": "open '/Applications/Utilities/Activity Monitor.app'" }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("d", ["right_shift"], ["caps_lock"]) %>,
+                    "to": [
+                        { "shell_command": "open '/Applications/Dictionary.app'" }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("e", ["right_shift"], ["caps_lock"]) %>,
+                    "to": [
+                        { "shell_command": "open '/Applications/TextEdit.app'" }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("f", ["right_shift"], ["caps_lock"]) %>,
+                    "to": [
+                        { "shell_command": "open ~" }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("s", ["right_shift"], ["caps_lock"]) %>,
+                    "to": [
+                        { "shell_command": "open '/Applications/Safari.app'" }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("t", ["right_shift"], ["caps_lock"]) %>,
+                    "to": [
+                        { "shell_command": "open '/Applications/Utilities/Terminal.app'" }
+                    ]
+                }
+            ]
+        }
+    ]
+}
