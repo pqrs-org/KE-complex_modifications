@@ -169,7 +169,7 @@
       ]
     },
     {
-      "description": "HHKB Media Key Mode (fn + a/s to Volume down/up)",
+      "description": "HHKB Media Key Mode (fn + asdf to Volume down/up/mute, eject)",
       "manipulators": [
         {
           "type": "basic",
@@ -206,6 +206,44 @@
           "to": [
             {
               "key_code": "volume_increment"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "d",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "mute"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "eject"
             }
           ]
         }
