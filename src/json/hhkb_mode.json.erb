@@ -1,0 +1,79 @@
+{
+    "title": "Happy Hacking Keyboard Compatible Mode (rev 1)",
+    "rules": [
+        {
+            "description": "HHKB Arrow Mode (fn + semicolon/slash/open_bracket/quote to arrow keys, etc)",
+            "manipulators": [
+
+                <%# change fn + semicolon/slash/open_bracket/quote to arrow keys %>
+                {
+                    "type": "basic",
+                    "from": <%= from("semicolon", ["fn"], ["caps_lock", "option", "command"]) %>,
+                    "to": <%= to([["left_arrow"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("slash", ["fn"], ["caps_lock", "option", "command"]) %>,
+                    "to": <%= to([["down_arrow"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("open_bracket", ["fn"], ["caps_lock", "option", "command"]) %>,
+                    "to": <%= to([["up_arrow"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("quote", ["fn"], ["caps_lock", "option", "command"]) %>,
+                    "to": <%= to([["right_arrow"]]) %>
+                },
+
+                <%# change fn + l/period/k/cooma to page_up/page_down/home/end %>
+                {
+                    "type": "basic",
+                    "from": <%= from("l", ["fn"], ["caps_lock", "option"]) %>,
+                    "to": <%= to([["page_up"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("period", ["fn"], ["caps_lock", "option"]) %>,
+                    "to": <%= to([["page_down"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("k", ["fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["home"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("comma", ["fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["end"]]) %>
+                }
+            ]
+        },
+        {
+            "description": "HHKB Media Key Mode (fn + asdf to Volume down/up/mute, eject)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("a", ["fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["volume_decrement"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("s", ["fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["volume_increment"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("d", ["fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["mute"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("f", ["fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["eject"]]) %>
+                }
+            ]
+        }
+    ]
+}
