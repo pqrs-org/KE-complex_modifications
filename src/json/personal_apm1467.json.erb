@@ -1,0 +1,15 @@
+{
+    "title": "Personal rules (@apm1467)",
+    "rules": [
+        {
+            "description": "Change right_option to command + option + shift",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("right_option", [], ["caps_lock"]) %>,
+                    "to": <%= to([["left_shift", ["left_option", "left_command"]]]) %>
+                }
+            ]
+        }
+    ]
+}
