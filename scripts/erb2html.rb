@@ -6,9 +6,9 @@ require 'json'
 include ERB::Util
 
 def import_button(json_file_path)
-  json_url = 'https://pqrs.org/osx/karabiner/complex_modifications/' + json_file_path.gsub(/^docs\//, '')
+  json_path = json_file_path.gsub(/^docs\//, '')
 
-  "<a class=\"btn btn-primary btn-sm\" style=\"margin-left: 40px\" href=\"karabiner://karabiner/assets/complex_modifications/import?url=#{u(json_url)}\">Import</a>"
+  "<a class=\"btn btn-primary btn-sm\" style=\"margin-left: 40px\" data-json-path=\"#{json_path}\">Import</a>"
 end
 
 def file_import_panel(json_file_path)
