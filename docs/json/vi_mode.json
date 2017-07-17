@@ -1,5 +1,5 @@
 {
-  "title": "Vi Mode (rev 2.2)",
+  "title": "Vi Mode (rev 3)",
   "rules": [
     {
       "description": "Vi Mode #1 [S + H/J/K/L → Arrow Keys]",
@@ -740,37 +740,6 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "4",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "4"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
             "key_code": "5",
             "modifiers": {
               "mandatory": [
@@ -912,37 +881,6 @@
             },
             {
               "key_code": "9"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "0",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "0"
             }
           ],
           "conditions": [
@@ -1577,7 +1515,7 @@
       ]
     },
     {
-      "description": "Vi Mode #1d (conflict with #1) [D + H/J/K/L → Arrow Keys]",
+      "description": "Vi Mode #1d [D + H/J/K/L → Arrow Keys]",
       "manipulators": [
         {
           "type": "basic",
@@ -2315,37 +2253,6 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "4",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "4"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
             "key_code": "5",
             "modifiers": {
               "mandatory": [
@@ -2487,37 +2394,6 @@
             },
             {
               "key_code": "9"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "0",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "0"
             }
           ],
           "conditions": [
@@ -3152,7 +3028,7 @@
       ]
     },
     {
-      "description": "Vi Mode #2 (require #1/1d) [S/D + F → Fn]",
+      "description": "Vi Mode #2 [S/D + F → Fn]",
       "manipulators": [
         {
           "type": "basic",
@@ -3185,7 +3061,7 @@
       ]
     },
     {
-      "description": "Vi Mode #3 (require #1/1d & #2) [S/D + F + H/J/K/L → Home / Page Down / Page Up / End]",
+      "description": "Vi Mode #3 [S/D + F + H/J/K/L → Home / Page Down / Page Up / End]",
       "manipulators": [
         {
           "type": "basic",
@@ -3284,6 +3160,73 @@
           "to": [
             {
               "key_code": "end"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^org\\.vim\\."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Vi Mode #4 [S/D + 0/4 → To the beginning/end of the line]",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "0",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "a",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^org\\.vim\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "4",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "e",
+              "modifiers": [
+                "left_control"
+              ]
             }
           ],
           "conditions": [

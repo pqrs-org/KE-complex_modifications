@@ -1,5 +1,5 @@
 {
-    "title": "Vi Mode (rev 2.2)",
+    "title": "Vi Mode (rev 3)",
     "rules": [
         {
             "description": "Vi Mode #1 [S + H/J/K/L → Arrow Keys]",
@@ -142,7 +142,7 @@
                     "conditions": [ <%= frontmost_application_unless("vi") %> ]
                 },
 
-                <%# change Control + Fn + Number to S + Number %>
+                <%# change Control + Fn + Number to S + Number (except for 0, 4) %>
                 {
                     "type": "basic",
                     "from": <%= from("1", ["control", "fn"], ["caps_lock"]) %>,
@@ -159,12 +159,6 @@
                     "type": "basic",
                     "from": <%= from("3", ["control", "fn"], ["caps_lock"]) %>,
                     "to": <%= to([["s"], ["3"]]) %>,
-                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("4", ["control", "fn"], ["caps_lock"]) %>,
-                    "to": <%= to([["s"], ["4"]]) %>,
                     "conditions": [ <%= frontmost_application_unless("vi") %> ]
                 },
                 {
@@ -195,12 +189,6 @@
                     "type": "basic",
                     "from": <%= from("9", ["control", "fn"], ["caps_lock"]) %>,
                     "to": <%= to([["s"], ["9"]]) %>,
-                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("0", ["control", "fn"], ["caps_lock"]) %>,
-                    "to": <%= to([["s"], ["0"]]) %>,
                     "conditions": [ <%= frontmost_application_unless("vi") %> ]
                 },
 
@@ -329,7 +317,7 @@
         },
 
         {
-            "description": "Vi Mode #1d (conflict with #1) [D + H/J/K/L → Arrow Keys]",
+            "description": "Vi Mode #1d [D + H/J/K/L → Arrow Keys]",
             "manipulators": [
 
                 <%# change D to Left_control + Fn if pressed with other keys %>
@@ -469,7 +457,7 @@
                     "conditions": [ <%= frontmost_application_unless("vi") %> ]
                 },
 
-                <%# change Control + Fn + Number to D + Number %>
+                <%# change Control + Fn + Number to D + Number (except for 0, 4) %>
                 {
                     "type": "basic",
                     "from": <%= from("1", ["control", "fn"], ["caps_lock"]) %>,
@@ -486,12 +474,6 @@
                     "type": "basic",
                     "from": <%= from("3", ["control", "fn"], ["caps_lock"]) %>,
                     "to": <%= to([["d"], ["3"]]) %>,
-                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("4", ["control", "fn"], ["caps_lock"]) %>,
-                    "to": <%= to([["d"], ["4"]]) %>,
                     "conditions": [ <%= frontmost_application_unless("vi") %> ]
                 },
                 {
@@ -522,12 +504,6 @@
                     "type": "basic",
                     "from": <%= from("9", ["control", "fn"], ["caps_lock"]) %>,
                     "to": <%= to([["d"], ["9"]]) %>,
-                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("0", ["control", "fn"], ["caps_lock"]) %>,
-                    "to": <%= to([["d"], ["0"]]) %>,
                     "conditions": [ <%= frontmost_application_unless("vi") %> ]
                 },
 
@@ -656,7 +632,7 @@
         },
 
         {
-            "description": "Vi Mode #2 (require #1/1d) [S/D + F → Fn]",
+            "description": "Vi Mode #2 [S/D + F → Fn]",
             "manipulators": [
                 <%# change Control + Fn + F to Fn %>
                 {
@@ -668,7 +644,7 @@
             ]
         },
         {
-            "description": "Vi Mode #3 (require #1/1d & #2) [S/D + F + H/J/K/L → Home / Page Down / Page Up / End]",
+            "description": "Vi Mode #3 [S/D + F + H/J/K/L → Home / Page Down / Page Up / End]",
             "manipulators": [
                 {
                     "type": "basic",
@@ -692,6 +668,23 @@
                     "type": "basic",
                     "from": <%= from("l", ["fn"], ["caps_lock"]) %>,
                     "to": <%= to([["end"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                }
+            ]
+        },
+        {
+            "description": "Vi Mode #4 [S/D + 0/4 → To the beginning/end of the line]",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("0", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["a", ["left_control"]]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("vi") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("4", ["control", "fn"], ["caps_lock"]) %>,
+                    "to": <%= to([["e", ["left_control"]]]) %>,
                     "conditions": [ <%= frontmost_application_unless("vi") %> ]
                 }
             ]
