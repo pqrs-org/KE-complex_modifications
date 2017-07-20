@@ -54,9 +54,259 @@
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("tab", ["any"], []) %>,
+                    "from": <%= from("tab", [], ["any"]) %>,
                     "to": <%= to([["left_command"]]) %>,
                     "to_if_alone": <%= to([["grave_accent_and_tilde", ["left_command"]]]) %>
+                }
+            ]
+        },
+        {
+            "description": "Launcher Mode v3",
+            "manipulators": [
+
+                <%# -------------------------------------------------- %>
+                <%# Change spacebar,left_command,right_command %>
+                <%# -------------------------------------------------- %>
+
+                {
+                    "type": "basic",
+                    "from": <%= from("spacebar", [], ["any"]) %>,
+                    "to": <%= to([["left_shift"]]) %>,
+                    "to_after_key_up": [
+                        { "set_variable": { "name": "launcher_mode_v3", "value": 0 } }
+                    ],
+                    "to_if_alone": <%= to([["spacebar"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("right_command", ["left_shift"], ["caps_lock"]) %>,
+                    "to": <%= to([["right_command", ["left_shift"]]]) %>,
+                    "to_if_alone": [
+                        { "set_variable": { "name": "launcher_mode_v3", "value": 1 } }
+                    ]
+                },
+
+                {
+                    "type": "basic",
+                    "from": <%= from("left_command", ["right_command"], ["any"]) %>,
+                    "to": <%= to([["left_control", ["right_command"]]]) %>,
+                    "to_if_alone": <%= to([["lang2"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("right_command", ["left_control"], ["any"]) %>,
+                    "to": <%= to([["right_command", ["left_control"]]]) %>,
+                    "to_if_alone": <%= to([["lang1"]]) %>
+                },
+
+                {
+                    "type": "basic",
+                    "from": <%= from("right_command", [], ["any"]) %>,
+                    "to": <%= to([["right_command"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("left_command", [], ["any"]) %>,
+                    "to": <%= to([["left_control"]]) %>
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Launcher Mode rules %>
+                <%# -------------------------------------------------- %>
+
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "launcher_mode_v3", "value": 1 }
+                    ],
+                    "from": <%= from("tab", ["left_shift"], ["any"]) %>,
+                    "to": <%= to([["mission_control"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "launcher_mode_v3", "value": 1 }
+                    ],
+                    "from": <%= from("grave_accent_and_tilde", ["left_shift"], ["caps_lock"]) %>,
+                    "to": [
+                        { "shell_command": "open -a 'iTunes.app'" }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "launcher_mode_v3", "value": 1 }
+                    ],
+                    "from": <%= from("1", ["left_shift"], ["caps_lock"]) %>,
+                    "to": [
+                        { "shell_command": "open -a 'Xcode.app'" }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "launcher_mode_v3", "value": 1 }
+                    ],
+                    "from": <%= from("q", ["left_shift"], ["caps_lock"]) %>,
+                    "to": [
+                        { "shell_command": "open -a 'Dictionary.app'" }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "launcher_mode_v3", "value": 1 }
+                    ],
+                    "from": <%= from("i", ["left_shift"], ["caps_lock"]) %>,
+                    "to": [
+                        { "shell_command": "open -a 'Adium.app'" }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "launcher_mode_v3", "value": 1 }
+                    ],
+                    "from": <%= from("o", ["left_shift"], ["caps_lock"]) %>,
+                    "to": [
+                        { "shell_command": "open -a 'Skype.app'" }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "launcher_mode_v3", "value": 1 }
+                    ],
+                    "from": <%= from("a", ["left_shift"], ["caps_lock"]) %>,
+                    "to": [
+                        { "shell_command": "open -a 'Activity Monitor.app'" }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "launcher_mode_v3", "value": 1 }
+                    ],
+                    "from": <%= from("f", ["left_shift"], ["caps_lock"]) %>,
+                    "to": [
+                        { "shell_command": "open -a 'Finder.app'" }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "launcher_mode_v3", "value": 1 }
+                    ],
+                    "from": <%= from("j", ["left_shift"], ["caps_lock"]) %>,
+                    "to": [
+                        { "shell_command": "open -a 'Alfred 3.app'" }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "launcher_mode_v3", "value": 1 }
+                    ],
+                    "from": <%= from("k", ["left_shift"], ["caps_lock"]) %>,
+                    "to": [
+                        { "shell_command": "open -a 'Emacs.app'" }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "launcher_mode_v3", "value": 1 }
+                    ],
+                    "from": <%= from("l", ["left_shift"], ["caps_lock"]) %>,
+                    "to": [
+                        { "shell_command": "open -a 'iTerm.app'" }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "launcher_mode_v3", "value": 1 }
+                    ],
+                    "from": <%= from("c", ["left_shift"], ["caps_lock"]) %>,
+                    "to": [
+                        { "shell_command": "open -a 'Google Chrome.app'" }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "launcher_mode_v3", "value": 1 }
+                    ],
+                    "from": <%= from("m", ["left_shift"], ["caps_lock"]) %>,
+                    "to": [
+                        { "shell_command": "open -a 'Thunderbird.app'" }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "launcher_mode_v3", "value": 1 }
+                    ],
+                    "from": <%= from("x", ["left_shift"], ["caps_lock"]) %>,
+                    "to": [
+                        { "shell_command": "open -a 'Microsoft Excel.app'" }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "launcher_mode_v3", "value": 1 }
+                    ],
+                    "from": <%= from("p", ["left_shift"], ["caps_lock"]) %>,
+                    "to": [
+                        { "shell_command": "open -a 'Microsoft PowerPoint.app'" }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "launcher_mode_v3", "value": 1 }
+                    ],
+                    "from": <%= from("w", ["left_shift"], ["caps_lock"]) %>,
+                    "to": [
+                        { "shell_command": "open -a 'Microsoft Word.app'" }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "launcher_mode_v3", "value": 1 }
+                    ],
+                    "from": <%= from("open_bracket", ["left_shift"], ["caps_lock"]) %>,
+                    "to": <%= to([["f17"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "launcher_mode_v3", "value": 1 }
+                    ],
+                    "from": <%= from("close_bracket", ["left_shift"], ["caps_lock"]) %>,
+                    "to": <%= to([["f18"]]) %>
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Remove other keys by "from": { "any": "key_code" } %>
+                <%# -------------------------------------------------- %>
+
+                {
+                    "description": "drop other keys",
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "launcher_mode_v3", "value": 1 }
+                    ],
+                    "from": {
+                        "any": "key_code",
+                        "modifiers": {
+                            "mandatory": [ "left_shift" ],
+                            "optional": [ "any" ]
+                        }
+                    },
+                    "to": <%= to([["vk_none"]]) %>
                 }
             ]
         }
