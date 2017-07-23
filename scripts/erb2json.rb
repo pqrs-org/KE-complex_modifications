@@ -114,8 +114,14 @@ def frontmost_application(type, app_aliases)
       bundle_identifiers.concat(virtual_machine_bundle_identifiers)
       bundle_identifiers.concat(x11_bundle_identifiers)
 
+    when 'remote_desktop'
+      bundle_identifiers.concat(remote_desktop_bundle_identifiers)
+
     when 'vi'
       bundle_identifiers.concat(vi_bundle_identifiers)
+
+    when 'virtual_machine'
+      bundle_identifiers.concat(virtual_machine_bundle_identifiers)
 
     else
       $stderr << "unknown app_alias: #{app_alias}\n"
