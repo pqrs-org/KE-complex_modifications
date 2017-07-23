@@ -97,7 +97,7 @@
             ]
         },
         {
-            "description": "Extra emacs key bindings",
+            "description": "Extra emacs key bindings (rev 2)",
             "manipulators": [
                 {
                     "description": "Change control+u to delete-to-beginning-of-line",
@@ -112,6 +112,33 @@
                     "from": <%= from("w", ["control"], ["caps_lock"]) %>,
                     "to": <%= to([["delete_or_backspace", ["left_option"]]]) %>,
                     "conditions": [ <%= frontmost_application_unless(["emacs", "terminal"]) %> ]
+                },
+
+                <%# in Emacs %>
+
+                {
+                    "type": "basic",
+                    "from": <%= from("b", ["control"], ["caps_lock"]) %>,
+                    "to": <%= to([["left_arrow"]]) %>,
+                    "conditions": [ <%= frontmost_application_if(["emacs"]) %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("f", ["control"], ["caps_lock"]) %>,
+                    "to": <%= to([["right_arrow"]]) %>,
+                    "conditions": [ <%= frontmost_application_if(["emacs"]) %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("n", ["control"], ["caps_lock"]) %>,
+                    "to": <%= to([["down_arrow"]]) %>,
+                    "conditions": [ <%= frontmost_application_if(["emacs"]) %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("p", ["control"], ["caps_lock"]) %>,
+                    "to": <%= to([["up_arrow"]]) %>,
+                    "conditions": [ <%= frontmost_application_if(["emacs"]) %> ]
                 }
             ]
         },
