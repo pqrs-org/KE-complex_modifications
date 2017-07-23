@@ -1,8 +1,8 @@
 {
-  "title": "Vi Mode (rev 3)",
+  "title": "Vi Mode (rev 4)",
   "rules": [
     {
-      "description": "Vi Mode #1 [S + H/J/K/L → Arrow Keys]",
+      "description": "Vi Mode [S as Trigger Key]",
       "manipulators": [
         {
           "type": "basic",
@@ -16,10 +16,10 @@
           },
           "to": [
             {
-              "key_code": "fn",
-              "modifiers": [
-                "left_control"
-              ]
+              "set_variable": {
+                "name": "vi_mode",
+                "value": 1
+              }
             }
           ],
           "to_if_alone": [
@@ -27,12 +27,12 @@
               "key_code": "s"
             }
           ],
-          "conditions": [
+          "to_after_key_up": [
             {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
+              "set_variable": {
+                "name": "vi_mode",
+                "value": 0
+              }
             }
           ]
         },
@@ -41,10 +41,6 @@
           "from": {
             "key_code": "h",
             "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
               "optional": [
                 "caps_lock"
               ]
@@ -57,10 +53,9 @@
           ],
           "conditions": [
             {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
             }
           ]
         },
@@ -69,10 +64,6 @@
           "from": {
             "key_code": "j",
             "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
               "optional": [
                 "caps_lock"
               ]
@@ -85,10 +76,9 @@
           ],
           "conditions": [
             {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
             }
           ]
         },
@@ -97,10 +87,6 @@
           "from": {
             "key_code": "k",
             "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
               "optional": [
                 "caps_lock"
               ]
@@ -113,10 +99,9 @@
           ],
           "conditions": [
             {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
             }
           ]
         },
@@ -125,10 +110,6 @@
           "from": {
             "key_code": "l",
             "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
               "optional": [
                 "caps_lock"
               ]
@@ -141,2904 +122,17 @@
           ],
           "conditions": [
             {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
             }
           ]
         },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "return_or_enter",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "return_or_enter"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "spacebar",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "spacebar"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "tab",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "tab"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "hyphen",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "hyphen"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "equal_sign",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "equal_sign"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "open_bracket",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "open_bracket"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "close_bracket",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "close_bracket"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "backslash",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "backslash"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "non_us_pound",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "non_us_pound"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "semicolon",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "semicolon"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "quote",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "quote"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "grave_accent_and_tilde",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "grave_accent_and_tilde"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "comma",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "comma"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "period",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "period"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "slash",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "slash"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "non_us_backslash",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "non_us_backslash"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "1",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "1"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "2",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "2"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "3",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "3"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "5",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "5"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "6",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "6"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "7",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "7"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "8",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "8"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "9",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "9"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "a",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "a"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "b",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "b"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "c",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "c"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "d",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "d"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "e",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "e"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "g",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "g"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "i",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "i"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "m",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "m"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "n",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "n"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "o",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "o"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "p",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "p"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "q",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "q"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "r",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "r"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "t",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "t"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "u",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "u"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "v",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "v"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "w",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "w"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "x",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "x"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "y",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "y"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "z",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "z"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "Vi Mode #1d [D + H/J/K/L → Arrow Keys]",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "d",
-            "modifiers": {
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "fn",
-              "modifiers": [
-                "left_control"
-              ]
-            }
-          ],
-          "to_if_alone": [
-            {
-              "key_code": "d"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "h",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "left_arrow"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "j",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "down_arrow"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "k",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "up_arrow"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "l",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "right_arrow"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "return_or_enter",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "return_or_enter"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "spacebar",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "spacebar"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "tab",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "tab"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "hyphen",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "hyphen"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "equal_sign",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "equal_sign"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "open_bracket",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "open_bracket"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "close_bracket",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "close_bracket"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "backslash",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "backslash"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "non_us_pound",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "non_us_pound"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "semicolon",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "semicolon"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "quote",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "quote"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "grave_accent_and_tilde",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "grave_accent_and_tilde"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "comma",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "comma"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "period",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "period"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "slash",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "slash"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "non_us_backslash",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "non_us_backslash"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "1",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "1"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "2",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "2"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "3",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "3"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "5",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "5"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "6",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "6"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "7",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "7"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "8",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "8"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "9",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "9"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "a",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "a"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "b",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "b"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "c",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "c"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "e",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "e"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "g",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "g"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "i",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "i"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "m",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "m"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "n",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "n"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "o",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "o"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "p",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "p"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "q",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "q"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "r",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "r"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "s",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "s"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "t",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "t"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "u",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "u"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "v",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "v"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "w",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "w"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "x",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "x"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "y",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "y"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "z",
-            "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "z"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "Vi Mode #2 [S/D + F → Fn]",
-      "manipulators": [
         {
           "type": "basic",
           "from": {
             "key_code": "f",
             "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
               "optional": [
                 "caps_lock"
               ]
@@ -3051,18 +145,12 @@
           ],
           "conditions": [
             {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
             }
           ]
-        }
-      ]
-    },
-    {
-      "description": "Vi Mode #3 [S/D + F + H/J/K/L → Home / Page Down / Page Up / End]",
-      "manipulators": [
+        },
         {
           "type": "basic",
           "from": {
@@ -3083,10 +171,9 @@
           ],
           "conditions": [
             {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
             }
           ]
         },
@@ -3110,10 +197,9 @@
           ],
           "conditions": [
             {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
             }
           ]
         },
@@ -3137,10 +223,9 @@
           ],
           "conditions": [
             {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
             }
           ]
         },
@@ -3164,27 +249,17 @@
           ],
           "conditions": [
             {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
             }
           ]
-        }
-      ]
-    },
-    {
-      "description": "Vi Mode #4 [S/D + 0/4 → To the beginning/end of the line]",
-      "manipulators": [
+        },
         {
           "type": "basic",
           "from": {
             "key_code": "0",
             "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
               "optional": [
                 "caps_lock"
               ]
@@ -3200,10 +275,9 @@
           ],
           "conditions": [
             {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
-              ]
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
             }
           ]
         },
@@ -3212,10 +286,6 @@
           "from": {
             "key_code": "4",
             "modifiers": {
-              "mandatory": [
-                "control",
-                "fn"
-              ],
               "optional": [
                 "caps_lock"
               ]
@@ -3231,10 +301,2869 @@
           ],
           "conditions": [
             {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.vim\\."
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "return_or_enter",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
               ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "return_or_enter"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "spacebar"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "tab",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "tab"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "hyphen",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "hyphen"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "equal_sign",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "equal_sign"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "open_bracket",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "open_bracket"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "close_bracket",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "close_bracket"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "backslash",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "backslash"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "non_us_pound",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "non_us_pound"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "semicolon",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "semicolon"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "quote",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "quote"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "grave_accent_and_tilde",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "grave_accent_and_tilde"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "comma",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "comma"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "period",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "period"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "slash",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "slash"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "non_us_backslash",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "non_us_backslash"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "1",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "1"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "2",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "2"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "3",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "3"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "5",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "5"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "6",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "6"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "7",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "7"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "8",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "8"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "9",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "9"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "a",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "a"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "b",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "b"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "c",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "c"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "d",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "e",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "e"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "g",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "g"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "i"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "m",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "m"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "n",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "n"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "o"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "p",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "p"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "q"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "r",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "r"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "t",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "t"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "u",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "u"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "v",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "v"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "w",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "w"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "x",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "x"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "y",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "y"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "z",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "z"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Vi Mode [D as Trigger Key] (recommended)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "d",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "vi_mode",
+                "value": 1
+              }
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "d"
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "vi_mode",
+                "value": 0
+              }
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "down_arrow"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "fn"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "home"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "page_down"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "page_up"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "end"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "0",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "a",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "4",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "e",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "return_or_enter",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "return_or_enter"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "spacebar"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "tab",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "tab"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "hyphen",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "hyphen"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "equal_sign",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "equal_sign"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "open_bracket",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "open_bracket"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "close_bracket",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "close_bracket"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "backslash",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "backslash"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "non_us_pound",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "non_us_pound"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "semicolon",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "semicolon"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "quote",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "quote"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "grave_accent_and_tilde",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "grave_accent_and_tilde"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "comma",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "comma"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "period",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "period"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "slash",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "slash"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "non_us_backslash",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "non_us_backslash"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "1",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "1"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "2",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "2"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "3",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "3"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "5",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "5"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "6",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "6"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "7",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "7"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "8",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "8"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "9",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "9"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "a",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "a"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "b",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "b"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "c",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "c"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "e",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "e"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "g",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "g"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "i"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "m",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "m"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "n",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "n"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "o"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "p",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "p"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "q"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "r",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "r"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "s",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "t",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "t"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "u",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "u"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "v",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "v"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "w",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "w"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "x",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "x"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "y",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "y"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "z",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "z"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
             }
           ]
         }
