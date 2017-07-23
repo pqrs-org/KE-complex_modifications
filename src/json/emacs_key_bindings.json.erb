@@ -1,8 +1,8 @@
 {
-    "title": "Emacs key bindings (rev 4)",
+    "title": "Emacs key bindings (rev 5)",
     "rules": [
         {
-            "description": "Emacs key bindings [control+keys] (rev 4)",
+            "description": "Emacs key bindings [control+keys] (rev 5)",
             "manipulators": [
                 {
                     "type": "basic",
@@ -18,7 +18,7 @@
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("i", ["control"], ["caps_lock"]) %>,
+                    "from": <%= from("i", ["control"], ["caps_lock", "shift"]) %>,
                     "to": <%= to([["tab"]]) %>,
                     "conditions": [ <%= frontmost_application_unless("emacs_key_bindings_exception") %> ]
                 },

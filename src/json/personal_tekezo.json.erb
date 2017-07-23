@@ -2,26 +2,26 @@
     "title": "Personal rules (@tekezo)",
     "rules": [
         {
-            "description": "Change control+1/2/v/q to home/end/page_down/page_up",
+            "description": "Change left_control+1/2/v/q to home/end/page_down/page_up (rev 2)",
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("1", ["control"], ["any"]) %>,
+                    "from": <%= from("1", ["left_control"], ["any"]) %>,
                     "to": <%= to([["home"]]) %>
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("2", ["control"], ["any"]) %>,
+                    "from": <%= from("2", ["left_control"], ["any"]) %>,
                     "to": <%= to([["end"]]) %>
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("v", ["control"], ["any"]) %>,
+                    "from": <%= from("v", ["left_control"], ["any"]) %>,
                     "to": <%= to([["page_down"]]) %>
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("q", ["control"], ["any"]) %>,
+                    "from": <%= from("q", ["left_control"], ["any"]) %>,
                     "to": <%= to([["page_up"]]) %>
                 }
             ]
@@ -50,6 +50,53 @@
             ]
         },
         {
+            "description": "Virtual machine configuration",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("h", ["left_control"], ["caps_lock", "option"]) %>,
+                    "to": <%= to([["delete_or_backspace"]]) %>,
+                    "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("b", ["left_control"], ["caps_lock", "shift", "option"]) %>,
+                    "to": <%= to([["left_arrow"]]) %>,
+                    "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("f", ["left_control"], ["caps_lock", "shift", "option"]) %>,
+                    "to": <%= to([["right_arrow"]]) %>,
+                    "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("n", ["left_control"], ["caps_lock", "shift", "option"]) %>,
+                    "to": <%= to([["down_arrow"]]) %>,
+                    "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("p", ["left_control"], ["caps_lock", "shift", "option"]) %>,
+                    "to": <%= to([["up_arrow"]]) %>,
+                    "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("a", ["left_control"], ["caps_lock", "shift"]) %>,
+                    "to": <%= to([["home"]]) %>,
+                    "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("e", ["left_control"], ["caps_lock", "shift"]) %>,
+                    "to": <%= to([["end"]]) %>,
+                    "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
+                }
+            ]
+        },
+        {
             "description": "Extra emacs key bindings",
             "manipulators": [
                 {
@@ -57,18 +104,14 @@
                     "type": "basic",
                     "from": <%= from("u", ["control"], ["caps_lock"]) %>,
                     "to": <%= to([["a", ["left_control", "left_shift"]], ["delete_or_backspace"], ["vk_none"]]) %>,
-                    "conditions": [
-                            <%= frontmost_application_unless(["emacs", "terminal"]) %>
-                    ]
+                    "conditions": [ <%= frontmost_application_unless(["emacs", "terminal"]) %> ]
                 },
                 {
                     "description": "Change control+w to option+delete",
                     "type": "basic",
                     "from": <%= from("w", ["control"], ["caps_lock"]) %>,
                     "to": <%= to([["delete_or_backspace", ["left_option"]]]) %>,
-                    "conditions": [
-                            <%= frontmost_application_unless(["emacs", "terminal"]) %>
-                    ]
+                    "conditions": [ <%= frontmost_application_unless(["emacs", "terminal"]) %> ]
                 }
             ]
         },
@@ -84,7 +127,7 @@
             ]
         },
         {
-            "description": "Launcher Mode v3",
+            "description": "Launcher Mode v3 (rev 2)",
             "manipulators": [
 
                 <%# -------------------------------------------------- %>
@@ -100,6 +143,23 @@
                     ],
                     "to_if_alone": <%= to([["spacebar"]]) %>
                 },
+
+                <%# ------------------------------- %>
+                <%# right_command rules %>
+
+                <%# left_shift+right_command %>
+
+                {
+                    "type": "basic",
+                    "from": <%= from("right_command", ["left_shift"], ["caps_lock"]) %>,
+                    "to": <%= to([["right_control", ["left_shift"]]]) %>,
+                    "to_if_alone": [
+                        { "set_variable": { "name": "launcher_mode_v3", "value": 1 } }
+                    ],
+                    "conditions": [
+                            <%= frontmost_application_if(["remote_desktop", "virtual_machine"]) %>
+                    ]
+                },
                 {
                     "type": "basic",
                     "from": <%= from("right_command", ["left_shift"], ["caps_lock"]) %>,
@@ -109,24 +169,49 @@
                     ]
                 },
 
+                <%# left_control+right_command %>
+
+                {
+                    "type": "basic",
+                    "from": <%= from("right_command", ["left_control"], ["any"]) %>,
+                    "to": <%= to([["right_command", ["left_control"]]]) %>,
+                    "to_if_alone": <%= to([["lang1"]]) %>,
+                    "conditions": [
+                            <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
+                    ]
+                },
+
+                <%# right_command %>
+
+                {
+                    "type": "basic",
+                    "from": <%= from("right_command", [], ["any"]) %>,
+                    "to": <%= to([["right_control"]]) %>,
+                    "conditions": [
+                            <%= frontmost_application_if(["remote_desktop", "virtual_machine"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("right_command", [], ["any"]) %>,
+                    "to": <%= to([["right_command"]]) %>
+                },
+
+
+                <%# ------------------------------- %>
+                <%# left_command rules %>
+
+                <%# right_command+left_command %>
+
                 {
                     "type": "basic",
                     "from": <%= from("left_command", ["right_command"], ["any"]) %>,
                     "to": <%= to([["left_control", ["right_command"]]]) %>,
                     "to_if_alone": <%= to([["lang2"]]) %>
                 },
-                {
-                    "type": "basic",
-                    "from": <%= from("right_command", ["left_control"], ["any"]) %>,
-                    "to": <%= to([["right_command", ["left_control"]]]) %>,
-                    "to_if_alone": <%= to([["lang1"]]) %>
-                },
 
-                {
-                    "type": "basic",
-                    "from": <%= from("right_command", [], ["any"]) %>,
-                    "to": <%= to([["right_command"]]) %>
-                },
+                <%# left_command %>
+
                 {
                     "type": "basic",
                     "from": <%= from("left_command", [], ["any"]) %>,
