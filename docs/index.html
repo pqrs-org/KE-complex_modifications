@@ -83,14 +83,38 @@
 
           <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Vi Mode (rev 3)</h3>
+        <h3 class="panel-title">Vi Mode (rev 4)</h3>
       </div>
       <div class="panel-body">
         <ul>
-          <li>Vi Mode #1 [S + H/J/K/L → Arrow Keys]</li><li>Vi Mode #1d [D + H/J/K/L → Arrow Keys]</li><li>Vi Mode #2 [S/D + F → Fn]</li><li>Vi Mode #3 [S/D + F + H/J/K/L → Home / Page Down / Page Up / End]</li><li>Vi Mode #4 [S/D + 0/4 → To the beginning/end of the line]</li></ul>
-<i>— #1 and #1d conflict with each other; you can use #1d instead of #1 to reduce trigger errors.</i><br>
-<i>— #2 requires #1 or #1d; #3 requires #2; #4 requires #1 or #1d.</i>
+          <li>Vi Mode [S as Trigger Key]</li><li>Vi Mode [D as Trigger Key] (recommended)</li><p style="margin-top: 20px; font-weight: bold">
+  Vi Mode
+</p>
+
+<table class="table">
+  <tr>
+    <td>Trigger Key + H/J/K/L</td>
+    <td>Arrow Keys</td>
+  </tr>
+  <tr>
+    <td>Trigger Key + F</td>
+    <td>Fn</td>
+  </tr>
+  <tr>
+    <td>Trigger Key + F + H/J/K/L</td>
+    <td>Home / Page Down / Page Up / End</td>
+  </tr>
+  <tr>
+    <td>Trigger Key + 0/4</td>
+    <td>Go to Start/End of the Line</td>
+  </tr>
+</table>
+
 <ul>
+  <li>You can use either S or D as the trigger key</li>
+  <li>Currently, S doesn’t work very well when typing fast</li>
+  <li>Since dh-, dj-, dk- and dl- words are rare, using D instead of S will produce less trigger errors</li>
+</ul>
 
         </ul>
         <a class="btn btn-primary btn-sm" style="margin-left: 40px" data-json-path="json/vi_mode.json">Import</a>
@@ -355,6 +379,18 @@
       </div>
     </div>
 
+          <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Change delete key</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+          <li>Change shift + delete to forward delete</li>
+        </ul>
+        <a class="btn btn-primary btn-sm" style="margin-left: 40px" href="karabiner://karabiner/assets/complex_modifications/import?url=https%3A%2F%2Fpqrs.org%2Fosx%2Fkarabiner%2Fcomplex_modifications%2Fjson%2Fdelete.json">Import</a>
+      </div>
+    </div>
+
 
       <!-- For specific languages -->
           <div class="panel panel-default">
@@ -421,6 +457,22 @@
 
         </ul>
         <a class="btn btn-primary btn-sm" style="margin-left: 40px" data-json-path="json/personal_apm1467.json">Import</a>
+      </div>
+    </div>
+
+          <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Personal rules (@apm1467)</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+          <li>Change right_option to command + option + shift</li><ul>
+  <li>right_option + v → Paste and Match Style</li>
+  <li>Click a link while pressing right_option → Open link in a new window</li>
+</ul>
+
+        </ul>
+        <a class="btn btn-primary btn-sm" style="margin-left: 40px" href="karabiner://karabiner/assets/complex_modifications/import?url=https%3A%2F%2Fpqrs.org%2Fosx%2Fkarabiner%2Fcomplex_modifications%2Fjson%2Fpersonal_apm1467.json">Import</a>
       </div>
     </div>
 
