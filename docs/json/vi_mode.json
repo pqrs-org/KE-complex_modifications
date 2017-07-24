@@ -1,5 +1,5 @@
 {
-  "title": "Vi Mode (rev 4)",
+  "title": "Vi Mode (rev 4.1)",
   "rules": [
     {
       "description": "Vi Mode [S as Trigger Key]",
@@ -56,6 +56,11 @@
               "type": "variable_if",
               "name": "vi_mode",
               "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "vi_visual_mode",
+              "value": 0
             }
           ]
         },
@@ -79,6 +84,11 @@
               "type": "variable_if",
               "name": "vi_mode",
               "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "vi_visual_mode",
+              "value": 0
             }
           ]
         },
@@ -102,6 +112,11 @@
               "type": "variable_if",
               "name": "vi_mode",
               "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "vi_visual_mode",
+              "value": 0
             }
           ]
         },
@@ -125,6 +140,11 @@
               "type": "variable_if",
               "name": "vi_mode",
               "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "vi_visual_mode",
+              "value": 0
             }
           ]
         },
@@ -148,6 +168,11 @@
               "type": "variable_if",
               "name": "vi_mode",
               "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "vi_visual_mode",
+              "value": 0
             }
           ]
         },
@@ -174,6 +199,11 @@
               "type": "variable_if",
               "name": "vi_mode",
               "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "vi_visual_mode",
+              "value": 0
             }
           ]
         },
@@ -200,6 +230,11 @@
               "type": "variable_if",
               "name": "vi_mode",
               "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "vi_visual_mode",
+              "value": 0
             }
           ]
         },
@@ -226,6 +261,11 @@
               "type": "variable_if",
               "name": "vi_mode",
               "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "vi_visual_mode",
+              "value": 0
             }
           ]
         },
@@ -252,6 +292,11 @@
               "type": "variable_if",
               "name": "vi_mode",
               "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "vi_visual_mode",
+              "value": 0
             }
           ]
         },
@@ -271,6 +316,88 @@
               "modifiers": [
                 "left_control"
               ]
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "vi_visual_mode",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "4",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "e",
+              "modifiers": [
+                "left_control"
+              ]
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "vi_visual_mode",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "v",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "vi_visual_mode",
+                "value": 1
+              }
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "vi_visual_mode",
+                "value": 0
+              }
             }
           ],
           "conditions": [
@@ -284,7 +411,7 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "4",
+            "key_code": "h",
             "modifiers": {
               "optional": [
                 "caps_lock"
@@ -293,16 +420,312 @@
           },
           "to": [
             {
-              "key_code": "e",
+              "key_code": "left_arrow",
               "modifiers": [
-                "left_control"
+                "left_shift"
               ]
+            },
+            {
+              "key_code": "vk_none"
             }
           ],
           "conditions": [
             {
               "type": "variable_if",
-              "name": "vi_mode",
+              "name": "vi_visual_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "down_arrow",
+              "modifiers": [
+                "left_shift"
+              ]
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_visual_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow",
+              "modifiers": [
+                "left_shift"
+              ]
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_visual_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "left_shift"
+              ]
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_visual_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "0",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "left_shift",
+                "left_command"
+              ]
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_visual_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "4",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "left_shift",
+                "left_command"
+              ]
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_visual_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "b",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "left_shift",
+                "left_option"
+              ]
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_visual_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "w",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "left_shift",
+                "left_option"
+              ]
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_visual_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "open_bracket",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow",
+              "modifiers": [
+                "left_shift",
+                "left_option"
+              ]
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_visual_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "close_bracket",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "down_arrow",
+              "modifiers": [
+                "left_shift",
+                "left_option"
+              ]
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_visual_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "any": "key_code",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_visual_mode",
               "value": 1
             }
           ]
@@ -1425,35 +1848,6 @@
             },
             {
               "key_code": "u"
-            },
-            {
-              "key_code": "vk_none"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "vi_mode",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "v",
-            "modifiers": {
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s"
-            },
-            {
-              "key_code": "v"
             },
             {
               "key_code": "vk_none"
@@ -1640,6 +2034,11 @@
               "type": "variable_if",
               "name": "vi_mode",
               "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "vi_visual_mode",
+              "value": 0
             }
           ]
         },
@@ -1663,6 +2062,11 @@
               "type": "variable_if",
               "name": "vi_mode",
               "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "vi_visual_mode",
+              "value": 0
             }
           ]
         },
@@ -1686,6 +2090,11 @@
               "type": "variable_if",
               "name": "vi_mode",
               "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "vi_visual_mode",
+              "value": 0
             }
           ]
         },
@@ -1709,6 +2118,11 @@
               "type": "variable_if",
               "name": "vi_mode",
               "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "vi_visual_mode",
+              "value": 0
             }
           ]
         },
@@ -1732,6 +2146,11 @@
               "type": "variable_if",
               "name": "vi_mode",
               "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "vi_visual_mode",
+              "value": 0
             }
           ]
         },
@@ -1758,6 +2177,11 @@
               "type": "variable_if",
               "name": "vi_mode",
               "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "vi_visual_mode",
+              "value": 0
             }
           ]
         },
@@ -1784,6 +2208,11 @@
               "type": "variable_if",
               "name": "vi_mode",
               "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "vi_visual_mode",
+              "value": 0
             }
           ]
         },
@@ -1810,6 +2239,11 @@
               "type": "variable_if",
               "name": "vi_mode",
               "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "vi_visual_mode",
+              "value": 0
             }
           ]
         },
@@ -1836,6 +2270,11 @@
               "type": "variable_if",
               "name": "vi_mode",
               "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "vi_visual_mode",
+              "value": 0
             }
           ]
         },
@@ -1855,6 +2294,88 @@
               "modifiers": [
                 "left_control"
               ]
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "vi_visual_mode",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "4",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "e",
+              "modifiers": [
+                "left_control"
+              ]
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "vi_visual_mode",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "v",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "vi_visual_mode",
+                "value": 1
+              }
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "vi_visual_mode",
+                "value": 0
+              }
             }
           ],
           "conditions": [
@@ -1868,7 +2389,7 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "4",
+            "key_code": "h",
             "modifiers": {
               "optional": [
                 "caps_lock"
@@ -1877,16 +2398,312 @@
           },
           "to": [
             {
-              "key_code": "e",
+              "key_code": "left_arrow",
               "modifiers": [
-                "left_control"
+                "left_shift"
               ]
+            },
+            {
+              "key_code": "vk_none"
             }
           ],
           "conditions": [
             {
               "type": "variable_if",
-              "name": "vi_mode",
+              "name": "vi_visual_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "down_arrow",
+              "modifiers": [
+                "left_shift"
+              ]
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_visual_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow",
+              "modifiers": [
+                "left_shift"
+              ]
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_visual_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "left_shift"
+              ]
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_visual_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "0",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "left_shift",
+                "left_command"
+              ]
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_visual_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "4",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "left_shift",
+                "left_command"
+              ]
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_visual_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "b",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "left_shift",
+                "left_option"
+              ]
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_visual_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "w",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "left_shift",
+                "left_option"
+              ]
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_visual_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "open_bracket",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow",
+              "modifiers": [
+                "left_shift",
+                "left_option"
+              ]
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_visual_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "close_bracket",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "down_arrow",
+              "modifiers": [
+                "left_shift",
+                "left_option"
+              ]
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_visual_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "any": "key_code",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vi_visual_mode",
               "value": 1
             }
           ]
@@ -3009,35 +3826,6 @@
             },
             {
               "key_code": "u"
-            },
-            {
-              "key_code": "vk_none"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "vi_mode",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "v",
-            "modifiers": {
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d"
-            },
-            {
-              "key_code": "v"
             },
             {
               "key_code": "vk_none"

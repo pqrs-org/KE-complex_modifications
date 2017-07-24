@@ -1,5 +1,5 @@
 {
-    "title": "Vi Mode (rev 4)",
+    "title": "Vi Mode (rev 4.1)",
     "rules": [
         {
             "description": "Vi Mode [S as Trigger Key]",
@@ -28,7 +28,8 @@
                     "from": <%= from("h", [], ["caps_lock"]) %>,
                     "to": <%= to([["left_arrow"]]) %>,
                     "conditions": [
-                        { "type": "variable_if", "name": "vi_mode", "value": 1 }
+                        { "type": "variable_if", "name": "vi_mode", "value": 1 },
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 0 }
                     ]
                 },
                 {
@@ -36,7 +37,8 @@
                     "from": <%= from("j", [], ["caps_lock"]) %>,
                     "to": <%= to([["down_arrow"]]) %>,
                     "conditions": [
-                        { "type": "variable_if", "name": "vi_mode", "value": 1 }
+                        { "type": "variable_if", "name": "vi_mode", "value": 1 },
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 0 }
                     ]
                 },
                 {
@@ -44,7 +46,8 @@
                     "from": <%= from("k", [], ["caps_lock"]) %>,
                     "to": <%= to([["up_arrow"]]) %>,
                     "conditions": [
-                        { "type": "variable_if", "name": "vi_mode", "value": 1 }
+                        { "type": "variable_if", "name": "vi_mode", "value": 1 },
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 0 }
                     ]
                 },
                 {
@@ -52,7 +55,8 @@
                     "from": <%= from("l", [], ["caps_lock"]) %>,
                     "to": <%= to([["right_arrow"]]) %>,
                     "conditions": [
-                        { "type": "variable_if", "name": "vi_mode", "value": 1 }
+                        { "type": "variable_if", "name": "vi_mode", "value": 1 },
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 0 }
                     ]
                 },
 
@@ -64,7 +68,8 @@
                     "from": <%= from("f", [], ["caps_lock"]) %>,
                     "to": <%= to([["fn"]]) %>,
                     "conditions": [
-                        { "type": "variable_if", "name": "vi_mode", "value": 1 }
+                        { "type": "variable_if", "name": "vi_mode", "value": 1 },
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 0 }
                     ]
                 },
 
@@ -76,7 +81,8 @@
                     "from": <%= from("h", ["fn"], ["caps_lock"]) %>,
                     "to": <%= to([["home"]]) %>,
                     "conditions": [
-                        { "type": "variable_if", "name": "vi_mode", "value": 1 }
+                        { "type": "variable_if", "name": "vi_mode", "value": 1 },
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 0 }
                     ]
                 },
                 {
@@ -84,7 +90,8 @@
                     "from": <%= from("j", ["fn"], ["caps_lock"]) %>,
                     "to": <%= to([["page_down"]]) %>,
                     "conditions": [
-                        { "type": "variable_if", "name": "vi_mode", "value": 1 }
+                        { "type": "variable_if", "name": "vi_mode", "value": 1 },
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 0 }
                     ]
                 },
                 {
@@ -92,7 +99,8 @@
                     "from": <%= from("k", ["fn"], ["caps_lock"]) %>,
                     "to": <%= to([["page_up"]]) %>,
                     "conditions": [
-                        { "type": "variable_if", "name": "vi_mode", "value": 1 }
+                        { "type": "variable_if", "name": "vi_mode", "value": 1 },
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 0 }
                     ]
                 },
                 {
@@ -100,7 +108,8 @@
                     "from": <%= from("l", ["fn"], ["caps_lock"]) %>,
                     "to": <%= to([["end"]]) %>,
                     "conditions": [
-                        { "type": "variable_if", "name": "vi_mode", "value": 1 }
+                        { "type": "variable_if", "name": "vi_mode", "value": 1 },
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 0 }
                     ]
                 },
 
@@ -110,17 +119,148 @@
                 {
                     "type": "basic",
                     "from": <%= from("0", [], ["caps_lock"]) %>,
-                    "to": <%= to([["a", ["left_control"]]]) %>,
+                    "to": <%= to([["a", ["left_control"]], ["vk_none"]]) %>,
                     "conditions": [
-                        { "type": "variable_if", "name": "vi_mode", "value": 1 }
+                        { "type": "variable_if", "name": "vi_mode", "value": 1 },
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 0 }
                     ]
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("4", [], ["caps_lock"]) %>,
-                    "to": <%= to([["e", ["left_control"]]]) %>,
+                    "from": <%= from("4", [], ["caps_lock", "shift"]) %>,
+                    "to": <%= to([["e", ["left_control"]], ["vk_none"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "vi_mode", "value": 1 },
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 0 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# press v to enter visual mode, release to quit %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "from": <%= from("v", [], ["caps_lock"]) %>,
+                    "to": [
+                        { "set_variable": { "name": "vi_visual_mode", "value": 1 } }
+                    ],
+                    "to_if_alone": <%= to([["vk_none"]]) %>,
+                    "to_after_key_up": [
+                        { "set_variable": { "name": "vi_visual_mode", "value": 0 } }
+                    ],
                     "conditions": [
                         { "type": "variable_if", "name": "vi_mode", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# use h/j/k/l to select text in visual mode %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "from": <%= from("h", [], ["caps_lock"]) %>,
+                    "to": <%= to([["left_arrow", ["left_shift"]], ["vk_none"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("j", [], ["caps_lock"]) %>,
+                    "to": <%= to([["down_arrow", ["left_shift"]], ["vk_none"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("k", [], ["caps_lock"]) %>,
+                    "to": <%= to([["up_arrow", ["left_shift"]], ["vk_none"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("l", [], ["caps_lock"]) %>,
+                    "to": <%= to([["right_arrow", ["left_shift"]], ["vk_none"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# use 0/4 to select until start/end of line in visual mode %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "from": <%= from("0", [], ["caps_lock"]) %>,
+                    "to": <%= to([["left_arrow", ["left_shift", "left_command"]], ["vk_none"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("4", [], ["caps_lock", "shift"]) %>,
+                    "to": <%= to([["right_arrow", ["left_shift", "left_command"]], ["vk_none"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# use b/w to select until start/end of word in visual mode %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "from": <%= from("b", [], ["caps_lock"]) %>,
+                    "to": <%= to([["left_arrow", ["left_shift", "left_option"]], ["vk_none"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("w", [], ["caps_lock"]) %>,
+                    "to": <%= to([["right_arrow", ["left_shift", "left_option"]], ["vk_none"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# use open/close bracket to select until start/end of paragraph in visual mode %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "from": <%= from("open_bracket", [], ["caps_lock", "shift"]) %>,
+                    "to": <%= to([["up_arrow", ["left_shift", "left_option"]], ["vk_none"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("close_bracket", [], ["caps_lock", "shift"]) %>,
+                    "to": <%= to([["down_arrow", ["left_shift", "left_option"]], ["vk_none"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# drop other keys in visual mode %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "from": {
+                        "any": "key_code",
+                        "modifiers": { "optional": [ "any" ] }
+                    },
+                    "to": <%= to([["vk_none"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 1 }
                     ]
                 },
 
@@ -329,7 +469,7 @@
                 },
 
                 <%# -------------------------------------------------- %>
-                <%# normalize letter keys (except for h, j, k, l, s, f) %>
+                <%# normalize letter keys (except for h, j, k, l, s, f, v) %>
                 <%# -------------------------------------------------- %>
                 {
                     "type": "basic",
@@ -453,14 +593,6 @@
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("v", [], ["caps_lock"]) %>,
-                    "to": <%= to([["s"], ["v"], ["vk_none"]]) %>,
-                    "conditions": [
-                        { "type": "variable_if", "name": "vi_mode", "value": 1 }
-                    ]
-                },
-                {
-                    "type": "basic",
                     "from": <%= from("w", [], ["caps_lock"]) %>,
                     "to": <%= to([["s"], ["w"], ["vk_none"]]) %>,
                     "conditions": [
@@ -521,7 +653,8 @@
                     "from": <%= from("h", [], ["caps_lock"]) %>,
                     "to": <%= to([["left_arrow"]]) %>,
                     "conditions": [
-                        { "type": "variable_if", "name": "vi_mode", "value": 1 }
+                        { "type": "variable_if", "name": "vi_mode", "value": 1 },
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 0 }
                     ]
                 },
                 {
@@ -529,7 +662,8 @@
                     "from": <%= from("j", [], ["caps_lock"]) %>,
                     "to": <%= to([["down_arrow"]]) %>,
                     "conditions": [
-                        { "type": "variable_if", "name": "vi_mode", "value": 1 }
+                        { "type": "variable_if", "name": "vi_mode", "value": 1 },
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 0 }
                     ]
                 },
                 {
@@ -537,7 +671,8 @@
                     "from": <%= from("k", [], ["caps_lock"]) %>,
                     "to": <%= to([["up_arrow"]]) %>,
                     "conditions": [
-                        { "type": "variable_if", "name": "vi_mode", "value": 1 }
+                        { "type": "variable_if", "name": "vi_mode", "value": 1 },
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 0 }
                     ]
                 },
                 {
@@ -545,7 +680,8 @@
                     "from": <%= from("l", [], ["caps_lock"]) %>,
                     "to": <%= to([["right_arrow"]]) %>,
                     "conditions": [
-                        { "type": "variable_if", "name": "vi_mode", "value": 1 }
+                        { "type": "variable_if", "name": "vi_mode", "value": 1 },
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 0 }
                     ]
                 },
 
@@ -557,7 +693,8 @@
                     "from": <%= from("f", [], ["caps_lock"]) %>,
                     "to": <%= to([["fn"]]) %>,
                     "conditions": [
-                        { "type": "variable_if", "name": "vi_mode", "value": 1 }
+                        { "type": "variable_if", "name": "vi_mode", "value": 1 },
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 0 }
                     ]
                 },
 
@@ -569,7 +706,8 @@
                     "from": <%= from("h", ["fn"], ["caps_lock"]) %>,
                     "to": <%= to([["home"]]) %>,
                     "conditions": [
-                        { "type": "variable_if", "name": "vi_mode", "value": 1 }
+                        { "type": "variable_if", "name": "vi_mode", "value": 1 },
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 0 }
                     ]
                 },
                 {
@@ -577,7 +715,8 @@
                     "from": <%= from("j", ["fn"], ["caps_lock"]) %>,
                     "to": <%= to([["page_down"]]) %>,
                     "conditions": [
-                        { "type": "variable_if", "name": "vi_mode", "value": 1 }
+                        { "type": "variable_if", "name": "vi_mode", "value": 1 },
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 0 }
                     ]
                 },
                 {
@@ -585,7 +724,8 @@
                     "from": <%= from("k", ["fn"], ["caps_lock"]) %>,
                     "to": <%= to([["page_up"]]) %>,
                     "conditions": [
-                        { "type": "variable_if", "name": "vi_mode", "value": 1 }
+                        { "type": "variable_if", "name": "vi_mode", "value": 1 },
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 0 }
                     ]
                 },
                 {
@@ -593,7 +733,8 @@
                     "from": <%= from("l", ["fn"], ["caps_lock"]) %>,
                     "to": <%= to([["end"]]) %>,
                     "conditions": [
-                        { "type": "variable_if", "name": "vi_mode", "value": 1 }
+                        { "type": "variable_if", "name": "vi_mode", "value": 1 },
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 0 }
                     ]
                 },
 
@@ -603,17 +744,148 @@
                 {
                     "type": "basic",
                     "from": <%= from("0", [], ["caps_lock"]) %>,
-                    "to": <%= to([["a", ["left_control"]]]) %>,
+                    "to": <%= to([["a", ["left_control"]], ["vk_none"]]) %>,
                     "conditions": [
-                        { "type": "variable_if", "name": "vi_mode", "value": 1 }
+                        { "type": "variable_if", "name": "vi_mode", "value": 1 },
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 0 }
                     ]
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("4", [], ["caps_lock"]) %>,
-                    "to": <%= to([["e", ["left_control"]]]) %>,
+                    "from": <%= from("4", [], ["caps_lock", "shift"]) %>,
+                    "to": <%= to([["e", ["left_control"]], ["vk_none"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "vi_mode", "value": 1 },
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 0 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# press v to enter visual mode, release to quit %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "from": <%= from("v", [], ["caps_lock"]) %>,
+                    "to": [
+                        { "set_variable": { "name": "vi_visual_mode", "value": 1 } }
+                    ],
+                    "to_if_alone": <%= to([["vk_none"]]) %>,
+                    "to_after_key_up": [
+                        { "set_variable": { "name": "vi_visual_mode", "value": 0 } }
+                    ],
                     "conditions": [
                         { "type": "variable_if", "name": "vi_mode", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# use h/j/k/l to select text in visual mode %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "from": <%= from("h", [], ["caps_lock"]) %>,
+                    "to": <%= to([["left_arrow", ["left_shift"]], ["vk_none"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("j", [], ["caps_lock"]) %>,
+                    "to": <%= to([["down_arrow", ["left_shift"]], ["vk_none"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("k", [], ["caps_lock"]) %>,
+                    "to": <%= to([["up_arrow", ["left_shift"]], ["vk_none"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("l", [], ["caps_lock"]) %>,
+                    "to": <%= to([["right_arrow", ["left_shift"]], ["vk_none"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# use 0/4 to select until start/end of line in visual mode %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "from": <%= from("0", [], ["caps_lock"]) %>,
+                    "to": <%= to([["left_arrow", ["left_shift", "left_command"]], ["vk_none"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("4", [], ["caps_lock", "shift"]) %>,
+                    "to": <%= to([["right_arrow", ["left_shift", "left_command"]], ["vk_none"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# use b/w to select until start/end of word in visual mode %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "from": <%= from("b", [], ["caps_lock"]) %>,
+                    "to": <%= to([["left_arrow", ["left_shift", "left_option"]], ["vk_none"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("w", [], ["caps_lock"]) %>,
+                    "to": <%= to([["right_arrow", ["left_shift", "left_option"]], ["vk_none"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# use open/close bracket to select until start/end of paragraph in visual mode %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "from": <%= from("open_bracket", [], ["caps_lock", "shift"]) %>,
+                    "to": <%= to([["up_arrow", ["left_shift", "left_option"]], ["vk_none"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("close_bracket", [], ["caps_lock", "shift"]) %>,
+                    "to": <%= to([["down_arrow", ["left_shift", "left_option"]], ["vk_none"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# drop other keys in visual mode %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "from": {
+                        "any": "key_code",
+                        "modifiers": { "optional": [ "any" ] }
+                    },
+                    "to": <%= to([["vk_none"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "vi_visual_mode", "value": 1 }
                     ]
                 },
 
@@ -822,7 +1094,7 @@
                 },
 
                 <%# -------------------------------------------------- %>
-                <%# normalize letter keys (except for h, j, k, l, d, f) %>
+                <%# normalize letter keys (except for h, j, k, l, d, f, v) %>
                 <%# -------------------------------------------------- %>
                 {
                     "type": "basic",
@@ -940,14 +1212,6 @@
                     "type": "basic",
                     "from": <%= from("u", [], ["caps_lock"]) %>,
                     "to": <%= to([["d"], ["u"], ["vk_none"]]) %>,
-                    "conditions": [
-                        { "type": "variable_if", "name": "vi_mode", "value": 1 }
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("v", [], ["caps_lock"]) %>,
-                    "to": <%= to([["d"], ["v"], ["vk_none"]]) %>,
                     "conditions": [
                         { "type": "variable_if", "name": "vi_mode", "value": 1 }
                     ]
