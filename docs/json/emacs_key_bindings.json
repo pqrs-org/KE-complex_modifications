@@ -1,8 +1,8 @@
 {
-  "title": "Emacs key bindings (rev 5)",
+  "title": "Emacs key bindings (rev 6)",
   "rules": [
     {
-      "description": "Emacs key bindings [control+keys] (rev 5)",
+      "description": "Emacs key bindings [control+keys] (rev 6)",
       "manipulators": [
         {
           "type": "basic",
@@ -200,67 +200,6 @@
           "to": [
             {
               "key_code": "escape"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "j",
-            "modifiers": {
-              "mandatory": [
-                "control"
-              ],
-              "optional": [
-                "caps_lock",
-                "shift",
-                "option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "return_or_enter"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.gnu\\.Emacs$",
-                "^org\\.gnu\\.AquamacsEmacs$",
-                "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$",
-                "^com\\.microsoft\\.rdc$",
-                "^com\\.microsoft\\.rdc\\.mac$",
-                "^com\\.microsoft\\.rdc\\.osx\\.beta$",
-                "^net\\.sf\\.cord$",
-                "^com\\.thinomenon\\.RemoteDesktopConnection$",
-                "^com\\.itap-mobile\\.qmote$",
-                "^com\\.nulana\\.remotixmac$",
-                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
-                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.web$",
-                "^com\\.vmware\\.horizon$",
-                "^com\\.2X\\.Client\\.Mac$",
-                "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^org\\.vim\\.",
-                "^com\\.vmware\\.fusion$",
-                "^com\\.vmware\\.horizon$",
-                "^com\\.vmware\\.view$",
-                "^com\\.parallels\\.desktop$",
-                "^com\\.parallels\\.vm$",
-                "^com\\.parallels\\.desktop\\.console$",
-                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
-                "^com\\.vmware\\.proxyApp\\.",
-                "^com\\.parallels\\.winapp\\.",
-                "^org\\.x\\.X11$",
-                "^com\\.apple\\.x11$",
-                "^org\\.macosforge\\.xquartz\\.X11$",
-                "^org\\.macports\\.X11$"
-              ]
             }
           ]
         },

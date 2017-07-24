@@ -1,8 +1,8 @@
 {
-    "title": "Emacs key bindings (rev 5)",
+    "title": "Emacs key bindings (rev 6)",
     "rules": [
         {
-            "description": "Emacs key bindings [control+keys] (rev 5)",
+            "description": "Emacs key bindings [control+keys] (rev 6)",
             "manipulators": [
                 {
                     "type": "basic",
@@ -26,12 +26,6 @@
                     "type": "basic",
                     "from": <%= from("open_bracket", ["control"], ["caps_lock"]) %>,
                     "to": <%= to([["escape"]]) %>
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("j", ["control"], ["caps_lock", "shift", "option"]) %>,
-                    "to": <%= to([["return_or_enter"]]) %>,
-                    "conditions": [ <%= frontmost_application_unless("emacs_key_bindings_exception") %> ]
                 },
                 {
                     "type": "basic",
