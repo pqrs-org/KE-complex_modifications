@@ -97,7 +97,7 @@
             ]
         },
         {
-            "description": "Extra emacs key bindings (rev 2)",
+            "description": "Extra emacs key bindings (rev 3)",
             "manipulators": [
                 {
                     "description": "Change control+u to delete-to-beginning-of-line",
@@ -120,6 +120,12 @@
                     "type": "basic",
                     "from": <%= from("b", ["control"], ["caps_lock"]) %>,
                     "to": <%= to([["left_arrow"]]) %>,
+                    "conditions": [ <%= frontmost_application_if(["emacs"]) %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("h", ["control"], ["caps_lock", "option"]) %>,
+                    "to": <%= to([["delete_or_backspace"]]) %>,
                     "conditions": [ <%= frontmost_application_if(["emacs"]) %> ]
                 },
                 {

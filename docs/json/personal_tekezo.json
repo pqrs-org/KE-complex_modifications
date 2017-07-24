@@ -447,7 +447,7 @@
       ]
     },
     {
-      "description": "Extra emacs key bindings (rev 2)",
+      "description": "Extra emacs key bindings (rev 3)",
       "manipulators": [
         {
           "description": "Change control+u to delete-to-beginning-of-line",
@@ -548,6 +548,37 @@
           "to": [
             {
               "key_code": "left_arrow"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^org\\.gnu\\.Emacs$",
+                "^org\\.gnu\\.AquamacsEmacs$",
+                "^org\\.gnu\\.Aquamacs$",
+                "^org\\.pqrs\\.unknownapp.conkeror$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ],
+              "optional": [
+                "caps_lock",
+                "option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_or_backspace"
             }
           ],
           "conditions": [
