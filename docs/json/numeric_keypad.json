@@ -2,7 +2,7 @@
   "title": "Numeric Keypad",
   "rules": [
     {
-      "description": "Press Tab + Space/M/,/./J/K/L/U/I/O to numeric keys. Pressing Tab alone sends Tab key",
+      "description": "Numeric Keypad Mode [Tab as trigger key]",
       "manipulators": [
         {
           "type": "basic",
@@ -11,353 +11,375 @@
           },
           "to": [
             {
-              "key_code": "fn",
-              "modifiers": [
-                "left_option"
-              ]
+              "set_variable": {
+                "name": "numeric_keypad_mode",
+                "value": 1
+              }
             }
           ],
           "to_if_alone": [
             {
               "key_code": "tab"
             }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "numeric_keypad_mode",
+                "value": 0
+              }
+            }
           ]
         },
         {
           "type": "basic",
           "from": {
-            "key_code": "spacebar",
-            "modifiers": {
-              "mandatory": [
-                "option",
-                "fn"
-              ]
-            }
+            "key_code": "spacebar"
           },
           "to": [
             {
               "key_code": "keypad_0"
             }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numeric_keypad_mode",
+              "value": 1
+            }
           ]
         },
         {
           "type": "basic",
           "from": {
-            "key_code": "m",
-            "modifiers": {
-              "mandatory": [
-                "option",
-                "fn"
-              ]
-            }
+            "key_code": "m"
           },
           "to": [
             {
               "key_code": "keypad_1"
             }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numeric_keypad_mode",
+              "value": 1
+            }
           ]
         },
         {
           "type": "basic",
           "from": {
-            "key_code": "comma",
-            "modifiers": {
-              "mandatory": [
-                "option",
-                "fn"
-              ]
-            }
+            "key_code": "comma"
           },
           "to": [
             {
               "key_code": "keypad_2"
             }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numeric_keypad_mode",
+              "value": 1
+            }
           ]
         },
         {
           "type": "basic",
           "from": {
-            "key_code": "period",
-            "modifiers": {
-              "mandatory": [
-                "option",
-                "fn"
-              ]
-            }
+            "key_code": "period"
           },
           "to": [
             {
               "key_code": "keypad_3"
             }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numeric_keypad_mode",
+              "value": 1
+            }
           ]
         },
         {
           "type": "basic",
           "from": {
-            "key_code": "j",
-            "modifiers": {
-              "mandatory": [
-                "option",
-                "fn"
-              ]
-            }
+            "key_code": "j"
           },
           "to": [
             {
               "key_code": "keypad_4"
             }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numeric_keypad_mode",
+              "value": 1
+            }
           ]
         },
         {
           "type": "basic",
           "from": {
-            "key_code": "k",
-            "modifiers": {
-              "mandatory": [
-                "option",
-                "fn"
-              ]
-            }
+            "key_code": "k"
           },
           "to": [
             {
               "key_code": "keypad_5"
             }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numeric_keypad_mode",
+              "value": 1
+            }
           ]
         },
         {
           "type": "basic",
           "from": {
-            "key_code": "l",
-            "modifiers": {
-              "mandatory": [
-                "option",
-                "fn"
-              ]
-            }
+            "key_code": "l"
           },
           "to": [
             {
               "key_code": "keypad_6"
             }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numeric_keypad_mode",
+              "value": 1
+            }
           ]
         },
         {
           "type": "basic",
           "from": {
-            "key_code": "u",
-            "modifiers": {
-              "mandatory": [
-                "option",
-                "fn"
-              ]
-            }
+            "key_code": "u"
           },
           "to": [
             {
               "key_code": "keypad_7"
             }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numeric_keypad_mode",
+              "value": 1
+            }
           ]
         },
         {
           "type": "basic",
           "from": {
-            "key_code": "i",
-            "modifiers": {
-              "mandatory": [
-                "option",
-                "fn"
-              ]
-            }
+            "key_code": "i"
           },
           "to": [
             {
               "key_code": "keypad_8"
             }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numeric_keypad_mode",
+              "value": 1
+            }
           ]
         },
         {
           "type": "basic",
           "from": {
-            "key_code": "o",
-            "modifiers": {
-              "mandatory": [
-                "option",
-                "fn"
-              ]
-            }
+            "key_code": "o"
           },
           "to": [
             {
               "key_code": "keypad_9"
             }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numeric_keypad_mode",
+              "value": 1
+            }
           ]
-        }
-      ]
-    },
-    {
-      "description": "Press Tab + 7/8/9/0/p/;/slash to backspace/=/slash/*/-/+/enter.",
-      "manipulators": [
+        },
         {
           "type": "basic",
           "from": {
-            "key_code": "slash",
-            "modifiers": {
-              "mandatory": [
-                "option",
-                "fn"
-              ]
-            }
+            "key_code": "slash"
           },
           "to": [
             {
               "key_code": "keypad_enter"
             }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numeric_keypad_mode",
+              "value": 1
+            }
           ]
         },
         {
           "type": "basic",
           "from": {
-            "key_code": "semicolon",
-            "modifiers": {
-              "mandatory": [
-                "option",
-                "fn"
-              ]
-            }
+            "key_code": "semicolon"
           },
           "to": [
             {
               "key_code": "keypad_plus"
             }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numeric_keypad_mode",
+              "value": 1
+            }
           ]
         },
         {
           "type": "basic",
           "from": {
-            "key_code": "p",
-            "modifiers": {
-              "mandatory": [
-                "option",
-                "fn"
-              ]
-            }
+            "key_code": "p"
           },
           "to": [
             {
               "key_code": "keypad_hyphen"
             }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numeric_keypad_mode",
+              "value": 1
+            }
           ]
         },
         {
           "type": "basic",
           "from": {
-            "key_code": "0",
-            "modifiers": {
-              "mandatory": [
-                "option",
-                "fn"
-              ]
-            }
+            "key_code": "0"
           },
           "to": [
             {
               "key_code": "keypad_asterisk"
             }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numeric_keypad_mode",
+              "value": 1
+            }
           ]
         },
         {
           "type": "basic",
           "from": {
-            "key_code": "9",
-            "modifiers": {
-              "mandatory": [
-                "option",
-                "fn"
-              ]
-            }
+            "key_code": "9"
           },
           "to": [
             {
               "key_code": "keypad_slash"
             }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numeric_keypad_mode",
+              "value": 1
+            }
           ]
         },
         {
           "type": "basic",
           "from": {
-            "key_code": "8",
-            "modifiers": {
-              "mandatory": [
-                "option",
-                "fn"
-              ]
-            }
+            "key_code": "8"
           },
           "to": [
             {
               "key_code": "keypad_equal_sign"
             }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numeric_keypad_mode",
+              "value": 1
+            }
           ]
         },
         {
           "type": "basic",
           "from": {
-            "key_code": "7",
-            "modifiers": {
-              "mandatory": [
-                "option",
-                "fn"
-              ]
-            }
+            "key_code": "7"
           },
           "to": [
             {
               "key_code": "delete_or_backspace"
             }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "Press Tab + right_option to keypad_period",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "right_option",
-            "modifiers": {
-              "mandatory": [
-                "left_option",
-                "fn"
-              ]
-            }
-          },
-          "to": [
+          ],
+          "conditions": [
             {
-              "key_code": "keypad_period"
+              "type": "variable_if",
+              "name": "numeric_keypad_mode",
+              "value": 1
             }
           ]
         }
       ]
     },
     {
-      "description": "Press Tab + right_control to keypad_period",
+      "description": "Numeric Keypad Mode Trigger + right_option to keypad_period",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "right_control",
-            "modifiers": {
-              "mandatory": [
-                "left_option",
-                "fn"
-              ]
-            }
+            "key_code": "right_option"
           },
           "to": [
             {
               "key_code": "keypad_period"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numeric_keypad_mode",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Numeric Keypad Mode Trigger + right_control to keypad_period",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_control"
+          },
+          "to": [
+            {
+              "key_code": "keypad_period"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numeric_keypad_mode",
+              "value": 1
             }
           ]
         }
