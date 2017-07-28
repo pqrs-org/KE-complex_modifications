@@ -3,7 +3,7 @@
 require 'erb'
 require 'json'
 
-def from(key_code, mandatory_modifiers, optional_modifiers)
+def _from(key_code, mandatory_modifiers, optional_modifiers)
   data = {}
   data['key_code'] = key_code
 
@@ -18,11 +18,17 @@ def from(key_code, mandatory_modifiers, optional_modifiers)
     data['modifiers']['optional'] = [] if data['modifiers']['optional'].nil?
     data['modifiers']['optional'] << m
   end
-
-  JSON.generate(data)
+  return data
 end
 
-def to(events)
+def from()
+
+  data = _from(key_code, mandatory_modifiers, optional_modifiers)
+  JSON.generate(data)
+
+end
+
+def _to(events)
   data = []
 
   events.each do |e|
@@ -34,17 +40,21 @@ def to(events)
 
     data << d
   end
+  return data
+end
 
+def to(events)
+  data = to(events)
   JSON.generate(data)
 end
 
-def each_key(source_keys_list, dest_keys_list, from_mandatory_modifiers, from_optional_modifiers, to_pre_events, to_modifiers, to_post_events, conditions)
+def _each_key(source_keys_list, dest_keys_list, from_mandatory_modifiers, from_optional_modifiers, to_pre_events, to_modifiers, to_post_events, conditions)
   data = []
   source_keys_list.each_with_index do |from_key,index|
     to_key = dest_keys_list[index]
     d = {}
     d['type'] = 'basic'
-    d['from'] = JSON.parse(from(from_key, from_mandatory_modifiers, from_optional_modifiers))
+    d['from'] = _from(from_key, from_mandatory_modifiers, from_optional_modifiers)
 
     # Compile list of events to add to "to" section
     events = []
@@ -59,7 +69,7 @@ def each_key(source_keys_list, dest_keys_list, from_mandatory_modifiers, from_op
     to_post_events.each do |e|
       events << e
     end
-    d['to'] = JSON.parse(to(events))
+    d['to'] = _to(events)
 
     d['conditions'] = []
     conditions.each do |c|
@@ -68,7 +78,14 @@ def each_key(source_keys_list, dest_keys_list, from_mandatory_modifiers, from_op
     data << d
   end
 
+  return data
+end
+
+def each_key(source_keys_list, dest_keys_list, from_mandatory_modifiers, from_optional_modifiers, to_pre_events, to_modifiers, to_post_events, conditions)
+
+  data = _each_key(source_keys_list, dest_keys_list, from_mandatory_modifiers, from_optional_modifiers, to_pre_events, to_modifiers, to_post_events, conditions)
   JSON.generate(data)
+
 end
 
 def frontmost_application(type, app_aliases)
