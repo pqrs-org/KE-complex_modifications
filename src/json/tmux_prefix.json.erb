@@ -1,13 +1,19 @@
 {
-    <% default_tmux_keys = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","0","1","2","3","4","5","6","7","8","9","comma","slash","period","semicolon","quote","open_bracket","close_bracket"] %>
     "title": "Tmux Prefix",
+    <%
+        default_tmux_keys = [
+            "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+            "0","1","2","3","4","5","6","7","8","9",
+            "comma","slash","period","semicolon","quote","open_bracket","close_bracket"
+        ]
+    %>
     "rules": [
         {
             "description": "Tmux Prefix Mode [Tab as trigger key]",
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("tab", [], []) %>,
+                    "from": <%= from("tab", [], ["caps_lock"]) %>,
                     "to": [
                         { "set_variable": { "name": "tmux_prefix_mode", "value": 1 } }
                     ],
@@ -23,7 +29,7 @@
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("fn", [], []) %>,
+                    "from": <%= from("fn", [], ["caps_lock"]) %>,
                     "to": [
                         { "set_variable": { "name": "tmux_prefix_mode", "value": 1 } }
                     ],
