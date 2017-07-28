@@ -18,14 +18,11 @@ def _from(key_code, mandatory_modifiers, optional_modifiers)
     data['modifiers']['optional'] = [] if data['modifiers']['optional'].nil?
     data['modifiers']['optional'] << m
   end
-  return data
+  data
 end
 
 def from(key_code, mandatory_modifiers, optional_modifiers)
-
-  data = _from(key_code, mandatory_modifiers, optional_modifiers)
-  JSON.generate(data)
-
+  JSON.generate(_from(key_code, mandatory_modifiers, optional_modifiers))
 end
 
 def _to(events)
@@ -40,13 +37,13 @@ def _to(events)
 
     data << d
   end
-  return data
+  data
 end
 
 def to(events)
-  data = to(events)
-  JSON.generate(data)
+  JSON.generate(_to(events))
 end
+
 
 def _each_key(source_keys_list, dest_keys_list, from_mandatory_modifiers, from_optional_modifiers, to_pre_events, to_modifiers, to_post_events, conditions)
   data = []
@@ -69,7 +66,7 @@ def _each_key(source_keys_list, dest_keys_list, from_mandatory_modifiers, from_o
     to_post_events.each do |e|
       events << e
     end
-    d['to'] = _to(events)
+    d['to'] = JSON.parse(to(events))
 
     d['conditions'] = []
     conditions.each do |c|
@@ -78,14 +75,11 @@ def _each_key(source_keys_list, dest_keys_list, from_mandatory_modifiers, from_o
     data << d
   end
 
-  return data
+  data
 end
 
 def each_key(source_keys_list, dest_keys_list, from_mandatory_modifiers, from_optional_modifiers, to_pre_events, to_modifiers, to_post_events, conditions)
-
-  data = _each_key(source_keys_list, dest_keys_list, from_mandatory_modifiers, from_optional_modifiers, to_pre_events, to_modifiers, to_post_events, conditions)
-  JSON.generate(data)
-
+  JSON.generate(_each_key(source_keys_list, dest_keys_list, from_mandatory_modifiers, from_optional_modifiers, to_pre_events, to_modifiers, to_post_events, conditions))
 end
 
 def frontmost_application(type, app_aliases)
