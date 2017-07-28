@@ -38,6 +38,38 @@ def to(events)
   JSON.generate(data)
 end
 
+def each_key(keys_list, from_mandatory_modifiers, from_optional_modifiers, to_pre_events, to_modifiers, to_post_events, conditions)
+  data = []
+  keys_list.each do |k|
+    d = {}
+    d['type'] = 'basic'
+    d['from'] = JSON.parse(from(k, from_mandatory_modifiers, from_optional_modifiers))
+
+    # Compile list of events to add to "to" section
+    events = []
+    to_pre_events.each do |e|
+      events << e
+    end
+    if to_modifiers[0].nil?
+      events << [k]
+    else
+      events << [k, to_modifiers]
+    end
+    to_post_events.each do |e|
+      events << e
+    end
+    d['to'] = JSON.parse(to(events))
+
+    d['conditions'] = []
+    conditions.each do |c|
+      d['conditions'] << c
+    end
+    data << d
+  end
+
+  JSON.generate(data)
+end
+
 def frontmost_application(type, app_aliases)
   emacs_bundle_identifiers = [
     '^org\.gnu\.Emacs$',
