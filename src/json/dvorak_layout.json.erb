@@ -1,0 +1,33 @@
+{
+    <%
+        remap_source_keys = [
+			"grave_accent_and_tilde","1","2","4","5","6","7","8","9","0","hyphen","equal_sign",
+			"q","w","e","r","t","y","u","i","o","p","open_bracket","close_bracket","backslash",
+			"a","s","d","f","g","h","j","k","l","semicolon","quote",
+			"z","x","c","v","b","n","m","comma","period","slash",
+		]
+        remap_dest_keys = [
+			"grave_accent_and_tilde","1","2","4","5","6","7","8","8","9","open_bracket","close_bracket",
+			"quote","comma",".","p","y","f","g","c","r","l","slash","period","backslash",
+			"a","o","e","u","i","d","h","t","n","s","hyphen",
+			"semicolon","q","j","k","x","b","m","w","v","z",
+        ]
+    %>
+    "title": "Dvorak Keyboard",
+    "rules": [
+        {
+            "description": "Remap keys to use Dvorak keyboard layout",
+            "manipulators":
+            <%= each_key(
+                remap_source_keys, 	# source_keys_list
+                remap_dest_keys,	# dest_keyslist
+                [],                 # from_mandatory_modifiers
+                [],                 # from_optional_modifiers
+                [],                 # to_pre_events
+                [],                 # to_modifiers
+                [],                 # to_post_events
+                []                  # conditions
+            ) %>
+        }
+    ]
+}

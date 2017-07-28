@@ -38,12 +38,13 @@ def to(events)
   JSON.generate(data)
 end
 
-def each_key(keys_list, from_mandatory_modifiers, from_optional_modifiers, to_pre_events, to_modifiers, to_post_events, conditions)
+def each_key(source_keys_list, dest_keys_list, from_mandatory_modifiers, from_optional_modifiers, to_pre_events, to_modifiers, to_post_events, conditions)
   data = []
-  keys_list.each do |k|
+  source_keys_list.each_with_index do |from_key,index|
+    to_key = dest_keys_list[index]
     d = {}
     d['type'] = 'basic'
-    d['from'] = JSON.parse(from(k, from_mandatory_modifiers, from_optional_modifiers))
+    d['from'] = JSON.parse(from(from_key, from_mandatory_modifiers, from_optional_modifiers))
 
     # Compile list of events to add to "to" section
     events = []
@@ -51,9 +52,9 @@ def each_key(keys_list, from_mandatory_modifiers, from_optional_modifiers, to_pr
       events << e
     end
     if to_modifiers[0].nil?
-      events << [k]
+      events << [to_key]
     else
-      events << [k, to_modifiers]
+      events << [to_key, to_modifiers]
     end
     to_post_events.each do |e|
       events << e
