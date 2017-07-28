@@ -21,7 +21,7 @@ def _from(key_code, mandatory_modifiers, optional_modifiers)
   return data
 end
 
-def from()
+def from(key_code, mandatory_modifiers, optional_modifiers)
 
   data = _from(key_code, mandatory_modifiers, optional_modifiers)
   JSON.generate(data)
