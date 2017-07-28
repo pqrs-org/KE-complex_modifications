@@ -527,7 +527,7 @@
       ]
     },
     {
-      "description": "Extra emacs key bindings (rev 3)",
+      "description": "Extra emacs key bindings (rev 4)",
       "manipulators": [
         {
           "description": "Change control+u to delete-to-beginning-of-line",
@@ -609,6 +609,26 @@
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$"
               ]
+            }
+          ]
+        },
+        {
+          "description": "Change control+j to return",
+          "type": "basic",
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "return_or_enter"
             }
           ]
         },

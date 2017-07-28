@@ -118,7 +118,7 @@
             ]
         },
         {
-            "description": "Extra emacs key bindings (rev 3)",
+            "description": "Extra emacs key bindings (rev 4)",
             "manipulators": [
                 {
                     "description": "Change control+u to delete-to-beginning-of-line",
@@ -133,6 +133,12 @@
                     "from": <%= from("w", ["control"], ["caps_lock"]) %>,
                     "to": <%= to([["delete_or_backspace", ["left_option"]]]) %>,
                     "conditions": [ <%= frontmost_application_unless(["emacs", "terminal"]) %> ]
+                },
+                {
+                    "description": "Change control+j to return",
+                    "type": "basic",
+                    "from": <%= from("j", ["control"], ["caps_lock"]) %>,
+                    "to": <%= to([["return_or_enter"]]) %>
                 },
 
                 <%# in Emacs %>
