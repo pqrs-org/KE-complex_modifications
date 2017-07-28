@@ -1204,10 +1204,10 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "w",
+            "key_code": "l",
             "modifiers": {
               "mandatory": [
-                "left_control"
+                "left_command"
               ],
               "optional": [
                 "any"
@@ -1254,13 +1254,16 @@
       ]
     },
     {
-      "description": "PC-Style Screenshot(PrtSc)",
+      "description": "PC-Style Screenshot(PrtSc for whole, Shift+PrtSc to select)",
       "manipulators": [
         {
           "type": "basic",
           "from": {
             "key_code": "print_screen",
             "modifiers": {
+              "mandatory": [
+                "left_shift"
+              ],
               "optional": [
                 "any"
               ]
@@ -1268,7 +1271,7 @@
           },
           "to": [
             {
-              "key_code": "3",
+              "key_code": "4",
               "modifiers": [
                 "left_command",
                 "left_shift"
@@ -1308,9 +1311,6 @@
           "from": {
             "key_code": "print_screen",
             "modifiers": {
-              "mandatory": [
-                "left_shift"
-              ],
               "optional": [
                 "any"
               ]
@@ -1318,7 +1318,7 @@
           },
           "to": [
             {
-              "key_code": "4",
+              "key_code": "3",
               "modifiers": [
                 "left_command",
                 "left_shift"

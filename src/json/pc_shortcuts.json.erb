@@ -244,7 +244,7 @@
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("w", ["left_control"], ["any"]) %>,
+                    "from": <%= from("l", ["left_command"], ["any"]) %>,
                     "to": <%= to([["power", ["left_control", "left_shift"]]]) %>,
                     "conditions": [
                         <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
@@ -253,20 +253,20 @@
             ]
         },
         {
-            "description": "PC-Style Screenshot(PrtSc)",
+            "description": "PC-Style Screenshot(PrtSc for whole, Shift+PrtSc to select)",
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("print_screen", [], ["any"]) %>,
-                    "to": <%= to([["3", ["left_command", "left_shift"]]]) %>,
+                    "from": <%= from("print_screen", ["left_shift"], ["any"]) %>,
+                    "to": <%= to([["4", ["left_command", "left_shift"]]]) %>,
                     "conditions": [
                         <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
                     ]
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("print_screen", ["left_shift"], ["any"]) %>,
-                    "to": <%= to([["4", ["left_command", "left_shift"]]]) %>,
+                    "from": <%= from("print_screen", [], ["any"]) %>,
+                    "to": <%= to([["3", ["left_command", "left_shift"]]]) %>,
                     "conditions": [
                         <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
                     ]
