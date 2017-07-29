@@ -1,0 +1,352 @@
+{
+    "title": "PC-Style Shortcuts",
+    "rules": [
+        {
+            "description": "Option(Alt)+Tab as Switch Application (Command+Tab)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("tab", ["left_option"], ["any"]) %>,
+                    "to": <%= to([["tab", ["left_command"]]]) %>
+                }
+            ]
+        },
+        {
+            "description": "PC-Style Control+Up/Down/Left/Right",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("left_arrow", ["left_control"], ["any"]) %>,
+                    "to": <%= to([["left_arrow", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("right_arrow", ["left_control"], ["any"]) %>,
+                    "to": <%= to([["right_arrow", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("up_arrow", ["left_control"], ["any"]) %>,
+                    "to": <%= to([["up_arrow", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("down_arrow", ["left_control"], ["any"]) %>,
+                    "to": <%= to([["down_arrow", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "PC-Style Copy/Paste/Cut",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("c", ["left_control"], ["any"]) %>,
+                    "to": <%= to([["c", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("v", ["left_control"], ["any"]) %>,
+                    "to": <%= to([["v", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("x", ["left_control"], ["any"]) %>,
+                    "to": <%= to([["x", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "PC-Style Undo",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("z", ["left_control"], ["any"]) %>,
+                    "to": <%= to([["z", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "PC-Style Select-All",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("a", ["left_control"], ["any"]) %>,
+                    "to": <%= to([["a", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "PC-Style Save",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("s", ["left_control"], ["any"]) %>,
+                    "to": <%= to([["s", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "PC-Style New",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("n", ["left_control"], ["any"]) %>,
+                    "to": <%= to([["n", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "PC-Style Reload(F5, Ctrl+R)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("r", ["left_control"], ["any"]) %>,
+                    "to": <%= to([["r", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("f5", [], ["any"]) %>,
+                    "to": <%= to([["r", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "PC-Style New Tab",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("t", ["left_control"], ["any"]) %>,
+                    "to": <%= to([["t", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "PC-Style Find",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("f", ["left_control"], ["any"]) %>,
+                    "to": <%= to([["f", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("g", ["left_control"], ["any"]) %>,
+                    "to": <%= to([["g", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "PC-Style Open",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("o", ["left_control"], ["any"]) %>,
+                    "to": <%= to([["o", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "PC-Style Bold/Italic/Underline(Ctrl+B/I/U)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("b", ["left_control"], ["any"]) %>,
+                    "to": <%= to([["b", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("i", ["left_control"], ["any"]) %>,
+                    "to": <%= to([["i", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("u", ["left_control"], ["any"]) %>,
+                    "to": <%= to([["u", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "PC-Style Close Window",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("w", ["left_control"], ["any"]) %>,
+                    "to": <%= to([["w", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "PC-Style Lock Screen",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("l", ["left_command"], ["any"]) %>,
+                    "to": <%= to([["power", ["left_control", "left_shift"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "PC-Style Screenshot(PrtSc for whole, Shift+PrtSc to select)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("print_screen", ["left_shift"], ["any"]) %>,
+                    "to": <%= to([["4", ["left_command", "left_shift"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("print_screen", [], ["any"]) %>,
+                    "to": <%= to([["3", ["left_command", "left_shift"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "PC-Style Quit Application(Alt+F4 to Command+Q)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("f4", ["left_option"], []) %>,
+                    "to": <%= to([["q", ["left_command"]]]) %>
+                }
+            ]
+        },
+        {
+            "description": "Control+Shift+Esc Opens Activity Monitor",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("escape", ["left_control", "left_shift"], []) %>,
+                    "to": [
+                        { "shell_command": "open -a 'Activity Monitor.app'" }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "PC-Style Browser Zoom (Ctrl+Plus/Minus/0)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("hyphen", ["left_control"], ["any"]) %>,
+                    "to": <%= to([["hyphen", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_if(["browser"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("keypad_hyphen", ["left_control"], ["any"]) %>,
+                    "to": <%= to([["keypad_hyphen", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_if(["browser"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("equal_sign", ["left_control"], ["any"]) %>,
+                    "to": <%= to([["equal_sign", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_if(["browser"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("keypad_plus", ["left_control"], ["any"]) %>,
+                    "to": <%= to([["keypad_plus", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_if(["browser"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("0", ["left_control"], ["any"]) %>,
+                    "to": <%= to([["0", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_if(["browser"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("keypad_0", ["left_control"], ["any"]) %>,
+                    "to": <%= to([["keypad_0", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_if(["browser"]) %>
+                    ]
+                }
+            ]
+        }
+    ]
+}

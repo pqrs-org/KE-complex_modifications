@@ -71,6 +71,12 @@ def each_key(keys_list, from_mandatory_modifiers, from_optional_modifiers, to_pr
 end
 
 def frontmost_application(type, app_aliases)
+  browser_bundle_identifiers = [
+    '^org\.mozilla\.firefox$',
+    '^com\.google\.Chrome$',
+    '^com\.apple\.Safari$',
+  ]
+
   emacs_bundle_identifiers = [
     '^org\.gnu\.Emacs$',
     '^org\.gnu\.AquamacsEmacs$',
@@ -154,6 +160,9 @@ def frontmost_application(type, app_aliases)
 
     when 'virtual_machine'
       bundle_identifiers.concat(virtual_machine_bundle_identifiers)
+
+    when 'browser'
+      bundle_identifiers.concat(browser_bundle_identifiers)
 
     else
       $stderr << "unknown app_alias: #{app_alias}\n"
