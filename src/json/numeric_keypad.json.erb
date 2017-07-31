@@ -9,7 +9,7 @@
             "spacebar","right_option"
 		]
         remap_dest_keys = [
-            "backspace","keypad_equal_sign","keypad_slash","keypad_asterisk",
+            "delete_or_backspace","keypad_equal_sign","keypad_slash","keypad_asterisk",
             "keypad_7","keypad_8","keypad_9","keypad_hyphen",
             "keypad_4","keypad_5","keypad_6","keypad_plus",
             "keypad_1","keypad_2","keypad_3","keypad_enter",
@@ -23,8 +23,12 @@
             [],                 # to_pre_events
             [],                 # to_modifiers
             [],                 # to_post_events
-            [{ "type"=>"variable_if", "name"=>"numeric_keypad_mode","value"=> 1 }]    # conditions
+            [{ "type"=>"variable_if", "name"=>"numeric_keypad_mode", "value"=>1 }]    # conditions
         )
+        manipulators_str = ""
+        manipulators.each do |m|
+            manipulators_str += ", #{JSON.generate(m)}"
+        end
     %>
     "rules": [
         {
@@ -42,10 +46,7 @@
                         { "set_variable": { "name": "numeric_keypad_mode", "value": 0 } }
                     ]
                 }
-                <% manipulators.each do |m|
-                    JSON.generate(m)
-                end
-                %>
+                <%= manipulators_str %>
             ]
         },
         {
