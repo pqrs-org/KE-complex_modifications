@@ -21,46 +21,118 @@
         <a href="https://github.com/pqrs-org/KE-complex_modifications">GitHub</a>
       </div>
 
-      <%= file_import_panel("docs/json/caps_and_return_to_ctrl.json") %>
-      <%= file_import_panel("docs/json/caps_lock.json") %>
-      <%= file_import_panel("docs/json/exchange_numbers_and_symbols.json") %>
-      <%= file_import_panel("docs/json/control.json") %>
-      <%= file_import_panel("docs/json/shift.json") %>
-      <%= file_import_panel("docs/json/spacebar.json") %>
-      <%= file_import_panel("docs/json/vi_mode.json") %>
-      <%= file_import_panel("docs/json/emacs_key_bindings.json") %>
-      <%= file_import_panel("docs/json/modifiers_to_f-keys.json") %>
-      <%= file_import_panel("docs/json/diamond_cursor.json") %>
-      <%= file_import_panel("docs/json/exchange_semicolon_and_colon.json") %>
-      <%= file_import_panel("docs/json/ctrl_command_fn_letter_specials.json") %>
-      <%= file_import_panel("docs/json/command_arrows_to_option_arrows.json") %>
-      <%= file_import_panel("docs/json/delete.json") %>
-      <%= file_import_panel("docs/json/nonbreaking_space.json") %>
-      <%= file_import_panel("docs/json/change_command_l.json") %>
-      <%= file_import_panel("docs/json/change_command_r.json") %>
-      <%= file_import_panel("docs/json/launch_apps.json") %>
-      <%= file_import_panel("docs/json/launch_new_Chrome_or_iTerm2_windows.json") %>
-      <%= file_import_panel("docs/json/block_one_handed_combos.json") %>
-      <%= file_import_panel("docs/json/numeric_keypad.json") %>
-      <%= file_import_panel("docs/json/hhkb_mode.json") %>
-      <%= file_import_panel("docs/json/application_window_tab_switch_with_right_cmd_hjklsemiquote.json") %>
-      <%= file_import_panel("docs/json/remote-desktop.json") %>
-      <%= file_import_panel("docs/json/tmux_prefix.json") %>
-      <%= file_import_panel("docs/json/swap_alt_cmd_in_autodesk_maya.json") %>
-      <%= file_import_panel("docs/json/pok3r-media.json") %>
-      <%= file_import_panel("docs/json/pc_shortcuts.json") %>
-      <%= file_import_panel("docs/json/fn_plus_numbers_to_function_keys.json") %>
+      <div class="text-left" style="margin-bottom: 30px">
+        <a href="javascript:$('.collapse').collapse('show')">Expand All</a> |
+        <a href="javascript:$('.collapse').collapse('hide')">Collapse All</a>
+      </div>
 
-      <!-- Full keyboard layouts -->
-      <%= file_import_panel("docs/json/dvorak_layout.json") %>
-      <%= file_import_panel("docs/json/colemak_layout.json") %>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Modifier Keys</h3>
+        </div>
+        <div class="panel-body">
+          <%= file_import_panel("docs/json/caps_and_return_to_ctrl.json") %>
+          <%= file_import_panel("docs/json/caps_lock.json") %>
+          <%= file_import_panel("docs/json/control.json") %>
+          <%= file_import_panel("docs/json/shift.json") %>
+          <%= file_import_panel("docs/json/modifiers_to_f-keys.json") %>
+          <%= file_import_panel("docs/json/delete.json") %>
+          <%= file_import_panel("docs/json/change_command_l.json") %>
+          <%= file_import_panel("docs/json/change_command_r.json") %>
+          <%= file_import_panel("docs/json/ctrl_command_fn_letter_specials.json") %>
+        </div>
+      </div>
 
-      <!-- For specific languages -->
-      <%= file_import_panel("docs/json/japanese.json") %>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Emulation Modes</h3>
+        </div>
+        <div class="panel-body">
+          <%= file_import_panel("docs/json/diamond_cursor.json") %>
+          <%= file_import_panel("docs/json/vi_mode.json") %>
+          <%= file_import_panel("docs/json/emacs_key_bindings.json") %>
+          <%= file_import_panel("docs/json/numeric_keypad.json") %>
+          <%= file_import_panel("docs/json/hhkb_mode.json") %>
+          <%= file_import_panel("docs/json/fn_plus_numbers_to_function_keys.json") %>
+          <%= file_import_panel("docs/json/pok3r-media.json") %>
+          <%= file_import_panel("docs/json/pc_shortcuts.json") %>
+        </div>
+      </div>
 
-      <!-- Personal files -->
-      <%= file_import_panel("docs/json/personal_tekezo.json") %>
-      <%= file_import_panel("docs/json/personal_apm1467.json") %>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Application Specific</h3>
+        </div>
+        <div class="panel-body">
+          <%= file_import_panel("docs/json/swap_alt_cmd_in_autodesk_maya.json") %>
+          <%= file_import_panel("docs/json/remote-desktop.json") %>
+          <%= file_import_panel("docs/json/tmux_prefix.json") %>
+          <%= file_import_panel("docs/json/launch_new_Chrome_or_iTerm2_windows.json") %>
+        </div>
+      </div>
+
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Alternative Keyboard Layouts</h3>
+        </div>
+        <div class="panel-body">
+          <%= file_import_panel("docs/json/dvorak_layout.json") %>
+          <%= file_import_panel("docs/json/colemak_layout.json") %>
+        </div>
+      </div>
+
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">International (Language Specific)</h3>
+        </div>
+        <div class="panel-body">
+          <%= file_import_panel("docs/json/japanese.json") %>
+        </div>
+      </div>
+
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Key Specific</h3>
+        </div>
+        <div class="panel-body">
+          <%= file_import_panel("docs/json/exchange_numbers_and_symbols.json") %>
+          <%= file_import_panel("docs/json/exchange_semicolon_and_colon.json") %>
+          <%= file_import_panel("docs/json/nonbreaking_space.json") %>
+          <%= file_import_panel("docs/json/spacebar.json") %>
+          <%= file_import_panel("docs/json/command_arrows_to_option_arrows.json") %>
+        </div>
+      </div>
+
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">OS Functionality</h3>
+        </div>
+        <div class="panel-body">
+          <%= file_import_panel("docs/json/launch_apps.json") %>
+          <%= file_import_panel("docs/json/application_window_tab_switch_with_right_cmd_hjklsemiquote.json") %>
+        </div>
+      </div>
+
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Personal Settings</h3>
+        </div>
+        <div class="panel-body">
+          <%= file_import_panel("docs/json/personal_tekezo.json") %>
+          <%= file_import_panel("docs/json/personal_apm1467.json") %>
+        </div>
+      </div>
+
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Miscellaneous</h3>
+        </div>
+        <div class="panel-body">
+          <%= file_import_panel("docs/json/block_one_handed_combos.json") %>
+        </div>
+      </div>
+
+
 
       <hr />
       <a href="example.html">Other examples</a>
