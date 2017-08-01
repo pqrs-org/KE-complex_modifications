@@ -77,11 +77,11 @@ def each_key(source_keys_list: :source_keys_list, dest_keys_list: :dest_keys_lis
     data << d
   end
 
-  data
-end
-
-def each_key(source_keys_list, dest_keys_list, from_mandatory_modifiers, from_optional_modifiers, to_pre_events, to_modifiers, to_post_events, conditions)
-  JSON.generate(_each_key(source_keys_list, dest_keys_list, from_mandatory_modifiers, from_optional_modifiers, to_pre_events, to_modifiers, to_post_events, conditions))
+  if as_json
+    JSON.generate(data)
+  else
+    data
+  end
 end
 
 def frontmost_application(type, app_aliases)
