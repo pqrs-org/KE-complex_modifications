@@ -68,9 +68,11 @@ def each_key(source_keys_list: :source_keys_list, dest_keys_list: :dest_keys_lis
     end
     d['to'] = JSON.parse(to(events))
 
-    d['conditions'] = []
-    conditions.each do |c|
-      d['conditions'] << c
+    if conditions.any?
+      d['conditions'] = []
+      conditions.each do |c|
+        d['conditions'] << c
+      end
     end
     data << d
   end
