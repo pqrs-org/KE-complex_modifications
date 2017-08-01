@@ -43,5 +43,35 @@ def file_import_panel(json_file_path)
   EOS
 end
 
+def add_group(title,id,json_files)
+
+  $toc << "<li class=\"list-group-item\"><span class=\"badge\">#{json_files.length}</span><a href=\"##{id}\">#{title}</a></li>"
+
+  group_content = ""
+  json_files.each do |json|
+    group_content += file_import_panel(json)
+  end
+  $groups += <<-EOS
+      <div class="panel panel-primary" id="#{id}">
+        <div class="panel-heading">
+          <h3 class="panel-title">#{title}</h3>
+        </div>
+        <div class="panel-body">
+          #{group_content}
+        </div>
+      </div>
+  EOS
+end
+
+def render_toc()
+  toc_content = "<ul class=\"toc list-group\">"
+  toc_content += "<li class=\"list-group-item list-group-item-info\">Table of Contents</li>"
+  $toc.each do |toc_item|
+    toc_content += toc_item
+  end
+  toc_content += "</ul>"
+  toc_content
+end
+
 template = ERB.new $stdin.read
 puts template.result
