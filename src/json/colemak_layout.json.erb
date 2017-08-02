@@ -13,45 +13,28 @@
 			"a","r","s","t","d","h","n","e","i","o","quote",
 			"z","x","c","v","b","k","m","comma","period","slash"
         ]
-        manipulators = _each_key(
-            remap_source_keys, 	# source_keys_list
-            remap_dest_keys,	# dest_keyslist
-            [],                 # from_mandatory_modifiers
-            optional_modifiers, # from_optional_modifiers
-            [],                 # to_pre_events
-            [],                 # to_modifiers
-            [],                 # to_post_events
-            []                  # conditions
+        manipulators = each_key(
+            source_keys_list: remap_source_keys,
+            dest_keys_list: remap_dest_keys,
+            from_optional_modifiers: optional_modifiers
         )
-        manipulators += _each_key(
-            remap_source_keys, 	# source_keys_list
-            remap_dest_keys,	# dest_keyslist
-            ["left_shift"],     # from_mandatory_modifiers
-            optional_modifiers, # from_optional_modifiers
-            [],                 # to_pre_events
-            ["left_shift"],     # to_modifiers
-            [],                 # to_post_events
-            []                  # conditions
+        manipulators += each_key(
+            source_keys_list: remap_source_keys,
+            dest_keys_list: remap_dest_keys,
+            from_mandatory_modifiers: ["left_shift"],
+            from_optional_modifiers: optional_modifiers,
+            to_modifiers: ["left_shift"]
         )
-        manipulators += _each_key(
-            remap_source_keys, 	# source_keys_list
-            remap_dest_keys,	# dest_keyslist
-            ["right_shift"],    # from_mandatory_modifiers
-            optional_modifiers, # from_optional_modifiers
-            [],                 # to_pre_events
-            ["right_shift"],    # to_modifiers
-            [],                 # to_post_events
-            []                  # conditions
+        manipulators += each_key(
+            source_keys_list: remap_source_keys,
+            dest_keys_list: remap_dest_keys,
+            from_mandatory_modifiers: ["right_shift"],
+            from_optional_modifiers: optional_modifiers,
+            to_modifiers: ["right_shift"]
         )
-        manipulators += _each_key(
-            ["caps_lock"], 	    # source_keys_list
-            ["delete_or_backspace"],	    # dest_keyslist
-            [],                 # from_mandatory_modifiers
-            [],                 # from_optional_modifiers
-            [],                 # to_pre_events
-            [],                 # to_modifiers
-            [],                 # to_post_events
-            []                  # conditions
+        manipulators += each_key(
+            source_keys_list: ["caps_lock"],
+            dest_keys_list: ["delete_or_backspace"]
         )
     %>
     "title": "Colemak Keyboard",
