@@ -1,0 +1,30 @@
+{
+    "title": "Vi Style Arrows",
+    "rules": [
+        {
+            "description": "Change Control+h/j/k/l to Arrows",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("h", ['left_control'], []) %>,
+                    "to": <%= to([["left_arrow"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("j", ['left_control'], []) %>,
+                    "to": <%= to([["down_arrow"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("k", ['left_control'], []) %>,
+                    "to": <%= to([["up_arrow"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("l", ['left_control'], []) %>,
+                    "to": <%= to([["right_arrow"]]) %>
+                }
+            ]
+        }
+    ]
+}
