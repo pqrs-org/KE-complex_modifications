@@ -80,48 +80,45 @@
             "description": "Tmux Prefix Mode [ ctrl+B as prefix ]",
             "manipulators":
             <%= each_key(
-                default_tmux_keys, 	# source_keys_list
-                default_tmux_keys,	# dest_keyslist
-                [],                 # from_mandatory_modifiers
-                ["caps_lock"],      # from_optional_modifiers
-                [                   # to_pre_events
+                source_keys_list: default_tmux_keys,
+                dest_keys_list: default_tmux_keys,
+                from_mandatory_modifiers: [],
+                from_optional_modifiers: ["caps_lock"],
+                to_pre_events: [
                     ["b", ["left_control"]],
                 ],
-                [],                 # to_modifiers
-                [],                 # to_post_events
-                [{"type"=>"variable_if","name"=>"tmux_prefix_mode","value"=>1}]                  # conditions
+                conditions: [{"type"=>"variable_if","name"=>"tmux_prefix_mode","value"=>1}],
+                as_json: true
             ) %>
         },
         {
             "description": "Tmux Prefix Mode [ ctrl+A as prefix ]",
             "manipulators":
             <%= each_key(
-                default_tmux_keys, 	# source_keys_list
-                default_tmux_keys,	# dest_keyslist
-                [],                 # from_mandatory_modifiers
-                ["caps_lock"],      # from_optional_modifiers
-                [                   # to_pre_events
+                source_keys_list: default_tmux_keys,
+                dest_keys_list: default_tmux_keys,
+                from_mandatory_modifiers: [],
+                from_optional_modifiers: ["caps_lock"],
+                to_pre_events: [
                     ["a", ["left_control"]],
                 ],
-                [],                 # to_modifiers
-                [],                 # to_post_events
-                [{"type"=>"variable_if","name"=>"tmux_prefix_mode","value"=>1}]                  # conditions
+                conditions: [{"type"=>"variable_if","name"=>"tmux_prefix_mode","value"=>1}],
+                as_json: true
             ) %>
         },
         {
             "description": "Tmux Prefix Mode [ ctrl+Space as prefix ]",
             "manipulators":
             <%= each_key(
-                default_tmux_keys, 	# source_keys_list
-                default_tmux_keys,	# dest_keyslist
-                [],                 # from_mandatory_modifiers
-                ["caps_lock"],      # from_optional_modifiers
-                [                   # to_pre_events
+                source_keys_list: default_tmux_keys,
+                dest_keys_list: default_tmux_keys,
+                from_mandatory_modifiers: [],
+                from_optional_modifiers: ["caps_lock"],
+                to_pre_events: [
                     ["spacebar", ["left_control"]],
                 ],
-                [],                 # to_modifiers
-                [],                 # to_post_events
-                [{"type"=>"variable_if","name"=>"tmux_prefix_mode","value"=>1}]                  # conditions
+                conditions: [{"type"=>"variable_if","name"=>"tmux_prefix_mode","value"=>1}],
+                as_json: true
             ) %>
         }
     ]

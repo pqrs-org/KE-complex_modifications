@@ -45,7 +45,7 @@ def to(events)
 end
 
 
-def _each_key(source_keys_list, dest_keys_list, from_mandatory_modifiers, from_optional_modifiers, to_pre_events, to_modifiers, to_post_events, conditions)
+def each_key(source_keys_list: :source_keys_list, dest_keys_list: :dest_keys_list, from_mandatory_modifiers: [], from_optional_modifiers: [], to_pre_events: [], to_modifiers: [], to_post_events: [], conditions: [], as_json: false)
   data = []
   source_keys_list.each_with_index do |from_key,index|
     to_key = dest_keys_list[index]
@@ -68,18 +68,20 @@ def _each_key(source_keys_list, dest_keys_list, from_mandatory_modifiers, from_o
     end
     d['to'] = JSON.parse(to(events))
 
-    d['conditions'] = []
-    conditions.each do |c|
-      d['conditions'] << c
+    if conditions.any?
+      d['conditions'] = []
+      conditions.each do |c|
+        d['conditions'] << c
+      end
     end
     data << d
   end
 
-  data
-end
-
-def each_key(source_keys_list, dest_keys_list, from_mandatory_modifiers, from_optional_modifiers, to_pre_events, to_modifiers, to_post_events, conditions)
-  JSON.generate(_each_key(source_keys_list, dest_keys_list, from_mandatory_modifiers, from_optional_modifiers, to_pre_events, to_modifiers, to_post_events, conditions))
+  if as_json
+    JSON.generate(data)
+  else
+    data
+  end
 end
 
 def frontmost_application(type, app_aliases)

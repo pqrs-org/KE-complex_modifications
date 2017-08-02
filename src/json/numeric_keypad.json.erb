@@ -15,15 +15,10 @@
             "keypad_1","keypad_2","keypad_3","keypad_enter",
             "keypad_0","keypad_period"
         ]
-        manipulators = _each_key(
-            remap_source_keys, 	# source_keys_list
-            remap_dest_keys,	# dest_keyslist
-            [],                 # from_mandatory_modifiers
-            [], 				# from_optional_modifiers
-            [],                 # to_pre_events
-            [],                 # to_modifiers
-            [],                 # to_post_events
-            [{ "type"=>"variable_if", "name"=>"numeric_keypad_mode", "value"=>1 }]    # conditions
+        manipulators = each_key(
+            source_keys_list: remap_source_keys,
+            dest_keys_list: remap_dest_keys,
+            conditions: [{ "type"=>"variable_if", "name"=>"numeric_keypad_mode", "value"=>1 }]
         )
         manipulators_str = ""
         manipulators.each do |m|
