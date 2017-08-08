@@ -1,5 +1,5 @@
 {
-  "title": "Happy Hacking Keyboard Compatible Mode (rev 1)",
+  "title": "Happy Hacking Keyboard Compatible Mode (rev 1.1)",
   "rules": [
     {
       "description": "HHKB Arrow Mode (fn + semicolon/slash/open_bracket/quote to arrow keys, etc)",
@@ -15,7 +15,8 @@
               "optional": [
                 "caps_lock",
                 "option",
-                "command"
+                "command",
+                "shift"
               ]
             }
           },
@@ -36,7 +37,8 @@
               "optional": [
                 "caps_lock",
                 "option",
-                "command"
+                "command",
+                "shift"
               ]
             }
           },
@@ -57,7 +59,8 @@
               "optional": [
                 "caps_lock",
                 "option",
-                "command"
+                "command",
+                "shift"
               ]
             }
           },
@@ -78,7 +81,8 @@
               "optional": [
                 "caps_lock",
                 "option",
-                "command"
+                "command",
+                "shift"
               ]
             }
           },
@@ -244,6 +248,59 @@
           "to": [
             {
               "key_code": "eject"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Map fn + i, o, p  to F13, F14, F15.",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f13"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f14"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "p",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f15"
             }
           ]
         }
