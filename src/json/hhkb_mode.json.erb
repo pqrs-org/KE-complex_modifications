@@ -1,3 +1,17 @@
+<%
+    remap_source_keys = [
+        'i', 'o', 'p'
+    ];
+    remap_dest_keys = [
+        'f13', 'f14', 'f15'
+    ];
+    manipulators = each_key(
+        source_keys_list: remap_source_keys,
+        dest_keys_list: remap_dest_keys,
+        from_mandatory_modifiers: ["fn"],
+        as_json: true
+    );
+%>
 {
     "title": "Happy Hacking Keyboard Compatible Mode (rev 1.1)",
     "rules": [
@@ -74,6 +88,10 @@
                     "to": <%= to([["eject"]]) %>
                 }
             ]
+        },
+        {
+            "description": "Map fn + i, o, p  to F13, F14, F15.",
+            "manipulators": <%= manipulators %>
         }
     ]
 }
