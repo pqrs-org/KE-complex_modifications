@@ -186,7 +186,7 @@
       ]
     },
     {
-      "description": "Virtual machine configuration",
+      "description": "Configurations for apps",
       "manipulators": [
         {
           "type": "basic",
@@ -443,12 +443,7 @@
               ]
             }
           ]
-        }
-      ]
-    },
-    {
-      "description": "Terminal configuration",
-      "manipulators": [
+        },
         {
           "type": "basic",
           "from": {
@@ -520,6 +515,36 @@
                 "^com\\.googlecode\\.iterm2$",
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "mandatory": [
+                "command",
+                "shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^org\\.mozilla\\.firefox$",
+                "^com\\.google\\.Chrome$",
+                "^com\\.apple\\.Safari$"
               ]
             }
           ]
