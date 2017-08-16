@@ -2,6 +2,46 @@
     "title": "PC-Style Shortcuts",
     "rules": [
         {
+            "description": "Home key to the beginning of the line (Control + a)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("home", [], ["any"]) %>,
+                    "to": <%= to([["a", ["left_control"]]]) %>
+                }
+            ]
+        },
+        {
+            "description": "End key to the end of the line (Control + e)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("end", [], ["any"]) %>,
+                    "to": <%= to([["e", ["left_control"]]]) %>
+                }
+            ]
+        },
+        {
+            "description": "Home key to the beginning of the sentence (Command + Left). Doesnt work in terminal",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("home", [], ["any"]) %>,
+                    "to": <%= to([["left_arrow", ["left_command"]]]) %>
+                }
+            ]
+        },
+        {
+            "description": "End key to the end of the sentence (Command + Right). Doesnt work in terminal",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("end", [], ["any"]) %>,
+                    "to": <%= to([["right_arrow", ["left_command"]]]) %>
+                }
+            ]
+        },
+        {
             "description": "Option(Alt)+Tab as Switch Application (Command+Tab)",
             "manipulators": [
                 {
