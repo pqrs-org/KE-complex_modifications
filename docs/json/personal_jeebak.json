@@ -1,0 +1,1527 @@
+{
+  "title": "Personal rules (@jeebak)",
+  "rules": [
+    {
+      "description": "TouchCursor Extended Mode [Space as Trigger Key]",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "touchcursor_extended_mode",
+                "value": 1
+              }
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "spacebar"
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "touchcursor_extended_mode",
+                "value": 0
+              }
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "down_arrow"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "u",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "home"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "end"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "y",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "insert"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "m",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_forward"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "p",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_or_backspace"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "page_up"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "n",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "page_down"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_shift",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "spacebar",
+              "modifiers": [
+                "left_option"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "a",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "vk_none"
+            },
+            {
+              "key_code": "left_option"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "e",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "vk_none"
+            },
+            {
+              "key_code": "left_command"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "r",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "vk_none"
+            },
+            {
+              "key_code": "left_shift"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "tab",
+            "modifiers": {
+              "optional": [
+                "left_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "tab",
+              "modifiers": [
+                "left_option"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "optional": [
+                "left_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "tab",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "w",
+            "modifiers": {
+              "optional": [
+                "left_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "tab",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "b",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "t",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "s",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "spacebar"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "d",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "w",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "g",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "g",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "comma",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "t",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "period",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "t",
+              "modifiers": [
+                "left_command",
+                "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "z",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "z",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "x",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "x",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "c",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "c",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "v",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "v",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "1",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f1",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "2",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f2",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "3",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f3",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "4",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f4",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "5",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f5",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "6",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f6",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "7",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f7",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "8",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f8",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "9",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f9",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "0",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f10",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "hyphen",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f11",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "equal_sign",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f12",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "semicolon",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "semicolon",
+              "modifiers": [
+                "left_command",
+                "left_control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "quote",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "quote",
+              "modifiers": [
+                "left_command",
+                "left_control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "slash",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "slash",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "return_or_enter",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "spacebar"
+            },
+            {
+              "key_code": "return_or_enter"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "open_bracket",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "spacebar"
+            },
+            {
+              "key_code": "open_bracket"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "close_bracket",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "spacebar"
+            },
+            {
+              "key_code": "close_bracket"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "backslash",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "spacebar"
+            },
+            {
+              "key_code": "backslash"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "non_us_pound",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "spacebar"
+            },
+            {
+              "key_code": "non_us_pound"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "grave_accent_and_tilde",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "spacebar"
+            },
+            {
+              "key_code": "grave_accent_and_tilde"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "non_us_backslash",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "spacebar"
+            },
+            {
+              "key_code": "non_us_backslash"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Tab Modifier Mode [Tab as Trigger Key]",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "tab",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "tab_modifier",
+                "value": 1
+              }
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "tab"
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "tab_modifier",
+                "value": 0
+              }
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "tab_modifier",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "b",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "b",
+              "modifiers": [
+                "left_command",
+                "left_control",
+                "left_option",
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "tab_modifier",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "v",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "v",
+              "modifiers": [
+                "left_command",
+                "left_control",
+                "left_option",
+                "left_shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Home Row Modifiers",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "semicolon",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "vk_none"
+            },
+            {
+              "key_code": "left_command"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "semicolon"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "quote",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "vk_none"
+            },
+            {
+              "key_code": "left_option"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "quote"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

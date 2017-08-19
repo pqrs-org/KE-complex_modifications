@@ -1,0 +1,572 @@
+<%# ------------------------------------------------------------------------------%>
+<%# A much simplified copy of the vi_mode.json.erb file, for TouchCursor Extended %>
+<%# ------------------------------------------------------------------------------%>
+{
+    "title": "Personal rules (@jeebak)",
+    "rules": [
+        {
+            "description": "TouchCursor Extended Mode [Space as Trigger Key]",
+            "manipulators": [
+
+                <%# -------------------------------------------------- %>
+                <%# press spacebar to enter TouchCursor Mode, release to quit %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "from": <%= from("spacebar", [], ["caps_lock"]) %>,
+                    "to": [
+                        { "set_variable": { "name": "touchcursor_extended_mode", "value": 1 } }
+                    ],
+                    "to_if_alone": <%= to([["spacebar"]]) %>,
+                    "to_after_key_up": [
+                        { "set_variable": { "name": "touchcursor_extended_mode", "value": 0 } }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# change j/k/i/l to arrow keys %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "from": <%= from("j", [], ["any"]) %>,
+                    "to": <%= to([["left_arrow"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("k", [], ["any"]) %>,
+                    "to": <%= to([["down_arrow"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("i", [], ["any"]) %>,
+                    "to": <%= to([["up_arrow"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("l", [], ["any"]) %>,
+                    "to": <%= to([["right_arrow"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# change u/o to Home/End, y to Insert, and %>
+                <%# m/p to delete_forward/delete_or_backspace %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "from": <%= from("u", [], ["any"]) %>,
+                    "to": <%= to([["home"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("o", [], ["any"]) %>,
+                    "to": <%= to([["end"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("y", [], ["caps_lock"]) %>,
+                    "to": <%= to([["insert"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("m", [], ["any"]) %>,
+                    "to": <%= to([["delete_forward"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("p", [], ["any"]) %>,
+                    "to": <%= to([["delete_or_backspace"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# change h/n page_up/page_down %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "from": <%= from("h", [], ["any"]) %>,
+                    "to": <%= to([["page_up"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("n", [], ["any"]) %>,
+                    "to": <%= to([["page_down"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Space-left_shift to ⌥-spacebar (Alfred) %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "from": <%= from("left_shift", [], ["caps_lock"]) %>,
+                    "to": <%= to([["spacebar", ["left_option"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Space-{a,e,r} to {⌥-any,⌘-any,⇧-any} %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "from": <%= from("a", [], ["any"]) %>,
+                    "to": <%= to([["vk_none"], ["left_option"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("e", [], ["any"]) %>,
+                    "to": <%= to([["vk_none"], ["left_command"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("r", [], ["any"]) %>,
+                    "to": <%= to([["vk_none"], ["left_shift"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Space-{⇥,q,w} to {⌥-⇥,⌘-⇥,⌃-⇥} [shift modifier allowed] %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "from": <%= from("tab", [], ["left_shift"]) %>,
+                    "to": <%= to([["tab", ["left_option"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("q", [], ["left_shift"]) %>,
+                    "to": <%= to([["tab", ["left_command"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("w", [], ["left_shift"]) %>,
+                    "to": <%= to([["tab", ["left_control"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Space-{b,t,s} to {`,~,spacebar} %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "from": <%= from("b", [], ["caps_lock"]) %>,
+                    "to": <%= to([["grave_accent_and_tilde"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("t", [], ["caps_lock"]) %>,
+                    "to": <%= to([["grave_accent_and_tilde", ["left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("s", [], ["caps_lock"]) %>,
+                    "to": <%= to([["spacebar"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Space-{d,f,g,comma,period} to {⌘-w,⌘-f,⌘-g,⌘-t,⌘-⇧-t} %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "from": <%= from("d", [], ["caps_lock"]) %>,
+                    "to": <%= to([["w", ["left_command"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("f", [], ["caps_lock"]) %>,
+                    "to": <%= to([["f", ["left_command"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("g", [], ["caps_lock"]) %>,
+                    "to": <%= to([["g", ["left_command"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("comma", [], ["caps_lock"]) %>,
+                    "to": <%= to([["t", ["left_command"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("period", [], ["caps_lock"]) %>,
+                    "to": <%= to([["t", ["left_command", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Space-{z,x,c,v} to {⌘-z,⌘-x,⌘-c,⌘-v} %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "from": <%= from("z", [], ["caps_lock"]) %>,
+                    "to": <%= to([["z", ["left_command"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("x", [], ["caps_lock"]) %>,
+                    "to": <%= to([["x", ["left_command"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("c", [], ["caps_lock"]) %>,
+                    "to": <%= to([["c", ["left_command"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("v", [], ["caps_lock"]) %>,
+                    "to": <%= to([["v", ["left_command"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Space-{1-0,-,=} to {F1-F10,F11,F12} %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "from": <%= from("1", [], ["caps_lock"]) %>,
+                    "to": <%= to([["f1", ["fn"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("2", [], ["caps_lock"]) %>,
+                    "to": <%= to([["f2", ["fn"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("3", [], ["caps_lock"]) %>,
+                    "to": <%= to([["f3", ["fn"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("4", [], ["caps_lock"]) %>,
+                    "to": <%= to([["f4", ["fn"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("5", [], ["caps_lock"]) %>,
+                    "to": <%= to([["f5", ["fn"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("6", [], ["caps_lock"]) %>,
+                    "to": <%= to([["f6", ["fn"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("7", [], ["caps_lock"]) %>,
+                    "to": <%= to([["f7", ["fn"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("8", [], ["caps_lock"]) %>,
+                    "to": <%= to([["f8", ["fn"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("9", [], ["caps_lock"]) %>,
+                    "to": <%= to([["f9", ["fn"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("0", [], ["caps_lock"]) %>,
+                    "to": <%= to([["f10", ["fn"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("hyphen", [], ["caps_lock"]) %>,
+                    "to": <%= to([["f11", ["fn"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("equal_sign", [], ["caps_lock"]) %>,
+                    "to": <%= to([["f12", ["fn"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Misc Personalizations {;,',/} %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "from": <%= from("semicolon", [], ["caps_lock"]) %>,
+                    "to": <%= to([["semicolon", ["left_command", "left_control"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("quote", [], ["caps_lock"]) %>,
+                    "to": <%= to([["quote", ["left_command", "left_control"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("slash", [], ["caps_lock"]) %>,
+                    "to": <%= to([["slash", ["left_command"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# normalize return %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "from": <%= from("return_or_enter", [], ["caps_lock"]) %>,
+                    "to": <%= to([["spacebar"], ["return_or_enter"], ["vk_none"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# normalize punctuation marks %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "from": <%= from("open_bracket", [], ["caps_lock"]) %>,
+                    "to": <%= to([["spacebar"], ["open_bracket"], ["vk_none"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("close_bracket", [], ["caps_lock"]) %>,
+                    "to": <%= to([["spacebar"], ["close_bracket"], ["vk_none"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("backslash", [], ["caps_lock"]) %>,
+                    "to": <%= to([["spacebar"], ["backslash"], ["vk_none"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("non_us_pound", [], ["caps_lock"]) %>,
+                    "to": <%= to([["spacebar"], ["non_us_pound"], ["vk_none"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("grave_accent_and_tilde", [], ["caps_lock"]) %>,
+                    "to": <%= to([["spacebar"], ["grave_accent_and_tilde"], ["vk_none"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("non_us_backslash", [], ["caps_lock"]) %>,
+                    "to": <%= to([["spacebar"], ["non_us_backslash"], ["vk_none"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                }
+
+                <%# -------------------------------------------------- %>
+                <%# normalize remaining unbound letter keys %>
+                <%# -------------------------------------------------- %>
+            ]
+        },
+        {
+            "description": "Tab Modifier Mode [Tab as Trigger Key]",
+            "manipulators": [
+
+                <%# -------------------------------------------------- %>
+                <%# press ⇥ to enter Tab Modifier Mode, release to quit %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "from": <%= from("tab", [], ["caps_lock"]) %>,
+                    "to": [
+                        { "set_variable": { "name": "tab_modifier", "value": 1 } }
+                    ],
+                    "to_if_alone": <%= to([["tab"]]) %>,
+                    "to_after_key_up": [
+                        { "set_variable": { "name": "tab_modifier", "value": 0 } }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Hyper-b %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("b", [], ["caps_lock"]) %>,
+                    "to": <%= to([["b", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Hyper-v %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("v", [], ["caps_lock"]) %>,
+                    "to": <%= to([["v", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Home Row Modifiers",
+            "manipulators": [
+
+                <%# -------------------------------------------------- %>
+                <%# Right Hand Pinky ⌘ and ⌥<; Tap for ;, hold for ⌘. Tap for ', hold for ⌥ %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "from": <%= from("semicolon", [], ["any"]) %>,
+                    "to": <%= to([["vk_none"], ["left_command"]]) %>,
+                    "to_if_alone": <%= to([["semicolon"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("quote", [], ["any"]) %>,
+                    "to": <%= to([["vk_none"], ["left_option"]]) %>,
+                    "to_if_alone": <%= to([["quote"]]) %>
+                }
+            ]
+        }
+    ]
+}
