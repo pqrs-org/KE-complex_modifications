@@ -337,7 +337,7 @@
                 },
 
                 <%# -------------------------------------------------- %>
-                <%# normalize letter keys (except for h, i, j, k, l, m, n, o, p, u) %>
+                <%# normalize letter keys (except for h, i, j, k, l, m, n, o, p, u, y) %>
                 <%# -------------------------------------------------- %>
                 {
                     "type": "basic",
@@ -447,14 +447,6 @@
                     "type": "basic",
                     "from": <%= from("x", [], ["caps_lock"]) %>,
                     "to": <%= to([["spacebar"], ["x"], ["vk_none"]]) %>,
-                    "conditions": [
-                        { "type": "variable_if", "name": "touchcursor_mode", "value": 1 }
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("y", [], ["caps_lock"]) %>,
-                    "to": <%= to([["spacebar"], ["y"], ["vk_none"]]) %>,
                     "conditions": [
                         { "type": "variable_if", "name": "touchcursor_mode", "value": 1 }
                     ]
