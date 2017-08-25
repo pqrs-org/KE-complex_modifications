@@ -24,7 +24,7 @@
 
       
 
-      <ul class="toc list-group"><li class="list-group-item list-group-item-info">Table of Contents</li><li class="list-group-item"><span class="badge">11</span><a href="#modifier_keys">Modifier Keys</a></li><li class="list-group-item"><span class="badge">12</span><a href="#emulation_modes">Emulation Modes</a></li><li class="list-group-item"><span class="badge">4</span><a href="#application_specific">Application Specific</a></li><li class="list-group-item"><span class="badge">4</span><a href="#alternative_keyboard_layouts">Alternative Keyboard Layouts</a></li><li class="list-group-item"><span class="badge">1</span><a href="#International">International (Language Specific)</a></li><li class="list-group-item"><span class="badge">5</span><a href="#key_specific">Key Specific</a></li><li class="list-group-item"><span class="badge">2</span><a href="#os_functionality">OS Functionality</a></li><li class="list-group-item"><span class="badge">3</span><a href="#personal_settings">Personal Settings</a></li><li class="list-group-item"><span class="badge">3</span><a href="#miscellaneous">Miscellaneous</a></li></ul>
+      <ul class="toc list-group"><li class="list-group-item list-group-item-info">Table of Contents</li><li class="list-group-item"><span class="badge">12</span><a href="#modifier_keys">Modifier Keys</a></li><li class="list-group-item"><span class="badge">13</span><a href="#emulation_modes">Emulation Modes</a></li><li class="list-group-item"><span class="badge">4</span><a href="#application_specific">Application Specific</a></li><li class="list-group-item"><span class="badge">4</span><a href="#alternative_keyboard_layouts">Alternative Keyboard Layouts</a></li><li class="list-group-item"><span class="badge">2</span><a href="#International">International (Language Specific)</a></li><li class="list-group-item"><span class="badge">5</span><a href="#key_specific">Key Specific</a></li><li class="list-group-item"><span class="badge">2</span><a href="#os_functionality">OS Functionality</a></li><li class="list-group-item"><span class="badge">3</span><a href="#personal_settings">Personal Settings</a></li><li class="list-group-item"><span class="badge">3</span><a href="#miscellaneous">Miscellaneous</a></li></ul>
       <div class="text-left" style="margin-bottom: 30px">
         <a href="javascript:$('.collapse').collapse('show')">Expand All</a> |
         <a href="javascript:$('.collapse').collapse('hide')">Collapse All</a>
@@ -87,6 +87,15 @@
       </div>
       <div class="list-group collapse" id="change_shift_l">
           <div class="list-group-item">Change Shift_Left + Shift_Right to Caps_Lock only if pressed at the same time</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#shift_right_to_capslock" aria-expanded="false" aria-controls="shift_right_to_capslock">Change right_shift key to caps_lock</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/shift_right_to_capslock.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="shift_right_to_capslock">
+          <div class="list-group-item">Change right_shift to caps_lock if alone.</div>
       </div>
     </div>
     <div class="panel panel-default">
@@ -550,6 +559,15 @@
       </div>
       <div class="list-group collapse" id="japanese">
           <div class="list-group-item">コマンドキーを単体で押したときに、英数・かなキーを送信する。（左コマンドキーは英数、右コマンドキーはかな）</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#jis_to_ascii" aria-expanded="false" aria-controls="jis_to_ascii">For Japanese （JIS配列をASCII配列風にする設定）</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/jis_to_ascii.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="jis_to_ascii">
+          <div class="list-group-item">英数・かなキーを他のキーと組み合わせて押したときに、コマンドキーを送信する。</div><div class="list-group-item">コマンドキーをオプションキーに置き換える。</div><div class="list-group-item">バッククオートとチルダを割り当てる。</div>
       </div>
     </div>
 
