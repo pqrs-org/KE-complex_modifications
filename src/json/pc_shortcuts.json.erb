@@ -131,6 +131,19 @@
             ]
         },
         {
+            "description": "PC-Style Redo",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("y", ["left_control"], ["any"]) %>,
+                    "to": <%= to([["z", ["left_command", "left_shift"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                    ]
+                }
+            ]
+        },
+        {
             "description": "PC-Style Select-All",
             "manipulators": [
                 {
