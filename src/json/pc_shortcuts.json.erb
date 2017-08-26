@@ -57,7 +57,7 @@
                 {
                     "type": "basic",
                     "from": <%= from("left_arrow", ["left_control"], ["any"]) %>,
-                    "to": <%= to([["left_arrow", ["left_command"]]]) %>,
+                    "to": <%= to([["left_arrow", ["left_option"]]]) %>,
                     "conditions": [
                         <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
                     ]
@@ -65,7 +65,7 @@
                 {
                     "type": "basic",
                     "from": <%= from("right_arrow", ["left_control"], ["any"]) %>,
-                    "to": <%= to([["right_arrow", ["left_command"]]]) %>,
+                    "to": <%= to([["right_arrow", ["left_option"]]]) %>,
                     "conditions": [
                         <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
                     ]
