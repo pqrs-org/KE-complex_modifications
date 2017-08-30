@@ -46,7 +46,7 @@
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("tab", ["left_option"], ["any"]) %>,
+                    "from": <%= from("tab", ["option"], ["any"]) %>,
                     "to": <%= to([["tab", ["left_command"]]]) %>
                 }
             ]
@@ -56,7 +56,7 @@
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("left_arrow", ["left_control"], ["any"]) %>,
+                    "from": <%= from("left_arrow", ["control"], ["any"]) %>,
                     "to": <%= to([["left_arrow", ["left_option"]]]) %>,
                     "conditions": [
                         <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
@@ -64,7 +64,7 @@
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("right_arrow", ["left_control"], ["any"]) %>,
+                    "from": <%= from("right_arrow", ["control"], ["any"]) %>,
                     "to": <%= to([["right_arrow", ["left_option"]]]) %>,
                     "conditions": [
                         <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
@@ -72,7 +72,7 @@
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("up_arrow", ["left_control"], ["any"]) %>,
+                    "from": <%= from("up_arrow", ["control"], ["any"]) %>,
                     "to": <%= to([["up_arrow", ["left_command"]]]) %>,
                     "conditions": [
                         <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
@@ -80,7 +80,7 @@
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("down_arrow", ["left_control"], ["any"]) %>,
+                    "from": <%= from("down_arrow", ["control"], ["any"]) %>,
                     "to": <%= to([["down_arrow", ["left_command"]]]) %>,
                     "conditions": [
                         <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
@@ -93,7 +93,7 @@
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("c", ["left_control"], ["any"]) %>,
+                    "from": <%= from("c", ["control"], ["any"]) %>,
                     "to": <%= to([["c", ["left_command"]]]) %>,
                     "conditions": [
                         <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
@@ -101,7 +101,7 @@
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("v", ["left_control"], ["any"]) %>,
+                    "from": <%= from("v", ["control"], ["any"]) %>,
                     "to": <%= to([["v", ["left_command"]]]) %>,
                     "conditions": [
                         <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
@@ -109,7 +109,7 @@
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("x", ["left_control"], ["any"]) %>,
+                    "from": <%= from("x", ["control"], ["any"]) %>,
                     "to": <%= to([["x", ["left_command"]]]) %>,
                     "conditions": [
                         <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
@@ -122,7 +122,7 @@
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("z", ["left_control"], ["any"]) %>,
+                    "from": <%= from("z", ["control"], ["any"]) %>,
                     "to": <%= to([["z", ["left_command"]]]) %>,
                     "conditions": [
                         <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
@@ -135,7 +135,7 @@
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("y", ["left_control"], ["any"]) %>,
+                    "from": <%= from("y", ["control"], ["any"]) %>,
                     "to": <%= to([["z", ["left_command", "left_shift"]]]) %>,
                     "conditions": [
                         <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
@@ -148,7 +148,7 @@
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("a", ["left_control"], ["any"]) %>,
+                    "from": <%= from("a", ["control"], ["any"]) %>,
                     "to": <%= to([["a", ["left_command"]]]) %>,
                     "conditions": [
                         <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
@@ -161,7 +161,7 @@
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("s", ["left_control"], ["any"]) %>,
+                    "from": <%= from("s", ["control"], ["any"]) %>,
                     "to": <%= to([["s", ["left_command"]]]) %>,
                     "conditions": [
                         <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
@@ -174,7 +174,7 @@
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("n", ["left_control"], ["any"]) %>,
+                    "from": <%= from("n", ["control"], ["any"]) %>,
                     "to": <%= to([["n", ["left_command"]]]) %>,
                     "conditions": [
                         <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
@@ -187,7 +187,7 @@
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("r", ["left_control"], ["any"]) %>,
+                    "from": <%= from("r", ["control"], ["any"]) %>,
                     "to": <%= to([["r", ["left_command"]]]) %>,
                     "conditions": [
                         <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
@@ -208,7 +208,7 @@
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("t", ["left_control"], ["any"]) %>,
+                    "from": <%= from("t", ["control"], ["any"]) %>,
                     "to": <%= to([["t", ["left_command"]]]) %>,
                     "conditions": [
                         <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
@@ -221,7 +221,7 @@
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("f", ["left_control"], ["any"]) %>,
+                    "from": <%= from("f", ["control"], ["any"]) %>,
                     "to": <%= to([["f", ["left_command"]]]) %>,
                     "conditions": [
                         <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
@@ -229,7 +229,7 @@
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("g", ["left_control"], ["any"]) %>,
+                    "from": <%= from("g", ["control"], ["any"]) %>,
                     "to": <%= to([["g", ["left_command"]]]) %>,
                     "conditions": [
                         <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
@@ -242,7 +242,7 @@
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("o", ["left_control"], ["any"]) %>,
+                    "from": <%= from("o", ["control"], ["any"]) %>,
                     "to": <%= to([["o", ["left_command"]]]) %>,
                     "conditions": [
                         <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
@@ -255,7 +255,7 @@
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("b", ["left_control"], ["any"]) %>,
+                    "from": <%= from("b", ["control"], ["any"]) %>,
                     "to": <%= to([["b", ["left_command"]]]) %>,
                     "conditions": [
                         <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
@@ -263,7 +263,7 @@
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("i", ["left_control"], ["any"]) %>,
+                    "from": <%= from("i", ["control"], ["any"]) %>,
                     "to": <%= to([["i", ["left_command"]]]) %>,
                     "conditions": [
                         <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
@@ -271,7 +271,7 @@
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("u", ["left_control"], ["any"]) %>,
+                    "from": <%= from("u", ["control"], ["any"]) %>,
                     "to": <%= to([["u", ["left_command"]]]) %>,
                     "conditions": [
                         <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
@@ -284,7 +284,7 @@
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("w", ["left_control"], ["any"]) %>,
+                    "from": <%= from("w", ["control"], ["any"]) %>,
                     "to": <%= to([["w", ["left_command"]]]) %>,
                     "conditions": [
                         <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
@@ -297,7 +297,7 @@
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("l", ["left_command"], ["any"]) %>,
+                    "from": <%= from("l", ["command"], ["any"]) %>,
                     "to": <%= to([["power", ["left_control", "left_shift"]]]) %>,
                     "conditions": [
                         <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
@@ -310,7 +310,7 @@
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("print_screen", ["left_shift"], ["any"]) %>,
+                    "from": <%= from("print_screen", ["shift"], ["any"]) %>,
                     "to": <%= to([["4", ["left_command", "left_shift"]]]) %>,
                     "conditions": [
                         <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
@@ -331,7 +331,7 @@
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("f4", ["left_option"], []) %>,
+                    "from": <%= from("f4", ["option"], []) %>,
                     "to": <%= to([["q", ["left_command"]]]) %>
                 }
             ]
@@ -341,7 +341,7 @@
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("escape", ["left_control", "left_shift"], []) %>,
+                    "from": <%= from("escape", ["control", "shift"], []) %>,
                     "to": [
                         { "shell_command": "open -a 'Activity Monitor.app'" }
                     ]
@@ -353,7 +353,7 @@
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("hyphen", ["left_control"], ["any"]) %>,
+                    "from": <%= from("hyphen", ["control"], ["any"]) %>,
                     "to": <%= to([["hyphen", ["left_command"]]]) %>,
                     "conditions": [
                         <%= frontmost_application_if(["browser"]) %>
@@ -361,7 +361,7 @@
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("keypad_hyphen", ["left_control"], ["any"]) %>,
+                    "from": <%= from("keypad_hyphen", ["control"], ["any"]) %>,
                     "to": <%= to([["keypad_hyphen", ["left_command"]]]) %>,
                     "conditions": [
                         <%= frontmost_application_if(["browser"]) %>
@@ -369,7 +369,7 @@
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("equal_sign", ["left_control"], ["any"]) %>,
+                    "from": <%= from("equal_sign", ["control"], ["any"]) %>,
                     "to": <%= to([["equal_sign", ["left_command"]]]) %>,
                     "conditions": [
                         <%= frontmost_application_if(["browser"]) %>
@@ -377,7 +377,7 @@
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("keypad_plus", ["left_control"], ["any"]) %>,
+                    "from": <%= from("keypad_plus", ["control"], ["any"]) %>,
                     "to": <%= to([["keypad_plus", ["left_command"]]]) %>,
                     "conditions": [
                         <%= frontmost_application_if(["browser"]) %>
@@ -385,7 +385,7 @@
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("0", ["left_control"], ["any"]) %>,
+                    "from": <%= from("0", ["control"], ["any"]) %>,
                     "to": <%= to([["0", ["left_command"]]]) %>,
                     "conditions": [
                         <%= frontmost_application_if(["browser"]) %>
@@ -393,7 +393,7 @@
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("keypad_0", ["left_control"], ["any"]) %>,
+                    "from": <%= from("keypad_0", ["control"], ["any"]) %>,
                     "to": <%= to([["keypad_0", ["left_command"]]]) %>,
                     "conditions": [
                         <%= frontmost_application_if(["browser"]) %>
