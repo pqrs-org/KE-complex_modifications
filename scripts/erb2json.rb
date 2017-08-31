@@ -142,6 +142,10 @@ def frontmost_application(type, app_aliases)
     '^org\.macports\.X11$',
   ]
 
+  xcode_bundle_identifiers = [
+    '^com\.apple\.dt\.Xcode$'
+  ]
+
   # ----------------------------------------
 
   bundle_identifiers = []
@@ -177,6 +181,9 @@ def frontmost_application(type, app_aliases)
 
     when 'browser'
       bundle_identifiers.concat(browser_bundle_identifiers)
+
+    when 'xcode'
+      bundle_identifiers.concat(xcode_bundle_identifiers)
 
     else
       $stderr << "unknown app_alias: #{app_alias}\n"
