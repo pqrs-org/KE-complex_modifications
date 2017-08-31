@@ -42,6 +42,59 @@
             ]
         },
         {
+            "description": "PC-Style Home/End",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("home", [], ["shift"]) %>,
+                    "to": <%= to([["left_arrow", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "browser"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("home", [], ["shift"]) %>,
+                    "to": <%= to([["a", ["left_control"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_if(["browser"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("home", ["control"], ["shift"]) %>,
+                    "to": <%= to([["up_arrow", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("end", [], ["shift"]) %>,
+                    "to": <%= to([["right_arrow", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "browser"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("end", [], ["shift"]) %>,
+                    "to": <%= to([["e", ["left_control"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_if(["browser"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("end", ["control"], ["shift"]) %>,
+                    "to": <%= to([["down_arrow", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                    ]
+                }
+            ]
+        },
+        {
             "description": "Option(Alt)+Tab as Switch Application (Command+Tab)",
             "manipulators": [
                 {
