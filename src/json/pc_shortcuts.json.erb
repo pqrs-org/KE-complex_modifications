@@ -405,6 +405,40 @@
             ]
         },
         {
+            "description": "PC-Style Browser open location (Ctrl+L)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("l", ["control"], ["any"]) %>,
+                    "to": <%= to([["l", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_if(["browser"]) %>
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "PC-Style Back/Forward (Alt+Left Arrow/Alt+Right Arrow)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("left_arrow", ["option"], ["any"]) %>,
+                    "to": <%= to([["left_arrow", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_if(["browser"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("right_arrow", ["option"], ["any"]) %>,
+                    "to": <%= to([["right_arrow", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_if(["browser"]) %>
+                    ]
+                }
+            ]
+        },
+        {
             "description": "PC-Style Browser Zoom (Ctrl+Plus/Minus/0)",
             "manipulators": [
                 {
