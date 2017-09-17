@@ -1,5 +1,5 @@
 {
-    "title": "Terminal Navi",
+    "title": "Navigation in Terminal Apps",
     "rules": [
         {
             "description": "⌘ + ← | Move cursor to line begin",
@@ -10,7 +10,7 @@
                         "key_code": "left_arrow",
                         "modifiers": {
                             "mandatory": [
-                                "left_command"
+                                "command"
                             ]
                         }
                     },
@@ -22,14 +22,7 @@
                             ]
                         }
                     ],
-                    "conditions": [
-                        {
-                            "type": "frontmost_application_if",
-                            "bundle_identifiers": [
-                                "^com\\.apple\\.Terminal$"
-                            ]
-                        }
-                    ]
+                    "conditions": [ <%= frontmost_application_if("terminal") %> ]
                 }
             ]
         },
@@ -42,7 +35,7 @@
                         "key_code": "right_arrow",
                         "modifiers": {
                             "mandatory": [
-                                "left_command"
+                                "command"
                             ]
                         }
                     },
@@ -54,14 +47,7 @@
                             ]
                         }
                     ],
-                    "conditions": [
-                        {
-                            "type": "frontmost_application_if",
-                            "bundle_identifiers": [
-                                "^com\\.apple\\.Terminal$"
-                            ]
-                        }
-                    ]
+                    "conditions": [ <%= frontmost_application_if("terminal") %> ]
                 }
             ]
         },
@@ -74,7 +60,7 @@
                         "key_code": "left_arrow",
                         "modifiers": {
                             "mandatory": [
-                                "left_option"
+                                "option"
                             ]
                         }
                     },
@@ -86,14 +72,7 @@
                             "key_code": "b"
                         }
                     ],
-                    "conditions": [
-                        {
-                            "type": "frontmost_application_if",
-                            "bundle_identifiers": [
-                                "^com\\.apple\\.Terminal$"
-                            ]
-                        }
-                    ]
+                    "conditions": [ <%= frontmost_application_if("terminal") %> ]
                 }
             ]
         },
@@ -106,7 +85,7 @@
                         "key_code": "right_arrow",
                         "modifiers": {
                             "mandatory": [
-                                "left_option"
+                                "option"
                             ]
                         }
                     },
@@ -118,14 +97,7 @@
                             "key_code": "f"
                         }
                     ],
-                    "conditions": [
-                        {
-                            "type": "frontmost_application_if",
-                            "bundle_identifiers": [
-                                "^com\\.apple\\.Terminal$"
-                            ]
-                        }
-                    ]
+                    "conditions": [ <%= frontmost_application_if("terminal") %> ]
                 }
             ]
         },
@@ -138,7 +110,7 @@
                         "key_code": "delete_or_backspace",
                         "modifiers": {
                             "mandatory": [
-                                "left_option"
+                                "option"
                             ]
                         }
                     },
@@ -150,14 +122,7 @@
                             ]
                         }
                     ],
-                    "conditions": [
-                        {
-                            "type": "frontmost_application_if",
-                            "bundle_identifiers": [
-                                "^com\\.apple\\.Terminal$"
-                            ]
-                        }
-                    ]
+                    "conditions": [ <%= frontmost_application_if("terminal") %> ]
                 }
             ]
         },
@@ -170,9 +135,10 @@
                         "key_code": "delete_or_backspace",
                         "modifiers": {
                             "mandatory": [
-                                "left_option",
+                                "option",
                                 "fn"
                             ]
+
                         }
                     },
                     "to": [
@@ -183,14 +149,7 @@
                             "key_code": "d"
                         }
                     ],
-                    "conditions": [
-                        {
-                            "type": "frontmost_application_if",
-                            "bundle_identifiers": [
-                                "^com\\.apple\\.Terminal$"
-                            ]
-                        }
-                    ]
+                    "conditions": [ <%= frontmost_application_if("terminal") %> ]
                 }
             ]
         },
@@ -203,7 +162,7 @@
                         "key_code": "delete_or_backspace",
                         "modifiers": {
                             "mandatory": [
-                                "left_command"
+                                "command"
                             ]
                         }
                     },
@@ -215,14 +174,7 @@
                             ]
                         }
                     ],
-                    "conditions": [
-                        {
-                            "type": "frontmost_application_if",
-                            "bundle_identifiers": [
-                                "^com\\.apple\\.Terminal$"
-                            ]
-                        }
-                    ]
+                    "conditions": [ <%= frontmost_application_if("terminal") %> ]
                 }
             ]
         },
@@ -235,7 +187,7 @@
                         "key_code": "delete_or_backspace",
                         "modifiers": {
                             "mandatory": [
-                                "left_command",
+                                "command",
                                 "fn"
                             ]
                         }
@@ -248,14 +200,7 @@
                             ]
                         }
                     ],
-                    "conditions": [
-                        {
-                            "type": "frontmost_application_if",
-                            "bundle_identifiers": [
-                                "^com\\.apple\\.Terminal$"
-                            ]
-                        }
-                    ]
+                    "conditions": [ <%= frontmost_application_if("terminal") %> ]
                 }
             ]
         }
