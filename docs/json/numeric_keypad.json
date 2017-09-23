@@ -34,11 +34,11 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "spacebar"
+            "key_code": "7"
           },
           "to": [
             {
-              "key_code": "keypad_0"
+              "key_code": "delete_or_backspace"
             }
           ],
           "conditions": [
@@ -52,11 +52,11 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "m"
+            "key_code": "8"
           },
           "to": [
             {
-              "key_code": "keypad_1"
+              "key_code": "keypad_equal_sign"
             }
           ],
           "conditions": [
@@ -70,11 +70,11 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "comma"
+            "key_code": "9"
           },
           "to": [
             {
-              "key_code": "keypad_2"
+              "key_code": "keypad_slash"
             }
           ],
           "conditions": [
@@ -88,65 +88,11 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "period"
+            "key_code": "0"
           },
           "to": [
             {
-              "key_code": "keypad_3"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "numeric_keypad_mode",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "j"
-          },
-          "to": [
-            {
-              "key_code": "keypad_4"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "numeric_keypad_mode",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "k"
-          },
-          "to": [
-            {
-              "key_code": "keypad_5"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "numeric_keypad_mode",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "l"
-          },
-          "to": [
-            {
-              "key_code": "keypad_6"
+              "key_code": "keypad_asterisk"
             }
           ],
           "conditions": [
@@ -214,11 +160,65 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "slash"
+            "key_code": "p"
           },
           "to": [
             {
-              "key_code": "keypad_enter"
+              "key_code": "keypad_hyphen"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numeric_keypad_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "j"
+          },
+          "to": [
+            {
+              "key_code": "keypad_4"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numeric_keypad_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "k"
+          },
+          "to": [
+            {
+              "key_code": "keypad_5"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numeric_keypad_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "l"
+          },
+          "to": [
+            {
+              "key_code": "keypad_6"
             }
           ],
           "conditions": [
@@ -250,11 +250,11 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "p"
+            "key_code": "m"
           },
           "to": [
             {
-              "key_code": "keypad_hyphen"
+              "key_code": "keypad_1"
             }
           ],
           "conditions": [
@@ -268,11 +268,11 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "0"
+            "key_code": "comma"
           },
           "to": [
             {
-              "key_code": "keypad_asterisk"
+              "key_code": "keypad_2"
             }
           ],
           "conditions": [
@@ -286,11 +286,11 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "9"
+            "key_code": "period"
           },
           "to": [
             {
-              "key_code": "keypad_slash"
+              "key_code": "keypad_3"
             }
           ],
           "conditions": [
@@ -304,11 +304,11 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "8"
+            "key_code": "slash"
           },
           "to": [
             {
-              "key_code": "keypad_equal_sign"
+              "key_code": "keypad_enter"
             }
           ],
           "conditions": [
@@ -322,11 +322,29 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "7"
+            "key_code": "spacebar"
           },
           "to": [
             {
-              "key_code": "delete_or_backspace"
+              "key_code": "keypad_0"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numeric_keypad_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_option"
+          },
+          "to": [
+            {
+              "key_code": "keypad_period"
             }
           ],
           "conditions": [

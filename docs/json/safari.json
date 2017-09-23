@@ -1,0 +1,32 @@
+{
+  "title": "Don't exit fullscreen when pressing ESC in Safari",
+  "rules": [
+    {
+      "description": "Remap ESC to Option-ESC in Safari only",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "escape"
+          },
+          "to": [
+            {
+                "key_code": "escape",
+                "modifiers": [
+                    "left_option"
+                ]
+            }
+          ],
+         "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com.apple.Safari"
+              ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}

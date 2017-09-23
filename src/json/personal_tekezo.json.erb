@@ -50,12 +50,22 @@
             ]
         },
         {
-            "description": "Virtual machine configuration",
+            "description": "Configurations for apps (rev2)",
             "manipulators": [
+                <%# -------------------------------------------------- %>
+                <%# virtual_machine %>
+                <%# -------------------------------------------------- %>
+
                 {
                     "type": "basic",
                     "from": <%= from("h", ["left_control"], ["caps_lock", "option"]) %>,
                     "to": <%= to([["delete_or_backspace"]]) %>,
+                    "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("d", ["left_control"], ["caps_lock", "option"]) %>,
+                    "to": <%= to([["delete_forward"]]) %>,
                     "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
                 },
                 {
@@ -93,12 +103,12 @@
                     "from": <%= from("e", ["left_control"], ["caps_lock", "shift"]) %>,
                     "to": <%= to([["end"]]) %>,
                     "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
-                }
-            ]
-        },
-        {
-            "description": "Terminal configuration",
-            "manipulators": [
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# terminal %>
+                <%# -------------------------------------------------- %>
+
                 {
                     "type": "basic",
                     "from": <%= from("o", ["command"], ["any"]) %>,
@@ -114,6 +124,17 @@
                         ["return_or_enter"],
                     ]) %>,
                     "conditions": [ <%= frontmost_application_if("terminal") %> ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# browser %>
+                <%# -------------------------------------------------- %>
+
+                {
+                    "type": "basic",
+                    "from": <%= from("i", ["command", "shift"], ["caps_lock"]) %>,
+                    "to": <%= to([["vk_none"]]) %>,
+                    "conditions": [ <%= frontmost_application_if("browser") %> ]
                 }
             ]
         },

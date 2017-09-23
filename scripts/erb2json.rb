@@ -1,9 +1,9 @@
-#!/usr/bin/ruby
+#!/usr/bin/env ruby
 
 require 'erb'
 require 'json'
 
-def from(key_code, mandatory_modifiers, optional_modifiers)
+def _from(key_code, mandatory_modifiers, optional_modifiers)
   data = {}
   data['key_code'] = key_code
 
@@ -18,11 +18,14 @@ def from(key_code, mandatory_modifiers, optional_modifiers)
     data['modifiers']['optional'] = [] if data['modifiers']['optional'].nil?
     data['modifiers']['optional'] << m
   end
-
-  JSON.generate(data)
+  data
 end
 
-def to(events)
+def from(key_code, mandatory_modifiers, optional_modifiers)
+  JSON.generate(_from(key_code, mandatory_modifiers, optional_modifiers))
+end
+
+def _to(events)
   data = []
 
   events.each do |e|
@@ -34,16 +37,21 @@ def to(events)
 
     data << d
   end
-
-  JSON.generate(data)
+  data
 end
 
-def each_key(keys_list, from_mandatory_modifiers, from_optional_modifiers, to_pre_events, to_modifiers, to_post_events, conditions)
+def to(events)
+  JSON.generate(_to(events))
+end
+
+
+def each_key(source_keys_list: :source_keys_list, dest_keys_list: :dest_keys_list, from_mandatory_modifiers: [], from_optional_modifiers: [], to_pre_events: [], to_modifiers: [], to_post_events: [], conditions: [], as_json: false)
   data = []
-  keys_list.each do |k|
+  source_keys_list.each_with_index do |from_key,index|
+    to_key = dest_keys_list[index]
     d = {}
     d['type'] = 'basic'
-    d['from'] = JSON.parse(from(k, from_mandatory_modifiers, from_optional_modifiers))
+    d['from'] = _from(from_key, from_mandatory_modifiers, from_optional_modifiers)
 
     # Compile list of events to add to "to" section
     events = []
@@ -51,26 +59,38 @@ def each_key(keys_list, from_mandatory_modifiers, from_optional_modifiers, to_pr
       events << e
     end
     if to_modifiers[0].nil?
-      events << [k]
+      events << [to_key]
     else
-      events << [k, to_modifiers]
+      events << [to_key, to_modifiers]
     end
     to_post_events.each do |e|
       events << e
     end
     d['to'] = JSON.parse(to(events))
 
-    d['conditions'] = []
-    conditions.each do |c|
-      d['conditions'] << c
+    if conditions.any?
+      d['conditions'] = []
+      conditions.each do |c|
+        d['conditions'] << c
+      end
     end
     data << d
   end
 
-  JSON.generate(data)
+  if as_json
+    JSON.generate(data)
+  else
+    data
+  end
 end
 
 def frontmost_application(type, app_aliases)
+  browser_bundle_identifiers = [
+    '^org\.mozilla\.firefox$',
+    '^com\.google\.Chrome$',
+    '^com\.apple\.Safari$',
+  ]
+
   emacs_bundle_identifiers = [
     '^org\.gnu\.Emacs$',
     '^org\.gnu\.AquamacsEmacs$',
@@ -122,6 +142,10 @@ def frontmost_application(type, app_aliases)
     '^org\.macports\.X11$',
   ]
 
+  xcode_bundle_identifiers = [
+    '^com\.apple\.dt\.Xcode$'
+  ]
+
   # ----------------------------------------
 
   bundle_identifiers = []
@@ -145,6 +169,7 @@ def frontmost_application(type, app_aliases)
       bundle_identifiers.concat(vi_bundle_identifiers)
       bundle_identifiers.concat(virtual_machine_bundle_identifiers)
       bundle_identifiers.concat(x11_bundle_identifiers)
+      bundle_identifiers << '^com\\.microsoft\\.VSCode$'
 
     when 'remote_desktop'
       bundle_identifiers.concat(remote_desktop_bundle_identifiers)
@@ -154,6 +179,12 @@ def frontmost_application(type, app_aliases)
 
     when 'virtual_machine'
       bundle_identifiers.concat(virtual_machine_bundle_identifiers)
+
+    when 'browser'
+      bundle_identifiers.concat(browser_bundle_identifiers)
+
+    when 'xcode'
+      bundle_identifiers.concat(xcode_bundle_identifiers)
 
     else
       $stderr << "unknown app_alias: #{app_alias}\n"

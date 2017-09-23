@@ -1,0 +1,23 @@
+<%
+    remap_source_keys = [
+        '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'hyphen', 'equal_sign'
+    ];
+    remap_dest_keys = [
+        'f1', 'f2', 'f3', 'f4', 'f5', 'f6', 'f7', 'f8', 'f9', 'f10', 'f11', 'f12'
+    ];
+    manipulators = each_key(
+        source_keys_list: remap_source_keys,
+        dest_keys_list: remap_dest_keys,
+        from_mandatory_modifiers: ["fn"],
+        as_json: true
+    );
+%>
+{
+    "title": "Map fn + number keys to function keys",
+    "rules": [
+        {
+            "description": "Map fn + number keys to their corresponding function keys. Only works if 'Use all F1, F2, etc. keys as standard function keys' is set under Function Keys.",
+            "manipulators": <%= manipulators %>
+        }
+    ]
+}

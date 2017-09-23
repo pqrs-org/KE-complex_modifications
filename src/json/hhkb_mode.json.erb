@@ -1,5 +1,19 @@
+<%
+    remap_source_keys = [
+        'i', 'o', 'p'
+    ];
+    remap_dest_keys = [
+        'f13', 'f14', 'f15'
+    ];
+    manipulators = each_key(
+        source_keys_list: remap_source_keys,
+        dest_keys_list: remap_dest_keys,
+        from_mandatory_modifiers: ["fn"],
+        as_json: true
+    );
+%>
 {
-    "title": "Happy Hacking Keyboard Compatible Mode (rev 1)",
+    "title": "Happy Hacking Keyboard Compatible Mode (rev 1.1)",
     "rules": [
         {
             "description": "HHKB Arrow Mode (fn + semicolon/slash/open_bracket/quote to arrow keys, etc)",
@@ -8,22 +22,22 @@
                 <%# change fn + semicolon/slash/open_bracket/quote to arrow keys %>
                 {
                     "type": "basic",
-                    "from": <%= from("semicolon", ["fn"], ["caps_lock", "option", "command"]) %>,
+                    "from": <%= from("semicolon", ["fn"], ["caps_lock", "option", "command", "shift"]) %>,
                     "to": <%= to([["left_arrow"]]) %>
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("slash", ["fn"], ["caps_lock", "option", "command"]) %>,
+                    "from": <%= from("slash", ["fn"], ["caps_lock", "option", "command", "shift"]) %>,
                     "to": <%= to([["down_arrow"]]) %>
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("open_bracket", ["fn"], ["caps_lock", "option", "command"]) %>,
+                    "from": <%= from("open_bracket", ["fn"], ["caps_lock", "option", "command", "shift"]) %>,
                     "to": <%= to([["up_arrow"]]) %>
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("quote", ["fn"], ["caps_lock", "option", "command"]) %>,
+                    "from": <%= from("quote", ["fn"], ["caps_lock", "option", "command", "shift"]) %>,
                     "to": <%= to([["right_arrow"]]) %>
                 },
 
@@ -74,6 +88,10 @@
                     "to": <%= to([["eject"]]) %>
                 }
             ]
+        },
+        {
+            "description": "Map fn + i, o, p  to F13, F14, F15.",
+            "manipulators": <%= manipulators %>
         }
     ]
 }

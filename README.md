@@ -20,7 +20,9 @@ make
 2. Add `file_import_panel` to [src/index.html.erb](https://github.com/pqrs-org/KE-complex_modifications/tree/master/src/index.html.erb).
 3. Run `make` in terminal.
 
-Key name definitions are [here](https://github.com/tekezo/Karabiner-Elements/blob/master/src/apps/PreferencesWindow/PreferencesWindow/Resources/simple_modifications.json).
+Key name definitions are [here](https://github.com/tekezo/Karabiner-Elements/blob/master/src/apps/PreferencesWindow/PreferencesWindow/Resources/simple_modifications.json). 
+
+In the `"from"` section of the JSON files, you can use `command`, `option`, `shift`, `control` etc. instead of `left_command`, `left_option`, `left_shift` and `left_control` to refer to both the left and right modifier keys.
 
 ## Local testing
 

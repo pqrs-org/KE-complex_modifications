@@ -1,0 +1,16 @@
+{
+    "title": "Change escape key",
+    "rules": [
+        {
+            "description": "Post caps_lock if escape is pressed alone.",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("escape", [], ["any"]) %>,
+                    "to": <%= to([["escape"]]) %>,
+                    "to_if_alone": <%= to([["caps_lock"]]) %>
+                }
+            ]
+        }
+    ]
+}

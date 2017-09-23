@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Karabiner-Elements complex_modifications rules</title>
     <link href="assets/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
   </head>
   <body>
     <nav class="navbar navbar-inverse">
@@ -16,91 +17,138 @@
       </div>
     </nav>
 
-    <div class="container">
+    <div class="container" style="margin-bottom: 100px">
       <div class="text-right" style="margin-bottom: 30px">
         <a href="https://github.com/pqrs-org/KE-complex_modifications">GitHub</a>
       </div>
 
-          <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Caps and return to ctrl. Ctrl to caps.</h3>
+      
+
+      <ul class="toc list-group"><li class="list-group-item list-group-item-info">Table of Contents</li><li class="list-group-item"><span class="badge">10</span><a href="#modifier_keys">Modifier Keys</a></li><li class="list-group-item"><span class="badge">14</span><a href="#emulation_modes">Emulation Modes</a></li><li class="list-group-item"><span class="badge">7</span><a href="#application_specific">Application Specific</a></li><li class="list-group-item"><span class="badge">4</span><a href="#alternative_keyboard_layouts">Alternative Keyboard Layouts</a></li><li class="list-group-item"><span class="badge">4</span><a href="#International">International (Language Specific)</a></li><li class="list-group-item"><span class="badge">6</span><a href="#key_specific">Key Specific</a></li><li class="list-group-item"><span class="badge">2</span><a href="#os_functionality">OS Functionality</a></li><li class="list-group-item"><span class="badge">3</span><a href="#personal_settings">Personal Settings</a></li><li class="list-group-item"><span class="badge">3</span><a href="#miscellaneous">Miscellaneous</a></li></ul>
+      <div class="text-left" style="margin-bottom: 30px">
+        <a href="#" onclick="$('.collapse').collapse('toggle'); return false;">Expand/Collapse All</a>
       </div>
-      <div class="panel-body">
-        <ul>
-          <li>Post left_ctrl when return_or_enter is hold.</li><li>Post escape if caps is pressed alone, left_ctrl otherwise</li><li>Map left_ctrl to caps_lock.</li>
-        </ul>
-        <a class="btn btn-primary btn-sm" style="margin-left: 40px" data-json-path="json/caps_and_return_to_ctrl.json">Import</a>
+
+            <div class="panel panel-primary" id="modifier_keys">
+        <div class="panel-heading">
+          <h3 class="panel-title">Modifier Keys</h3>
+        </div>
+        <div class="panel-body">
+              <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#caps_and_return_to_ctrl" aria-expanded="false" aria-controls="caps_and_return_to_ctrl">Caps and return to ctrl. Ctrl to caps.</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/caps_and_return_to_ctrl.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="caps_and_return_to_ctrl">
+          <div class="list-group-item">Post left_ctrl when return_or_enter is hold.</div><div class="list-group-item">Post escape if caps is pressed alone, left_ctrl otherwise</div><div class="list-group-item">Map left_ctrl to caps_lock.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#caps_lock" aria-expanded="false" aria-controls="caps_lock">Change caps_lock key</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/caps_lock.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="caps_lock">
+          <div class="list-group-item">Change caps_lock key to command+control+option+shift. (Post escape key when pressed alone)</div><div class="list-group-item">Change caps_lock key to command+control+option+shift. (Use shift+caps_lock as caps_lock)</div><div class="list-group-item">Change caps_lock to control if pressed with other keys, to escape if pressed alone.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#control" aria-expanded="false" aria-controls="control">Change control key</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/control.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="control">
+          <div class="list-group-item">Post escape if left_control is pressed alone.</div><div class="list-group-item">Post return_or_enter if right_control is pressed alone.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#shift" aria-expanded="false" aria-controls="shift">Change shift key</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/shift.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="shift">
+          <div class="list-group-item">Change left_shift to caps_lock if pressed alone</div><div class="list-group-item">Change right_shift to caps_lock if pressed alone</div><div class="list-group-item">Toggle caps_lock by pressing left_shift + right_shift at the same time</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#escape" aria-expanded="false" aria-controls="escape">Change escape key</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/escape.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="escape">
+          <div class="list-group-item">Post caps_lock if escape is pressed alone.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#modifiers_to_f-keys" aria-expanded="false" aria-controls="modifiers_to_f-keys">Tapping modifier-keys produces a f-key.</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/modifiers_to_f-keys.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="modifiers_to_f-keys">
+          <div class="list-group-item">Press left_shift alone produces F12</div><div class="list-group-item">Press left_control alone produces F13</div><div class="list-group-item">Press left_command alone produces F14</div><div class="list-group-item">Press left_option alone produces F15</div><div class="list-group-item">Press right_control alone produces F16</div><div class="list-group-item">Press right_command alone produces F17</div><div class="list-group-item">Press right_alt alone produces F18</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#delete" aria-expanded="false" aria-controls="delete">Change delete key</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/delete.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="delete">
+          <div class="list-group-item">Change shift + delete to forward delete</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#change_command_l" aria-expanded="false" aria-controls="change_command_l">Change Command_L Key (Left Command)</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/change_command_l.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="change_command_l">
+          <div class="list-group-item">Change Command_R + Command_L to escape only if pressed at the same time.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#change_command_r" aria-expanded="false" aria-controls="change_command_r">Change Command_R Key (Right Command)</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/change_command_r.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="change_command_r">
+          <div class="list-group-item">Post Escape if Command_R is pressed alone.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#ctrl_command_fn_letter_specials" aria-expanded="false" aria-controls="ctrl_command_fn_letter_specials">Change control and Fn + letter keys to command and control keys</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/ctrl_command_fn_letter_specials.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="ctrl_command_fn_letter_specials">
+          <div class="list-group-item">Change left_control + letter to left_command + letter</div><div class="list-group-item">Change fn + letter to left_control + letter</div>
       </div>
     </div>
 
-          <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Change caps_lock key</h3>
+        </div>
       </div>
-      <div class="panel-body">
-        <ul>
-          <li>Change caps_lock key to command+control+option+shift. (Post escape key when pressed alone)</li><li>Change caps_lock key to command+control+option+shift. (Use shift+caps_lock as caps_lock)</li><li>Change caps_lock to control if pressed with other keys, to escape if pressed alone.</li>
-        </ul>
-        <a class="btn btn-primary btn-sm" style="margin-left: 40px" data-json-path="json/caps_lock.json">Import</a>
+      <div class="panel panel-primary" id="emulation_modes">
+        <div class="panel-heading">
+          <h3 class="panel-title">Emulation Modes</h3>
+        </div>
+        <div class="panel-body">
+              <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#diamond_cursor" aria-expanded="false" aria-controls="diamond_cursor">Diamond Cursor</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/diamond_cursor.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="diamond_cursor">
+          <div class="list-group-item">Change fn + I/J/K/L to Arrow Keys</div>
       </div>
     </div>
-
-          <div class="panel panel-default">
+    <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Exchange numbers and symbols</h3>
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#vi_mode" aria-expanded="false" aria-controls="vi_mode">Vi Mode (rev 4.2)</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/vi_mode.json">Import</a>
       </div>
-      <div class="panel-body">
-        <ul>
-          <li>Exchange numbers and symbols (1234567890 and !@#$%^&amp;*())</li>
-        </ul>
-        <a class="btn btn-primary btn-sm" style="margin-left: 40px" data-json-path="json/exchange_numbers_and_symbols.json">Import</a>
-      </div>
-    </div>
-
-          <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Change control key</h3>
-      </div>
-      <div class="panel-body">
-        <ul>
-          <li>Post escape if left_control is pressed alone.</li><li>Post return_or_enter if right_control is pressed alone.</li>
-        </ul>
-        <a class="btn btn-primary btn-sm" style="margin-left: 40px" data-json-path="json/control.json">Import</a>
-      </div>
-    </div>
-
-          <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Change shift key</h3>
-      </div>
-      <div class="panel-body">
-        <ul>
-          <li>Change left_shift to caps_lock if alone.</li>
-        </ul>
-        <a class="btn btn-primary btn-sm" style="margin-left: 40px" data-json-path="json/shift.json">Import</a>
-      </div>
-    </div>
-
-          <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Change spacebar</h3>
-      </div>
-      <div class="panel-body">
-        <ul>
-          <li>Change spacebar to left_shift if pressed with other keys (Post spacebar when pressed alone)</li>
-        </ul>
-        <a class="btn btn-primary btn-sm" style="margin-left: 40px" data-json-path="json/spacebar.json">Import</a>
-      </div>
-    </div>
-
-          <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Vi Mode (rev 4.1)</h3>
-      </div>
-      <div class="panel-body">
-        <ul>
-          <li>Vi Mode [S as Trigger Key]</li><li>Vi Mode [D as Trigger Key] (recommended)</li><p style="margin-top: 20px; font-weight: bold">
-  Vi Mode
+      <div class="list-group collapse" id="vi_mode">
+          <div class="list-group-item">Vi Mode [S as Trigger Key]</div><div class="list-group-item">Vi Mode [D as Trigger Key] (recommended)</div><div class="list-group-item"><p style="margin-top: 20px; font-weight: bold">
+  Moving Around
 </p>
 
 <table class="table">
@@ -120,6 +168,13 @@
     <td>Trigger Key + 0/4</td>
     <td>Go to Start/End of the Line</td>
   </tr>
+</table>
+
+<p style="margin-top: 20px; font-weight: bold">
+  Selecting Text (Visual Mode)
+</p>
+
+<table class="table">
   <tr>
     <td>Trigger Key + V + H/J/K/L</td>
     <td>Select Text</td>
@@ -143,19 +198,34 @@
   <li>Currently, S doesn’t work very well when typing fast</li>
   <li>Since dh-, dj-, dk- and dl- words are rare, using D instead of S will produce less trigger errors</li>
 </ul>
-
-        </ul>
-        <a class="btn btn-primary btn-sm" style="margin-left: 40px" data-json-path="json/vi_mode.json">Import</a>
+</div>
       </div>
     </div>
-
-          <div class="panel panel-default">
+    <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Emacs key bindings (rev 6)</h3>
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#vi_style_arrows" aria-expanded="false" aria-controls="vi_style_arrows">Vi Style Arrows</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/vi_style_arrows.json">Import</a>
       </div>
-      <div class="panel-body">
-        <ul>
-          <li>Emacs key bindings [control+keys] (rev 6)</li><li>Emacs key bindings [option+keys] (rev 4)</li><p style="margin-top: 20px; font-weight: bold">
+      <div class="list-group collapse" id="vi_style_arrows">
+          <div class="list-group-item">Change Control+h/j/k/l to Arrows</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#vi_style_arrows2" aria-expanded="false" aria-controls="vi_style_arrows2">Vi Style Arrows2</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/vi_style_arrows2.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="vi_style_arrows2">
+          <div class="list-group-item">Change Left Option+h/j/k/l to Arrows</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#emacs_key_bindings" aria-expanded="false" aria-controls="emacs_key_bindings">Emacs key bindings (rev 6)</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/emacs_key_bindings.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="emacs_key_bindings">
+          <div class="list-group-item">Emacs key bindings [control+keys] (rev 6)</div><div class="list-group-item">Emacs key bindings [option+keys] (rev 4)</div><div class="list-group-item"><p style="margin-top: 20px; font-weight: bold">
   Key Bindings (control+keys)
 </p>
 
@@ -208,160 +278,16 @@
     <td>option+forward delete</td>
   </tr>
 </table>
-
-        </ul>
-        <a class="btn btn-primary btn-sm" style="margin-left: 40px" data-json-path="json/emacs_key_bindings.json">Import</a>
+</div>
       </div>
     </div>
-
-          <div class="panel panel-default">
+    <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Tapping modifier-keys produces a f-key.</h3>
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#numeric_keypad" aria-expanded="false" aria-controls="numeric_keypad">Numeric Keypad</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/numeric_keypad.json">Import</a>
       </div>
-      <div class="panel-body">
-        <ul>
-          <li>Press left_shift alone produces F12</li><li>Press left_control alone produces F13</li><li>Press left_command alone produces F14</li><li>Press left_option alone produces F15</li><li>Press right_control alone produces F16</li><li>Press right_command alone produces F17</li><li>Press right_alt alone produces F18</li>
-        </ul>
-        <a class="btn btn-primary btn-sm" style="margin-left: 40px" data-json-path="json/modifiers_to_f-keys.json">Import</a>
-      </div>
-    </div>
-
-          <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Diamond Cursor</h3>
-      </div>
-      <div class="panel-body">
-        <ul>
-          <li>Change fn + I/J/K/L to Arrow Keys</li>
-        </ul>
-        <a class="btn btn-primary btn-sm" style="margin-left: 40px" data-json-path="json/diamond_cursor.json">Import</a>
-      </div>
-    </div>
-
-          <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Exchange semicolon and colon</h3>
-      </div>
-      <div class="panel-body">
-        <ul>
-          <li>Exchange semicolon and colon</li>
-        </ul>
-        <a class="btn btn-primary btn-sm" style="margin-left: 40px" data-json-path="json/exchange_semicolon_and_colon.json">Import</a>
-      </div>
-    </div>
-
-          <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Change control and Fn + letter keys to command and control keys</h3>
-      </div>
-      <div class="panel-body">
-        <ul>
-          <li>Change left_control + letter to left_command + letter</li><li>Change fn + letter to left_control + letter</li>
-        </ul>
-        <a class="btn btn-primary btn-sm" style="margin-left: 40px" data-json-path="json/ctrl_command_fn_letter_specials.json">Import</a>
-      </div>
-    </div>
-
-          <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Exchange command + arrows keys with option + arrows keys</h3>
-      </div>
-      <div class="panel-body">
-        <ul>
-          <li>Exchange command + arrow keys with option + arrow keys</li>
-        </ul>
-        <a class="btn btn-primary btn-sm" style="margin-left: 40px" data-json-path="json/command_arrows_to_option_arrows.json">Import</a>
-      </div>
-    </div>
-
-          <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Change delete key</h3>
-      </div>
-      <div class="panel-body">
-        <ul>
-          <li>Change shift + delete to forward delete</li>
-        </ul>
-        <a class="btn btn-primary btn-sm" style="margin-left: 40px" data-json-path="json/delete.json">Import</a>
-      </div>
-    </div>
-
-          <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Change Command_L Key (Left Command)</h3>
-      </div>
-      <div class="panel-body">
-        <ul>
-          <li>Change Command_R + Command_L to escape only if pressed at the same time.</li>
-        </ul>
-        <a class="btn btn-primary btn-sm" style="margin-left: 40px" data-json-path="json/change_command_l.json">Import</a>
-      </div>
-    </div>
-
-          <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Change Command_R Key (Right Command)</h3>
-      </div>
-      <div class="panel-body">
-        <ul>
-          <li>Post Escape if Command_R is pressed alone.</li>
-        </ul>
-        <a class="btn btn-primary btn-sm" style="margin-left: 40px" data-json-path="json/change_command_r.json">Import</a>
-      </div>
-    </div>
-
-          <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Launch apps</h3>
-      </div>
-      <div class="panel-body">
-        <ul>
-          <li>Launch apps by right shift+letters.</li><ul>
-  <li>right shift + a: Activity Monitor</li>
-  <li>right shift + d: Dictionary</li>
-  <li>right shift + e: Text Edit</li>
-  <li>right shift + f: Finder</li>
-  <li>right shift + s: Safari</li>
-  <li>right shift + t: Terminal</li>
-</ul>
-
-        </ul>
-        <a class="btn btn-primary btn-sm" style="margin-left: 40px" data-json-path="json/launch_apps.json">Import</a>
-      </div>
-    </div>
-
-          <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Launch new Chrome or iTerm2 windows via keybindings</h3>
-      </div>
-      <div class="panel-body">
-        <ul>
-          <li>left control + left shift + ` (backtick) - launches a new iTerm2 window with the default profile</li><li>left control + left shift + 1 - launches a new Google Chrome window</li><li>This keybinding is set up to launch new windows of running applications, rather than launching applications themselves.  (Launching a running application only brings it to the foreground).  This is meant to mimic the launcher keybindings available in Ubuntu.</li>
-
-        </ul>
-        <a class="btn btn-primary btn-sm" style="margin-left: 40px" data-json-path="json/launch_new_Chrome_or_iTerm2_windows.json">Import</a>
-      </div>
-    </div>
-
-          <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Force the user to make key combination with two hands</h3>
-      </div>
-      <div class="panel-body">
-        <ul>
-          <li>Block left-handed command + left-handed key</li><li>Block left-handed shift + left-handed key</li><li>Block left-handed option + left-handed key</li><li>Block left-handed control + left-handed key</li><li>Block right-handed command + right-handed key</li><li>Block right-handed shift + right-handed key</li><li>Block right-handed option + right-handed key</li><li>Block right-handed control + right-handed key</li>
-        </ul>
-        <a class="btn btn-primary btn-sm" style="margin-left: 40px" data-json-path="json/block_one_handed_combos.json">Import</a>
-      </div>
-    </div>
-
-          <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Numeric Keypad</h3>
-      </div>
-      <div class="panel-body">
-        <ul>
-          <li>Numeric Keypad Mode [Tab as trigger key]</li><li>Numeric Keypad Mode Trigger + right_option to keypad_period</li><li>Numeric Keypad Mode Trigger + right_control to keypad_period</li><p style="margin-top: 20px; font-weight: bold">
+      <div class="list-group collapse" id="numeric_keypad">
+          <div class="list-group-item">Numeric Keypad Mode [Tab as trigger key]</div><div class="list-group-item">Numeric Keypad Mode Trigger + right_option to keypad_period</div><div class="list-group-item">Numeric Keypad Mode Trigger + right_control to keypad_period</div><div class="list-group-item"><p style="margin-top: 20px; font-weight: bold">
   Numeric Keypad Mode
 </p>
 
@@ -408,55 +334,132 @@
   <li>Press and releasing tab acts as a normal tab key</li>
   <li>Optionally map right_option or right_control (in case you remapped your right_option) to numeric_period</li>
 </ul>
+</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#hhkb_mode" aria-expanded="false" aria-controls="hhkb_mode">Happy Hacking Keyboard Compatible Mode (rev 1.1)</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/hhkb_mode.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="hhkb_mode">
+          <div class="list-group-item">HHKB Arrow Mode (fn + semicolon/slash/open_bracket/quote to arrow keys, etc)</div><div class="list-group-item">HHKB Media Key Mode (fn + asdf to Volume down/up/mute, eject)</div><div class="list-group-item">Map fn + i, o, p  to F13, F14, F15.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#fn_plus_numbers_to_function_keys" aria-expanded="false" aria-controls="fn_plus_numbers_to_function_keys">Map fn + number keys to function keys</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/fn_plus_numbers_to_function_keys.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="fn_plus_numbers_to_function_keys">
+          <div class="list-group-item">Map fn + number keys to their corresponding function keys. Only works if &#39;Use all F1, F2, etc. keys as standard function keys&#39; is set under Function Keys.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#pok3r-media" aria-expanded="false" aria-controls="pok3r-media">Pok3r Media Controls</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/pok3r-media.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="pok3r-media">
+          <div class="list-group-item">Pok3r Volume Controls (fn + sdf to Volume down/up/mute)</div><div class="list-group-item">Pok3r Media Keys (fn + qwe to Previous Title/Play-Pause/Next)</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#pok3r-escape" aria-expanded="false" aria-controls="pok3r-escape">Pok3r Escape Key</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/pok3r-escape.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="pok3r-escape">
+          <div class="list-group-item">Pok3r Escape key (grave_accent_and_tilde as Escape and fn + grave_accent_and_tilde as grave_accent_and_tilde)</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#pc_shortcuts" aria-expanded="false" aria-controls="pc_shortcuts">PC-Style Shortcuts</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/pc_shortcuts.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="pc_shortcuts">
+          <div class="list-group-item">Home key to the beginning of the line (Control + a)</div><div class="list-group-item">End key to the end of the line (Control + e)</div><div class="list-group-item">Home key to the beginning of the sentence (Command + Left). Doesnt work in terminal</div><div class="list-group-item">End key to the end of the sentence (Command + Right). Doesnt work in terminal</div><div class="list-group-item">PC-Style Home/End</div><div class="list-group-item">Option(Alt)+Tab as Switch Application (Command+Tab)</div><div class="list-group-item">PC-Style Control+Up/Down/Left/Right</div><div class="list-group-item">PC-Style Copy/Paste/Cut</div><div class="list-group-item">PC-Style Undo</div><div class="list-group-item">PC-Style Redo</div><div class="list-group-item">PC-Style Select-All</div><div class="list-group-item">PC-Style Save</div><div class="list-group-item">PC-Style New</div><div class="list-group-item">PC-Style Reload(F5, Ctrl+R)</div><div class="list-group-item">PC-Style New Tab</div><div class="list-group-item">PC-Style Find</div><div class="list-group-item">PC-Style Open</div><div class="list-group-item">PC-Style Bold/Italic/Underline(Ctrl+B/I/U)</div><div class="list-group-item">PC-Style Close Window</div><div class="list-group-item">PC-Style Lock Screen</div><div class="list-group-item">PC-Style Screenshot(PrtSc for whole, Shift+PrtSc to select)</div><div class="list-group-item">PC-Style Quit Application(Alt+F4 to Command+Q)</div><div class="list-group-item">Control+Shift+Esc Opens Activity Monitor</div><div class="list-group-item">PC-Style Browser open location (Ctrl+L)</div><div class="list-group-item">PC-Style Back/Forward (Alt+Left Arrow/Alt+Right Arrow)</div><div class="list-group-item">PC-Style Browser Zoom (Ctrl+Plus/Minus/0)</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#mu_mode" aria-expanded="false" aria-controls="mu_mode">Mu Mode (rev 0.1)</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/mu_mode.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="mu_mode">
+          <div class="list-group-item">Mu Mode Semicolon(;)+J/K/L/I/U/M/O/. to Arrow Left/Down/Right/Up/PageUp/PageDown/Home/End</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#spacefn" aria-expanded="false" aria-controls="spacefn">SpaceFN</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/spacefn.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="spacefn">
+          <div class="list-group-item">SpaceFN: Space enables SpaceFN mode (see: https://geekhack.org/index.php?topic=51069.0)</div><div class="list-group-item">SpaceFN: Space+b to Space (hold to repeat)</div><div class="list-group-item">SpaceFN: Space+[ijkl] to Up, Left, Down, Right</div><div class="list-group-item">SpaceFN: Space+[hjkl] to Left, Down, Up, Right</div><div class="list-group-item">SpaceFN: Space+u to Home, Space+o to End</div><div class="list-group-item">SpaceFN: Space+h to Page Up, Space+n to Page Down</div><div class="list-group-item">SpaceFN: Space+p to Print Screen, Space+Open Bracket ([) to Scroll Lock, Space+Close Bracket (]) to Pause, Space+Backspace to Forward Delete, Space+Backslash (\) to Insert</div><div class="list-group-item">SpaceFN: Backquote (`) to Escape, Space+[1-9] to F[1-9], Space+0 to F10, Space+Hyphen (-) to F11, Space+Equal Sign (=) to F12, Space+e to Escape, Space+m to Backtick (`), Space+Comma to Tilde (~), Space+Slash (/) to Menu</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#touchcursor_mode" aria-expanded="false" aria-controls="touchcursor_mode">TouchCursor Mode</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/touchcursor_mode.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="touchcursor_mode">
+          <div class="list-group-item">TouchCursor Mode [Space as Trigger Key]</div><div class="list-group-item"><p style="margin-top: 20px; font-weight: bold">
+  Moving Around
+</p>
 
-        </ul>
-        <a class="btn btn-primary btn-sm" style="margin-left: 40px" data-json-path="json/numeric_keypad.json">Import</a>
+<table class="table">
+  <tr>
+    <td>Trigger Key + J/K/I/L</td>
+    <td>Arrow Keys</td>
+  </tr>
+  <tr>
+    <td>Trigger Key + U/O/H/N</td>
+    <td>Home / End / Page Up / Page Down</td>
+  </tr>
+  <tr>
+    <td>Trigger Key + Y/P/M</td>
+    <td>Insert / Backspace / (Forward) Delete</td>
+  </tr>
+</table>
+</div>
       </div>
     </div>
 
-          <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Happy Hacking Keyboard Compatible Mode (rev 1)</h3>
+        </div>
       </div>
-      <div class="panel-body">
-        <ul>
-          <li>HHKB Arrow Mode (fn + semicolon/slash/open_bracket/quote to arrow keys, etc)</li><li>HHKB Media Key Mode (fn + asdf to Volume down/up/mute, eject)</li>
-        </ul>
-        <a class="btn btn-primary btn-sm" style="margin-left: 40px" data-json-path="json/hhkb_mode.json">Import</a>
+      <div class="panel panel-primary" id="application_specific">
+        <div class="panel-heading">
+          <h3 class="panel-title">Application Specific</h3>
+        </div>
+        <div class="panel-body">
+              <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#swap_alt_cmd_in_autodesk_maya" aria-expanded="false" aria-controls="swap_alt_cmd_in_autodesk_maya">ALT &lt;=&gt; CMD in Autodesk Maya</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/swap_alt_cmd_in_autodesk_maya.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="swap_alt_cmd_in_autodesk_maya">
+          <div class="list-group-item">Swap option and command in Autodesk Maya</div>
       </div>
     </div>
-
-          <div class="panel panel-default">
+    <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Use right_command+h/j/k/l/;/&#39; to switch current tab/window/application</h3>
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#remote-desktop" aria-expanded="false" aria-controls="remote-desktop">Remote Desktop</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/remote-desktop.json">Import</a>
       </div>
-      <div class="panel-body">
-        <ul>
-          <li>Use right_command+;/&#39; to cycle through running applications (like command+tab).</li><li>Use right_command+h/l to switch tabs in an application.</li><li>Use right_command+j/k to switch windows of the foreground application .</li><li>Disable left_command+(tab/shift+tab) (to retrain reflexes using the other manipulators).</li>
-        </ul>
-        <a class="btn btn-primary btn-sm" style="margin-left: 40px" data-json-path="json/application_window_tab_switch_with_right_cmd_hjklsemiquote.json">Import</a>
+      <div class="list-group collapse" id="remote-desktop">
+          <div class="list-group-item">Swap command and control</div>
       </div>
     </div>
-
-          <div class="panel panel-default">
+    <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Remote Desktop</h3>
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#tmux_prefix" aria-expanded="false" aria-controls="tmux_prefix">Tmux Prefix</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/tmux_prefix.json">Import</a>
       </div>
-      <div class="panel-body">
-        <ul>
-          <li>Swap command and control</li>
-        </ul>
-        <a class="btn btn-primary btn-sm" style="margin-left: 40px" data-json-path="json/remote-desktop.json">Import</a>
-      </div>
-    </div>
-
-          <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Tmux Prefix</h3>
-      </div>
-      <div class="panel-body">
-        <ul>
-          <li>Tmux Prefix Mode [Tab as trigger key]</li><li>Tmux Prefix Mode [Fn as trigger key]</li><li>Tmux Prefix Mode [ ctrl+B as prefix ]</li><li>Tmux Prefix Mode [ ctrl+A as prefix ]</li><li>Tmux Prefix Mode [ ctrl+Space as prefix ]</li><p style="margin-top: 20px; font-weight: bold">
+      <div class="list-group collapse" id="tmux_prefix">
+          <div class="list-group-item">Tmux Prefix Mode [Tab as trigger key]</div><div class="list-group-item">Tmux Prefix Mode [Fn as trigger key]</div><div class="list-group-item">Tmux Prefix Mode [caps_lock as trigger key]</div><div class="list-group-item">Tmux Prefix Mode [escape as trigger key]</div><div class="list-group-item">Tmux Prefix Mode [ ctrl+B as prefix ]</div><div class="list-group-item">Tmux Prefix Mode [ ctrl+A as prefix ]</div><div class="list-group-item">Tmux Prefix Mode [ ctrl+Space as prefix ]</div><div class="list-group-item"><p style="margin-top: 20px; font-weight: bold">
   Tmux Prefix Mode
 </p>
 <p>Tmux is a terminal multiplexer that lets you switch easily between several programs in one terminal, detach them, etc. It's very useful but most key bindings require a prefix key combination (default: Ctrl+B). This mode allows you to use a simple [ Modifier + Key ] to trigger a [ Ctrl+B ] [ Key ] sequence.</p>
@@ -474,71 +477,245 @@
 <p style="margin-top: 20px;">
   Note: Keys that are remapped include: a-z, 0-9, comma,slash,period,semicolon,quote,open_bracket,close_bracket
 </p>
-
-        </ul>
-        <a class="btn btn-primary btn-sm" style="margin-left: 40px" data-json-path="json/tmux_prefix.json">Import</a>
+</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#terminal_navi" aria-expanded="false" aria-controls="terminal_navi">Navigation in Terminal Apps</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/terminal_navi.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="terminal_navi">
+          <div class="list-group-item">⌘ + ← | Move cursor to line begin</div><div class="list-group-item">⌘ + → | Move cursor to line end</div><div class="list-group-item">⌥ + ← | Move cursor one word behind</div><div class="list-group-item">⌥ + → | Move cursor one word ahead</div><div class="list-group-item">⌥ + ⌫ | Delete one word</div><div class="list-group-item">⌥ + ⌦ | Delete one word ahead</div><div class="list-group-item">⌘ + ⌫ | Delete to line begin</div><div class="list-group-item">⌘ + ⌦ | Delete to line end</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#launch_new_Chrome_or_iTerm2_windows" aria-expanded="false" aria-controls="launch_new_Chrome_or_iTerm2_windows">Launch new Chrome or iTerm2 windows via keybindings</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/launch_new_Chrome_or_iTerm2_windows.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="launch_new_Chrome_or_iTerm2_windows">
+          <div class="list-group-item">left control + left shift + ` (backtick) - launches a new iTerm2 window with the default profile</div><div class="list-group-item">left control + left shift + 1 - launches a new Google Chrome window</div><div class="list-group-item"><li>This keybinding is set up to launch new windows of running applications, rather than launching applications themselves.  (Launching a running application only brings it to the foreground).  This is meant to mimic the launcher keybindings available in Ubuntu.</li>
+</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#xcode" aria-expanded="false" aria-controls="xcode">Xcode</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/xcode.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="xcode">
+          <div class="list-group-item">Xcode Visual Studio style (Run, Stop, Build, Step, Breakpoint)</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#safari" aria-expanded="false" aria-controls="safari">Don&#39;t exit fullscreen when pressing ESC in Safari</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/safari.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="safari">
+          <div class="list-group-item">Remap ESC to Option-ESC in Safari only</div>
       </div>
     </div>
 
-          <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">ALT &lt;=&gt; CMD in Autodesk Maya</h3>
+        </div>
       </div>
-      <div class="panel-body">
-        <ul>
-          <li>Swap option and command in Autodesk Maya</li>
-        </ul>
-        <a class="btn btn-primary btn-sm" style="margin-left: 40px" data-json-path="json/swap_alt_cmd_in_autodesk_maya.json">Import</a>
+      <div class="panel panel-primary" id="alternative_keyboard_layouts">
+        <div class="panel-heading">
+          <h3 class="panel-title">Alternative Keyboard Layouts</h3>
+        </div>
+        <div class="panel-body">
+              <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#caps_lock_german" aria-expanded="false" aria-controls="caps_lock_german">Change caps_lock key (German keyboard layout)</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/caps_lock_german.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="caps_lock_german">
+          <div class="list-group-item">Change caps_lock key to slash.</div><div class="list-group-item">Change caps_lock key to backslash.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#dvorak_layout" aria-expanded="false" aria-controls="dvorak_layout">Dvorak Keyboard</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/dvorak_layout.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="dvorak_layout">
+          <div class="list-group-item">Remap keys to use Dvorak keyboard layout</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#dvorak_cmd_qwerty_layout" aria-expanded="false" aria-controls="dvorak_cmd_qwerty_layout">Dvorak-CmdQwerty Keyboard</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/dvorak_cmd_qwerty_layout.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="dvorak_cmd_qwerty_layout">
+          <div class="list-group-item">Remap keys to use Dvorak-CmdQwerty keyboard layout</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#colemak_layout" aria-expanded="false" aria-controls="colemak_layout">Colemak Keyboard</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/colemak_layout.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="colemak_layout">
+          <div class="list-group-item">Remap keys to use Colemak keyboard layout</div>
       </div>
     </div>
 
-          <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Pok3r Media Controls</h3>
+        </div>
       </div>
-      <div class="panel-body">
-        <ul>
-          <li>Pok3r Volume Controls (fn + sdf to Volume down/up/mute)</li><li>Pok3r Media Keys (fn + qwe to Previous Title/Play-Pause/Next)</li>
-        </ul>
-        <a class="btn btn-primary btn-sm" style="margin-left: 40px" data-json-path="json/pok3r-media.json">Import</a>
+      <div class="panel panel-primary" id="International">
+        <div class="panel-heading">
+          <h3 class="panel-title">International (Language Specific)</h3>
+        </div>
+        <div class="panel-body">
+              <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#japanese" aria-expanded="false" aria-controls="japanese">For Japanese （日本語環境向けの設定）</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/japanese.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="japanese">
+          <div class="list-group-item">コマンドキーを単体で押したときに、英数・かなキーを送信する。（左コマンドキーは英数、右コマンドキーはかな）</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#jis_to_ascii" aria-expanded="false" aria-controls="jis_to_ascii">For Japanese （JIS配列をASCII配列風にする設定）</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/jis_to_ascii.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="jis_to_ascii">
+          <div class="list-group-item">英数・かなキーを他のキーと組み合わせて押したときに、コマンドキーを送信する。</div><div class="list-group-item">コマンドキーをオプションキーに置き換える。</div><div class="list-group-item">バッククオートとチルダを割り当てる。</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#german_pc_shortcuts" aria-expanded="false" aria-controls="german_pc_shortcuts">German PC-Style Shortcuts (Enable various Alt Gr key combinations)</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/german_pc_shortcuts.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="german_pc_shortcuts">
+          <div class="list-group-item">PC-Style German Alt Gr (Backslash, @, pipe, tilde, brackets)</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#swap_pound_and_hash" aria-expanded="false" aria-controls="swap_pound_and_hash">For British Keyboard (Exchange £ and #)</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/swap_pound_and_hash.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="swap_pound_and_hash">
+          <div class="list-group-item">Exchange £ shift-3 and # option-3</div>
       </div>
     </div>
 
-          <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Change grave accent (backtick) to escape, option grave accent to grave accent</h3>
+        </div>
       </div>
-      <div class="panel-body">
-        <ul>
-          <li>Post Escape if grave_accent_and_tilde (backtick) is pressed alone; post grave_accent (backtick) if Option + grave_accent_and_tilde is pressed.</li>
-        </ul>
-        <a class="btn btn-primary btn-sm" style="margin-left: 40px" data-json-path="json/change_grave_accent_to_escape.json">Import</a>
+      <div class="panel panel-primary" id="key_specific">
+        <div class="panel-heading">
+          <h3 class="panel-title">Key Specific</h3>
+        </div>
+        <div class="panel-body">
+              <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#exchange_command_tab_and_control_tab" aria-expanded="false" aria-controls="exchange_command_tab_and_control_tab">Exchange Command+Tab (generally &#39;cycle through applications&#39;) and Control+Tab (generally &#39;cycle through tabs&#39;)</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/exchange_command_tab_and_control_tab.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="exchange_command_tab_and_control_tab">
+          <div class="list-group-item">Change Command+Tab to Control+Tab</div><div class="list-group-item">Change Control+Tab to Command+Tab</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#exchange_numbers_and_symbols" aria-expanded="false" aria-controls="exchange_numbers_and_symbols">Exchange numbers and symbols</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/exchange_numbers_and_symbols.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="exchange_numbers_and_symbols">
+          <div class="list-group-item">Exchange numbers and symbols (1234567890 and !@#$%^&amp;*())</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#exchange_semicolon_and_colon" aria-expanded="false" aria-controls="exchange_semicolon_and_colon">Exchange semicolon and colon</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/exchange_semicolon_and_colon.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="exchange_semicolon_and_colon">
+          <div class="list-group-item">Exchange semicolon and colon</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#nonbreaking_space" aria-expanded="false" aria-controls="nonbreaking_space">Disable alt+spacebar (nonbreaking space)</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/nonbreaking_space.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="nonbreaking_space">
+          <div class="list-group-item">Change alt+spacebar to spacebar</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#spacebar" aria-expanded="false" aria-controls="spacebar">Change spacebar</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/spacebar.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="spacebar">
+          <div class="list-group-item">Change spacebar to left_shift if pressed with other keys (Post spacebar when pressed alone)</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#command_arrows_to_option_arrows" aria-expanded="false" aria-controls="command_arrows_to_option_arrows">Exchange command + arrows keys with option + arrows keys</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/command_arrows_to_option_arrows.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="command_arrows_to_option_arrows">
+          <div class="list-group-item">Exchange command + arrow keys with option + arrow keys</div>
       </div>
     </div>
 
-
-      <!-- For specific languages -->
-          <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">For Japanese （日本語環境向けの設定）</h3>
+        </div>
       </div>
-      <div class="panel-body">
-        <ul>
-          <li>コマンドキーを単体で押したときに、英数・かなキーを送信する。（左コマンドキーは英数、右コマンドキーはかな）</li>
-        </ul>
-        <a class="btn btn-primary btn-sm" style="margin-left: 40px" data-json-path="json/japanese.json">Import</a>
+      <div class="panel panel-primary" id="os_functionality">
+        <div class="panel-heading">
+          <h3 class="panel-title">OS Functionality</h3>
+        </div>
+        <div class="panel-body">
+              <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#launch_apps" aria-expanded="false" aria-controls="launch_apps">Launch apps</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/launch_apps.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="launch_apps">
+          <div class="list-group-item">Launch apps by right shift+letters.</div><div class="list-group-item"><ul>
+  <li>right shift + a: Activity Monitor</li>
+  <li>right shift + d: Dictionary</li>
+  <li>right shift + e: Text Edit</li>
+  <li>right shift + f: Finder</li>
+  <li>right shift + s: Safari</li>
+  <li>right shift + t: Terminal</li>
+</ul>
+</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#application_window_tab_switch_with_right_cmd_hjklsemiquote" aria-expanded="false" aria-controls="application_window_tab_switch_with_right_cmd_hjklsemiquote">Use right_command+h/j/k/l/;/&#39; to switch current tab/window/application</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/application_window_tab_switch_with_right_cmd_hjklsemiquote.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="application_window_tab_switch_with_right_cmd_hjklsemiquote">
+          <div class="list-group-item">Use right_command+;/&#39; to cycle through running applications (like command+tab).</div><div class="list-group-item">Use right_command+h/l to switch tabs in an application.</div><div class="list-group-item">Use right_command+j/k to switch windows of the foreground application .</div><div class="list-group-item">Disable left_command+(tab/shift+tab) (to retrain reflexes using the other manipulators).</div>
       </div>
     </div>
 
-
-      <!-- Personal files -->
-          <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Personal rules (@tekezo)</h3>
+        </div>
       </div>
-      <div class="panel-body">
-        <ul>
-          <li>Change left_control+1/2/v/q to home/end/page_down/page_up (rev 2)</li><li>Change option+hyphen, option+equal to ----------,==========</li><li>Virtual machine configuration</li><li>Terminal configuration</li><li>Extra emacs key bindings (rev 4)</li><li>Change tab to command+`</li><li>Launcher Mode v3 (rev 2)</li><p style="margin-top: 20px; font-weight: bold">
+      <div class="panel panel-primary" id="personal_settings">
+        <div class="panel-heading">
+          <h3 class="panel-title">Personal Settings</h3>
+        </div>
+        <div class="panel-body">
+              <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#personal_tekezo" aria-expanded="false" aria-controls="personal_tekezo">Personal rules (@tekezo)</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/personal_tekezo.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="personal_tekezo">
+          <div class="list-group-item">Change left_control+1/2/v/q to home/end/page_down/page_up (rev 2)</div><div class="list-group-item">Change option+hyphen, option+equal to ----------,==========</div><div class="list-group-item">Configurations for apps (rev2)</div><div class="list-group-item">Extra emacs key bindings (rev 4)</div><div class="list-group-item">Change tab to command+`</div><div class="list-group-item">Launcher Mode v3 (rev 2)</div><div class="list-group-item"><p style="margin-top: 20px; font-weight: bold">
   Launcher Mode v3
 </p>
 
@@ -563,28 +740,73 @@
     </ul>
   </li>
 </ul>
-
-        </ul>
-        <a class="btn btn-primary btn-sm" style="margin-left: 40px" data-json-path="json/personal_tekezo.json">Import</a>
+</div>
       </div>
     </div>
-
-          <div class="panel panel-default">
+    <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Personal rules (@apm1467)</h3>
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#personal_apm1467" aria-expanded="false" aria-controls="personal_apm1467">Personal rules (@apm1467)</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/personal_apm1467.json">Import</a>
       </div>
-      <div class="panel-body">
-        <ul>
-          <li>Change right_option to command + option + shift</li><ul>
+      <div class="list-group collapse" id="personal_apm1467">
+          <div class="list-group-item">Disable command + Q in Safari</div><div class="list-group-item">Use right_command + J/K to switch between tabs in applications</div><div class="list-group-item">Change right_option to command + option + shift</div><div class="list-group-item"><ul>
   <li>right_option + v → Paste and Match Style</li>
   <li>Click a link while pressing right_option → Open link in a new window</li>
 </ul>
-
-        </ul>
-        <a class="btn btn-primary btn-sm" style="margin-left: 40px" data-json-path="json/personal_apm1467.json">Import</a>
+</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#personal_rubocoptero" aria-expanded="false" aria-controls="personal_rubocoptero">Personal rules (@rubocoptero)</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/personal_rubocoptero.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="personal_rubocoptero">
+          <div class="list-group-item">Change right_option to shift+control+f13</div><div class="list-group-item">Change application to shift+control+f13</div>
       </div>
     </div>
 
+        </div>
+      </div>
+      <div class="panel panel-primary" id="miscellaneous">
+        <div class="panel-heading">
+          <h3 class="panel-title">Miscellaneous</h3>
+        </div>
+        <div class="panel-body">
+              <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#block_one_handed_combos" aria-expanded="false" aria-controls="block_one_handed_combos">Force the user to make key combination with two hands</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/block_one_handed_combos.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="block_one_handed_combos">
+          <div class="list-group-item">Block left-handed command + left-handed key</div><div class="list-group-item">Block left-handed shift + left-handed key</div><div class="list-group-item">Block left-handed option + left-handed key</div><div class="list-group-item">Block left-handed control + left-handed key</div><div class="list-group-item">Block right-handed command + right-handed key</div><div class="list-group-item">Block right-handed shift + right-handed key</div><div class="list-group-item">Block right-handed option + right-handed key</div><div class="list-group-item">Block right-handed control + right-handed key</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#exchange_hyphen_and_underscore" aria-expanded="false" aria-controls="exchange_hyphen_and_underscore">Exchange hyphen and underscore</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/exchange_hyphen_and_underscore.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="exchange_hyphen_and_underscore">
+          <div class="list-group-item">Exchange hyphen and underscore</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#exchange_underscore_and_backslash" aria-expanded="false" aria-controls="exchange_underscore_and_backslash">Exchange underscore and backslash</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/exchange_underscore_and_backslash.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="exchange_underscore_and_backslash">
+          <div class="list-group-item">Exchange underscore and backslash</div>
+      </div>
+    </div>
+
+        </div>
+      </div>
+
+
+      <hr />
+      <a href="example.html">Other examples</a>
     </div>
 
     <script src="assets/jquery-3.2.1.min.js"></script>
