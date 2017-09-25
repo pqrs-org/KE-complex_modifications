@@ -32,6 +32,7 @@
               "docs/json/control.json",
               "docs/json/shift.json",
               "docs/json/escape.json",
+              "docs/json/change_grave_accent_to_escape.json",
               "docs/json/modifiers_to_f-keys.json",
               "docs/json/delete.json",
               "docs/json/change_command_l.json",
@@ -60,6 +61,7 @@
               "docs/json/swap_alt_cmd_in_autodesk_maya.json",
               "docs/json/remote-desktop.json",
               "docs/json/tmux_prefix.json",
+              "docs/json/terminal_navi.json",
               "docs/json/launch_new_Chrome_or_iTerm2_windows.json",
               "docs/json/xcode.json",
               "docs/json/safari.json"
@@ -76,6 +78,7 @@
             "docs/json/japanese.json",
             "docs/json/jis_to_ascii.json",
             "docs/json/german_pc_shortcuts.json",
+            "docs/json/swap_pound_and_hash.json"
           ])
 
           add_group("Key Specific","key_specific",[
@@ -95,7 +98,8 @@
           add_group("Personal Settings","personal_settings",[
               "docs/json/personal_tekezo.json",
               "docs/json/personal_apm1467.json",
-              "docs/json/personal_rubocoptero.json"
+              "docs/json/personal_rubocoptero.json",
+              "docs/json/personal_wgj.json"
           ])
 
           add_group("Miscellaneous","miscellaneous",[
@@ -108,8 +112,7 @@
 
       <%= render_toc() %>
       <div class="text-left" style="margin-bottom: 30px">
-        <a href="javascript:$('.collapse').collapse('show')">Expand All</a> |
-        <a href="javascript:$('.collapse').collapse('hide')">Collapse All</a>
+        <a href="#" onclick="$('.collapse').collapse('toggle'); return false;">Expand/Collapse All</a>
       </div>
 
       <%= $groups %>

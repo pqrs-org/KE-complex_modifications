@@ -24,10 +24,9 @@
 
       
 
-      <ul class="toc list-group"><li class="list-group-item list-group-item-info">Table of Contents</li><li class="list-group-item"><span class="badge">10</span><a href="#modifier_keys">Modifier Keys</a></li><li class="list-group-item"><span class="badge">14</span><a href="#emulation_modes">Emulation Modes</a></li><li class="list-group-item"><span class="badge">6</span><a href="#application_specific">Application Specific</a></li><li class="list-group-item"><span class="badge">4</span><a href="#alternative_keyboard_layouts">Alternative Keyboard Layouts</a></li><li class="list-group-item"><span class="badge">3</span><a href="#International">International (Language Specific)</a></li><li class="list-group-item"><span class="badge">6</span><a href="#key_specific">Key Specific</a></li><li class="list-group-item"><span class="badge">2</span><a href="#os_functionality">OS Functionality</a></li><li class="list-group-item"><span class="badge">3</span><a href="#personal_settings">Personal Settings</a></li><li class="list-group-item"><span class="badge">3</span><a href="#miscellaneous">Miscellaneous</a></li></ul>
+      <ul class="toc list-group"><li class="list-group-item list-group-item-info">Table of Contents</li><li class="list-group-item"><span class="badge">11</span><a href="#modifier_keys">Modifier Keys</a></li><li class="list-group-item"><span class="badge">14</span><a href="#emulation_modes">Emulation Modes</a></li><li class="list-group-item"><span class="badge">7</span><a href="#application_specific">Application Specific</a></li><li class="list-group-item"><span class="badge">4</span><a href="#alternative_keyboard_layouts">Alternative Keyboard Layouts</a></li><li class="list-group-item"><span class="badge">4</span><a href="#International">International (Language Specific)</a></li><li class="list-group-item"><span class="badge">6</span><a href="#key_specific">Key Specific</a></li><li class="list-group-item"><span class="badge">2</span><a href="#os_functionality">OS Functionality</a></li><li class="list-group-item"><span class="badge">4</span><a href="#personal_settings">Personal Settings</a></li><li class="list-group-item"><span class="badge">3</span><a href="#miscellaneous">Miscellaneous</a></li></ul>
       <div class="text-left" style="margin-bottom: 30px">
-        <a href="javascript:$('.collapse').collapse('show')">Expand All</a> |
-        <a href="javascript:$('.collapse').collapse('hide')">Collapse All</a>
+        <a href="#" onclick="$('.collapse').collapse('toggle'); return false;">Expand/Collapse All</a>
       </div>
 
             <div class="panel panel-primary" id="modifier_keys">
@@ -78,6 +77,15 @@
       </div>
       <div class="list-group collapse" id="escape">
           <div class="list-group-item">Post caps_lock if escape is pressed alone.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#change_grave_accent_to_escape" aria-expanded="false" aria-controls="change_grave_accent_to_escape">Change grave accent (backtick) to escape, option grave accent to grave accent</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/change_grave_accent_to_escape.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="change_grave_accent_to_escape">
+          <div class="list-group-item">Post Escape if grave_accent_and_tilde (backtick) is pressed alone; post grave_accent (backtick) if Option + grave_accent_and_tilde is pressed.</div>
       </div>
     </div>
     <div class="panel panel-default">
@@ -398,7 +406,7 @@
         <a class="btn btn-primary btn-sm pull-right" data-json-path="json/spacefn.json">Import</a>
       </div>
       <div class="list-group collapse" id="spacefn">
-          <div class="list-group-item">SpaceFN: Space enables SpaceFN mode (see: https://geekhack.org/index.php?topic=51069.0)</div><div class="list-group-item">SpaceFN: Space+b to Space (hold to repeat)</div><div class="list-group-item">SpaceFN: Space+[ijkl] to Up, Left, Down, Right</div><div class="list-group-item">SpaceFN: Space+u to Home, Space+o to End</div><div class="list-group-item">SpaceFN: Space+h to Page Up, Space+n to Page Down</div><div class="list-group-item">SpaceFN: Space+p to Print Screen, Space+Open Bracket ([) to Scroll Lock, Space+Close Bracket (]) to Pause, Space+Backspace to Forward Delete, Space+Backslash (\) to Insert</div><div class="list-group-item">SpaceFN: Backquote (`) to Escape, Space+[1-9] to F[1-9], Space+0 to F10, Space+Hyphen (-) to F11, Space+Equal Sign (=) to F12, Space+e to Escape, Space+m to Backtick (`), Space+Comma to Tilde (~), Space+Slash (/) to Menu</div>
+          <div class="list-group-item">SpaceFN: Space enables SpaceFN mode (see: https://geekhack.org/index.php?topic=51069.0)</div><div class="list-group-item">SpaceFN: Space+b to Space (hold to repeat)</div><div class="list-group-item">SpaceFN: Space+[ijkl] to Up, Left, Down, Right</div><div class="list-group-item">SpaceFN: Space+[hjkl] to Left, Down, Up, Right</div><div class="list-group-item">SpaceFN: Space+u to Home, Space+o to End</div><div class="list-group-item">SpaceFN: Space+h to Page Up, Space+n to Page Down</div><div class="list-group-item">SpaceFN: Space+p to Print Screen, Space+Open Bracket ([) to Scroll Lock, Space+Close Bracket (]) to Pause, Space+Backspace to Forward Delete, Space+Backslash (\) to Insert</div><div class="list-group-item">SpaceFN: Backquote (`) to Escape, Space+[1-9] to F[1-9], Space+0 to F10, Space+Hyphen (-) to F11, Space+Equal Sign (=) to F12, Space+e to Escape, Space+m to Backtick (`), Space+Comma to Tilde (~), Space+Slash (/) to Menu</div>
       </div>
     </div>
     <div class="panel panel-default">
@@ -479,6 +487,15 @@
   Note: Keys that are remapped include: a-z, 0-9, comma,slash,period,semicolon,quote,open_bracket,close_bracket
 </p>
 </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#terminal_navi" aria-expanded="false" aria-controls="terminal_navi">Navigation in Terminal Apps</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/terminal_navi.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="terminal_navi">
+          <div class="list-group-item">⌘ + ← | Move cursor to line begin</div><div class="list-group-item">⌘ + → | Move cursor to line end</div><div class="list-group-item">⌥ + ← | Move cursor one word behind</div><div class="list-group-item">⌥ + → | Move cursor one word ahead</div><div class="list-group-item">⌥ + ⌫ | Delete one word</div><div class="list-group-item">⌥ + ⌦ | Delete one word ahead</div><div class="list-group-item">⌘ + ⌫ | Delete to line begin</div><div class="list-group-item">⌘ + ⌦ | Delete to line end</div>
       </div>
     </div>
     <div class="panel panel-default">
@@ -586,6 +603,15 @@
       </div>
       <div class="list-group collapse" id="german_pc_shortcuts">
           <div class="list-group-item">PC-Style German Alt Gr (Backslash, @, pipe, tilde, brackets)</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#swap_pound_and_hash" aria-expanded="false" aria-controls="swap_pound_and_hash">For British Keyboard (Exchange £ and #)</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/swap_pound_and_hash.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="swap_pound_and_hash">
+          <div class="list-group-item">Exchange £ shift-3 and # option-3</div>
       </div>
     </div>
 
@@ -698,7 +724,7 @@
         <a class="btn btn-primary btn-sm pull-right" data-json-path="json/personal_tekezo.json">Import</a>
       </div>
       <div class="list-group collapse" id="personal_tekezo">
-          <div class="list-group-item">Change left_control+1/2/v/q to home/end/page_down/page_up (rev 2)</div><div class="list-group-item">Change option+hyphen, option+equal to ----------,==========</div><div class="list-group-item">Configurations for apps</div><div class="list-group-item">Extra emacs key bindings (rev 4)</div><div class="list-group-item">Change tab to command+`</div><div class="list-group-item">Launcher Mode v3 (rev 2)</div><div class="list-group-item"><p style="margin-top: 20px; font-weight: bold">
+          <div class="list-group-item">Change left_control+1/2/v/q to home/end/page_down/page_up (rev 2)</div><div class="list-group-item">Change option+hyphen, option+equal to ----------,==========</div><div class="list-group-item">Configurations for apps (rev2)</div><div class="list-group-item">Extra emacs key bindings (rev 4)</div><div class="list-group-item">Change tab to command+`</div><div class="list-group-item">Launcher Mode v3 (rev 2)</div><div class="list-group-item"><p style="margin-top: 20px; font-weight: bold">
   Launcher Mode v3
 </p>
 
@@ -732,7 +758,7 @@
         <a class="btn btn-primary btn-sm pull-right" data-json-path="json/personal_apm1467.json">Import</a>
       </div>
       <div class="list-group collapse" id="personal_apm1467">
-          <div class="list-group-item">Disable command + Q in web browser</div><div class="list-group-item">Change right_option to command + option + shift</div><div class="list-group-item"><ul>
+          <div class="list-group-item">Disable command + Q in Safari</div><div class="list-group-item">Use right_command + J/K to switch between tabs in applications</div><div class="list-group-item">Change right_option to command + option + shift</div><div class="list-group-item"><ul>
   <li>right_option + v → Paste and Match Style</li>
   <li>Click a link while pressing right_option → Open link in a new window</li>
 </ul>
@@ -746,6 +772,15 @@
       </div>
       <div class="list-group collapse" id="personal_rubocoptero">
           <div class="list-group-item">Change right_option to shift+control+f13</div><div class="list-group-item">Change application to shift+control+f13</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#personal_wgj" aria-expanded="false" aria-controls="personal_wgj">Personal rules (@wgj)</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/personal_wgj.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="personal_wgj">
+          <div class="list-group-item">Change insert to left_option+escape (VoiceOver)</div>
       </div>
     </div>
 
