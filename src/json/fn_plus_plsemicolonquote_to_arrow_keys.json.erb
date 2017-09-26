@@ -1,0 +1,30 @@
+{
+    "title": "Change fn + p/l/;/' to arrow keys'",
+    "rules": [
+        {
+            "description": "Change fn + p/l/;/' to arrow keys'",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("p", ['fn'], []) %>,
+                    "to": <%= to([["up_arrow"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("l", ['fn'], []) %>,
+                    "to": <%= to([["left_arrow"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("semicolon", ['fn'], []) %>,
+                    "to": <%= to([["down_arrow"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("quote", ['fn'], []) %>,
+                    "to": <%= to([["right_arrow"]]) %>
+                }
+            ]
+        }
+    ]
+}
