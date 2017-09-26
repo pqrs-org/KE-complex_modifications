@@ -1,0 +1,31 @@
+{
+    "title": "Spacebar changes",
+    "rules": [        
+        {
+            "description": "Post space is pressed alone, left_ctrl otherwise",
+            "manipulators": [
+		{
+		    "from": {
+			"key_code": "spacebar",
+			"modifiers": {
+			    "optional": [
+				"any"
+			    ]
+			}
+		    },
+		    "to": [
+			{
+			    "key_code": "left_control"
+			}
+		    ],
+		    "to_if_alone": [
+			{
+			    "key_code": "spacebar"
+			}
+		    ],
+		    "type": "basic"
+		}
+	    ]
+        }
+    ]
+}
