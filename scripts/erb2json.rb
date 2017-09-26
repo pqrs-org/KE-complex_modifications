@@ -108,6 +108,7 @@ def frontmost_application(type, app_aliases)
     '^com\.nulana\.remotixmac$',
     '^com\.p5sys\.jump\.mac\.viewer$',
     '^com\.p5sys\.jump\.mac\.viewer\.web$',
+    '^com\.teamviewer\.TeamViewer$',
     '^com\.vmware\.horizon$',
     '^com\.2X\.Client\.Mac$',
   ]
