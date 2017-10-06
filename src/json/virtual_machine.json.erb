@@ -1,0 +1,22 @@
+{
+    "title": "Virtual Machine",
+    "rules": [
+        {
+            "description": "Swap command and control in virtual machine",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("control", [], ["any"]) %>,
+                    "to": <%= to([["left_command"]]) %>,
+                    "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("command", [], ["any"]) %>,
+                    "to": <%= to([["left_control"]]) %>,
+                    "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
+                }
+            ]
+        }
+    ]
+}

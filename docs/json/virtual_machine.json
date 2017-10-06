@@ -1,0 +1,74 @@
+{
+  "title": "Virtual Machine",
+  "rules": [
+    {
+      "description": "Swap command and control in virtual machine",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "control",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_command"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.vmware\\.fusion$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.vmware\\.view$",
+                "^com\\.parallels\\.desktop$",
+                "^com\\.parallels\\.vm$",
+                "^com\\.parallels\\.desktop\\.console$",
+                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.vmware\\.proxyApp\\.",
+                "^com\\.parallels\\.winapp\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "command",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_control"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.vmware\\.fusion$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.vmware\\.view$",
+                "^com\\.parallels\\.desktop$",
+                "^com\\.parallels\\.vm$",
+                "^com\\.parallels\\.desktop\\.console$",
+                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.vmware\\.proxyApp\\.",
+                "^com\\.parallels\\.winapp\\."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
