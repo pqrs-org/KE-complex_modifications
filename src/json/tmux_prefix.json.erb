@@ -1,5 +1,5 @@
 {
-    "title": "Tmux Prefix",
+    "title": "Tmux Prefix (rev 2)",
     <%
         default_tmux_keys = [
             "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
@@ -13,7 +13,7 @@
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("tab", [], ["caps_lock"]) %>,
+                    "from": <%= from("tab", [], ["caps_lock", "shift"]) %>,
                     "to": [
                         { "set_variable": { "name": "tmux_prefix_mode", "value": 1 } }
                     ],
@@ -30,7 +30,7 @@
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("fn", [], ["caps_lock"]) %>,
+                    "from": <%= from("fn", [], ["caps_lock", "shift"]) %>,
                     "to": [
                         { "set_variable": { "name": "tmux_prefix_mode", "value": 1 } }
                     ],
@@ -47,7 +47,7 @@
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("caps_lock", [], []) %>,
+                    "from": <%= from("caps_lock", [], ["shift"]) %>,
                     "to": [
                         { "set_variable": { "name": "tmux_prefix_mode", "value": 1 } }
                     ],
@@ -64,7 +64,7 @@
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("escape", [], ["caps_lock"]) %>,
+                    "from": <%= from("escape", [], ["caps_lock", "shift"]) %>,
                     "to": [
                         { "set_variable": { "name": "tmux_prefix_mode", "value": 1 } }
                     ],
@@ -83,7 +83,7 @@
                 source_keys_list: default_tmux_keys,
                 dest_keys_list: default_tmux_keys,
                 from_mandatory_modifiers: [],
-                from_optional_modifiers: ["caps_lock"],
+                from_optional_modifiers: ["caps_lock", "shift"],
                 to_pre_events: [
                     ["b", ["left_control"]],
                 ],
@@ -98,7 +98,7 @@
                 source_keys_list: default_tmux_keys,
                 dest_keys_list: default_tmux_keys,
                 from_mandatory_modifiers: [],
-                from_optional_modifiers: ["caps_lock"],
+                from_optional_modifiers: ["caps_lock", "shift"],
                 to_pre_events: [
                     ["a", ["left_control"]],
                 ],
@@ -113,7 +113,7 @@
                 source_keys_list: default_tmux_keys,
                 dest_keys_list: default_tmux_keys,
                 from_mandatory_modifiers: [],
-                from_optional_modifiers: ["caps_lock"],
+                from_optional_modifiers: ["caps_lock", "shift"],
                 to_pre_events: [
                     ["spacebar", ["left_control"]],
                 ],
