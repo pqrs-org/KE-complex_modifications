@@ -385,7 +385,10 @@
                 {
                     "type": "basic",
                     "from": <%= from("f4", ["option"], []) %>,
-                    "to": <%= to([["q", ["left_command"]]]) %>
+                    "to": <%= to([["q", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
+                    ]
                 }
             ]
         },
