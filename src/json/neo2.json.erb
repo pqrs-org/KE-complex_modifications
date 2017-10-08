@@ -2,6 +2,27 @@
     "title": "Neo2",
     "rules": [
         {
+            "description": "Neo2 mod 3 and 4 keys",
+            "manipulators": <%= each_key(
+                as_json: true,
+                source_keys_list: [
+                    "backslash",
+                    "caps_lock",
+                    "grave_accent_and_tilde",
+                    "right_option",
+                ],
+                dest_keys_list: [
+                    "right_option",
+                    "right_option",
+                    "right_command",
+                    "left_command",
+                ],
+                from_optional_modifiers: [
+                    "shift", "option", "control", "command",
+                ]
+            ) %>
+        },
+        {
             "description": "Neo2 layer 4",
             "manipulators":
             <% l4_mappings = {
