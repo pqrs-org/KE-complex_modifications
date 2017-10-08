@@ -117,6 +117,17 @@
                     "to_if_alone": <%= to([["right_shift"]]) %>
                 }
             ]
+        },
+        {
+            "description": "Tab acts as Ctrl if pressed with another key",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("tab", [], ["shift", "option", "command"]) %>,
+                    "to": <%= to([["left_control"]]) %>,
+                    "to_if_alone": <%= to([["tab"]]) %>
+                }
+            ]
         }
     ]
 }
