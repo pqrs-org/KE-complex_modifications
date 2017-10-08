@@ -49,8 +49,7 @@
                 "hyphen", "equal_sign",
                 "open_bracket", "close_bracket",
                 "y", "h"
-            ]
-            %>
+            ] %>
             <%= JSON.generate(
                 each_key(
                     source_keys_list: l4_mappings.keys,
@@ -71,6 +70,30 @@
                     dest_keys_list: l4_dead_key_mappings,
                     from_mandatory_modifiers: ["right_command"],
                     to_modifiers: ["left_shift"],
+                    to_pre_events: [["z", ["left_option", "left_shift"]]]
+                )
+            ) %>
+        },
+        {
+            "description": "Neo2 layer 6",
+            "manipulators":
+            <% l6_dead_key_mappings = [
+                "non_us_backslash",
+                "1", "2", "3", "4", "5", "6", "7", "8", "9", "0",
+                "hyphen", "equal_sign",
+                "q", "w", "e", "r", "t", "y", "u", "i", "o", "p",
+                "open_bracket", "close_bracket",
+                "a", "s", "d", "f", "g", "h", "j", "k", "l",
+                "semicolon", "quote",
+                "z", "x", "c", "v", "b", "n", "m",
+                "comma", "period", "slash"
+            ] %>
+            <%= JSON.generate(
+                each_key(
+                    source_keys_list: l6_dead_key_mappings,
+                    dest_keys_list: l6_dead_key_mappings,
+                    from_mandatory_modifiers: ["right_command", "option"],
+                    to_modifiers: ["left_shift", "left_option"],
                     to_pre_events: [["z", ["left_option", "left_shift"]]]
                 )
             ) %>
