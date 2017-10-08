@@ -54,16 +54,19 @@
                 each_key(
                     source_keys_list: l4_mappings.keys,
                     dest_keys_list: l4_mappings.values,
-                    from_mandatory_modifiers: ["right_command"]
+                    from_mandatory_modifiers: ["right_command"],
+                    from_optional_modifiers: ["shift"]
                 ) + each_key(
                     source_keys_list: ["n", "slash"],
                     dest_keys_list: ["semicolon", "slash"],
                     from_mandatory_modifiers: ["right_command"],
+                    from_optional_modifiers: ["shift"],
                     to_modifiers: ["left_option"]
                 ) + each_key(
                     source_keys_list: ["b", "c", "a", "g"],
                     dest_keys_list: ["b", "w", "left_arrow", "right_arrow"],
                     from_mandatory_modifiers: ["right_command"],
+                    from_optional_modifiers: ["shift"],
                     to_modifiers: ["left_command"]
                 ) + each_key(
                     source_keys_list: l4_dead_key_mappings,
