@@ -1,0 +1,154 @@
+{
+    "title": "Neo2",
+    "rules": [
+        {
+            "description": "Neo2 mod 3 and 4 keys",
+            "manipulators": <%= each_key(
+                as_json: true,
+                source_keys_list: [
+                    "backslash",
+                    "caps_lock",
+                    "grave_accent_and_tilde",
+                    "right_option",
+                ],
+                dest_keys_list: [
+                    "right_option",
+                    "right_option",
+                    "right_command",
+                    "left_command",
+                ],
+                from_optional_modifiers: [
+                    "shift", "option", "control", "command",
+                ]
+            ) %>
+        },
+        {
+            "description": "Neo2 layer 4",
+            "manipulators":
+            <% l4_mappings = {
+                # navigation keys
+                "d" => "down_arrow",
+                "e" => "up_arrow",
+                "s" => "left_arrow",
+                "f" => "right_arrow",
+                "q" => "page_up",
+                "t" => "page_down",
+
+                # escape
+                "z" => "escape",
+
+                # deletion
+                "w" => "delete_or_backspace",
+                "r" => "delete_forward",
+
+                # num pad
+                "m" => "keypad_1",
+                "comma" => "keypad_2",
+                "period" => "keypad_3",
+                "j" => "keypad_4",
+                "k" => "keypad_5",
+                "l" => "keypad_6",
+                "u" => "keypad_7",
+                "i" => "keypad_8",
+                "o" => "keypad_9",
+                "spacebar" => "keypad_0",
+                "9" => "keypad_equal_sign",    # divide
+                "0" => "keypad_slash",         # multiply
+                "hyphen" => "keypad_asterisk", # subtract
+                "p" => "keypad_hyphen",        # add
+                "v" => "return_or_enter",
+                "quote" => "period",
+                "semicolon" => "comma",
+
+                # tab
+                "x" => "tab",
+                "8" => "tab",
+            }
+            l4_dead_key_mappings = [
+                "non_us_backslash",
+                "1", "2", "3", "4", "5", "6", "7",
+                "hyphen", "equal_sign",
+                "open_bracket", "close_bracket",
+                "y", "h"
+            ] %>
+            <%= JSON.generate(
+                each_key(
+                    source_keys_list: l4_mappings.keys,
+                    dest_keys_list: l4_mappings.values,
+                    from_mandatory_modifiers: ["right_command"],
+                    from_optional_modifiers: ["shift"]
+                ) + each_key(
+                    source_keys_list: ["n", "slash"],
+                    dest_keys_list: ["semicolon", "slash"],
+                    from_mandatory_modifiers: ["right_command"],
+                    from_optional_modifiers: ["shift"],
+                    to_modifiers: ["left_option"]
+                ) + each_key(
+                    source_keys_list: ["b", "c", "a", "g"],
+                    dest_keys_list: ["b", "w", "left_arrow", "right_arrow"],
+                    from_mandatory_modifiers: ["right_command"],
+                    from_optional_modifiers: ["shift"],
+                    to_modifiers: ["left_command"]
+                ) + each_key(
+                    source_keys_list: l4_dead_key_mappings,
+                    dest_keys_list: l4_dead_key_mappings,
+                    from_mandatory_modifiers: ["right_command"],
+                    to_modifiers: ["left_shift"],
+                    to_pre_events: [["z", ["left_option", "left_shift"]]]
+                )
+            ) %>
+        },
+        {
+            "description": "Neo2 layer 6",
+            "manipulators":
+            <% l6_dead_key_mappings = [
+                "non_us_backslash",
+                "1", "2", "3", "4", "5", "6", "7", "8", "9", "0",
+                "hyphen", "equal_sign",
+                "q", "w", "e", "r", "t", "y", "u", "i", "o", "p",
+                "open_bracket", "close_bracket",
+                "a", "s", "d", "f", "g", "h", "j", "k", "l",
+                "semicolon", "quote",
+                "z", "x", "c", "v", "b", "n", "m",
+                "comma", "period", "slash"
+            ] %>
+            <%= JSON.generate(
+                each_key(
+                    source_keys_list: l6_dead_key_mappings,
+                    dest_keys_list: l6_dead_key_mappings,
+                    from_mandatory_modifiers: ["right_command", "option"],
+                    to_modifiers: ["left_shift", "left_option"],
+                    to_pre_events: [["z", ["left_option", "left_shift"]]]
+                )
+            ) %>
+        },
+        {
+            "description": "Toggle caps_lock by pressing left_shift + right_shift at the same time",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("left_shift", ["right_shift"], ["caps_lock"]) %>,
+                    "to": <%= to([["caps_lock"]]) %>,
+                    "to_if_alone": <%= to([["left_shift"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("right_shift", ["left_shift"], ["caps_lock"]) %>,
+                    "to": <%= to([["caps_lock"]]) %>,
+                    "to_if_alone": <%= to([["right_shift"]]) %>
+                }
+            ]
+        },
+        {
+            "description": "Tab acts as Ctrl if pressed with another key",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("tab", [], ["shift", "option", "command"]) %>,
+                    "to": <%= to([["left_control"]]) %>,
+                    "to_if_alone": <%= to([["tab"]]) %>
+                }
+            ]
+        }
+    ]
+}
