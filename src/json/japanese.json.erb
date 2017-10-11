@@ -17,6 +17,26 @@
                     "to_if_alone": <%= to([["japanese_kana"]]) %>
                 }
             ]
+        },
+        {
+            "description": "escキーを押したときに、英数キーも送信する(vim用)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("escape", [], []) %>,
+                    "to": <%= to([["escape"], ["japanese_eisuu"]]) %>
+                }
+            ]
+        },
+        {
+            "description": "Ctrl+[を押したときに、英数キーも送信する(vim用)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("open_bracket", ["control"], []) %>,
+                    "to": <%= to([["open_bracket", ["control"]], ["japanese_eisuu"]]) %>
+                }
+            ]
         }
     ]
 }

@@ -47,6 +47,52 @@
           ]
         }
       ]
+    },
+    {
+      "description": "escキーを押したときに、英数キーも送信する(vim用)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "escape"
+          },
+          "to": [
+            {
+              "key_code": "escape"
+            },
+            {
+              "key_code": "japanese_eisuu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Ctrl+[を押したときに、英数キーも送信する(vim用)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "open_bracket",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "open_bracket",
+              "modifiers": [
+                "control"
+              ]
+            },
+            {
+              "key_code": "japanese_eisuu"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
