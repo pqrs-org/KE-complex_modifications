@@ -50,7 +50,7 @@
             ]
         },
         {
-            "description": "Configurations for apps (rev2)",
+            "description": "Configurations for apps (rev3)",
             "manipulators": [
                 <%# -------------------------------------------------- %>
                 <%# virtual_machine %>
@@ -134,6 +134,18 @@
                     "type": "basic",
                     "from": <%= from("i", ["command", "shift"], ["caps_lock"]) %>,
                     "to": <%= to([["vk_none"]]) %>,
+                    "conditions": [ <%= frontmost_application_if("browser") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("a", ["left_control"], ["caps_lock", "shift"]) %>,
+                    "to": <%= to([["left_arrow", ["left_command"]]]) %>,
+                    "conditions": [ <%= frontmost_application_if("browser") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("e", ["left_control"], ["caps_lock", "shift"]) %>,
+                    "to": <%= to([["right_arrow", ["left_command"]]]) %>,
                     "conditions": [ <%= frontmost_application_if("browser") %> ]
                 }
             ]
