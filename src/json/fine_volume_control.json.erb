@@ -1,0 +1,30 @@
+{
+    "title": "Fine volume contol",
+    "rules": [
+        {
+            "description": "Map volume controls to fine volume controls (Option + Shift + Volume)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("volume_decrement", [], []) %>,
+                    "to": <%= to([["volume_decrement", ["left_shift", "left_option"]]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("volume_increment", [], []) %>,
+                    "to": <%= to([["volume_increment", ["left_shift", "left_option"]]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("f11", ["fn"], []) %>,
+                    "to": <%= to([["volume_decrement", ["left_shift", "left_option"]]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("f12", ["fn"], []) %>,
+                    "to": <%= to([["volume_increment", ["left_shift", "left_option"]]]) %>
+                }
+            ]
+        }
+    ]
+}
