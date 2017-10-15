@@ -1,5 +1,5 @@
 {
-    "title": "Fine volume contol",
+    "title": "Fine volume control (rev 2)",
     "rules": [
         {
             "description": "Map volume controls to fine volume controls (Option + Shift + Volume)",
@@ -12,7 +12,7 @@
                 {
                     "type": "basic",
                     "from": <%= from("f11", ["fn"], []) %>,
-                    "to": <%= to([["f11"]]) %>
+                    "to": <%= to([["f11", ["fn"]]]) %>
                 },
                 {
                     "type": "basic",
@@ -22,7 +22,7 @@
                 {
                     "type": "basic",
                     "from": <%= from("f12", ["fn"], []) %>,
-                    "to": <%= to([["f12"]]) %>
+                    "to": <%= to([["f12", ["fn"]]]) %>
                 }
             ]
         },
