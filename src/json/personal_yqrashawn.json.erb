@@ -393,6 +393,34 @@
                     ]
                 },
 
+                <%# w+q bring KE%>
+
+                {
+                    "type": "basic",
+                    "from": <%= from("q", [], ["caps_lock"]) %>,
+                    "to": [
+                        { "shell_command": "osascript -e ' tell application \"Alfred 3\" to run trigger \"launchKE\" in workflow \"yqrashawn.workflow.launcher\" with argument \"\"'" }
+                    ],
+                    "conditions": [
+                        { "type": "variable_if", "name": "launch_mode", "value": 1 },
+                        { "type": "variable_if", "name": "launch_mode_second_level", "value": 0 }
+                    ]
+                },
+
+                <%# w+close_barcket+q bring KE Events%>
+
+                {
+                    "type": "basic",
+                    "from": <%= from("q", [], ["caps_lock"]) %>,
+                    "to": [
+                        { "shell_command": "osascript -e ' tell application \"Alfred 3\" to run trigger \"launchKEEvents\" in workflow \"yqrashawn.workflow.launcher\" with argument \"\"'" }
+                    ],
+                    "conditions": [
+                        { "type": "variable_if", "name": "launch_mode", "value": 1 },
+                        { "type": "variable_if", "name": "launch_mode_second_level", "value": 1 }
+                    ]
+                },
+
                 <%# w+close_bracket+r bring Reeder%>
 
                 {

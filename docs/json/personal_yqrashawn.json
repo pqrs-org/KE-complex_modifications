@@ -794,6 +794,62 @@
         {
           "type": "basic",
           "from": {
+            "key_code": "q",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "osascript -e ' tell application \"Alfred 3\" to run trigger \"launchKE\" in workflow \"yqrashawn.workflow.launcher\" with argument \"\"'"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "launch_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "launch_mode_second_level",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "osascript -e ' tell application \"Alfred 3\" to run trigger \"launchKEEvents\" in workflow \"yqrashawn.workflow.launcher\" with argument \"\"'"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "launch_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "launch_mode_second_level",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
             "key_code": "r",
             "modifiers": {
               "optional": [
