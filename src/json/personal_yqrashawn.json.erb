@@ -218,24 +218,13 @@
                         { "type": "variable_if", "name": "alf_mode", "value": 1 }
                     ]
                 },
-
-                <%# -------------------------------------------------- %>
-                <%# Remove other keys by "from": { "any": "key_code" } %>
-                <%# -------------------------------------------------- %>
-
                 {
-                    "description": "drop other keys",
                     "type": "basic",
+                    "from": <%= from("u", [], []) %>,
+                    "to": <%= to([["z"], ["u"]]) %>,
                     "conditions": [
                         { "type": "variable_if", "name": "alf_mode", "value": 1 }
-                    ],
-                    "from": {
-                        "any": "key_code",
-                        "modifiers": {
-                            "optional": [ "any" ]
-                        }
-                    },
-                    "to": <%= to([["vk_none"]]) %>
+                    ]
                 }
             ]
         },
@@ -462,25 +451,6 @@
                 },
 
                 <%# -------------------------------------------------- %>
-                <%# Remove other keys by "from": { "any": "key_code" } %>
-                <%# -------------------------------------------------- %>
-
-                {
-                    "description": "drop other keys",
-                    "type": "basic",
-                    "conditions": [
-                        { "type": "variable_if", "name": "launch_mode", "value": 1 }
-                    ],
-                    "from": {
-                        "any": "key_code",
-                        "modifiers": {
-                            "optional": [ "any" ]
-                        }
-                    },
-                    "to": <%= to([["vk_none"]]) %>
-                },
-
-                <%# -------------------------------------------------- %>
                 <%# drop other keys in lanuch mode second level %>
                 <%# -------------------------------------------------- %>
                 {
@@ -671,25 +641,6 @@
                 },
 
                 <%# -------------------------------------------------- %>
-                <%# Remove other keys by "from": { "any": "key_code" } %>
-                <%# -------------------------------------------------- %>
-                {
-                    "description": "drop other keys",
-                    "type": "basic",
-                    "conditions": [
-                        { "type": "variable_if", "name": "qi_mode", "value": 1 }
-                    ],
-                    "from": {
-                        "any": "key_code",
-                        "modifiers": {
-                            "optional": [ "any" ]
-                        }
-                    },
-                    "to": <%= to([["vk_none"]]) %>
-                },
-
-
-                <%# -------------------------------------------------- %>
                 <%# drop other keys in qi_mode_second_level mode %>
                 <%# -------------------------------------------------- %>
                 {
@@ -735,25 +686,6 @@
                     "conditions": [
                         { "type": "variable_if", "name": "slash_mode", "value": 1 }
                     ]
-                },
-
-                <%# -------------------------------------------------- %>
-                <%# Remove other keys by "from": { "any": "key_code" } %>
-                <%# -------------------------------------------------- %>
-
-                {
-                    "description": "drop other keys",
-                    "type": "basic",
-                    "conditions": [
-                        { "type": "variable_if", "name": "slash_mode", "value": 1 }
-                    ],
-                    "from": {
-                        "any": "key_code",
-                        "modifiers": {
-                            "optional": [ "any" ]
-                        }
-                    },
-                    "to": <%= to([["vk_none"]]) %>
                 }
             ]
         },

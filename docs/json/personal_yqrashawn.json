@@ -443,26 +443,23 @@
           ]
         },
         {
-          "description": "drop other keys",
           "type": "basic",
+          "from": {
+            "key_code": "u"
+          },
+          "to": [
+            {
+              "key_code": "z"
+            },
+            {
+              "key_code": "u"
+            }
+          ],
           "conditions": [
             {
               "type": "variable_if",
               "name": "alf_mode",
               "value": 1
-            }
-          ],
-          "from": {
-            "any": "key_code",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "vk_none"
             }
           ]
         }
@@ -924,30 +921,6 @@
               "type": "variable_if",
               "name": "launch_mode",
               "value": 1
-            }
-          ]
-        },
-        {
-          "description": "drop other keys",
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "launch_mode",
-              "value": 1
-            }
-          ],
-          "from": {
-            "any": "key_code",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "vk_none"
             }
           ]
         },
@@ -1422,30 +1395,6 @@
         {
           "description": "drop other keys",
           "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "qi_mode",
-              "value": 1
-            }
-          ],
-          "from": {
-            "any": "key_code",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "vk_none"
-            }
-          ]
-        },
-        {
-          "description": "drop other keys",
-          "type": "basic",
           "from": {
             "any": "key_code",
             "modifiers": {
@@ -1530,30 +1479,6 @@
               "type": "variable_if",
               "name": "slash_mode",
               "value": 1
-            }
-          ]
-        },
-        {
-          "description": "drop other keys",
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "slash_mode",
-              "value": 1
-            }
-          ],
-          "from": {
-            "any": "key_code",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "vk_none"
             }
           ]
         }
