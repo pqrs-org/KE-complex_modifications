@@ -24,7 +24,7 @@
 
       
 
-      <ul class="toc list-group"><li class="list-group-item list-group-item-info">Table of Contents</li><li class="list-group-item"><span class="badge">11</span><a href="#modifier_keys">Modifier Keys</a></li><li class="list-group-item"><span class="badge">17</span><a href="#emulation_modes">Emulation Modes</a></li><li class="list-group-item"><span class="badge">9</span><a href="#application_specific">Application Specific</a></li><li class="list-group-item"><span class="badge">6</span><a href="#alternative_keyboard_layouts">Alternative Keyboard Layouts</a></li><li class="list-group-item"><span class="badge">5</span><a href="#International">International (Language Specific)</a></li><li class="list-group-item"><span class="badge">10</span><a href="#key_specific">Key Specific</a></li><li class="list-group-item"><span class="badge">3</span><a href="#os_functionality">OS Functionality</a></li><li class="list-group-item"><span class="badge">4</span><a href="#personal_settings">Personal Settings</a></li><li class="list-group-item"><span class="badge">4</span><a href="#miscellaneous">Miscellaneous</a></li></ul>
+      <ul class="toc list-group"><li class="list-group-item list-group-item-info">Table of Contents</li><li class="list-group-item"><span class="badge">11</span><a href="#modifier_keys">Modifier Keys</a></li><li class="list-group-item"><span class="badge">17</span><a href="#emulation_modes">Emulation Modes</a></li><li class="list-group-item"><span class="badge">9</span><a href="#application_specific">Application Specific</a></li><li class="list-group-item"><span class="badge">6</span><a href="#alternative_keyboard_layouts">Alternative Keyboard Layouts</a></li><li class="list-group-item"><span class="badge">6</span><a href="#International">International (Language Specific)</a></li><li class="list-group-item"><span class="badge">10</span><a href="#key_specific">Key Specific</a></li><li class="list-group-item"><span class="badge">3</span><a href="#os_functionality">OS Functionality</a></li><li class="list-group-item"><span class="badge">5</span><a href="#personal_settings">Personal Settings</a></li><li class="list-group-item"><span class="badge">4</span><a href="#miscellaneous">Miscellaneous</a></li></ul>
       <div class="text-left" style="margin-bottom: 30px">
         <a href="#" onclick="$('.collapse').collapse('toggle'); return false;">Expand/Collapse All</a>
       </div>
@@ -686,6 +686,15 @@
           <div class="list-group-item">Exchange £ shift-3 and # option-3</div>
       </div>
     </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#swap_yen_and_backslash" aria-expanded="false" aria-controls="swap_yen_and_backslash">Swap ¥ and \ for Japanese Romaji input on US Keyboards</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/swap_yen_and_backslash.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="swap_yen_and_backslash">
+          <div class="list-group-item">Change Backslash to Alt+Backslash</div><div class="list-group-item">Change Alt+Backslash to Backslash</div>
+      </div>
+    </div>
 
         </div>
       </div>
@@ -820,11 +829,11 @@
     </div>
     <div class="panel panel-default">
       <div class="panel-heading">
-        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#anti_rsi_app_switch" aria-expanded="false" aria-controls="anti_rsi_app_switch">Anti-RSI App Switch (LCMD+Space to LCMD+Tab, LOpt+Space to LCMD+` and reverse +LShift).</a>
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#anti_rsi_app_switch" aria-expanded="false" aria-controls="anti_rsi_app_switch">Anti-RSI App Switch (LCMD+Space to LCMD+Tab, LOpt+Space to LCMD+` and reverse +LShift or + LControl).</a>
         <a class="btn btn-primary btn-sm pull-right" data-json-path="json/anti_rsi_app_switch.json">Import</a>
       </div>
       <div class="list-group collapse" id="anti_rsi_app_switch">
-          <div class="list-group-item">Anti-RSI App Switch (LCMD+Space to LCMD+Tab, LOpt+Space to LCMD+` and reverse +LShift).</div>
+          <div class="list-group-item">Anti-RSI App Switch (LCMD+Space to LCMD+Tab and reverse +LShift).</div><div class="list-group-item">Anti-RSI App Switch (LOpt+Space to LCMD+` and reverse +LShift).</div><div class="list-group-item">Anti-RSI App Switch (LCMD+Space to LCMD+Tab and reverse +LControl).</div><div class="list-group-item">Anti-RSI App Switch (LOpt+Space to LCMD+` and reverse +LControl).</div>
       </div>
     </div>
 
@@ -898,6 +907,126 @@
       </div>
       <div class="list-group collapse" id="personal_wgj">
           <div class="list-group-item">Change insert to left_option+escape (VoiceOver)</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#personal_yqrashawn" aria-expanded="false" aria-controls="personal_yqrashawn">Personal rules (@yqrashawn)</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/personal_yqrashawn.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="personal_yqrashawn">
+          <div class="list-group-item">Alfred Mode</div><div class="list-group-item">yq Launch Mode</div><div class="list-group-item">Quick Insert Mode</div><div class="list-group-item">Slash Mode</div><div class="list-group-item">FILCO MINILA Swap grave_accent_and_tilde and backslash</div><div class="list-group-item">FILCO MINILA Change left command to left option, and f18 if alone</div><div class="list-group-item">FILCO MINILA Change left_option to f19 to left command, and 19 if alone</div><div class="list-group-item">FILCO MINILA Change application to right option, and f17 when used alone</div><div class="list-group-item">FILCO MINILA Change right option to right command, and f16 when used alone</div><div class="list-group-item">HHKB, FILCO MINILA Change left control to esc if alone</div><div class="list-group-item">Change caps_lock to control when used as modifier, escape when used alone</div><div class="list-group-item">Change right_command to command-tab when used alone</div><div class="list-group-item">Change left_command to f19 if alone</div><div class="list-group-item">Change left_option to f18 if alone</div><div class="list-group-item">Change right_option to f17 if alone</div><div class="list-group-item">Change right_command to f16 if alone</div><div class="list-group-item"><p style="margin-top: 20px; font-weight: bold">
+  Alfred Mode (z)
+</p>
+<p style="margin-top: 16px">
+  <ui>
+    <li>Press z down then click other keys to trigger Alfred workflow</li>
+    <li>This mode severly relys on Alfred Workflow, links of workflow will update later.</li>
+  </ui>
+</p>
+
+<ul>
+  <li>y: Hyper + = trigger youdao workflow</li>
+  <li>j: Search github</li>
+  <li>tab: Switch to chosen iTerm session</li>
+  <li>x: Kill process</li>
+  <li>t: Launch Tower.app with chosen repo</li>
+  <li>b: Switch chosen to browser tab</li>
+  <li>r: Open recent download file</li>
+  <li>l: Trigger Alfred File Action in Finder.app</li>
+  <li>o: Copy selection into emacs for temp edit</li>
+  <li>p: Paste the saved temp buffer back</li>
+  <li>;: Open localhost with entered port number</li>
+  <li>q: Use Keyboard Maestro record macro</li>
+  <li>]: Play last macro once</li>
+</ul>
+
+<p style="margin-top: 20px; font-weight: bold">
+  yq Launch Mode (w)
+</p>
+
+<p style="margin-top: 16px">
+  <ui>
+    <li>Press w down then click other keys to bring application to front.</li>
+    <li>Press w down then press [ down to enter second level of this mode.</li>
+    <li>This mode severly relys on Alfred Workflow, links of workflow will update later.</li>
+  </ui>
+</p>
+
+<ul>
+  <li>j: iTerm</li>
+  <li>k: Emacs</li>
+  <li>l: Google Chrome</li>
+  <li>c: Safari</li>
+  <li>m: Mail</li>
+  <li>t: Tower</li>
+  <li>b: BearyChat</li>
+  <li>v: WeChat</li>
+  <li>[r: Reeder</li>
+</ul>
+
+<p style="margin-top: 20px; font-weight: bold">
+  Quick Insert Mode (period)
+</p>
+
+<p style="margin-top: 16px">
+  <ui>
+    <li>Press period down then click other keys to insert or trigger workflow.</li>
+    <li>Press period down then press comma down to enter second level of this mode.</li>
+    <li>Some rules in this mode need to use with some specific emacs keybindings.</li>
+  </ui>
+</p>
+
+<ul>
+  <li>tab: control+tab emacs:(switch-to-second-most-recent-buffer)</li>
+  <li>comma+tab: control+tab emacs:(switch-to-third-most-recent-buffer)</li>
+  <li>a: insert ~/</li>
+  <li>s: insert .*</li>
+  <li>slash: insert ./</li>
+  <li>q: insert {</li>
+  <li>comma+q: insert }</li>
+  <li>e: insert (</li>
+  <li>r: insert )</li>
+  <li>g: command+control+k alfred clipboard</li>
+  <li>d: command+control+d macos define</li>
+</ul>
+
+<p style="margin-top: 20px; font-weight: bold">
+  Slash Mode (period)
+</p>
+
+<p style="margin-top: 16px">
+  <ui>
+    <li>Press period down then click other keys to insert or trigger workflow.</li>
+  </ui>
+</p>
+
+<ul>
+  <li>tab: command+tab switch to previouse application</li>
+</ul>
+
+<p style="margin-top: 20px; font-weight: bold">
+  Other modifications
+</p>
+
+<p style="margin-top: 16px">
+  <ui>
+    <li>Mainly bind option and command keys to function keys, and then use with other applications.</li>
+    <li>MINILA modification aimming to make it more like HHKB.</li>
+    <li>Modifications with keyboard name in their descriptions can't work on other keyboard.</li>
+  </ui>
+</p>
+
+<ul>
+  <li>Caps Lock to escape when pressed alone and to control as modifer key</li>
+  <li>Control to escape when pressed alone on HHKB and MINILA</li>
+  <li>Left command to f19 when pressed alone, trigger alfred</li>
+  <li>Left option to f18 when pressed alone, trigger context</li>
+  <li>Right option to f17 when pressed alone</li>
+  <li>Right command to f16 when pressed alone</li>
+  <li>Right command to command+tab when pressed alone</li>
+</ul>
+</div>
       </div>
     </div>
 
