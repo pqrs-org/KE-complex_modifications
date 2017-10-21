@@ -45,7 +45,7 @@ end
 
 def add_group(title,id,json_files)
 
-  $toc << "<li class=\"list-group-item\"><span class=\"badge\">#{json_files.length}</span><a href=\"##{id}\">#{title}</a></li>"
+  $toc << "\n<li class=\"list-group-item\"><span class=\"badge\">#{json_files.length}</span> \n <a href=\"##{id}\">#{title}</a></li> \n"
 
   group_content = ""
   json_files.each do |json|
