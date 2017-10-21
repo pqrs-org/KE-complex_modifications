@@ -1,0 +1,35 @@
+{
+    "title": "Don't exit when pressing LCommand + q in Safari (RCommand + q still works)",
+    "rules": [
+      {
+        "description": "Remap LCommand + q to q in Safari only",
+        "manipulators": [
+          {
+            "from": {
+              "key_code": "q",
+              "modifiers": {
+                      "mandatory": [
+                          "left_command"
+                      ]
+                  }
+            },
+            "to": [
+              {
+                  "key_code": "q"
+              }
+            ],
+           "conditions": [
+              {
+                "type": "frontmost_application_if",
+                "bundle_identifiers": [
+                  "^com.apple.Safari"
+                ]
+              }
+            ],
+            "type": "basic"
+          }
+        ]
+      }
+    ]
+  }
+  
