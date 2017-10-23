@@ -124,6 +124,19 @@
                     ]
                 },
 
+                <%# z+l only in browers open devtool: command+option+i%>
+
+                {
+                    "type": "basic",
+                    "from": <%= from("l", [], ["caps_lock"]) %>,
+                    "to": <%= to([["i", ["left_command", "left_option"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "alf_mode", "value": 1 },
+                        <%= frontmost_application_if("browser") %>
+
+                    ]
+                },
+
                 <%# z+o to copy selection into emacs: hyper+0%>
 
                 {
