@@ -72,13 +72,26 @@
                     ]
                 },
 
-                <%# z+t to switch Tower reop%>
+                <%# z+t to open any repo in select application%>
 
                 {
                     "type": "basic",
                     "from": <%= from("t", [], ["caps_lock"]) %>,
                     "to": [
-                        { "shell_command": "osascript -e 'tell application \"Alfred 3\" to run trigger \"towerRepo\" in workflow \"net.cjlucas.alfred.tower\" with argument \"\"'" }
+                        { "shell_command": "osascript -e 'tell application \"Alfred 3\" to run trigger \"repos\" in workflow \"net.deanishe.alfred-git-repos\" with argument \"\"'" }
+                    ],
+                    "conditions": [
+                        { "type": "variable_if", "name": "alf_mode", "value": 1 }
+                    ]
+                },
+
+                <%# z+k to search browser history%>
+
+                {
+                    "type": "basic",
+                    "from": <%= from("k", [], ["caps_lock"]) %>,
+                    "to": [
+                        { "shell_command": "osascript -e 'tell application \"Alfred 3\" to run trigger \"chromeHistory\" in workflow \"thomasupton.chrome-history\" with argument \"\"'" }
                     ],
                     "conditions": [
                         { "type": "variable_if", "name": "alf_mode", "value": 1 }
