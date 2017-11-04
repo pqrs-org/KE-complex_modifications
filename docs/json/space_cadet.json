@@ -1,5 +1,5 @@
 {
-  "title": "Modern Space Cadet",
+  "title": "Modern Space Cadet (rev2)",
   "rules": [
     {
       "description": "Caps Lock to Escape on single press, Control on press and hold.",
@@ -59,7 +59,50 @@
       ]
     },
     {
-      "description": "Better Shifting (parentheses on shift keys)",
+      "description": "Better Shifting: Parentheses on shift keys",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_shift"
+          },
+          "to": [
+            {
+              "key_code": "left_shift"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "9",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_shift"
+          },
+          "to": [
+            {
+              "key_code": "right_shift"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "0",
+              "modifiers": [
+                "right_shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Better Shifting: Shift rolls",
       "manipulators": [
         {
           "type": "basic",
@@ -128,7 +171,12 @@
               ]
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "description": "Better Shifting: End parenthesis on shift + space",
+      "manipulators": [
         {
           "type": "basic",
           "from": {
@@ -148,44 +196,6 @@
             },
             {
               "key_code": "spacebar"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "left_shift"
-          },
-          "to": [
-            {
-              "key_code": "left_shift"
-            }
-          ],
-          "to_if_alone": [
-            {
-              "key_code": "9",
-              "modifiers": [
-                "left_shift"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "right_shift"
-          },
-          "to": [
-            {
-              "key_code": "right_shift"
-            }
-          ],
-          "to_if_alone": [
-            {
-              "key_code": "0",
-              "modifiers": [
-                "right_shift"
-              ]
             }
           ]
         }
