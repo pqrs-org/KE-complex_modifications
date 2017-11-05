@@ -25,10 +25,10 @@
       
 
       <ul class="toc list-group"><li class="list-group-item list-group-item-info">Table of Contents</li>
-<li class="list-group-item"><span class="badge">12</span> 
+<li class="list-group-item"><span class="badge">11</span> 
  <a href="#modifier_keys">Modifier Keys</a></li> 
 
-<li class="list-group-item"><span class="badge">15</span> 
+<li class="list-group-item"><span class="badge">16</span> 
  <a href="#emulation_modes">Emulation Modes</a></li> 
 
 <li class="list-group-item"><span class="badge">9</span> 
@@ -77,15 +77,6 @@
       </div>
       <div class="list-group collapse" id="caps_lock">
           <div class="list-group-item">Change caps_lock key to command+control+option+shift. (Post escape key when pressed alone)</div><div class="list-group-item">Change caps_lock key to command+control+option+shift. (Post f19 key when pressed alone)</div><div class="list-group-item">Change caps_lock key to command+control+option+shift. (Use shift+caps_lock as caps_lock)</div><div class="list-group-item">Change caps_lock to control if pressed with other keys, to escape if pressed alone.</div>
-      </div>
-    </div>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#capslock" aria-expanded="false" aria-controls="capslock">Capslock Enhancement</a>
-        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/capslock.json">Import</a>
-      </div>
-      <div class="list-group collapse" id="capslock">
-          <div class="list-group-item">CapsLock to Hyper/Lang-Switcher</div><div class="list-group-item">CapsLock to Hyper/Escape (Conflict with above option)</div><div class="list-group-item">Hyper Navigation</div><div class="list-group-item">Hyper Deletion</div><div class="list-group-item">Hyper Window Control</div><div class="list-group-item">Hyper Bash Control</div><div class="list-group-item">Hyper Application</div><div class="list-group-item">Hyper Shifter</div><div class="list-group-item">Hyper Functional</div><div class="list-group-item">Hyper Misc (Check &#39;https://github.com/Vonng/Capslock&#39; for all details)</div>
       </div>
     </div>
     <div class="panel panel-default">
@@ -252,7 +243,7 @@
         <a class="btn btn-primary btn-sm pull-right" data-json-path="json/vi_style_arrows.json">Import</a>
       </div>
       <div class="list-group collapse" id="vi_style_arrows">
-          <div class="list-group-item">Change Control + h/j/k/l to Arrows</div><div class="list-group-item">Change Left Option + h/j/k/l to Arrows</div><div class="list-group-item">Change Fn + h/j/k/l to Arrows</div>
+          <div class="list-group-item">Change Control + h/j/k/l to Arrows</div><div class="list-group-item">Change Option + h/j/k/l to Arrows</div><div class="list-group-item">Change Fn + h/j/k/l to Arrows</div>
       </div>
     </div>
     <div class="panel panel-default">
@@ -497,6 +488,138 @@
     <td>Insert / Backspace / (Forward) Delete</td>
   </tr>
 </table>
+</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#caps_lock_enhancement" aria-expanded="false" aria-controls="caps_lock_enhancement">Capslock Enhancement</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/caps_lock_enhancement.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="caps_lock_enhancement">
+          <div class="list-group-item">CapsLock to Hyper/Lang-Switcher</div><div class="list-group-item">CapsLock to Hyper/Escape (Conflict with above option)</div><div class="list-group-item">Hyper Navigation</div><div class="list-group-item">Hyper Deletion</div><div class="list-group-item">Hyper Window Control</div><div class="list-group-item">Hyper Bash Control</div><div class="list-group-item">Hyper Application</div><div class="list-group-item">Hyper Shifter</div><div class="list-group-item">Hyper Functional</div><div class="list-group-item">Hyper Misc</div><div class="list-group-item"><p>CapsLock Enhancement Script based on Karabiner-Elements</p>
+<p><a href="https://github.com/Vonng/Capslock">Vonng/Capslock</a>  &amp; <a href="https://github.com/Vonng/Capslock/tree/master/mac-new">CapsLock:Mac-Karabiner</a> provides more detailed info.</p>
+<h2>Usage</h2>
+<p><a href="https://github.com/Vonng/Capslock/raw/master/mac/images/keyboard-layout.png" target="_blank"><img src="https://github.com/Vonng/Capslock/raw/master/mac/images/keyboard-layout.png" alt="" style="max-width:100%;"></a></p>
+<h4>Basic</h4>
+<ul>
+    <li>Hold  ⇪CapsLock，maps to ✱ Hyper</li>
+    <li>Press ⇪CapsLock，maps to ⌃␣   (Switch input, <strong>Conflict with ESC</strong>)</li>
+    <li>Press ⇪CapsLock，maps to ⎋  ESC （<strong>Conflict with input switching</strong>）</li>
+</ul>
+<h4>Navigators</h4>
+<ul>
+    <li>Hold (✱Hyper) to enable navigator，</li>
+    <li>Hold additional ⌘ for selection. (just like holding shift simultaneously)</li>
+    <li><code>✱H ↦ ←</code> (vi style CursorLeft)</li>
+    <li><code>✱J ↦ ↓</code>  (vi style CursorDown)</li>
+    <li><code>✱K ↦ ↑</code>  (vi style CursorUp)</li>
+    <li><code>✱L ↦ →</code>  (vi style CursorRight)</li>
+    <li><code>✱U ↦ ⇞</code>  (PageUp)</li>
+    <li><code>✱I ↦ ↖</code> (Home)</li>
+    <li><code>✱O ↦ ↘</code> (End)</li>
+    <li><code>✱P ↦ ⇟</code>  (Pagedown)</li>
+</ul>
+<h4>Deletion</h4>
+<ul>
+    <li><code>✱N ↦ ⌥⌫</code> (delete a word ahead)</li>
+    <li><code>✱M ↦ ⌫</code>    (delete a char ahead)</li>
+    <li><code>✱, ↦ ⌦</code>    (delete a char after)</li>
+    <li><code>✱. ↦ ⌥⌦</code>  (delete a word after)</li>
+</ul>
+<h4>Window Manipulation</h4>
+<ul>
+    <li><code>✱A ↦ ⌃⌥⇧⌘A</code> (<a href="https://manytricks.com/moom/">Moom</a>-Meta，※a window resize app)</li>
+    <li><code>✱⌘A ↦ F11</code>         (Goto desktop)</li>
+    <li><code>✱Q ↦ ⌘Q</code>            (Close window)</li>
+    <li><code>✱⇥ ↦ ⌃⇥</code>         ( Alter window )</li>
+    <li><code>✱⌘⇥ ↦ ⌃⇧⇥</code>      (Alter window reversely)</li>
+    <li><code>✱S ↦ ⌃⇥</code>           (Alter tab)</li>
+    <li><code>✱⌘S ↦ ⌃⇧⇥</code>     (Alter tab reversely)</li>
+    <li><code>✱W ↦ ⌘W</code>            (Close tab)</li>
+</ul>
+<h4>Bash Control</h4>
+<ul>
+    <li><code>✱Z ↦ ⌃Z</code> (SIGTSTP)</li>
+    <li><code>✱X ↦ ⌃B</code> (<a href="http://tmux.github.io">Tux</a>-Prefix)</li>
+    <li><code>✱C ↦ ⌃C</code> (SIGINT)</li>
+    <li><code>✱D ↦ ⌃D</code> (EOF)</li>
+</ul>
+<h4>Application Shortcuts</h4>
+<p>Maybe you'd like overwrite these with your own favorite apps.</p>
+<ul>
+    <li>
+        <p><code>✱E ↦ Safari</code></p>
+    </li>
+    <li>
+        <p><code>✱⌘E ↦ Finder</code></p>
+    </li>
+    <li>
+        <p><code>✱R ↦ iTerm</code></p>
+    </li>
+    <li>
+        <p><code>✱⌘R ↦ ^R (IDE-Run)</code></p>
+    </li>
+    <li>
+        <p><code>✱T ↦ Visual Studio Code</code></p>
+    </li>
+    <li>
+        <p><code>✱⌘T ↦ Typora</code></p>
+    </li>
+    <li>
+        <p><code>✱F ↦ Dash</code></p>
+    </li>
+    <li>
+        <p><code>✱⌘F ↦ Dictionary</code></p>
+    </li>
+    <li>
+        <p><code>✱G ↦ IntelliJ IDEA</code></p>
+        <p>​</p>
+    </li>
+</ul>
+<h4>Functional Keys</h4>
+<ul>
+    <li><code>✱F1 ↦ BrightnessDown</code></li>
+    <li><code>✱F2 ↦ BrightnessUp</code></li>
+    <li><code>✱F3 ↦ ExposeAll</code></li>
+    <li><code>✱F4 ↦ LaunchPad</code></li>
+    <li><code>✱F5 ↦ KeyboardLightDown</code></li>
+    <li><code>✱F6 ↦ KeyboardLightUp</code></li>
+    <li><code>✱F7 ↦ MusicPrev</code></li>
+    <li><code>✱F8 ↦ MusicPlay</code></li>
+    <li><code>✱F9 ↦ MusicNext</code></li>
+    <li><code>✱F10 ↦ Mute</code></li>
+    <li><code>✱F11 ↦ VolumeDown</code></li>
+    <li><code>✱F12 ↦ VolumeUp</code></li>
+    <li><code>✱F13(PrintScreen) ↦ MusicPrev</code></li>
+    <li><code>✱14(ScrollLock) ↦ MusicNext</code></li>
+    <li><code>✱F15(Pause) ↦ MusicPlay</code></li>
+</ul>
+<h4>Shifter</h4>
+<ul>
+    <li><code>✱[12...-=] ↦ ⇧[12...-=]</code> (0-9,-,=, goes to corresponding shifter)</li>
+    <li><code>✱[] ↦ ⇧90 '()'</code>  (square bracket to parenthese)</li>
+</ul>
+<h4>Special</h4>
+<ul>
+    <li><code>✱Ins ↦ ⇧⌥F1</code>  (Insert: Fine grained brightness up)</li>
+    <li><code>✱Del ↦ ⇧⌥F2</code>  (Delete: Fine grained brightness down)</li>
+    <li><code>✱↘ ↦ ⇧⌥F5</code> (Home: Fine grained keyboard light up)</li>
+    <li><code>✱↖ ↦ ⇧⌥F6</code> (End: Fine grained keyboard light down)</li>
+    <li><code>✱⇟ ↦ ⇧⌥F11</code> (PgUp: Fine grained volume up)</li>
+    <li><code>✱⇞ ↦ ⇧⌥F12</code> (PgDn: Fine grained volume down)</li>
+    <li><code>✱Pause ↦ MusicPlay</code> (Music play)</li>
+</ul>
+<h4>Misc</h4>
+<ul>
+    <li><code>✱⎋ ↦ ⇪</code>       (Escape turn ✱Hyper backs to ⇪CapsLock)</li>
+    <li><code>✱␢ ↦ ⎋</code>      (Space maps to ⎋ESC)</li>
+    <li><code>✱\ ↦ ⌃/</code>       (Back slash maps to comment [IDE shortcut])</li>
+    <li><code>✱; ↦ ⇧- '!'</code>  (Semicolon to exclamation)</li>
+    <li><code>✱' ↦ =</code>           (Single quote to equal)</li>
+    <li><code>✱~ ↦ ⌃⇧⌘4</code>  (tilde to area screenshot to clipboard)</li>
+    <li><code>✱⌘ ↦ ⌃⇧4</code> (ScreenShot by area to desktop picture)</li>
+</ul>
 </div>
       </div>
     </div>
