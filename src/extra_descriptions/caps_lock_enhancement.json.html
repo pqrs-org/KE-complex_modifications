@@ -1,123 +1,565 @@
-<p>CapsLock Enhancement Script based on Karabiner-Elements</p>
-<p><a href="https://github.com/Vonng/Capslock">Vonng/Capslock</a>  &amp; <a href="https://github.com/Vonng/Capslock/tree/master/mac-new">CapsLock:Mac-Karabiner</a> provides more detailed info.</p>
-<h2>Usage</h2>
-<p><a href="https://github.com/Vonng/Capslock/raw/master/mac/images/keyboard-layout.png" target="_blank"><img src="https://github.com/Vonng/Capslock/raw/master/mac/images/keyboard-layout.png" alt="" style="max-width:100%;"></a></p>
-<h4>Basic</h4>
+<h2>CapsLock Enhancement</h2>
+<p>Project <a href="https://github.com/Vonng/Capslock">Vonng/Capslock</a> provides more detailed info.</p>
+
+<p><a href="https://github.com/Vonng/Capslock/raw/master/mac/keyboard.png" target="_blank"><img
+        src="https://github.com/Vonng/Capslock/raw/master/mac/keyboard.png" alt=""
+        style="max-width:100%;"></a></p>
+
+<h3 id="basic">Basic</h3>
+<p><code>✱</code> Hyper actually maps to <code>⌃⌥⇧⌘</code> (all right modifiers) , It works well with additional left
+    modifiers. And compatible with most application. Hold CapsLock to enable <code>Hyper</code> funcationality while
+    press it will emit an <code>Escape</code>.</p>
+<table>
+    <thead>
+    <tr class="header">
+        <th>Origin</th>
+        <th>  MapsTo  </th>
+        <th>Comment</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd">
+        <td><code>⇪</code> Press</td>
+        <td><code>⎋</code> Escape</td>
+        <td>Single press to escape</td>
+    </tr>
+    <tr class="even">
+        <td><code>⇪</code> Hold</td>
+        <td><code>✱</code> Hyper</td>
+        <td>Enable Hyper Functionality</td>
+    </tr>
+    </tbody>
+</table>
+<h3 id="navigation">Navigation</h3>
 <ul>
-    <li>Hold  ⇪CapsLock，maps to ✱ Hyper</li>
-    <li>Press ⇪CapsLock，maps to ⌃␣   (Switch input, <strong>Conflict with ESC</strong>)</li>
-    <li>Press ⇪CapsLock，maps to ⎋  ESC （<strong>Conflict with input switching</strong>）</li>
-</ul>
-<h4>Navigators</h4>
-<ul>
-    <li>Hold (✱Hyper) to enable navigator，</li>
-    <li>Hold additional ⌘ for selection. (just like holding shift simultaneously)</li>
-    <li><code>✱H ↦ ←</code> (vi style CursorLeft)</li>
-    <li><code>✱J ↦ ↓</code>  (vi style CursorDown)</li>
-    <li><code>✱K ↦ ↑</code>  (vi style CursorUp)</li>
-    <li><code>✱L ↦ →</code>  (vi style CursorRight)</li>
-    <li><code>✱U ↦ ⇞</code>  (PageUp)</li>
-    <li><code>✱I ↦ ↖</code> (Home)</li>
-    <li><code>✱O ↦ ↘</code> (End)</li>
-    <li><code>✱P ↦ ⇟</code>  (Pagedown)</li>
-</ul>
-<h4>Deletion</h4>
-<ul>
-    <li><code>✱N ↦ ⌥⌫</code> (delete a word ahead)</li>
-    <li><code>✱M ↦ ⌫</code>    (delete a char ahead)</li>
-    <li><code>✱, ↦ ⌦</code>    (delete a char after)</li>
-    <li><code>✱. ↦ ⌥⌦</code>  (delete a word after)</li>
-</ul>
-<h4>Window Manipulation</h4>
-<ul>
-    <li><code>✱A ↦ ⌃⌥⇧⌘A</code> (<a href="https://manytricks.com/moom/">Moom</a>-Meta，※a window resize app)</li>
-    <li><code>✱⌘A ↦ F11</code>         (Goto desktop)</li>
-    <li><code>✱Q ↦ ⌘Q</code>            (Close window)</li>
-    <li><code>✱⇥ ↦ ⌃⇥</code>         ( Alter window )</li>
-    <li><code>✱⌘⇥ ↦ ⌃⇧⇥</code>      (Alter window reversely)</li>
-    <li><code>✱S ↦ ⌃⇥</code>           (Alter tab)</li>
-    <li><code>✱⌘S ↦ ⌃⇧⇥</code>     (Alter tab reversely)</li>
-    <li><code>✱W ↦ ⌘W</code>            (Close tab)</li>
-</ul>
-<h4>Bash Control</h4>
-<ul>
-    <li><code>✱Z ↦ ⌃Z</code> (SIGTSTP)</li>
-    <li><code>✱X ↦ ⌃B</code> (<a href="http://tmux.github.io">Tux</a>-Prefix)</li>
-    <li><code>✱C ↦ ⌃C</code> (SIGINT)</li>
-    <li><code>✱D ↦ ⌃D</code> (EOF)</li>
-</ul>
-<h4>Application Shortcuts</h4>
-<p>Maybe you'd like overwrite these with your own favorite apps.</p>
-<ul>
-    <li>
-        <p><code>✱E ↦ Safari</code></p>
-    </li>
-    <li>
-        <p><code>✱⌘E ↦ Finder</code></p>
-    </li>
-    <li>
-        <p><code>✱R ↦ iTerm</code></p>
-    </li>
-    <li>
-        <p><code>✱⌘R ↦ ^R (IDE-Run)</code></p>
-    </li>
-    <li>
-        <p><code>✱T ↦ Visual Studio Code</code></p>
-    </li>
-    <li>
-        <p><code>✱⌘T ↦ Typora</code></p>
-    </li>
-    <li>
-        <p><code>✱F ↦ Dash</code></p>
-    </li>
-    <li>
-        <p><code>✱⌘F ↦ Dictionary</code></p>
-    </li>
-    <li>
-        <p><code>✱G ↦ IntelliJ IDEA</code></p>
-        <p>​</p>
+    <li>Hold <code>✱</code> Hyper to enable navigators</li>
+    <li>Hold additional <code>⌘</code> Command for <strong>selection</strong> . (just like holding ⇧shift in normal)
     </li>
 </ul>
-<h4>Functional Keys</h4>
+<table>
+    <thead>
+    <tr class="header">
+        <th>Origin</th>
+        <th>  MapsTo  </th>
+        <th>Comment</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd">
+        <td><code>H</code></td>
+        <td><code>←</code> LeftArrow</td>
+        <td>cursor left</td>
+    </tr>
+    <tr class="even">
+        <td><code>J</code></td>
+        <td><code>↓</code> DownArrow</td>
+        <td>cursor down</td>
+    </tr>
+    <tr class="odd">
+        <td><code>K</code></td>
+        <td><code>↑</code> UpArrow</td>
+        <td>cursor up</td>
+    </tr>
+    <tr class="even">
+        <td><code>L</code></td>
+        <td><code>→</code> RightArrow</td>
+        <td>cursor right</td>
+    </tr>
+    <tr class="odd">
+        <td><code>U</code></td>
+        <td><code>⇞</code> PageUp</td>
+        <td>cursor page up</td>
+    </tr>
+    <tr class="even">
+        <td><code>I</code></td>
+        <td><code>↖</code> Home</td>
+        <td>cursor to line(doc) head</td>
+    </tr>
+    <tr class="odd">
+        <td><code>O</code></td>
+        <td><code>↘</code> End</td>
+        <td>cursor to line(doc) end</td>
+    </tr>
+    <tr class="even">
+        <td><code>P</code></td>
+        <td><code>⇟</code> PageDn</td>
+        <td>cursor page down</td>
+    </tr>
+    </tbody>
+</table>
+<h3 id="deletion">Deletion</h3>
+<table>
+    <thead>
+    <tr class="header">
+        <th>Origin</th>
+        <th>  MapsTo  </th>
+        <th>Comment</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd">
+        <td><code>N</code></td>
+        <td><code>⌥⌫</code> Option + ForwardDelete</td>
+        <td>Delete a word ahead</td>
+    </tr>
+    <tr class="even">
+        <td><code>M</code></td>
+        <td><code>⌫</code> ForwardDelete</td>
+        <td>Delete a char ahead</td>
+    </tr>
+    <tr class="odd">
+        <td><code>,</code></td>
+        <td><code>⌦</code> Delete</td>
+        <td>Delete a char after</td>
+    </tr>
+    <tr class="even">
+        <td><code>.</code></td>
+        <td><code>⌥⌦</code> Option + Delete</td>
+        <td>Delete a word after</td>
+    </tr>
+    <tr class="odd">
+        <td><code>⌘M</code>,<code>⌘N</code></td>
+        <td><code>⌘⌥⌫</code> Command+Option+ForwardDelete</td>
+        <td>Delete to line head</td>
+    </tr>
+    </tbody>
+</table>
+<h3 id="window-control">Window Control</h3>
+<table>
+    <thead>
+    <tr class="header">
+        <th>Origin</th>
+        <th>  MapsTo  </th>
+        <th>Comment</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd">
+        <td><code>⇥</code> Tab</td>
+        <td><code>⌘⇥</code> Command+Tab</td>
+        <td>Switch Window</td>
+    </tr>
+    <tr class="even">
+        <td><code>⌘⇥</code> Command+Tab</td>
+        <td><code>⌘⇧⇥</code> Command+Shift+Tab</td>
+        <td>Switch Window Reversely</td>
+    </tr>
+    <tr class="odd">
+        <td><code>Q</code></td>
+        <td><code>⌘Q</code></td>
+        <td>Close Window</td>
+    </tr>
+    <tr class="even">
+        <td><code>W</code></td>
+        <td><code>⌘W</code></td>
+        <td>Close Tab</td>
+    </tr>
+    <tr class="odd">
+        <td><code>E</code></td>
+        <td>Open Safari</td>
+        <td>Open Web Browser</td>
+    </tr>
+    <tr class="even">
+        <td><code>⌘E</code></td>
+        <td>Open Finder</td>
+        <td>Open File Browser</td>
+    </tr>
+    <tr class="odd">
+        <td><code>A</code></td>
+        <td><code>⌃⌥⇧⌘A</code></td>
+        <td>Leaves to <a href="https://manytricks.com/moom/">Moom</a>, ※a window resize app</td>
+    </tr>
+    <tr class="even">
+        <td><code>⌘A</code></td>
+        <td><code>⌃↑</code> Ctrl+UpArrow</td>
+        <td>OSX Expose All</td>
+    </tr>
+    <tr class="odd">
+        <td><code>S</code></td>
+        <td><code>⌃⇥</code> Ctrl+Tab</td>
+        <td>Switch Tab</td>
+    </tr>
+    <tr class="even">
+        <td><code>⌘S</code></td>
+        <td><code>⌃⇧⇥</code> Ctrl+Shift+Tab</td>
+        <td>Swtich Tab Reversely</td>
+    </tr>
+    <tr class="odd">
+        <td><code>⌘D</code></td>
+        <td><code>F11</code></td>
+        <td>Show Desktop</td>
+    </tr>
+    </tbody>
+</table>
+<h3 id="bash-control">Bash Control</h3>
 <ul>
-    <li><code>✱F1 ↦ BrightnessDown</code></li>
-    <li><code>✱F2 ↦ BrightnessUp</code></li>
-    <li><code>✱F3 ↦ ExposeAll</code></li>
-    <li><code>✱F4 ↦ LaunchPad</code></li>
-    <li><code>✱F5 ↦ KeyboardLightDown</code></li>
-    <li><code>✱F6 ↦ KeyboardLightUp</code></li>
-    <li><code>✱F7 ↦ MusicPrev</code></li>
-    <li><code>✱F8 ↦ MusicPlay</code></li>
-    <li><code>✱F9 ↦ MusicNext</code></li>
-    <li><code>✱F10 ↦ Mute</code></li>
-    <li><code>✱F11 ↦ VolumeDown</code></li>
-    <li><code>✱F12 ↦ VolumeUp</code></li>
-    <li><code>✱F13(PrintScreen) ↦ MusicPrev</code></li>
-    <li><code>✱14(ScrollLock) ↦ MusicNext</code></li>
-    <li><code>✱F15(Pause) ↦ MusicPlay</code></li>
+    <li>Common bash utils: EOF, SIGINT, SIGTSTP, VIM/Tmux Prefix</li>
 </ul>
-<h4>Shifter</h4>
+<table>
+    <thead>
+    <tr class="header">
+        <th>Origin</th>
+        <th>  MapsTo  </th>
+        <th>Comment</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd">
+        <td><code>Z</code></td>
+        <td><code>⌃Z</code> Ctrl+Z</td>
+        <td>SIGTSTP</td>
+    </tr>
+    <tr class="even">
+        <td><code>X</code></td>
+        <td><code>⌃R</code></td>
+        <td>IDE Run</td>
+    </tr>
+    <tr class="odd">
+        <td><code>C</code></td>
+        <td><code>⌃C</code></td>
+        <td>SIGINT</td>
+    </tr>
+    <tr class="even">
+        <td><code>V</code></td>
+        <td><code>⌃V</code></td>
+        <td>Vim Prefix</td>
+    </tr>
+    <tr class="odd">
+        <td><code>B</code></td>
+        <td><code>⌃B</code></td>
+        <td><a href="http://tmux.github.io">Tmux</a> Default Prefix</td>
+    </tr>
+    <tr class="even">
+        <td><code>D</code></td>
+        <td><code>⌃D</code></td>
+        <td>EOF</td>
+    </tr>
+    </tbody>
+</table>
+<h4 id="applications">Applications</h4>
 <ul>
-    <li><code>✱[12...-=] ↦ ⇧[12...-=]</code> (0-9,-,=, goes to corresponding shifter)</li>
-    <li><code>✱[] ↦ ⇧90 '()'</code>  (square bracket to parenthese)</li>
+    <li>Maybe you'd like overwrite these with your own favorite apps.</li>
 </ul>
-<h4>Special</h4>
+<table>
+    <thead>
+    <tr class="header">
+        <th>Origin</th>
+        <th>  MapsTo  </th>
+        <th>Comment</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd">
+        <td><code>R</code></td>
+        <td>Open iTerm2</td>
+        <td>Great terminal for osx (<code>Run</code>)</td>
+    </tr>
+    <tr class="even">
+        <td><code>⌘R</code></td>
+        <td>Open Preview</td>
+        <td>Switch to opened picture, pdf, etc...</td>
+    </tr>
+    <tr class="odd">
+        <td><code>T</code></td>
+        <td>Open Visual Studio Code</td>
+        <td>Text Editor: Visual Studio Code</td>
+    </tr>
+    <tr class="even">
+        <td><code>⌘T</code></td>
+        <td>Open Typora</td>
+        <td>Text Editor: Typora , a great WYSIWYG md editor</td>
+    </tr>
+    <tr class="odd">
+        <td><code>Y</code></td>
+        <td>Open Siri</td>
+        <td></td>
+    </tr>
+    <tr class="even">
+        <td><code>F</code></td>
+        <td>Open Dash</td>
+        <td>Find API Document</td>
+    </tr>
+    <tr class="odd">
+        <td><code>⌘F</code></td>
+        <td>Open Dictionary</td>
+        <td>Find words</td>
+    </tr>
+    <tr class="even">
+        <td><code>G</code></td>
+        <td>Open Intellij IDEA</td>
+        <td>Open IDE</td>
+    </tr>
+    <tr class="odd">
+        <td><code>⌘G</code></td>
+        <td>Open Chrome</td>
+        <td>Google Chrome</td>
+    </tr>
+    </tbody>
+</table>
+<h3 id="functional">Functional</h3>
 <ul>
-    <li><code>✱Ins ↦ ⇧⌥F1</code>  (Insert: Fine grained brightness up)</li>
-    <li><code>✱Del ↦ ⇧⌥F2</code>  (Delete: Fine grained brightness down)</li>
-    <li><code>✱↘ ↦ ⇧⌥F5</code> (Home: Fine grained keyboard light up)</li>
-    <li><code>✱↖ ↦ ⇧⌥F6</code> (End: Fine grained keyboard light down)</li>
-    <li><code>✱⇟ ↦ ⇧⌥F11</code> (PgUp: Fine grained volume up)</li>
-    <li><code>✱⇞ ↦ ⇧⌥F12</code> (PgDn: Fine grained volume down)</li>
-    <li><code>✱Pause ↦ MusicPlay</code> (Music play)</li>
+    <li>Use F1,…F12 as standard functional keys, while hold hyper to turn them back.</li>
 </ul>
-<h4>Misc</h4>
+<table>
+    <thead>
+    <tr class="header">
+        <th>Origin</th>
+        <th>  MapsTo  </th>
+        <th>Comment</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd">
+        <td><code>F1</code></td>
+        <td><code>BrightnessDown</code></td>
+        <td></td>
+    </tr>
+    <tr class="even">
+        <td><code>F2</code></td>
+        <td><code>BrightnessUp</code></td>
+        <td></td>
+    </tr>
+    <tr class="odd">
+        <td><code>F3</code></td>
+        <td><code>ExposeAll</code></td>
+        <td></td>
+    </tr>
+    <tr class="even">
+        <td><code>F4</code></td>
+        <td><code>LaunchPad</code></td>
+        <td></td>
+    </tr>
+    <tr class="odd">
+        <td><code>F5</code></td>
+        <td><code>KeyboardLightDown</code></td>
+        <td></td>
+    </tr>
+    <tr class="even">
+        <td><code>F6</code></td>
+        <td><code>KeyboardLightUp</code></td>
+        <td></td>
+    </tr>
+    <tr class="odd">
+        <td><code>F7</code></td>
+        <td><code>MusicPrev</code></td>
+        <td></td>
+    </tr>
+    <tr class="even">
+        <td><code>F8</code></td>
+        <td><code>MusicPlay</code></td>
+        <td></td>
+    </tr>
+    <tr class="odd">
+        <td><code>F9</code></td>
+        <td><code>MusicNext</code></td>
+        <td></td>
+    </tr>
+    <tr class="even">
+        <td><code>F10</code></td>
+        <td><code>Mute</code></td>
+        <td></td>
+    </tr>
+    <tr class="odd">
+        <td><code>F11</code></td>
+        <td><code>VolumeDown</code></td>
+        <td></td>
+    </tr>
+    <tr class="even">
+        <td><code>F12</code></td>
+        <td><code>VolumeUp</code></td>
+        <td></td>
+    </tr>
+    <tr class="odd">
+        <td><code>F13</code> PrintScreen</td>
+        <td><code>MusicPrev</code></td>
+        <td></td>
+    </tr>
+    <tr class="even">
+        <td><code>F14</code> ScrollLock</td>
+        <td><code>MusicNext</code></td>
+        <td></td>
+    </tr>
+    <tr class="odd">
+        <td><code>F15</code> Pause</td>
+        <td><code>Mute</code></td>
+        <td></td>
+    </tr>
+    <tr class="even">
+        <td><code>Insert</code></td>
+        <td><code>⌥BrightnessUp</code></td>
+        <td>Fine grained brightness up</td>
+    </tr>
+    <tr class="odd">
+        <td><code>Delete</code></td>
+        <td><code>⌥BrightnessDown</code></td>
+        <td>Fine grained brightness down</td>
+    </tr>
+    <tr class="even">
+        <td><code>Home</code></td>
+        <td><code>⌥KeyboardLightUp</code></td>
+        <td>Fine grained keyboard light up</td>
+    </tr>
+    <tr class="odd">
+        <td><code>End</code></td>
+        <td><code>⌥KeyboardLightDown</code></td>
+        <td>Fine grained keyboard light down</td>
+    </tr>
+    <tr class="even">
+        <td><code>PgUp</code></td>
+        <td><code>⌥VolumeUp</code></td>
+        <td>Fine grained volume up</td>
+    </tr>
+    <tr class="odd">
+        <td><code>PgDn</code></td>
+        <td><code>⌥VolumeDown</code></td>
+        <td>Fine grained volume down</td>
+    </tr>
+    </tbody>
+</table>
+<h3 id="shifter">Shifter</h3>
 <ul>
-    <li><code>✱⎋ ↦ ⇪</code>       (Escape turn ✱Hyper backs to ⇪CapsLock)</li>
-    <li><code>✱␢ ↦ ⎋</code>      (Space maps to ⎋ESC)</li>
-    <li><code>✱\ ↦ ⌃/</code>       (Back slash maps to comment [IDE shortcut])</li>
-    <li><code>✱; ↦ ⇧- '!'</code>  (Semicolon to exclamation)</li>
-    <li><code>✱' ↦ =</code>           (Single quote to equal)</li>
-    <li><code>✱~ ↦ ⌃⇧⌘4</code>  (tilde to area screenshot to clipboard)</li>
-    <li><code>✱⌘ ↦ ⌃⇧4</code> (ScreenShot by area to desktop picture)</li>
+    <li>A more convient shift for most case</li>
 </ul>
+<table>
+    <thead>
+    <tr class="header">
+        <th>Origin</th>
+        <th>  MapsTo  </th>
+        <th>Comment</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd">
+        <td><code>1</code></td>
+        <td><code>!</code></td>
+        <td>Exclamation</td>
+    </tr>
+    <tr class="even">
+        <td><code>2</code></td>
+        <td><code>@</code></td>
+        <td>At</td>
+    </tr>
+    <tr class="odd">
+        <td><code>3</code></td>
+        <td><code>#</code></td>
+        <td>Sharp</td>
+    </tr>
+    <tr class="even">
+        <td><code>4</code></td>
+        <td><code>$</code></td>
+        <td>Dollar</td>
+    </tr>
+    <tr class="odd">
+        <td><code>5</code></td>
+        <td><code>%</code></td>
+        <td>Percent</td>
+    </tr>
+    <tr class="even">
+        <td><code>6</code></td>
+        <td><code>^</code></td>
+        <td>Caret</td>
+    </tr>
+    <tr class="odd">
+        <td><code>7</code></td>
+        <td><code>&amp;</code></td>
+        <td>Ampersand</td>
+    </tr>
+    <tr class="even">
+        <td><code>8</code></td>
+        <td><code>*</code></td>
+        <td>Star</td>
+    </tr>
+    <tr class="odd">
+        <td><code>9</code></td>
+        <td><code>(</code></td>
+        <td>Left Round Bracket</td>
+    </tr>
+    <tr class="even">
+        <td><code>0</code></td>
+        <td><code>)</code></td>
+        <td>Right Round Bracket</td>
+    </tr>
+    <tr class="odd">
+        <td><code>-</code> Minus</td>
+        <td><code>_</code></td>
+        <td>Hyphen</td>
+    </tr>
+    <tr class="even">
+        <td><code>=</code> Equal</td>
+        <td><code>+</code></td>
+        <td>Plus</td>
+    </tr>
+    <tr class="odd">
+        <td><code>[</code> Left Bracket</td>
+        <td><code>(</code></td>
+        <td>Left Round Bracket <code>⇧9</code></td>
+    </tr>
+    <tr class="even">
+        <td><code>]</code> Right Bracket</td>
+        <td><code>)</code></td>
+        <td>Right Round Bracket <code>⇧0</code></td>
+    </tr>
+    <tr class="odd">
+        <td><code>\</code> Back Slash</td>
+        <td><code>|</code></td>
+        <td>Bar</td>
+    </tr>
+    <tr class="even">
+        <td><code>;</code> Semicolon</td>
+        <td><code>:</code></td>
+        <td>Colon</td>
+    </tr>
+    <tr class="odd">
+        <td><code>'</code> Single Quote</td>
+        <td><code>&quot;</code></td>
+        <td>DoubleQuote</td>
+    </tr>
+    </tbody>
+</table>
+<h3 id="misc">Misc</h3>
+<table>
+    <thead>
+    <tr class="header">
+        <th>Origin</th>
+        <th>  MapsTo  </th>
+        <th>Comment</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd">
+        <td><code>⎋</code> Escape</td>
+        <td><code>⇪</code> CapsLock</td>
+        <td>Bug: Difficult to turn capslock off after emit</td>
+    </tr>
+    <tr class="even">
+        <td><code>~</code> BackQuote</td>
+        <td><code>⌃⇧⌘4</code></td>
+        <td>macOS Area Screenshot to Clipboard</td>
+    </tr>
+    <tr class="odd">
+        <td><code>⌘~</code> Command+BackQuote</td>
+        <td><code>⌃⇧4</code></td>
+        <td>macOS Area Screenshot to Desktop File</td>
+    </tr>
+    <tr class="even">
+        <td><code>⌫</code> Backspace</td>
+        <td><code>⌘⌫</code></td>
+        <td>macOS Delete File</td>
+    </tr>
+    <tr class="odd">
+        <td><code>↩</code> Return</td>
+        <td><code>=</code></td>
+        <td>Return to Equal Sign</td>
+    </tr>
+    <tr class="even">
+        <td><code>/</code> Slash</td>
+        <td><code>⌘/</code> Command+Slash</td>
+        <td>Comment/Uncomment in many IDE</td>
+    </tr>
+    <tr class="odd">
+        <td><code>␢</code> Spacebar</td>
+        <td><code>⌃␢</code> Ctrl+Spacebar</td>
+        <td>Switch Input Source</td>
+    </tr>
+    </tbody>
+</table>
