@@ -2,21 +2,32 @@
     "title": "Virtual Machine",
     "rules": [
         {
-            "description": "Swap command and control in virtual machine",
+            "description": "Swap command and control in virtual machine/remote desktop",
             "manipulators": [
                 {
                     "type": "basic",
                     "from": <%= from("control", [], ["any"]) %>,
                     "to": <%= to([["left_command"]]) %>,
-                    "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
+                    "conditions": [ <%= frontmost_application_if(["virtual_machine", "remote_desktop"]) %> ]
                 },
                 {
                     "type": "basic",
                     "from": <%= from("command", [], ["any"]) %>,
                     "to": <%= to([["left_control"]]) %>,
-                    "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
+                    "conditions": [ <%= frontmost_application_if(["virtual_machine", "remote_desktop"]) %> ]
                 }
             ]
-        }
+        }, 
+        {
+            "description": "Left Control -> Command unless in virtual machine/remote desktop",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("left_control", [], ["any"]) %>,
+                    "to": <%= to([["left_command"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %> ]
+                }
+            ]
+        } 
     ]
 }
