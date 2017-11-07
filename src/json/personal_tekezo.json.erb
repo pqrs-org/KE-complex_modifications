@@ -27,16 +27,22 @@
             ]
         },
         {
-            "description": "Change option+hyphen, option+equal to ----------,==========",
+            "description": "Change option+hyphen, option+equal to ----------,========== (rev 2)",
             "manipulators": [
                 {
                     "type": "basic",
                     "from": <%= from("hyphen", ["option"], ["caps_lock"]) %>,
-                    "to": <%= to([
-                        ["hyphen"], ["hyphen"], ["hyphen"], ["hyphen"], ["hyphen"],
-                        ["hyphen"], ["hyphen"], ["hyphen"], ["hyphen"], ["hyphen"],
-                        ["vk_none"],
-                    ]) %>
+                    "to": [
+                        { "key_code": "hyphen" }, { "key_code": "hyphen" },
+                        { "key_code": "hyphen" }, { "key_code": "hyphen" },
+                        { "key_code": "hyphen" }, { "key_code": "hyphen" },
+                        { "key_code": "hyphen" }, { "key_code": "hyphen" },
+                        { "key_code": "hyphen" },
+                        {
+                            "key_code": "hyphen",
+                            "repeat": false
+                        }
+                    ]
                 },
                 {
                     "type": "basic",
@@ -50,7 +56,7 @@
             ]
         },
         {
-            "description": "Configurations for apps (rev3)",
+            "description": "Configurations for apps (rev4)",
             "manipulators": [
                 <%# -------------------------------------------------- %>
                 <%# virtual_machine %>
@@ -66,6 +72,12 @@
                     "type": "basic",
                     "from": <%= from("d", ["left_control"], ["caps_lock", "option"]) %>,
                     "to": <%= to([["delete_forward"]]) %>,
+                    "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("i", ["left_control"], ["caps_lock"]) %>,
+                    "to": <%= to([["tab"]]) %>,
                     "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
                 },
                 {
@@ -220,7 +232,7 @@
             ]
         },
         {
-            "description": "Launcher Mode v3 (rev 2)",
+            "description": "Launcher Mode v3 (rev 3)",
             "manipulators": [
 
                 <%# -------------------------------------------------- %>
@@ -308,7 +320,12 @@
                 {
                     "type": "basic",
                     "from": <%= from("left_command", [], ["any"]) %>,
-                    "to": <%= to([["left_control"]]) %>
+                    "to": [
+                        {
+                            "key_code": "left_control",
+                            "lazy": true
+                        }
+                    ]
                 },
 
                 <%# -------------------------------------------------- %>
