@@ -98,6 +98,10 @@ def frontmost_application(type, app_aliases)
     '^org\.pqrs\.unknownapp.conkeror$',
   ]
 
+  finder_bundle_identifiers = [
+    '^com\.apple\.finder$',
+  ]
+
   remote_desktop_bundle_identifiers = [
     '^com\.microsoft\.rdc$',
     '^com\.microsoft\.rdc\.mac$',
@@ -108,6 +112,7 @@ def frontmost_application(type, app_aliases)
     '^com\.nulana\.remotixmac$',
     '^com\.p5sys\.jump\.mac\.viewer$',
     '^com\.p5sys\.jump\.mac\.viewer\.web$',
+    '^com\.teamviewer\.TeamViewer$',
     '^com\.vmware\.horizon$',
     '^com\.2X\.Client\.Mac$',
   ]
@@ -170,6 +175,9 @@ def frontmost_application(type, app_aliases)
       bundle_identifiers.concat(virtual_machine_bundle_identifiers)
       bundle_identifiers.concat(x11_bundle_identifiers)
       bundle_identifiers << '^com\\.microsoft\\.VSCode$'
+
+    when 'finder'
+      bundle_identifiers.concat(finder_bundle_identifiers)
 
     when 'remote_desktop'
       bundle_identifiers.concat(remote_desktop_bundle_identifiers)

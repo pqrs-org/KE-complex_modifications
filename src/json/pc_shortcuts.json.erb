@@ -385,7 +385,10 @@
                 {
                     "type": "basic",
                     "from": <%= from("f4", ["option"], []) %>,
-                    "to": <%= to([["q", ["left_command"]]]) %>
+                    "to": <%= to([["q", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
+                    ]
                 }
             ]
         },
@@ -487,6 +490,19 @@
                     "to": <%= to([["keypad_0", ["left_command"]]]) %>,
                     "conditions": [
                         <%= frontmost_application_if(["browser"]) %>
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "PC-Style Control+Delete/Backspace",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("delete_or_backspace", ["control"], ["any"]) %>,
+                    "to": <%= to([["delete_or_backspace", ["option"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
                     ]
                 }
             ]

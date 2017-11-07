@@ -11,6 +11,18 @@
                     "to_if_alone": <%= to([["spacebar"]]) %>
                 }
             ]
+        },
+
+        {
+            "description": "Change spacebar to left_ctrl if pressed with other keys (Post spacebar when pressed alone)",
+            "manipulators": [
+                {
+                    "from": <%= from("spacebar", [], ["any"]) %>,
+                    "to": <%= to([["left_control"]]) %>,
+                    "to_if_alone": <%= to([["spacebar"]]) %>,
+                    "type": "basic"
+                }
+            ]
         }
     ]
 }

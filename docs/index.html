@@ -24,7 +24,34 @@
 
       
 
-      <ul class="toc list-group"><li class="list-group-item list-group-item-info">Table of Contents</li><li class="list-group-item"><span class="badge">11</span><a href="#modifier_keys">Modifier Keys</a></li><li class="list-group-item"><span class="badge">14</span><a href="#emulation_modes">Emulation Modes</a></li><li class="list-group-item"><span class="badge">7</span><a href="#application_specific">Application Specific</a></li><li class="list-group-item"><span class="badge">4</span><a href="#alternative_keyboard_layouts">Alternative Keyboard Layouts</a></li><li class="list-group-item"><span class="badge">4</span><a href="#International">International (Language Specific)</a></li><li class="list-group-item"><span class="badge">6</span><a href="#key_specific">Key Specific</a></li><li class="list-group-item"><span class="badge">2</span><a href="#os_functionality">OS Functionality</a></li><li class="list-group-item"><span class="badge">4</span><a href="#personal_settings">Personal Settings</a></li><li class="list-group-item"><span class="badge">3</span><a href="#miscellaneous">Miscellaneous</a></li></ul>
+      <ul class="toc list-group"><li class="list-group-item list-group-item-info">Table of Contents</li>
+<li class="list-group-item"><span class="badge">11</span> 
+ <a href="#modifier_keys">Modifier Keys</a></li> 
+
+<li class="list-group-item"><span class="badge">16</span> 
+ <a href="#emulation_modes">Emulation Modes</a></li> 
+
+<li class="list-group-item"><span class="badge">9</span> 
+ <a href="#application_specific">Application Specific</a></li> 
+
+<li class="list-group-item"><span class="badge">6</span> 
+ <a href="#alternative_keyboard_layouts">Alternative Keyboard Layouts</a></li> 
+
+<li class="list-group-item"><span class="badge">7</span> 
+ <a href="#International">International (Language Specific)</a></li> 
+
+<li class="list-group-item"><span class="badge">10</span> 
+ <a href="#key_specific">Key Specific</a></li> 
+
+<li class="list-group-item"><span class="badge">5</span> 
+ <a href="#os_functionality">OS Functionality</a></li> 
+
+<li class="list-group-item"><span class="badge">5</span> 
+ <a href="#personal_settings">Personal Settings</a></li> 
+
+<li class="list-group-item"><span class="badge">4</span> 
+ <a href="#miscellaneous">Miscellaneous</a></li> 
+</ul>
       <div class="text-left" style="margin-bottom: 30px">
         <a href="#" onclick="$('.collapse').collapse('toggle'); return false;">Expand/Collapse All</a>
       </div>
@@ -49,7 +76,7 @@
         <a class="btn btn-primary btn-sm pull-right" data-json-path="json/caps_lock.json">Import</a>
       </div>
       <div class="list-group collapse" id="caps_lock">
-          <div class="list-group-item">Change caps_lock key to command+control+option+shift. (Post escape key when pressed alone)</div><div class="list-group-item">Change caps_lock key to command+control+option+shift. (Use shift+caps_lock as caps_lock)</div><div class="list-group-item">Change caps_lock to control if pressed with other keys, to escape if pressed alone.</div>
+          <div class="list-group-item">Change caps_lock key to command+control+option+shift. (Post escape key when pressed alone)</div><div class="list-group-item">Change caps_lock key to command+control+option+shift. (Post f19 key when pressed alone)</div><div class="list-group-item">Change caps_lock key to command+control+option+shift. (Use shift+caps_lock as caps_lock)</div><div class="list-group-item">Change caps_lock to control if pressed with other keys, to escape if pressed alone.</div>
       </div>
     </div>
     <div class="panel panel-default">
@@ -99,11 +126,11 @@
     </div>
     <div class="panel panel-default">
       <div class="panel-heading">
-        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#delete" aria-expanded="false" aria-controls="delete">Change delete key</a>
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#delete" aria-expanded="false" aria-controls="delete">Change delete key (rev 2)</a>
         <a class="btn btn-primary btn-sm pull-right" data-json-path="json/delete.json">Import</a>
       </div>
       <div class="list-group collapse" id="delete">
-          <div class="list-group-item">Change shift + delete to forward delete</div>
+          <div class="list-group-item">Change shift + delete to forward delete (rev 2)</div>
       </div>
     </div>
     <div class="panel panel-default">
@@ -147,7 +174,7 @@
         <a class="btn btn-primary btn-sm pull-right" data-json-path="json/diamond_cursor.json">Import</a>
       </div>
       <div class="list-group collapse" id="diamond_cursor">
-          <div class="list-group-item">Change fn + I/J/K/L to Arrow Keys</div>
+          <div class="list-group-item">Change fn + I/J/K/L to Arrow Keys</div><div class="list-group-item">Change right_command+i/j/k/l to Arrows</div>
       </div>
     </div>
     <div class="panel panel-default">
@@ -216,25 +243,44 @@
         <a class="btn btn-primary btn-sm pull-right" data-json-path="json/vi_style_arrows.json">Import</a>
       </div>
       <div class="list-group collapse" id="vi_style_arrows">
-          <div class="list-group-item">Change Control+h/j/k/l to Arrows</div>
+          <div class="list-group-item">Change Control + h/j/k/l to Arrows</div><div class="list-group-item">Change Option + h/j/k/l to Arrows</div><div class="list-group-item">Change Fn + h/j/k/l to Arrows</div>
       </div>
     </div>
     <div class="panel panel-default">
       <div class="panel-heading">
-        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#vi_style_arrows2" aria-expanded="false" aria-controls="vi_style_arrows2">Vi Style Arrows2</a>
-        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/vi_style_arrows2.json">Import</a>
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#vim_style_escape" aria-expanded="false" aria-controls="vim_style_escape">Vim style escape key mapping</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/vim_style_escape.json">Import</a>
       </div>
-      <div class="list-group collapse" id="vi_style_arrows2">
-          <div class="list-group-item">Change Left Option+h/j/k/l to Arrows</div>
+      <div class="list-group collapse" id="vim_style_escape">
+          <div class="list-group-item">Map ctrl + [ to escape</div>
       </div>
     </div>
     <div class="panel panel-default">
       <div class="panel-heading">
-        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#emacs_key_bindings" aria-expanded="false" aria-controls="emacs_key_bindings">Emacs key bindings (rev 6)</a>
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#emacs_key_bindings" aria-expanded="false" aria-controls="emacs_key_bindings">Emacs key bindings (rev 7)</a>
         <a class="btn btn-primary btn-sm pull-right" data-json-path="json/emacs_key_bindings.json">Import</a>
       </div>
       <div class="list-group collapse" id="emacs_key_bindings">
-          <div class="list-group-item">Emacs key bindings [control+keys] (rev 6)</div><div class="list-group-item">Emacs key bindings [option+keys] (rev 4)</div><div class="list-group-item"><p style="margin-top: 20px; font-weight: bold">
+          <div class="list-group-item">Emacs key bindings [C-x key strokes] (rev 1) (Available since Karabiner-Elements 11.1.12)</div><div class="list-group-item">Emacs key bindings [control+keys] (rev 6)</div><div class="list-group-item">Emacs key bindings [option+keys] (rev 4)</div><div class="list-group-item"><p style="margin-top: 20px; font-weight: bold">
+  Key Bindings (C-x key strokes)
+</p>
+
+<table class="table">
+  <tr>
+    <td>C-x C-c</td>
+    <td>Quit application (post command-q)</td>
+  </tr>
+  <tr>
+    <td>C-x C-f</td>
+    <td>Open file (post command-o)</td>
+  </tr>
+  <tr>
+    <td>C-x C-s</td>
+    <td>Save file (post command-s)</td>
+  </tr>
+</table>
+
+<p style="margin-top: 20px; font-weight: bold">
   Key Bindings (control+keys)
 </p>
 
@@ -366,6 +412,15 @@
     </div>
     <div class="panel panel-default">
       <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#fn_plus_plsemicolonquote_to_arrow_keys" aria-expanded="false" aria-controls="fn_plus_plsemicolonquote_to_arrow_keys">Change fn + p/l/;/&#39; to arrow keys</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/fn_plus_plsemicolonquote_to_arrow_keys.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="fn_plus_plsemicolonquote_to_arrow_keys">
+          <div class="list-group-item">Change fn + p/l/;/&#39; to arrow keys</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
         <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#pok3r-media" aria-expanded="false" aria-controls="pok3r-media">Pok3r Media Controls</a>
         <a class="btn btn-primary btn-sm pull-right" data-json-path="json/pok3r-media.json">Import</a>
       </div>
@@ -388,7 +443,7 @@
         <a class="btn btn-primary btn-sm pull-right" data-json-path="json/pc_shortcuts.json">Import</a>
       </div>
       <div class="list-group collapse" id="pc_shortcuts">
-          <div class="list-group-item">Home key to the beginning of the line (Control + a)</div><div class="list-group-item">End key to the end of the line (Control + e)</div><div class="list-group-item">Home key to the beginning of the sentence (Command + Left). Doesnt work in terminal</div><div class="list-group-item">End key to the end of the sentence (Command + Right). Doesnt work in terminal</div><div class="list-group-item">PC-Style Home/End</div><div class="list-group-item">Option(Alt)+Tab as Switch Application (Command+Tab)</div><div class="list-group-item">PC-Style Control+Up/Down/Left/Right</div><div class="list-group-item">PC-Style Copy/Paste/Cut</div><div class="list-group-item">PC-Style Undo</div><div class="list-group-item">PC-Style Redo</div><div class="list-group-item">PC-Style Select-All</div><div class="list-group-item">PC-Style Save</div><div class="list-group-item">PC-Style New</div><div class="list-group-item">PC-Style Reload(F5, Ctrl+R)</div><div class="list-group-item">PC-Style New Tab</div><div class="list-group-item">PC-Style Find</div><div class="list-group-item">PC-Style Open</div><div class="list-group-item">PC-Style Bold/Italic/Underline(Ctrl+B/I/U)</div><div class="list-group-item">PC-Style Close Window</div><div class="list-group-item">PC-Style Lock Screen</div><div class="list-group-item">PC-Style Screenshot(PrtSc for whole, Shift+PrtSc to select)</div><div class="list-group-item">PC-Style Quit Application(Alt+F4 to Command+Q)</div><div class="list-group-item">Control+Shift+Esc Opens Activity Monitor</div><div class="list-group-item">PC-Style Browser open location (Ctrl+L)</div><div class="list-group-item">PC-Style Back/Forward (Alt+Left Arrow/Alt+Right Arrow)</div><div class="list-group-item">PC-Style Browser Zoom (Ctrl+Plus/Minus/0)</div>
+          <div class="list-group-item">Home key to the beginning of the line (Control + a)</div><div class="list-group-item">End key to the end of the line (Control + e)</div><div class="list-group-item">Home key to the beginning of the sentence (Command + Left). Doesnt work in terminal</div><div class="list-group-item">End key to the end of the sentence (Command + Right). Doesnt work in terminal</div><div class="list-group-item">PC-Style Home/End</div><div class="list-group-item">Option(Alt)+Tab as Switch Application (Command+Tab)</div><div class="list-group-item">PC-Style Control+Up/Down/Left/Right</div><div class="list-group-item">PC-Style Copy/Paste/Cut</div><div class="list-group-item">PC-Style Undo</div><div class="list-group-item">PC-Style Redo</div><div class="list-group-item">PC-Style Select-All</div><div class="list-group-item">PC-Style Save</div><div class="list-group-item">PC-Style New</div><div class="list-group-item">PC-Style Reload(F5, Ctrl+R)</div><div class="list-group-item">PC-Style New Tab</div><div class="list-group-item">PC-Style Find</div><div class="list-group-item">PC-Style Open</div><div class="list-group-item">PC-Style Bold/Italic/Underline(Ctrl+B/I/U)</div><div class="list-group-item">PC-Style Close Window</div><div class="list-group-item">PC-Style Lock Screen</div><div class="list-group-item">PC-Style Screenshot(PrtSc for whole, Shift+PrtSc to select)</div><div class="list-group-item">PC-Style Quit Application(Alt+F4 to Command+Q)</div><div class="list-group-item">Control+Shift+Esc Opens Activity Monitor</div><div class="list-group-item">PC-Style Browser open location (Ctrl+L)</div><div class="list-group-item">PC-Style Back/Forward (Alt+Left Arrow/Alt+Right Arrow)</div><div class="list-group-item">PC-Style Browser Zoom (Ctrl+Plus/Minus/0)</div><div class="list-group-item">PC-Style Control+Delete/Backspace</div>
       </div>
     </div>
     <div class="panel panel-default">
@@ -436,6 +491,579 @@
 </div>
       </div>
     </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#caps_lock_enhancement" aria-expanded="false" aria-controls="caps_lock_enhancement">Capslock Enhancement</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/caps_lock_enhancement.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="caps_lock_enhancement">
+          <div class="list-group-item">CapsLock to Hyper/Escape</div><div class="list-group-item">Hyper Navigation</div><div class="list-group-item">Hyper Deletion</div><div class="list-group-item">Hyper Window Control</div><div class="list-group-item">Hyper Bash Control</div><div class="list-group-item">Hyper Application</div><div class="list-group-item">Hyper Functional</div><div class="list-group-item">Hyper Shifter</div><div class="list-group-item">Hyper Misc (Check https://github.com/Vonng/Capslock for all details)</div><div class="list-group-item"><h2>CapsLock Enhancement</h2>
+<p>Project <a href="https://github.com/Vonng/Capslock">Vonng/Capslock</a> provides more detailed info.</p>
+
+<p><a href="https://github.com/Vonng/Capslock/raw/master/mac/keyboard.png" target="_blank"><img
+        src="https://github.com/Vonng/Capslock/raw/master/mac/keyboard.png" alt=""
+        style="max-width:100%;"></a></p>
+
+<h3 id="basic">Basic</h3>
+<p><code>✱</code> Hyper actually maps to <code>⌃⌥⇧⌘</code> (all right modifiers) , It works well with additional left
+    modifiers. And compatible with most application. Hold CapsLock to enable <code>Hyper</code> funcationality while
+    press it will emit an <code>Escape</code>.</p>
+<table>
+    <thead>
+    <tr class="header">
+        <th>Origin</th>
+        <th>  MapsTo  </th>
+        <th>Comment</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd">
+        <td><code>⇪</code> Press</td>
+        <td><code>⎋</code> Escape</td>
+        <td>Single press to escape</td>
+    </tr>
+    <tr class="even">
+        <td><code>⇪</code> Hold</td>
+        <td><code>✱</code> Hyper</td>
+        <td>Enable Hyper Functionality</td>
+    </tr>
+    </tbody>
+</table>
+<h3 id="navigation">Navigation</h3>
+<ul>
+    <li>Hold <code>✱</code> Hyper to enable navigators</li>
+    <li>Hold additional <code>⌘</code> Command for <strong>selection</strong> . (just like holding ⇧shift in normal)
+    </li>
+</ul>
+<table>
+    <thead>
+    <tr class="header">
+        <th>Origin</th>
+        <th>  MapsTo  </th>
+        <th>Comment</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd">
+        <td><code>H</code></td>
+        <td><code>←</code> LeftArrow</td>
+        <td>cursor left</td>
+    </tr>
+    <tr class="even">
+        <td><code>J</code></td>
+        <td><code>↓</code> DownArrow</td>
+        <td>cursor down</td>
+    </tr>
+    <tr class="odd">
+        <td><code>K</code></td>
+        <td><code>↑</code> UpArrow</td>
+        <td>cursor up</td>
+    </tr>
+    <tr class="even">
+        <td><code>L</code></td>
+        <td><code>→</code> RightArrow</td>
+        <td>cursor right</td>
+    </tr>
+    <tr class="odd">
+        <td><code>U</code></td>
+        <td><code>⇞</code> PageUp</td>
+        <td>cursor page up</td>
+    </tr>
+    <tr class="even">
+        <td><code>I</code></td>
+        <td><code>↖</code> Home</td>
+        <td>cursor to line(doc) head</td>
+    </tr>
+    <tr class="odd">
+        <td><code>O</code></td>
+        <td><code>↘</code> End</td>
+        <td>cursor to line(doc) end</td>
+    </tr>
+    <tr class="even">
+        <td><code>P</code></td>
+        <td><code>⇟</code> PageDn</td>
+        <td>cursor page down</td>
+    </tr>
+    </tbody>
+</table>
+<h3 id="deletion">Deletion</h3>
+<table>
+    <thead>
+    <tr class="header">
+        <th>Origin</th>
+        <th>  MapsTo  </th>
+        <th>Comment</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd">
+        <td><code>N</code></td>
+        <td><code>⌥⌫</code> Option + ForwardDelete</td>
+        <td>Delete a word ahead</td>
+    </tr>
+    <tr class="even">
+        <td><code>M</code></td>
+        <td><code>⌫</code> ForwardDelete</td>
+        <td>Delete a char ahead</td>
+    </tr>
+    <tr class="odd">
+        <td><code>,</code></td>
+        <td><code>⌦</code> Delete</td>
+        <td>Delete a char after</td>
+    </tr>
+    <tr class="even">
+        <td><code>.</code></td>
+        <td><code>⌥⌦</code> Option + Delete</td>
+        <td>Delete a word after</td>
+    </tr>
+    <tr class="odd">
+        <td><code>⌘M</code>,<code>⌘N</code></td>
+        <td><code>⌘⌥⌫</code> Command+Option+ForwardDelete</td>
+        <td>Delete to line head</td>
+    </tr>
+    </tbody>
+</table>
+<h3 id="window-control">Window Control</h3>
+<table>
+    <thead>
+    <tr class="header">
+        <th>Origin</th>
+        <th>  MapsTo  </th>
+        <th>Comment</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd">
+        <td><code>⇥</code> Tab</td>
+        <td><code>⌘⇥</code> Command+Tab</td>
+        <td>Switch Window</td>
+    </tr>
+    <tr class="even">
+        <td><code>⌘⇥</code> Command+Tab</td>
+        <td><code>⌘⇧⇥</code> Command+Shift+Tab</td>
+        <td>Switch Window Reversely</td>
+    </tr>
+    <tr class="odd">
+        <td><code>Q</code></td>
+        <td><code>⌘Q</code></td>
+        <td>Close Window</td>
+    </tr>
+    <tr class="even">
+        <td><code>W</code></td>
+        <td><code>⌘W</code></td>
+        <td>Close Tab</td>
+    </tr>
+    <tr class="odd">
+        <td><code>E</code></td>
+        <td>Open Safari</td>
+        <td>Open Web Browser</td>
+    </tr>
+    <tr class="even">
+        <td><code>⌘E</code></td>
+        <td>Open Finder</td>
+        <td>Open File Browser</td>
+    </tr>
+    <tr class="odd">
+        <td><code>A</code></td>
+        <td><code>⌃⌥⇧⌘A</code></td>
+        <td>Leaves to <a href="https://manytricks.com/moom/">Moom</a>, ※a window resize app</td>
+    </tr>
+    <tr class="even">
+        <td><code>⌘A</code></td>
+        <td><code>⌃↑</code> Ctrl+UpArrow</td>
+        <td>OSX Expose All</td>
+    </tr>
+    <tr class="odd">
+        <td><code>S</code></td>
+        <td><code>⌃⇥</code> Ctrl+Tab</td>
+        <td>Switch Tab</td>
+    </tr>
+    <tr class="even">
+        <td><code>⌘S</code></td>
+        <td><code>⌃⇧⇥</code> Ctrl+Shift+Tab</td>
+        <td>Swtich Tab Reversely</td>
+    </tr>
+    <tr class="odd">
+        <td><code>⌘D</code></td>
+        <td><code>F11</code></td>
+        <td>Show Desktop</td>
+    </tr>
+    </tbody>
+</table>
+<h3 id="bash-control">Bash Control</h3>
+<ul>
+    <li>Common bash utils: EOF, SIGINT, SIGTSTP, VIM/Tmux Prefix</li>
+</ul>
+<table>
+    <thead>
+    <tr class="header">
+        <th>Origin</th>
+        <th>  MapsTo  </th>
+        <th>Comment</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd">
+        <td><code>Z</code></td>
+        <td><code>⌃Z</code> Ctrl+Z</td>
+        <td>SIGTSTP</td>
+    </tr>
+    <tr class="even">
+        <td><code>X</code></td>
+        <td><code>⌃R</code></td>
+        <td>IDE Run</td>
+    </tr>
+    <tr class="odd">
+        <td><code>C</code></td>
+        <td><code>⌃C</code></td>
+        <td>SIGINT</td>
+    </tr>
+    <tr class="even">
+        <td><code>V</code></td>
+        <td><code>⌃V</code></td>
+        <td>Vim Prefix</td>
+    </tr>
+    <tr class="odd">
+        <td><code>B</code></td>
+        <td><code>⌃B</code></td>
+        <td><a href="http://tmux.github.io">Tmux</a> Default Prefix</td>
+    </tr>
+    <tr class="even">
+        <td><code>D</code></td>
+        <td><code>⌃D</code></td>
+        <td>EOF</td>
+    </tr>
+    </tbody>
+</table>
+<h4 id="applications">Applications</h4>
+<ul>
+    <li>Maybe you'd like overwrite these with your own favorite apps.</li>
+</ul>
+<table>
+    <thead>
+    <tr class="header">
+        <th>Origin</th>
+        <th>  MapsTo  </th>
+        <th>Comment</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd">
+        <td><code>R</code></td>
+        <td>Open iTerm2</td>
+        <td>Great terminal for osx (<code>Run</code>)</td>
+    </tr>
+    <tr class="even">
+        <td><code>⌘R</code></td>
+        <td>Open Preview</td>
+        <td>Switch to opened picture, pdf, etc...</td>
+    </tr>
+    <tr class="odd">
+        <td><code>T</code></td>
+        <td>Open Visual Studio Code</td>
+        <td>Text Editor: Visual Studio Code</td>
+    </tr>
+    <tr class="even">
+        <td><code>⌘T</code></td>
+        <td>Open Typora</td>
+        <td>Text Editor: Typora , a great WYSIWYG md editor</td>
+    </tr>
+    <tr class="odd">
+        <td><code>Y</code></td>
+        <td>Open Siri</td>
+        <td></td>
+    </tr>
+    <tr class="even">
+        <td><code>F</code></td>
+        <td>Open Dash</td>
+        <td>Find API Document</td>
+    </tr>
+    <tr class="odd">
+        <td><code>⌘F</code></td>
+        <td>Open Dictionary</td>
+        <td>Find words</td>
+    </tr>
+    <tr class="even">
+        <td><code>G</code></td>
+        <td>Open Intellij IDEA</td>
+        <td>Open IDE</td>
+    </tr>
+    <tr class="odd">
+        <td><code>⌘G</code></td>
+        <td>Open Chrome</td>
+        <td>Google Chrome</td>
+    </tr>
+    </tbody>
+</table>
+<h3 id="functional">Functional</h3>
+<ul>
+    <li>Use F1,…F12 as standard functional keys, while hold hyper to turn them back.</li>
+</ul>
+<table>
+    <thead>
+    <tr class="header">
+        <th>Origin</th>
+        <th>  MapsTo  </th>
+        <th>Comment</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd">
+        <td><code>F1</code></td>
+        <td><code>BrightnessDown</code></td>
+        <td></td>
+    </tr>
+    <tr class="even">
+        <td><code>F2</code></td>
+        <td><code>BrightnessUp</code></td>
+        <td></td>
+    </tr>
+    <tr class="odd">
+        <td><code>F3</code></td>
+        <td><code>ExposeAll</code></td>
+        <td></td>
+    </tr>
+    <tr class="even">
+        <td><code>F4</code></td>
+        <td><code>LaunchPad</code></td>
+        <td></td>
+    </tr>
+    <tr class="odd">
+        <td><code>F5</code></td>
+        <td><code>KeyboardLightDown</code></td>
+        <td></td>
+    </tr>
+    <tr class="even">
+        <td><code>F6</code></td>
+        <td><code>KeyboardLightUp</code></td>
+        <td></td>
+    </tr>
+    <tr class="odd">
+        <td><code>F7</code></td>
+        <td><code>MusicPrev</code></td>
+        <td></td>
+    </tr>
+    <tr class="even">
+        <td><code>F8</code></td>
+        <td><code>MusicPlay</code></td>
+        <td></td>
+    </tr>
+    <tr class="odd">
+        <td><code>F9</code></td>
+        <td><code>MusicNext</code></td>
+        <td></td>
+    </tr>
+    <tr class="even">
+        <td><code>F10</code></td>
+        <td><code>Mute</code></td>
+        <td></td>
+    </tr>
+    <tr class="odd">
+        <td><code>F11</code></td>
+        <td><code>VolumeDown</code></td>
+        <td></td>
+    </tr>
+    <tr class="even">
+        <td><code>F12</code></td>
+        <td><code>VolumeUp</code></td>
+        <td></td>
+    </tr>
+    <tr class="odd">
+        <td><code>F13</code> PrintScreen</td>
+        <td><code>MusicPrev</code></td>
+        <td></td>
+    </tr>
+    <tr class="even">
+        <td><code>F14</code> ScrollLock</td>
+        <td><code>MusicNext</code></td>
+        <td></td>
+    </tr>
+    <tr class="odd">
+        <td><code>F15</code> Pause</td>
+        <td><code>Mute</code></td>
+        <td></td>
+    </tr>
+    <tr class="even">
+        <td><code>Insert</code></td>
+        <td><code>⌥BrightnessUp</code></td>
+        <td>Fine grained brightness up</td>
+    </tr>
+    <tr class="odd">
+        <td><code>Delete</code></td>
+        <td><code>⌥BrightnessDown</code></td>
+        <td>Fine grained brightness down</td>
+    </tr>
+    <tr class="even">
+        <td><code>Home</code></td>
+        <td><code>⌥KeyboardLightUp</code></td>
+        <td>Fine grained keyboard light up</td>
+    </tr>
+    <tr class="odd">
+        <td><code>End</code></td>
+        <td><code>⌥KeyboardLightDown</code></td>
+        <td>Fine grained keyboard light down</td>
+    </tr>
+    <tr class="even">
+        <td><code>PgUp</code></td>
+        <td><code>⌥VolumeUp</code></td>
+        <td>Fine grained volume up</td>
+    </tr>
+    <tr class="odd">
+        <td><code>PgDn</code></td>
+        <td><code>⌥VolumeDown</code></td>
+        <td>Fine grained volume down</td>
+    </tr>
+    </tbody>
+</table>
+<h3 id="shifter">Shifter</h3>
+<ul>
+    <li>A more convient shift for most case</li>
+</ul>
+<table>
+    <thead>
+    <tr class="header">
+        <th>Origin</th>
+        <th>  MapsTo  </th>
+        <th>Comment</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd">
+        <td><code>1</code></td>
+        <td><code>!</code></td>
+        <td>Exclamation</td>
+    </tr>
+    <tr class="even">
+        <td><code>2</code></td>
+        <td><code>@</code></td>
+        <td>At</td>
+    </tr>
+    <tr class="odd">
+        <td><code>3</code></td>
+        <td><code>#</code></td>
+        <td>Sharp</td>
+    </tr>
+    <tr class="even">
+        <td><code>4</code></td>
+        <td><code>$</code></td>
+        <td>Dollar</td>
+    </tr>
+    <tr class="odd">
+        <td><code>5</code></td>
+        <td><code>%</code></td>
+        <td>Percent</td>
+    </tr>
+    <tr class="even">
+        <td><code>6</code></td>
+        <td><code>^</code></td>
+        <td>Caret</td>
+    </tr>
+    <tr class="odd">
+        <td><code>7</code></td>
+        <td><code>&amp;</code></td>
+        <td>Ampersand</td>
+    </tr>
+    <tr class="even">
+        <td><code>8</code></td>
+        <td><code>*</code></td>
+        <td>Star</td>
+    </tr>
+    <tr class="odd">
+        <td><code>9</code></td>
+        <td><code>(</code></td>
+        <td>Left Round Bracket</td>
+    </tr>
+    <tr class="even">
+        <td><code>0</code></td>
+        <td><code>)</code></td>
+        <td>Right Round Bracket</td>
+    </tr>
+    <tr class="odd">
+        <td><code>-</code> Minus</td>
+        <td><code>_</code></td>
+        <td>Hyphen</td>
+    </tr>
+    <tr class="even">
+        <td><code>=</code> Equal</td>
+        <td><code>+</code></td>
+        <td>Plus</td>
+    </tr>
+    <tr class="odd">
+        <td><code>[</code> Left Bracket</td>
+        <td><code>(</code></td>
+        <td>Left Round Bracket <code>⇧9</code></td>
+    </tr>
+    <tr class="even">
+        <td><code>]</code> Right Bracket</td>
+        <td><code>)</code></td>
+        <td>Right Round Bracket <code>⇧0</code></td>
+    </tr>
+    <tr class="odd">
+        <td><code>\</code> Back Slash</td>
+        <td><code>|</code></td>
+        <td>Bar</td>
+    </tr>
+    <tr class="even">
+        <td><code>;</code> Semicolon</td>
+        <td><code>:</code></td>
+        <td>Colon</td>
+    </tr>
+    <tr class="odd">
+        <td><code>'</code> Single Quote</td>
+        <td><code>&quot;</code></td>
+        <td>DoubleQuote</td>
+    </tr>
+    </tbody>
+</table>
+<h3 id="misc">Misc</h3>
+<table>
+    <thead>
+    <tr class="header">
+        <th>Origin</th>
+        <th>  MapsTo  </th>
+        <th>Comment</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd">
+        <td><code>⎋</code> Escape</td>
+        <td><code>⇪</code> CapsLock</td>
+        <td>Bug: Difficult to turn capslock off after emit</td>
+    </tr>
+    <tr class="even">
+        <td><code>~</code> BackQuote</td>
+        <td><code>⌃⇧⌘4</code></td>
+        <td>macOS Area Screenshot to Clipboard</td>
+    </tr>
+    <tr class="odd">
+        <td><code>⌘~</code> Command+BackQuote</td>
+        <td><code>⌃⇧4</code></td>
+        <td>macOS Area Screenshot to Desktop File</td>
+    </tr>
+    <tr class="even">
+        <td><code>⌫</code> Backspace</td>
+        <td><code>⌘⌫</code></td>
+        <td>macOS Delete File</td>
+    </tr>
+    <tr class="odd">
+        <td><code>↩</code> Return</td>
+        <td><code>=</code></td>
+        <td>Return to Equal Sign</td>
+    </tr>
+    <tr class="even">
+        <td><code>/</code> Slash</td>
+        <td><code>⌘/</code> Command+Slash</td>
+        <td>Comment/Uncomment in many IDE</td>
+    </tr>
+    <tr class="odd">
+        <td><code>␢</code> Spacebar</td>
+        <td><code>⌃␢</code> Ctrl+Spacebar</td>
+        <td>Switch Input Source</td>
+    </tr>
+    </tbody>
+</table></div>
+      </div>
+    </div>
 
         </div>
       </div>
@@ -464,7 +1092,7 @@
     </div>
     <div class="panel panel-default">
       <div class="panel-heading">
-        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#tmux_prefix" aria-expanded="false" aria-controls="tmux_prefix">Tmux Prefix</a>
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#tmux_prefix" aria-expanded="false" aria-controls="tmux_prefix">Tmux Prefix (rev 2)</a>
         <a class="btn btn-primary btn-sm pull-right" data-json-path="json/tmux_prefix.json">Import</a>
       </div>
       <div class="list-group collapse" id="tmux_prefix">
@@ -526,6 +1154,24 @@
           <div class="list-group-item">Remap ESC to Option-ESC in Safari only</div>
       </div>
     </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#safari_ignore_command_q" aria-expanded="false" aria-controls="safari_ignore_command_q">Don&#39;t exit when pressing LCommand + q in Safari (RCommand + q still works)</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/safari_ignore_command_q.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="safari_ignore_command_q">
+          <div class="list-group-item">Remap LCommand + q to q in Safari only</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#virtual_machine" aria-expanded="false" aria-controls="virtual_machine">Virtual Machine</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/virtual_machine.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="virtual_machine">
+          <div class="list-group-item">Swap command and control in virtual machine</div>
+      </div>
+    </div>
 
         </div>
       </div>
@@ -563,11 +1209,29 @@
     </div>
     <div class="panel panel-default">
       <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#programmer_dvorak_cmd_qwerty_layout" aria-expanded="false" aria-controls="programmer_dvorak_cmd_qwerty_layout">Programmer Dvorak-CmdQwerty Keyboard</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/programmer_dvorak_cmd_qwerty_layout.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="programmer_dvorak_cmd_qwerty_layout">
+          <div class="list-group-item">Remap keys to use Programmer Dvorak-CmdQwerty keyboard layout</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
         <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#colemak_layout" aria-expanded="false" aria-controls="colemak_layout">Colemak Keyboard</a>
         <a class="btn btn-primary btn-sm pull-right" data-json-path="json/colemak_layout.json">Import</a>
       </div>
       <div class="list-group collapse" id="colemak_layout">
           <div class="list-group-item">Remap keys to use Colemak keyboard layout</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#neo2" aria-expanded="false" aria-controls="neo2">Neo2</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/neo2.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="neo2">
+          <div class="list-group-item">Neo2 mod 3 and 4 keys (Apple keyboard)</div><div class="list-group-item">Neo2 mod 3 and 4 keys (Windows keyboard)</div><div class="list-group-item">Neo2 layer 4</div><div class="list-group-item">Neo2 layer 6</div><div class="list-group-item">Toggle caps_lock by pressing left_shift + right_shift at the same time</div><div class="list-group-item">Tab acts as Ctrl if pressed with another key</div>
       </div>
     </div>
 
@@ -584,7 +1248,7 @@
         <a class="btn btn-primary btn-sm pull-right" data-json-path="json/japanese.json">Import</a>
       </div>
       <div class="list-group collapse" id="japanese">
-          <div class="list-group-item">コマンドキーを単体で押したときに、英数・かなキーを送信する。（左コマンドキーは英数、右コマンドキーはかな）</div>
+          <div class="list-group-item">コマンドキーを単体で押したときに、英数・かなキーを送信する。（左コマンドキーは英数、右コマンドキーはかな）</div><div class="list-group-item">escキーを押したときに、英数キーも送信する(vim用)</div><div class="list-group-item">Ctrl+[を押したときに、英数キーも送信する(vim用)</div>
       </div>
     </div>
     <div class="panel panel-default">
@@ -607,11 +1271,38 @@
     </div>
     <div class="panel panel-default">
       <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#czech_pc_shortcuts" aria-expanded="false" aria-controls="czech_pc_shortcuts">Czech PC-Style Shortcuts (AltGr+V -&gt; &#39;@&#39;, AltGr+Q -&gt; &#39;\&#39;, AltGr+B -&gt; &#39;{&#39;, AltGr+N -&gt; &#39;}&#39; etc...)</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/czech_pc_shortcuts.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="czech_pc_shortcuts">
+          <div class="list-group-item">AltGr+1 -&gt; &#39;~&#39;</div><div class="list-group-item">AltGr+3-&gt; &#39;^&#39;</div><div class="list-group-item">AltGr+Q -&gt; &#39;\&#39;</div><div class="list-group-item">AltGr+W -&gt; &#39;|&#39;</div><div class="list-group-item">AltGr+E -&gt; &#39;€&#39;</div><div class="list-group-item">AltGr+F -&gt; &#39;[&#39;</div><div class="list-group-item">AltGr+G -&gt; &#39;]&#39;</div><div class="list-group-item">AltGr+; -&gt; &#39;$&#39;</div><div class="list-group-item">AltGr+X -&gt; &#39;#&#39;</div><div class="list-group-item">AltGr+C -&gt; &#39;&amp;&#39;</div><div class="list-group-item">AltGr+V -&gt; &#39;@&#39;</div><div class="list-group-item">AltGr+B -&gt; &#39;{&#39;</div><div class="list-group-item">AltGr+N -&gt; &#39;}&#39;</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
         <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#swap_pound_and_hash" aria-expanded="false" aria-controls="swap_pound_and_hash">For British Keyboard (Exchange £ and #)</a>
         <a class="btn btn-primary btn-sm pull-right" data-json-path="json/swap_pound_and_hash.json">Import</a>
       </div>
       <div class="list-group collapse" id="swap_pound_and_hash">
           <div class="list-group-item">Exchange £ shift-3 and # option-3</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#swap_yen_and_backslash" aria-expanded="false" aria-controls="swap_yen_and_backslash">Swap ¥ and \ for Japanese Romaji input on US Keyboards</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/swap_yen_and_backslash.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="swap_yen_and_backslash">
+          <div class="list-group-item">Change Backslash to Alt+Backslash</div><div class="list-group-item">Change Alt+Backslash to Backslash</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#korean_pc" aria-expanded="false" aria-controls="korean_pc">For Korean PC Keyboard</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/korean_pc.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="korean_pc">
+          <div class="list-group-item">Change Kor/Eng key to command+space</div><div class="list-group-item">Change Hanja key to option+return</div>
       </div>
     </div>
 
@@ -651,6 +1342,15 @@
     </div>
     <div class="panel panel-default">
       <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#swap-paren-and-sqbrackets" aria-expanded="false" aria-controls="swap-paren-and-sqbrackets">Exchange paren and square bracket</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/swap-paren-and-sqbrackets.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="swap-paren-and-sqbrackets">
+          <div class="list-group-item">Exchange paren and square bracket</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
         <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#nonbreaking_space" aria-expanded="false" aria-controls="nonbreaking_space">Disable alt+spacebar (nonbreaking space)</a>
         <a class="btn btn-primary btn-sm pull-right" data-json-path="json/nonbreaking_space.json">Import</a>
       </div>
@@ -664,7 +1364,7 @@
         <a class="btn btn-primary btn-sm pull-right" data-json-path="json/spacebar.json">Import</a>
       </div>
       <div class="list-group collapse" id="spacebar">
-          <div class="list-group-item">Change spacebar to left_shift if pressed with other keys (Post spacebar when pressed alone)</div>
+          <div class="list-group-item">Change spacebar to left_shift if pressed with other keys (Post spacebar when pressed alone)</div><div class="list-group-item">Change spacebar to left_ctrl if pressed with other keys (Post spacebar when pressed alone)</div>
       </div>
     </div>
     <div class="panel panel-default">
@@ -674,6 +1374,33 @@
       </div>
       <div class="list-group collapse" id="command_arrows_to_option_arrows">
           <div class="list-group-item">Exchange command + arrow keys with option + arrow keys</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#command_arrows_to_ctrl_arrows" aria-expanded="false" aria-controls="command_arrows_to_ctrl_arrows">Exchange command + arrows keys with control + arrows keys</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/command_arrows_to_ctrl_arrows.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="command_arrows_to_ctrl_arrows">
+          <div class="list-group-item">Exchange command + arrow keys with control + arrow keys</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#command_esc_to_command_grave_accent" aria-expanded="false" aria-controls="command_esc_to_command_grave_accent">Command + Esc to Command + `</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/command_esc_to_command_grave_accent.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="command_esc_to_command_grave_accent">
+          <div class="list-group-item">Command + Esc to Command + `</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#exchange_command_backspace_and_option_backspace" aria-expanded="false" aria-controls="exchange_command_backspace_and_option_backspace">Exchange Command+Backward-Delete (delete current line) and Option+Backward-Delete (delete current word)</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/exchange_command_backspace_and_option_backspace.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="exchange_command_backspace_and_option_backspace">
+          <div class="list-group-item">Change Command+Backward-Delete and Option+Backward-Delete</div><div class="list-group-item">Change Option+Backward-Delete to Command+Backward-Delete</div>
       </div>
     </div>
 
@@ -710,6 +1437,33 @@
           <div class="list-group-item">Use right_command+;/&#39; to cycle through running applications (like command+tab).</div><div class="list-group-item">Use right_command+h/l to switch tabs in an application.</div><div class="list-group-item">Use right_command+j/k to switch windows of the foreground application .</div><div class="list-group-item">Disable left_command+(tab/shift+tab) (to retrain reflexes using the other manipulators).</div>
       </div>
     </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#anti_rsi_app_switch" aria-expanded="false" aria-controls="anti_rsi_app_switch">Anti-RSI App Switch (LCMD+Space to LCMD+Tab, LOpt+Space to LCMD+` and reverse +LShift or + LControl).</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/anti_rsi_app_switch.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="anti_rsi_app_switch">
+          <div class="list-group-item">Anti-RSI App Switch (LCMD+Space to LCMD+Tab and reverse +LShift).</div><div class="list-group-item">Anti-RSI App Switch (LOpt+Space to LCMD+` and reverse +LShift).</div><div class="list-group-item">Anti-RSI App Switch (LCMD+Space to LCMD+Tab and reverse +LControl).</div><div class="list-group-item">Anti-RSI App Switch (LOpt+Space to LCMD+` and reverse +LControl).</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#fine_volume_control" aria-expanded="false" aria-controls="fine_volume_control">Fine volume control (rev 2)</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/fine_volume_control.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="fine_volume_control">
+          <div class="list-group-item">Map volume controls to fine volume controls (Option + Shift + Volume)</div><div class="list-group-item">Map fn + volume controls to fine volume controls (Option + Shift + Volume)</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#command_q" aria-expanded="false" aria-controls="command_q">Prevent unintended command-q</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/command_q.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="command_q">
+          <div class="list-group-item">Quit application by pressing command-q twice (Available since Karabiner-Elements 11.1.12)</div>
+      </div>
+    </div>
 
         </div>
       </div>
@@ -724,7 +1478,7 @@
         <a class="btn btn-primary btn-sm pull-right" data-json-path="json/personal_tekezo.json">Import</a>
       </div>
       <div class="list-group collapse" id="personal_tekezo">
-          <div class="list-group-item">Change left_control+1/2/v/q to home/end/page_down/page_up (rev 2)</div><div class="list-group-item">Change option+hyphen, option+equal to ----------,==========</div><div class="list-group-item">Configurations for apps (rev2)</div><div class="list-group-item">Extra emacs key bindings (rev 4)</div><div class="list-group-item">Change tab to command+`</div><div class="list-group-item">Launcher Mode v3 (rev 2)</div><div class="list-group-item"><p style="margin-top: 20px; font-weight: bold">
+          <div class="list-group-item">Change left_control+1/2/v/q to home/end/page_down/page_up (rev 2)</div><div class="list-group-item">Change option+hyphen, option+equal to ----------,==========</div><div class="list-group-item">Configurations for apps (rev3)</div><div class="list-group-item">Extra emacs key bindings (rev 4)</div><div class="list-group-item">Change tab to command+`</div><div class="list-group-item">Launcher Mode v3 (rev 2)</div><div class="list-group-item"><p style="margin-top: 20px; font-weight: bold">
   Launcher Mode v3
 </p>
 
@@ -783,6 +1537,128 @@
           <div class="list-group-item">Change insert to left_option+escape (VoiceOver)</div>
       </div>
     </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#personal_yqrashawn" aria-expanded="false" aria-controls="personal_yqrashawn">Personal rules (@yqrashawn)</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/personal_yqrashawn.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="personal_yqrashawn">
+          <div class="list-group-item">Alfred Mode</div><div class="list-group-item">yq Launch Mode</div><div class="list-group-item">Quick Insert Mode</div><div class="list-group-item">Slash Mode</div><div class="list-group-item">FILCO MINILA Swap grave_accent_and_tilde and backslash</div><div class="list-group-item">FILCO MINILA Change left command to left option, and f18 if alone</div><div class="list-group-item">FILCO MINILA Change left_option to f19 to left command, and 19 if alone</div><div class="list-group-item">FILCO MINILA Change application to right option, and f17 when used alone</div><div class="list-group-item">FILCO MINILA Change right option to right command, and f16 when used alone</div><div class="list-group-item">HHKB, FILCO MINILA Change left control to esc if alone</div><div class="list-group-item">Change caps_lock to control when used as modifier, escape when used alone</div><div class="list-group-item">Change right_command to command-tab when used alone</div><div class="list-group-item">Change left_command to f19 if alone</div><div class="list-group-item">Change left_option to f18 if alone</div><div class="list-group-item">Change right_option to f17 if alone</div><div class="list-group-item">Change right_command to f16 if alone</div><div class="list-group-item"><p style="margin-top: 20px; font-weight: bold">
+  Alfred Mode (z)
+</p>
+<p style="margin-top: 16px">
+  <ui>
+    <li>Press z down then click other keys to trigger Alfred workflow</li>
+    <li>This mode severely relays on Alfred Workflow.</li>
+    <li><a href="http://yqrashawn.com/2017/10/29/my-karabiner-configuration/">Download workflows here</a></li>
+  </ui>
+</p>
+
+<ul>
+  <li>y: Hyper + = trigger youdao workflow</li>
+  <li>j: Search github</li>
+  <li>tab: Switch to chosen iTerm session</li>
+  <li>x: Kill process</li>
+  <li>t: Launch Tower.app with chosen repo</li>
+  <li>b: Switch chosen to browser tab</li>
+  <li>r: Open recent download file</li>
+  <li>l: Trigger Alfred File Action in Finder.app</li>
+  <li>l: Trigger devtool in browsers</li>
+  <li>o: Copy selection into emacs for temp edit</li>
+  <li>p: Paste the saved temp buffer back</li>
+  <li>;: Open localhost with entered port number</li>
+  <li>q: Use Keyboard Maestro record macro</li>
+  <li>]: Play last macro once</li>
+</ul>
+
+<p style="margin-top: 20px; font-weight: bold">
+  yq Launch Mode (w)
+</p>
+
+<p style="margin-top: 16px">
+  <ui>
+    <li>Press w down then click other keys to bring application to front.</li>
+    <li>Press w down then press [ down to enter second level of this mode.</li>
+    <li>This mode severely relays on Alfred Workflow.</li>
+  </ui>
+</p>
+
+<ul>
+  <li>j: iTerm</li>
+  <li>k: Emacs</li>
+  <li>l: Google Chrome</li>
+  <li>c: Safari</li>
+  <li>m: Mail</li>
+  <li>t: Tower</li>
+  <li>b: BearyChat</li>
+  <li>v: WeChat</li>
+  <li>[r: Reeder</li>
+</ul>
+
+<p style="margin-top: 20px; font-weight: bold">
+  Quick Insert Mode (period)
+</p>
+
+<p style="margin-top: 16px">
+  <ui>
+    <li>Press period down then click other keys to insert or trigger workflow.</li>
+    <li>Press period down then press comma down to enter second level of this mode.</li>
+    <li>Some rules in this mode need to use with some specific emacs key bindings.</li>
+  </ui>
+</p>
+
+<ul>
+  <li>tab: control+tab emacs:(switch-to-second-most-recent-buffer)</li>
+  <li>comma+tab: control+tab emacs:(switch-to-third-most-recent-buffer)</li>
+  <li>a: insert ~/</li>
+  <li>s: insert .*</li>
+  <li>slash: insert ./</li>
+  <li>q: insert {</li>
+  <li>comma+q: insert }</li>
+  <li>e: insert (</li>
+  <li>r: insert )</li>
+  <li>g: command+control+k alfred clipboard</li>
+  <li>d: command+control+d Mac OS define</li>
+</ul>
+
+<p style="margin-top: 20px; font-weight: bold">
+  Slash Mode (period)
+</p>
+
+<p style="margin-top: 16px">
+  <ui>
+    <li>Press period down then click other keys to insert or trigger workflow.</li>
+  </ui>
+</p>
+
+<ul>
+  <li>tab: command+tab switch to previous application</li>
+</ul>
+
+<p style="margin-top: 20px; font-weight: bold">
+  Other modifications
+</p>
+
+<p style="margin-top: 16px">
+  <ui>
+    <li>Mainly bind option and command keys to function keys, and then use with other applications.</li>
+    <li>MINILA modification aiming to make it more like HHKB.</li>
+    <li>Modifications with keyboard name in their descriptions can't work on other keyboard.</li>
+  </ui>
+</p>
+
+<ul>
+  <li>Caps Lock to escape when pressed alone and to control as modifier key</li>
+  <li>Control to escape when pressed alone on HHKB and MINILA</li>
+  <li>Left command to f19 when pressed alone, trigger alfred</li>
+  <li>Left option to f18 when pressed alone, trigger context</li>
+  <li>Right option to f17 when pressed alone</li>
+  <li>Right command to f16 when pressed alone</li>
+  <li>Right command to command+tab when pressed alone</li>
+</ul>
+</div>
+      </div>
+    </div>
 
         </div>
       </div>
@@ -816,6 +1692,15 @@
       </div>
       <div class="list-group collapse" id="exchange_underscore_and_backslash">
           <div class="list-group-item">Exchange underscore and backslash</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#space_cadet" aria-expanded="false" aria-controls="space_cadet">Modern Space Cadet (rev2)</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/space_cadet.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="space_cadet">
+          <div class="list-group-item">Caps Lock to Escape on single press, Control on press and hold.</div><div class="list-group-item">Control to Caps Lock on single press, &#39;Hyper Key&#39; on press and hold.</div><div class="list-group-item">Better Shifting: Parentheses on shift keys</div><div class="list-group-item">Better Shifting: Shift rolls</div><div class="list-group-item">Better Shifting: End parenthesis on shift + space</div>
       </div>
     </div>
 

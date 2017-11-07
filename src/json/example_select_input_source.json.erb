@@ -1,0 +1,34 @@
+{
+    "title": "select_input_source example (available since Karabiner-Elements 11.1.9)",
+    "rules": [
+        {
+            "description": "select_input_source example (available since Karabiner-Elements 11.1.9)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("left_command", [], ["any"]) %>,
+                    "to": <%= to([["left_command"]]) %>,
+                    "to_if_alone": [
+                        {
+                            "select_input_source": {
+                                "input_source_id": "^com\\.apple\\.keylayout\\.US$"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("right_command", [], ["any"]) %>,
+                    "to": <%= to([["right_command"]]) %>,
+                    "to_if_alone": [
+                        {
+                            "select_input_source": {
+                                "input_source_id": "^com\\.apple\\.keylayout\\.RussianWin$"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
