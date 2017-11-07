@@ -2,7 +2,7 @@
     "title": "select_input_source example (available since Karabiner-Elements 11.1.9)",
     "rules": [
         {
-            "description": "select_input_source example (available since Karabiner-Elements 11.1.9)",
+            "description": "Change input source to U.S. by left_command, RussianWin by right_command. (available since Karabiner-Elements 11.1.9)",
             "manipulators": [
                 {
                     "type": "basic",
@@ -24,6 +24,29 @@
                         {
                             "select_input_source": {
                                 "input_source_id": "^com\\.apple\\.keylayout\\.RussianWin$"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Change input source to French while right_option is pressed. (available since Karabiner-Elements 11.1.9)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("right_option", [], ["any"]) %>,
+                    "to": [
+                        {
+                            "select_input_source": {
+                                "language": "^fr$"
+                            }
+                        }
+                    ],
+                    "to_after_key_up": [
+                        {
+                            "select_input_source": {
+                                "language": "^en$"
                             }
                         }
                     ]
