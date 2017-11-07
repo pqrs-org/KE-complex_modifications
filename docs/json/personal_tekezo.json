@@ -83,7 +83,7 @@
       ]
     },
     {
-      "description": "Change option+hyphen, option+equal to ----------,==========",
+      "description": "Change option+hyphen, option+equal to ----------,========== (rev 2)",
       "manipulators": [
         {
           "type": "basic",
@@ -127,10 +127,8 @@
               "key_code": "hyphen"
             },
             {
-              "key_code": "hyphen"
-            },
-            {
-              "key_code": "vk_none"
+              "key_code": "hyphen",
+              "repeat": false
             }
           ]
         },
@@ -186,7 +184,7 @@
       ]
     },
     {
-      "description": "Configurations for apps (rev3)",
+      "description": "Configurations for apps (rev4)",
       "manipulators": [
         {
           "type": "basic",
@@ -241,6 +239,41 @@
           "to": [
             {
               "key_code": "delete_forward"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.vmware\\.fusion$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.vmware\\.view$",
+                "^com\\.parallels\\.desktop$",
+                "^com\\.parallels\\.vm$",
+                "^com\\.parallels\\.desktop\\.console$",
+                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.vmware\\.proxyApp\\.",
+                "^com\\.parallels\\.winapp\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "mandatory": [
+                "left_control"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "tab"
             }
           ],
           "conditions": [
@@ -942,7 +975,7 @@
       ]
     },
     {
-      "description": "Launcher Mode v3 (rev 2)",
+      "description": "Launcher Mode v3 (rev 3)",
       "manipulators": [
         {
           "type": "basic",
@@ -1215,7 +1248,8 @@
           },
           "to": [
             {
-              "key_code": "left_control"
+              "key_code": "left_control",
+              "lazy": true
             }
           ]
         },
