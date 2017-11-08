@@ -1,5 +1,5 @@
 {
-    "title": "Emacs key bindings (rev 7)",
+    "title": "Emacs key bindings (rev 8)",
     "rules": [
         {
             "description": "Emacs key bindings [C-x key strokes] (rev 1) (Available since Karabiner-Elements 11.1.12)",
@@ -87,7 +87,7 @@
             ]
         },
         {
-            "description": "Emacs key bindings [control+keys] (rev 6)",
+            "description": "Emacs key bindings [control+keys] (rev 7)",
             "manipulators": [
                 {
                     "type": "basic",
@@ -146,6 +146,18 @@
                     "from": <%= from("v", ["control"], ["caps_lock", "shift"]) %>,
                     "to": <%= to([["page_down"]]) %>,
                     "conditions": [ <%= frontmost_application_unless("emacs_key_bindings_exception") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("a", ["control"], ["caps_lock", "shift"]) %>,
+                    "to": <%= to([["home"]]) %>,
+                    "conditions": [ <%= frontmost_application_if("microsoft_office") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("e", ["control"], ["caps_lock", "shift"]) %>,
+                    "to": <%= to([["end"]]) %>,
+                    "conditions": [ <%= frontmost_application_if("microsoft_office") %> ]
                 }
             ]
         },
