@@ -1,0 +1,55 @@
+{
+    "title": "keyboard_type_if, keyboard_type_unless example (Available since Karabiner-Elements 11.1.19)",
+    "rules": [
+        {
+            "description": "Change control-[ to escape (Available since Karabiner-Elements 11.1.19)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("open_bracket", ["control"], ["caps_lock"]) %>,
+                    "to": <%= to([["escape"]]) %>,
+                    "conditions": [
+                        {
+                            "type": "keyboard_type_if",
+                            "keyboard_types": [
+                                "ansi",
+                                "iso"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("close_bracket", ["control"], ["caps_lock"]) %>,
+                    "to": <%= to([["escape"]]) %>,
+                    "conditions": [
+                        {
+                            "type": "keyboard_type_if",
+                            "keyboard_types": [
+                                "jis"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Change escape to mission_control if keyboard_type != ansi (Available since Karabiner-Elements 11.1.19)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("escape", [], ["any"]) %>,
+                    "to": <%= to([["mission_control"]]) %>,
+                    "conditions": [
+                        {
+                            "type": "keyboard_type_unless",
+                            "keyboard_types": [
+                                "ansi"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
