@@ -102,6 +102,12 @@ def frontmost_application(type, app_aliases)
     '^com\.apple\.finder$',
   ]
 
+  microsoft_office_bundle_identifiers = [
+    '^com\.microsoft\.Excel$',
+    '^com\.microsoft\.Powerpoint$',
+    '^com\.microsoft\.Word$',
+  ]
+
   remote_desktop_bundle_identifiers = [
     '^com\.microsoft\.rdc$',
     '^com\.microsoft\.rdc\.mac$',
@@ -178,6 +184,9 @@ def frontmost_application(type, app_aliases)
 
     when 'finder'
       bundle_identifiers.concat(finder_bundle_identifiers)
+
+    when 'microsoft_office'
+      bundle_identifiers.concat(microsoft_office_bundle_identifiers)
 
     when 'remote_desktop'
       bundle_identifiers.concat(remote_desktop_bundle_identifiers)

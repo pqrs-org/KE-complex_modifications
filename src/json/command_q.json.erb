@@ -1,0 +1,52 @@
+{
+    "title": "Prevent unintended command-q",
+    "rules": [
+        {
+            "description": "Quit application by pressing command-q twice (Available since Karabiner-Elements 11.1.12)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "command-q",
+                            "value": 1
+                        }
+                    ],
+                    "from": <%= from("q", ["command"], ["caps_lock"]) %>,
+                    "to": <%= to([["q", "left_command"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("q", ["command"], ["caps_lock"]) %>,
+                    "to": [
+                        {
+                            "set_variable": {
+                                "name": "command-q",
+                                "value": 1
+                            }
+                        }
+                    ],
+                    "to_delayed_action": {
+                        "to_if_invoked": [
+                            {
+                                "set_variable": {
+                                    "name": "command-q",
+                                    "value": 0
+                                }
+                            }
+                        ],
+                        "to_if_canceled": [
+                            {
+                                "set_variable": {
+                                    "name": "command-q",
+                                    "value": 0
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}
