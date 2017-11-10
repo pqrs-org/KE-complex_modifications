@@ -22,7 +22,7 @@ make
 
 Key name definitions are [here](https://github.com/tekezo/Karabiner-Elements/blob/master/src/apps/PreferencesWindow/PreferencesWindow/Resources/simple_modifications.json). 
 
-In the `"from"` section of the JSON files, you can use `command`, `option`, `shift`, `control` etc. instead of `left_command`, `left_option`, `left_shift` and `left_control` to refer to both the left and right modifier keys.
+You can use `command`, `option`, `shift` and `control` instead of `left_command`, `left_option`, `left_shift` and `left_control` to refer to both the left and right modifier keys.
 
 ## Local testing
 
