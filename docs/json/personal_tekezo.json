@@ -975,7 +975,7 @@
       ]
     },
     {
-      "description": "Launcher Mode v3 (rev 3)",
+      "description": "Launcher Mode v3 (rev 4)",
       "manipulators": [
         {
           "type": "basic",
@@ -1024,7 +1024,8 @@
               "key_code": "right_control",
               "modifiers": [
                 "left_shift"
-              ]
+              ],
+              "lazy": true
             }
           ],
           "to_if_alone": [
@@ -1082,7 +1083,8 @@
               "key_code": "right_command",
               "modifiers": [
                 "left_shift"
-              ]
+              ],
+              "lazy": true
             }
           ],
           "to_if_alone": [
@@ -1112,7 +1114,8 @@
               "key_code": "right_command",
               "modifiers": [
                 "left_control"
-              ]
+              ],
+              "lazy": true
             }
           ],
           "to_if_alone": [
@@ -1161,7 +1164,8 @@
           },
           "to": [
             {
-              "key_code": "right_control"
+              "key_code": "right_control",
+              "lazy": true
             }
           ],
           "conditions": [
@@ -1205,7 +1209,8 @@
           },
           "to": [
             {
-              "key_code": "right_command"
+              "key_code": "right_command",
+              "lazy": true
             }
           ]
         },
@@ -1227,7 +1232,8 @@
               "key_code": "left_control",
               "modifiers": [
                 "right_command"
-              ]
+              ],
+              "lazy": true
             }
           ],
           "to_if_alone": [
@@ -1258,6 +1264,33 @@
           "conditions": [
             {
               "type": "variable_if",
+              "name": "launcher_mode_v3_tab",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "tab",
+            "modifiers": {
+              "mandatory": [
+                "left_shift"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "mission_control",
+              "modifiers": "left_command"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
               "name": "launcher_mode_v3",
               "value": 1
             }
@@ -1275,9 +1308,33 @@
           },
           "to": [
             {
-              "key_code": "mission_control"
+              "set_variable": {
+                "name": "launcher_mode_v3_tab",
+                "value": 1
+              }
             }
-          ]
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "launcher_mode_v3_tab",
+                  "value": 0
+                }
+              },
+              {
+                "key_code": "mission_control"
+              }
+            ],
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "launcher_mode_v3_tab",
+                  "value": 0
+                }
+              }
+            ]
+          }
         },
         {
           "type": "basic",

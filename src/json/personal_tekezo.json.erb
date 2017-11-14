@@ -232,7 +232,7 @@
             ]
         },
         {
-            "description": "Launcher Mode v3 (rev 3)",
+            "description": "Launcher Mode v3 (rev 4)",
             "manipulators": [
 
                 <%# -------------------------------------------------- %>
@@ -257,7 +257,15 @@
                 {
                     "type": "basic",
                     "from": <%= from("right_command", ["left_shift"], ["caps_lock"]) %>,
-                    "to": <%= to([["right_control", ["left_shift"]]]) %>,
+                    "to": [
+                        {
+                            "key_code": "right_control",
+                            "modifiers": [
+                                "left_shift"
+                            ],
+                            "lazy": true
+                        }
+                    ],
                     "to_if_alone": [
                         { "set_variable": { "name": "launcher_mode_v3", "value": 1 } }
                     ],
@@ -268,7 +276,15 @@
                 {
                     "type": "basic",
                     "from": <%= from("right_command", ["left_shift"], ["caps_lock"]) %>,
-                    "to": <%= to([["right_command", ["left_shift"]]]) %>,
+                    "to": [
+                        {
+                            "key_code": "right_command",
+                            "modifiers": [
+                                "left_shift"
+                            ],
+                            "lazy": true
+                        }
+                    ],
                     "to_if_alone": [
                         { "set_variable": { "name": "launcher_mode_v3", "value": 1 } }
                     ]
@@ -279,7 +295,15 @@
                 {
                     "type": "basic",
                     "from": <%= from("right_command", ["left_control"], ["any"]) %>,
-                    "to": <%= to([["right_command", ["left_control"]]]) %>,
+                    "to": [
+                        {
+                            "key_code": "right_command",
+                            "modifiers": [
+                                "left_control"
+                            ],
+                            "lazy": true
+                        }
+                    ],
                     "to_if_alone": <%= to([["lang1"]]) %>,
                     "conditions": [
                             <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
@@ -291,7 +315,12 @@
                 {
                     "type": "basic",
                     "from": <%= from("right_command", [], ["any"]) %>,
-                    "to": <%= to([["right_control"]]) %>,
+                    "to": [
+                        {
+                            "key_code": "right_control",
+                            "lazy": true
+                        }
+                    ],
                     "conditions": [
                             <%= frontmost_application_if(["remote_desktop", "virtual_machine"]) %>
                     ]
@@ -299,7 +328,12 @@
                 {
                     "type": "basic",
                     "from": <%= from("right_command", [], ["any"]) %>,
-                    "to": <%= to([["right_command"]]) %>
+                    "to": [
+                        {
+                            "key_code": "right_command",
+                            "lazy": true
+                        }
+                    ]
                 },
 
 
@@ -311,7 +345,15 @@
                 {
                     "type": "basic",
                     "from": <%= from("left_command", ["right_command"], ["any"]) %>,
-                    "to": <%= to([["left_control", ["right_command"]]]) %>,
+                    "to": [
+                        {
+                            "key_code": "left_control",
+                            "modifiers": [
+                                "right_command"
+                            ],
+                            "lazy": true
+                        }
+                    ],
                     "to_if_alone": <%= to([["lang2"]]) %>
                 },
 
@@ -335,10 +377,46 @@
                 {
                     "type": "basic",
                     "conditions": [
+                        { "type": "variable_if", "name": "launcher_mode_v3_tab", "value": 1 }
+                    ],
+                    "from": <%= from("tab", ["left_shift"], ["any"]) %>,
+                    "to": <%= to([["mission_control", "left_command"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
                         { "type": "variable_if", "name": "launcher_mode_v3", "value": 1 }
                     ],
                     "from": <%= from("tab", ["left_shift"], ["any"]) %>,
-                    "to": <%= to([["mission_control"]]) %>
+                    "to": [
+                        {
+                            "set_variable": {
+                                "name": "launcher_mode_v3_tab",
+                                "value": 1
+                            }
+                        }
+                    ],
+                    "to_delayed_action": {
+                        "to_if_invoked": [
+                            {
+                                "set_variable": {
+                                    "name": "launcher_mode_v3_tab",
+                                    "value": 0
+                                }
+                            },
+                            {
+                                "key_code": "mission_control"
+                            }
+                        ],
+                        "to_if_canceled": [
+                            {
+                                "set_variable": {
+                                    "name": "launcher_mode_v3_tab",
+                                    "value": 0
+                                }
+                            }
+                        ]
+                    }
                 },
                 {
                     "type": "basic",
