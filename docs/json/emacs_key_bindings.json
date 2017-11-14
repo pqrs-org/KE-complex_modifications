@@ -1,8 +1,8 @@
 {
-  "title": "Emacs key bindings (rev 8)",
+  "title": "Emacs key bindings (rev 9)",
   "rules": [
     {
-      "description": "Emacs key bindings [C-x key strokes] (rev 1) (Available since Karabiner-Elements 11.1.12)",
+      "description": "Emacs key bindings [C-x key strokes] (rev 1)",
       "manipulators": [
         {
           "type": "basic",
@@ -194,7 +194,7 @@
       ]
     },
     {
-      "description": "Emacs key bindings [control+keys] (rev 7)",
+      "description": "Emacs key bindings [control+keys] (rev 8)",
       "manipulators": [
         {
           "type": "basic",
@@ -398,6 +398,42 @@
           "to": [
             {
               "key_code": "escape"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": [
+                "ansi",
+                "iso"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "close_bracket",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "escape"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": [
+                "jis"
+              ]
             }
           ]
         },
