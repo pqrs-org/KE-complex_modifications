@@ -1,8 +1,8 @@
 {
-    "title": "Emacs key bindings (rev 8)",
+    "title": "Emacs key bindings (rev 9)",
     "rules": [
         {
-            "description": "Emacs key bindings [C-x key strokes] (rev 1) (Available since Karabiner-Elements 11.1.12)",
+            "description": "Emacs key bindings [C-x key strokes] (rev 1)",
             "manipulators": [
                 <%# -------------------------------------------------- %>
                 <%# C-x C-c (quit) %>
@@ -87,7 +87,7 @@
             ]
         },
         {
-            "description": "Emacs key bindings [control+keys] (rev 7)",
+            "description": "Emacs key bindings [control+keys] (rev 8)",
             "manipulators": [
                 {
                     "type": "basic",
@@ -110,7 +110,29 @@
                 {
                     "type": "basic",
                     "from": <%= from("open_bracket", ["control"], ["caps_lock"]) %>,
-                    "to": <%= to([["escape"]]) %>
+                    "to": <%= to([["escape"]]) %>,
+                    "conditions": [
+                        {
+                            "type": "keyboard_type_if",
+                            "keyboard_types": [
+                                "ansi",
+                                "iso"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("close_bracket", ["control"], ["caps_lock"]) %>,
+                    "to": <%= to([["escape"]]) %>,
+                    "conditions": [
+                        {
+                            "type": "keyboard_type_if",
+                            "keyboard_types": [
+                                "jis"
+                            ]
+                        }
+                    ]
                 },
                 {
                     "type": "basic",
