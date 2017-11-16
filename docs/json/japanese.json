@@ -1,8 +1,8 @@
 {
-  "title": "For Japanese （日本語環境向けの設定）",
+  "title": "For Japanese （日本語環境向けの設定） (rev 2)",
   "rules": [
     {
-      "description": "コマンドキーを単体で押したときに、英数・かなキーを送信する。（左コマンドキーは英数、右コマンドキーはかな）",
+      "description": "コマンドキーを単体で押したときに、英数・かなキーを送信する。（左コマンドキーは英数、右コマンドキーはかな） (rev 2)",
       "manipulators": [
         {
           "type": "basic",
@@ -16,7 +16,8 @@
           },
           "to": [
             {
-              "key_code": "left_command"
+              "key_code": "left_command",
+              "lazy": true
             }
           ],
           "to_if_alone": [
@@ -37,7 +38,8 @@
           },
           "to": [
             {
-              "key_code": "right_command"
+              "key_code": "right_command",
+              "lazy": true
             }
           ],
           "to_if_alone": [
@@ -49,7 +51,7 @@
       ]
     },
     {
-      "description": "escキーを押したときに、英数キーも送信する(vim用)",
+      "description": "escキーを押したときに、英数キーも送信する（vim用）",
       "manipulators": [
         {
           "type": "basic",
@@ -68,7 +70,7 @@
       ]
     },
     {
-      "description": "Ctrl+[を押したときに、英数キーも送信する(vim用)",
+      "description": "Ctrl+[を押したときに、英数キーも送信する（vim用） (rev 2)",
       "manipulators": [
         {
           "type": "basic",
@@ -89,6 +91,45 @@
             },
             {
               "key_code": "japanese_eisuu"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": [
+                "ansi",
+                "iso"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "close_bracket",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "close_bracket",
+              "modifiers": [
+                "control"
+              ]
+            },
+            {
+              "key_code": "japanese_eisuu"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": [
+                "jis"
+              ]
             }
           ]
         }

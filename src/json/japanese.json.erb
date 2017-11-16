@@ -1,25 +1,35 @@
 {
-    "title": "For Japanese （日本語環境向けの設定）",
+    "title": "For Japanese （日本語環境向けの設定） (rev 2)",
     "rules": [
         {
-            "description": "コマンドキーを単体で押したときに、英数・かなキーを送信する。（左コマンドキーは英数、右コマンドキーはかな）",
+            "description": "コマンドキーを単体で押したときに、英数・かなキーを送信する。（左コマンドキーは英数、右コマンドキーはかな） (rev 2)",
             "manipulators": [
                 {
                     "type": "basic",
                     "from": <%= from("left_command", [], ["any"]) %>,
-                    "to": <%= to([["left_command"]]) %>,
+                    "to": [
+                        {
+                            "key_code": "left_command",
+                            "lazy": true
+                        }
+                    ],
                     "to_if_alone": <%= to([["japanese_eisuu"]]) %>
                 },
                 {
                     "type": "basic",
                     "from": <%= from("right_command", [], ["any"]) %>,
-                    "to": <%= to([["right_command"]]) %>,
+                    "to": [
+                        {
+                            "key_code": "right_command",
+                            "lazy": true
+                        }
+                    ],
                     "to_if_alone": <%= to([["japanese_kana"]]) %>
                 }
             ]
         },
         {
-            "description": "escキーを押したときに、英数キーも送信する(vim用)",
+            "description": "escキーを押したときに、英数キーも送信する（vim用）",
             "manipulators": [
                 {
                     "type": "basic",
@@ -29,12 +39,34 @@
             ]
         },
         {
-            "description": "Ctrl+[を押したときに、英数キーも送信する(vim用)",
+            "description": "Ctrl+[を押したときに、英数キーも送信する（vim用） (rev 2)",
             "manipulators": [
                 {
                     "type": "basic",
                     "from": <%= from("open_bracket", ["control"], []) %>,
-                    "to": <%= to([["open_bracket", ["control"]], ["japanese_eisuu"]]) %>
+                    "to": <%= to([["open_bracket", ["control"]], ["japanese_eisuu"]]) %>,
+                    "conditions": [
+                        {
+                            "type": "keyboard_type_if",
+                            "keyboard_types": [
+                                "ansi",
+                                "iso"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("close_bracket", ["control"], []) %>,
+                    "to": <%= to([["close_bracket", ["control"]], ["japanese_eisuu"]]) %>,
+                    "conditions": [
+                        {
+                            "type": "keyboard_type_if",
+                            "keyboard_types": [
+                                "jis"
+                            ]
+                        }
+                    ]
                 }
             ]
         }
