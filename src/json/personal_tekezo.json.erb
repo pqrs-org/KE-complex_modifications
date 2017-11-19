@@ -56,7 +56,7 @@
             ]
         },
         {
-            "description": "Configurations for apps (rev4)",
+            "description": "Configurations for apps (rev5)",
             "manipulators": [
                 <%# -------------------------------------------------- %>
                 <%# virtual_machine %>
@@ -118,13 +118,22 @@
                 },
 
                 <%# -------------------------------------------------- %>
+                <%# finder %>
+                <%# -------------------------------------------------- %>
+
+                {
+                    "type": "basic",
+                    "from": <%= from("l", ["command"], ["caps_lock"]) %>,
+                    "conditions": [ <%= frontmost_application_if("finder") %> ]
+                },
+
+                <%# -------------------------------------------------- %>
                 <%# terminal %>
                 <%# -------------------------------------------------- %>
 
                 {
                     "type": "basic",
                     "from": <%= from("o", ["command"], ["any"]) %>,
-                    "to": <%= to([["vk_none"]]) %>,
                     "conditions": [ <%= frontmost_application_if("terminal") %> ]
                 },
                 {
