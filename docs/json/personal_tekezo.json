@@ -184,7 +184,7 @@
       ]
     },
     {
-      "description": "Configurations for apps (rev4)",
+      "description": "Configurations for apps (rev5)",
       "manipulators": [
         {
           "type": "basic",
@@ -516,6 +516,28 @@
         {
           "type": "basic",
           "from": {
+            "key_code": "l",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.finder$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
             "key_code": "o",
             "modifiers": {
               "mandatory": [
@@ -526,11 +548,6 @@
               ]
             }
           },
-          "to": [
-            {
-              "key_code": "vk_none"
-            }
-          ],
           "conditions": [
             {
               "type": "frontmost_application_if",
