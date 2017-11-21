@@ -2,22 +2,6 @@
     "title": "Personal rules (@apm1467)",
     "rules": [
         {
-            "description": "Disable command + Q in Safari",
-            "manipulators": [
-                {
-                    "type": "basic",
-                    "from": <%= from("q", ["command"], ["caps_lock"]) %>,
-                    "to": <%= to([["vk_none"]]) %>,
-                    "conditions": [
-                      {
-                        "type": "frontmost_application_if",
-                        "bundle_identifiers": ["^com\\.apple\\.Safari$"]
-                      }
-                    ]
-                }
-            ]
-        },
-        {
             "description": "Use right_command + J/K to switch between tabs in applications",
             "manipulators": [
                 {
