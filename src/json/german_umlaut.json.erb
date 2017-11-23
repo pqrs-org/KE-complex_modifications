@@ -2,17 +2,17 @@
     "title": "German Umlaut",
     "rules": [
         {
-            "description": "Change option + e/o/u to ë/ö/ü",
+            "description": "Change option + a/o/u to ä/ö/ü",
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("e", ["option"], ["caps_lock"]) %>,
-                    "to": <%= to([["u", ["left_option"]], ["e"], ["vk_none"]]) %>
+                    "from": <%= from("a", ["option"], ["caps_lock"]) %>,
+                    "to": <%= to([["u", ["left_option"]], ["a"], ["vk_none"]]) %>
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("e", ["option", "shift"], []) %>,
-                    "to": <%= to([["u", ["left_option"]], ["e", ["left_shift"]], ["vk_none"]]) %>
+                    "from": <%= from("a", ["option", "shift"], []) %>,
+                    "to": <%= to([["u", ["left_option"]], ["a", ["left_shift"]], ["vk_none"]]) %>
                 },
 
                 {
