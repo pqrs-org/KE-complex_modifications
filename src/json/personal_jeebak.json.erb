@@ -447,7 +447,7 @@
                 },
 
                 <%# -------------------------------------------------- %>
-                <%#> Space-return_or_enter to mission_control %>
+                <%# Space-↩ to mission_control %>
                 <%# -------------------------------------------------- %>
                 {
                     "type": "basic",
@@ -460,10 +460,36 @@
 
                 <%# -------------------------------------------------- %>
                 <%# Media keys %>
+                <%# Space-⎋, and Space-` to rewind %>
+                <%# Space-⌫  to fastforward %>
                 <%# Space-[ to volume_decrement %>
                 <%# Space-] to volume_increment %>
                 <%# Space-\ to play_or_pause %>
                 <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "from": <%= from("escape", [], ["caps_lock"]) %>,
+                    "to": <%= to([["rewind"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("grave_accent_and_tilde", [], ["caps_lock"]) %>,
+                    "to": <%= to([["rewind"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("delete_or_backspace", [], ["caps_lock"]) %>,
+                    "to": <%= to([["fastforward"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
                 {
                     "type": "basic",
                     "from": <%= from("open_bracket", [], ["caps_lock"]) %>,
@@ -496,14 +522,6 @@
                     "type": "basic",
                     "from": <%= from("non_us_pound", [], ["caps_lock"]) %>,
                     "to": <%= to([["spacebar"], ["non_us_pound"], ["vk_none"]]) %>,
-                    "conditions": [
-                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("grave_accent_and_tilde", [], ["caps_lock"]) %>,
-                    "to": <%= to([["spacebar"], ["grave_accent_and_tilde"], ["vk_none"]]) %>,
                     "conditions": [
                         { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
                     ]
