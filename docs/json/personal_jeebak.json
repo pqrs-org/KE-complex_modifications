@@ -318,6 +318,29 @@
         {
           "type": "basic",
           "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "mandatory": [
+                "left_shift"
+              ],
+              "optional": [
+                "caps_lock",
+                "option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "spacebar",
+              "modifiers": [
+                "left_option"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
             "key_code": "a",
             "modifiers": {
               "optional": [
@@ -1173,6 +1196,33 @@
         {
           "type": "basic",
           "from": {
+            "key_code": "right_shift",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "slash",
+              "modifiers": [
+                "left_command",
+                "left_control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
             "key_code": "return_or_enter",
             "modifiers": {
               "optional": [
@@ -1182,13 +1232,7 @@
           },
           "to": [
             {
-              "key_code": "spacebar"
-            },
-            {
-              "key_code": "return_or_enter"
-            },
-            {
-              "key_code": "vk_none"
+              "key_code": "mission_control"
             }
           ],
           "conditions": [
@@ -1211,13 +1255,7 @@
           },
           "to": [
             {
-              "key_code": "spacebar"
-            },
-            {
-              "key_code": "open_bracket"
-            },
-            {
-              "key_code": "vk_none"
+              "key_code": "volume_decrement"
             }
           ],
           "conditions": [
@@ -1240,13 +1278,7 @@
           },
           "to": [
             {
-              "key_code": "spacebar"
-            },
-            {
-              "key_code": "close_bracket"
-            },
-            {
-              "key_code": "vk_none"
+              "key_code": "volume_increment"
             }
           ],
           "conditions": [
@@ -1269,13 +1301,7 @@
           },
           "to": [
             {
-              "key_code": "spacebar"
-            },
-            {
-              "key_code": "backslash"
-            },
-            {
-              "key_code": "vk_none"
+              "key_code": "play_or_pause"
             }
           ],
           "conditions": [
