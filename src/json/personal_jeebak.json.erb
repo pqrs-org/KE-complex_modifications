@@ -135,6 +135,12 @@
                         { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
                     ]
                 },
+                <%# ... and left_shift-spacebar too %>
+                {
+                    "type": "basic",
+                    "from": <%= from("spacebar", ["left_shift"], ["caps_lock", "option"]) %>,
+                    "to": <%= to([["spacebar", ["left_option"]]]) %>
+                },
 
                 <%# -------------------------------------------------- %>
                 <%# Space-{a,e,r} to {⌥-any,⌘-any,⇧-any} %>
@@ -402,6 +408,10 @@
 
                 <%# -------------------------------------------------- %>
                 <%# Misc Personalizations {;,',/} %>
+                <%# Space-; to ⌘-⌃-; [custom shortcut to: Move left a space] %>
+                <%# Space-' to ⌘-⌃-' [custom shortcut to: Move right a space] %>
+                <%# Space-/ to ⌘--/ [custom shortcut to: Toggle iTerm maximized] %>
+                <%# Space-right_shift to ⌘-⌃--/ [custom shortcut to: Application windows] %>
                 <%# -------------------------------------------------- %>
                 {
                     "type": "basic",
@@ -427,14 +437,53 @@
                         { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
                     ]
                 },
+                {
+                    "type": "basic",
+                    "from": <%= from("right_shift", [], ["caps_lock"]) %>,
+                    "to": <%= to([["slash", ["left_command", "left_control"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
 
                 <%# -------------------------------------------------- %>
-                <%# normalize return %>
+                <%#> Space-return_or_enter to mission_control %>
                 <%# -------------------------------------------------- %>
                 {
                     "type": "basic",
                     "from": <%= from("return_or_enter", [], ["caps_lock"]) %>,
-                    "to": <%= to([["spacebar"], ["return_or_enter"], ["vk_none"]]) %>,
+                    "to": <%= to([["mission_control"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Media keys %>
+                <%# Space-[ to volume_decrement %>
+                <%# Space-] to volume_increment %>
+                <%# Space-\ to play_or_pause %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "from": <%= from("open_bracket", [], ["caps_lock"]) %>,
+                    "to": <%= to([["volume_decrement"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("close_bracket", [], ["caps_lock"]) %>,
+                    "to": <%= to([["volume_increment"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("backslash", [], ["caps_lock"]) %>,
+                    "to": <%= to([["play_or_pause"]]) %>,
                     "conditions": [
                         { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
                     ]
@@ -443,30 +492,6 @@
                 <%# -------------------------------------------------- %>
                 <%# normalize punctuation marks %>
                 <%# -------------------------------------------------- %>
-                {
-                    "type": "basic",
-                    "from": <%= from("open_bracket", [], ["caps_lock"]) %>,
-                    "to": <%= to([["spacebar"], ["open_bracket"], ["vk_none"]]) %>,
-                    "conditions": [
-                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("close_bracket", [], ["caps_lock"]) %>,
-                    "to": <%= to([["spacebar"], ["close_bracket"], ["vk_none"]]) %>,
-                    "conditions": [
-                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("backslash", [], ["caps_lock"]) %>,
-                    "to": <%= to([["spacebar"], ["backslash"], ["vk_none"]]) %>,
-                    "conditions": [
-                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
-                    ]
-                },
                 {
                     "type": "basic",
                     "from": <%= from("non_us_pound", [], ["caps_lock"]) %>,
