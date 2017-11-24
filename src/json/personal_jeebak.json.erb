@@ -541,6 +541,245 @@
             ]
         },
         {
+            "description": "MouseCursor Mode [D as Trigger Key] [Available since Karabiner-Elements-11.3.5]",
+            "manipulators": [
+
+                <%# -------------------------------------------------- %>
+                <%# press d to enter MouseCursor Mode, release to quit %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "from": <%= from("d", [], ["caps_lock"]) %>,
+                    "to": [
+                        { "set_variable": { "name": "mousecursor_mode", "value": 1 } }
+                    ],
+                    "to_if_alone": <%= to([["d"]]) %>,
+                    "to_after_key_up": [
+                        { "set_variable": { "name": "mousecursor_mode", "value": 0 } },
+                        { "set_variable": { "name": "mousecursor_mode_accelerate", "value": 0 } }
+                    ]
+                },
+                <%# -------------------------------------------------- %>
+                <%# press a to "accelerate" %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "from": <%= from("a", [], ["caps_lock"]) %>,
+                    "to": [
+                        { "set_variable": { "name": "mousecursor_mode_accelerate", "value": 1 } }
+                    ],
+                    "to_after_key_up": [
+                        { "set_variable": { "name": "mousecursor_mode_accelerate", "value": 0 } }
+                    ],
+                    "conditions": [ { "type": "variable_if", "name": "mousecursor_mode", "value": 1 } ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# change j/k/i/l to accellerated mouse left,down,up,right %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "from": <%= from("j", [], ["any"]) %>,
+                    "to": [ { "mouse_key": { "x": -3072 } } ],
+                    "conditions": [
+                        { "type": "variable_if", "name": "mousecursor_mode", "value": 1 },
+                        { "type": "variable_if", "name": "mousecursor_mode_accelerate", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("k", [], ["any"]) %>,
+                    "to": [ { "mouse_key": { "y": 3072 } } ],
+                    "conditions": [
+                        { "type": "variable_if", "name": "mousecursor_mode", "value": 1 },
+                        { "type": "variable_if", "name": "mousecursor_mode_accelerate", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("i", [], ["any"]) %>,
+                    "to": [ { "mouse_key": { "y": -3072 } } ],
+                    "conditions": [
+                        { "type": "variable_if", "name": "mousecursor_mode", "value": 1 },
+                        { "type": "variable_if", "name": "mousecursor_mode_accelerate", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("l", [], ["any"]) %>,
+                    "to": [ { "mouse_key": { "x": 3072 } } ],
+                    "conditions": [
+                        { "type": "variable_if", "name": "mousecursor_mode", "value": 1 },
+                        { "type": "variable_if", "name": "mousecursor_mode_accelerate", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# change j/k/i/l to normal mouse left,down,up,right %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "from": <%= from("j", [], ["any"]) %>,
+                    "to": [ { "mouse_key": { "x": -1536 } } ],
+                    "conditions": [
+                        { "type": "variable_if", "name": "mousecursor_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("k", [], ["any"]) %>,
+                    "to": [ { "mouse_key": { "y": 1536 } } ],
+                    "conditions": [
+                        { "type": "variable_if", "name": "mousecursor_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("i", [], ["any"]) %>,
+                    "to": [ { "mouse_key": { "y": -1536 } } ],
+                    "conditions": [
+                        { "type": "variable_if", "name": "mousecursor_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("l", [], ["any"]) %>,
+                    "to": [ { "mouse_key": { "x": 1536 } } ],
+                    "conditions": [
+                        { "type": "variable_if", "name": "mousecursor_mode", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# change h/n/u/o to accellerated scroll up/down/left/right %>
+                <%# (depends on "Scroll direction" in System Preferences) %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "from": <%= from("h", [], ["any"]) %>,
+                    "to": [ { "mouse_key": { "vertical_wheel": 64 } } ],
+                    "conditions": [
+                        { "type": "variable_if", "name": "mousecursor_mode", "value": 1 },
+                        { "type": "variable_if", "name": "mousecursor_mode_accelerate", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("n", [], ["any"]) %>,
+                    "to": [ { "mouse_key": { "vertical_wheel": -64 } } ],
+                    "conditions": [
+                        { "type": "variable_if", "name": "mousecursor_mode", "value": 1 },
+                        { "type": "variable_if", "name": "mousecursor_mode_accelerate", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("u", [], ["any"]) %>,
+                    "to": [ { "mouse_key": { "horizontal_wheel": -64 } } ],
+                    "conditions": [
+                        { "type": "variable_if", "name": "mousecursor_mode", "value": 1 },
+                        { "type": "variable_if", "name": "mousecursor_mode_accelerate", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("o", [], ["any"]) %>,
+                    "to": [ { "mouse_key": { "horizontal_wheel": 64 } } ],
+                    "conditions": [
+                        { "type": "variable_if", "name": "mousecursor_mode", "value": 1 },
+                        { "type": "variable_if", "name": "mousecursor_mode_accelerate", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# change h/n/u/o to scroll up/down/left/right %>
+                <%# (depends on "Scroll direction" in System Preferences) %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "from": <%= from("h", [], ["any"]) %>,
+                    "to": [ { "mouse_key": { "vertical_wheel": 32 } } ],
+                    "conditions": [
+                        { "type": "variable_if", "name": "mousecursor_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("n", [], ["any"]) %>,
+                    "to": [ { "mouse_key": { "vertical_wheel": -32 } } ],
+                    "conditions": [
+                        { "type": "variable_if", "name": "mousecursor_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("u", [], ["any"]) %>,
+                    "to": [ { "mouse_key": { "horizontal_wheel": -32 } } ],
+                    "conditions": [
+                        { "type": "variable_if", "name": "mousecursor_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("o", [], ["any"]) %>,
+                    "to": [ { "mouse_key": { "horizontal_wheel": 32 } } ],
+                    "conditions": [
+                        { "type": "variable_if", "name": "mousecursor_mode", "value": 1 }
+                    ]
+                },
+
+                <%# buttons %>
+                {
+                    "type": "basic",
+                    "from": <%= from("f", [], ["any"]) %>,
+                    "to": [ { "pointing_button": "button1" } ],
+                    "conditions": [ { "type": "variable_if", "name": "mousecursor_mode", "value": 1 } ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("m", [], ["any"]) %>,
+                    "to": [ { "pointing_button": "button1" } ],
+                    "conditions": [ { "type": "variable_if", "name": "mousecursor_mode", "value": 1 } ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("s", [], ["any"]) %>,
+                    "to": [ { "pointing_button": "button2" } ],
+                    "conditions": [ { "type": "variable_if", "name": "mousecursor_mode", "value": 1 } ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("p", [], ["any"]) %>,
+                    "to": [ { "pointing_button": "button2" } ],
+                    "conditions": [ { "type": "variable_if", "name": "mousecursor_mode", "value": 1 } ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("v", [], ["any"]) %>,
+                    "to": [ { "pointing_button": "button3" } ],
+                    "conditions": [ { "type": "variable_if", "name": "mousecursor_mode", "value": 1 } ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("slash", [], ["any"]) %>,
+                    "to": [ { "pointing_button": "button3" } ],
+                    "conditions": [ { "type": "variable_if", "name": "mousecursor_mode", "value": 1 } ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("semicolon", [], ["any"]) %>,
+                    "to": [ { "pointing_button": "button4" } ],
+                    "conditions": [ { "type": "variable_if", "name": "mousecursor_mode", "value": 1 } ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("quote", [], ["any"]) %>,
+                    "to": [ { "pointing_button": "button5" } ],
+                    "conditions": [ { "type": "variable_if", "name": "mousecursor_mode", "value": 1 } ]
+                }
+            ]
+        },
+        {
             "description": "Tab Modifier Mode [Tab as Trigger Key]",
             "manipulators": [
 
