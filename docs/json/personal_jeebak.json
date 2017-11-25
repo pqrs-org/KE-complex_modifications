@@ -1476,7 +1476,7 @@
             },
             {
               "set_variable": {
-                "name": "mousecursor_mode_accelerate",
+                "name": "mousecursor_mode_accelerated",
                 "value": 0
               }
             }
@@ -1495,7 +1495,7 @@
           "to": [
             {
               "set_variable": {
-                "name": "mousecursor_mode_accelerate",
+                "name": "mousecursor_mode_accelerated",
                 "value": 1
               }
             }
@@ -1503,7 +1503,41 @@
           "to_after_key_up": [
             {
               "set_variable": {
-                "name": "mousecursor_mode_accelerate",
+                "name": "mousecursor_mode_accelerated",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mousecursor_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "mousecursor_mode_fine_grained",
+                "value": 1
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "mousecursor_mode_fine_grained",
                 "value": 0
               }
             }
@@ -1541,7 +1575,7 @@
             },
             {
               "type": "variable_if",
-              "name": "mousecursor_mode_accelerate",
+              "name": "mousecursor_mode_accelerated",
               "value": 1
             }
           ]
@@ -1571,7 +1605,7 @@
             },
             {
               "type": "variable_if",
-              "name": "mousecursor_mode_accelerate",
+              "name": "mousecursor_mode_accelerated",
               "value": 1
             }
           ]
@@ -1601,7 +1635,7 @@
             },
             {
               "type": "variable_if",
-              "name": "mousecursor_mode_accelerate",
+              "name": "mousecursor_mode_accelerated",
               "value": 1
             }
           ]
@@ -1631,7 +1665,127 @@
             },
             {
               "type": "variable_if",
-              "name": "mousecursor_mode_accelerate",
+              "name": "mousecursor_mode_accelerated",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "x": -384
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mousecursor_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "mousecursor_mode_fine_grained",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "y": 384
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mousecursor_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "mousecursor_mode_fine_grained",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "y": -384
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mousecursor_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "mousecursor_mode_fine_grained",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "x": 384
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mousecursor_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "mousecursor_mode_fine_grained",
               "value": 1
             }
           ]
@@ -1749,7 +1903,7 @@
           "to": [
             {
               "mouse_key": {
-                "vertical_wheel": 64
+                "vertical_wheel": 128
               }
             }
           ],
@@ -1761,7 +1915,7 @@
             },
             {
               "type": "variable_if",
-              "name": "mousecursor_mode_accelerate",
+              "name": "mousecursor_mode_accelerated",
               "value": 1
             }
           ]
@@ -1779,7 +1933,7 @@
           "to": [
             {
               "mouse_key": {
-                "vertical_wheel": -64
+                "vertical_wheel": -128
               }
             }
           ],
@@ -1791,7 +1945,7 @@
             },
             {
               "type": "variable_if",
-              "name": "mousecursor_mode_accelerate",
+              "name": "mousecursor_mode_accelerated",
               "value": 1
             }
           ]
@@ -1809,7 +1963,7 @@
           "to": [
             {
               "mouse_key": {
-                "horizontal_wheel": -64
+                "horizontal_wheel": -128
               }
             }
           ],
@@ -1821,7 +1975,7 @@
             },
             {
               "type": "variable_if",
-              "name": "mousecursor_mode_accelerate",
+              "name": "mousecursor_mode_accelerated",
               "value": 1
             }
           ]
@@ -1839,7 +1993,7 @@
           "to": [
             {
               "mouse_key": {
-                "horizontal_wheel": 64
+                "horizontal_wheel": 128
               }
             }
           ],
@@ -1851,7 +2005,7 @@
             },
             {
               "type": "variable_if",
-              "name": "mousecursor_mode_accelerate",
+              "name": "mousecursor_mode_accelerated",
               "value": 1
             }
           ]
@@ -1878,6 +2032,11 @@
               "type": "variable_if",
               "name": "mousecursor_mode",
               "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "mousecursor_mode_fine_grained",
+              "value": 1
             }
           ]
         },
@@ -1902,6 +2061,11 @@
             {
               "type": "variable_if",
               "name": "mousecursor_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "mousecursor_mode_fine_grained",
               "value": 1
             }
           ]
@@ -1928,6 +2092,11 @@
               "type": "variable_if",
               "name": "mousecursor_mode",
               "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "mousecursor_mode_fine_grained",
+              "value": 1
             }
           ]
         },
@@ -1953,13 +2122,141 @@
               "type": "variable_if",
               "name": "mousecursor_mode",
               "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "mousecursor_mode_fine_grained",
+              "value": 1
             }
           ]
         },
         {
           "type": "basic",
           "from": {
-            "key_code": "f",
+            "key_code": "h",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "vertical_wheel": 64
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mousecursor_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "n",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "vertical_wheel": -64
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mousecursor_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "u",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "horizontal_wheel": -64
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mousecursor_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "horizontal_wheel": 64
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mousecursor_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "w",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "pointing_button": "button1"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mousecursor_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "g",
             "modifiers": {
               "optional": [
                 "any"
