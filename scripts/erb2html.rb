@@ -30,14 +30,19 @@ def file_import_panel(json_file_path)
     end
   end
 
+  id = json_file_path.gsub(/^docs\/json\//, '').gsub(/.json/, '')
+
   <<-EOS
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="##{json_file_path.gsub(/^docs\/json\//, '').gsub(/.json/, '')}" aria-expanded="false" aria-controls="#{json_file_path.gsub(/^docs\/json\//, '').gsub(/.json/, '')}">#{title}</a>
-        #{import_button(json_file_path)}
-      </div>
-      <div class="list-group collapse" id="#{json_file_path.gsub(/^docs\/json\//, '').gsub(/.json/, '')}">
-          #{rule_descriptions}
+    <div class="panel-outer" id="#{id}">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <a href="##{id}"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></a>
+          <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="##{id}-list-group" aria-expanded="false" aria-controls="#{id}-list-group">#{title}</a>
+          #{import_button(json_file_path)}
+        </div>
+        <div class="list-group collapse" id="#{id}-list-group">
+            #{rule_descriptions}
+        </div>
       </div>
     </div>
   EOS
@@ -52,12 +57,14 @@ def add_group(title,id,json_files)
     group_content += file_import_panel(json)
   end
   $groups += <<-EOS
-      <div class="panel panel-primary" id="#{id}">
-        <div class="panel-heading">
-          <h3 class="panel-title">#{title}</h3>
-        </div>
-        <div class="panel-body">
-          #{group_content}
+      <div class="panel-outer" id="#{id}">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">#{title}</h3>
+          </div>
+          <div class="panel-body">
+            #{group_content}
+          </div>
         </div>
       </div>
   EOS
