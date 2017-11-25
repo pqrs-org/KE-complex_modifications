@@ -2,246 +2,7 @@
     "title": "Personal rules (@tekezo)",
     "rules": [
         {
-            "description": "Change left_control+1/2/v/q to home/end/page_down/page_up (rev 2)",
-            "manipulators": [
-                {
-                    "type": "basic",
-                    "from": <%= from("1", ["left_control"], ["any"]) %>,
-                    "to": <%= to([["home"]]) %>
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("2", ["left_control"], ["any"]) %>,
-                    "to": <%= to([["end"]]) %>
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("v", ["left_control"], ["any"]) %>,
-                    "to": <%= to([["page_down"]]) %>
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("q", ["left_control"], ["any"]) %>,
-                    "to": <%= to([["page_up"]]) %>
-                }
-            ]
-        },
-        {
-            "description": "Change option+hyphen, option+equal to ----------,========== (rev 2)",
-            "manipulators": [
-                {
-                    "type": "basic",
-                    "from": <%= from("hyphen", ["option"], ["caps_lock"]) %>,
-                    "to": [
-                        { "key_code": "hyphen" }, { "key_code": "hyphen" },
-                        { "key_code": "hyphen" }, { "key_code": "hyphen" },
-                        { "key_code": "hyphen" }, { "key_code": "hyphen" },
-                        { "key_code": "hyphen" }, { "key_code": "hyphen" },
-                        { "key_code": "hyphen" },
-                        {
-                            "key_code": "hyphen",
-                            "repeat": false
-                        }
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("equal_sign", ["option"], ["caps_lock"]) %>,
-                    "to": <%= to([
-                        ["equal_sign"], ["equal_sign"], ["equal_sign"], ["equal_sign"], ["equal_sign"],
-                        ["equal_sign"], ["equal_sign"], ["equal_sign"], ["equal_sign"], ["equal_sign"],
-                        ["vk_none"],
-                    ]) %>
-                }
-            ]
-        },
-        {
-            "description": "Configurations for apps (rev5)",
-            "manipulators": [
-                <%# -------------------------------------------------- %>
-                <%# virtual_machine %>
-                <%# -------------------------------------------------- %>
-
-                {
-                    "type": "basic",
-                    "from": <%= from("h", ["left_control"], ["caps_lock", "option"]) %>,
-                    "to": <%= to([["delete_or_backspace"]]) %>,
-                    "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("d", ["left_control"], ["caps_lock", "option"]) %>,
-                    "to": <%= to([["delete_forward"]]) %>,
-                    "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("i", ["left_control"], ["caps_lock"]) %>,
-                    "to": <%= to([["tab"]]) %>,
-                    "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("b", ["left_control"], ["caps_lock", "shift", "option"]) %>,
-                    "to": <%= to([["left_arrow"]]) %>,
-                    "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("f", ["left_control"], ["caps_lock", "shift", "option"]) %>,
-                    "to": <%= to([["right_arrow"]]) %>,
-                    "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("n", ["left_control"], ["caps_lock", "shift", "option"]) %>,
-                    "to": <%= to([["down_arrow"]]) %>,
-                    "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("p", ["left_control"], ["caps_lock", "shift", "option"]) %>,
-                    "to": <%= to([["up_arrow"]]) %>,
-                    "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("a", ["left_control"], ["caps_lock", "shift"]) %>,
-                    "to": <%= to([["home"]]) %>,
-                    "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("e", ["left_control"], ["caps_lock", "shift"]) %>,
-                    "to": <%= to([["end"]]) %>,
-                    "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
-                },
-
-                <%# -------------------------------------------------- %>
-                <%# finder %>
-                <%# -------------------------------------------------- %>
-
-                {
-                    "type": "basic",
-                    "from": <%= from("l", ["command"], ["caps_lock"]) %>,
-                    "conditions": [ <%= frontmost_application_if("finder") %> ]
-                },
-
-                <%# -------------------------------------------------- %>
-                <%# terminal %>
-                <%# -------------------------------------------------- %>
-
-                {
-                    "type": "basic",
-                    "from": <%= from("o", ["command"], ["any"]) %>,
-                    "conditions": [ <%= frontmost_application_if("terminal") %> ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("f19", [], ["caps_lock"]) %>,
-                    "to": <%= to([
-                        ["u", ["left_control"]],
-                        ["e"], ["x"], ["i"], ["t"],
-                        ["return_or_enter"],
-                    ]) %>,
-                    "conditions": [ <%= frontmost_application_if("terminal") %> ]
-                },
-
-                <%# -------------------------------------------------- %>
-                <%# browser %>
-                <%# -------------------------------------------------- %>
-
-                {
-                    "type": "basic",
-                    "from": <%= from("i", ["command", "shift"], ["caps_lock"]) %>,
-                    "to": <%= to([["vk_none"]]) %>,
-                    "conditions": [ <%= frontmost_application_if("browser") %> ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("a", ["left_control"], ["caps_lock", "shift"]) %>,
-                    "to": <%= to([["left_arrow", ["left_command"]]]) %>,
-                    "conditions": [ <%= frontmost_application_if("browser") %> ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("e", ["left_control"], ["caps_lock", "shift"]) %>,
-                    "to": <%= to([["right_arrow", ["left_command"]]]) %>,
-                    "conditions": [ <%= frontmost_application_if("browser") %> ]
-                }
-            ]
-        },
-        {
-            "description": "Extra emacs key bindings (rev 4)",
-            "manipulators": [
-                {
-                    "description": "Change control+u to delete-to-beginning-of-line",
-                    "type": "basic",
-                    "from": <%= from("u", ["control"], ["caps_lock"]) %>,
-                    "to": <%= to([["a", ["left_control", "left_shift"]], ["delete_or_backspace"], ["vk_none"]]) %>,
-                    "conditions": [ <%= frontmost_application_unless(["emacs", "terminal"]) %> ]
-                },
-                {
-                    "description": "Change control+w to option+delete",
-                    "type": "basic",
-                    "from": <%= from("w", ["control"], ["caps_lock"]) %>,
-                    "to": <%= to([["delete_or_backspace", ["left_option"]]]) %>,
-                    "conditions": [ <%= frontmost_application_unless(["emacs", "terminal"]) %> ]
-                },
-                {
-                    "description": "Change control+j to return",
-                    "type": "basic",
-                    "from": <%= from("j", ["control"], ["caps_lock"]) %>,
-                    "to": <%= to([["return_or_enter"]]) %>
-                },
-
-                <%# in Emacs %>
-
-                {
-                    "type": "basic",
-                    "from": <%= from("b", ["control"], ["caps_lock"]) %>,
-                    "to": <%= to([["left_arrow"]]) %>,
-                    "conditions": [ <%= frontmost_application_if(["emacs"]) %> ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("h", ["control"], ["caps_lock", "option"]) %>,
-                    "to": <%= to([["delete_or_backspace"]]) %>,
-                    "conditions": [ <%= frontmost_application_if(["emacs"]) %> ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("f", ["control"], ["caps_lock"]) %>,
-                    "to": <%= to([["right_arrow"]]) %>,
-                    "conditions": [ <%= frontmost_application_if(["emacs"]) %> ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("n", ["control"], ["caps_lock"]) %>,
-                    "to": <%= to([["down_arrow"]]) %>,
-                    "conditions": [ <%= frontmost_application_if(["emacs"]) %> ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("p", ["control"], ["caps_lock"]) %>,
-                    "to": <%= to([["up_arrow"]]) %>,
-                    "conditions": [ <%= frontmost_application_if(["emacs"]) %> ]
-                }
-            ]
-        },
-        {
-            "description": "Change tab to command+`",
-            "manipulators": [
-                {
-                    "type": "basic",
-                    "from": <%= from("tab", [], ["any"]) %>,
-                    "to": <%= to([["left_command"]]) %>,
-                    "to_if_alone": <%= to([["grave_accent_and_tilde", ["left_command"]]]) %>
-                }
-            ]
-        },
-        {
-            "description": "Launcher Mode v3 (rev 4)",
+            "description": "Launcher Mode v3 and Mouse Keys Mode v3 (rev 5)",
             "manipulators": [
 
                 <%# -------------------------------------------------- %>
@@ -253,7 +14,10 @@
                     "from": <%= from("spacebar", [], ["any"]) %>,
                     "to": <%= to([["left_shift"]]) %>,
                     "to_after_key_up": [
-                        { "set_variable": { "name": "launcher_mode_v3", "value": 0 } }
+                        { "set_variable": { "name": "launcher_mode_v3", "value": 0 } },
+                        { "set_variable": { "name": "mouse_keys_mode_v3", "value": 0 } },
+                        { "set_variable": { "name": "mouse_keys_mode_v3_fast", "value": 0 } },
+                        { "set_variable": { "name": "mouse_keys_mode_v3_scroll", "value": 0 } }
                     ],
                     "to_if_alone": <%= to([["spacebar"]]) %>
                 },
@@ -348,6 +112,25 @@
 
                 <%# ------------------------------- %>
                 <%# left_command rules %>
+
+                <%# left_shift+left_command %>
+
+                {
+                    "type": "basic",
+                    "from": <%= from("left_command", ["left_shift"], ["caps_lock"]) %>,
+                    "to": [
+                        {
+                            "key_code": "left_control",
+                            "modifiers": [
+                                "left_shift"
+                            ],
+                            "lazy": true
+                        }
+                    ],
+                    "to_if_alone": [
+                        { "set_variable": { "name": "mouse_keys_mode_v3", "value": 1 } }
+                    ]
+                },
 
                 <%# right_command+left_command %>
 
@@ -612,6 +395,443 @@
                         }
                     },
                     "to": <%= to([["vk_none"]]) %>
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Mouse Keys Mode rules %>
+                <%# -------------------------------------------------- %>
+
+                <%# scroll+fast %>
+
+                {
+                    "type": "basic",
+                    "from": <%= from("h", ["left_shift"], ["any"]) %>,
+                    "to": [ { "mouse_key": { "horizontal_wheel": -64 } } ],
+                    "conditions": [
+                        { "type": "variable_if", "name": "mouse_keys_mode_v3", "value": 1 },
+                        { "type": "variable_if", "name": "mouse_keys_mode_v3_scroll", "value": 1 },
+                        { "type": "variable_if", "name": "mouse_keys_mode_v3_fast", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("j", ["left_shift"], ["any"]) %>,
+                    "to": [ { "mouse_key": { "vertical_wheel": -64 } } ],
+                    "conditions": [
+                        { "type": "variable_if", "name": "mouse_keys_mode_v3", "value": 1 },
+                        { "type": "variable_if", "name": "mouse_keys_mode_v3_scroll", "value": 1 },
+                        { "type": "variable_if", "name": "mouse_keys_mode_v3_fast", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("k", ["left_shift"], ["any"]) %>,
+                    "to": [ { "mouse_key": { "vertical_wheel": 64 } } ],
+                    "conditions": [
+                        { "type": "variable_if", "name": "mouse_keys_mode_v3", "value": 1 },
+                        { "type": "variable_if", "name": "mouse_keys_mode_v3_scroll", "value": 1 },
+                        { "type": "variable_if", "name": "mouse_keys_mode_v3_fast", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("l", ["left_shift"], ["any"]) %>,
+                    "to": [ { "mouse_key": { "horizontal_wheel": 64 } } ],
+                    "conditions": [
+                        { "type": "variable_if", "name": "mouse_keys_mode_v3", "value": 1 },
+                        { "type": "variable_if", "name": "mouse_keys_mode_v3_scroll", "value": 1 },
+                        { "type": "variable_if", "name": "mouse_keys_mode_v3_fast", "value": 1 }
+                    ]
+                },
+
+                <%# scroll %>
+
+                {
+                    "type": "basic",
+                    "from": <%= from("h", ["left_shift"], ["any"]) %>,
+                    "to": [ { "mouse_key": { "horizontal_wheel": -32 } } ],
+                    "conditions": [
+                        { "type": "variable_if", "name": "mouse_keys_mode_v3", "value": 1 },
+                        { "type": "variable_if", "name": "mouse_keys_mode_v3_scroll", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("j", ["left_shift"], ["any"]) %>,
+                    "to": [ { "mouse_key": { "vertical_wheel": -32 } } ],
+                    "conditions": [
+                        { "type": "variable_if", "name": "mouse_keys_mode_v3", "value": 1 },
+                        { "type": "variable_if", "name": "mouse_keys_mode_v3_scroll", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("k", ["left_shift"], ["any"]) %>,
+                    "to": [ { "mouse_key": { "vertical_wheel": 32 } } ],
+                    "conditions": [
+                        { "type": "variable_if", "name": "mouse_keys_mode_v3", "value": 1 },
+                        { "type": "variable_if", "name": "mouse_keys_mode_v3_scroll", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("l", ["left_shift"], ["any"]) %>,
+                    "to": [ { "mouse_key": { "horizontal_wheel": 32 } } ],
+                    "conditions": [
+                        { "type": "variable_if", "name": "mouse_keys_mode_v3", "value": 1 },
+                        { "type": "variable_if", "name": "mouse_keys_mode_v3_scroll", "value": 1 }
+                    ]
+                },
+
+                <%# fast %>
+
+                {
+                    "type": "basic",
+                    "from": <%= from("h", ["left_shift"], ["any"]) %>,
+                    "to": [ { "mouse_key": { "x": -3072 } } ],
+                    "conditions": [
+                        { "type": "variable_if", "name": "mouse_keys_mode_v3", "value": 1 },
+                        { "type": "variable_if", "name": "mouse_keys_mode_v3_fast", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("j", ["left_shift"], ["any"]) %>,
+                    "to": [ { "mouse_key": { "y": 3072 } } ],
+                    "conditions": [
+                        { "type": "variable_if", "name": "mouse_keys_mode_v3", "value": 1 },
+                        { "type": "variable_if", "name": "mouse_keys_mode_v3_fast", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("k", ["left_shift"], ["any"]) %>,
+                    "to": [ { "mouse_key": { "y": -3072 } } ],
+                    "conditions": [
+                        { "type": "variable_if", "name": "mouse_keys_mode_v3", "value": 1 },
+                        { "type": "variable_if", "name": "mouse_keys_mode_v3_fast", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("l", ["left_shift"], ["any"]) %>,
+                    "to": [ { "mouse_key": { "x": 3072 } } ],
+                    "conditions": [
+                        { "type": "variable_if", "name": "mouse_keys_mode_v3", "value": 1 },
+                        { "type": "variable_if", "name": "mouse_keys_mode_v3_fast", "value": 1 }
+                    ]
+                },
+
+                <%# normal %>
+
+                {
+                    "type": "basic",
+                    "from": <%= from("h", ["left_shift"], ["any"]) %>,
+                    "to": [ { "mouse_key": { "x": -1536 } } ],
+                    "conditions": [ { "type": "variable_if", "name": "mouse_keys_mode_v3", "value": 1 } ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("j", ["left_shift"], ["any"]) %>,
+                    "to": [ { "mouse_key": { "y": 1536 } } ],
+                    "conditions": [ { "type": "variable_if", "name": "mouse_keys_mode_v3", "value": 1 } ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("k", ["left_shift"], ["any"]) %>,
+                    "to": [ { "mouse_key": { "y": -1536 } } ],
+                    "conditions": [ { "type": "variable_if", "name": "mouse_keys_mode_v3", "value": 1 } ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("l", ["left_shift"], ["any"]) %>,
+                    "to": [ { "mouse_key": { "x": 1536 } } ],
+                    "conditions": [ { "type": "variable_if", "name": "mouse_keys_mode_v3", "value": 1 } ]
+                },
+
+                <%# buttons %>
+
+                {
+                    "type": "basic",
+                    "from": <%= from("v", ["left_shift"], ["any"]) %>,
+                    "to": [ { "pointing_button": "button1" } ],
+                    "conditions": [ { "type": "variable_if", "name": "mouse_keys_mode_v3", "value": 1 } ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("b", ["left_shift"], ["any"]) %>,
+                    "to": [ { "pointing_button": "button3" } ],
+                    "conditions": [ { "type": "variable_if", "name": "mouse_keys_mode_v3", "value": 1 } ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("n", ["left_shift"], ["any"]) %>,
+                    "to": [ { "pointing_button": "button2" } ],
+                    "conditions": [ { "type": "variable_if", "name": "mouse_keys_mode_v3", "value": 1 } ]
+                },
+
+                <%# controls %>
+
+                {
+                    "type": "basic",
+                    "from": <%= from("f", ["left_shift"], ["any"]) %>,
+                    "to": [
+                        { "set_variable": { "name": "mouse_keys_mode_v3_fast", "value": 1 } }
+                    ],
+                    "to_after_key_up": [
+                        { "set_variable": { "name": "mouse_keys_mode_v3_fast", "value": 0 } }
+                    ],
+                    "conditions": [ { "type": "variable_if", "name": "mouse_keys_mode_v3", "value": 1 } ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("s", ["left_shift"], ["any"]) %>,
+                    "to": [
+                        { "set_variable": { "name": "mouse_keys_mode_v3_scroll", "value": 1 } }
+                    ],
+                    "to_after_key_up": [
+                        { "set_variable": { "name": "mouse_keys_mode_v3_scroll", "value": 0 } }
+                    ],
+                    "conditions": [ { "type": "variable_if", "name": "mouse_keys_mode_v3", "value": 1 } ]
+                }
+            ]
+        },
+        {
+            "description": "Change left_control+1/2/v/q to home/end/page_down/page_up (rev 2)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("1", ["left_control"], ["any"]) %>,
+                    "to": <%= to([["home"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("2", ["left_control"], ["any"]) %>,
+                    "to": <%= to([["end"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("v", ["left_control"], ["any"]) %>,
+                    "to": <%= to([["page_down"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("q", ["left_control"], ["any"]) %>,
+                    "to": <%= to([["page_up"]]) %>
+                }
+            ]
+        },
+        {
+            "description": "Change option+hyphen, option+equal to ----------,========== (rev 2)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("hyphen", ["option"], ["caps_lock"]) %>,
+                    "to": [
+                        { "key_code": "hyphen" }, { "key_code": "hyphen" },
+                        { "key_code": "hyphen" }, { "key_code": "hyphen" },
+                        { "key_code": "hyphen" }, { "key_code": "hyphen" },
+                        { "key_code": "hyphen" }, { "key_code": "hyphen" },
+                        { "key_code": "hyphen" },
+                        {
+                            "key_code": "hyphen",
+                            "repeat": false
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("equal_sign", ["option"], ["caps_lock"]) %>,
+                    "to": <%= to([
+                        ["equal_sign"], ["equal_sign"], ["equal_sign"], ["equal_sign"], ["equal_sign"],
+                        ["equal_sign"], ["equal_sign"], ["equal_sign"], ["equal_sign"], ["equal_sign"],
+                        ["vk_none"],
+                    ]) %>
+                }
+            ]
+        },
+        {
+            "description": "Configurations for apps (rev5)",
+            "manipulators": [
+                <%# -------------------------------------------------- %>
+                <%# virtual_machine %>
+                <%# -------------------------------------------------- %>
+
+                {
+                    "type": "basic",
+                    "from": <%= from("h", ["left_control"], ["caps_lock", "option"]) %>,
+                    "to": <%= to([["delete_or_backspace"]]) %>,
+                    "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("d", ["left_control"], ["caps_lock", "option"]) %>,
+                    "to": <%= to([["delete_forward"]]) %>,
+                    "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("i", ["left_control"], ["caps_lock"]) %>,
+                    "to": <%= to([["tab"]]) %>,
+                    "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("b", ["left_control"], ["caps_lock", "shift", "option"]) %>,
+                    "to": <%= to([["left_arrow"]]) %>,
+                    "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("f", ["left_control"], ["caps_lock", "shift", "option"]) %>,
+                    "to": <%= to([["right_arrow"]]) %>,
+                    "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("n", ["left_control"], ["caps_lock", "shift", "option"]) %>,
+                    "to": <%= to([["down_arrow"]]) %>,
+                    "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("p", ["left_control"], ["caps_lock", "shift", "option"]) %>,
+                    "to": <%= to([["up_arrow"]]) %>,
+                    "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("a", ["left_control"], ["caps_lock", "shift"]) %>,
+                    "to": <%= to([["home"]]) %>,
+                    "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("e", ["left_control"], ["caps_lock", "shift"]) %>,
+                    "to": <%= to([["end"]]) %>,
+                    "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# finder %>
+                <%# -------------------------------------------------- %>
+
+                {
+                    "type": "basic",
+                    "from": <%= from("l", ["command"], ["caps_lock"]) %>,
+                    "conditions": [ <%= frontmost_application_if("finder") %> ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# terminal %>
+                <%# -------------------------------------------------- %>
+
+                {
+                    "type": "basic",
+                    "from": <%= from("o", ["command"], ["any"]) %>,
+                    "conditions": [ <%= frontmost_application_if("terminal") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("f19", [], ["caps_lock"]) %>,
+                    "to": <%= to([
+                        ["u", ["left_control"]],
+                        ["e"], ["x"], ["i"], ["t"],
+                        ["return_or_enter"],
+                    ]) %>,
+                    "conditions": [ <%= frontmost_application_if("terminal") %> ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# browser %>
+                <%# -------------------------------------------------- %>
+
+                {
+                    "type": "basic",
+                    "from": <%= from("i", ["command", "shift"], ["caps_lock"]) %>,
+                    "to": <%= to([["vk_none"]]) %>,
+                    "conditions": [ <%= frontmost_application_if("browser") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("a", ["left_control"], ["caps_lock", "shift"]) %>,
+                    "to": <%= to([["left_arrow", ["left_command"]]]) %>,
+                    "conditions": [ <%= frontmost_application_if("browser") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("e", ["left_control"], ["caps_lock", "shift"]) %>,
+                    "to": <%= to([["right_arrow", ["left_command"]]]) %>,
+                    "conditions": [ <%= frontmost_application_if("browser") %> ]
+                }
+            ]
+        },
+        {
+            "description": "Extra emacs key bindings (rev 4)",
+            "manipulators": [
+                {
+                    "description": "Change control+u to delete-to-beginning-of-line",
+                    "type": "basic",
+                    "from": <%= from("u", ["control"], ["caps_lock"]) %>,
+                    "to": <%= to([["a", ["left_control", "left_shift"]], ["delete_or_backspace"], ["vk_none"]]) %>,
+                    "conditions": [ <%= frontmost_application_unless(["emacs", "terminal"]) %> ]
+                },
+                {
+                    "description": "Change control+w to option+delete",
+                    "type": "basic",
+                    "from": <%= from("w", ["control"], ["caps_lock"]) %>,
+                    "to": <%= to([["delete_or_backspace", ["left_option"]]]) %>,
+                    "conditions": [ <%= frontmost_application_unless(["emacs", "terminal"]) %> ]
+                },
+                {
+                    "description": "Change control+j to return",
+                    "type": "basic",
+                    "from": <%= from("j", ["control"], ["caps_lock"]) %>,
+                    "to": <%= to([["return_or_enter"]]) %>
+                },
+
+                <%# in Emacs %>
+
+                {
+                    "type": "basic",
+                    "from": <%= from("b", ["control"], ["caps_lock"]) %>,
+                    "to": <%= to([["left_arrow"]]) %>,
+                    "conditions": [ <%= frontmost_application_if(["emacs"]) %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("h", ["control"], ["caps_lock", "option"]) %>,
+                    "to": <%= to([["delete_or_backspace"]]) %>,
+                    "conditions": [ <%= frontmost_application_if(["emacs"]) %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("f", ["control"], ["caps_lock"]) %>,
+                    "to": <%= to([["right_arrow"]]) %>,
+                    "conditions": [ <%= frontmost_application_if(["emacs"]) %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("n", ["control"], ["caps_lock"]) %>,
+                    "to": <%= to([["down_arrow"]]) %>,
+                    "conditions": [ <%= frontmost_application_if(["emacs"]) %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("p", ["control"], ["caps_lock"]) %>,
+                    "to": <%= to([["up_arrow"]]) %>,
+                    "conditions": [ <%= frontmost_application_if(["emacs"]) %> ]
+                }
+            ]
+        },
+        {
+            "description": "Change tab to command+`",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("tab", [], ["any"]) %>,
+                    "to": <%= to([["left_command"]]) %>,
+                    "to_if_alone": <%= to([["grave_accent_and_tilde", ["left_command"]]]) %>
                 }
             ]
         }
