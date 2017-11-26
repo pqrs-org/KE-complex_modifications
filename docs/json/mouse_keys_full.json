@@ -1,8 +1,8 @@
 {
-  "title": "Mouse keys (full) (rev 1) [Available since Karabiner-Elements-11.3.5]",
+  "title": "Mouse keys (full) (rev 2) [Available since Karabiner-Elements-11.3.5]",
   "rules": [
     {
-      "description": "Mouse keys (full) (rev 1) [Available since Karabiner-Elements-11.3.5]",
+      "description": "Mouse keys (full) (rev 2) [Available since Karabiner-Elements-11.3.5]",
       "manipulators": [
         {
           "type": "basic",
@@ -726,6 +726,33 @@
                 "name": "mouse_keys_full_scroll",
                 "value": 0
               }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mouse_keys_full",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "drop other keys",
+          "type": "basic",
+          "from": {
+            "any": "key_code",
+            "modifiers": {
+              "mandatory": [
+                "right_command"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "vk_none"
             }
           ],
           "conditions": [
