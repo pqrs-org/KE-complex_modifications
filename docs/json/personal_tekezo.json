@@ -2,7 +2,7 @@
   "title": "Personal rules (@tekezo)",
   "rules": [
     {
-      "description": "Launcher Mode v3 and Mouse Keys Mode v3 (rev 5)",
+      "description": "Launcher Mode v3 and Mouse Keys Mode v3 (rev 6)",
       "manipulators": [
         {
           "type": "basic",
@@ -1551,6 +1551,33 @@
                 "name": "mouse_keys_mode_v3_scroll",
                 "value": 0
               }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mouse_keys_mode_v3",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "drop other keys",
+          "type": "basic",
+          "from": {
+            "any": "key_code",
+            "modifiers": {
+              "mandatory": [
+                "left_shift"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "vk_none"
             }
           ],
           "conditions": [
