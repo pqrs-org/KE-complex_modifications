@@ -2,7 +2,7 @@
     "title": "Personal rules (@tekezo)",
     "rules": [
         {
-            "description": "Launcher Mode v3 and Mouse Keys Mode v3 (rev 6)",
+            "description": "Launcher Mode v3 and Mouse Keys Mode v3 (rev 7)",
             "manipulators": [
 
                 <%# -------------------------------------------------- %>
@@ -16,7 +16,6 @@
                     "to_after_key_up": [
                         { "set_variable": { "name": "launcher_mode_v3", "value": 0 } },
                         { "set_variable": { "name": "mouse_keys_mode_v3", "value": 0 } },
-                        { "set_variable": { "name": "mouse_keys_mode_v3_fast", "value": 0 } },
                         { "set_variable": { "name": "mouse_keys_mode_v3_scroll", "value": 0 } }
                     ],
                     "to_if_alone": <%= to([["spacebar"]]) %>
@@ -401,49 +400,6 @@
                 <%# Mouse Keys Mode rules %>
                 <%# -------------------------------------------------- %>
 
-                <%# scroll+fast %>
-
-                {
-                    "type": "basic",
-                    "from": <%= from("h", ["left_shift"], ["any"]) %>,
-                    "to": [ { "mouse_key": { "horizontal_wheel": -64 } } ],
-                    "conditions": [
-                        { "type": "variable_if", "name": "mouse_keys_mode_v3", "value": 1 },
-                        { "type": "variable_if", "name": "mouse_keys_mode_v3_scroll", "value": 1 },
-                        { "type": "variable_if", "name": "mouse_keys_mode_v3_fast", "value": 1 }
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("j", ["left_shift"], ["any"]) %>,
-                    "to": [ { "mouse_key": { "vertical_wheel": -64 } } ],
-                    "conditions": [
-                        { "type": "variable_if", "name": "mouse_keys_mode_v3", "value": 1 },
-                        { "type": "variable_if", "name": "mouse_keys_mode_v3_scroll", "value": 1 },
-                        { "type": "variable_if", "name": "mouse_keys_mode_v3_fast", "value": 1 }
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("k", ["left_shift"], ["any"]) %>,
-                    "to": [ { "mouse_key": { "vertical_wheel": 64 } } ],
-                    "conditions": [
-                        { "type": "variable_if", "name": "mouse_keys_mode_v3", "value": 1 },
-                        { "type": "variable_if", "name": "mouse_keys_mode_v3_scroll", "value": 1 },
-                        { "type": "variable_if", "name": "mouse_keys_mode_v3_fast", "value": 1 }
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("l", ["left_shift"], ["any"]) %>,
-                    "to": [ { "mouse_key": { "horizontal_wheel": 64 } } ],
-                    "conditions": [
-                        { "type": "variable_if", "name": "mouse_keys_mode_v3", "value": 1 },
-                        { "type": "variable_if", "name": "mouse_keys_mode_v3_scroll", "value": 1 },
-                        { "type": "variable_if", "name": "mouse_keys_mode_v3_fast", "value": 1 }
-                    ]
-                },
-
                 <%# scroll %>
 
                 {
@@ -480,45 +436,6 @@
                     "conditions": [
                         { "type": "variable_if", "name": "mouse_keys_mode_v3", "value": 1 },
                         { "type": "variable_if", "name": "mouse_keys_mode_v3_scroll", "value": 1 }
-                    ]
-                },
-
-                <%# fast %>
-
-                {
-                    "type": "basic",
-                    "from": <%= from("h", ["left_shift"], ["any"]) %>,
-                    "to": [ { "mouse_key": { "x": -3072 } } ],
-                    "conditions": [
-                        { "type": "variable_if", "name": "mouse_keys_mode_v3", "value": 1 },
-                        { "type": "variable_if", "name": "mouse_keys_mode_v3_fast", "value": 1 }
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("j", ["left_shift"], ["any"]) %>,
-                    "to": [ { "mouse_key": { "y": 3072 } } ],
-                    "conditions": [
-                        { "type": "variable_if", "name": "mouse_keys_mode_v3", "value": 1 },
-                        { "type": "variable_if", "name": "mouse_keys_mode_v3_fast", "value": 1 }
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("k", ["left_shift"], ["any"]) %>,
-                    "to": [ { "mouse_key": { "y": -3072 } } ],
-                    "conditions": [
-                        { "type": "variable_if", "name": "mouse_keys_mode_v3", "value": 1 },
-                        { "type": "variable_if", "name": "mouse_keys_mode_v3_fast", "value": 1 }
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("l", ["left_shift"], ["any"]) %>,
-                    "to": [ { "mouse_key": { "x": 3072 } } ],
-                    "conditions": [
-                        { "type": "variable_if", "name": "mouse_keys_mode_v3", "value": 1 },
-                        { "type": "variable_if", "name": "mouse_keys_mode_v3_fast", "value": 1 }
                     ]
                 },
 
@@ -575,12 +492,13 @@
                 {
                     "type": "basic",
                     "from": <%= from("f", ["left_shift"], ["any"]) %>,
-                    "to": [
-                        { "set_variable": { "name": "mouse_keys_mode_v3_fast", "value": 1 } }
-                    ],
-                    "to_after_key_up": [
-                        { "set_variable": { "name": "mouse_keys_mode_v3_fast", "value": 0 } }
-                    ],
+                    "to": [ { "mouse_key": { "magnification": 2.0 } } ],
+                    "conditions": [ { "type": "variable_if", "name": "mouse_keys_mode_v3", "value": 1 } ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("d", ["left_shift"], ["any"]) %>,
+                    "to": [ { "mouse_key": { "magnification": 0.5 } } ],
                     "conditions": [ { "type": "variable_if", "name": "mouse_keys_mode_v3", "value": 1 } ]
                 },
                 {
