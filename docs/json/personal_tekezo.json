@@ -2,7 +2,7 @@
   "title": "Personal rules (@tekezo)",
   "rules": [
     {
-      "description": "Launcher Mode v3 and Mouse Keys Mode v3 (rev 6)",
+      "description": "Launcher Mode v3 and Mouse Keys Mode v3 (rev 7)",
       "manipulators": [
         {
           "type": "basic",
@@ -29,12 +29,6 @@
             {
               "set_variable": {
                 "name": "mouse_keys_mode_v3",
-                "value": 0
-              }
-            },
-            {
-              "set_variable": {
-                "name": "mouse_keys_mode_v3_fast",
                 "value": 0
               }
             },
@@ -897,158 +891,6 @@
           "to": [
             {
               "mouse_key": {
-                "horizontal_wheel": -64
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mouse_keys_mode_v3",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "mouse_keys_mode_v3_scroll",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "mouse_keys_mode_v3_fast",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "j",
-            "modifiers": {
-              "mandatory": [
-                "left_shift"
-              ],
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "mouse_key": {
-                "vertical_wheel": -64
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mouse_keys_mode_v3",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "mouse_keys_mode_v3_scroll",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "mouse_keys_mode_v3_fast",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "k",
-            "modifiers": {
-              "mandatory": [
-                "left_shift"
-              ],
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "mouse_key": {
-                "vertical_wheel": 64
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mouse_keys_mode_v3",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "mouse_keys_mode_v3_scroll",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "mouse_keys_mode_v3_fast",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "l",
-            "modifiers": {
-              "mandatory": [
-                "left_shift"
-              ],
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "mouse_key": {
-                "horizontal_wheel": 64
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mouse_keys_mode_v3",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "mouse_keys_mode_v3_scroll",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "mouse_keys_mode_v3_fast",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "h",
-            "modifiers": {
-              "mandatory": [
-                "left_shift"
-              ],
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "mouse_key": {
                 "horizontal_wheel": -32
               }
             }
@@ -1161,138 +1003,6 @@
             {
               "type": "variable_if",
               "name": "mouse_keys_mode_v3_scroll",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "h",
-            "modifiers": {
-              "mandatory": [
-                "left_shift"
-              ],
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "mouse_key": {
-                "x": -3072
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mouse_keys_mode_v3",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "mouse_keys_mode_v3_fast",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "j",
-            "modifiers": {
-              "mandatory": [
-                "left_shift"
-              ],
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "mouse_key": {
-                "y": 3072
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mouse_keys_mode_v3",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "mouse_keys_mode_v3_fast",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "k",
-            "modifiers": {
-              "mandatory": [
-                "left_shift"
-              ],
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "mouse_key": {
-                "y": -3072
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mouse_keys_mode_v3",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "mouse_keys_mode_v3_fast",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "l",
-            "modifiers": {
-              "mandatory": [
-                "left_shift"
-              ],
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "mouse_key": {
-                "x": 3072
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mouse_keys_mode_v3",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "mouse_keys_mode_v3_fast",
               "value": 1
             }
           ]
@@ -1502,17 +1212,36 @@
           },
           "to": [
             {
-              "set_variable": {
-                "name": "mouse_keys_mode_v3_fast",
-                "value": 1
+              "mouse_key": {
+                "magnification": 2.0
               }
             }
           ],
-          "to_after_key_up": [
+          "conditions": [
             {
-              "set_variable": {
-                "name": "mouse_keys_mode_v3_fast",
-                "value": 0
+              "type": "variable_if",
+              "name": "mouse_keys_mode_v3",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "d",
+            "modifiers": {
+              "mandatory": [
+                "left_shift"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "magnification": 0.5
               }
             }
           ],
