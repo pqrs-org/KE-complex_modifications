@@ -1,8 +1,8 @@
 {
-  "title": "Mouse keys (full) (rev 2) [Available since Karabiner-Elements-11.3.5]",
+  "title": "Mouse keys (full) (rev 3) [Available since Karabiner-Elements-11.3.5]",
   "rules": [
     {
-      "description": "Mouse keys (full) (rev 2) [Available since Karabiner-Elements-11.3.5]",
+      "description": "Mouse keys (full) (rev 3) [Available since Karabiner-Elements-11.3.5]",
       "manipulators": [
         {
           "type": "basic",
@@ -23,12 +23,6 @@
             {
               "set_variable": {
                 "name": "mouse_keys_full",
-                "value": 0
-              }
-            },
-            {
-              "set_variable": {
-                "name": "mouse_keys_full_fast",
                 "value": 0
               }
             }
@@ -53,158 +47,6 @@
                 "name": "mouse_keys_full",
                 "value": 1
               }
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "h",
-            "modifiers": {
-              "mandatory": [
-                "right_command"
-              ],
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "mouse_key": {
-                "horizontal_wheel": 64
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mouse_keys_full",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "mouse_keys_full_scroll",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "mouse_keys_full_fast",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "j",
-            "modifiers": {
-              "mandatory": [
-                "right_command"
-              ],
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "mouse_key": {
-                "vertical_wheel": 64
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mouse_keys_full",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "mouse_keys_full_scroll",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "mouse_keys_full_fast",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "k",
-            "modifiers": {
-              "mandatory": [
-                "right_command"
-              ],
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "mouse_key": {
-                "vertical_wheel": -64
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mouse_keys_full",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "mouse_keys_full_scroll",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "mouse_keys_full_fast",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "l",
-            "modifiers": {
-              "mandatory": [
-                "right_command"
-              ],
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "mouse_key": {
-                "horizontal_wheel": -64
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mouse_keys_full",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "mouse_keys_full_scroll",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "mouse_keys_full_fast",
-              "value": 1
             }
           ]
         },
@@ -336,138 +178,6 @@
             {
               "type": "variable_if",
               "name": "mouse_keys_full_scroll",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "h",
-            "modifiers": {
-              "mandatory": [
-                "right_command"
-              ],
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "mouse_key": {
-                "x": -3072
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mouse_keys_full",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "mouse_keys_full_fast",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "j",
-            "modifiers": {
-              "mandatory": [
-                "right_command"
-              ],
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "mouse_key": {
-                "y": 3072
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mouse_keys_full",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "mouse_keys_full_fast",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "k",
-            "modifiers": {
-              "mandatory": [
-                "right_command"
-              ],
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "mouse_key": {
-                "y": -3072
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mouse_keys_full",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "mouse_keys_full_fast",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "l",
-            "modifiers": {
-              "mandatory": [
-                "right_command"
-              ],
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "mouse_key": {
-                "x": 3072
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mouse_keys_full",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "mouse_keys_full_fast",
               "value": 1
             }
           ]
@@ -677,17 +387,36 @@
           },
           "to": [
             {
-              "set_variable": {
-                "name": "mouse_keys_full_fast",
-                "value": 1
+              "mouse_key": {
+                "magnification": 2.0
               }
             }
           ],
-          "to_after_key_up": [
+          "conditions": [
             {
-              "set_variable": {
-                "name": "mouse_keys_full_fast",
-                "value": 0
+              "type": "variable_if",
+              "name": "mouse_keys_full",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "d",
+            "modifiers": {
+              "mandatory": [
+                "right_command"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "magnification": 0.5
               }
             }
           ],
@@ -726,33 +455,6 @@
                 "name": "mouse_keys_full_scroll",
                 "value": 0
               }
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mouse_keys_full",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "drop other keys",
-          "type": "basic",
-          "from": {
-            "any": "key_code",
-            "modifiers": {
-              "mandatory": [
-                "right_command"
-              ],
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "vk_none"
             }
           ],
           "conditions": [
