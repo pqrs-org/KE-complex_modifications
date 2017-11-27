@@ -2,7 +2,7 @@
     "title": "Personal rules (@tekezo)",
     "rules": [
         {
-            "description": "Launcher Mode v3 and Mouse Keys Mode v3 (rev 8)",
+            "description": "Launcher Mode v3 and Mouse Keys Mode v3 (rev 9)",
             "manipulators": [
 
                 <%# -------------------------------------------------- %>
@@ -492,13 +492,13 @@
                 {
                     "type": "basic",
                     "from": <%= from("f", ["left_shift"], ["any"]) %>,
-                    "to": [ { "mouse_key": { "magnification": 2.0 } } ],
+                    "to": [ { "mouse_key": { "speed_multiplier": 2.0 } } ],
                     "conditions": [ { "type": "variable_if", "name": "mouse_keys_mode_v3", "value": 1 } ]
                 },
                 {
                     "type": "basic",
                     "from": <%= from("d", ["left_shift"], ["any"]) %>,
-                    "to": [ { "mouse_key": { "magnification": 0.5 } } ],
+                    "to": [ { "mouse_key": { "speed_multiplier": 0.5 } } ],
                     "conditions": [ { "type": "variable_if", "name": "mouse_keys_mode_v3", "value": 1 } ]
                 },
                 {
