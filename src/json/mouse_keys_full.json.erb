@@ -1,8 +1,8 @@
 {
-    "title": "Mouse keys (full) (rev 3) [Available since Karabiner-Elements-11.3.5]",
+    "title": "Mouse keys (full) (rev 4) [Available since Karabiner-Elements-11.3.5]",
     "rules": [
         {
-            "description": "Mouse keys (full) (rev 3) [Available since Karabiner-Elements-11.3.5]",
+            "description": "Mouse keys (full) (rev 4) [Available since Karabiner-Elements-11.3.5]",
             "manipulators": [
                 <%# -------------------------------------------------- %>
                 <%# Unset mouse_keys_full variable when right_command is released %>
@@ -125,13 +125,13 @@
                 {
                     "type": "basic",
                     "from": <%= from("f", ["right_command"], ["any"]) %>,
-                    "to": [ { "mouse_key": { "magnification": 2.0 } } ],
+                    "to": [ { "mouse_key": { "speed_multiplier": 2.0 } } ],
                     "conditions": [ { "type": "variable_if", "name": "mouse_keys_full", "value": 1 } ]
                 },
                 {
                     "type": "basic",
                     "from": <%= from("d", ["right_command"], ["any"]) %>,
-                    "to": [ { "mouse_key": { "magnification": 0.5 } } ],
+                    "to": [ { "mouse_key": { "speed_multiplier": 0.5 } } ],
                     "conditions": [ { "type": "variable_if", "name": "mouse_keys_full", "value": 1 } ]
                 },
                 {
