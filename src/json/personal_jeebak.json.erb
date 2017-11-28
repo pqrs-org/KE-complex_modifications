@@ -745,7 +745,7 @@
                 },
 
                 <%# -------------------------------------------------- %>
-                <%# Hyper-b %>
+                <%# Hyper-b [Used to trigger Clipy Snippets] %>
                 <%# -------------------------------------------------- %>
                 {
                     "type": "basic",
@@ -760,7 +760,7 @@
                 },
 
                 <%# -------------------------------------------------- %>
-                <%# Hyper-v %>
+                <%# Hyper-v [Used to trigger Clipy] %>
                 <%# -------------------------------------------------- %>
                 {
                     "type": "basic",
@@ -769,6 +769,21 @@
                     ],
                     "from": <%= from("v", [], ["caps_lock"]) %>,
                     "to": <%= to([["v", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# ⌥-⌘-r [Used to "Resume Program" in PhpStorm Debugger] %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("r", [], ["caps_lock"]) %>,
+                    "to": <%= to([["r", ["left_command", "left_option"]]]) %>,
                     "conditions": [
                         { "type": "variable_if", "name": "tab_modifier", "value": 1 }
                     ]
