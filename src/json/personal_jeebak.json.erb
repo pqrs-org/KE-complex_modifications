@@ -541,7 +541,7 @@
             ]
         },
         {
-            "description": "MouseCursor Mode [D as Trigger Key] [Available since Karabiner-Elements-11.3.5]",
+            "description": "MouseCursor Mode [D as Trigger Key] [Requires at least Karabiner-Elements-11.3.9]",
             "manipulators": [
 
                 <%# -------------------------------------------------- %>
@@ -555,8 +555,7 @@
                     ],
                     "to_if_alone": <%= to([["d"]]) %>,
                     "to_after_key_up": [
-                        { "set_variable": { "name": "mousecursor_mode", "value": 0 } },
-                        { "set_variable": { "name": "mousecursor_mode_accelerated", "value": 0 } }
+                        { "set_variable": { "name": "mousecursor_mode", "value": 0 } }
                     ]
                 },
                 <%# -------------------------------------------------- %>
@@ -565,12 +564,7 @@
                 {
                     "type": "basic",
                     "from": <%= from("a", [], ["caps_lock"]) %>,
-                    "to": [
-                        { "set_variable": { "name": "mousecursor_mode_accelerated", "value": 1 } }
-                    ],
-                    "to_after_key_up": [
-                        { "set_variable": { "name": "mousecursor_mode_accelerated", "value": 0 } }
-                    ],
+                    "to": [ { "mouse_key": { "speed_multiplier": 2.0 } } ],
                     "conditions": [ { "type": "variable_if", "name": "mousecursor_mode", "value": 1 } ]
                 },
                 <%# -------------------------------------------------- %>
@@ -579,93 +573,8 @@
                 {
                     "type": "basic",
                     "from": <%= from("f", [], ["caps_lock"]) %>,
-                    "to": [
-                        { "set_variable": { "name": "mousecursor_mode_fine_grained", "value": 1 } }
-                    ],
-                    "to_after_key_up": [
-                        { "set_variable": { "name": "mousecursor_mode_fine_grained", "value": 0 } }
-                    ],
+                    "to": [ { "mouse_key": { "speed_multiplier": 0.3 } } ],
                     "conditions": [ { "type": "variable_if", "name": "mousecursor_mode", "value": 1 } ]
-                },
-
-                <%# -------------------------------------------------- %>
-                <%# change j/k/i/l to accellerated mouse left,down,up,right %>
-                <%# -------------------------------------------------- %>
-                {
-                    "type": "basic",
-                    "from": <%= from("j", [], ["any"]) %>,
-                    "to": [ { "mouse_key": { "x": -3072 } } ],
-                    "conditions": [
-                        { "type": "variable_if", "name": "mousecursor_mode", "value": 1 },
-                        { "type": "variable_if", "name": "mousecursor_mode_accelerated", "value": 1 }
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("k", [], ["any"]) %>,
-                    "to": [ { "mouse_key": { "y": 3072 } } ],
-                    "conditions": [
-                        { "type": "variable_if", "name": "mousecursor_mode", "value": 1 },
-                        { "type": "variable_if", "name": "mousecursor_mode_accelerated", "value": 1 }
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("i", [], ["any"]) %>,
-                    "to": [ { "mouse_key": { "y": -3072 } } ],
-                    "conditions": [
-                        { "type": "variable_if", "name": "mousecursor_mode", "value": 1 },
-                        { "type": "variable_if", "name": "mousecursor_mode_accelerated", "value": 1 }
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("l", [], ["any"]) %>,
-                    "to": [ { "mouse_key": { "x": 3072 } } ],
-                    "conditions": [
-                        { "type": "variable_if", "name": "mousecursor_mode", "value": 1 },
-                        { "type": "variable_if", "name": "mousecursor_mode_accelerated", "value": 1 }
-                    ]
-                },
-
-                <%# -------------------------------------------------- %>
-                <%# change j/k/i/l to fine-grained mouse left,down,up,right %>
-                <%# -------------------------------------------------- %>
-                {
-                    "type": "basic",
-                    "from": <%= from("j", [], ["any"]) %>,
-                    "to": [ { "mouse_key": { "x": -384 } } ],
-                    "conditions": [
-                        { "type": "variable_if", "name": "mousecursor_mode", "value": 1 },
-                        { "type": "variable_if", "name": "mousecursor_mode_fine_grained", "value": 1 }
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("k", [], ["any"]) %>,
-                    "to": [ { "mouse_key": { "y": 384 } } ],
-                    "conditions": [
-                        { "type": "variable_if", "name": "mousecursor_mode", "value": 1 },
-                        { "type": "variable_if", "name": "mousecursor_mode_fine_grained", "value": 1 }
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("i", [], ["any"]) %>,
-                    "to": [ { "mouse_key": { "y": -384 } } ],
-                    "conditions": [
-                        { "type": "variable_if", "name": "mousecursor_mode", "value": 1 },
-                        { "type": "variable_if", "name": "mousecursor_mode_fine_grained", "value": 1 }
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("l", [], ["any"]) %>,
-                    "to": [ { "mouse_key": { "x": 384 } } ],
-                    "conditions": [
-                        { "type": "variable_if", "name": "mousecursor_mode", "value": 1 },
-                        { "type": "variable_if", "name": "mousecursor_mode_fine_grained", "value": 1 }
-                    ]
                 },
 
                 <%# -------------------------------------------------- %>
@@ -701,88 +610,6 @@
                     "to": [ { "mouse_key": { "x": 1536 } } ],
                     "conditions": [
                         { "type": "variable_if", "name": "mousecursor_mode", "value": 1 }
-                    ]
-                },
-
-                <%# -------------------------------------------------- %>
-                <%# change h/n/u/o to accellerated scroll up/down/left/right %>
-                <%# (depends on "Scroll direction" in System Preferences) %>
-                <%# -------------------------------------------------- %>
-                {
-                    "type": "basic",
-                    "from": <%= from("h", [], ["any"]) %>,
-                    "to": [ { "mouse_key": { "vertical_wheel": 128 } } ],
-                    "conditions": [
-                        { "type": "variable_if", "name": "mousecursor_mode", "value": 1 },
-                        { "type": "variable_if", "name": "mousecursor_mode_accelerated", "value": 1 }
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("n", [], ["any"]) %>,
-                    "to": [ { "mouse_key": { "vertical_wheel": -128 } } ],
-                    "conditions": [
-                        { "type": "variable_if", "name": "mousecursor_mode", "value": 1 },
-                        { "type": "variable_if", "name": "mousecursor_mode_accelerated", "value": 1 }
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("u", [], ["any"]) %>,
-                    "to": [ { "mouse_key": { "horizontal_wheel": -128 } } ],
-                    "conditions": [
-                        { "type": "variable_if", "name": "mousecursor_mode", "value": 1 },
-                        { "type": "variable_if", "name": "mousecursor_mode_accelerated", "value": 1 }
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("o", [], ["any"]) %>,
-                    "to": [ { "mouse_key": { "horizontal_wheel": 128 } } ],
-                    "conditions": [
-                        { "type": "variable_if", "name": "mousecursor_mode", "value": 1 },
-                        { "type": "variable_if", "name": "mousecursor_mode_accelerated", "value": 1 }
-                    ]
-                },
-
-                <%# -------------------------------------------------- %>
-                <%# change h/n/u/o to fine-grained scroll up/down/left/right %>
-                <%# (depends on "Scroll direction" in System Preferences) %>
-                <%# -------------------------------------------------- %>
-                {
-                    "type": "basic",
-                    "from": <%= from("h", [], ["any"]) %>,
-                    "to": [ { "mouse_key": { "vertical_wheel": 32 } } ],
-                    "conditions": [
-                        { "type": "variable_if", "name": "mousecursor_mode", "value": 1 },
-                        { "type": "variable_if", "name": "mousecursor_mode_fine_grained", "value": 1 }
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("n", [], ["any"]) %>,
-                    "to": [ { "mouse_key": { "vertical_wheel": -32 } } ],
-                    "conditions": [
-                        { "type": "variable_if", "name": "mousecursor_mode", "value": 1 },
-                        { "type": "variable_if", "name": "mousecursor_mode_fine_grained", "value": 1 }
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("u", [], ["any"]) %>,
-                    "to": [ { "mouse_key": { "horizontal_wheel": -32 } } ],
-                    "conditions": [
-                        { "type": "variable_if", "name": "mousecursor_mode", "value": 1 },
-                        { "type": "variable_if", "name": "mousecursor_mode_fine_grained", "value": 1 }
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("o", [], ["any"]) %>,
-                    "to": [ { "mouse_key": { "horizontal_wheel": 32 } } ],
-                    "conditions": [
-                        { "type": "variable_if", "name": "mousecursor_mode", "value": 1 },
-                        { "type": "variable_if", "name": "mousecursor_mode_fine_grained", "value": 1 }
                     ]
                 },
 
