@@ -89,9 +89,27 @@
                 },
                 {
                     "type": "basic",
+                    "from": <%= from("m", ["left_option"], ["any"]) %>,
+                    "to": <%= to([["d", ["left_option"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_if("terminal") %>,
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
                     "from": <%= from("m", [], ["any"]) %>,
                     "to": <%= to([["delete_forward"]]) %>,
                     "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("p", ["left_option"], ["any"]) %>,
+                    "to": <%= to([["w", ["left_control"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_if("terminal") %>,
                         { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
                     ]
                 },
