@@ -9,14 +9,27 @@
         source_keys_list: remap_source_keys,
         dest_keys_list: remap_dest_keys,
         from_mandatory_modifiers: ["fn"],
+        from_optional_modifiers: ["any"],
+        as_json: true
+    );
+    manipulators_fn = each_key(
+        source_keys_list: remap_source_keys,
+        dest_keys_list: remap_dest_keys,
+        from_mandatory_modifiers: ["fn"],
+        from_optional_modifiers: ["any"],
+        to_modifiers: ["fn"],
         as_json: true
     );
 %>
 {
-    "title": "Map fn + number keys to function keys",
+    "title": "Map fn + number keys to function keys (rev 2)",
     "rules": [
         {
-            "description": "Map fn + number keys to their corresponding function keys. Only works if 'Use all F1, F2, etc. keys as standard function keys' is set under Function Keys.",
+            "description": "Map fn + number keys to their corresponding function keys (rev 1)",
+            "manipulators": <%= manipulators_fn %>
+        },
+        {
+            "description": "Map fn + number keys to their corresponding media control keys (rev 2)",
             "manipulators": <%= manipulators %>
         }
     ]
