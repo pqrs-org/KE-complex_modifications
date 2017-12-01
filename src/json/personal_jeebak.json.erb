@@ -450,7 +450,9 @@
                 {
                     "type": "basic",
                     "from": <%= from("slash", [], ["caps_lock"]) %>,
-                    "to": <%= to([["slash", ["left_command"]]]) %>,
+                    "to": [
+                        { "shell_command": "~/.zgen/jeebak/devtools-master/bin/maccomplice togg_app iTerm2" }
+                    ],
                     "conditions": [
                         { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
                     ]
