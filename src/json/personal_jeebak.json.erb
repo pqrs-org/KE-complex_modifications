@@ -28,6 +28,15 @@
                 <%# -------------------------------------------------- %>
                 {
                     "type": "basic",
+                    "from": <%= from("j", ["left_option"], ["any"]) %>,
+                    "to": <%= to([["b", ["left_option"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_if("terminal") %>,
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
                     "from": <%= from("j", [], ["any"]) %>,
                     "to": <%= to([["left_arrow"]]) %>,
                     "conditions": [
@@ -47,6 +56,15 @@
                     "from": <%= from("i", [], ["any"]) %>,
                     "to": <%= to([["up_arrow"]]) %>,
                     "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("l", ["left_option"], ["any"]) %>,
+                    "to": <%= to([["f", ["left_option"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_if("terminal") %>,
                         { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
                     ]
                 },
