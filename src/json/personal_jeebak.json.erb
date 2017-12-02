@@ -60,8 +60,7 @@
                 },
 
                 <%# -------------------------------------------------- %>
-                <%# change u/o to Home/End, y to Insert, and %>
-                <%# m/p to delete_forward/delete_or_backspace %>
+                <%# change u/o to Home/End, and m/p to delete_forward/delete_or_backspace %>
                 <%# -------------------------------------------------- %>
                 {
                     "type": "basic",
@@ -75,14 +74,6 @@
                     "type": "basic",
                     "from": <%= from("o", [], ["any"]) %>,
                     "to": <%= to([["end"]]) %>,
-                    "conditions": [
-                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("y", [], ["caps_lock"]) %>,
-                    "to": <%= to([["insert"]]) %>,
                     "conditions": [
                         { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
                     ]
@@ -482,6 +473,7 @@
                 <%# Media keys %>
                 <%# Space-⎋, and Space-` to rewind %>
                 <%# Space-⌫  to fastforward %>
+                <%# Space-y to mute %>
                 <%# Space-[ to volume_decrement %>
                 <%# Space-] to volume_increment %>
                 <%# Space-\ to play_or_pause %>
@@ -506,6 +498,14 @@
                     "type": "basic",
                     "from": <%= from("delete_or_backspace", [], ["caps_lock"]) %>,
                     "to": <%= to([["fastforward"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("y", [], ["caps_lock"]) %>,
+                    "to": <%= to([["mute"]]) %>,
                     "conditions": [
                         { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
                     ]

@@ -177,29 +177,6 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "y",
-            "modifiers": {
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "insert"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "touchcursor_extended_mode",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
             "key_code": "m",
             "modifiers": {
               "mandatory": [
@@ -1375,6 +1352,29 @@
           "to": [
             {
               "key_code": "fastforward"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "y",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "mute"
             }
           ],
           "conditions": [
