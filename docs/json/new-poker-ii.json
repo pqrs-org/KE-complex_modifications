@@ -1,0 +1,131 @@
+{
+  "title": "New Poker II (Backtick, tilde & i/j/k/l as arrows)",
+  "rules": [
+    {
+      "description": "Capslock + Esc to `",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "escape",
+            "modifiers": {
+              "mandatory": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "L_Shift + Esc to ~",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "escape",
+            "modifiers": {
+              "mandatory": [
+                "left_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "L_Control + i/j/k/l to arrows",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "mandatory": [
+                "left_control"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow"
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "mandatory": [
+                "left_control"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow"
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "mandatory": [
+                "left_control"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "down_arrow"
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "mandatory": [
+                "left_control"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}
