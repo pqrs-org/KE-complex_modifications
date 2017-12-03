@@ -41,6 +41,44 @@
           "from": {
             "key_code": "j",
             "modifiers": {
+              "mandatory": [
+                "left_option"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "b",
+              "modifiers": [
+                "left_option"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "j",
+            "modifiers": {
               "optional": [
                 "any"
               ]
@@ -98,6 +136,44 @@
             }
           ],
           "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "mandatory": [
+                "left_option"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f",
+              "modifiers": [
+                "left_option"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$"
+              ]
+            },
             {
               "type": "variable_if",
               "name": "touchcursor_extended_mode",
@@ -177,19 +253,34 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "y",
+            "key_code": "m",
             "modifiers": {
+              "mandatory": [
+                "left_option"
+              ],
               "optional": [
-                "caps_lock"
+                "any"
               ]
             }
           },
           "to": [
             {
-              "key_code": "insert"
+              "key_code": "d",
+              "modifiers": [
+                "left_option"
+              ]
             }
           ],
           "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$"
+              ]
+            },
             {
               "type": "variable_if",
               "name": "touchcursor_extended_mode",
@@ -213,6 +304,44 @@
             }
           ],
           "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "p",
+            "modifiers": {
+              "mandatory": [
+                "left_option"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "w",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$"
+              ]
+            },
             {
               "type": "variable_if",
               "name": "touchcursor_extended_mode",
@@ -1179,10 +1308,7 @@
           },
           "to": [
             {
-              "key_code": "slash",
-              "modifiers": [
-                "left_command"
-              ]
+              "shell_command": "~/.zgen/jeebak/devtools-master/bin/maccomplice togg_app iTerm2"
             }
           ],
           "conditions": [
@@ -1302,6 +1428,29 @@
           "to": [
             {
               "key_code": "fastforward"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "y",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "mute"
             }
           ],
           "conditions": [
@@ -1442,7 +1591,7 @@
       ]
     },
     {
-      "description": "MouseCursor Mode [D as Trigger Key] [Available since Karabiner-Elements-11.3.5]",
+      "description": "MouseCursor Mode [D as Trigger Key] [Requires at least Karabiner-Elements-11.3.9]",
       "manipulators": [
         {
           "type": "basic",
@@ -1473,12 +1622,6 @@
                 "name": "mousecursor_mode",
                 "value": 0
               }
-            },
-            {
-              "set_variable": {
-                "name": "mousecursor_mode_accelerated",
-                "value": 0
-              }
             }
           ]
         },
@@ -1494,17 +1637,8 @@
           },
           "to": [
             {
-              "set_variable": {
-                "name": "mousecursor_mode_accelerated",
-                "value": 1
-              }
-            }
-          ],
-          "to_after_key_up": [
-            {
-              "set_variable": {
-                "name": "mousecursor_mode_accelerated",
-                "value": 0
+              "mouse_key": {
+                "speed_multiplier": 2.0
               }
             }
           ],
@@ -1528,42 +1662,8 @@
           },
           "to": [
             {
-              "set_variable": {
-                "name": "mousecursor_mode_fine_grained",
-                "value": 1
-              }
-            }
-          ],
-          "to_after_key_up": [
-            {
-              "set_variable": {
-                "name": "mousecursor_mode_fine_grained",
-                "value": 0
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mousecursor_mode",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "j",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
               "mouse_key": {
-                "x": -3072
+                "speed_multiplier": 0.3
               }
             }
           ],
@@ -1571,221 +1671,6 @@
             {
               "type": "variable_if",
               "name": "mousecursor_mode",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "mousecursor_mode_accelerated",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "k",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "mouse_key": {
-                "y": 3072
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mousecursor_mode",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "mousecursor_mode_accelerated",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "i",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "mouse_key": {
-                "y": -3072
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mousecursor_mode",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "mousecursor_mode_accelerated",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "l",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "mouse_key": {
-                "x": 3072
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mousecursor_mode",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "mousecursor_mode_accelerated",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "j",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "mouse_key": {
-                "x": -384
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mousecursor_mode",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "mousecursor_mode_fine_grained",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "k",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "mouse_key": {
-                "y": 384
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mousecursor_mode",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "mousecursor_mode_fine_grained",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "i",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "mouse_key": {
-                "y": -384
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mousecursor_mode",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "mousecursor_mode_fine_grained",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "l",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "mouse_key": {
-                "x": 384
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mousecursor_mode",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "mousecursor_mode_fine_grained",
               "value": 1
             }
           ]
@@ -1886,246 +1771,6 @@
             {
               "type": "variable_if",
               "name": "mousecursor_mode",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "h",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "mouse_key": {
-                "vertical_wheel": 128
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mousecursor_mode",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "mousecursor_mode_accelerated",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "n",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "mouse_key": {
-                "vertical_wheel": -128
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mousecursor_mode",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "mousecursor_mode_accelerated",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "u",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "mouse_key": {
-                "horizontal_wheel": -128
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mousecursor_mode",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "mousecursor_mode_accelerated",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "o",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "mouse_key": {
-                "horizontal_wheel": 128
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mousecursor_mode",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "mousecursor_mode_accelerated",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "h",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "mouse_key": {
-                "vertical_wheel": 32
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mousecursor_mode",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "mousecursor_mode_fine_grained",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "n",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "mouse_key": {
-                "vertical_wheel": -32
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mousecursor_mode",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "mousecursor_mode_fine_grained",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "u",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "mouse_key": {
-                "horizontal_wheel": -32
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mousecursor_mode",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "mousecursor_mode_fine_grained",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "o",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "mouse_key": {
-                "horizontal_wheel": 32
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mousecursor_mode",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "mousecursor_mode_fine_grained",
               "value": 1
             }
           ]
@@ -2528,6 +2173,33 @@
                 "left_control",
                 "left_option",
                 "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "tab_modifier",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "r",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "r",
+              "modifiers": [
+                "left_command",
+                "left_option"
               ]
             }
           ]
