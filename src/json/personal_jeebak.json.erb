@@ -579,6 +579,770 @@
             ]
         },
         {
+            "description": "Tab Modifier Mode [Tab as Trigger Key]",
+            "manipulators": [
+
+                <%# -------------------------------------------------- %>
+                <%# press ⇥ to enter Tab Modifier Mode, release to quit %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "from": <%= from("tab", [], ["caps_lock"]) %>,
+                    "to": [
+                        { "set_variable": { "name": "tab_modifier", "value": 1 } }
+                    ],
+                    "to_if_alone": <%= to([["tab"]]) %>,
+                    "to_after_key_up": [
+                        { "set_variable": { "name": "tab_modifier", "value": 0 } }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-1 to Hyper-1 %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("1", [], ["caps_lock"]) %>,
+                    "to": <%= to([["1", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-2 to Hyper-2 %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("2", [], ["caps_lock"]) %>,
+                    "to": <%= to([["2", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-3 to Hyper-3 %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("3", [], ["caps_lock"]) %>,
+                    "to": <%= to([["3", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-4 to Hyper-4 %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("4", [], ["caps_lock"]) %>,
+                    "to": <%= to([["4", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-5 to Hyper-5 %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("5", [], ["caps_lock"]) %>,
+                    "to": <%= to([["5", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-6 to Hyper-6 %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("6", [], ["caps_lock"]) %>,
+                    "to": <%= to([["6", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-7 to Hyper-7 %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("7", [], ["caps_lock"]) %>,
+                    "to": <%= to([["7", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-8 to Hyper-8 %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("8", [], ["caps_lock"]) %>,
+                    "to": <%= to([["8", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-9 to Hyper-9 %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("9", [], ["caps_lock"]) %>,
+                    "to": <%= to([["9", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-0 to Hyper-0 %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("0", [], ["caps_lock"]) %>,
+                    "to": <%= to([["0", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-hyphen to Hyper-hyphen %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("hyphen", [], ["caps_lock"]) %>,
+                    "to": <%= to([["hyphen", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-= to Hyper-= %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("equal_sign", [], ["caps_lock"]) %>,
+                    "to": <%= to([["equal_sign", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-delete_or_backspace to Hyper-delete_or_backspace %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("delete_or_backspace", [], ["caps_lock"]) %>,
+                    "to": <%= to([["delete_or_backspace", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-q to Hyper-q %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("q", [], ["caps_lock"]) %>,
+                    "to": <%= to([["q", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-w to Hyper-w %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("w", [], ["caps_lock"]) %>,
+                    "to": <%= to([["w", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-e to Hyper-e %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("e", [], ["caps_lock"]) %>,
+                    "to": <%= to([["e", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-r to ⌥-⌘-r [Used to "Resume Program" in JetBrains Debugger, ⌘-r otherwise] %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("r", [], ["caps_lock"]) %>,
+                    "to": <%= to([["r", ["left_command", "left_option"]]]) %>,
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com\\.jetbrains\\.PhpStorm$",
+                                "^com\\.jetbrains\\.WebStorm$"
+                            ]
+                        },
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("r", [], ["caps_lock"]) %>,
+                    "to": <%= to([["r", ["left_command"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-t to Hyper-t %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("t", [], ["caps_lock"]) %>,
+                    "to": <%= to([["t", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-y to Hyper-y %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("y", [], ["caps_lock"]) %>,
+                    "to": <%= to([["y", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-u to Hyper-u %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("u", [], ["caps_lock"]) %>,
+                    "to": <%= to([["u", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-i to Hyper-i %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("i", [], ["caps_lock"]) %>,
+                    "to": <%= to([["i", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-o to Hyper-o %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("o", [], ["caps_lock"]) %>,
+                    "to": <%= to([["o", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-p to Hyper-p %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("p", [], ["caps_lock"]) %>,
+                    "to": <%= to([["p", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-[ to Hyper-[ %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("open_bracket", [], ["caps_lock"]) %>,
+                    "to": <%= to([["open_bracket", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-] to Hyper-] %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("close_bracket", [], ["caps_lock"]) %>,
+                    "to": <%= to([["close_bracket", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-\ to Hyper-\ %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("backslash", [], ["caps_lock"]) %>,
+                    "to": <%= to([["backslash", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-a to Hyper-a %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("a", [], ["caps_lock"]) %>,
+                    "to": <%= to([["a", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-s to Hyper-s %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("s", [], ["caps_lock"]) %>,
+                    "to": <%= to([["s", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-d to Hyper-d %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("d", [], ["caps_lock"]) %>,
+                    "to": <%= to([["d", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-f to Hyper-f %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("f", [], ["caps_lock"]) %>,
+                    "to": <%= to([["f", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-g to Hyper-g %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("g", [], ["caps_lock"]) %>,
+                    "to": <%= to([["g", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-h to Hyper-h %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("h", [], ["caps_lock"]) %>,
+                    "to": <%= to([["h", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-j to Hyper-j %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("j", [], ["caps_lock"]) %>,
+                    "to": <%= to([["j", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-k to Hyper-k %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("k", [], ["caps_lock"]) %>,
+                    "to": <%= to([["k", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-l to Hyper-l %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("l", [], ["caps_lock"]) %>,
+                    "to": <%= to([["l", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-; to Hyper-; %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("semicolon", [], ["caps_lock"]) %>,
+                    "to": <%= to([["semicolon", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-' to Hyper-' %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("quote", [], ["caps_lock"]) %>,
+                    "to": <%= to([["quote", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-return to Hyper-return %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("return_or_enter", [], ["caps_lock"]) %>,
+                    "to": <%= to([["return_or_enter", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-z to Hyper-z %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("z", [], ["caps_lock"]) %>,
+                    "to": <%= to([["z", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-x to Hyper-x %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("x", [], ["caps_lock"]) %>,
+                    "to": <%= to([["x", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-c to Hyper-c %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("c", [], ["caps_lock"]) %>,
+                    "to": <%= to([["c", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-v to Hyper-v %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("v", [], ["caps_lock"]) %>,
+                    "to": <%= to([["v", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-b to Hyper-b %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("b", [], ["caps_lock"]) %>,
+                    "to": <%= to([["b", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-n to Hyper-n %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("n", [], ["caps_lock"]) %>,
+                    "to": <%= to([["n", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-m to Hyper-m %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("m", [], ["caps_lock"]) %>,
+                    "to": <%= to([["m", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-, to "???"] %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("comma", [], ["caps_lock"]) %>,
+                    "to": [
+                        { "shell_command": "osascript -e 'display notification \"Tab-,\" with title \"Triggered:\"'" }
+                    ],
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-. to "???"] %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("period", [], ["caps_lock"]) %>,
+                    "to": [
+                        { "shell_command": "osascript -e 'display notification \"Tab-.\" with title \"Triggered:\"'" }
+                    ],
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# Tab-/ to "???"] %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("slash", [], ["caps_lock"]) %>,
+                    "to": [
+                        { "shell_command": "osascript -e 'display notification \"Tab-/\" with title \"Triggered:\"'" }
+                    ],
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                }
+            ]
+        },
+        {
             "description": "MouseCursor Mode [D as Trigger Key] [Requires at least Karabiner-Elements-11.3.9]",
             "manipulators": [
 
@@ -742,71 +1506,6 @@
                     "from": <%= from("quote", [], ["any"]) %>,
                     "to": [ { "pointing_button": "button5" } ],
                     "conditions": [ { "type": "variable_if", "name": "mousecursor_mode", "value": 1 } ]
-                }
-            ]
-        },
-        {
-            "description": "Tab Modifier Mode [Tab as Trigger Key]",
-            "manipulators": [
-
-                <%# -------------------------------------------------- %>
-                <%# press ⇥ to enter Tab Modifier Mode, release to quit %>
-                <%# -------------------------------------------------- %>
-                {
-                    "type": "basic",
-                    "from": <%= from("tab", [], ["caps_lock"]) %>,
-                    "to": [
-                        { "set_variable": { "name": "tab_modifier", "value": 1 } }
-                    ],
-                    "to_if_alone": <%= to([["tab"]]) %>,
-                    "to_after_key_up": [
-                        { "set_variable": { "name": "tab_modifier", "value": 0 } }
-                    ]
-                },
-
-                <%# -------------------------------------------------- %>
-                <%# Hyper-b [Used to trigger Clipy Snippets] %>
-                <%# -------------------------------------------------- %>
-                {
-                    "type": "basic",
-                    "conditions": [
-                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
-                    ],
-                    "from": <%= from("b", [], ["caps_lock"]) %>,
-                    "to": <%= to([["b", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
-                    "conditions": [
-                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
-                    ]
-                },
-
-                <%# -------------------------------------------------- %>
-                <%# Hyper-v [Used to trigger Clipy] %>
-                <%# -------------------------------------------------- %>
-                {
-                    "type": "basic",
-                    "conditions": [
-                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
-                    ],
-                    "from": <%= from("v", [], ["caps_lock"]) %>,
-                    "to": <%= to([["v", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
-                    "conditions": [
-                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
-                    ]
-                },
-
-                <%# -------------------------------------------------- %>
-                <%# ⌥-⌘-r [Used to "Resume Program" in PhpStorm Debugger] %>
-                <%# -------------------------------------------------- %>
-                {
-                    "type": "basic",
-                    "conditions": [
-                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
-                    ],
-                    "from": <%= from("r", [], ["caps_lock"]) %>,
-                    "to": <%= to([["r", ["left_command", "left_option"]]]) %>,
-                    "conditions": [
-                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
-                    ]
                 }
             ]
         },
