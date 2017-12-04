@@ -1,0 +1,287 @@
+{
+    "title": "Toggle Caps Lock by double tapping modifier key",
+    "rules": [
+        {
+            "description": "Toggle ⇪ by pressing left-⌘ twice [See Preferences > Devices: \"Manipulate LED\", for non- keyboards]",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "toggle-caps-lock-left-command",
+                            "value": 1
+                        }
+                    ],
+                    "from": <%= from("left_command", [], ["caps_lock"]) %>,
+                    "to": <%= to([["caps_lock"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("left_command", [], ["caps_lock"]) %>,
+                    "to": [
+                        {
+                            "set_variable": {
+                                "name": "toggle-caps-lock-left-command",
+                                "value": 1
+                            }
+                        }
+                    ],
+                    "to_delayed_action": {
+                        "to_if_invoked": [
+                            {
+                                "set_variable": {
+                                    "name": "toggle-caps-lock-left-command",
+                                    "value": 0
+                                }
+                            }
+                        ],
+                        "to_if_canceled": [
+                            {
+                                "set_variable": {
+                                    "name": "toggle-caps-lock-left-command",
+                                    "value": 0
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "description": "Toggle ⇪ by pressing left-⌥ twice [See Preferences > Devices: \"Manipulate LED\", for non- keyboards]",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "toggle-caps-lock-left-option",
+                            "value": 1
+                        }
+                    ],
+                    "from": <%= from("left_option", [], ["caps_lock"]) %>,
+                    "to": <%= to([["caps_lock"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("left_option", [], ["caps_lock"]) %>,
+                    "to": [
+                        {
+                            "set_variable": {
+                                "name": "toggle-caps-lock-left-option",
+                                "value": 1
+                            }
+                        }
+                    ],
+                    "to_delayed_action": {
+                        "to_if_invoked": [
+                            {
+                                "set_variable": {
+                                    "name": "toggle-caps-lock-left-option",
+                                    "value": 0
+                                }
+                            }
+                        ],
+                        "to_if_canceled": [
+                            {
+                                "set_variable": {
+                                    "name": "toggle-caps-lock-left-option",
+                                    "value": 0
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "description": "Toggle ⇪ by pressing left-⌃ twice [See Preferences > Devices: \"Manipulate LED\", for non- keyboards]",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "toggle-caps-lock-left-control",
+                            "value": 1
+                        }
+                    ],
+                    "from": <%= from("left_control", [], ["caps_lock"]) %>,
+                    "to": <%= to([["caps_lock"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("left_control", [], ["caps_lock"]) %>,
+                    "to": [
+                        {
+                            "set_variable": {
+                                "name": "toggle-caps-lock-left-control",
+                                "value": 1
+                            }
+                        }
+                    ],
+                    "to_delayed_action": {
+                        "to_if_invoked": [
+                            {
+                                "set_variable": {
+                                    "name": "toggle-caps-lock-left-control",
+                                    "value": 0
+                                }
+                            }
+                        ],
+                        "to_if_canceled": [
+                            {
+                                "set_variable": {
+                                    "name": "toggle-caps-lock-left-control",
+                                    "value": 0
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "description": "Toggle ⇪ by pressing right-⌘ twice [See Preferences > Devices: \"Manipulate LED\", for non- keyboards]",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "toggle-caps-lock-right-command",
+                            "value": 1
+                        }
+                    ],
+                    "from": <%= from("right_command", [], ["caps_lock"]) %>,
+                    "to": <%= to([["caps_lock"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("right_command", [], ["caps_lock"]) %>,
+                    "to": [
+                        {
+                            "set_variable": {
+                                "name": "toggle-caps-lock-right-command",
+                                "value": 1
+                            }
+                        }
+                    ],
+                    "to_delayed_action": {
+                        "to_if_invoked": [
+                            {
+                                "set_variable": {
+                                    "name": "toggle-caps-lock-right-command",
+                                    "value": 0
+                                }
+                            }
+                        ],
+                        "to_if_canceled": [
+                            {
+                                "set_variable": {
+                                    "name": "toggle-caps-lock-right-command",
+                                    "value": 0
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "description": "Toggle ⇪ by pressing right-⌥ twice [See Preferences > Devices: \"Manipulate LED\", for non- keyboards]",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "toggle-caps-lock-right-option",
+                            "value": 1
+                        }
+                    ],
+                    "from": <%= from("right_option", [], ["caps_lock"]) %>,
+                    "to": <%= to([["caps_lock"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("right_option", [], ["caps_lock"]) %>,
+                    "to": [
+                        {
+                            "set_variable": {
+                                "name": "toggle-caps-lock-right-option",
+                                "value": 1
+                            }
+                        }
+                    ],
+                    "to_delayed_action": {
+                        "to_if_invoked": [
+                            {
+                                "set_variable": {
+                                    "name": "toggle-caps-lock-right-option",
+                                    "value": 0
+                                }
+                            }
+                        ],
+                        "to_if_canceled": [
+                            {
+                                "set_variable": {
+                                    "name": "toggle-caps-lock-right-option",
+                                    "value": 0
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "description": "Toggle ⇪ by pressing right-⌃ twice [See Preferences > Devices: \"Manipulate LED\", for non- keyboards]",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "toggle-caps-lock-right-control",
+                            "value": 1
+                        }
+                    ],
+                    "from": <%= from("right_control", [], ["caps_lock"]) %>,
+                    "to": <%= to([["caps_lock"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("right_control", [], ["caps_lock"]) %>,
+                    "to": [
+                        {
+                            "set_variable": {
+                                "name": "toggle-caps-lock-right-control",
+                                "value": 1
+                            }
+                        }
+                    ],
+                    "to_delayed_action": {
+                        "to_if_invoked": [
+                            {
+                                "set_variable": {
+                                    "name": "toggle-caps-lock-right-control",
+                                    "value": 0
+                                }
+                            }
+                        ],
+                        "to_if_canceled": [
+                            {
+                                "set_variable": {
+                                    "name": "toggle-caps-lock-right-control",
+                                    "value": 0
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}
