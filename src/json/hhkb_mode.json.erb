@@ -13,7 +13,7 @@
     );
 %>
 {
-    "title": "Happy Hacking Keyboard Compatible Mode (rev 1.1)",
+    "title": "Happy Hacking Keyboard Compatible Mode (rev 2)",
     "rules": [
         {
             "description": "HHKB Arrow Mode (fn + semicolon/slash/open_bracket/quote to arrow keys, etc)",
@@ -65,27 +65,27 @@
             ]
         },
         {
-            "description": "HHKB Media Key Mode (fn + asdf to Volume down/up/mute, eject)",
+            "description": "HHKB Media Key Mode (fn + asdf to Volume down/up/mute, eject) (rev 2)",
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("a", ["fn"], ["caps_lock"]) %>,
-                    "to": <%= to([["volume_decrement"]]) %>
+                    "from": <%= from("a", ["fn"], ["any"]) %>,
+                    "to": [ { "consumer_key_code": "volume_decrement" } ]
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("s", ["fn"], ["caps_lock"]) %>,
-                    "to": <%= to([["volume_increment"]]) %>
+                    "from": <%= from("s", ["fn"], ["any"]) %>,
+                    "to": [ { "consumer_key_code": "volume_increment" } ]
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("d", ["fn"], ["caps_lock"]) %>,
-                    "to": <%= to([["mute"]]) %>
+                    "from": <%= from("d", ["fn"], ["any"]) %>,
+                    "to": [ { "consumer_key_code": "mute" } ]
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("f", ["fn"], ["caps_lock"]) %>,
-                    "to": <%= to([["eject"]]) %>
+                    "from": <%= from("f", ["fn"], ["any"]) %>,
+                    "to": [ { "consumer_key_code": "eject" } ]
                 }
             ]
         },
