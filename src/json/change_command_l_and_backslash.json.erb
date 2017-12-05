@@ -1,0 +1,22 @@
+{
+    "title": "Command_L + backslash to slash",
+    "rules": [
+        {
+            "description": "Command_L + backslash to slash and Command_L + backslash + left_shift to ? due to dead button",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("backslash", ["left_command"], []) %>,
+                    "to": <%= to([["slash"]]) %>,
+                    "to_if_alone": <%= to([["backslash"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("backslash", ["left_command"], ['left_shift']) %>,
+                    "to": <%= to([["slash", ["left_shift"]]]) %>
+
+                }
+            ]
+        }
+    ]
+}
