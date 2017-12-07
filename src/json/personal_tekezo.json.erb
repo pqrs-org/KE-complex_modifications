@@ -569,65 +569,65 @@
             ]
         },
         {
-            "description": "Configurations for apps (rev5)",
+            "description": "Configurations for apps (rev 6)",
             "manipulators": [
                 <%# -------------------------------------------------- %>
-                <%# virtual_machine %>
+                <%# remote_desktop, virtual_machine %>
                 <%# -------------------------------------------------- %>
 
                 {
                     "type": "basic",
                     "from": <%= from("h", ["left_control"], ["caps_lock", "option"]) %>,
                     "to": <%= to([["delete_or_backspace"]]) %>,
-                    "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
+                    "conditions": [ <%= frontmost_application_if(["remote_desktop", "virtual_machine"]) %> ]
                 },
                 {
                     "type": "basic",
                     "from": <%= from("d", ["left_control"], ["caps_lock", "option"]) %>,
                     "to": <%= to([["delete_forward"]]) %>,
-                    "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
+                    "conditions": [ <%= frontmost_application_if(["remote_desktop", "virtual_machine"]) %> ]
                 },
                 {
                     "type": "basic",
                     "from": <%= from("i", ["left_control"], ["caps_lock"]) %>,
                     "to": <%= to([["tab"]]) %>,
-                    "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
+                    "conditions": [ <%= frontmost_application_if(["remote_desktop", "virtual_machine"]) %> ]
                 },
                 {
                     "type": "basic",
                     "from": <%= from("b", ["left_control"], ["caps_lock", "shift", "option"]) %>,
                     "to": <%= to([["left_arrow"]]) %>,
-                    "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
+                    "conditions": [ <%= frontmost_application_if(["remote_desktop", "virtual_machine"]) %> ]
                 },
                 {
                     "type": "basic",
                     "from": <%= from("f", ["left_control"], ["caps_lock", "shift", "option"]) %>,
                     "to": <%= to([["right_arrow"]]) %>,
-                    "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
+                    "conditions": [ <%= frontmost_application_if(["remote_desktop", "virtual_machine"]) %> ]
                 },
                 {
                     "type": "basic",
                     "from": <%= from("n", ["left_control"], ["caps_lock", "shift", "option"]) %>,
                     "to": <%= to([["down_arrow"]]) %>,
-                    "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
+                    "conditions": [ <%= frontmost_application_if(["remote_desktop", "virtual_machine"]) %> ]
                 },
                 {
                     "type": "basic",
                     "from": <%= from("p", ["left_control"], ["caps_lock", "shift", "option"]) %>,
                     "to": <%= to([["up_arrow"]]) %>,
-                    "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
+                    "conditions": [ <%= frontmost_application_if(["remote_desktop", "virtual_machine"]) %> ]
                 },
                 {
                     "type": "basic",
                     "from": <%= from("a", ["left_control"], ["caps_lock", "shift"]) %>,
                     "to": <%= to([["home"]]) %>,
-                    "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
+                    "conditions": [ <%= frontmost_application_if(["remote_desktop", "virtual_machine"]) %> ]
                 },
                 {
                     "type": "basic",
                     "from": <%= from("e", ["left_control"], ["caps_lock", "shift"]) %>,
                     "to": <%= to([["end"]]) %>,
-                    "conditions": [ <%= frontmost_application_if("virtual_machine") %> ]
+                    "conditions": [ <%= frontmost_application_if(["remote_desktop", "virtual_machine"]) %> ]
                 },
 
                 <%# -------------------------------------------------- %>
