@@ -1,6 +1,5 @@
 all:
 	scripts/update-json.sh
-	scripts/erb2html.rb < src/example.html.erb > docs/example.html
 	scripts/apply-lint.sh
 
 rebuild:

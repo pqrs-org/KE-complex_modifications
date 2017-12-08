@@ -1,83 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Karabiner-Elements complex_modifications rules (examples)</title>
-    <link href="assets/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
+    <link href="assets/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
   </head>
   <body>
     <nav class="navbar navbar-inverse">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="https://pqrs.org/osx/karabiner/complex_modifications/">Karabiner-Elements complex_modifications rules</a>
+          <a class="navbar-brand" href="./">Karabiner-Elements complex_modifications rules</a>
         </div>
       </div>
     </nav>
 
-    <div class="container">
+    <div class="container" style="margin-bottom: 100px" id="main-container" data-type="example" v-scroll-to-hash>
       <div class="text-right" style="margin-bottom: 30px">
         <a href="https://github.com/pqrs-org/KE-complex_modifications">GitHub</a>
       </div>
 
-          <div class="panel-outer" id="example_device">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <a href="#example_device"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></a>
-          <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#example_device-list-group" aria-expanded="false" aria-controls="example_device-list-group">device_if,device_unless example</a>
-          <a class="btn btn-primary btn-sm pull-right" data-json-path="json/example_device.json">Import</a>
-        </div>
-        <div class="list-group collapse" id="example_device-list-group">
-            <div class="list-group-item">Open Karabiner-Elements by f5 in non-Apple keyboards</div><div class="list-group-item">Open Karabiner-EventViewer by f6 in HHKB BT JP keyboards</div>
+      <ul class="toc list-group">
+        <li class="list-group-item list-group-item-info">Table of Contents</li>
+        <li class="list-group-item" v-for="group in groups" v-cloak="1">
+          <span class="badge">{{ group.files.length }}</span>
+          <a v-bind:href="'#' + group.id">{{ group.name }}</a>
+        </li>
+      </ul>
+
+      <div class="text-left" style="margin-bottom: 30px">
+        <a href="#" onclick="$('.collapse').collapse('toggle'); return false;">Expand/Collapse All</a>
+      </div>
+
+      <div class="panel-outer" v-for="group in groups" v-bind:id="group.id" v-cloak="1">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">{{ group.name }}</h3>
+          </div>
+          <div class="panel-body">
+            <div v-for="file in group.files">
+              <div class="panel-outer" v-if="file" v-bind:id="file.id">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <a v-bind:href="'#' + file.id"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></a>
+                    <a
+                      class="panel-title btn btn-link"
+                      role="button"
+                      data-toggle="collapse"
+                      aria-expanded="false"
+                      v-bind:aria-controls="file.id + '-list-group'"
+                      v-bind:href="'#' + file.id + '-list-group'" >
+                      {{ file.title }}
+                    </a>
+                    <a class="btn btn-primary btn-sm pull-right" v-bind:href="file.importUrl">Import</a>
+                  </div>
+                  <div class="list-group collapse" v-bind:id="file.id + '-list-group'">
+                    <div class="list-group-item" v-for="rule in file.rules">{{ rule }}</div>
+                    <div class="list-group-item" v-if="file.extraDescription" v-html="file.extraDescription"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+  </div>
 
-          <div class="panel-outer" id="example_input_source">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <a href="#example_input_source"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></a>
-          <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#example_input_source-list-group" aria-expanded="false" aria-controls="example_input_source-list-group">input_source_if,input_source_unless example (available since Karabiner-Elements 11.1.8)</a>
-          <a class="btn btn-primary btn-sm pull-right" data-json-path="json/example_input_source.json">Import</a>
-        </div>
-        <div class="list-group collapse" id="example_input_source-list-group">
-            <div class="list-group-item">Toggle input sources (English or Japanese) by grave_accent_and_tilde (available since Karabiner-Elements 11.1.8)</div>
-        </div>
-      </div>
-    </div>
-
-          <div class="panel-outer" id="example_select_input_source">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <a href="#example_select_input_source"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></a>
-          <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#example_select_input_source-list-group" aria-expanded="false" aria-controls="example_select_input_source-list-group">select_input_source example (available since Karabiner-Elements 11.1.9)</a>
-          <a class="btn btn-primary btn-sm pull-right" data-json-path="json/example_select_input_source.json">Import</a>
-        </div>
-        <div class="list-group collapse" id="example_select_input_source-list-group">
-            <div class="list-group-item">Change input source to U.S. by left_command, RussianWin by right_command. (available since Karabiner-Elements 11.1.9)</div><div class="list-group-item">Change input source to French while right_option is pressed. (available since Karabiner-Elements 11.1.9)</div>
-        </div>
-      </div>
-    </div>
-
-          <div class="panel-outer" id="example_keyboard_type">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <a href="#example_keyboard_type"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></a>
-          <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#example_keyboard_type-list-group" aria-expanded="false" aria-controls="example_keyboard_type-list-group">keyboard_type_if, keyboard_type_unless example</a>
-          <a class="btn btn-primary btn-sm pull-right" data-json-path="json/example_keyboard_type.json">Import</a>
-        </div>
-        <div class="list-group collapse" id="example_keyboard_type-list-group">
-            <div class="list-group-item">Change control-[ to escape</div><div class="list-group-item">Change escape to mission_control if keyboard_type != ansi</div>
-        </div>
-      </div>
-    </div>
-
-    </div>
-
-    <script src="assets/jquery-3.2.1.min.js"></script>
-    <script src="assets/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
-  </body>
+  <script src="assets/jquery-3.2.1.min.js"></script>
+  <script src="assets/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+  <script src="assets/vue/vue.js"></script>
+  <script src="assets/axios/axios.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
 </html>

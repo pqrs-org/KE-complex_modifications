@@ -1,3 +1,5 @@
+/* -*- Mode: js2 -*- */
+
 {
   let groups = [];
   let fetchTotalNumber = 0;
@@ -6,8 +8,7 @@
   Vue.directive('scroll-to-hash', {
     componentUpdated: function(el) {
       if (groups.length > 0) {
-        if (fetchTotalNumber > 0 &&
-          fetchTotalNumber == fetchCount) {
+        if (fetchTotalNumber > 0 && fetchTotalNumber == fetchCount) {
           let hash = location.hash;
           if (hash) {
             location.href = '#';
@@ -82,7 +83,8 @@
 
   axios.get('groups.json')
     .then(function(response) {
-      response.data.index.forEach(function(group, groupIndex) {
+      let type = document.getElementById('main-container').dataset.type;
+      response.data[type].forEach(function(group, groupIndex) {
         let g = {
           id: group.id,
           name: group.name,
