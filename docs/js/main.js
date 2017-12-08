@@ -13,9 +13,14 @@
           });
         });
         if (finished) {
-          let href = location.href;
-          location.href = '#';
-          location.href = href;
+          var hash = location.hash;
+          if (hash) {
+            location.href = '#';
+            location.href = hash;
+
+            var id = hash.substring(1);
+            $('#' + id + ' .collapse').collapse('show');
+          }
         }
       }
     }
