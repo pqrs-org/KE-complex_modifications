@@ -1510,6 +1510,87 @@
             ]
         },
         {
+            "description": "Number Row Modifiers",
+            "manipulators": [
+
+                <%# -------------------------------------------------- %>
+                <%# Number row when tapped, and {1,2,3,0,-,=} to ⌥, and {4,5,6,7,8,9} to ⌘, when held %>
+                <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "from": <%= from("1", [], ["any"]) %>,
+                    "to": <%= to([["vk_none"], ["left_option"]]) %>,
+                    "to_if_alone": <%= to([["1"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("2", [], ["any"]) %>,
+                    "to": <%= to([["vk_none"], ["left_option"]]) %>,
+                    "to_if_alone": <%= to([["2"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("3", [], ["any"]) %>,
+                    "to": <%= to([["vk_none"], ["left_option"]]) %>,
+                    "to_if_alone": <%= to([["3"]]) %>
+                },
+                {
+                    "type": "basic",
+                        "from": <%= from("4", [], ["any"]) %>,
+                        "to": <%= to([["vk_none"], ["left_command"]]) %>,
+                    "to_if_alone": <%= to([["4"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("5", [], ["any"]) %>,
+                    "to": <%= to([["vk_none"], ["left_command"]]) %>,
+                    "to_if_alone": <%= to([["5"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("6", [], ["any"]) %>,
+                    "to": <%= to([["vk_none"], ["left_command"]]) %>,
+                    "to_if_alone": <%= to([["6"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("7", [], ["any"]) %>,
+                    "to": <%= to([["vk_none"], ["left_command"]]) %>,
+                    "to_if_alone": <%= to([["7"]]) %>
+                },
+                {
+                    "type": "basic",
+                        "from": <%= from("8", [], ["any"]) %>,
+                        "to": <%= to([["vk_none"], ["left_command"]]) %>,
+                    "to_if_alone": <%= to([["8"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("9", [], ["any"]) %>,
+                    "to": <%= to([["vk_none"], ["left_command"]]) %>,
+                    "to_if_alone": <%= to([["9"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("0", [], ["any"]) %>,
+                    "to": <%= to([["vk_none"], ["left_option"]]) %>,
+                    "to_if_alone": <%= to([["0"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("hyphen", [], ["any"]) %>,
+                    "to": <%= to([["vk_none"], ["left_option"]]) %>,
+                    "to_if_alone": <%= to([["hyphen"]]) %>
+                },
+                {
+                    "type": "basic",
+                        "from": <%= from("equal_sign", [], ["any"]) %>,
+                        "to": <%= to([["vk_none"], ["left_option"]]) %>,
+                    "to_if_alone": <%= to([["equal_sign"]]) %>
+                }
+            ]
+        },
+        {
             "description": "Home Row Modifiers",
             "manipulators": [
 
