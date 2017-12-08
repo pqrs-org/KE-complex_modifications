@@ -1,18 +1,13 @@
 {
   let groups = [];
+  let fetchTotalNumber = 0;
+  let fetchCount = 0;
 
   Vue.directive('scroll-to-hash', {
     componentUpdated: function(el) {
       if (groups.length > 0) {
-        let finished = true;
-        groups.forEach(function(g) {
-          g.files.forEach(function(f) {
-            if (f === undefined) {
-              finished = false;
-            }
-          });
-        });
-        if (finished) {
+        if (fetchTotalNumber > 0 &&
+            fetchTotalNumber == fetchCount) {
           var hash = location.hash;
           if (hash) {
             location.href = '#';
@@ -46,8 +41,10 @@
     return 'karabiner://karabiner/assets/complex_modifications/import?url=' + url;
   };
 
-  let getFile = function(path, groupIndex, fileIndex) {
+  let fetchFile = function(path, groupIndex, fileIndex) {
     axios.get(path).then(function(response) {
+      ++fetchCount;
+
       let f = {
         id: baseName(path),
         title: response.data.title,
@@ -79,7 +76,10 @@
         groups.push(g);
 
         group.files.forEach(function(file, fileIndex) {
-          getFile(file.path, groupIndex, fileIndex);
+          if (file.path) {
+            ++fetchTotalNumber;
+            fetchFile(file.path, groupIndex, fileIndex);
+          }
         });
       });
     })
