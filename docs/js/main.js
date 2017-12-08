@@ -7,13 +7,13 @@
     componentUpdated: function(el) {
       if (groups.length > 0) {
         if (fetchTotalNumber > 0 &&
-            fetchTotalNumber == fetchCount) {
-          var hash = location.hash;
+          fetchTotalNumber == fetchCount) {
+          let hash = location.hash;
           if (hash) {
             location.href = '#';
             location.href = hash;
 
-            var id = hash.substring(1);
+            let id = hash.substring(1);
             $('#' + id + ' .collapse').collapse('show');
           }
         }
@@ -45,16 +45,34 @@
     axios.get(path).then(function(response) {
       ++fetchCount;
 
-      let f = {
-        id: baseName(path),
-        title: response.data.title,
-        importUrl: jsonUrl(path),
-        rules: []
-      };
+      let f = groups[groupIndex].files[fileIndex];
+      if (f === undefined) {
+        f = {};
+      }
+      f.id = baseName(path);
+      f.title = response.data.title;
+      f.importUrl = jsonUrl(path);
+      f.rules = [];
 
       response.data.rules.forEach(function(r) {
         f.rules.push(r.description);
       });
+
+      Vue.set(groups[groupIndex].files, fileIndex, f);
+    }).catch(function(error) {
+      console.log(error);
+    });
+  };
+
+  let fetchExtraDescription = function(path, groupIndex, fileIndex) {
+    axios.get(path).then(function(response) {
+      ++fetchCount;
+
+      let f = groups[groupIndex].files[fileIndex];
+      if (f === undefined) {
+        f = {};
+      }
+      f.extraDescription = response.data;
 
       Vue.set(groups[groupIndex].files, fileIndex, f);
     }).catch(function(error) {
@@ -68,8 +86,7 @@
         let g = {
           id: group.id,
           name: group.name,
-          files: [],
-          extraDescription: ''
+          files: []
         };
         g.files.length = group.files.length;
         g.files.fill(undefined);
@@ -79,6 +96,10 @@
           if (file.path) {
             ++fetchTotalNumber;
             fetchFile(file.path, groupIndex, fileIndex);
+          }
+          if (file.extra_description_path) {
+            ++fetchTotalNumber;
+            fetchExtraDescription(file.extra_description_path, groupIndex, fileIndex);
           }
         });
       });
