@@ -71,7 +71,8 @@
         let g = {
           id: group.id,
           name: group.name,
-          files: []
+          files: [],
+          extraDescription: ''
         };
         g.files.length = group.files.length;
         g.files.fill(undefined);

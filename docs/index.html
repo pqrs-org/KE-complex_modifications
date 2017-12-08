@@ -58,6 +58,7 @@
                   </div>
                   <div class="list-group collapse" v-bind:id="file.id + '-list-group'">
                     <div class="list-group-item" v-for="rule in file.rules">{{ rule }}</div>
+                    <div class="list-group-item" v-if="group.extraDescription" v-html="group.extraDescription"></div>
                   </div>
                 </div>
               </div>
