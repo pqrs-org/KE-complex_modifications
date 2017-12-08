@@ -7,3 +7,6 @@ all:
 rebuild:
 	touch src/json/*
 	$(MAKE) all
+
+server:
+	ruby -rwebrick -e 'WEBrick::HTTPServer.new(:DocumentRoot => "./docs", :Port => 8000).start'
