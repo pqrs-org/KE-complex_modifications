@@ -22,13 +22,11 @@ make
 
 ### Note
 
-`docs/index.html` does not work properly if you open it via `file://...`
-
-Launch a local web server by `make server` in terminal and open http://localhost:8000 .
-
+`docs/index.html` does not work properly if you open it via `file://...`.<br />
+Launch a local web server by `make server` in terminal and open http://localhost:8000 .<br />
 (You can quit the local web server by the `control-c` shortcut in terminal.)
 
-Karabiner-Elements cannot import the json from the local web server due to the no https connection between local web server.
+Karabiner-Elements cannot import the json from the local web server due to the no https connection between local web server.<br />
 Please import the json via file copy. (See Local testing section.)
 
 ## complex_modifications documents
