@@ -17,8 +17,19 @@ make
 ## Add rules
 
 1. Put a file to [src/json](https://github.com/pqrs-org/KE-complex_modifications/tree/master/src/json). (or [docs/json](https://github.com/pqrs-org/KE-complex_modifications/tree/master/docs/json) directly)
-2. Add `file_import_panel` to [src/index.html.erb](https://github.com/pqrs-org/KE-complex_modifications/tree/master/src/index.html.erb).
+2. Add new json to [docs/groups.json](https://github.com/pqrs-org/KE-complex_modifications/tree/master/docs/groups.json).
 3. Run `make` in terminal.
+
+### Note
+
+`docs/index.html` does not work properly if you open it via `file://...`
+
+Launch a local web server by `make server` in terminal and open http://localhost:8000 .
+
+(You can quit the local web server by the `control-c` shortcut in terminal.)
+
+Karabiner-Elements cannot import the json from the local web server due to the no https connection between local web server.
+Please import the json via file copy. (See Local testing section.)
 
 ## complex_modifications documents
 
