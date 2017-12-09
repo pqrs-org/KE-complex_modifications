@@ -1,4 +1,4 @@
-/* -*- Mode: js2 -*- */
+'use strict';
 
 {
   let groups = [];
