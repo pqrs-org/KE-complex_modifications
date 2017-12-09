@@ -171,11 +171,15 @@
 
                 <%# -------------------------------------------------- %>
                 <%# Space-{a,e,r} to {⌥-any,⌘-any,⇧-any} %>
+                <%# Space-a to ⌘-a, if alone %>
+                <%# Space-e to ⌘-n, if alone %>
+                <%# Space-r to ⌘-r, if alone %>
                 <%# -------------------------------------------------- %>
                 {
                     "type": "basic",
                     "from": <%= from("a", [], ["any"]) %>,
                     "to": <%= to([["vk_none"], ["left_option"]]) %>,
+                    "to_if_alone": <%= to([["a", ["left_command"]]]) %>,
                     "conditions": [
                         { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
                     ]
@@ -184,6 +188,7 @@
                     "type": "basic",
                     "from": <%= from("e", [], ["any"]) %>,
                     "to": <%= to([["vk_none"], ["left_command"]]) %>,
+                    "to_if_alone": <%= to([["n", ["left_command"]]]) %>,
                     "conditions": [
                         { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
                     ]
@@ -192,6 +197,7 @@
                     "type": "basic",
                     "from": <%= from("r", [], ["any"]) %>,
                     "to": <%= to([["vk_none"], ["left_shift"]]) %>,
+                    "to_if_alone": <%= to([["r", ["left_command"]]]) %>,
                     "conditions": [
                         { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
                     ]
