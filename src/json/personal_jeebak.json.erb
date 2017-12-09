@@ -844,7 +844,7 @@
                 },
 
                 <%# -------------------------------------------------- %>
-                <%# Tab-r to ⌥-⌘-r [Used to "Resume Program" in JetBrains Debugger, ⌘-r otherwise] %>
+                <%# Tab-r to ⌥-⌘-r [Used to "Resume Program" in JetBrains Debugger, Hyper-r otherwise] %>
                 <%# -------------------------------------------------- %>
                 {
                     "type": "basic",
@@ -870,7 +870,7 @@
                         { "type": "variable_if", "name": "tab_modifier", "value": 1 }
                     ],
                     "from": <%= from("r", [], ["caps_lock"]) %>,
-                    "to": <%= to([["r", ["left_command"]]]) %>,
+                    "to": <%= to([["r", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
                     "conditions": [
                         { "type": "variable_if", "name": "tab_modifier", "value": 1 }
                     ]
