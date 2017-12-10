@@ -485,6 +485,14 @@
               "key_code": "left_option"
             }
           ],
+          "to_if_alone": [
+            {
+              "key_code": "a",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ],
           "conditions": [
             {
               "type": "variable_if",
@@ -511,6 +519,14 @@
               "key_code": "left_command"
             }
           ],
+          "to_if_alone": [
+            {
+              "key_code": "n",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ],
           "conditions": [
             {
               "type": "variable_if",
@@ -535,6 +551,14 @@
             },
             {
               "key_code": "left_shift"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "r",
+              "modifiers": [
+                "left_command"
+              ]
             }
           ],
           "conditions": [
@@ -929,7 +953,12 @@
               "value": 1
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "description": "TouchCursor Extended Mode [Space-{1-0,-,=} to {F1-F10,F11,F12}]",
+      "manipulators": [
         {
           "type": "basic",
           "from": {
@@ -2144,7 +2173,10 @@
             {
               "key_code": "r",
               "modifiers": [
-                "left_command"
+                "left_command",
+                "left_control",
+                "left_option",
+                "left_shift"
               ]
             }
           ]
@@ -3033,7 +3065,7 @@
       ]
     },
     {
-      "description": "MouseCursor Mode [D as Trigger Key] [Requires at least Karabiner-Elements-11.3.9]",
+      "description": "MouseCursor Mode [D as Trigger Key]",
       "manipulators": [
         {
           "type": "basic",
