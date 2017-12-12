@@ -16,9 +16,10 @@ make
 
 ## Add rules
 
-1. Put a file to [src/json](https://github.com/pqrs-org/KE-complex_modifications/tree/master/src/json). (or [docs/json](https://github.com/pqrs-org/KE-complex_modifications/tree/master/docs/json) directly)
-2. Add new json to [docs/groups.json](https://github.com/pqrs-org/KE-complex_modifications/tree/master/docs/groups.json).
-3. Run `make` in terminal.
+1. Put a `.erb` template file to [src/json](https://github.com/pqrs-org/KE-complex_modifications/tree/master/src/json). (Or put a `.json` file to [docs/json](https://github.com/pqrs-org/KE-complex_modifications/tree/master/docs/json) directly.)
+2. (Optional) Put extra description to [docs/extra_descriptions](https://github.com/pqrs-org/KE-complex_modifications/tree/master/docs/extra_descriptions).
+3. Add new json to [docs/groups.json](https://github.com/pqrs-org/KE-complex_modifications/tree/master/docs/groups.json).
+4. Run `make` in terminal.
 
 ### Note
 
