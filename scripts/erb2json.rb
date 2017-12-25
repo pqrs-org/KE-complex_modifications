@@ -128,6 +128,7 @@ def frontmost_application(type, app_aliases)
     '^com\.googlecode\.iterm2$',
     '^co\.zeit\.hyperterm$',
     '^co\.zeit\.hyper$',
+    '^io\.alacritty$',
   ]
 
   vi_bundle_identifiers = [
