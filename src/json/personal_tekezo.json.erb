@@ -569,7 +569,7 @@
             ]
         },
         {
-            "description": "Configurations for apps (rev 6)",
+            "description": "Configurations for apps (rev 7)",
             "manipulators": [
                 <%# -------------------------------------------------- %>
                 <%# remote_desktop, virtual_machine %>
@@ -647,6 +647,11 @@
                 {
                     "type": "basic",
                     "from": <%= from("o", ["command"], ["any"]) %>,
+                    "conditions": [ <%= frontmost_application_if("terminal") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("f", ["command"], ["any"]) %>,
                     "conditions": [ <%= frontmost_application_if("terminal") %> ]
                 },
                 {
