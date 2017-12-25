@@ -1475,7 +1475,7 @@
       ]
     },
     {
-      "description": "Configurations for apps (rev 6)",
+      "description": "Configurations for apps (rev 7)",
       "manipulators": [
         {
           "type": "basic",
@@ -1954,7 +1954,34 @@
                 "^com\\.apple\\.Terminal$",
                 "^com\\.googlecode\\.iterm2$",
                 "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$"
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$"
               ]
             }
           ]
@@ -1999,7 +2026,8 @@
                 "^com\\.apple\\.Terminal$",
                 "^com\\.googlecode\\.iterm2$",
                 "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$"
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$"
               ]
             }
           ]
@@ -2145,7 +2173,8 @@
                 "^com\\.apple\\.Terminal$",
                 "^com\\.googlecode\\.iterm2$",
                 "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$"
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$"
               ]
             }
           ]
@@ -2183,7 +2212,8 @@
                 "^com\\.apple\\.Terminal$",
                 "^com\\.googlecode\\.iterm2$",
                 "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$"
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$"
               ]
             }
           ]
