@@ -1,5 +1,5 @@
 {
-  "title": "Prevent unintended command-q",
+  "title": "Prevent unintended command-q (rev 2)",
   "rules": [
     {
       "description": "Quit application by pressing command-q twice",
@@ -70,6 +70,34 @@
               }
             ]
           }
+        }
+      ]
+    },
+    {
+      "description": "Quit application by holding command-q (Available with the latest beta version (Karabiner-Elements 11.4.4 or later)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to_if_held_down": [
+            {
+              "key_code": "q",
+              "modifiers": [
+                "left_command"
+              ],
+              "repeat": false
+            }
+          ]
         }
       ]
     },
