@@ -1,0 +1,50 @@
+{
+  "title": "Mouse buttons 3,4,5 -> screenshot, paste, copy",
+  "rules": [
+    {
+      "description": "Maps button 5 to copy, 4 to paste, and 3 to screenshot to clipboard",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button4"
+          },
+          "to": [
+            {
+              "key_code": "v",
+              "modifiers": "left_command"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button5"
+          },
+          "to": [
+            {
+              "key_code": "c",
+              "modifiers": "left_command"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button3"
+          },
+          "to": [
+            {
+              "key_code": "4",
+              "modifiers": [
+                "left_command",
+                "left_control",
+                "left_shift"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]  
+} 
