@@ -1,0 +1,53 @@
+{
+  "title": "Personal rules (@funck)",
+  "rules": [
+    {
+      "description": "Holding both Left Option+Left Control will map to Right Option + Right Shift",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_option",
+            "modifiers": {
+              "mandatory": [
+                "left_control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_shift",
+              "modifiers": [
+                "right_command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Holding both Left Option+Left Control will map to Right Option + Right Shift, 2 (enable both)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_control",
+            "modifiers": {
+              "mandatory": [
+                "left_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_shift",
+              "modifiers": [
+                "right_command"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
