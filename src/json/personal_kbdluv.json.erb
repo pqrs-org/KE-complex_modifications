@@ -1,0 +1,61 @@
+{
+    "title": "Personal rules (@kbdluv)",
+    "rules": [
+        {
+            "description": "Post Escape if Command_L is pressed alone.",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("left_command", [], ["any"]) %>,
+                    "to": [{"key_code": "left_command", "lazy": true}],
+                    "to_if_alone": <%= to([["escape"]]) %>
+                }
+            ]
+        },
+        {
+            "description": "Post Escape if Command_R is pressed alone.",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("right_command", [], ["any"]) %>,
+                    "to": [{"key_code": "right_command", "lazy": true}],
+                    "to_if_alone": <%= to([["escape"]]) %>
+                }
+            ]
+         },
+        {
+            "description": "Post left_control if Spacebar is held down.",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("spacebar", [], ["any"]) %>,
+                    "to_if_alone": <%= to([["spacebar"]]) %>,
+                    "to": [{"key_code": "left_control", "lazy": true}]
+                }
+            ]
+         },
+        {
+            "description": "Post grave_accent_and_tilde if Caps Lock is pressed alone, left_shift if held down.",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("caps_lock", [], ["any"]) %>,
+                    "to": [{"key_code": "left_shift", "lazy": true}],
+                    "to_if_alone": <%= to([["grave_accent_and_tilde", "spacebar"]]) %>
+                }
+            ]
+        },
+        {
+            "description": "Post return_or_enter if Enter is pressed alone, right_shift if held down.",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("return_or_enter", [], ["any"]) %>,
+                    "to": [{"key_code": "right_shift", "lazy": true}],
+                    "to_if_alone": <%= to([["return_or_enter", "spacebar"]]) %>
+                }
+            ]
+        }
+
+    ]
+}
