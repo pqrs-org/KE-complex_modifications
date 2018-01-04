@@ -2,11 +2,11 @@
   "title": "Personal rules (@funck)",
     "rules": [
         {
-            "description": "Map left_option to right_option",
+            "description": "Map left_control to right_option",
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("left_option", [], []) %>,
+                    "from": <%= from("left_control", [], []) %>,
                     "to": <%= to([["right_option", []]]) %>
                 }
             ]
@@ -16,7 +16,7 @@
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("left_option", ["left_control"], []) %>,
+                    "from": <%= from("left_option", ["right_option"], []) %>,
                     "to": <%= to([["right_shift", ["right_option"]]]) %>
                 }
             ]
@@ -26,7 +26,7 @@
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("left_control", ["right_option"], []) %>,
+                    "from": <%= from("left_control", ["left_option"], []) %>,
                     "to": <%= to([["right_shift", ["right_option"]]]) %>
                 }
             ]
