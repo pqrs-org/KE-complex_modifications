@@ -1,0 +1,35 @@
+{
+  "title": "Personal rules (@funck)",
+    "rules": [
+        {
+            "description": "Map left_option to right_option",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("left_option", [], []) %>,
+                    "to": <%= to([["right_option()", []]]) %>
+                }
+            ]
+        },
+        {
+            "description": "Holding both Left Option+Left Control will map to Right Option + Right Shift",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("left_option", ["left_control"], []) %>,
+                    "to": <%= to([["right_shift", ["right_option"]]]) %>
+                }
+            ]
+        },
+        {
+            "description": "Holding both Left Option+Left Control will map to Right Option + Right Shift, 2 (enable both)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("left_control", ["left_option"], []) %>,
+                    "to": <%= to([["right_shift", ["right_option"]]]) %>
+                }
+            ]
+        }
+    ]
+}
