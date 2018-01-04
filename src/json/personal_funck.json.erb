@@ -6,7 +6,7 @@
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("left_control", [], []) %>,
+                    "from": <%= from("left_control", [], ["caps_lock"]) %>,
                     "to": <%= to([["right_option", []]]) %>
                 }
             ]
@@ -16,7 +16,7 @@
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("left_option", ["right_option"], []) %>,
+                    "from": <%= from("left_option", ["right_option"], ["caps_lock"]) %>,
                     "to": <%= to([["right_shift", ["right_option"]]]) %>
                 }
             ]
@@ -26,7 +26,7 @@
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("left_control", ["left_option"], []) %>,
+                    "from": <%= from("left_control", ["left_option"], ["caps_lock"]) %>,
                     "to": <%= to([["right_shift", ["right_option"]]]) %>
                 }
             ]
