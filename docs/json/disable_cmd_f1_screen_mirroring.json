@@ -1,0 +1,27 @@
+{
+    "title": "Disable Cmd+F1 Toggle Screen Mirroring",
+    "rules": [
+        {
+            "description": "Disable Cmd+F1 Toggle Screen Mirroring Shortcut (map to display_brightness_decrement), see https://discussions.apple.com/thread/2793101",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "description": "",
+                    "from": {
+                        "key_code": "f1",
+                        "modifiers": {
+                            "mandatory": [
+                                "command"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "display_brightness_decrement"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
