@@ -1,112 +1,122 @@
-'use strict';
+'use strict'
 
 {
-  let groups = [];
-  let fetchTotalNumber = 0;
-  let fetchCount = 0;
+  let groups = []
+  let fetchTotalNumber = 0
+  let fetchCount = 0
 
   Vue.directive('scroll-to-hash', {
-    componentUpdated: function(el) {
+    componentUpdated (el) {
       if (groups.length > 0) {
         if (fetchTotalNumber > 0 && fetchTotalNumber == fetchCount) {
-          let hash = location.hash;
+          const hash = window.location.hash
           if (hash) {
-            location.href = '#';
-            location.href = hash;
+            window.location.href = '#'
+            window.location.href = hash
 
-            let id = hash.substring(1);
-            $('#' + id + ' .collapse').collapse('show');
+            const id = hash.substring(1)
+            $('#' + id + ' .collapse').collapse('show')
           }
         }
       }
     }
-  });
+  })
 
-  let mainContainer = new Vue({
+  const baseName = (path) => {
+    let base = path.substring(path.lastIndexOf('/') + 1)
+    if (base.lastIndexOf(".") != -1) {
+      base = base.substring(0, base.lastIndexOf("."))
+    }
+    return base
+  }
+
+  const mainContainer = new Vue({
     el: '#main-container',
     data: {
-      groups: groups
-    }
-  });
-
-  let baseName = function(path) {
-    let base = path.substring(path.lastIndexOf('/') + 1);
-    if (base.lastIndexOf(".") != -1) {
-      base = base.substring(0, base.lastIndexOf("."));
-    }
-    return base;
-  };
-
-  let jsonUrl = function(path) {
-    let url = encodeURIComponent(location.href.replace(/[^/]+$/, '') + path);
-    return 'karabiner://karabiner/assets/complex_modifications/import?url=' + url;
-  };
-
-  let fetchFile = function(path, groupIndex, fileIndex) {
-    axios.get(path).then(function(response) {
-      ++fetchCount;
-
-      let f = groups[groupIndex].files[fileIndex];
-      if (f === undefined) {
-        f = {};
+      groups: groups,
+      baseName: baseName(window.location.pathname)
+    },
+    methods: {
+      showDescription (id) {
+        $('#' + id + ' .collapse').collapse('show')
       }
-      f.id = baseName(path);
-      f.title = response.data.title;
-      f.importUrl = jsonUrl(path);
-      f.rules = [];
+    }
+  })
+
+  const jsonUrl = (path) => {
+    const url = encodeURIComponent(window.location.href.replace(/[^/]+$/, '') + path)
+    return 'karabiner://karabiner/assets/complex_modifications/import?url=' + url
+  }
+
+  const fetchFile = (path, groupIndex, fileIndex) => {
+    axios.get(path).then(function(response) {
+      ++fetchCount
+
+      let f = groups[groupIndex].files[fileIndex]
+      if (f === undefined) {
+        f = {}
+      }
+      f.id = baseName(path)
+      f.title = response.data.title
+      f.importUrl = jsonUrl(path)
+      f.rules = []
 
       response.data.rules.forEach(function(r) {
-        f.rules.push(r.description);
-      });
+        f.rules.push(r.description)
+      })
 
-      Vue.set(groups[groupIndex].files, fileIndex, f);
+      Vue.set(groups[groupIndex].files, fileIndex, f)
     }).catch(function(error) {
-      console.log(error);
-    });
-  };
+      console.log(error)
+    })
+  }
 
-  let fetchExtraDescription = function(path, groupIndex, fileIndex) {
+  const fetchExtraDescription = function(path, groupIndex, fileIndex) {
     axios.get(path).then(function(response) {
-      ++fetchCount;
+      ++fetchCount
 
-      let f = groups[groupIndex].files[fileIndex];
+      let f = groups[groupIndex].files[fileIndex]
       if (f === undefined) {
-        f = {};
+        f = {}
       }
-      f.extraDescription = response.data;
+      f.extraDescription = response.data
 
-      Vue.set(groups[groupIndex].files, fileIndex, f);
+      Vue.set(groups[groupIndex].files, fileIndex, f)
     }).catch(function(error) {
-      console.log(error);
-    });
-  };
+      console.log(error)
+    })
+  }
 
   axios.get('groups.json')
     .then(function(response) {
-      let type = document.getElementById('main-container').dataset.type;
+      let type = baseName(window.location.pathname)
+      if (type === '') {
+        type = 'index'
+      }
+
       response.data[type].forEach(function(group, groupIndex) {
         let g = {
           id: group.id,
           name: group.name,
           files: []
-        };
-        g.files.length = group.files.length;
-        g.files.fill(undefined);
-        groups.push(g);
+        }
+        g.files.length = group.files.length
+        g.files.fill(undefined)
+        groups.push(g)
 
         group.files.forEach(function(file, fileIndex) {
           if (file.path) {
-            ++fetchTotalNumber;
-            fetchFile(file.path, groupIndex, fileIndex);
+            ++fetchTotalNumber
+            fetchFile(file.path, groupIndex, fileIndex)
           }
           if (file.extra_description_path) {
-            ++fetchTotalNumber;
-            fetchExtraDescription(file.extra_description_path, groupIndex, fileIndex);
+            ++fetchTotalNumber
+            fetchExtraDescription(file.extra_description_path, groupIndex, fileIndex)
           }
-        });
-      });
+        })
+      })
     })
     .catch(function(error) {
-      console.log(error);
-    });
+      console.log(error)
+    })
 }
