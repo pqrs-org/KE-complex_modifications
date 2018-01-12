@@ -5,60 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Karabiner-Elements complex_modifications rules</title>
-    <link href="assets/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous" />
     <link href="css/main.css" rel="stylesheet" />
+    <script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
   </head>
   <body>
-    <nav class="navbar navbar-inverse">
-      <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="./">Karabiner-Elements complex_modifications rules</a>
-        </div>
-      </div>
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="./">Karabiner-Elements complex_modifications rules</a>
+
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/pqrs-org/KE-complex_modifications">GitHub</a>
+        </li>
+      </ul>
     </nav>
 
-    <div class="container" style="margin-bottom: 100px" id="main-container" data-type="index" v-scroll-to-hash>
-      <div class="text-right" style="margin-bottom: 30px">
-        <a href="https://github.com/pqrs-org/KE-complex_modifications">GitHub</a>
-      </div>
-
+    <div class="container" style="margin-top: 2rem; margin-bottom: 10rem;" id="main-container" v-scroll-to-hash>
       <ul class="toc list-group">
         <li class="list-group-item list-group-item-info">Table of Contents</li>
         <li class="list-group-item" v-for="group in groups" v-cloak="1">
-          <span class="badge">{{ group.files.length }}</span>
-          <a v-bind:href="'#' + group.id">{{ group.name }}</a>
+          <a :href="'#' + group.id">{{ group.name }}</a>
+          <span class="badge badge-pill badge-secondary float-right">{{ group.files.length }}</span>
         </li>
       </ul>
 
-      <div class="text-left" style="margin-bottom: 30px">
-        <a href="#" onclick="$('.collapse').collapse('toggle'); return false;">Expand/Collapse All</a>
+      <div style="margin-top: 1rem; margin-bottom: 3rem">
+        <a href="#" @click="$('.collapse').collapse('toggle'); return false;">Expand/Collapse All</a>
       </div>
 
-      <div class="panel-outer" v-for="group in groups" v-bind:id="group.id" v-cloak="1">
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h3 class="panel-title">{{ group.name }}</h3>
-          </div>
-          <div class="panel-body">
+      <div class="card-outer" v-for="group in groups" :id="group.id" v-cloak="1">
+        <div class="card border-info">
+          <div class="card-header bg-info text-white">{{ group.name }}</div>
+          <div class="card-body">
             <div v-for="file in group.files">
-              <div class="panel-outer" v-if="file" v-bind:id="file.id">
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <a v-bind:href="'#' + file.id"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></a>
-                    <a
-                      class="panel-title btn btn-link"
-                      role="button"
-                      data-toggle="collapse"
-                      aria-expanded="false"
-                      v-bind:aria-controls="file.id + '-list-group'"
-                      v-bind:href="'#' + file.id + '-list-group'" >
-                      {{ file.title }}
-                    </a>
-                    <a class="btn btn-primary btn-sm pull-right" v-bind:href="file.importUrl">Import</a>
+              <div class="card-outer" v-if="file" :id="file.id">
+                <div class="card">
+                  <div class="card-header">
+                    <a :href="'#' + file.id" @click="showDescription(file.id)"><i class="fas fa-link"></i></a>
+                    <a class="btn btn-link" role="button" style="width: calc(100% - 100px); text-align: left; color: black;" data-toggle="collapse" aria-expanded="false" :aria-controls="file.id + '-list-group'" :href="'#' + file.id + '-list-group'" >{{ file.title }}</a>
+                    <a class="btn btn-primary btn-sm float-right" :href="file.importUrl">Import</a>
                   </div>
-                  <div class="list-group collapse" v-bind:id="file.id + '-list-group'">
-                    <div class="list-group-item" v-for="rule in file.rules">{{ rule }}</div>
-                    <div class="list-group-item" v-if="file.extraDescription" v-html="file.extraDescription"></div>
+                  <div class="collapse" :id="file.id + '-list-group'">
+                    <div class="list-group list-group-flush">
+                      <div class="list-group-item" v-for="rule in file.rules">{{ rule }}</div>
+                      <div class="list-group-item" v-if="file.extraDescription" v-html="file.extraDescription"></div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -67,15 +58,17 @@
         </div>
       </div>
 
-      <hr />
-      <a href="example.html">Other examples</a>
+      <div v-if="baseName != 'example'">
+        <hr />
+        <a href="example.html">Other examples</a>
+      </div>
     </div>
-  </div>
 
-  <script src="assets/jquery-3.2.1.min.js"></script>
-  <script src="assets/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-  <script src="assets/vue/vue.min.js"></script>
-  <script src="assets/axios/axios.min.js"></script>
-  <script src="js/main.js"></script>
-</body>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>
