@@ -1,5 +1,5 @@
 {
-  "title": "Vi Mode (rev 4.2)",
+  "title": "Vi Mode (rev 4.3)",
   "rules": [
     {
       "description": "Vi Mode [S as Trigger Key]",
@@ -42,7 +42,11 @@
             "key_code": "h",
             "modifiers": {
               "optional": [
-                "caps_lock"
+                "caps_lock",
+                "command",
+                "option",
+                "shift",
+                "fn"
               ]
             }
           },
@@ -70,7 +74,11 @@
             "key_code": "j",
             "modifiers": {
               "optional": [
-                "caps_lock"
+                "caps_lock",
+                "command",
+                "option",
+                "shift",
+                "fn"
               ]
             }
           },
@@ -98,7 +106,11 @@
             "key_code": "k",
             "modifiers": {
               "optional": [
-                "caps_lock"
+                "caps_lock",
+                "command",
+                "option",
+                "shift",
+                "fn"
               ]
             }
           },
@@ -126,7 +138,11 @@
             "key_code": "l",
             "modifiers": {
               "optional": [
-                "caps_lock"
+                "caps_lock",
+                "command",
+                "option",
+                "shift",
+                "fn"
               ]
             }
           },
@@ -161,130 +177,6 @@
           "to": [
             {
               "key_code": "fn"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "vi_mode",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "vi_visual_mode",
-              "value": 0
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "h",
-            "modifiers": {
-              "mandatory": [
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "home"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "vi_mode",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "vi_visual_mode",
-              "value": 0
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "j",
-            "modifiers": {
-              "mandatory": [
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "page_down"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "vi_mode",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "vi_visual_mode",
-              "value": 0
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "k",
-            "modifiers": {
-              "mandatory": [
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "page_up"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "vi_mode",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "vi_visual_mode",
-              "value": 0
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "l",
-            "modifiers": {
-              "mandatory": [
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "end"
             }
           ],
           "conditions": [
@@ -2036,7 +1928,11 @@
             "key_code": "h",
             "modifiers": {
               "optional": [
-                "caps_lock"
+                "caps_lock",
+                "command",
+                "option",
+                "shift",
+                "fn"
               ]
             }
           },
@@ -2064,7 +1960,11 @@
             "key_code": "j",
             "modifiers": {
               "optional": [
-                "caps_lock"
+                "caps_lock",
+                "command",
+                "option",
+                "shift",
+                "fn"
               ]
             }
           },
@@ -2092,7 +1992,11 @@
             "key_code": "k",
             "modifiers": {
               "optional": [
-                "caps_lock"
+                "caps_lock",
+                "command",
+                "option",
+                "shift",
+                "fn"
               ]
             }
           },
@@ -2120,7 +2024,11 @@
             "key_code": "l",
             "modifiers": {
               "optional": [
-                "caps_lock"
+                "caps_lock",
+                "command",
+                "option",
+                "shift",
+                "fn"
               ]
             }
           },
@@ -2155,130 +2063,6 @@
           "to": [
             {
               "key_code": "fn"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "vi_mode",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "vi_visual_mode",
-              "value": 0
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "h",
-            "modifiers": {
-              "mandatory": [
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "home"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "vi_mode",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "vi_visual_mode",
-              "value": 0
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "j",
-            "modifiers": {
-              "mandatory": [
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "page_down"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "vi_mode",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "vi_visual_mode",
-              "value": 0
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "k",
-            "modifiers": {
-              "mandatory": [
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "page_up"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "vi_mode",
-              "value": 1
-            },
-            {
-              "type": "variable_if",
-              "name": "vi_visual_mode",
-              "value": 0
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "l",
-            "modifiers": {
-              "mandatory": [
-                "fn"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "end"
             }
           ],
           "conditions": [
