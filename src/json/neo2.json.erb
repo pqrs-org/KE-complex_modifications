@@ -18,7 +18,7 @@
                     "left_command",
                 ],
                 from_optional_modifiers: [
-                    "shift", "option", "control", "command",
+                    "shift", "option", "control", "command", "caps",
                 ]
             ) %>
         },
@@ -39,7 +39,7 @@
                     "right_command",
                 ],
                 from_optional_modifiers: [
-                    "shift", "option", "control", "command",
+                    "shift", "option", "control", "command", "caps",
                 ]
             ) %>
         },
@@ -97,24 +97,24 @@
                     source_keys_list: l4_mappings.keys,
                     dest_keys_list: l4_mappings.values,
                     from_mandatory_modifiers: ["right_command"],
-                    from_optional_modifiers: ["shift"]
+                    from_optional_modifiers: ["shift", "caps_lock"]
                 ) + each_key(
                     source_keys_list: ["n", "slash"],
                     dest_keys_list: ["semicolon", "slash"],
                     from_mandatory_modifiers: ["right_command"],
-                    from_optional_modifiers: ["shift"],
+                    from_optional_modifiers: ["shift", "caps_lock"],
                     to_modifiers: ["left_option"]
                 ) + each_key(
                     source_keys_list: ["b", "c", "a", "g"],
                     dest_keys_list: ["b", "w", "left_arrow", "right_arrow"],
                     from_mandatory_modifiers: ["right_command"],
-                    from_optional_modifiers: ["shift"],
+                    from_optional_modifiers: ["shift", "caps_lock"],
                     to_modifiers: ["left_command"]
                 ) + each_key(
                     source_keys_list: l4_dead_key_mappings,
                     dest_keys_list: l4_dead_key_mappings,
                     from_mandatory_modifiers: ["right_command"],
-                    to_modifiers: ["left_shift"],
+                    to_modifiers: ["left_shift", "caps_lock"],
                     to_pre_events: [["z", ["left_option", "left_shift"]]]
                 )
             ) %>
