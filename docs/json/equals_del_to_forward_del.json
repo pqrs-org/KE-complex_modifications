@@ -1,0 +1,55 @@
+{
+  "title": "Equals + Delete to Forward Delete",
+  "rules": [
+    {
+      "description": "= + Del to Forward Del",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "equal_sign"
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "equals_for_forward_delete",
+                "value": 1
+              }
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "equal_sign"
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "equals_for_forward_delete",
+                "value": 0
+              }
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "delete_or_backspace"
+          },
+          "to": [
+            {
+              "key_code": "delete_forward"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "equals_for_forward_delete",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
