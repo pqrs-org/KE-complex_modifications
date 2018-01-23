@@ -350,7 +350,7 @@
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("l", ["command"], ["any"]) %>,
+                    "from": <%= from("l", ["command"], []) %>,
                     "to": <%= to([["power", ["left_control", "left_shift"]]]) %>,
                     "conditions": [
                         <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
