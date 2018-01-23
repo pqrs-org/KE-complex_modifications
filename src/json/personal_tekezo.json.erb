@@ -751,13 +751,18 @@
             ]
         },
         {
-            "description": "Change tab to command+`",
+            "description": "Miscellaneous configuration @tekezo (rev 1)",
             "manipulators": [
                 {
                     "type": "basic",
                     "from": <%= from("tab", [], ["any"]) %>,
                     "to": <%= to([["left_command"]]) %>,
                     "to_if_alone": <%= to([["grave_accent_and_tilde", ["left_command"]]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("f18", [], ["any"]) %>,
+                    "to": <%= to([["spacebar"]]) %>
                 }
             ]
         }
