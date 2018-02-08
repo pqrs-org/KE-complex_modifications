@@ -85,6 +85,14 @@ def each_key(source_keys_list: :source_keys_list, dest_keys_list: :dest_keys_lis
 end
 
 def frontmost_application(type, app_aliases)
+  activity_monitor_bundle_identifiers = [
+    '^com\.apple\.ActivityMonitor$',
+  ]
+
+  adium_bundle_identifiers = [
+    '^com\.adiumX\.adiumX$',
+  ]
+
   browser_bundle_identifiers = [
     '^org\.mozilla\.firefox$',
     '^com\.google\.Chrome$',
@@ -168,8 +176,14 @@ def frontmost_application(type, app_aliases)
 
   app_aliases.each do |app_alias|
     case app_alias
-    when 'terminal'
-      bundle_identifiers.concat(terminal_bundle_identifiers)
+    when 'activity_monitor'
+      bundle_identifiers.concat(activity_monitor_bundle_identifiers)
+
+    when 'adium'
+      bundle_identifiers.concat(adium_bundle_identifiers)
+
+    when 'browser'
+      bundle_identifiers.concat(browser_bundle_identifiers)
 
     when 'emacs'
       bundle_identifiers.concat(emacs_bundle_identifiers)
@@ -192,14 +206,14 @@ def frontmost_application(type, app_aliases)
     when 'remote_desktop'
       bundle_identifiers.concat(remote_desktop_bundle_identifiers)
 
+    when 'terminal'
+      bundle_identifiers.concat(terminal_bundle_identifiers)
+
     when 'vi'
       bundle_identifiers.concat(vi_bundle_identifiers)
 
     when 'virtual_machine'
       bundle_identifiers.concat(virtual_machine_bundle_identifiers)
-
-    when 'browser'
-      bundle_identifiers.concat(browser_bundle_identifiers)
 
     when 'xcode'
       bundle_identifiers.concat(xcode_bundle_identifiers)
