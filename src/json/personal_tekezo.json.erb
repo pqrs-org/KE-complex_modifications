@@ -2,7 +2,7 @@
     "title": "Personal rules (@tekezo)",
     "rules": [
         {
-            "description": "Launcher Mode v3 and Mouse Keys Mode v3 (rev 11)",
+            "description": "Launcher Mode v3 and Mouse Keys Mode v3 (rev 12)",
             "manipulators": [
 
                 <%# -------------------------------------------------- %>
@@ -359,6 +359,17 @@
                     "from": <%= from("w", ["left_shift"], ["caps_lock"]) %>,
                     "to": [
                         { "shell_command": "open -a 'Microsoft Word.app'" }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "launcher_mode_v3", "value": 1 }
+                    ],
+                    "from": <%= from("e", ["left_shift"], ["caps_lock"]) %>,
+                    "to": [
+                        <%# Focus Eclipse Java if running.  %>
+                        { "shell_command": "[ `ps -x |grep /eclipse | grep -v grep | wc -l` -ne 0 ] && open -a 'Eclipse Java.app'" }
                     ]
                 },
                 {
