@@ -2,7 +2,7 @@
   "title": "Personal rules (@tekezo)",
   "rules": [
     {
-      "description": "Launcher Mode v3 and Mouse Keys Mode v3 (rev 11)",
+      "description": "Launcher Mode v3 and Mouse Keys Mode v3 (rev 12)",
       "manipulators": [
         {
           "type": "basic",
@@ -812,6 +812,32 @@
             }
           ],
           "from": {
+            "key_code": "e",
+            "modifiers": {
+              "mandatory": [
+                "left_shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "[ `ps -x |grep /eclipse | grep -v grep | wc -l` -ne 0 ] && open -a 'Eclipse Java.app'"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "launcher_mode_v3",
+              "value": 1
+            }
+          ],
+          "from": {
             "key_code": "open_bracket",
             "modifiers": {
               "mandatory": [
@@ -1481,7 +1507,7 @@
       ]
     },
     {
-      "description": "Configurations for apps (rev 7)",
+      "description": "Configurations for apps (rev 8)",
       "manipulators": [
         {
           "type": "basic",
@@ -2130,6 +2156,50 @@
                 "^org\\.mozilla\\.firefox$",
                 "^com\\.google\\.Chrome$",
                 "^com\\.apple\\.Safari$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.ActivityMonitor$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "w",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.adiumX\\.adiumX$"
               ]
             }
           ]

@@ -2,7 +2,7 @@
     "title": "Personal rules (@tekezo)",
     "rules": [
         {
-            "description": "Launcher Mode v3 and Mouse Keys Mode v3 (rev 11)",
+            "description": "Launcher Mode v3 and Mouse Keys Mode v3 (rev 12)",
             "manipulators": [
 
                 <%# -------------------------------------------------- %>
@@ -366,6 +366,17 @@
                     "conditions": [
                         { "type": "variable_if", "name": "launcher_mode_v3", "value": 1 }
                     ],
+                    "from": <%= from("e", ["left_shift"], ["caps_lock"]) %>,
+                    "to": [
+                        <%# Focus Eclipse Java if running.  %>
+                        { "shell_command": "[ `ps -x |grep /eclipse | grep -v grep | wc -l` -ne 0 ] && open -a 'Eclipse Java.app'" }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "launcher_mode_v3", "value": 1 }
+                    ],
                     "from": <%= from("open_bracket", ["left_shift"], ["caps_lock"]) %>,
                     "to": <%= to([["f17"]]) %>
                 },
@@ -571,7 +582,7 @@
             ]
         },
         {
-            "description": "Configurations for apps (rev 7)",
+            "description": "Configurations for apps (rev 8)",
             "manipulators": [
                 <%# -------------------------------------------------- %>
                 <%# remote_desktop, virtual_machine %>
@@ -688,6 +699,22 @@
                     "from": <%= from("e", ["left_control"], ["caps_lock", "shift"]) %>,
                     "to": <%= to([["right_arrow", ["left_command"]]]) %>,
                     "conditions": [ <%= frontmost_application_if("browser") %> ]
+                },
+
+                <%# -------------------------------------------------- %>
+                <%# others %>
+                <%# -------------------------------------------------- %>
+
+                {
+                    "type": "basic",
+                    "from": <%= from("q", ["command"], ["caps_lock"]) %>,
+                    "conditions": [ <%= frontmost_application_if("activity_monitor") %> ]
+                },
+
+                {
+                    "type": "basic",
+                    "from": <%= from("w", ["command"], ["caps_lock"]) %>,
+                    "conditions": [ <%= frontmost_application_if("adium") %> ]
                 }
             ]
         },
