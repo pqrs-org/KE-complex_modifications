@@ -87,7 +87,7 @@
             ]
         },
         {
-            "description": "Emacs key bindings [control+keys] (rev 8)",
+            "description": "Emacs key bindings [control+keys] (rev 9)",
             "manipulators": [
                 {
                     "type": "basic",
@@ -180,6 +180,18 @@
                     "from": <%= from("e", ["control"], ["caps_lock", "shift"]) %>,
                     "to": <%= to([["end"]]) %>,
                     "conditions": [ <%= frontmost_application_if("microsoft_office") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("a", ["control"], ["caps_lock", "shift"]) %>,
+                    "to": <%= to([["left_arrow", ["left_command"]]]) %>,
+                    "conditions": [ <%= frontmost_application_if("eclipse") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("e", ["control"], ["caps_lock", "shift"]) %>,
+                    "to": <%= to([["right_arrow", ["left_command"]]]) %>,
+                    "conditions": [ <%= frontmost_application_if("eclipse") %> ]
                 }
             ]
         },
