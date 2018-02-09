@@ -99,6 +99,10 @@ def frontmost_application(type, app_aliases)
     '^com\.apple\.Safari$',
   ]
 
+  eclipse_bundle_identifiers = [
+    '^org\.eclipse\.platform\.ide$',
+  ]
+
   emacs_bundle_identifiers = [
     '^org\.gnu\.Emacs$',
     '^org\.gnu\.AquamacsEmacs$',
@@ -184,6 +188,9 @@ def frontmost_application(type, app_aliases)
 
     when 'browser'
       bundle_identifiers.concat(browser_bundle_identifiers)
+
+    when 'eclipse'
+      bundle_identifiers.concat(eclipse_bundle_identifiers)
 
     when 'emacs'
       bundle_identifiers.concat(emacs_bundle_identifiers)
