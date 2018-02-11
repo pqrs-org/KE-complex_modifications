@@ -2468,7 +2468,7 @@
       ]
     },
     {
-      "description": "Miscellaneous configuration @tekezo (rev 1)",
+      "description": "Miscellaneous configuration @tekezo (rev 2)",
       "manipulators": [
         {
           "type": "basic",
@@ -2507,6 +2507,42 @@
           "to": [
             {
               "key_code": "spacebar"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "escape"
+              },
+              {
+                "key_code": "1"
+              }
+            ]
+          },
+          "to": [
+            {
+              "consumer_key_code": "display_brightness_decrement"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "escape"
+              },
+              {
+                "key_code": "2"
+              }
+            ]
+          },
+          "to": [
+            {
+              "consumer_key_code": "display_brightness_increment"
             }
           ]
         }
