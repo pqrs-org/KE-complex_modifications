@@ -2,8 +2,27 @@
   "title": "Personal rules (@tekezo)",
   "rules": [
     {
-      "description": "Launcher Mode v3 and Mouse Keys Mode v3 (rev 12)",
+      "description": "Launcher Mode v3 and Mouse Keys Mode v3 (rev 13)",
       "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "spacebar"
+            }
+          ]
+        },
         {
           "type": "basic",
           "from": {
@@ -923,7 +942,7 @@
           "to": [
             {
               "mouse_key": {
-                "horizontal_wheel": -32
+                "horizontal_wheel": 32
               }
             }
           ],
@@ -956,7 +975,7 @@
           "to": [
             {
               "mouse_key": {
-                "vertical_wheel": -32
+                "vertical_wheel": 32
               }
             }
           ],
@@ -989,7 +1008,7 @@
           "to": [
             {
               "mouse_key": {
-                "vertical_wheel": 32
+                "vertical_wheel": -32
               }
             }
           ],
@@ -1022,7 +1041,7 @@
           "to": [
             {
               "mouse_key": {
-                "horizontal_wheel": 32
+                "horizontal_wheel": -32
               }
             }
           ],

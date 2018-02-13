@@ -2,13 +2,18 @@
     "title": "Personal rules (@tekezo)",
     "rules": [
         {
-            "description": "Launcher Mode v3 and Mouse Keys Mode v3 (rev 12)",
+            "description": "Launcher Mode v3 and Mouse Keys Mode v3 (rev 13)",
             "manipulators": [
 
                 <%# -------------------------------------------------- %>
                 <%# Change spacebar,left_command,right_command %>
                 <%# -------------------------------------------------- %>
 
+                {
+                    "type": "basic",
+                    "from": <%= from("spacebar", ["option"], ["any"]) %>,
+                    "to": <%= to([["spacebar"]]) %>
+                },
                 {
                     "type": "basic",
                     "from": <%= from("spacebar", [], ["any"]) %>,
@@ -418,7 +423,7 @@
                 {
                     "type": "basic",
                     "from": <%= from("h", ["left_shift"], ["any"]) %>,
-                    "to": [ { "mouse_key": { "horizontal_wheel": -32 } } ],
+                    "to": [ { "mouse_key": { "horizontal_wheel": 32 } } ],
                     "conditions": [
                         { "type": "variable_if", "name": "mouse_keys_mode_v3", "value": 1 },
                         { "type": "variable_if", "name": "mouse_keys_mode_v3_scroll", "value": 1 }
@@ -427,15 +432,6 @@
                 {
                     "type": "basic",
                     "from": <%= from("j", ["left_shift"], ["any"]) %>,
-                    "to": [ { "mouse_key": { "vertical_wheel": -32 } } ],
-                    "conditions": [
-                        { "type": "variable_if", "name": "mouse_keys_mode_v3", "value": 1 },
-                        { "type": "variable_if", "name": "mouse_keys_mode_v3_scroll", "value": 1 }
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("k", ["left_shift"], ["any"]) %>,
                     "to": [ { "mouse_key": { "vertical_wheel": 32 } } ],
                     "conditions": [
                         { "type": "variable_if", "name": "mouse_keys_mode_v3", "value": 1 },
@@ -444,15 +440,24 @@
                 },
                 {
                     "type": "basic",
+                    "from": <%= from("k", ["left_shift"], ["any"]) %>,
+                    "to": [ { "mouse_key": { "vertical_wheel": -32 } } ],
+                    "conditions": [
+                        { "type": "variable_if", "name": "mouse_keys_mode_v3", "value": 1 },
+                        { "type": "variable_if", "name": "mouse_keys_mode_v3_scroll", "value": 1 }
+                    ]
+                },
+                {
+                    "type": "basic",
                     "from": <%= from("l", ["left_shift"], ["any"]) %>,
-                    "to": [ { "mouse_key": { "horizontal_wheel": 32 } } ],
+                    "to": [ { "mouse_key": { "horizontal_wheel": -32 } } ],
                     "conditions": [
                         { "type": "variable_if", "name": "mouse_keys_mode_v3", "value": 1 },
                         { "type": "variable_if", "name": "mouse_keys_mode_v3_scroll", "value": 1 }
                     ]
                 },
 
-                <%# normal %>
+                <%# pointing_motion %>
 
                 {
                     "type": "basic",
