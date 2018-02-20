@@ -1,0 +1,71 @@
+{
+  "title": "Convert hangouts Mic/Video Mutes to Zoom.us",
+  "rules": [
+    {
+        "description": "Convert hangouts mic mute to Zoom.us mic mute",
+        "manipulators": [
+            {
+                "conditions": [
+                    {
+                        "bundle_identifiers": [
+                            "us.zoom.xos"
+                        ],
+                        "type": "frontmost_application_if"
+                    }
+                ],
+                "from": {
+                    "key_code": "d",
+                    "modifiers": {
+                        "mandatory": [
+                            "left_command"
+                        ]
+                    }
+                },
+                "to": [
+                    {
+                        "key_code": "a",
+                        "modifiers": [
+                            "left_command",
+                            "left_shift"
+                        ]
+                    }
+                ],
+                "type": "basic"
+            }
+        ]
+    },
+    {
+        "description": "Convert hangouts video mute to Zoom.us video mute",
+        "manipulators": [
+            {
+                "conditions": [
+                    {
+                        "bundle_identifiers": [
+                            "us.zoom.xos"
+                        ],
+                        "type": "frontmost_application_if"
+                    }
+                ],
+                "from": {
+                    "key_code": "e",
+                    "modifiers": {
+                        "mandatory": [
+                            "left_command"
+                        ]
+                    }
+                },
+                "to": [
+                    {
+                        "key_code": "v",
+                        "modifiers": [
+                            "left_command",
+                            "left_shift"
+                        ]
+                    }
+                ],
+                "type": "basic"
+            }
+        ]
+    }
+]
+}
