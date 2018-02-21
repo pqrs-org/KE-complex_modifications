@@ -145,6 +145,7 @@ def frontmost_application(type, app_aliases)
 
   vi_bundle_identifiers = [
     '^org\.vim\.', # prefix
+    '^com\.qvacua\.VimR$',
   ]
 
   virtual_machine_bundle_identifiers = [
