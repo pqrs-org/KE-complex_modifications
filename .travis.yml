@@ -1,4 +1,9 @@
 language: bash
-os: osx
-osx_image: xcode8.3
+matrix:
+  allow_failures:
+    - os: linux
+  include:
+    - os: osx
+    - os: linux
+
 script: rvm use system && make rebuild
