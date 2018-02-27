@@ -48,6 +48,17 @@
                     "to_if_alone": <%= to([["escape"]]) %>
                 }
             ]
+        },
+        {
+            "description": "Change caps_lock to control if pressed with other keys.",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("caps_lock", [], ["any"]) %>,
+                    "to": <%= to([["left_control"]]) %>,
+                    "to_if_alone": <%= to([["caps_lock"]]) %>
+                }
+            ]
         }
     ]
 }
