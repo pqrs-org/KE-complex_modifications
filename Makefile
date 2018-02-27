@@ -1,5 +1,5 @@
 all:
-	scripts/update-json.sh
+	bash scripts/update-json.sh
 
 rebuild:
 	touch src/json/*
