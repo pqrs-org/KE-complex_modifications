@@ -51,9 +51,9 @@ def generate_simple_vi_mode(from_key_code, to_key_code)
     ],
     "conditions" => [
       {
-        "type": "variable_if",
-       "name": "simple_vi_mode",
-       "value": 1,
+        "type" => "variable_if",
+        "name" => "simple_vi_mode",
+        "value" => 1,
       }
     ],
   }
@@ -69,7 +69,7 @@ def generate_simple_vi_mode_trigger(from_key_code, to_key_code, simultaneous_thr
         },
         {
           "key_code" => from_key_code,
-        }
+        },
       ],
       "simultaneous_options" => {
         "key_down_order" => "strict",
