@@ -2,7 +2,7 @@
   "title": "Personal rules (@tekezo) simple_vi_mode (Available since Karabiner-Elements v11.6.3)",
   "rules": [
     {
-      "description": "Simple Vi Mode v3 (rev 1)",
+      "description": "Simple Vi Mode v3 (rev 2)",
       "manipulators": [
         {
           "type": "basic",
@@ -17,98 +17,6 @@
           "to": [
             {
               "key_code": "down_arrow"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "simple_vi_mode",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "k",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "up_arrow"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "simple_vi_mode",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "h",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "left_arrow"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "simple_vi_mode",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "l",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "right_arrow"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "simple_vi_mode",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "f",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "fn"
             }
           ],
           "conditions": [
@@ -166,6 +74,29 @@
         {
           "type": "basic",
           "from": {
+            "key_code": "k",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "simple_vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
             "simultaneous": [
               {
                 "key_code": "s"
@@ -206,6 +137,29 @@
           "parameters": {
             "basic.simultaneous_threshold_milliseconds": 500
           }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "simple_vi_mode",
+              "value": 1
+            }
+          ]
         },
         {
           "type": "basic",
@@ -254,6 +208,29 @@
         {
           "type": "basic",
           "from": {
+            "key_code": "l",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "simple_vi_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
             "simultaneous": [
               {
                 "key_code": "s"
@@ -294,6 +271,29 @@
           "parameters": {
             "basic.simultaneous_threshold_milliseconds": 500
           }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "fn"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "simple_vi_mode",
+              "value": 1
+            }
+          ]
         },
         {
           "type": "basic",
