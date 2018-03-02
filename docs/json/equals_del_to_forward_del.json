@@ -2,50 +2,28 @@
   "title": "Equals + Delete to Forward Delete",
   "rules": [
     {
-      "description": "= + Del to Forward Del",
+      "description": "Simultaneously press Equals + Del to get a ForwardDel",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "equal_sign"
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "equals_for_forward_delete",
-                "value": 1
+            "simultaneous": [
+              {
+                "key_code": "equal_sign"
+              },
+              {
+                "key_code": "delete_or_backspace"
               }
+            ],
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
             }
-          ],
-          "to_if_alone": [
-            {
-              "key_code": "equal_sign"
-            }
-          ],
-          "to_after_key_up": [
-            {
-              "set_variable": {
-                "name": "equals_for_forward_delete",
-                "value": 0
-              }
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "delete_or_backspace"
           },
           "to": [
             {
               "key_code": "delete_forward"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "equals_for_forward_delete",
-              "value": 1
             }
           ]
         }
