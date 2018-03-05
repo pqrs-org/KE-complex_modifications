@@ -141,6 +141,7 @@ def frontmost_application(type, app_aliases)
     '^co\.zeit\.hyperterm$',
     '^co\.zeit\.hyper$',
     '^io\.alacritty$',
+    '^net\.kovidgoyal\.kitty$',
   ]
 
   vi_bundle_identifiers = [
