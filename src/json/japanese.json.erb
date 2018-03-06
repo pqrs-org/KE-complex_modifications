@@ -94,6 +94,41 @@
                     ]
                 }
             ]
+        },
+        {
+            "description": "英数・かなキーをtoggle方式にする",
+            "manipulators": [
+                {
+                    "conditions": [
+                        {
+                            "type": "input_source_if",
+                            "input_sources": [
+                                {
+                                    "language": "ja"
+                                }
+                            ]
+                        }
+                    ],
+                    "type": "basic",
+                    "from": <%= from("japanese_kana", [], []) %>,
+                    "to": <%= to([["japanese_eisuu"]]) %>
+                },
+                {
+                    "conditions": [
+                        {
+                            "type": "input_source_unless",
+                            "input_sources": [
+                                {
+                                    "language": "ja"
+                                }
+                            ]
+                        }
+                    ],
+                    "type": "basic",
+                    "from": <%= from("japanese_eisuu", [], []) %>,
+                    "to": <%= to([["japanese_kana"]]) %>
+                }
+            ]
         }
     ]
 }
