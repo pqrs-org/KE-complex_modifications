@@ -96,6 +96,38 @@
             ]
         },
         {
+            "description": "Ctrl+[を押したときに、escキーと英数キーを送信する",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("open_bracket", ["control"], []) %>,
+                    "to": <%= to([["escape"], ["japanese_eisuu"]]) %>,
+                    "conditions": [
+                        {
+                            "type": "keyboard_type_if",
+                            "keyboard_types": [
+                                "ansi",
+                                "iso"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("close_bracket", ["control"], []) %>,
+                    "to": <%= to([["escape"], ["japanese_eisuu"]]) %>,
+                    "conditions": [
+                        {
+                            "type": "keyboard_type_if",
+                            "keyboard_types": [
+                                "jis"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "description": "英数・かなキーをtoggle方式にする",
             "manipulators": [
                 {
