@@ -1,5 +1,10 @@
 #!/usr/bin/env ruby
 
+# You can generate json by executing the following command on Terminal.
+#
+# $ ruby ./mouse_keys_mode_v4.json.rb
+#
+
 # Parameters
 
 $simultaneous_threshold_milliseconds = 500
