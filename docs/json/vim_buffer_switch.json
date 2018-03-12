@@ -1,0 +1,23 @@
+{
+  "title": "Vim Ctrl+6 to Ctrl+Shift+6 for buffer switching",
+  "rules": [
+    {
+      "description": "Map ctrl + 6 to ctrl + shift + 6",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "6",
+            "modifiers": {
+              "mandatory": ["control"]
+            }
+          },
+          "to": [{
+              "key_code": "6",
+              "modifiers": ["left_control", "left_shift"]
+            }]
+        }
+      ]
+    }
+  ]
+}
