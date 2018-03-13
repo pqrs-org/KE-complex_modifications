@@ -123,6 +123,7 @@ def frontmost_application(type, app_aliases)
   remote_desktop_bundle_identifiers = [
     '^com\.microsoft\.rdc$',
     '^com\.microsoft\.rdc\.mac$',
+    '^com\.microsoft\.rdc\.macos$',
     '^com\.microsoft\.rdc\.osx\.beta$',
     '^net\.sf\.cord$',
     '^com\.thinomenon\.RemoteDesktopConnection$',
