@@ -19,7 +19,7 @@ def main
                               "title" => "Personal rules (@tekezo) Launcher Mode v4 (Available since Karabiner-Elements v11.6.3)",
                               "rules" => [
                                 {
-                                  "description" => "Launcher Mode v4 (rev 1)",
+                                  "description" => "Launcher Mode v4 (rev 2)",
                                   "manipulators" => [
                                     generate_launcher_mode("1", [], [ { "shell_command" => "open -a 'Xcode.app'" } ]),
                                     generate_launcher_mode("a", [], [ { "shell_command" => "open -a 'Activity Monitor.app'" } ]),
@@ -30,6 +30,7 @@ def main
                                     generate_launcher_mode("m", [], [ { "shell_command" => "open -a 'Thunderbird.app'" } ]),
                                     generate_launcher_mode("p", [], [ { "shell_command" => "open -a 'Microsoft PowerPoint.app'" } ]),
                                     generate_launcher_mode("q", [], [ { "shell_command" => "open -a 'Dictionary.app'" } ]),
+                                    generate_launcher_mode("r", [], [ { "shell_command" => "open -a 'Microsoft Remote Desktop.app'" } ]),
                                     generate_launcher_mode("t", [], [ { "shell_command" => "open -a 'iTerm.app'" } ]),
                                     generate_launcher_mode("u", [], [ { "shell_command" => "open -a 'Skype.app'" } ]),
                                     generate_launcher_mode("w", [], [ { "shell_command" => "open -a 'Microsoft Word.app'" } ]),
