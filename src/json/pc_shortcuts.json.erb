@@ -359,7 +359,20 @@
             ]
         },
         {
-            "description": "PC-Style Screenshot(PrtSc for whole, Shift+PrtSc to select)",
+            "description": "PC-Style Screenshot (PrintScreen to select)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("print_screen", [], ["any"]) %>,
+                    "to": <%= to([["4", ["left_command", "left_shift"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "PC-Style Screenshot (PrintScreen for whole, Shift+PrintScreen to select)",
             "manipulators": [
                 {
                     "type": "basic",
@@ -380,7 +393,7 @@
             ]
         },
         {
-            "description": "PC-Style Quit Application(Alt+F4 to Command+Q)",
+            "description": "PC-Style Quit Application (Alt+F4 to Command+Q)",
             "manipulators": [
                 {
                     "type": "basic",
