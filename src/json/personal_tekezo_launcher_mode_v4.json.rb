@@ -16,7 +16,7 @@ require 'json'
 
 def main
   puts JSON.pretty_generate({
-                              "title" => "Personal rules (@tekezo) Launcher Mode v4 (Available since Karabiner-Elements v11.6.3)",
+                              "title" => "Personal rules (@tekezo) Launcher Mode v4",
                               "rules" => [
                                 {
                                   "description" => "Launcher Mode v4 (rev 2)",

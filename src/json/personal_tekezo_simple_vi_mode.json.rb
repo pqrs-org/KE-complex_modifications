@@ -10,7 +10,7 @@ require 'json'
 
 def main
   puts JSON.pretty_generate({
-                              "title" => "Personal rules (@tekezo) simple_vi_mode (Available since Karabiner-Elements v11.6.3)",
+                              "title" => "Personal rules (@tekezo) simple_vi_mode",
                               "rules" => [
                                 {
                                   "description" => "Simple Vi Mode v3 (rev 2)",
