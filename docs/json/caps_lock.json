@@ -1,5 +1,5 @@
 {
-  "title": "Change caps_lock key",
+  "title": "Change caps_lock key (rev 2)",
   "rules": [
     {
       "description": "Change caps_lock key to command+control+option+shift. (Post escape key when pressed alone)",
@@ -135,7 +135,7 @@
       ]
     },
     {
-      "description": "Change caps_lock to control if pressed with other keys.",
+      "description": "Change caps_lock to control if pressed with other keys. (rev 2) (Available since Karabiner-Elements v12.0.2)",
       "manipulators": [
         {
           "type": "basic",
@@ -154,7 +154,8 @@
           ],
           "to_if_alone": [
             {
-              "key_code": "caps_lock"
+              "key_code": "caps_lock",
+              "held_down_milliseconds": 500
             }
           ]
         }
