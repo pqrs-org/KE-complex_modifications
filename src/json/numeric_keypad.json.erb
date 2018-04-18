@@ -45,6 +45,19 @@
             ]
         },
         {
+            "description": "Numeric Keypad Mode Trigger + left_command to spacebar",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("left_command", [], []) %>,
+                    "to": <%= to([["spacebar"]]) %>,
+                    "conditions": [
+                        { "type": "variable_if", "name": "numeric_keypad_mode", "value": 1 }
+                    ]
+                }
+            ]
+        },
+        {
             "description": "Numeric Keypad Mode Trigger + right_option to keypad_period",
             "manipulators": [
                 {
