@@ -358,6 +358,29 @@
       ]
     },
     {
+      "description": "Numeric Keypad Mode Trigger + left_command to spacebar",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_command"
+          },
+          "to": [
+            {
+              "key_code": "spacebar"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numeric_keypad_mode",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
       "description": "Numeric Keypad Mode Trigger + right_option to keypad_period",
       "manipulators": [
         {
