@@ -7,7 +7,7 @@
             "j","k","l","semicolon",
             "m","comma","period","slash",
             "spacebar","right_option"
-		]
+        ]
         remap_dest_keys = [
             "delete_or_backspace","keypad_equal_sign","keypad_slash","keypad_asterisk",
             "keypad_7","keypad_8","keypad_9","keypad_hyphen",
@@ -29,7 +29,6 @@
         {
             "description": "Numeric Keypad Mode [Tab as trigger key]",
             "manipulators": [
-                <%# change Tab to Left_option + Fn if pressed with other keys %>
                 {
                     "type": "basic",
                     "from": <%= from("tab", [], []) %>,
@@ -45,12 +44,12 @@
             ]
         },
         {
-            "description": "Numeric Keypad Mode Trigger + left_command to spacebar",
+            "description": "Numeric Keypad Mode [Optional] Trigger + right_control to keypad_period",
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("left_command", [], []) %>,
-                    "to": <%= to([["spacebar"]]) %>,
+                    "from": <%= from("right_control", [], []) %>,
+                    "to": <%= to([["keypad_period"]]) %>,
                     "conditions": [
                         { "type": "variable_if", "name": "numeric_keypad_mode", "value": 1 }
                     ]
@@ -58,12 +57,12 @@
             ]
         },
         {
-            "description": "Numeric Keypad Mode Trigger + right_control to keypad_period",
+            "description": "Numeric Keypad Mode [Optional] Trigger + left_command to spacebar",
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("right_control", [], []) %>,
-                    "to": <%= to([["keypad_period"]]) %>,
+                    "from": <%= from("left_command", [], []) %>,
+                    "to": <%= to([["spacebar"]]) %>,
                     "conditions": [
                         { "type": "variable_if", "name": "numeric_keypad_mode", "value": 1 }
                     ]
