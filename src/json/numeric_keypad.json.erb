@@ -1,6 +1,7 @@
 {
     "title": "Numeric Keypad",
     <%
+        # standard key mapping where space is 0
         remap_source_keys = [
             "7","8","9","0",
             "u","i","o","p",
@@ -24,10 +25,28 @@
         manipulators.each do |m|
             manipulators_str += ", #{JSON.generate(m)}"
         end
+
+        # alternative key mapping where right_command is 0
+        alt_remap_source_keys = [
+            "7","8","9","0",
+            "u","i","o","p",
+            "j","k","l","semicolon",
+            "m","comma","period","slash",
+            "right_command","right_option"
+        ]
+        alt_manipulators = each_key(
+            source_keys_list: alt_remap_source_keys,
+            dest_keys_list: remap_dest_keys,
+            conditions: [{ "type"=>"variable_if", "name"=>"numeric_keypad_mode", "value"=>1 }]
+        )
+        alt_manipulators_str = ""
+        alt_manipulators.each do |m|
+            alt_manipulators_str += ", #{JSON.generate(m)}"
+        end
     %>
     "rules": [
         {
-            "description": "Numeric Keypad Mode [Tab as trigger key]",
+            "description": "Numeric Keypad Mode [Tab as trigger key, spacebar as 0]",
             "manipulators": [
                 {
                     "type": "basic",
@@ -41,6 +60,23 @@
                     ]
                 }
                 <%= manipulators_str %>
+            ]
+        },
+        {
+            "description": "Numeric Keypad Mode [Tab as trigger key, right_command as 0]",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("tab", [], []) %>,
+                    "to": [
+                        { "set_variable": { "name": "numeric_keypad_mode", "value": 1 } }
+                    ],
+                    "to_if_alone": <%= to([["tab"]]) %>,
+                    "to_after_key_up": [
+                        { "set_variable": { "name": "numeric_keypad_mode", "value": 0 } }
+                    ]
+                }
+                <%= alt_manipulators_str %>
             ]
         },
         {
