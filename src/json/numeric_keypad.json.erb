@@ -58,19 +58,6 @@
             ]
         },
         {
-            "description": "Numeric Keypad Mode Trigger + right_option to keypad_period",
-            "manipulators": [
-                {
-                    "type": "basic",
-                    "from": <%= from("right_option", [], []) %>,
-                    "to": <%= to([["keypad_period"]]) %>,
-                    "conditions": [
-                        { "type": "variable_if", "name": "numeric_keypad_mode", "value": 1 }
-                    ]
-                }
-            ]
-        },
-        {
             "description": "Numeric Keypad Mode Trigger + right_control to keypad_period",
             "manipulators": [
                 {
