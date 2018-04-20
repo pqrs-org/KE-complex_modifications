@@ -16,21 +16,21 @@
     <div class="container" style="margin-top: 2rem; margin-bottom: 10rem;" id="main-container">
       <ul class="toc list-group">
         <li class="list-group-item list-group-item-info">Table of Contents</li>
-        <li class="list-group-item" v-for="group in groups" v-cloak="1">
+        <li class="list-group-item" v-for="group in groups" :key="group.id" v-cloak>
           <a :href="'#' + group.id">{{ group.name }}</a>
           <span class="badge badge-pill badge-secondary float-right">{{ group.files.length }}</span>
         </li>
       </ul>
 
       <div style="margin-top: 1rem; margin-bottom: 3rem">
-        <a href="#" @click="$('.collapse').collapse('toggle'); return false;">Expand/Collapse All</a>
+        <a href="#" @click="$('.collapse').collapse('toggle'); false;">Expand/Collapse All</a>
       </div>
 
-      <div class="card-outer" v-for="group in groups" :id="group.id" v-cloak="1">
+      <div class="card-outer" v-for="group in groups" :key="group.id" :id="group.id" v-cloak>
         <div class="card border-info">
           <div class="card-header bg-info text-white">{{ group.name }}</div>
           <div class="card-body">
-            <div v-for="file in group.files">
+            <div v-for="file in group.files" :key="file.id">
               <div class="card-outer" v-if="file" :id="file.id">
                 <div class="card">
                   <div class="card-header">
@@ -40,7 +40,7 @@
                   </div>
                   <div class="collapse" :id="file.id + '-list-group'">
                     <div class="list-group list-group-flush">
-                      <div class="list-group-item" v-for="rule in file.rules">{{ rule }}</div>
+                      <div class="list-group-item" v-for="rule in file.rules" :key="rule.id">{{ rule }}</div>
                       <div class="list-group-item" v-if="file.extraDescription" v-html="file.extraDescription"></div>
                     </div>
                   </div>
