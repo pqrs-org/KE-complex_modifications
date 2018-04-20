@@ -4,7 +4,7 @@ services:
     build:
       context: vue-cli
       dockerfile: Dockerfile
-    command: sleep 10000000
+    command: sh /init.sh
     volumes:
       - ./app:/code
     ports:
