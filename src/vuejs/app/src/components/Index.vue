@@ -6,13 +6,11 @@
       <b-collapse is-nav id="nav_collapse">
         <b-navbar-nav class="ml-auto">
           <b-nav-item href="https://github.com/pqrs-org/KE-complex_modifications" target="_blank">
-            <icon name="external-link-alt"></icon>
-            GitHub
+            <icon name="external-link-alt"></icon> GitHub
           </b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
-
     <div class="container" style="margin-top: 2rem; margin-bottom: 10rem;" id="main-container">
       <ul class="toc list-group">
         <li class="list-group-item list-group-item-info">Table of Contents</li>
@@ -21,11 +19,9 @@
           <span class="badge badge-pill badge-secondary float-right">{{ group.files.length }}</span>
         </li>
       </ul>
-
       <div style="margin-top: 1rem; margin-bottom: 3rem">
         <a href="#" @click="$('.collapse').collapse('toggle'); false;">Expand/Collapse All</a>
       </div>
-
       <div class="card-outer" v-for="group in groups" :key="group.id" :id="group.id" v-cloak>
         <div class="card border-info">
           <div class="card-header bg-info text-white">{{ group.name }}</div>
@@ -34,8 +30,10 @@
               <div class="card-outer" v-if="file" :id="file.id">
                 <div class="card">
                   <div class="card-header">
-                    <a :href="'#' + file.id" @click="showDescription(file.id)"><i class="fas fa-link"></i></a>
-                    <a class="btn btn-link" role="button" style="width: calc(100% - 100px); text-align: left; color: black;" data-toggle="collapse" aria-expanded="false" :aria-controls="file.id + '-list-group'" :href="'#' + file.id + '-list-group'" >{{ file.title }}</a>
+                    <a :href="'#' + file.id" @click="showDescription(file.id)">
+                      <i class="fas fa-link"></i>
+                    </a>
+                    <a class="btn btn-link" role="button" style="width: calc(100% - 100px); text-align: left; color: black;" data-toggle="collapse" aria-expanded="false" :aria-controls="file.id + '-list-group'" :href="'#' + file.id + '-list-group'">{{ file.title }}</a>
                     <a class="btn btn-primary btn-sm float-right" :href="file.importUrl">Import</a>
                   </div>
                   <div class="collapse" :id="file.id + '-list-group'">
@@ -50,16 +48,13 @@
           </div>
         </div>
       </div>
-
-      <div v-if="baseName != 'example'">
+      <div v-if="pageName != 'example'">
         <hr />
         <a href="example.html">Other examples</a>
       </div>
     </div>
   </div>
-</template>
-
-<script>
+</template><script>
 import axios from 'axios'
 
 export default {
@@ -91,7 +86,7 @@ export default {
       axios
         .get('groups.json')
         .then(function(response) {
-          let type = this.baseName(window.location.pathname)
+          let type = self.baseName(window.location.pathname)
           if (type === '') {
             type = 'index'
           }
@@ -102,8 +97,9 @@ export default {
               name: group.name,
               files: []
             }
+
             g.files.length = group.files.length
-            g.files.fill(undefined)
+            g.files.fill({ id: null })
             self.groups.push(g)
 
             group.files.forEach(function(file, fileIndex) {
@@ -121,6 +117,54 @@ export default {
               }
             })
           })
+        })
+        .catch(function(error) {
+          console.log(error)
+        })
+    },
+    jsonUrl(path) {
+      const url = encodeURIComponent(
+        window.location.href.replace(/[^/]+$/, '') + path
+      )
+      return (
+        'karabiner://karabiner/assets/complex_modifications/import?url=' + url
+      )
+    },
+    fetchFile(path, groupIndex, fileIndex) {
+      axios
+        .get(path)
+        .then(function(response) {
+          ++fetchCount
+
+          let f = groups[groupIndex].files[fileIndex]
+          if (f.id === null) {
+            f.id = baseName(path)
+            f.title = response.data.title
+            f.importUrl = jsonUrl(path)
+            f.rules = []
+          }
+
+          response.data.rules.forEach(function(r) {
+            f.rules.push(r.description)
+          })
+
+          Vue.set(groups[groupIndex].files, fileIndex, f)
+        })
+        .catch(function(error) {
+          console.log(error)
+        })
+    },
+
+    fetchExtraDescription(path, groupIndex, fileIndex) {
+      axios
+        .get(path)
+        .then(function(response) {
+          ++fetchCount
+
+          let f = groups[groupIndex].files[fileIndex]
+          f.extraDescription = response.data
+
+          Vue.set(groups[groupIndex].files, fileIndex, f)
         })
         .catch(function(error) {
           console.log(error)
