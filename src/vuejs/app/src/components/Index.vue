@@ -56,6 +56,7 @@
   </div>
 </template><script>
 import axios from 'axios'
+const sha256 = require('crypto-js/sha256')
 
 export default {
   name: 'Index',
@@ -63,6 +64,7 @@ export default {
     return {
       groups: [],
       fetchTotalNumber: 0,
+      fetchedCount: 0,
       pageName: this.baseName(window.location.pathname)
     }
   },
@@ -93,13 +95,14 @@ export default {
 
           response.data[type].forEach(function(group, groupIndex) {
             let g = {
-              id: group.id,
+              id: sha256(group.id).toString(),
               name: group.name,
               files: []
             }
 
-            g.files.length = group.files.length
-            g.files.fill({ id: null })
+            for (let i = 0; i < group.files.length; ++i) {
+              g.files.push({ id: null })
+            }
             self.groups.push(g)
 
             group.files.forEach(function(file, fileIndex) {
@@ -131,24 +134,29 @@ export default {
       )
     },
     fetchFile(path, groupIndex, fileIndex) {
+      const self = this
+
       axios
         .get(path)
         .then(function(response) {
-          ++fetchCount
+          ++self.fetchedCount
 
-          let f = groups[groupIndex].files[fileIndex]
+          let f = self.groups[groupIndex].files[fileIndex]
           if (f.id === null) {
-            f.id = baseName(path)
+            f.id = 'file-' + fileIndex
             f.title = response.data.title
-            f.importUrl = jsonUrl(path)
+            f.importUrl = self.jsonUrl(path)
             f.rules = []
           }
 
           response.data.rules.forEach(function(r) {
-            f.rules.push(r.description)
+            f.rules.push({
+              id: 'rule-' + fileIndex + '-' + f.rules.length,
+              description: r.description
+            })
           })
 
-          Vue.set(groups[groupIndex].files, fileIndex, f)
+          self.$set(self.groups[groupIndex].files, fileIndex, f)
         })
         .catch(function(error) {
           console.log(error)
@@ -156,15 +164,17 @@ export default {
     },
 
     fetchExtraDescription(path, groupIndex, fileIndex) {
+      const self = this
+
       axios
         .get(path)
         .then(function(response) {
-          ++fetchCount
+          ++self.fetchedCount
 
-          let f = groups[groupIndex].files[fileIndex]
+          let f = self.groups[groupIndex].files[fileIndex]
           f.extraDescription = response.data
 
-          Vue.set(groups[groupIndex].files, fileIndex, f)
+          self.$set(self.groups[groupIndex].files, fileIndex, f)
         })
         .catch(function(error) {
           console.log(error)
