@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-navbar toggleable="md" type="dark" variant="info">
+    <b-navbar toggleable="md" type="dark" variant="dark">
       <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
       <b-navbar-brand href="./">Karabiner-Elements complex_modifications rules</b-navbar-brand>
       <b-collapse is-nav id="nav_collapse">
@@ -11,14 +11,16 @@
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
-    <div class="container" style="margin-top: 2rem; margin-bottom: 10rem;" id="main-container">
-      <ul class="toc list-group">
-        <li class="list-group-item list-group-item-info">Table of Contents</li>
-        <li class="list-group-item" v-for="group in groups" :key="group.id" v-cloak>
+
+    <b-container>
+      <b-list-group class="toc">
+        <b-list-group-item variant="info">Table of Contents</b-list-group-item>
+
+        <b-list-group-item v-for="group in groups" :key="group.id" v-cloak>
           <a :href="'#' + group.id">{{ group.name }}</a>
-          <span class="badge badge-pill badge-secondary float-right">{{ group.files.length }}</span>
-        </li>
-      </ul>
+          <b-badge variant="secondary" class="float-right">{{ group.files.length }}</b-badge>
+        </b-list-group-item>
+      </b-list-group>
       <div style="margin-top: 1rem; margin-bottom: 3rem">
         <a href="#" @click="$('.collapse').collapse('toggle'); false;">Expand/Collapse All</a>
       </div>
@@ -52,7 +54,7 @@
         <hr />
         <a href="example.html">Other examples</a>
       </div>
-    </div>
+    </b-container>
   </div>
 </template><script>
 import axios from 'axios'
@@ -184,19 +186,11 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+<style lang="scss" scoped>
+.container {
+  .toc {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
 }
 </style>
