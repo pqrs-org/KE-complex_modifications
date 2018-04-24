@@ -56,7 +56,6 @@
   </div>
 </template><script>
 import axios from 'axios'
-const sha256 = require('crypto-js/sha256')
 
 export default {
   name: 'Index',
@@ -95,7 +94,7 @@ export default {
 
           response.data[type].forEach(function(group, groupIndex) {
             let g = {
-              id: sha256(group.id).toString(),
+              id: group.id,
               name: group.name,
               files: []
             }
