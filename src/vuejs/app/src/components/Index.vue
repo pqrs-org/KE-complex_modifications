@@ -25,30 +25,24 @@
         <a href="#" @click="$('.collapse').collapse('toggle'); false;">Expand/Collapse All</a>
       </div>
       <div class="card-outer" v-for="group in groups" :key="group.id" :id="group.id" v-cloak>
-        <div class="card border-info">
-          <div class="card-header bg-info text-white">{{ group.name }}</div>
-          <div class="card-body">
-            <div v-for="file in group.files" :key="file.id">
-              <div class="card-outer" v-if="file" :id="file.id">
-                <div class="card">
-                  <div class="card-header">
-                    <a :href="'#' + file.id" @click="showDescription(file.id)">
-                      <i class="fas fa-link"></i>
-                    </a>
-                    <a class="btn btn-link" role="button" style="width: calc(100% - 100px); text-align: left; color: black;" data-toggle="collapse" aria-expanded="false" :aria-controls="file.id + '-list-group'" :href="'#' + file.id + '-list-group'">{{ file.title }}</a>
-                    <a class="btn btn-primary btn-sm float-right" :href="file.importUrl">Import</a>
+        <b-card class="border-info" :header="group.name" header-bg-variant="info" header-text-variant="white">
+          <div v-for="file in group.files" :key="file.id">
+            <div class="rule-card-outer" v-if="file" :id="file.id">
+              <b-card no-body>
+                <b-card-header>
+                  <span class="rule-title" v-b-toggle="file.id + '-list-group'">{{ file.title }}</span>
+                  <a class="btn btn-primary btn-sm float-right" :href="file.importUrl">Import</a>
+                </b-card-header>
+                <b-collapse :id="file.id + '-list-group'">
+                  <div class="list-group list-group-flush">
+                    <div class="list-group-item" v-for="rule in file.rules" :key="rule.id">{{ rule }}</div>
+                    <div class="list-group-item" v-if="file.extraDescription" v-html="file.extraDescription"></div>
                   </div>
-                  <div class="collapse" :id="file.id + '-list-group'">
-                    <div class="list-group list-group-flush">
-                      <div class="list-group-item" v-for="rule in file.rules" :key="rule.id">{{ rule }}</div>
-                      <div class="list-group-item" v-if="file.extraDescription" v-html="file.extraDescription"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                </b-collapse>
+              </b-card>
             </div>
           </div>
-        </div>
+        </b-card>
       </div>
       <div v-if="pageName != 'example'">
         <hr />
@@ -80,9 +74,6 @@ export default {
       }
       return base
     },
-    // showDescription(id) {
-    //   $('#' + id + ' .collapse').collapse('show')
-    // },
     fetchData() {
       const self = this
 
@@ -144,7 +135,7 @@ export default {
 
           let f = self.groups[groupIndex].files[fileIndex]
           if (f.id === null) {
-            f.id = 'file-' + fileIndex
+            f.id = 'file-' + groupIndex + '-' + fileIndex
             f.title = response.data.title
             f.importUrl = self.jsonUrl(path)
             f.rules = []
@@ -152,12 +143,10 @@ export default {
 
           response.data.rules.forEach(function(r) {
             f.rules.push({
-              id: 'rule-' + fileIndex + '-' + f.rules.length,
+              id: 'rule-' + groupIndex + '-' + fileIndex + '-' + f.rules.length,
               description: r.description
             })
           })
-
-          self.$set(self.groups[groupIndex].files, fileIndex, f)
         })
         .catch(function(error) {
           console.log(error)
@@ -191,6 +180,21 @@ export default {
   .toc {
     margin-top: 2rem;
     margin-bottom: 2rem;
+  }
+
+  .rule-card-outer {
+    margin-bottom: 1rem;
+
+    .rule-title {
+      display: inline-block;
+      cursor: pointer;
+      width: calc(100% - 100px);
+      text-align: left;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 }
 </style>
