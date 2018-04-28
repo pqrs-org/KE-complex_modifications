@@ -56,8 +56,25 @@
                 <b-card-header>
                   <span class="rule-title"
                         v-b-toggle="file.id + '-list-group'">{{ file.title }}</span>
-                  <a class="btn btn-primary btn-sm float-right"
-                     :href="file.importUrl">Import</a>
+
+                  <div class="float-right">
+                    <b-dropdown text="Import"
+                                variant="primary"
+                                split
+                                right
+                                @click="importJson(file.importUrl)">
+                      <b-dropdown-item-button @click="importJson(file.importUrl)">Import to Karabiner-Elements</b-dropdown-item-button>
+                      <b-dropdown-divider></b-dropdown-divider>
+                      <b-dropdown-item-button @click="showJsonModal(file.id)">
+                        <small>Show json</small>
+                      </b-dropdown-item-button>
+                      <b-dropdown-item-button v-clipboard:copy="pageUrl + '#' + file.id"
+                                              v-clipboard:success="urlCopied"
+                                              v-clipboard:error="urlCopyFailed">
+                        <small>Copy URL</small>
+                      </b-dropdown-item-button>
+                    </b-dropdown>
+                  </div>
                 </b-card-header>
                 <b-collapse :id="file.id + '-list-group'"
                             :visible="ruleVisibilities[file.id]"
@@ -81,21 +98,36 @@
         <hr />
         <a href="example.html">Other examples</a>
       </div>
+
+      <b-modal id="show-json-modal"
+               ref="showJsonModalRef"
+               :title="showJsonModalTitle"
+               size="lg"
+               ok-only
+               ok-title="Close">
+        <p class="show-json-modal-body">{{ showJsonModalBody }}</p>
+      </b-modal>
     </b-container>
   </div>
 </template><script>
 import axios from 'axios'
 
+let fileNames = {}
+let jsonBodies = {}
+
 export default {
   name: 'Index',
   data() {
     return {
+      pageUrl: window.location.origin + window.location.pathname,
       groups: [],
       allRulesVisible: false,
       ruleVisibilities: {},
       fetchTotalNumber: 0,
       fetchedCount: 0,
-      pageName: this.baseName(window.location.pathname)
+      pageName: this.baseName(window.location.pathname),
+      showJsonModalTitle: '',
+      showJsonModalBody: ''
     }
   },
   created() {
@@ -177,6 +209,8 @@ export default {
           }
 
           self.$set(self.ruleVisibilities, f.id, false)
+          fileNames[f.id] = self.baseName(path)
+          jsonBodies[f.id] = JSON.stringify(response.data, null, 2)
 
           response.data.rules.forEach(function(r) {
             f.rules.push({
@@ -232,6 +266,24 @@ export default {
       this.$set(this.ruleVisibilities, id, value)
 
       this.updateAllRulesVisible()
+    },
+
+    importJson(url) {
+      location.href = url
+    },
+
+    showJsonModal(fileId) {
+      this.showJsonModalTitle = fileNames[fileId]
+      this.showJsonModalBody = jsonBodies[fileId]
+      this.$refs.showJsonModalRef.show()
+    },
+
+    urlCopied: function(e) {
+      alert('You just copied: ' + e.text)
+    },
+
+    urlCopyFailed: function(e) {
+      alert('Failed to copy texts')
     }
   }
 }
@@ -240,6 +292,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 .container {
+  margin-bottom: 10rem;
+
   .toc {
     margin-top: 2rem;
     margin-bottom: 2rem;
@@ -251,13 +305,19 @@ export default {
     .rule-title {
       display: inline-block;
       cursor: pointer;
-      width: calc(100% - 100px);
+      width: calc(100% - 150px);
       text-align: left;
 
       &:hover {
         text-decoration: underline;
       }
     }
+  }
+
+  .show-json-modal-body {
+    white-space: pre-wrap;
+    height: 50vh;
+    overflow: auto;
   }
 }
 </style>
