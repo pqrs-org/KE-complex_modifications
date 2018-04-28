@@ -111,9 +111,11 @@
   </div>
 </template><script>
 import axios from 'axios'
+const VueScrollTo = require('vue-scrollto')
 
 let fileNames = {}
 let jsonBodies = {}
+let scrollToHashTriggered = false
 
 export default {
   name: 'Index',
@@ -125,7 +127,7 @@ export default {
       ruleVisibilities: {},
       fetchTotalNumber: 0,
       fetchedCount: 0,
-      pageName: this.baseName(window.location.pathname),
+      pageName: this.fileName(window.location.pathname),
       showJsonModalTitle: '',
       showJsonModalBody: ''
     }
@@ -134,20 +136,21 @@ export default {
     this.fetchData()
   },
   methods: {
-    baseName(path) {
+    fileName(path) {
       let base = path.substring(path.lastIndexOf('/') + 1)
       if (base.lastIndexOf('.') != -1) {
         base = base.substring(0, base.lastIndexOf('.'))
       }
       return base
     },
+
     fetchData() {
       const self = this
 
       axios
         .get('groups.json')
         .then(function(response) {
-          let type = self.baseName(window.location.pathname)
+          let type = self.fileName(window.location.pathname)
           if (type === '') {
             type = 'index'
           }
@@ -160,7 +163,9 @@ export default {
             }
 
             for (let i = 0; i < group.files.length; ++i) {
-              g.files.push({ id: null })
+              g.files.push({
+                id: null
+              })
             }
             self.groups.push(g)
 
@@ -184,6 +189,7 @@ export default {
           console.log(error)
         })
     },
+
     jsonUrl(path) {
       const url = encodeURIComponent(
         window.location.href.replace(/[^/]+$/, '') + path
@@ -192,6 +198,7 @@ export default {
         'karabiner://karabiner/assets/complex_modifications/import?url=' + url
       )
     },
+
     fetchFile(path, groupIndex, fileIndex) {
       const self = this
 
@@ -202,14 +209,18 @@ export default {
 
           let f = self.groups[groupIndex].files[fileIndex]
           if (f.id === null) {
-            f.id = 'file-' + groupIndex + '-' + fileIndex
+            f.id = self.fileName(path)
             f.title = response.data.title
             f.importUrl = self.jsonUrl(path)
             f.rules = []
           }
 
-          self.$set(self.ruleVisibilities, f.id, false)
-          fileNames[f.id] = self.baseName(path)
+          self.$set(
+            self.ruleVisibilities,
+            f.id,
+            window.location.hash.substring(1) == f.id
+          )
+          fileNames[f.id] = self.fileName(path)
           jsonBodies[f.id] = JSON.stringify(response.data, null, 2)
 
           response.data.rules.forEach(function(r) {
@@ -218,6 +229,8 @@ export default {
               description: r.description
             })
           })
+
+          self.scrollToHash()
         })
         .catch(function(error) {
           console.log(error)
@@ -282,8 +295,30 @@ export default {
       alert('You just copied: ' + e.text)
     },
 
-    urlCopyFailed: function(e) {
+    urlCopyFailed: function() {
       alert('Failed to copy texts')
+    },
+
+    scrollToHash: function() {
+      if (scrollToHashTriggered) {
+        return
+      }
+
+      const element = document.getElementById(window.location.hash.substring(1))
+      if (!element) {
+        return
+      }
+
+      for (const g of this.groups) {
+        for (const f of g.files) {
+          if (f.id === null) {
+            return
+          }
+        }
+      }
+
+      scrollToHashTriggered = true
+      VueScrollTo.scrollTo(element)
     }
   }
 }
@@ -292,7 +327,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 .container {
-  margin-bottom: 10rem;
+  margin-bottom: 100rem;
 
   .toc {
     margin-top: 2rem;
