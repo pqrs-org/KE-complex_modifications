@@ -16,6 +16,20 @@
       </b-collapse>
     </b-navbar>
 
+    <div class="search">
+      <b-row align-h="center">
+        <b-col md="6">
+          <b-input-group>
+            <b-form-input placeholder="Search keywords..."></b-form-input>
+            <b-input-group-append>
+              <b-btn id="search-input"
+                     variant="primary">Search</b-btn>
+            </b-input-group-append>
+          </b-input-group>
+        </b-col>
+      </b-row>
+    </div>
+
     <b-container>
       <b-list-group class="toc">
         <b-list-group-item variant="info">Table of Contents</b-list-group-item>
@@ -111,11 +125,16 @@
   </div>
 </template><script>
 import axios from 'axios'
+import lunr from 'lunr'
 const VueScrollTo = require('vue-scrollto')
 
 let fileNames = {}
 let jsonBodies = {}
 let scrollToHashTriggered = false
+
+const lunrIndex = lunr(function() {
+  this.field('text')
+})
 
 export default {
   name: 'Index',
@@ -225,7 +244,6 @@ export default {
 
           response.data.rules.forEach(function(r) {
             f.rules.push({
-              id: 'rule-' + groupIndex + '-' + fileIndex + '-' + f.rules.length,
               description: r.description
             })
           })
@@ -326,11 +344,19 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
+.search {
+  padding: 0.5rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  background-color: #343a40;
+}
+
 .container {
-  margin-bottom: 100rem;
+  margin-bottom: 10rem;
 
   .toc {
-    margin-top: 2rem;
+    margin-top: 1rem;
     margin-bottom: 2rem;
   }
 
