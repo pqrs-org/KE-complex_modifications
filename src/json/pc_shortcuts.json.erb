@@ -359,12 +359,25 @@
             ]
         },
         {
-            "description": "PC-Style Screenshot (PrintScreen to select)",
+            "description": "PC-Style Screenshot to File (PrintScreen to select)",
             "manipulators": [
                 {
                     "type": "basic",
                     "from": <%= from("print_screen", [], ["any"]) %>,
                     "to": <%= to([["4", ["left_command", "left_shift"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "PC-Style Screenshot to Clipboard (PrintScreen to select)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("print_screen", [], ["any"]) %>,
+                    "to": <%= to([["4", ["left_command", "left_control", "left_shift"]]]) %>,
                     "conditions": [
                         <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
                     ]
