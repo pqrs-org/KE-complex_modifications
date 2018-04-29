@@ -19,13 +19,16 @@
     <div class="search">
       <b-row align-h="center">
         <b-col md="6">
-          <b-input-group>
-            <b-form-input placeholder="Search keywords..."></b-form-input>
-            <b-input-group-append>
-              <b-btn id="search-input"
-                     variant="primary">Search</b-btn>
-            </b-input-group-append>
-          </b-input-group>
+          <b-form @submit="search">
+            <b-input-group>
+              <b-form-input v-model="searchQuery"
+                            placeholder="Search keywords..."></b-form-input>
+              <b-input-group-append>
+                <b-btn type="submit"
+                       variant="primary">Search</b-btn>
+              </b-input-group-append>
+            </b-input-group>
+          </b-form>
         </b-col>
       </b-row>
     </div>
@@ -34,7 +37,7 @@
       <b-list-group class="toc">
         <b-list-group-item variant="info">Table of Contents</b-list-group-item>
 
-        <b-list-group-item v-for="group in groups"
+        <b-list-group-item v-for="group in filteredGroups"
                            :key="group.id"
                            v-cloak>
           <a :href="'#' + group.id">{{ group.name }}</a>
@@ -53,7 +56,7 @@
         </div>
       </div>
       <div class="card-outer"
-           v-for="group in groups"
+           v-for="group in filteredGroups"
            :key="group.id"
            :id="group.id"
            v-cloak>
@@ -127,28 +130,53 @@
 </template><script>
 import axios from 'axios'
 import lunr from 'lunr'
+import striptags from 'striptags'
 const VueScrollTo = require('vue-scrollto')
 
 let fileNames = {}
 let jsonBodies = {}
 let scrollToHashTriggered = false
 
-const lunrIndex = lunr(function() {
-  this.field('text')
-})
+let lunrIndex = null
+
+class Rule {
+  constructor(ruleId, description) {
+    this.id = ruleId
+    this.description = description
+  }
+}
+
+class File {
+  constructor(fileId, title) {
+    this.id = fileId
+    this.title = title
+    this.importUrl = null
+    this.rules = []
+    this.extraDescription = null
+  }
+}
+
+class Group {
+  constructor(groupId, name) {
+    this.id = groupId
+    this.name = name
+    this.files = []
+  }
+}
 
 export default {
   name: 'Index',
   data() {
     return {
       pageUrl: window.location.origin + window.location.pathname,
+      pageName: this.fileName(window.location.pathname),
       groups: [],
+      filteredGroups: [],
       allFilesExpanded: false,
       fileCollapsed: {},
-      fetchedCount: 0,
-      pageName: this.fileName(window.location.pathname),
       showJsonModalTitle: '',
-      showJsonModalBody: ''
+      showJsonModalBody: '',
+      searchQuery: ''
     }
   },
   created() {
@@ -175,17 +203,10 @@ export default {
           }
 
           response.data[type].forEach(function(group, groupIndex) {
-            let g = {
-              id: group.id,
-              name: group.name,
-              files: []
-            }
+            const g = new Group(group.id, group.name)
 
             for (let i = 0; i < group.files.length; ++i) {
-              g.files.push({
-                id: null,
-                extraDescription: null
-              })
+              g.files.push(new File(null, null))
             }
             self.groups.push(g)
 
@@ -203,6 +224,8 @@ export default {
                 g.files[fileIndex].extraDescription = ''
               }
             })
+
+            self.filteredGroups = self.groups
           })
         })
         .catch(function(error) {
@@ -225,14 +248,11 @@ export default {
       axios
         .get(path)
         .then(function(response) {
-          ++self.fetchedCount
-
           let f = self.groups[groupIndex].files[fileIndex]
           if (f.id === null) {
             f.id = self.fileName(path)
             f.title = response.data.title
             f.importUrl = self.jsonUrl(path)
-            f.rules = []
           }
 
           self.$set(
@@ -243,12 +263,12 @@ export default {
           fileNames[f.id] = self.fileName(path)
           jsonBodies[f.id] = JSON.stringify(response.data, null, 2)
 
-          response.data.rules.forEach(function(r) {
-            f.rules.push({
-              description: r.description
-            })
+          response.data.rules.forEach(function(r, ruleIndex) {
+            f.rules.push(new Rule(f.id + '-rule-' + ruleIndex, r.description))
           })
 
+          self.filteredGroups = self.groups
+          self.makeLunrIndex(groupIndex, fileIndex)
           self.scrollToHash()
         })
         .catch(function(error) {
@@ -262,16 +282,59 @@ export default {
       axios
         .get(path)
         .then(function(response) {
-          ++self.fetchedCount
-
           let f = self.groups[groupIndex].files[fileIndex]
           f.extraDescription = response.data
 
           self.$set(self.groups[groupIndex].files, fileIndex, f)
+
+          self.filteredGroups = self.groups
+          self.makeLunrIndex(groupIndex, fileIndex)
         })
         .catch(function(error) {
           console.log(error)
         })
+    },
+
+    allFilesFetched: function() {
+      for (const g of this.groups) {
+        for (const f of g.files) {
+          if (f.id === null) {
+            return false
+          }
+          if (f.extraDescription === null) {
+            return false
+          }
+        }
+      }
+
+      return true
+    },
+
+    makeLunrIndex(groupIndex, fileIndex) {
+      if (!this.allFilesFetched()) {
+        return
+      }
+      const self = this
+
+      lunrIndex = lunr(function() {
+        this.ref('fileId')
+        this.field('text')
+
+        for (const g of self.groups) {
+          for (const f of g.files) {
+            let text = f.title + ' '
+            for (const r of f.rules) {
+              text += r.description + ' '
+            }
+            text += striptags(f.extraDescription) + ' '
+
+            this.add({
+              fileId: f.id,
+              text: text
+            })
+          }
+        }
+      })
     },
 
     updateAllFilesExpanded() {
@@ -329,19 +392,41 @@ export default {
         return
       }
 
-      for (const g of this.groups) {
-        for (const f of g.files) {
-          if (f.id === null) {
-            return
-          }
-          if (f.extraDescription === null) {
-            return
-          }
-        }
+      if (!this.allFilesFetched()) {
+        return
       }
 
       scrollToHashTriggered = true
       VueScrollTo.scrollTo(element)
+    },
+
+    search: function(e) {
+      e.preventDefault()
+
+      if (!this.searchQuery) {
+        return
+      }
+
+      if (lunrIndex === null) {
+        return
+      }
+
+      const group = new Group('search-result', 'Search Result')
+      let filteredGroups = [group]
+
+      for (const r of lunrIndex.search(this.searchQuery)) {
+        const fileId = r.ref
+
+        for (const g of this.groups) {
+          for (const f of g.files) {
+            if (f.id == fileId) {
+              group.files.push(f)
+            }
+          }
+        }
+      }
+
+      this.filteredGroups = filteredGroups
     }
   }
 }
