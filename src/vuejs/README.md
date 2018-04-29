@@ -14,6 +14,8 @@ docker-compose down
 
 ## Building for production
 
+Run `make` command while the container is running.
+
 ```shell
-docker exec -ti vuejs_ke_complex_modifications_1 npm run build
+make
 ```
