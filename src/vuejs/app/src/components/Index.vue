@@ -22,7 +22,9 @@
           <b-form @submit="search">
             <b-input-group>
               <b-form-input v-model="searchQuery"
-                            placeholder="Search keywords..."></b-form-input>
+                            :disabled="lunrIndex === null"
+                            :placeholder="(lunrIndex ? 'Search keywords...' : 'Fetching data...')">
+              </b-form-input>
               <b-input-group-append>
                 <b-btn type="submit"
                        variant="primary">Search</b-btn>
@@ -137,8 +139,6 @@ let fileNames = {}
 let jsonBodies = {}
 let scrollToHashTriggered = false
 
-let lunrIndex = null
-
 class Rule {
   constructor(ruleId, description) {
     this.id = ruleId
@@ -176,7 +176,8 @@ export default {
       fileCollapsed: {},
       showJsonModalTitle: '',
       showJsonModalBody: '',
-      searchQuery: ''
+      searchQuery: '',
+      lunrIndex: null
     }
   },
   created() {
@@ -310,13 +311,13 @@ export default {
       return true
     },
 
-    makeLunrIndex(groupIndex, fileIndex) {
+    makeLunrIndex() {
       if (!this.allFilesFetched()) {
         return
       }
       const self = this
 
-      lunrIndex = lunr(function() {
+      this.lunrIndex = lunr(function() {
         this.ref('fileId')
         this.field('text')
 
@@ -407,14 +408,14 @@ export default {
         return
       }
 
-      if (lunrIndex === null) {
+      if (this.lunrIndex === null) {
         return
       }
 
       const group = new Group('search-result', 'Search Result')
       let filteredGroups = [group]
 
-      for (const r of lunrIndex.search(this.searchQuery)) {
+      for (const r of this.lunrIndex.search(this.searchQuery)) {
         const fileId = r.ref
 
         for (const g of this.groups) {
