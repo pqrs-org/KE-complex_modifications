@@ -43,13 +43,13 @@
         </b-list-group-item>
       </b-list-group>
       <div style="margin-top: 1rem; margin-bottom: 3rem">
-        <div v-if="allRulesVisible">
+        <div v-if="allFilesExpanded">
           <b-btn variant="secondary"
-                 @click="setAllRuleVisibilities(false)">Collapse All</b-btn>
+                 @click="setAllFileCollapsed(false)">Collapse All</b-btn>
         </div>
         <div v-else>
           <b-btn variant="secondary"
-                 @click="setAllRuleVisibilities(true)">Expand All</b-btn>
+                 @click="setAllFileCollapsed(true)">Expand All</b-btn>
         </div>
       </div>
       <div class="card-outer"
@@ -69,7 +69,9 @@
               <b-card no-body>
                 <b-card-header>
                   <span class="rule-title"
-                        v-b-toggle="file.id + '-list-group'">{{ file.title }}</span>
+                        @click="toggleFileCollapsed(file.id)">
+                    {{ file.title }}
+                  </span>
 
                   <div class="float-right">
                     <b-dropdown text="Import"
@@ -91,17 +93,16 @@
                   </div>
                 </b-card-header>
                 <b-collapse :id="file.id + '-list-group'"
-                            :visible="ruleVisibilities[file.id]"
-                            @shown="setRuleVisibility(file.id, true)"
-                            @hidden="setRuleVisibility(file.id, false)">
-                  <div class="list-group list-group-flush">
-                    <div class="list-group-item"
-                         v-for="rule in file.rules"
-                         :key="rule.id">{{ rule.description }}</div>
-                    <div class="list-group-item"
-                         v-if="file.extraDescription"
-                         v-html="file.extraDescription"></div>
-                  </div>
+                            :visible="fileCollapsed[file.id]">
+                  <b-list-group flush>
+                    <b-list-group-item v-for="rule in file.rules"
+                                       :key="rule.id">
+                      {{ rule.description }}
+                    </b-list-group-item>
+                    <b-list-group-item v-if="file.extraDescription"
+                                       v-html="file.extraDescription">
+                    </b-list-group-item>
+                  </b-list-group>
                 </b-collapse>
               </b-card>
             </div>
@@ -142,9 +143,8 @@ export default {
     return {
       pageUrl: window.location.origin + window.location.pathname,
       groups: [],
-      allRulesVisible: false,
-      ruleVisibilities: {},
-      fetchTotalNumber: 0,
+      allFilesExpanded: false,
+      fileCollapsed: {},
       fetchedCount: 0,
       pageName: this.fileName(window.location.pathname),
       showJsonModalTitle: '',
@@ -183,23 +183,24 @@ export default {
 
             for (let i = 0; i < group.files.length; ++i) {
               g.files.push({
-                id: null
+                id: null,
+                extraDescription: null
               })
             }
             self.groups.push(g)
 
             group.files.forEach(function(file, fileIndex) {
               if (file.path) {
-                ++self.fetchTotalNumber
                 self.fetchFile(file.path, groupIndex, fileIndex)
               }
               if (file.extra_description_path) {
-                ++self.fetchTotalNumber
                 self.fetchExtraDescription(
                   file.extra_description_path,
                   groupIndex,
                   fileIndex
                 )
+              } else {
+                g.files[fileIndex].extraDescription = ''
               }
             })
           })
@@ -235,7 +236,7 @@ export default {
           }
 
           self.$set(
-            self.ruleVisibilities,
+            self.fileCollapsed,
             f.id,
             window.location.hash.substring(1) == f.id
           )
@@ -273,30 +274,31 @@ export default {
         })
     },
 
-    updateAllRulesVisible() {
-      this.allRulesVisible = true
-      for (const v of Object.values(this.ruleVisibilities)) {
+    updateAllFilesExpanded() {
+      this.allFilesExpanded = true
+      for (const v of Object.values(this.fileCollapsed)) {
         if (!v) {
-          this.allRulesVisible = false
+          this.allFilesExpanded = false
           return
         }
       }
     },
 
-    setAllRuleVisibilities(value) {
-      let ruleVisibilities = {}
-      for (const id of Object.keys(this.ruleVisibilities)) {
-        ruleVisibilities[id] = value
+    setAllFileCollapsed(value) {
+      let fileCollapsed = {}
+      for (const id of Object.keys(this.fileCollapsed)) {
+        fileCollapsed[id] = value
       }
-      this.ruleVisibilities = ruleVisibilities
+      this.fileCollapsed = fileCollapsed
 
-      this.updateAllRulesVisible()
+      this.updateAllFilesExpanded()
     },
 
-    setRuleVisibility(id, value) {
-      this.$set(this.ruleVisibilities, id, value)
+    toggleFileCollapsed(fileId) {
+      const currentValue = this.fileCollapsed[fileId]
+      this.$set(this.fileCollapsed, fileId, !currentValue)
 
-      this.updateAllRulesVisible()
+      this.updateAllFilesExpanded()
     },
 
     importJson(url) {
@@ -330,6 +332,9 @@ export default {
       for (const g of this.groups) {
         for (const f of g.files) {
           if (f.id === null) {
+            return
+          }
+          if (f.extraDescription === null) {
             return
           }
         }
