@@ -31,9 +31,7 @@ def _to(events)
   events.each do |e|
     d = {}
     d['key_code'] = e[0]
-    unless e[1].nil?
-      d['modifiers'] = e[1]
-    end
+    e[1].nil? || d['modifiers'] = e[1]
 
     data << d
   end
@@ -44,10 +42,9 @@ def to(events)
   JSON.generate(_to(events))
 end
 
-
 def each_key(source_keys_list: :source_keys_list, dest_keys_list: :dest_keys_list, from_mandatory_modifiers: [], from_optional_modifiers: [], to_pre_events: [], to_modifiers: [], to_post_events: [], conditions: [], as_json: false)
   data = []
-  source_keys_list.each_with_index do |from_key,index|
+  source_keys_list.each_with_index do |from_key, index|
     to_key = dest_keys_list[index]
     d = {}
     d['type'] = 'basic'
@@ -55,17 +52,21 @@ def each_key(source_keys_list: :source_keys_list, dest_keys_list: :dest_keys_lis
 
     # Compile list of events to add to "to" section
     events = []
+
     to_pre_events.each do |e|
       events << e
     end
-    if to_modifiers[0].nil?
-      events << [to_key]
-    else
-      events << [to_key, to_modifiers]
-    end
+
+    events << if to_modifiers[0].nil?
+                [to_key]
+              else
+                [to_key, to_modifiers]
+              end
+
     to_post_events.each do |e|
       events << e
     end
+
     d['to'] = JSON.parse(to(events))
 
     if conditions.any?
@@ -162,6 +163,10 @@ def frontmost_application(type, app_aliases)
     '^com\.parallels\.winapp\.', # prefix
   ]
 
+  visual_studio_code_bundle_identifiers = [
+    '^com\.microsoft\.VSCode$',
+  ]
+
   x11_bundle_identifiers = [
     '^org\.x\.X11$',
     '^com\.apple\.x11$',
@@ -170,16 +175,14 @@ def frontmost_application(type, app_aliases)
   ]
 
   xcode_bundle_identifiers = [
-    '^com\.apple\.dt\.Xcode$'
+    '^com\.apple\.dt\.Xcode$',
   ]
 
   # ----------------------------------------
 
   bundle_identifiers = []
 
-  unless app_aliases.is_a? Enumerable
-    app_aliases = [ app_aliases ]
-  end
+  app_aliases.is_a?(Enumerable) || app_aliases = [app_aliases]
 
   app_aliases.each do |app_alias|
     case app_alias
@@ -205,7 +208,7 @@ def frontmost_application(type, app_aliases)
       bundle_identifiers.concat(vi_bundle_identifiers)
       bundle_identifiers.concat(virtual_machine_bundle_identifiers)
       bundle_identifiers.concat(x11_bundle_identifiers)
-      bundle_identifiers << '^com\\.microsoft\\.VSCode$'
+      bundle_identifiers.concat(visual_studio_code_bundle_identifiers)
 
     when 'finder'
       bundle_identifiers.concat(finder_bundle_identifiers)
@@ -225,6 +228,9 @@ def frontmost_application(type, app_aliases)
     when 'virtual_machine'
       bundle_identifiers.concat(virtual_machine_bundle_identifiers)
 
+    when 'visual_studio_code'
+      bundle_identifiers.concat(visual_studio_code_bundle_identifiers)
+
     when 'xcode'
       bundle_identifiers.concat(xcode_bundle_identifiers)
 
@@ -233,12 +239,13 @@ def frontmost_application(type, app_aliases)
     end
   end
 
-  unless bundle_identifiers.empty?
-    JSON.generate({
-                    "type" => type,
-                    "bundle_identifiers" => bundle_identifiers,
-                  })
-  end
+  return if bundle_identifiers.empty?
+
+  data = {
+    'type' => type,
+    'bundle_identifiers' => bundle_identifiers,
+  }
+  JSON.generate(data)
 end
 
 def frontmost_application_if(app_aliases)

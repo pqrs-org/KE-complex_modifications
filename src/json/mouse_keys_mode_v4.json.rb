@@ -15,7 +15,7 @@ require 'json'
 
 def main
   puts JSON.pretty_generate({
-                              "title" => "Mouse Keys Mode v4 (rev 1) (Available since Karabiner-Elements v11.6.3)",
+                              "title" => "Mouse Keys Mode v4 (rev 1)",
                               "rules" => [
                                 {
                                   "description" => "Mouse Keys Mode v4 (rev 1)",

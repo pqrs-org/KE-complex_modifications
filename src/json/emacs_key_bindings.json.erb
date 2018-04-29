@@ -1,5 +1,5 @@
 {
-    "title": "Emacs key bindings (rev 9)",
+    "title": "Emacs key bindings (rev 10)",
     "rules": [
         {
             "description": "Emacs key bindings [C-x key strokes] (rev 1)",
@@ -220,6 +220,35 @@
                     "type": "basic",
                     "from": <%= from("d", ["option"], ["caps_lock"]) %>,
                     "to": <%= to([["delete_forward", ["left_option"]]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("emacs_key_bindings_exception") %> ]
+                }
+            ]
+        },
+        {
+            "description": "Bash style Emacs key bindings (rev 1)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("w", ["control"], ["caps_lock"]) %>,
+                    "to": <%= to([["delete_or_backspace", ["left_option"]]]) %>,
+                    "conditions": [ <%= frontmost_application_unless("emacs_key_bindings_exception") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("u", ["control"], ["caps_lock"]) %>,
+                    "to": [
+                        {
+                            "key_code": "left_arrow",
+                            "modifiers": [
+                                "left_command",
+                                "left_shift"
+                            ]
+                        },
+                        {
+                            "key_code": "delete_or_backspace",
+                            "repeat": false
+                        }
+                    ],
                     "conditions": [ <%= frontmost_application_unless("emacs_key_bindings_exception") %> ]
                 }
             ]

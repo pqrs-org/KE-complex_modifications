@@ -1,8 +1,8 @@
 {
-  "title": "Change escape key (rev 2)",
+  "title": "Change escape key (rev 3)",
   "rules": [
     {
-      "description": "Post caps_lock if escape is pressed alone.",
+      "description": "Post caps_lock if escape is pressed alone. (rev 2) (Available since Karabiner-Elements v12.0.2)",
       "manipulators": [
         {
           "type": "basic",
@@ -21,7 +21,8 @@
           ],
           "to_if_alone": [
             {
-              "key_code": "caps_lock"
+              "key_code": "caps_lock",
+              "hold_down_milliseconds": 500
             }
           ]
         }
