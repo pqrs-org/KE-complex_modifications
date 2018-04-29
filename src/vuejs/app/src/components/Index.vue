@@ -17,6 +17,9 @@
     </b-navbar>
 
     <div class="search">
+      <socket id="loading-spinner"
+              v-show="loading"></socket>
+
       <b-row align-h="center">
         <b-col md="6">
           <b-form @submit="search">
@@ -133,6 +136,7 @@
 import axios from 'axios'
 import lunr from 'lunr'
 import striptags from 'striptags'
+import { Socket } from 'vue-loading-spinner'
 const VueScrollTo = require('vue-scrollto')
 
 let fileNames = {}
@@ -166,8 +170,12 @@ class Group {
 
 export default {
   name: 'Index',
+  components: {
+    Socket
+  },
   data() {
     return {
+      loading: true,
       pageUrl: window.location.origin + window.location.pathname,
       pageName: this.fileName(window.location.pathname),
       groups: [],
@@ -269,6 +277,7 @@ export default {
           })
 
           self.filteredGroups = self.groups
+          self.updateLoadingState()
           self.makeLunrIndex(groupIndex, fileIndex)
           self.scrollToHash()
         })
@@ -289,6 +298,7 @@ export default {
           self.$set(self.groups[groupIndex].files, fileIndex, f)
 
           self.filteredGroups = self.groups
+          self.updateLoadingState()
           self.makeLunrIndex(groupIndex, fileIndex)
         })
         .catch(function(error) {
@@ -296,7 +306,7 @@ export default {
         })
     },
 
-    allFilesFetched: function() {
+    allFilesFetched() {
       for (const g of this.groups) {
         for (const f of g.files) {
           if (f.id === null) {
@@ -311,10 +321,22 @@ export default {
       return true
     },
 
+    updateLoadingState() {
+      if (!this.allFilesFetched()) {
+        return
+      }
+
+      const self = this
+      setTimeout(() => {
+        self.loading = false
+      }, 500)
+    },
+
     makeLunrIndex() {
       if (!this.allFilesFetched()) {
         return
       }
+
       const self = this
 
       this.lunrIndex = lunr(function() {
@@ -375,15 +397,15 @@ export default {
       this.$refs.showJsonModalRef.show()
     },
 
-    urlCopied: function(e) {
+    urlCopied(e) {
       alert('You just copied: ' + e.text)
     },
 
-    urlCopyFailed: function() {
+    urlCopyFailed() {
       alert('Failed to copy texts')
     },
 
-    scrollToHash: function() {
+    scrollToHash() {
       if (scrollToHashTriggered) {
         return
       }
@@ -401,7 +423,7 @@ export default {
       VueScrollTo.scrollTo(element)
     },
 
-    search: function(e) {
+    search(e) {
       e.preventDefault()
 
       if (!this.searchQuery) {
@@ -441,6 +463,12 @@ export default {
   top: 0;
   z-index: 900;
   background-color: #343a40;
+
+  #loading-spinner {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+  }
 }
 
 .container {
