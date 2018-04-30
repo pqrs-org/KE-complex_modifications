@@ -53,11 +53,11 @@
       <div style="margin-top: 1rem; margin-bottom: 3rem">
         <div v-if="allFilesExpanded">
           <b-btn variant="secondary"
-                 @click="setAllFileCollapsed(false)">Collapse All</b-btn>
+                 @click="setAllFileCollapsed(true)">Collapse All</b-btn>
         </div>
         <div v-else>
           <b-btn variant="secondary"
-                 @click="setAllFileCollapsed(true)">Expand All</b-btn>
+                 @click="setAllFileCollapsed(false)">Expand All</b-btn>
         </div>
       </div>
       <div class="card-outer"
@@ -78,6 +78,12 @@
                 <b-card-header>
                   <span class="rule-title"
                         @click="toggleFileCollapsed(file.id)">
+                    <span v-if="fileCollapsed[file.id]">
+                      <icon name="caret-square-right"></icon>
+                    </span>
+                    <span v-else>
+                      <icon name="caret-square-down"></icon>
+                    </span>
                     {{ file.title }}
                   </span>
 
@@ -101,7 +107,7 @@
                   </div>
                 </b-card-header>
                 <b-collapse :id="file.id + '-list-group'"
-                            :visible="fileCollapsed[file.id]">
+                            :visible="!fileCollapsed[file.id]">
                   <b-list-group flush>
                     <b-list-group-item v-for="rule in file.rules"
                                        :key="rule.id">
@@ -241,7 +247,7 @@ export default {
 
           self.updateLoadingState()
           self.makeLunrIndex()
-          self.setAllFileCollapsed(false)
+          self.setAllFileCollapsed(true)
           self.scrollToHash()
         })
         .catch(function(error) {
@@ -273,7 +279,7 @@ export default {
 
             this.add({
               fileId: f.id,
-              text: text
+              text: text.toLowerCase()
             })
           }
         }
@@ -283,7 +289,7 @@ export default {
     updateAllFilesExpanded() {
       this.allFilesExpanded = true
       for (const v of Object.values(this.fileCollapsed)) {
-        if (!v) {
+        if (v) {
           this.allFilesExpanded = false
           return
         }
@@ -359,11 +365,12 @@ export default {
     search(e) {
       e.preventDefault()
 
-      if (!this.searchQuery) {
+      if (this.lunrIndex === null) {
         return
       }
 
-      if (this.lunrIndex === null) {
+      if (!this.searchQuery) {
+        this.filteredGroups = this.groups
         return
       }
 
@@ -374,7 +381,25 @@ export default {
       })
       let filteredGroups = [group]
 
-      for (const r of this.lunrIndex.search(this.searchQuery)) {
+      const self = this
+      const results = this.lunrIndex.query(function(q) {
+        lunr.tokenizer(self.searchQuery.toLowerCase()).forEach(function(token) {
+          const queryString = token.toString()
+          q.term(queryString, {
+            boost: 100
+          })
+          q.term(queryString, {
+            wildcard:
+              lunr.Query.wildcard.LEADING | lunr.Query.wildcard.TRAILING,
+            boost: 10
+          })
+          q.term(queryString, {
+            editDistance: 2
+          })
+        })
+      })
+
+      for (const r of results) {
         const fileId = r.ref
 
         for (const g of this.groups) {
