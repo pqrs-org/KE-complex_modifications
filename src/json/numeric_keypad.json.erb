@@ -23,8 +23,9 @@
         )
         manipulators_str = ""
         manipulators.each do |m|
-            manipulators_str += ", #{JSON.generate(m)}"
+            manipulators_str += "#{JSON.generate(m)}, "
         end
+        manipulators_str.chomp!(", ")
 
         # alternative key mapping where right_command is 0
         alt_remap_source_keys = [
@@ -41,12 +42,13 @@
         )
         alt_manipulators_str = ""
         alt_manipulators.each do |m|
-            alt_manipulators_str += ", #{JSON.generate(m)}"
+            alt_manipulators_str += "#{JSON.generate(m)}, "
         end
+        alt_manipulators_str.chomp!(", ")
     %>
     "rules": [
         {
-            "description": "Numeric Keypad Mode [Tab as trigger key, spacebar as 0]",
+            "description": "Numeric Keypad Trigger [Tab as trigger key]",
             "manipulators": [
                 {
                     "type": "basic",
@@ -59,25 +61,47 @@
                         { "set_variable": { "name": "numeric_keypad_mode", "value": 0 } }
                     ]
                 }
-                <%= manipulators_str %>
             ]
         },
         {
-            "description": "Numeric Keypad Mode [Tab as trigger key, right_command as 0]",
+            "description": "Numeric Keypad Trigger [Caps Lock as trigger key]",
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("tab", [], []) %>,
+                    "from": <%= from("caps_lock", [], []) %>,
                     "to": [
                         { "set_variable": { "name": "numeric_keypad_mode", "value": 1 } }
                     ],
-                    "to_if_alone": <%= to([["tab"]]) %>,
+                    "to_if_alone": <%= to([["caps_lock"]]) %>,
                     "to_after_key_up": [
                         { "set_variable": { "name": "numeric_keypad_mode", "value": 0 } }
                     ]
                 }
-                <%= alt_manipulators_str %>
             ]
+        },
+        {
+            "description": "Numeric Keypad Trigger [Escape as trigger key]",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("escape", [], []) %>,
+                    "to": [
+                        { "set_variable": { "name": "numeric_keypad_mode", "value": 1 } }
+                    ],
+                    "to_if_alone": <%= to([["escape"]]) %>,
+                    "to_after_key_up": [
+                        { "set_variable": { "name": "numeric_keypad_mode", "value": 0 } }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Numeric Keypad Mode [space_bar as 0]",
+            "manipulators": [<%= manipulators_str %>]
+        },
+        {
+            "description": "Numeric Keypad Mode [right_command as 0]",
+            "manipulators": [<%= alt_manipulators_str %>]
         },
         {
             "description": "Numeric Keypad Mode [Optional] Trigger + right_control to keypad_period",
