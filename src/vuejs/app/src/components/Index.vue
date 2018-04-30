@@ -139,32 +139,54 @@ import striptags from 'striptags'
 import { Socket } from 'vue-loading-spinner'
 const VueScrollTo = require('vue-scrollto')
 
-let fileNames = {}
-let jsonBodies = {}
+const getFileName = path => {
+  let name = path.substring(path.lastIndexOf('/') + 1)
+  if (name.lastIndexOf('.') != -1) {
+    name = name.substring(0, name.lastIndexOf('.'))
+  }
+  return name
+}
+
 let scrollToHashTriggered = false
 
 class Rule {
-  constructor(ruleId, description) {
-    this.id = ruleId
-    this.description = description
+  constructor(ruleIndex, ruleJson) {
+    this.id = ruleIndex
+    this.description = ruleJson.description
   }
 }
 
 class File {
-  constructor(fileId, title) {
-    this.id = fileId
-    this.title = title
-    this.importUrl = null
+  constructor(fileJson) {
+    this.id = getFileName(fileJson.path)
+    this.jsonUrl = fileJson.path
+    this.importUrl = this.makeJsonUrl(fileJson.path)
+    this.extraDescription = fileJson.extra_description
+    this.title = fileJson.json.title
     this.rules = []
-    this.extraDescription = null
+    for (const ruleIndex in fileJson.json.rules) {
+      this.rules.push(new Rule(ruleIndex, fileJson.json.rules[ruleIndex]))
+    }
+  }
+
+  makeJsonUrl(path) {
+    const url = encodeURIComponent(
+      window.location.href.replace(/[^/]+$/, '') + path
+    )
+    return (
+      'karabiner://karabiner/assets/complex_modifications/import?url=' + url
+    )
   }
 }
 
 class Group {
-  constructor(groupId, name) {
-    this.id = groupId
-    this.name = name
+  constructor(groupJson) {
+    this.id = groupJson.id
+    this.name = groupJson.name
     this.files = []
+    for (const fileJson of groupJson.files) {
+      this.files.push(new File(fileJson))
+    }
   }
 }
 
@@ -204,81 +226,22 @@ export default {
       const self = this
 
       axios
-        .get('groups.json')
+        .get('dist.json')
         .then(function(response) {
           let type = self.fileName(window.location.pathname)
           if (type === '') {
             type = 'index'
           }
 
-          response.data[type].forEach(function(group, groupIndex) {
-            const g = new Group(group.id, group.name)
-
-            for (let i = 0; i < group.files.length; ++i) {
-              g.files.push(new File(null, null))
-            }
-            self.groups.push(g)
-
-            group.files.forEach(function(file, fileIndex) {
-              if (file.path) {
-                self.fetchFile(file.path, groupIndex, fileIndex)
-              }
-              if (file.extra_description_path) {
-                self.fetchExtraDescription(
-                  file.extra_description_path,
-                  groupIndex,
-                  fileIndex
-                )
-              } else {
-                g.files[fileIndex].extraDescription = ''
-              }
-            })
-
-            self.filteredGroups = self.groups
-          })
-        })
-        .catch(function(error) {
-          console.log(error)
-        })
-    },
-
-    jsonUrl(path) {
-      const url = encodeURIComponent(
-        window.location.href.replace(/[^/]+$/, '') + path
-      )
-      return (
-        'karabiner://karabiner/assets/complex_modifications/import?url=' + url
-      )
-    },
-
-    fetchFile(path, groupIndex, fileIndex) {
-      const self = this
-
-      axios
-        .get(path)
-        .then(function(response) {
-          let f = self.groups[groupIndex].files[fileIndex]
-          if (f.id === null) {
-            f.id = self.fileName(path)
-            f.title = response.data.title
-            f.importUrl = self.jsonUrl(path)
+          for (const groupJson of response.data[type]) {
+            self.groups.push(new Group(groupJson))
           }
 
-          self.$set(
-            self.fileCollapsed,
-            f.id,
-            window.location.hash.substring(1) == f.id
-          )
-          fileNames[f.id] = self.fileName(path)
-          jsonBodies[f.id] = JSON.stringify(response.data, null, 2)
-
-          response.data.rules.forEach(function(r, ruleIndex) {
-            f.rules.push(new Rule(f.id + '-rule-' + ruleIndex, r.description))
-          })
-
           self.filteredGroups = self.groups
+
           self.updateLoadingState()
-          self.makeLunrIndex(groupIndex, fileIndex)
+          self.makeLunrIndex()
+          self.setAllFileCollapsed(false)
           self.scrollToHash()
         })
         .catch(function(error) {
@@ -286,46 +249,7 @@ export default {
         })
     },
 
-    fetchExtraDescription(path, groupIndex, fileIndex) {
-      const self = this
-
-      axios
-        .get(path)
-        .then(function(response) {
-          let f = self.groups[groupIndex].files[fileIndex]
-          f.extraDescription = response.data
-
-          self.$set(self.groups[groupIndex].files, fileIndex, f)
-
-          self.filteredGroups = self.groups
-          self.updateLoadingState()
-          self.makeLunrIndex(groupIndex, fileIndex)
-        })
-        .catch(function(error) {
-          console.log(error)
-        })
-    },
-
-    allFilesFetched() {
-      for (const g of this.groups) {
-        for (const f of g.files) {
-          if (f.id === null) {
-            return false
-          }
-          if (f.extraDescription === null) {
-            return false
-          }
-        }
-      }
-
-      return true
-    },
-
     updateLoadingState() {
-      if (!this.allFilesFetched()) {
-        return
-      }
-
       const self = this
       setTimeout(() => {
         self.loading = false
@@ -333,10 +257,6 @@ export default {
     },
 
     makeLunrIndex() {
-      if (!this.allFilesFetched()) {
-        return
-      }
-
       const self = this
 
       this.lunrIndex = lunr(function() {
@@ -372,9 +292,13 @@ export default {
 
     setAllFileCollapsed(value) {
       let fileCollapsed = {}
-      for (const id of Object.keys(this.fileCollapsed)) {
-        fileCollapsed[id] = value
+
+      for (const g of this.groups) {
+        for (const f of g.files) {
+          fileCollapsed[f.id] = value
+        }
       }
+
       this.fileCollapsed = fileCollapsed
 
       this.updateAllFilesExpanded()
@@ -392,9 +316,22 @@ export default {
     },
 
     showJsonModal(fileId) {
-      this.showJsonModalTitle = fileNames[fileId]
-      this.showJsonModalBody = jsonBodies[fileId]
-      this.$refs.showJsonModalRef.show()
+      for (const g of this.groups) {
+        for (const f of g.files) {
+          if (f.id == fileId) {
+            this.showJsonModalTitle = f.title
+            this.showJsonModalBody = 'Loading...'
+            this.$refs.showJsonModalRef.show()
+
+            const self = this
+            axios.get(f.jsonUrl).then(function(response) {
+              self.showJsonModalBody = JSON.stringify(response.data, null, 2)
+            })
+
+            return
+          }
+        }
+      }
     },
 
     urlCopied(e) {
@@ -415,10 +352,6 @@ export default {
         return
       }
 
-      if (!this.allFilesFetched()) {
-        return
-      }
-
       scrollToHashTriggered = true
       VueScrollTo.scrollTo(element)
     },
@@ -434,7 +367,11 @@ export default {
         return
       }
 
-      const group = new Group('search-result', 'Search Result')
+      const group = new Group({
+        id: 'search-result',
+        name: 'Search Result',
+        files: []
+      })
       let filteredGroups = [group]
 
       for (const r of this.lunrIndex.search(this.searchQuery)) {
