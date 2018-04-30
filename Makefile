@@ -7,4 +7,4 @@ rebuild:
 	scripts/apply-lint.sh
 
 server:
-	ruby -rwebrick -e 'WEBrick::HTTPServer.new(:DocumentRoot => "./docs", :Port => 8000).start'
+	ruby scripts/dev-server.rb
