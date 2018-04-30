@@ -273,7 +273,7 @@ export default {
 
             this.add({
               fileId: f.id,
-              text: text
+              text: text.toLowerCase()
             })
           }
         }
@@ -359,11 +359,12 @@ export default {
     search(e) {
       e.preventDefault()
 
-      if (!this.searchQuery) {
+      if (this.lunrIndex === null) {
         return
       }
 
-      if (this.lunrIndex === null) {
+      if (!this.searchQuery) {
+        this.filteredGroups = this.groups
         return
       }
 
@@ -374,7 +375,25 @@ export default {
       })
       let filteredGroups = [group]
 
-      for (const r of this.lunrIndex.search(this.searchQuery)) {
+      const self = this
+      const results = this.lunrIndex.query(function(q) {
+        lunr.tokenizer(self.searchQuery.toLowerCase()).forEach(function(token) {
+          const queryString = token.toString()
+          q.term(queryString, {
+            boost: 100
+          })
+          q.term(queryString, {
+            wildcard:
+              lunr.Query.wildcard.LEADING | lunr.Query.wildcard.TRAILING,
+            boost: 10
+          })
+          q.term(queryString, {
+            editDistance: 2
+          })
+        })
+      })
+
+      for (const r of results) {
         const fileId = r.ref
 
         for (const g of this.groups) {
