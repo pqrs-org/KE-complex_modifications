@@ -1,5 +1,6 @@
 all:
 	bash scripts/update-json.sh
+	(cd docs && ruby ../scripts/make-distjs.rb > dist.json)
 
 rebuild:
 	touch src/json/*
