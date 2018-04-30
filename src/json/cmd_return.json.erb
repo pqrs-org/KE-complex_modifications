@@ -1,0 +1,15 @@
+{
+    "title": "Command_R + Return to Backslash",
+    "rules": [
+        {
+            "description": "Command_R (⌘) + Return (⏎) to Backslash and Command_R (⌘) + Shift (⇧) + Return (⏎) to Pipe (|)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("return_or_enter", ["right_command"], ["left_shift", "right_shift"]) %>,
+                    "to": <%= to([["backslash"]]) %>
+                }
+            ]
+        }
+    ]
+}
