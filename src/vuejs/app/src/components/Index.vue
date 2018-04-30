@@ -353,13 +353,21 @@ export default {
         return
       }
 
-      const element = document.getElementById(window.location.hash.substring(1))
-      if (!element) {
-        return
-      }
+      const self = this
 
-      scrollToHashTriggered = true
-      VueScrollTo.scrollTo(element)
+      setTimeout(function() {
+        const elementId = window.location.hash.substring(1)
+        const element = document.getElementById(elementId)
+        if (!element) {
+          return
+        }
+
+        scrollToHashTriggered = true
+        self.$set(self.fileCollapsed, elementId, false)
+        VueScrollTo.scrollTo(element, 500, {
+          offset: -100
+        })
+      }, 500)
     },
 
     search(e) {
@@ -441,17 +449,19 @@ export default {
     margin-bottom: 2rem;
   }
 
-  .rule-card-outer {
-    margin-bottom: 1rem;
+  .card-outer {
+    .rule-card-outer {
+      margin-bottom: 1rem;
 
-    .rule-title {
-      display: inline-block;
-      cursor: pointer;
-      width: calc(100% - 150px);
-      text-align: left;
+      .rule-title {
+        display: inline-block;
+        cursor: pointer;
+        width: calc(100% - 150px);
+        text-align: left;
 
-      &:hover {
-        text-decoration: underline;
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
   }
