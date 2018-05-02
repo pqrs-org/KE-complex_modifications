@@ -93,4 +93,27 @@ module Karabiner
       '^com\.apple\.dt\.Xcode$',
     ],
   }.freeze
+
+  APP_ALIASES = {
+    'activity_monitor' => BUNDLE_IDENTIFERS[:activity_monitor],
+    'adium' => BUNDLE_IDENTIFERS[:adium],
+    'browser' => BUNDLE_IDENTIFERS[:browser],
+    'eclipse' => BUNDLE_IDENTIFERS[:eclipse],
+    'emacs' => BUNDLE_IDENTIFERS[:emacs],
+    'emacs_key_bindings_exception' => BUNDLE_IDENTIFERS[:emacs] +
+                                      BUNDLE_IDENTIFERS[:remote_desktop] +
+                                      BUNDLE_IDENTIFERS[:terminal] +
+                                      BUNDLE_IDENTIFERS[:vi] +
+                                      BUNDLE_IDENTIFERS[:virtual_machine] +
+                                      BUNDLE_IDENTIFERS[:x11] +
+                                      BUNDLE_IDENTIFERS[:visual_studio_code],
+    'finder' => BUNDLE_IDENTIFERS[:finder],
+    'microsoft_office' => BUNDLE_IDENTIFERS[:microsoft_office],
+    'remote_desktop' => BUNDLE_IDENTIFERS[:remote_desktop],
+    'terminal' => BUNDLE_IDENTIFERS[:terminal],
+    'vi' => BUNDLE_IDENTIFERS[:vi],
+    'virtual_machine' => BUNDLE_IDENTIFERS[:virtual_machine],
+    'visual_studio_code' => BUNDLE_IDENTIFERS[:visual_studio_code],
+    'xcode' => BUNDLE_IDENTIFERS[:xcode],
+  }.freeze
 end
