@@ -2,7 +2,7 @@
   "title": "Numeric Keypad",
   "rules": [
     {
-      "description": "Numeric Keypad Mode [Tab as trigger key, spacebar as 0]",
+      "description": "Numeric Keypad Trigger [Tab as trigger key]",
       "manipulators": [
         {
           "type": "basic",
@@ -30,7 +30,76 @@
               }
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "description": "Numeric Keypad Trigger [Caps Lock as trigger key]",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "caps_lock"
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "numeric_keypad_mode",
+                "value": 1
+              }
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "caps_lock"
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "numeric_keypad_mode",
+                "value": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Numeric Keypad Trigger [Escape as trigger key]",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "escape"
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "numeric_keypad_mode",
+                "value": 1
+              }
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "escape"
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "numeric_keypad_mode",
+                "value": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Numeric Keypad Mode [spacebar as 0]",
+      "manipulators": [
         {
           "type": "basic",
           "from": {
@@ -358,35 +427,8 @@
       ]
     },
     {
-      "description": "Numeric Keypad Mode [Tab as trigger key, right_command as 0]",
+      "description": "Numeric Keypad Mode [right_command as 0]",
       "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "tab"
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "numeric_keypad_mode",
-                "value": 1
-              }
-            }
-          ],
-          "to_if_alone": [
-            {
-              "key_code": "tab"
-            }
-          ],
-          "to_after_key_up": [
-            {
-              "set_variable": {
-                "name": "numeric_keypad_mode",
-                "value": 0
-              }
-            }
-          ]
-        },
         {
           "type": "basic",
           "from": {
