@@ -2,6 +2,7 @@
 
 require 'erb'
 require 'json'
+require_relative 'lib/karabiner.rb'
 
 def _from(key_code, mandatory_modifiers, optional_modifiers)
   data = {}
@@ -86,10 +87,6 @@ def each_key(source_keys_list: :source_keys_list, dest_keys_list: :dest_keys_lis
 end
 
 def frontmost_application(type, app_aliases)
-  activity_monitor_bundle_identifiers = [
-    '^com\.apple\.ActivityMonitor$',
-  ]
-
   adium_bundle_identifiers = [
     '^com\.adiumX\.adiumX$',
   ]
@@ -187,7 +184,7 @@ def frontmost_application(type, app_aliases)
   app_aliases.each do |app_alias|
     case app_alias
     when 'activity_monitor'
-      bundle_identifiers.concat(activity_monitor_bundle_identifiers)
+      bundle_identifiers.concat(Karabiner::BUNDLE_IDENTIFERS[:activity_monitor])
 
     when 'adium'
       bundle_identifiers.concat(adium_bundle_identifiers)
