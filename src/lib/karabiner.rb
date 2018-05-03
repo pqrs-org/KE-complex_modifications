@@ -116,4 +116,17 @@ module Karabiner
     'visual_studio_code' => BUNDLE_IDENTIFERS[:visual_studio_code],
     'xcode' => BUNDLE_IDENTIFERS[:xcode],
   }.freeze
+
+  def key_code(name)
+    {
+      'key_code' => name,
+    }
+  end
+
+  def from_modifiers(mandatory_modifiers, optional_modifiers)
+    modifiers = {}
+    modifiers['mandatory'] = mandatory_modifiers unless mandatory_modifiers.nil?
+    modifiers['optional'] = optional_modifiers unless optional_modifiers.nil?
+    modifiers
+  end
 end
