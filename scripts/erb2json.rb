@@ -2,7 +2,7 @@
 
 require 'erb'
 require 'json'
-require_relative 'lib/karabiner.rb'
+require_relative '../src/lib/karabiner.rb'
 
 def _from(key_code, mandatory_modifiers, optional_modifiers)
   data = {}
