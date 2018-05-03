@@ -11,11 +11,6 @@
 
                 {
                     "type": "basic",
-                    "from": <%= from("spacebar", ["option"], ["any"]) %>,
-                    "to": <%= to([["spacebar"]]) %>
-                },
-                {
-                    "type": "basic",
                     "from": <%= from("spacebar", [], ["any"]) %>,
                     "to": <%= to([["left_shift"]]) %>,
                     "to_if_alone": <%= to([["spacebar"]]) %>
@@ -297,7 +292,7 @@
             ]
         },
         {
-            "description": "Extra emacs key bindings (rev 4)",
+            "description": "Extra emacs key bindings (rev 5)",
             "manipulators": [
                 {
                     "description": "Change control+u to delete-to-beginning-of-line",
@@ -351,6 +346,21 @@
                     "from": <%= from("p", ["control"], ["caps_lock"]) %>,
                     "to": <%= to([["up_arrow"]]) %>,
                     "conditions": [ <%= frontmost_application_if(["emacs"]) %> ]
+                },
+
+                <%# in VS Code %>
+
+                {
+                    "type": "basic",
+                    "from": <%= from("n", ["option"], ["caps_lock"]) %>,
+                    "to": <%= to([["page_down", ["left_control"]]]) %>,
+                    "conditions": [ <%= frontmost_application_if(["visual_studio_code"]) %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("p", ["option"], ["caps_lock"]) %>,
+                    "to": <%= to([["page_up", ["left_control"]]]) %>,
+                    "conditions": [ <%= frontmost_application_if(["visual_studio_code"]) %> ]
                 }
             ]
         },

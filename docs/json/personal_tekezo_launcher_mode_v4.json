@@ -238,7 +238,7 @@
           },
           "to": [
             {
-              "shell_command": "open -a 'Emacs.app'"
+              "shell_command": "~/.local/share/karabiner/bin/vscode.sh"
             }
           ],
           "conditions": [
@@ -289,7 +289,7 @@
               }
             },
             {
-              "shell_command": "open -a 'Emacs.app'"
+              "shell_command": "~/.local/share/karabiner/bin/vscode.sh"
             }
           ],
           "parameters": {
@@ -655,79 +655,6 @@
             },
             {
               "shell_command": "open -a 'Dictionary.app'"
-            }
-          ],
-          "parameters": {
-            "basic.simultaneous_threshold_milliseconds": 500
-          }
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "r",
-            "modifiers": {
-              "mandatory": [
-
-              ],
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "shell_command": "~/.local/share/karabiner/bin/vscode.sh"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "launcher_mode_v4",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "o"
-              },
-              {
-                "key_code": "r"
-              }
-            ],
-            "simultaneous_options": {
-              "key_down_order": "strict",
-              "key_up_order": "strict_inverse",
-              "to_after_key_up": [
-                {
-                  "set_variable": {
-                    "name": "launcher_mode_v4",
-                    "value": 0
-                  }
-                }
-              ]
-            },
-            "modifiers": {
-              "mandatory": [
-
-              ],
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "launcher_mode_v4",
-                "value": 1
-              }
-            },
-            {
-              "shell_command": "~/.local/share/karabiner/bin/vscode.sh"
             }
           ],
           "parameters": {
