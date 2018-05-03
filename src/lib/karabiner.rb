@@ -123,4 +123,42 @@ module Karabiner
     modifiers['optional'] = optional_modifiers unless optional_modifiers.nil?
     modifiers
   end
+
+  def self.frontmost_application(type, app_aliases)
+    bundle_identifiers = []
+    app_aliases.each do |app_alias|
+      if Karabiner::APP_ALIASES[app_alias].nil?
+        $stderr << "unknown app_alias: #{app_alias}\n"
+      else
+        bundle_identifiers += Karabiner::APP_ALIASES[app_alias]
+      end
+    end
+
+    {
+      'type' => type,
+      'bundle_identifiers' => bundle_identifiers,
+    }
+  end
+
+  def self.frontmost_application_if(app_aliases)
+    frontmost_application('frontmost_application_if', app_aliases)
+  end
+
+  def self.frontmost_application_unless(app_aliases)
+    frontmost_application('frontmost_application_unless', app_aliases)
+  end
+
+  def self.keyboard_type_if(keyboard_types)
+    {
+      'type' => 'keyboard_type_if',
+      'keyboard_types' => keyboard_types,
+    }
+  end
+
+  def self.keyboard_type_unless(keyboard_types)
+    {
+      'type' => 'keyboard_type_unless',
+      'keyboard_types' => keyboard_types,
+    }
+  end
 end

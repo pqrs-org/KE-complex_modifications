@@ -114,10 +114,7 @@ def main
                 },
               ],
             },
-            'conditions' => [
-              'type' => 'frontmost_application_unless',
-              'bundle_identifiers' => Karabiner::APP_ALIASES['emacs_key_bindings_exception'],
-            ],
+            'conditions' => [Karabiner.frontmost_application_unless(['emacs_key_bindings_exception'])],
           },
         ],
       },
@@ -131,10 +128,7 @@ def main
               'modifiers' => Karabiner.from_modifiers(['control'], %w[caps_lock option]),
             },
             'to' => [{ 'key_code' => 'delete_forward' }],
-            'conditions' => [
-              'type' => 'frontmost_application_unless',
-              'bundle_identifiers' => Karabiner::APP_ALIASES['emacs_key_bindings_exception'],
-            ],
+            'conditions' => [Karabiner.frontmost_application_unless(['emacs_key_bindings_exception'])],
           },
           {
             'type' => 'basic',
@@ -143,10 +137,7 @@ def main
               'modifiers' => Karabiner.from_modifiers(['control'], %w[caps_lock option]),
             },
             'to' => [{ 'key_code' => 'delete_or_backspace' }],
-            'conditions' => [
-              'type' => 'frontmost_application_unless',
-              'bundle_identifiers' => Karabiner::APP_ALIASES['emacs_key_bindings_exception'],
-            ],
+            'conditions' => [Karabiner.frontmost_application_unless(['emacs_key_bindings_exception'])],
           },
           {
             'type' => 'basic',
@@ -155,10 +146,7 @@ def main
               'modifiers' => Karabiner.from_modifiers(['control'], %w[caps_lock shift]),
             },
             'to' => [{ 'key_code' => 'tab' }],
-            'conditions' => [
-              'type' => 'frontmost_application_unless',
-              'bundle_identifiers' => Karabiner::APP_ALIASES['emacs_key_bindings_exception'],
-            ],
+            'conditions' => [Karabiner.frontmost_application_unless(['emacs_key_bindings_exception'])],
           },
           {
             'type' => 'basic',
@@ -167,12 +155,7 @@ def main
               'modifiers' => Karabiner.from_modifiers(['control'], ['caps_lock']),
             },
             'to' => [{ 'key_code' => 'escape' }],
-            'conditions' => [
-              {
-                'type' => 'keyboard_type_if',
-                'keyboard_types' => %w[ansi iso],
-              },
-            ],
+            'conditions' => [Karabiner.keyboard_type_if(%w[ansi iso])],
           },
           {
             'type' => 'basic',
@@ -181,14 +164,7 @@ def main
               'modifiers' => Karabiner.from_modifiers(['control'], ['caps_lock']),
             },
             'to' => [{ 'key_code' => 'escape' }],
-            'conditions' => [
-              {
-                'type' => 'keyboard_type_if',
-                'keyboard_types' => [
-                  'jis',
-                ],
-              },
-            ],
+            'conditions' => [Karabiner.keyboard_type_if(['jis'])],
           },
           {
             'type' => 'basic',
@@ -205,10 +181,7 @@ def main
               'modifiers' => Karabiner.from_modifiers(['control'], %w[caps_lock shift option]),
             },
             'to' => [{ 'key_code' => 'left_arrow' }],
-            'conditions' => [
-              'type' => 'frontmost_application_unless',
-              'bundle_identifiers' => Karabiner::APP_ALIASES['emacs_key_bindings_exception'],
-            ],
+            'conditions' => [Karabiner.frontmost_application_unless(['emacs_key_bindings_exception'])],
           },
           {
             'type' => 'basic',
@@ -217,10 +190,7 @@ def main
               'modifiers' => Karabiner.from_modifiers(['control'], %w[caps_lock shift option]),
             },
             'to' => [{ 'key_code' => 'right_arrow' }],
-            'conditions' => [
-              'type' => 'frontmost_application_unless',
-              'bundle_identifiers' => Karabiner::APP_ALIASES['emacs_key_bindings_exception'],
-            ],
+            'conditions' => [Karabiner.frontmost_application_unless(['emacs_key_bindings_exception'])],
           },
           {
             'type' => 'basic',
@@ -229,10 +199,7 @@ def main
               'modifiers' => Karabiner.from_modifiers(['control'], %w[caps_lock shift option]),
             },
             'to' => [{ 'key_code' => 'down_arrow' }],
-            'conditions' => [
-              'type' => 'frontmost_application_unless',
-              'bundle_identifiers' => Karabiner::APP_ALIASES['emacs_key_bindings_exception'],
-            ],
+            'conditions' => [Karabiner.frontmost_application_unless(['emacs_key_bindings_exception'])],
           },
           {
             'type' => 'basic',
@@ -241,10 +208,7 @@ def main
               'modifiers' => Karabiner.from_modifiers(['control'], %w[caps_lock shift option]),
             },
             'to' => [{ 'key_code' => 'up_arrow' }],
-            'conditions' => [
-              'type' => 'frontmost_application_unless',
-              'bundle_identifiers' => Karabiner::APP_ALIASES['emacs_key_bindings_exception'],
-            ],
+            'conditions' => [Karabiner.frontmost_application_unless(['emacs_key_bindings_exception'])],
           },
           {
             'type' => 'basic',
@@ -253,10 +217,7 @@ def main
               'modifiers' => Karabiner.from_modifiers(['control'], %w[caps_lock shift]),
             },
             'to' => [{ 'key_code' => 'page_down' }],
-            'conditions' => [
-              'type' => 'frontmost_application_unless',
-              'bundle_identifiers' => Karabiner::APP_ALIASES['emacs_key_bindings_exception'],
-            ],
+            'conditions' => [Karabiner.frontmost_application_unless(['emacs_key_bindings_exception'])],
           },
           {
             'type' => 'basic',
@@ -265,10 +226,7 @@ def main
               'modifiers' => Karabiner.from_modifiers(['control'], %w[caps_lock shift]),
             },
             'to' => [{ 'key_code' => 'home' }],
-            'conditions' => [
-              'type' => 'frontmost_application_if',
-              'bundle_identifiers' => Karabiner::APP_ALIASES['microsoft_office'],
-            ],
+            'conditions' => [Karabiner.frontmost_application_if(['microsoft_office'])],
           },
           {
             'type' => 'basic',
@@ -277,10 +235,7 @@ def main
               'modifiers' => Karabiner.from_modifiers(['control'], %w[caps_lock shift]),
             },
             'to' => [{ 'key_code' => 'end' }],
-            'conditions' => [
-              'type' => 'frontmost_application_if',
-              'bundle_identifiers' => Karabiner::APP_ALIASES['microsoft_office'],
-            ],
+            'conditions' => [Karabiner.frontmost_application_if(['microsoft_office'])],
           },
           {
             'type' => 'basic',
@@ -292,10 +247,7 @@ def main
               'key_code' => 'left_arrow',
               'modifiers' => ['left_command'],
             },],
-            'conditions' => [
-              'type' => 'frontmost_application_if',
-              'bundle_identifiers' => Karabiner::APP_ALIASES['eclipse'],
-            ],
+            'conditions' => [Karabiner.frontmost_application_if(['eclipse'])],
           },
           {
             'type' => 'basic',
@@ -307,10 +259,7 @@ def main
               'key_code' => 'right_arrow',
               'modifiers' => ['left_command'],
             },],
-            'conditions' => [
-              'type' => 'frontmost_application_if',
-              'bundle_identifiers' => Karabiner::APP_ALIASES['eclipse'],
-            ],
+            'conditions' => [Karabiner.frontmost_application_if(['eclipse'])],
           },
         ],
       },
@@ -324,10 +273,7 @@ def main
               'modifiers' => Karabiner.from_modifiers(['option'], %w[caps_lock shift]),
             },
             'to' => [{ 'key_code' => 'page_up' }],
-            'conditions' => [
-              'type' => 'frontmost_application_unless',
-              'bundle_identifiers' => Karabiner::APP_ALIASES['emacs_key_bindings_exception'],
-            ],
+            'conditions' => [Karabiner.frontmost_application_unless(['emacs_key_bindings_exception'])],
           },
           {
             'type' => 'basic',
@@ -336,10 +282,7 @@ def main
               'modifiers' => Karabiner.from_modifiers(['option'], %w[caps_lock shift]),
             },
             'to' => [{ 'key_code' => 'left_arrow', 'modifiers' => ['left_option'] }],
-            'conditions' => [
-              'type' => 'frontmost_application_unless',
-              'bundle_identifiers' => Karabiner::APP_ALIASES['emacs_key_bindings_exception'],
-            ],
+            'conditions' => [Karabiner.frontmost_application_unless(['emacs_key_bindings_exception'])],
           },
           {
             'type' => 'basic',
@@ -348,10 +291,7 @@ def main
               'modifiers' => Karabiner.from_modifiers(['option'], %w[caps_lock shift]),
             },
             'to' => [{ 'key_code' => 'right_arrow', 'modifiers' => ['left_option'] }],
-            'conditions' => [
-              'type' => 'frontmost_application_unless',
-              'bundle_identifiers' => Karabiner::APP_ALIASES['emacs_key_bindings_exception'],
-            ],
+            'conditions' => [Karabiner.frontmost_application_unless(['emacs_key_bindings_exception'])],
           },
           {
             'type' => 'basic',
@@ -360,10 +300,7 @@ def main
               'modifiers' => Karabiner.from_modifiers(['option'], ['caps_lock']),
             },
             'to' => [{ 'key_code' => 'delete_forward', 'modifiers' => ['left_option'] }],
-            'conditions' => [
-              'type' => 'frontmost_application_unless',
-              'bundle_identifiers' => Karabiner::APP_ALIASES['emacs_key_bindings_exception'],
-            ],
+            'conditions' => [Karabiner.frontmost_application_unless(['emacs_key_bindings_exception'])],
           },
         ],
       },
@@ -377,10 +314,7 @@ def main
               'modifiers' => Karabiner.from_modifiers(['control'], ['caps_lock']),
             },
             'to' => [{ 'key_code' => 'delete_or_backspace', 'modifiers' => ['left_option'] }],
-            'conditions' => [
-              'type' => 'frontmost_application_unless',
-              'bundle_identifiers' => Karabiner::APP_ALIASES['emacs_key_bindings_exception'],
-            ],
+            'conditions' => [Karabiner.frontmost_application_unless(['emacs_key_bindings_exception'])],
           },
           {
             'type' => 'basic',
@@ -401,10 +335,7 @@ def main
                 'repeat' => false,
               },
             ],
-            'conditions' => [
-              'type' => 'frontmost_application_unless',
-              'bundle_identifiers' => Karabiner::APP_ALIASES['emacs_key_bindings_exception'],
-            ],
+            'conditions' => [Karabiner.frontmost_application_unless(['emacs_key_bindings_exception'])],
           },
         ],
       },
