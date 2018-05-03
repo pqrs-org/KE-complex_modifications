@@ -55,8 +55,10 @@ def generate_launcher_mode(from_key_code, mandatory_modifiers, to)
 
   h = {
     'type' => 'basic',
-    'from' => {}.merge(Karabiner.key_code_hash(from_key_code))
-                .merge(Karabiner.from_modifiers_hash(mandatory_modifiers, ['any'])),
+    'from' => {
+      'key_code' => from_key_code,
+      'modifiers' => Karabiner.from_modifiers(mandatory_modifiers, ['any']),
+    },
     'to' => to,
     'conditions' => [
       {
@@ -75,8 +77,8 @@ def generate_launcher_mode(from_key_code, mandatory_modifiers, to)
     'type' => 'basic',
     'from' => {
       'simultaneous' => [
-        Karabiner.key_code_hash(PARAMETERS[:trigger_key]),
-        Karabiner.key_code_hash(from_key_code),
+        { 'key_code' => PARAMETERS[:trigger_key] },
+        { 'key_code' => from_key_code },
       ],
       'simultaneous_options' => {
         'key_down_order' => 'strict',

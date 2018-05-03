@@ -7,120 +7,107 @@
 
 # Parameters
 
-$simultaneous_threshold_milliseconds = 500
+PARAMETERS = {
+  :simultaneous_threshold_milliseconds => 500,
+}.freeze
 
 ############################################################
 
 require 'json'
+require_relative '../lib/karabiner.rb'
 
 def main
-  puts JSON.pretty_generate({
-                              "title" => "Mouse Keys Mode v4 (rev 1)",
-                              "rules" => [
-                                {
-                                  "description" => "Mouse Keys Mode v4 (rev 1)",
-                                  "manipulators" => [
+  puts JSON.pretty_generate(
+    'title' => 'Mouse Keys Mode v4 (rev 1)',
+    'rules' => [
+      {
+        'description' => 'Mouse Keys Mode v4 (rev 1)',
+        'manipulators' => [
 
-                                    # hjkl
+          # hjkl
 
-                                    generate_mouse_keys_mode("j",
-                                                             [ { "mouse_key" => { "y" => 1536, }, }, ],
-                                                             [ { "mouse_key" => { "vertical_wheel" => 32, }, }, ],
-                                                             nil,
-                                                             $simultaneous_threshold_milliseconds),
-                                    generate_mouse_keys_mode("k",
-                                                             [ { "mouse_key" => { "y" => -1536, }, }, ],
-                                                             [ { "mouse_key" => { "vertical_wheel" => -32, }, }, ],
-                                                             nil,
-                                                             $simultaneous_threshold_milliseconds),
-                                    generate_mouse_keys_mode("h",
-                                                             [ { "mouse_key" => { "x" => -1536, }, }, ],
-                                                             [ { "mouse_key" => { "horizontal_wheel" => 32, }, }, ],
-                                                             nil,
-                                                             $simultaneous_threshold_milliseconds),
-                                    generate_mouse_keys_mode("l",
-                                                             [ { "mouse_key" => { "x" =>  1536, }, }, ],
-                                                             [ { "mouse_key" => { "horizontal_wheel" => -32, }, }, ],
-                                                             nil,
-                                                             $simultaneous_threshold_milliseconds),
+          generate_mouse_keys_mode('j',
+                                   [{ 'mouse_key' => { 'y' => 1536 } }],
+                                   [{ 'mouse_key' => { 'vertical_wheel' => 32 } }],
+                                   nil),
+          generate_mouse_keys_mode('k',
+                                   [{ 'mouse_key' => { 'y' => -1536 } }],
+                                   [{ 'mouse_key' => { 'vertical_wheel' => -32 } }],
+                                   nil),
+          generate_mouse_keys_mode('h',
+                                   [{ 'mouse_key' => { 'x' => -1536 } }],
+                                   [{ 'mouse_key' => { 'horizontal_wheel' => 32 } }],
+                                   nil),
+          generate_mouse_keys_mode('l',
+                                   [{ 'mouse_key' => { 'x' => 1536 } }],
+                                   [{ 'mouse_key' => { 'horizontal_wheel' => -32 } }],
+                                   nil),
 
-                                    # buttons
+          # buttons
 
-                                    generate_mouse_keys_mode("v",
-                                                             [ { "pointing_button" => "button1", }, ],
-                                                             nil,
-                                                             nil,
-                                                             $simultaneous_threshold_milliseconds),
+          generate_mouse_keys_mode('v',
+                                   [{ 'pointing_button' => 'button1' }],
+                                   nil,
+                                   nil),
 
-                                    generate_mouse_keys_mode("b",
-                                                             [ { "pointing_button" => "button3", }, ],
-                                                             nil,
-                                                             nil,
-                                                             $simultaneous_threshold_milliseconds),
+          generate_mouse_keys_mode('b',
+                                   [{ 'pointing_button' => 'button3' }],
+                                   nil,
+                                   nil),
 
-                                    generate_mouse_keys_mode("n",
-                                                             [ { "pointing_button" => "button2", }, ],
-                                                             nil,
-                                                             nil,
-                                                             $simultaneous_threshold_milliseconds),
+          generate_mouse_keys_mode('n',
+                                   [{ 'pointing_button' => 'button2' }],
+                                   nil,
+                                   nil),
 
-                                    # others
+          # others
 
-                                    generate_mouse_keys_mode("s",
-                                                             [ { "set_variable" => { "name" => "mouse_keys_mode_v4_scroll", "value" => 1, }, }, ],
-                                                             nil,
-                                                             [ { "set_variable" => { "name" => "mouse_keys_mode_v4_scroll", "value" => 0, }, }, ],
-                                                             $simultaneous_threshold_milliseconds),
-                                    generate_mouse_keys_mode("f",
-                                                             [ { "mouse_key" => { "speed_multiplier" => 2.0 } }, ],
-                                                             nil,
-                                                             nil,
-                                                             $simultaneous_threshold_milliseconds),
-                                    generate_mouse_keys_mode("g",
-                                                             [ { "mouse_key" => { "speed_multiplier" => 0.5 } }, ],
-                                                             nil,
-                                                             nil,
-                                                             $simultaneous_threshold_milliseconds),
-                                  ].flatten,
-                                },
-                              ],
-                            })
+          generate_mouse_keys_mode('s',
+                                   [{ 'set_variable' => { 'name' => 'mouse_keys_mode_v4_scroll', 'value' => 1 } }],
+                                   nil,
+                                   [{ 'set_variable' => { 'name' => 'mouse_keys_mode_v4_scroll', 'value' => 0 } }]),
+          generate_mouse_keys_mode('f',
+                                   [{ 'mouse_key' => { 'speed_multiplier' => 2.0 } }],
+                                   nil,
+                                   nil),
+          generate_mouse_keys_mode('g',
+                                   [{ 'mouse_key' => { 'speed_multiplier' => 0.5 } }],
+                                   nil,
+                                   nil),
+        ].flatten,
+      },
+    ]
+  )
 end
 
-def generate_mouse_keys_mode(from_key_code, to, scroll_to, to_after_key_up, simultaneous_threshold_milliseconds)
+def generate_mouse_keys_mode(from_key_code, to, scroll_to, to_after_key_up)
   data = []
 
   ############################################################
 
   unless scroll_to.nil?
     h = {
-      "type" => "basic",
-      "from" => {
-        "key_code" => from_key_code,
-        "modifiers" => {
-          "optional" => [
-            "any",
-          ],
-        },
+      'type' => 'basic',
+      'from' => {
+        'key_code' => from_key_code,
+        'modifiers' => Karabiner.from_modifiers(nil, ['any']),
       },
-      "to" => scroll_to,
-      "conditions" => [
+      'to' => scroll_to,
+      'conditions' => [
         {
-          "type" => "variable_if",
-          "name" => "mouse_keys_mode_v4",
-          "value" => 1,
+          'type' => 'variable_if',
+          'name' => 'mouse_keys_mode_v4',
+          'value' => 1,
         },
         {
-          "type" => "variable_if",
-          "name" => "mouse_keys_mode_v4_scroll",
-          "value" => 1,
-        }
+          'type' => 'variable_if',
+          'name' => 'mouse_keys_mode_v4_scroll',
+          'value' => 1,
+        },
       ],
     }
 
-    unless to_after_key_up.nil?
-      h["to_after_key_up"] = to_after_key_up
-    end
+    h['to_after_key_up'] = to_after_key_up unless to_after_key_up.nil?
 
     data << h
   end
@@ -128,84 +115,72 @@ def generate_mouse_keys_mode(from_key_code, to, scroll_to, to_after_key_up, simu
   ############################################################
 
   h = {
-    "type" => "basic",
-    "from" => {
-      "key_code" => from_key_code,
-      "modifiers" => {
-        "optional" => [
-          "any",
-        ],
-      },
+    'type' => 'basic',
+    'from' => {
+      'key_code' => from_key_code,
+      'modifiers' => Karabiner.from_modifiers(nil, ['any']),
     },
-    "to" => to,
-    "conditions" => [
+    'to' => to,
+    'conditions' => [
       {
-        "type" => "variable_if",
-        "name" => "mouse_keys_mode_v4",
-        "value" => 1,
-      }
+        'type' => 'variable_if',
+        'name' => 'mouse_keys_mode_v4',
+        'value' => 1,
+      },
     ],
   }
 
-  unless to_after_key_up.nil?
-    h["to_after_key_up"] = to_after_key_up
-  end
+  h['to_after_key_up'] = to_after_key_up unless to_after_key_up.nil?
 
   data << h
 
   ############################################################
 
   h = {
-    "type" => "basic",
-    "from" => {
-      "simultaneous" => [
+    'type' => 'basic',
+    'from' => {
+      'simultaneous' => [
         {
-          "key_code" => "d",
+          'key_code' => 'd',
         },
         {
-          "key_code" => from_key_code,
+          'key_code' => from_key_code,
         },
       ],
-      "simultaneous_options" => {
-        "key_down_order" => "strict",
-        "key_up_order" => "strict_inverse",
-        "to_after_key_up" => [
+      'simultaneous_options' => {
+        'key_down_order' => 'strict',
+        'key_up_order' => 'strict_inverse',
+        'to_after_key_up' => [
           {
-            "set_variable" => {
-              "name" => "mouse_keys_mode_v4",
-              "value" => 0,
+            'set_variable' => {
+              'name' => 'mouse_keys_mode_v4',
+              'value' => 0,
             },
           },
           {
-            "set_variable" => {
-              "name" => "mouse_keys_mode_v4_scroll",
-              "value" => 0,
+            'set_variable' => {
+              'name' => 'mouse_keys_mode_v4_scroll',
+              'value' => 0,
             },
           },
         ],
       },
-      "modifiers" => {
-        "optional" => [
-          "any",
-        ],
-      },
+      'modifiers' => Karabiner.from_modifiers(nil, ['any']),
     },
-    "to" => [
+    'to' => [
       {
-        "set_variable" => {
-          "name" => "mouse_keys_mode_v4",
-          "value" => 1,
+        'set_variable' => {
+          'name' => 'mouse_keys_mode_v4',
+          'value' => 1,
         },
       },
     ].concat(to),
-    "parameters" => {
-      "basic.simultaneous_threshold_milliseconds" => simultaneous_threshold_milliseconds,
+    'parameters' => {
+      'basic.simultaneous_threshold_milliseconds' => PARAMETERS[:simultaneous_threshold_milliseconds],
     },
   }
 
-  unless to_after_key_up.nil?
-    h["to_after_key_up"] = to_after_key_up
-  end
+  h['to_after_key_up'] = to_after_key_up unless to_after_key_up.nil?
 
   data << h
 
@@ -214,4 +189,4 @@ def generate_mouse_keys_mode(from_key_code, to, scroll_to, to_after_key_up, simu
   data
 end
 
-main()
+main
