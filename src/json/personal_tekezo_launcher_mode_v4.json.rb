@@ -7,16 +7,15 @@
 
 # Parameters
 
-def parameters
-  {
-    :simultaneous_threshold_milliseconds => 500,
-    :trigger_key => 'o',
-  }
-end
+PARAMETERS = {
+  :simultaneous_threshold_milliseconds => 500,
+  :trigger_key => 'o',
+}.freeze
 
 ############################################################
 
 require 'json'
+require_relative '../lib/karabiner.rb'
 
 def main
   data = {
@@ -56,15 +55,8 @@ def generate_launcher_mode(from_key_code, mandatory_modifiers, to)
 
   h = {
     'type' => 'basic',
-    'from' => {
-      'key_code' => from_key_code,
-      'modifiers' => {
-        'mandatory' => mandatory_modifiers,
-        'optional' => [
-          'any',
-        ],
-      },
-    },
+    'from' => {}.merge(Karabiner.key_code_hash(from_key_code))
+                .merge(Karabiner.from_modifiers_hash(mandatory_modifiers, ['any'])),
     'to' => to,
     'conditions' => [
       {
@@ -83,12 +75,8 @@ def generate_launcher_mode(from_key_code, mandatory_modifiers, to)
     'type' => 'basic',
     'from' => {
       'simultaneous' => [
-        {
-          'key_code' => parameters[:trigger_key],
-        },
-        {
-          'key_code' => from_key_code,
-        },
+        Karabiner.key_code_hash(PARAMETERS[:trigger_key]),
+        Karabiner.key_code_hash(from_key_code),
       ],
       'simultaneous_options' => {
         'key_down_order' => 'strict',
@@ -102,12 +90,7 @@ def generate_launcher_mode(from_key_code, mandatory_modifiers, to)
           },
         ],
       },
-      'modifiers' => {
-        'mandatory' => mandatory_modifiers,
-        'optional' => [
-          'any',
-        ],
-      },
+      'modifiers' => Karabiner.from_modifiers(mandatory_modifiers, ['any']),
     },
     'to' => [
       {
@@ -118,7 +101,7 @@ def generate_launcher_mode(from_key_code, mandatory_modifiers, to)
       },
     ].concat(to),
     'parameters' => {
-      'basic.simultaneous_threshold_milliseconds' => parameters[:simultaneous_threshold_milliseconds],
+      'basic.simultaneous_threshold_milliseconds' => PARAMETERS[:simultaneous_threshold_milliseconds],
     },
   }
 

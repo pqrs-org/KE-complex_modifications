@@ -117,16 +117,22 @@ module Karabiner
     'xcode' => BUNDLE_IDENTIFERS[:xcode],
   }.freeze
 
-  def key_code(name)
+  def self.key_code_hash(name)
     {
       'key_code' => name,
     }
   end
 
-  def from_modifiers(mandatory_modifiers, optional_modifiers)
+  def self.from_modifiers(mandatory_modifiers, optional_modifiers)
     modifiers = {}
     modifiers['mandatory'] = mandatory_modifiers unless mandatory_modifiers.nil?
     modifiers['optional'] = optional_modifiers unless optional_modifiers.nil?
     modifiers
+  end
+
+  def self.from_modifiers_hash(mandatory_modifiers, optional_modifiers)
+    {
+      'modifiers' => from_modifiers(mandatory_modifiers, optional_modifiers),
+    }
   end
 end
