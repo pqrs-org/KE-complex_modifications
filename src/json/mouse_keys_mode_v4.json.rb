@@ -63,9 +63,9 @@ def main
           # others
 
           generate_mouse_keys_mode('s',
-                                   [{ 'set_variable' => { 'name' => 'mouse_keys_mode_v4_scroll', 'value' => 1 } }],
+                                   [Karabiner.set_variable('mouse_keys_mode_v4_scroll', 1)],
                                    nil,
-                                   [{ 'set_variable' => { 'name' => 'mouse_keys_mode_v4_scroll', 'value' => 0 } }]),
+                                   [Karabiner.set_variable('mouse_keys_mode_v4_scroll', 0)]),
           generate_mouse_keys_mode('f',
                                    [{ 'mouse_key' => { 'speed_multiplier' => 2.0 } }],
                                    nil,
@@ -94,16 +94,8 @@ def generate_mouse_keys_mode(from_key_code, to, scroll_to, to_after_key_up)
       },
       'to' => scroll_to,
       'conditions' => [
-        {
-          'type' => 'variable_if',
-          'name' => 'mouse_keys_mode_v4',
-          'value' => 1,
-        },
-        {
-          'type' => 'variable_if',
-          'name' => 'mouse_keys_mode_v4_scroll',
-          'value' => 1,
-        },
+        Karabiner.variable_if('mouse_keys_mode_v4', 1),
+        Karabiner.variable_if('mouse_keys_mode_v4_scroll', 1),
       ],
     }
 
@@ -121,13 +113,7 @@ def generate_mouse_keys_mode(from_key_code, to, scroll_to, to_after_key_up)
       'modifiers' => Karabiner.from_modifiers(nil, ['any']),
     },
     'to' => to,
-    'conditions' => [
-      {
-        'type' => 'variable_if',
-        'name' => 'mouse_keys_mode_v4',
-        'value' => 1,
-      },
-    ],
+    'conditions' => [Karabiner.variable_if('mouse_keys_mode_v4', 1)],
   }
 
   h['to_after_key_up'] = to_after_key_up unless to_after_key_up.nil?
@@ -151,29 +137,14 @@ def generate_mouse_keys_mode(from_key_code, to, scroll_to, to_after_key_up)
         'key_down_order' => 'strict',
         'key_up_order' => 'strict_inverse',
         'to_after_key_up' => [
-          {
-            'set_variable' => {
-              'name' => 'mouse_keys_mode_v4',
-              'value' => 0,
-            },
-          },
-          {
-            'set_variable' => {
-              'name' => 'mouse_keys_mode_v4_scroll',
-              'value' => 0,
-            },
-          },
+          Karabiner.set_variable('mouse_keys_mode_v4', 0),
+          Karabiner.set_variable('mouse_keys_mode_v4_scroll', 0),
         ],
       },
       'modifiers' => Karabiner.from_modifiers(nil, ['any']),
     },
     'to' => [
-      {
-        'set_variable' => {
-          'name' => 'mouse_keys_mode_v4',
-          'value' => 1,
-        },
-      },
+      Karabiner.set_variable('mouse_keys_mode_v4', 1),
     ].concat(to),
     'parameters' => {
       'basic.simultaneous_threshold_milliseconds' => PARAMETERS[:simultaneous_threshold_milliseconds],

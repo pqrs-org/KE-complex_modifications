@@ -60,13 +60,7 @@ def generate_launcher_mode(from_key_code, mandatory_modifiers, to)
       'modifiers' => Karabiner.from_modifiers(mandatory_modifiers, ['any']),
     },
     'to' => to,
-    'conditions' => [
-      {
-        'type' => 'variable_if',
-        'name' => 'launcher_mode_v4',
-        'value' => 1,
-      },
-    ],
+    'conditions' => [Karabiner.variable_if('launcher_mode_v4', 1)],
   }
 
   data << h
@@ -84,23 +78,13 @@ def generate_launcher_mode(from_key_code, mandatory_modifiers, to)
         'key_down_order' => 'strict',
         'key_up_order' => 'strict_inverse',
         'to_after_key_up' => [
-          {
-            'set_variable' => {
-              'name' => 'launcher_mode_v4',
-              'value' => 0,
-            },
-          },
+          Karabiner.set_variable('launcher_mode_v4', 0),
         ],
       },
       'modifiers' => Karabiner.from_modifiers(mandatory_modifiers, ['any']),
     },
     'to' => [
-      {
-        'set_variable' => {
-          'name' => 'launcher_mode_v4',
-          'value' => 1,
-        },
-      },
+      Karabiner.set_variable('launcher_mode_v4', 1),
     ].concat(to),
     'parameters' => {
       'basic.simultaneous_threshold_milliseconds' => PARAMETERS[:simultaneous_threshold_milliseconds],

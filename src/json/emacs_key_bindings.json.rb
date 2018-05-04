@@ -8,14 +8,6 @@
 require 'json'
 require_relative '../lib/karabiner.rb'
 
-CONDITIONS = {
-  :c_x => {
-    'type' => 'variable_if',
-    'name' => 'C-x',
-    'value' => 1,
-  },
-}.freeze
-
 def main
   puts JSON.pretty_generate(
     'title' => 'Emacs key bindings (rev 10)',
@@ -36,7 +28,7 @@ def main
                 'modifiers' => ['left_command'],
               },
             ],
-            'conditions' => [CONDITIONS[:c_x]],
+            'conditions' => [Karabiner.variable_if('C-x', 1)],
           },
 
           # C-x C-f (open file)
@@ -52,7 +44,7 @@ def main
                 'modifiers' => ['left_command'],
               },
             ],
-            'conditions' => [CONDITIONS[:c_x]],
+            'conditions' => [Karabiner.variable_if('C-x', 1)],
           },
 
           # C-x C-s (save file)
@@ -68,7 +60,7 @@ def main
                 'modifiers' => ['left_command'],
               },
             ],
-            'conditions' => [CONDITIONS[:c_x]],
+            'conditions' => [Karabiner.variable_if('C-x', 1)],
           },
 
           # Ignore other keys after C-x
@@ -78,7 +70,7 @@ def main
               'any' => 'key_code',
               'modifiers' => Karabiner.from_modifiers(nil, ['any']),
             },
-            'conditions' => [CONDITIONS[:c_x]],
+            'conditions' => [Karabiner.variable_if('C-x', 1)],
           },
 
           # C-x
@@ -89,29 +81,14 @@ def main
               'modifiers' => Karabiner.from_modifiers(['control'], ['caps_lock']),
             },
             'to' => [
-              {
-                'set_variable' => {
-                  'name' => 'C-x',
-                  'value' => 1,
-                },
-              },
+              Karabiner.set_variable('C-x', 1),
             ],
             'to_delayed_action' => {
               'to_if_invoked' => [
-                {
-                  'set_variable' => {
-                    'name' => 'C-x',
-                    'value' => 0,
-                  },
-                },
+                Karabiner.set_variable('C-x', 0),
               ],
               'to_if_canceled' => [
-                {
-                  'set_variable' => {
-                    'name' => 'C-x',
-                    'value' => 0,
-                  },
-                },
+                Karabiner.set_variable('C-x', 0),
               ],
             },
             'conditions' => [Karabiner.frontmost_application_unless(['emacs_key_bindings_exception'])],

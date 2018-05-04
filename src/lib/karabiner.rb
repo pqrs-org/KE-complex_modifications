@@ -124,6 +124,15 @@ module Karabiner
     modifiers
   end
 
+  def self.set_variable(name, value)
+    {
+      'set_variable' => {
+        'name' => name,
+        'value' => value,
+      },
+    }
+  end
+
   def self.frontmost_application(type, app_aliases)
     bundle_identifiers = []
     app_aliases.each do |app_alias|
@@ -159,6 +168,22 @@ module Karabiner
     {
       'type' => 'keyboard_type_unless',
       'keyboard_types' => keyboard_types,
+    }
+  end
+
+  def self.variable_if(name, value)
+    {
+      'type' => 'variable_if',
+      'name' => name,
+      'value' => value,
+    }
+  end
+
+  def self.variable_unless(name, value)
+    {
+      'type' => 'variable_unless',
+      'name' => name,
+      'value' => value,
     }
   end
 end

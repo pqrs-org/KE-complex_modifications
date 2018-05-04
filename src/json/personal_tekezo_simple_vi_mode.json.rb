@@ -61,23 +61,13 @@ def generate_simple_vi_mode(from_key_code, to_key_code)
           'key_down_order' => 'strict',
           'key_up_order' => 'strict_inverse',
           'to_after_key_up' => [
-            {
-              'set_variable' => {
-                'name' => 'simple_vi_mode',
-                'value' => 0,
-              },
-            },
+            Karabiner.set_variable('simple_vi_mode', 0),
           ],
         },
         'modifiers' => Karabiner.from_modifiers(nil, ['any']),
       },
       'to' => [
-        {
-          'set_variable' => {
-            'name' => 'simple_vi_mode',
-            'value' => 1,
-          },
-        },
+        Karabiner.set_variable('simple_vi_mode', 1),
         {
           'key_code' => to_key_code,
         },
