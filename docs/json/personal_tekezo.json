@@ -193,7 +193,7 @@
       ]
     },
     {
-      "description": "Change left_control+1/2/v/q to home/end/page_down/page_up (rev 2)",
+      "description": "Change left_control+1/2 to home/end (rev 3)",
       "manipulators": [
         {
           "type": "basic",
@@ -230,44 +230,6 @@
           "to": [
             {
               "key_code": "end"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "v",
-            "modifiers": {
-              "mandatory": [
-                "left_control"
-              ],
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "page_down"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "q",
-            "modifiers": {
-              "mandatory": [
-                "left_control"
-              ],
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "page_up"
             }
           ]
         }
@@ -365,10 +327,8 @@
               "key_code": "equal_sign"
             },
             {
-              "key_code": "equal_sign"
-            },
-            {
-              "key_code": "vk_none"
+              "key_code": "equal_sign",
+              "repeat": false
             }
           ]
         }
@@ -958,11 +918,6 @@
               ]
             }
           },
-          "to": [
-            {
-              "key_code": "vk_none"
-            }
-          ],
           "conditions": [
             {
               "type": "frontmost_application_if",
@@ -980,7 +935,7 @@
             "key_code": "a",
             "modifiers": {
               "mandatory": [
-                "left_control"
+                "control"
               ],
               "optional": [
                 "caps_lock",
@@ -1013,7 +968,7 @@
             "key_code": "e",
             "modifiers": {
               "mandatory": [
-                "left_control"
+                "control"
               ],
               "optional": [
                 "caps_lock",
@@ -1087,266 +1042,8 @@
       ]
     },
     {
-      "description": "Extra emacs key bindings (rev 5)",
+      "description": "Extra emacs key bindings (rev 6)",
       "manipulators": [
-        {
-          "description": "Change control+u to delete-to-beginning-of-line",
-          "type": "basic",
-          "from": {
-            "key_code": "u",
-            "modifiers": {
-              "mandatory": [
-                "control"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "a",
-              "modifiers": [
-                "left_control",
-                "left_shift"
-              ]
-            },
-            {
-              "key_code": "delete_or_backspace"
-            },
-            {
-              "key_code": "vk_none"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.gnu\\.Emacs$",
-                "^org\\.gnu\\.AquamacsEmacs$",
-                "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$",
-                "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^io\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$"
-              ]
-            }
-          ]
-        },
-        {
-          "description": "Change control+w to option+delete",
-          "type": "basic",
-          "from": {
-            "key_code": "w",
-            "modifiers": {
-              "mandatory": [
-                "control"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "delete_or_backspace",
-              "modifiers": [
-                "left_option"
-              ]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^org\\.gnu\\.Emacs$",
-                "^org\\.gnu\\.AquamacsEmacs$",
-                "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$",
-                "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^io\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$"
-              ]
-            }
-          ]
-        },
-        {
-          "description": "Change control+j to return",
-          "type": "basic",
-          "from": {
-            "key_code": "j",
-            "modifiers": {
-              "mandatory": [
-                "control"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "return_or_enter"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "b",
-            "modifiers": {
-              "mandatory": [
-                "control"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "left_arrow"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^org\\.gnu\\.Emacs$",
-                "^org\\.gnu\\.AquamacsEmacs$",
-                "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "h",
-            "modifiers": {
-              "mandatory": [
-                "control"
-              ],
-              "optional": [
-                "caps_lock",
-                "option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "delete_or_backspace"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^org\\.gnu\\.Emacs$",
-                "^org\\.gnu\\.AquamacsEmacs$",
-                "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "f",
-            "modifiers": {
-              "mandatory": [
-                "control"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "right_arrow"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^org\\.gnu\\.Emacs$",
-                "^org\\.gnu\\.AquamacsEmacs$",
-                "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "n",
-            "modifiers": {
-              "mandatory": [
-                "control"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "down_arrow"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^org\\.gnu\\.Emacs$",
-                "^org\\.gnu\\.AquamacsEmacs$",
-                "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "p",
-            "modifiers": {
-              "mandatory": [
-                "control"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "up_arrow"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^org\\.gnu\\.Emacs$",
-                "^org\\.gnu\\.AquamacsEmacs$",
-                "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$"
-              ]
-            }
-          ]
-        },
         {
           "type": "basic",
           "from": {
