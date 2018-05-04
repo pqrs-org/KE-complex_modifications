@@ -14,7 +14,7 @@ def main
   bash_style_rev = 'rev 1'
 
   puts JSON.pretty_generate(
-    'title' => 'Emacs key bindings (rev 10)',
+    'title' => 'Emacs key bindings (rev 11)',
     'rules' => [
       # generic
       c_x_key_strokes,
