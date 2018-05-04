@@ -87,25 +87,9 @@ def each_key(source_keys_list: :source_keys_list, dest_keys_list: :dest_keys_lis
 end
 
 def frontmost_application(type, app_aliases)
-  bundle_identifiers = []
-
   app_aliases.is_a?(Enumerable) || app_aliases = [app_aliases]
 
-  app_aliases.each do |app_alias|
-    if Karabiner::APP_ALIASES[app_alias].nil?
-      $stderr << "unknown app_alias: #{app_alias}\n"
-    else
-      bundle_identifiers += Karabiner::APP_ALIASES[app_alias]
-    end
-  end
-
-  return if bundle_identifiers.empty?
-
-  data = {
-    'type' => type,
-    'bundle_identifiers' => bundle_identifiers,
-  }
-  JSON.generate(data)
+  JSON.generate(Karabiner.frontmost_application(type, app_aliases))
 end
 
 def frontmost_application_if(app_aliases)

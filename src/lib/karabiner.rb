@@ -117,16 +117,73 @@ module Karabiner
     'xcode' => BUNDLE_IDENTIFERS[:xcode],
   }.freeze
 
-  def key_code(name)
-    {
-      'key_code' => name,
-    }
-  end
-
-  def from_modifiers(mandatory_modifiers, optional_modifiers)
+  def self.from_modifiers(mandatory_modifiers, optional_modifiers)
     modifiers = {}
     modifiers['mandatory'] = mandatory_modifiers unless mandatory_modifiers.nil?
     modifiers['optional'] = optional_modifiers unless optional_modifiers.nil?
     modifiers
+  end
+
+  def self.set_variable(name, value)
+    {
+      'set_variable' => {
+        'name' => name,
+        'value' => value,
+      },
+    }
+  end
+
+  def self.frontmost_application(type, app_aliases)
+    bundle_identifiers = []
+    app_aliases.each do |app_alias|
+      if Karabiner::APP_ALIASES[app_alias].nil?
+        $stderr << "unknown app_alias: #{app_alias}\n"
+      else
+        bundle_identifiers += Karabiner::APP_ALIASES[app_alias]
+      end
+    end
+
+    {
+      'type' => type,
+      'bundle_identifiers' => bundle_identifiers,
+    }
+  end
+
+  def self.frontmost_application_if(app_aliases)
+    frontmost_application('frontmost_application_if', app_aliases)
+  end
+
+  def self.frontmost_application_unless(app_aliases)
+    frontmost_application('frontmost_application_unless', app_aliases)
+  end
+
+  def self.keyboard_type_if(keyboard_types)
+    {
+      'type' => 'keyboard_type_if',
+      'keyboard_types' => keyboard_types,
+    }
+  end
+
+  def self.keyboard_type_unless(keyboard_types)
+    {
+      'type' => 'keyboard_type_unless',
+      'keyboard_types' => keyboard_types,
+    }
+  end
+
+  def self.variable_if(name, value)
+    {
+      'type' => 'variable_if',
+      'name' => name,
+      'value' => value,
+    }
+  end
+
+  def self.variable_unless(name, value)
+    {
+      'type' => 'variable_unless',
+      'name' => name,
+      'value' => value,
+    }
   end
 end
