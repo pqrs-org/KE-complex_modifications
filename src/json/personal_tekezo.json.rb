@@ -13,112 +13,6 @@ def main
     'title' => 'Personal rules (@tekezo)',
     'rules' => [
       {
-        'description' => 'Change spacebar,commands (rev 1)',
-        'manipulators' => [
-          # Change spacebar,left_command,right_command
-          {
-            'type' => 'basic',
-            'from' => {
-              'key_code' => 'spacebar',
-              'modifiers' => Karabiner.from_modifiers(nil, ['any']),
-            },
-            'to' => [
-              { 'key_code' => 'left_shift' },
-            ],
-            'to_if_alone' => [
-              { 'key_code' => 'spacebar' },
-            ],
-          },
-
-          # left_control+right_command
-          {
-            'type' => 'basic',
-            'from' => {
-              'key_code' => 'right_command',
-              'modifiers' => Karabiner.from_modifiers(['left_control'], ['any']),
-            },
-            'to' => [
-              {
-                'key_code' => 'right_command',
-                'modifiers' => ['left_control'],
-                'lazy' => true,
-              },
-            ],
-            'to_if_alone' => [
-              { 'key_code' => 'lang1' },
-            ],
-            'conditions' => [
-              Karabiner.frontmost_application_unless(%w[remote_desktop virtual_machine]),
-            ],
-          },
-          # right_command (virtual_machine)
-          {
-            'type' => 'basic',
-            'from' => {
-              'key_code' => 'right_command',
-              'modifiers' => Karabiner.from_modifiers(nil, ['any']),
-            },
-            'to' => [
-              {
-                'key_code' => 'right_control',
-                'lazy' => true,
-              },
-            ],
-            'conditions' => [
-              Karabiner.frontmost_application_if(%w[remote_desktop virtual_machine]),
-            ],
-          },
-          # right_command
-          {
-            'type' => 'basic',
-            'from' => {
-              'key_code' => 'right_command',
-              'modifiers' => Karabiner.from_modifiers(nil, ['any']),
-            },
-            'to' => [
-              {
-                'key_code' => 'right_command',
-                'lazy' => true,
-              },
-            ],
-          },
-
-          # right_command+left_command
-          {
-            'type' => 'basic',
-            'from' => {
-              'key_code' => 'left_command',
-              'modifiers' => Karabiner.from_modifiers(['right_command'], ['any']),
-            },
-            'to' => [
-              {
-                'key_code' => 'left_control',
-                'modifiers' => ['right_command'],
-                'lazy' => true,
-              },
-            ],
-            'to_if_alone' => [
-              { 'key_code' => 'lang2' },
-            ],
-          },
-          # left_command (virtual_machine)
-          {
-            'type' => 'basic',
-            'from' => {
-              'key_code' => 'left_command',
-              'modifiers' => Karabiner.from_modifiers(nil, ['any']),
-            },
-            'to' => [
-              {
-                'key_code' => 'left_control',
-                'lazy' => true,
-              },
-            ],
-          },
-        ],
-      },
-
-      {
         'description' => 'Change left_control+1/2 to home/end (rev 3)',
         'manipulators' => [
           {
@@ -471,7 +365,7 @@ def main
         ],
       },
       {
-        'description' => 'Miscellaneous configuration @tekezo (rev 2)',
+        'description' => 'Miscellaneous configuration @tekezo (rev 3)',
         'manipulators' => [
           {
             'type' => 'basic',
@@ -489,6 +383,26 @@ def main
                 'key_code' => 'grave_accent_and_tilde',
                 'modifiers' => ['left_command'],
               },
+            ],
+          },
+          {
+            'type' => 'basic',
+            'from' => {
+              'key_code' => 'f18',
+              'modifiers' => Karabiner.from_modifiers(['control'], ['caps_lock']),
+            },
+            'to' => [
+              { 'key_code' => 'lang2' },
+            ],
+          },
+          {
+            'type' => 'basic',
+            'from' => {
+              'key_code' => 'f18',
+              'modifiers' => Karabiner.from_modifiers(['command'], ['caps_lock']),
+            },
+            'to' => [
+              { 'key_code' => 'lang1' },
             ],
           },
           {
@@ -537,6 +451,40 @@ def main
               },
             ],
           },
+
+          # right_command (virtual_machine)
+          {
+            'type' => 'basic',
+            'from' => {
+              'key_code' => 'right_command',
+              'modifiers' => Karabiner.from_modifiers(nil, ['any']),
+            },
+            'to' => [
+              {
+                'key_code' => 'right_control',
+                'lazy' => true,
+              },
+            ],
+            'conditions' => [
+              Karabiner.frontmost_application_if(%w[remote_desktop virtual_machine]),
+            ],
+          },
+
+          # right_command
+          {
+            'type' => 'basic',
+            'from' => {
+              'key_code' => 'right_command',
+              'modifiers' => Karabiner.from_modifiers(nil, ['any']),
+            },
+            'to' => [
+              {
+                'key_code' => 'right_command',
+                'lazy' => true,
+              },
+            ],
+          },
+
         ],
       },
     ]
