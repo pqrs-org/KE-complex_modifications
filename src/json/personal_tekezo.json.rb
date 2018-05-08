@@ -13,88 +13,10 @@ def main
     'title' => 'Personal rules (@tekezo)',
     'rules' => [
       {
-        'description' => 'Personal rules (@tekezo) (rev 1)',
-        'manipulators' => [
-          # control+1,2,3,4 to home,page_down,page_up,end
-          {
-            'type' => 'basic',
-            'from' => {
-              'key_code' => '1',
-              'modifiers' => Karabiner.from_modifiers(['left_control'], ['any']),
-            },
-            'to' => [
-              { 'key_code' => 'home' },
-            ],
-          },
-          {
-            'type' => 'basic',
-            'from' => {
-              'key_code' => '2',
-              'modifiers' => Karabiner.from_modifiers(['left_control'], ['any']),
-            },
-            'to' => [
-              { 'key_code' => 'page_down' },
-            ],
-          },
-          {
-            'type' => 'basic',
-            'from' => {
-              'key_code' => '3',
-              'modifiers' => Karabiner.from_modifiers(['left_control'], ['any']),
-            },
-            'to' => [
-              { 'key_code' => 'page_up' },
-            ],
-          },
-          {
-            'type' => 'basic',
-            'from' => {
-              'key_code' => '4',
-              'modifiers' => Karabiner.from_modifiers(['left_control'], ['any']),
-            },
-            'to' => [
-              { 'key_code' => 'end' },
-            ],
-          },
-
-          # option+-,= to ----------,==========
-          {
-            'type' => 'basic',
-            'from' => {
-              'key_code' => 'hyphen',
-              'modifiers' => Karabiner.from_modifiers(['option'], ['caps_lock']),
-            },
-            'to' => [
-              { 'key_code' => 'hyphen' }, { 'key_code' => 'hyphen' },
-              { 'key_code' => 'hyphen' }, { 'key_code' => 'hyphen' },
-              { 'key_code' => 'hyphen' }, { 'key_code' => 'hyphen' },
-              { 'key_code' => 'hyphen' }, { 'key_code' => 'hyphen' },
-              { 'key_code' => 'hyphen' },
-              {
-                'key_code' => 'hyphen',
-                'repeat' => false,
-              },
-            ],
-          },
-          {
-            'type' => 'basic',
-            'from' => {
-              'key_code' => 'equal_sign',
-              'modifiers' => Karabiner.from_modifiers(['option'], ['caps_lock']),
-            },
-            'to' => [
-              { 'key_code' => 'equal_sign' }, { 'key_code' => 'equal_sign' },
-              { 'key_code' => 'equal_sign' }, { 'key_code' => 'equal_sign' },
-              { 'key_code' => 'equal_sign' }, { 'key_code' => 'equal_sign' },
-              { 'key_code' => 'equal_sign' }, { 'key_code' => 'equal_sign' },
-              { 'key_code' => 'equal_sign' },
-              {
-                'key_code' => 'equal_sign',
-                'repeat' => false,
-              },
-            ],
-          },
-        ] +
+        'description' => 'Personal rules (@tekezo) (rev 2)',
+        'manipulators' =>
+        control_1234 +
+        option_hyphen +
         app_virtual_machine +
         app_finder +
         app_terminal +
@@ -154,6 +76,8 @@ def main
               { 'key_code' => 'spacebar' },
             ],
           },
+
+          # escape+1,2
           {
             'type' => 'basic',
             'from' => {
@@ -223,11 +147,115 @@ def main
               },
             ],
           },
+
+          # left_command
+          # (Change left_command to lazy left_control to suppress single control key press at Emacs key bindings on Alfred)
+          {
+            'type' => 'basic',
+            'from' => {
+              'key_code' => 'left_command',
+              'modifiers' => Karabiner.from_modifiers(nil, ['any']),
+            },
+            'to' => [
+              {
+                'key_code' => 'left_control',
+                'lazy' => true,
+              },
+            ],
+          },
         ],
       },
     ]
   )
 end
+
+def control_1234
+  # control+1,2,3,4 to home,page_down,page_up,end
+  [
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => '1',
+        'modifiers' => Karabiner.from_modifiers(['left_control'], ['any']),
+      },
+      'to' => [
+        { 'key_code' => 'home' },
+      ],
+    },
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => '2',
+        'modifiers' => Karabiner.from_modifiers(['left_control'], ['any']),
+      },
+      'to' => [
+        { 'key_code' => 'page_down' },
+      ],
+    },
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => '3',
+        'modifiers' => Karabiner.from_modifiers(['left_control'], ['any']),
+      },
+      'to' => [
+        { 'key_code' => 'page_up' },
+      ],
+    },
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => '4',
+        'modifiers' => Karabiner.from_modifiers(['left_control'], ['any']),
+      },
+      'to' => [
+        { 'key_code' => 'end' },
+      ],
+    },
+  ]
+end
+
+def option_hyphen
+  # option+-,= to ----------,==========
+  [
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => 'hyphen',
+        'modifiers' => Karabiner.from_modifiers(['option'], ['caps_lock']),
+      },
+      'to' => [
+        { 'key_code' => 'hyphen' }, { 'key_code' => 'hyphen' },
+        { 'key_code' => 'hyphen' }, { 'key_code' => 'hyphen' },
+        { 'key_code' => 'hyphen' }, { 'key_code' => 'hyphen' },
+        { 'key_code' => 'hyphen' }, { 'key_code' => 'hyphen' },
+        { 'key_code' => 'hyphen' },
+        {
+          'key_code' => 'hyphen',
+          'repeat' => false,
+        },
+      ],
+    },
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => 'equal_sign',
+        'modifiers' => Karabiner.from_modifiers(['option'], ['caps_lock']),
+      },
+      'to' => [
+        { 'key_code' => 'equal_sign' }, { 'key_code' => 'equal_sign' },
+        { 'key_code' => 'equal_sign' }, { 'key_code' => 'equal_sign' },
+        { 'key_code' => 'equal_sign' }, { 'key_code' => 'equal_sign' },
+        { 'key_code' => 'equal_sign' }, { 'key_code' => 'equal_sign' },
+        { 'key_code' => 'equal_sign' },
+        {
+          'key_code' => 'equal_sign',
+          'repeat' => false,
+        },
+      ],
+    },
+  ]
+ end
 
 def app_virtual_machine
   [
