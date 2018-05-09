@@ -13,7 +13,7 @@ def main
     'title' => 'Personal rules (@tekezo)',
     'rules' => [
       {
-        'description' => 'Personal rules (@tekezo) (rev 2)',
+        'description' => 'Personal rules (@tekezo) (rev 3)',
         'manipulators' =>
         control_1234 +
         option_hyphen +
@@ -24,6 +24,7 @@ def main
         app_activity_monitor +
         app_adium +
         app_visual_studio_code +
+        switch_input_source +
         [
           # tab
           {
@@ -46,26 +47,6 @@ def main
           },
 
           # f18
-          {
-            'type' => 'basic',
-            'from' => {
-              'key_code' => 'f18',
-              'modifiers' => Karabiner.from_modifiers(['control'], ['caps_lock']),
-            },
-            'to' => [
-              { 'key_code' => 'lang2' },
-            ],
-          },
-          {
-            'type' => 'basic',
-            'from' => {
-              'key_code' => 'f18',
-              'modifiers' => Karabiner.from_modifiers(['command'], ['caps_lock']),
-            },
-            'to' => [
-              { 'key_code' => 'lang1' },
-            ],
-          },
           {
             'type' => 'basic',
             'from' => {
@@ -176,7 +157,7 @@ def control_1234
       'type' => 'basic',
       'from' => {
         'key_code' => '1',
-        'modifiers' => Karabiner.from_modifiers(['left_control'], ['any']),
+        'modifiers' => Karabiner.from_modifiers(['left_control'], %w[caps_lock shift]),
       },
       'to' => [
         { 'key_code' => 'home' },
@@ -186,7 +167,7 @@ def control_1234
       'type' => 'basic',
       'from' => {
         'key_code' => '2',
-        'modifiers' => Karabiner.from_modifiers(['left_control'], ['any']),
+        'modifiers' => Karabiner.from_modifiers(['left_control'], %w[caps_lock shift]),
       },
       'to' => [
         { 'key_code' => 'page_down' },
@@ -196,7 +177,7 @@ def control_1234
       'type' => 'basic',
       'from' => {
         'key_code' => '3',
-        'modifiers' => Karabiner.from_modifiers(['left_control'], ['any']),
+        'modifiers' => Karabiner.from_modifiers(['left_control'], %w[caps_lock shift]),
       },
       'to' => [
         { 'key_code' => 'page_up' },
@@ -206,7 +187,7 @@ def control_1234
       'type' => 'basic',
       'from' => {
         'key_code' => '4',
-        'modifiers' => Karabiner.from_modifiers(['left_control'], ['any']),
+        'modifiers' => Karabiner.from_modifiers(['left_control'], %w[caps_lock shift]),
       },
       'to' => [
         { 'key_code' => 'end' },
@@ -549,6 +530,31 @@ def app_visual_studio_code
       ],
       'conditions' => [
         Karabiner.frontmost_application_if(['visual_studio_code']),
+      ],
+    },
+  ]
+end
+
+def switch_input_source
+  [
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => '1',
+        'modifiers' => Karabiner.from_modifiers(%w[left_control right_command], %w[caps_lock]),
+      },
+      'to' => [
+        { 'key_code' => 'lang2' },
+      ],
+    },
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => '2',
+        'modifiers' => Karabiner.from_modifiers(%w[left_control right_command], %w[caps_lock]),
+      },
+      'to' => [
+        { 'key_code' => 'lang1' },
       ],
     },
   ]

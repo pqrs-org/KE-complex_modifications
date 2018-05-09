@@ -2,7 +2,7 @@
   "title": "Personal rules (@tekezo)",
   "rules": [
     {
-      "description": "Personal rules (@tekezo) (rev 2)",
+      "description": "Personal rules (@tekezo) (rev 3)",
       "manipulators": [
         {
           "type": "basic",
@@ -13,7 +13,8 @@
                 "left_control"
               ],
               "optional": [
-                "any"
+                "caps_lock",
+                "shift"
               ]
             }
           },
@@ -32,7 +33,8 @@
                 "left_control"
               ],
               "optional": [
-                "any"
+                "caps_lock",
+                "shift"
               ]
             }
           },
@@ -51,7 +53,8 @@
                 "left_control"
               ],
               "optional": [
-                "any"
+                "caps_lock",
+                "shift"
               ]
             }
           },
@@ -70,7 +73,8 @@
                 "left_control"
               ],
               "optional": [
-                "any"
+                "caps_lock",
+                "shift"
               ]
             }
           },
@@ -939,6 +943,46 @@
         {
           "type": "basic",
           "from": {
+            "key_code": "1",
+            "modifiers": {
+              "mandatory": [
+                "left_control",
+                "right_command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "lang2"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "2",
+            "modifiers": {
+              "mandatory": [
+                "left_control",
+                "right_command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "lang1"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
             "key_code": "tab",
             "modifiers": {
               "optional": [
@@ -957,44 +1001,6 @@
               "modifiers": [
                 "left_command"
               ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "f18",
-            "modifiers": {
-              "mandatory": [
-                "control"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "lang2"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "f18",
-            "modifiers": {
-              "mandatory": [
-                "command"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "lang1"
             }
           ]
         },
