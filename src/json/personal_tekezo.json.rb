@@ -236,7 +236,7 @@ def option_hyphen
       ],
     },
   ]
- end
+end
 
 def app_virtual_machine
   [
