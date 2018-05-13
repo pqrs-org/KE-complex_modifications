@@ -9,12 +9,12 @@ require 'json'
 require_relative '../lib/karabiner.rb'
 
 def main
-  control_keys_rev = 'rev 9'
-  option_keys_rev = 'rev 4'
-  bash_style_rev = 'rev 1'
+  control_keys_rev = 'rev 10'
+  option_keys_rev = 'rev 5'
+  bash_style_rev = 'rev 2'
 
   puts JSON.pretty_generate(
-    'title' => 'Emacs key bindings (rev 11)',
+    'title' => 'Emacs key bindings (rev 12)',
     'rules' => [
       # generic
       c_x_key_strokes,
@@ -62,7 +62,7 @@ end
 
 def c_x_key_strokes
   {
-    'description' => 'Emacs key bindings [C-x key strokes] (rev 1)',
+    'description' => 'Emacs key bindings [C-x key strokes] (rev 2)',
     'manipulators' => [
       # C-x C-c (quit)
       {
