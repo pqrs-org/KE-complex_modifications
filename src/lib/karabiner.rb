@@ -78,6 +78,10 @@ module Karabiner
       '^com\.parallels\.winapp\.', # prefix
     ],
 
+    :sublime_text => [
+      '^com\.sublimetext\.' # prefix
+    ],
+
     :visual_studio_code => [
       '^com\.microsoft\.VSCode$',
     ],
@@ -106,6 +110,7 @@ module Karabiner
                                       BUNDLE_IDENTIFERS[:vi] +
                                       BUNDLE_IDENTIFERS[:virtual_machine] +
                                       BUNDLE_IDENTIFERS[:x11] +
+                                      BUNDLE_IDENTIFERS[:sublime_text] +
                                       BUNDLE_IDENTIFERS[:visual_studio_code],
     'finder' => BUNDLE_IDENTIFERS[:finder],
     'microsoft_office' => BUNDLE_IDENTIFERS[:microsoft_office],
