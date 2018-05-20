@@ -1,5 +1,5 @@
 {
-  "title": "Programmer Dvorak-CmdQwerty Keyboard",
+  "title": "Programmer Dvorak-CmdQwerty Keyboard (rev 2)",
   "rules": [
     {
       "description": "Remap keys to use Programmer Dvorak-CmdQwerty keyboard layout",
@@ -15,38 +15,6 @@
               "modifiers": [
                 "left_shift"
               ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "grave_accent_and_tilde",
-            "modifiers": {
-              "mandatory": [
-                "left_shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "grave_accent_and_tilde"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "grave_accent_and_tilde",
-            "modifiers": {
-              "mandatory": [
-                "right_shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "grave_accent_and_tilde"
             }
           ]
         },
@@ -291,6 +259,14 @@
           "to": [
             {
               "key_code": "equal_sign"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "equal_sign"
             }
           ]
         },
@@ -424,6 +400,17 @@
             "key_code": "9"
           },
           "to": [
+            {
+              "key_code": "equal_sign",
+              "modifiers": [
+                "left_shift"
+              ]
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "to_if_held_down": [
             {
               "key_code": "equal_sign",
               "modifiers": [
