@@ -1,3 +1,7 @@
+<%
+    function_keys = Array(1..12).map {|x| 'f'+x.to_s}
+    virtual_conditions = [JSON.parse(frontmost_application_if(["remote_desktop", "virtual_machine"]))]
+%>
 {
     "title": "Virtual Machine",
     "rules": [
@@ -40,6 +44,26 @@
                     "conditions": [ <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %> ]
                 }
             ]
+        },
+        {
+            "description": "Use standard function keys in virtual machine/remote desktop",
+            "manipulators": <%= each_key(
+                source_keys_list: function_keys,
+                dest_keys_list: function_keys,
+                to_modifiers: ["fn"],
+                conditions: virtual_conditions,
+                as_json: true
+            ) %>
+        },
+        {
+            "description": "Press Fn to use special features in virtual machine/remote desktop",
+            "manipulators": <%= each_key(
+                source_keys_list: function_keys,
+                dest_keys_list: function_keys,
+                from_mandatory_modifiers: ["fn"],
+                conditions: virtual_conditions,
+                as_json: true
+            ) %>
         }
     ]
 }
