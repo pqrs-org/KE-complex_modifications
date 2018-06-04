@@ -2,7 +2,7 @@
   "title": "Virtual Machine",
   "rules": [
     {
-      "description": "Swap command and control in virtual machine/remote desktop",
+      "description": "Swap left command and control in virtual machine/remote desktop",
       "manipulators": [
         {
           "type": "basic",
@@ -52,7 +52,7 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "right_control",
+            "key_code": "left_command",
             "modifiers": {
               "optional": [
                 "any"
@@ -61,7 +61,7 @@
           },
           "to": [
             {
-              "key_code": "right_command"
+              "key_code": "left_control"
             }
           ],
           "conditions": [
@@ -93,11 +93,16 @@
               ]
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "description": "Swap right command and control in virtual machine/remote desktop",
+      "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "left_command",
+            "key_code": "right_control",
             "modifiers": {
               "optional": [
                 "any"
@@ -106,7 +111,7 @@
           },
           "to": [
             {
-              "key_code": "left_control"
+              "key_code": "right_command"
             }
           ],
           "conditions": [

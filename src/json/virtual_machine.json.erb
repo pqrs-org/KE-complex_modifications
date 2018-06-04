@@ -6,10 +6,20 @@
     "title": "Virtual Machine",
     "rules": [
         {
-            "description": "Swap command and control in virtual machine/remote desktop",
+            "description": "Swap left command and control in virtual machine/remote desktop",
             "manipulators": <%= each_key(
-                source_keys_list: ['left_control', 'right_control', 'left_command', 'right_command'],
-                dest_keys_list: ['left_command', 'right_command', 'left_control', 'right_control'],
+                source_keys_list: ['left_control', 'left_command'],
+                dest_keys_list: ['left_command', 'left_control'],
+                from_optional_modifiers: ['any'],
+                conditions: virtual_conditions,
+                as_json: true
+            ) %>
+        },
+        {
+            "description": "Swap right command and control in virtual machine/remote desktop",
+            "manipulators": <%= each_key(
+                source_keys_list: ['right_control', 'right_command'],
+                dest_keys_list: ['right_command', 'right_control'],
                 from_optional_modifiers: ['any'],
                 conditions: virtual_conditions,
                 as_json: true
