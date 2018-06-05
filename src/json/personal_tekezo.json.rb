@@ -13,7 +13,7 @@ def main
     'title' => 'Personal rules (@tekezo)',
     'rules' => [
       {
-        'description' => 'Personal rules (@tekezo) (rev 3)',
+        'description' => 'Personal rules (@tekezo) (rev 4)',
         'manipulators' =>
         control_1234 +
         option_hyphen +
@@ -537,6 +537,41 @@ end
 
 def switch_input_source
   [
+    # virtual machine
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => '1',
+        'modifiers' => Karabiner.from_modifiers(%w[left_control right_control], %w[caps_lock]),
+      },
+      'to' => [
+        {
+          'key_code' => 'grave_accent_and_tilde',
+          'modifiers' => ['left_option'],
+        },
+      ],
+      'conditions' => [
+        Karabiner.frontmost_application_if(%w[remote_desktop virtual_machine]),
+      ],
+    },
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => '2',
+        'modifiers' => Karabiner.from_modifiers(%w[left_control right_control], %w[caps_lock]),
+      },
+      'to' => [
+        {
+          'key_code' => 'grave_accent_and_tilde',
+          'modifiers' => ['left_option'],
+        },
+      ],
+      'conditions' => [
+        Karabiner.frontmost_application_if(%w[remote_desktop virtual_machine]),
+      ],
+    },
+
+    # common apps
     {
       'type' => 'basic',
       'from' => {
