@@ -30,6 +30,14 @@ module Karabiner
       '^com\.apple\.finder$',
     ],
 
+    :git_gui => [
+      '^cz\.or\.repo\.git-gui$',
+    ],
+
+    :jetbrains_ide => [
+      '^com\.jetbrains\.'  # prefix
+    ],
+
     :microsoft_office => [
       '^com\.microsoft\.Excel$',
       '^com\.microsoft\.Powerpoint$',
@@ -113,6 +121,8 @@ module Karabiner
                                       BUNDLE_IDENTIFERS[:sublime_text] +
                                       BUNDLE_IDENTIFERS[:visual_studio_code],
     'finder' => BUNDLE_IDENTIFERS[:finder],
+    'git_gui' => BUNDLE_IDENTIFERS[:git_gui],
+    'jetbrains_ide' => BUNDLE_IDENTIFERS[:jetbrains_ide],
     'microsoft_office' => BUNDLE_IDENTIFERS[:microsoft_office],
     'remote_desktop' => BUNDLE_IDENTIFERS[:remote_desktop],
     'terminal' => BUNDLE_IDENTIFERS[:terminal],
