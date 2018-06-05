@@ -1,8 +1,8 @@
 {
-  "title": "Windows Photoshop keymaps in Adobe Photoshop",
+  "title": "Keymaps in Adobe Photoshop | 在 Photoshop 中更改键盘布局",
   "rules": [
     {
-      "description": "Swap control option and command in Adobe Photoshop",
+      "description": "Swap control option and command | 切换 ⌃(control) ⌥(option) ⌘(command) 的位置 (Win 布局)",
       "manipulators": [
         {
           "type": "basic",
@@ -79,7 +79,7 @@
       ]
     },
     {
-      "description": "Photoshop_UndoRedo",
+      "description": "OS style Undo / Redo | 系统风格撤销/重做快捷键",
       "manipulators": [
         {
           "type": "basic",
@@ -87,7 +87,7 @@
             "key_code": "z",
             "modifiers": {
               "mandatory": [
-                "left_command"
+                "left_option"
               ]
             }
           },
@@ -115,7 +115,7 @@
             "key_code": "y",
             "modifiers": {
               "mandatory": [
-                "left_command"
+                "left_option"
               ]
             }
           },
@@ -144,7 +144,7 @@
             "modifiers": {
               "mandatory": [
                 "left_shift",
-                "left_control"
+                "left_command"
               ]
             }
           },
@@ -171,8 +171,8 @@
             "key_code": "z",
             "modifiers": {
               "mandatory": [
-                "left_command",
-                "left_option"
+                "left_option",
+                "left_control"
               ]
             }
           },
@@ -180,6 +180,40 @@
             {
               "key_code": "y",
               "modifiers": [
+                "left_command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.adobe\\.Photoshop$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "F1 quickly creat new layer |  F1 快速创建新图层",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f1",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "n",
+              "modifiers": [
+                "left_shift",
+                "left_option",
                 "left_command"
               ]
             }
