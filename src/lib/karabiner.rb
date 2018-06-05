@@ -35,7 +35,7 @@ module Karabiner
     ],
 
     :jetbrains_ide => [
-      '^com\.jetbrains\.'  # prefix
+      '^com\.jetbrains\.' # prefix
     ],
 
     :microsoft_office => [
@@ -183,6 +183,20 @@ module Karabiner
     {
       'type' => 'keyboard_type_unless',
       'keyboard_types' => keyboard_types,
+    }
+  end
+
+  def self.input_source_if(input_sources)
+    {
+      'type' => 'input_source_if',
+      'input_sources' => input_sources,
+    }
+  end
+
+  def self.input_source_unless(input_sources)
+    {
+      'type' => 'input_source_unless',
+      'input_sources' => input_sources,
     }
   end
 
