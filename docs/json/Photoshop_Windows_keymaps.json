@@ -77,6 +77,123 @@
           ]
         }
       ]
+    },
+    {
+      "description": "Photoshop_UndoRedo",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "z",
+            "modifiers": {
+              "mandatory": [
+                "left_command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "z",
+              "modifiers": [
+                "left_option",
+                "left_command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.adobe\\.Photoshop$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "y",
+            "modifiers": {
+              "mandatory": [
+                "left_command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "z",
+              "modifiers": [
+                "left_command",
+                "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.adobe\\.Photoshop$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "z",
+            "modifiers": {
+              "mandatory": [
+                "left_shift",
+                "left_control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "z",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.adobe\\.Photoshop$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "z",
+            "modifiers": {
+              "mandatory": [
+                "left_command",
+                "left_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "y",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.adobe\\.Photoshop$"
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }
