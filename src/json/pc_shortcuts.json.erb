@@ -49,7 +49,7 @@
                     "from": <%= from("home", [], ["shift"]) %>,
                     "to": <%= to([["left_arrow", ["left_command"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "browser"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "browser", "git_gui", "jetbrains_ide"]) %>
                     ]
                 },
                 {
@@ -65,7 +65,7 @@
                     "from": <%= from("home", ["control"], ["shift"]) %>,
                     "to": <%= to([["up_arrow", ["left_command"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "git_gui", "jetbrains_ide"]) %>
                     ]
                 },
                 {
@@ -73,7 +73,7 @@
                     "from": <%= from("end", [], ["shift"]) %>,
                     "to": <%= to([["right_arrow", ["left_command"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "browser"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "browser", "git_gui", "jetbrains_ide"]) %>
                     ]
                 },
                 {
@@ -89,7 +89,7 @@
                     "from": <%= from("end", ["control"], ["shift"]) %>,
                     "to": <%= to([["down_arrow", ["left_command"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "git_gui", "jetbrains_ide"]) %>
                     ]
                 }
             ]
