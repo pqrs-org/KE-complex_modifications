@@ -18,6 +18,7 @@ RIGHT_SHIFT_KEY_CODE = 'lang1'.freeze
 def key(key_code)
   {
     'key_code' => key_code,
+    'repeat' => false,
   }
 end
 
@@ -27,6 +28,7 @@ def key_with_shift(key_code)
     'modifiers' => [
       'left_shift',
     ],
+    'repeat' => false,
   }
 end
 
