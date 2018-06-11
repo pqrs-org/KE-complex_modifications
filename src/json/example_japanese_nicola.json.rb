@@ -8,31 +8,19 @@
 require 'json'
 require_relative '../lib/karabiner.rb'
 
+########################################
 # 左シフトのキーコード
+
 LEFT_SHIFT_KEY_CODE = 'spacebar'.freeze
 
+########################################
 # 右シフトのキーコード
+
 RIGHT_SHIFT_KEY_CODE = 'lang1'.freeze
 
-# ローマ字入力の定義
-def key(key_code)
-  {
-    'key_code' => key_code,
-    'repeat' => false,
-  }
-end
-
-def key_with_shift(key_code)
-  {
-    'key_code' => key_code,
-    'modifiers' => [
-      'left_shift',
-    ],
-    'repeat' => false,
-  }
-end
-
+########################################
 # 有効になる条件
+
 CONDITIONS = [
   Karabiner.input_source_if([
                               {
@@ -49,6 +37,26 @@ CONDITIONS = [
                               },
                             ]),
 ].freeze
+
+########################################
+# ローマ字入力の定義
+
+def key(key_code)
+  {
+    'key_code' => key_code,
+    'repeat' => false,
+  }
+end
+
+def key_with_shift(key_code)
+  {
+    'key_code' => key_code,
+    'modifiers' => [
+      'left_shift',
+    ],
+    'repeat' => false,
+  }
+end
 
 ROMAN_MAP = {
   'あ' => [key('a')],
@@ -79,6 +87,8 @@ ROMAN_MAP = {
   '1' => [key('1')],
   '?' => [key_with_shift('slash')],
 }.freeze
+
+########################################
 
 def main
   puts JSON.pretty_generate(
