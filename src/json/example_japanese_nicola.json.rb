@@ -36,6 +36,7 @@ CONDITIONS = [
                                 'input_mode_id' => 'com.apple.inputmethod.Japanese.HalfWidthKana',
                               },
                             ]),
+  Karabiner.frontmost_application_unless(['loginwindow']),
 ].freeze
 
 ########################################
@@ -92,10 +93,10 @@ ROMAN_MAP = {
 
 def main
   puts JSON.pretty_generate(
-    'title' => 'Japanese NICOLA (partial)',
+    'title' => 'Japanese NICOLA (partial) (rev 2)',
     'rules' => [
       {
-        'description' => 'Japanese NICOLA (partial)',
+        'description' => 'Japanese NICOLA (partial) (rev 2)',
         'manipulators' => [
           # シフトありから並べること
 
