@@ -27,6 +27,25 @@
                     "to": <%= to([["left_shift", ["left_option", "left_command"]]]) %>
                 }
             ]
+        },
+        {
+            "description": "Change command + option + shift + S to redo with sudo in terminal",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("s", ["shift", "option", "command"], ["caps_lock"]) %>,
+                    "to": <%= to([
+                        ["up_arrow"],
+                        ["a", ["left_control"]],
+                        ["s"],
+                        ["u"],
+                        ["d"],
+                        ["o"],
+                        ["spacebar"],
+                        ["return_or_enter"]
+                    ]) %>
+                }
+            ]
         }
     ]
 }
