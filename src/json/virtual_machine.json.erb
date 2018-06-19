@@ -1,34 +1,29 @@
+<%
+    function_keys = Array(1..12).map {|x| 'f'+x.to_s}
+    virtual_conditions = [JSON.parse(frontmost_application_if(['remote_desktop', 'virtual_machine']))]
+%>
 {
     "title": "Virtual Machine",
     "rules": [
         {
-            "description": "Swap command and control in virtual machine/remote desktop",
-            "manipulators": [
-                {
-                    "type": "basic",
-                    "from": <%= from("left_control", [], ["any"]) %>,
-                    "to": <%= to([["left_command"]]) %>,
-                    "conditions": [ <%= frontmost_application_if(["virtual_machine", "remote_desktop"]) %> ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("right_control", [], ["any"]) %>,
-                    "to": <%= to([["right_command"]]) %>,
-                    "conditions": [ <%= frontmost_application_if(["virtual_machine", "remote_desktop"]) %> ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("left_command", [], ["any"]) %>,
-                    "to": <%= to([["left_control"]]) %>,
-                    "conditions": [ <%= frontmost_application_if(["virtual_machine", "remote_desktop"]) %> ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("right_command", [], ["any"]) %>,
-                    "to": <%= to([["right_control"]]) %>,
-                    "conditions": [ <%= frontmost_application_if(["virtual_machine", "remote_desktop"]) %> ]
-                }
-            ]
+            "description": "Swap left command and control in virtual machine/remote desktop",
+            "manipulators": <%= each_key(
+                source_keys_list: ['left_control', 'left_command'],
+                dest_keys_list: ['left_command', 'left_control'],
+                from_optional_modifiers: ['any'],
+                conditions: virtual_conditions,
+                as_json: true
+            ) %>
+        },
+        {
+            "description": "Swap right command and control in virtual machine/remote desktop",
+            "manipulators": <%= each_key(
+                source_keys_list: ['right_control', 'right_command'],
+                dest_keys_list: ['right_command', 'right_control'],
+                from_optional_modifiers: ['any'],
+                conditions: virtual_conditions,
+                as_json: true
+            ) %>
         },
         {
             "description": "Left Control -> Command unless in virtual machine/remote desktop",
@@ -40,6 +35,26 @@
                     "conditions": [ <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %> ]
                 }
             ]
+        },
+        {
+            "description": "Use standard function keys in virtual machine/remote desktop",
+            "manipulators": <%= each_key(
+                source_keys_list: function_keys,
+                dest_keys_list: function_keys,
+                to_modifiers: ['fn'],
+                conditions: virtual_conditions,
+                as_json: true
+            ) %>
+        },
+        {
+            "description": "Press Fn to use special features in virtual machine/remote desktop",
+            "manipulators": <%= each_key(
+                source_keys_list: function_keys,
+                dest_keys_list: function_keys,
+                from_mandatory_modifiers: ['fn'],
+                conditions: virtual_conditions,
+                as_json: true
+            ) %>
         }
     ]
 }

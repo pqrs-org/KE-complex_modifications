@@ -29,6 +29,95 @@
             ]
         },
         {
+            "description": "コマンドキー（左右どちらでも）を単体で押したときに、英数・かなをトグルで切り替える。",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": <%= from("left_command", [], ["any"]) %>,
+                    "to": [
+                        {
+                            "key_code": "left_command",
+                            "lazy": true
+                        }
+                    ],
+                    "to_if_alone": <%= to([["japanese_eisuu"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "language": "en"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": <%= from("left_command", [], ["any"]) %>,
+                    "to": [
+                        {
+                            "key_code": "left_command",
+                            "lazy": true
+                        }
+                    ],
+                    "to_if_alone": <%= to([["japanese_kana"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": <%= from("right_command", [], ["any"]) %>,
+                    "to": [
+                        {
+                            "key_code": "right_command",
+                            "lazy": true
+                        }
+                    ],
+                    "to_if_alone": <%= to([["japanese_eisuu"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "language": "en"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": <%= from("right_command", [], ["any"]) %>,
+                    "to": [
+                        {
+                            "key_code": "right_command",
+                            "lazy": true
+                        }
+                    ],
+                    "to_if_alone": <%= to([["japanese_kana"]]) %>
+                }
+            ]
+        },
+        {
             "description": "英数・かなキーを他のキーと同時に押したときに、Optionキーを送信する",
             "manipulators": [
                 {
@@ -92,6 +181,73 @@
                             ]
                         }
                     ]
+                }
+            ]
+        },
+        {
+            "description": "Ctrl+[を押したときに、escキーと英数キーを送信する",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("open_bracket", ["control"], []) %>,
+                    "to": <%= to([["escape"], ["japanese_eisuu"]]) %>,
+                    "conditions": [
+                        {
+                            "type": "keyboard_type_if",
+                            "keyboard_types": [
+                                "ansi",
+                                "iso"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("close_bracket", ["control"], []) %>,
+                    "to": <%= to([["escape"], ["japanese_eisuu"]]) %>,
+                    "conditions": [
+                        {
+                            "type": "keyboard_type_if",
+                            "keyboard_types": [
+                                "jis"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "英数・かなキーをtoggle方式にする",
+            "manipulators": [
+                {
+                    "conditions": [
+                        {
+                            "type": "input_source_if",
+                            "input_sources": [
+                                {
+                                    "language": "ja"
+                                }
+                            ]
+                        }
+                    ],
+                    "type": "basic",
+                    "from": <%= from("japanese_kana", [], []) %>,
+                    "to": <%= to([["japanese_eisuu"]]) %>
+                },
+                {
+                    "conditions": [
+                        {
+                            "type": "input_source_unless",
+                            "input_sources": [
+                                {
+                                    "language": "ja"
+                                }
+                            ]
+                        }
+                    ],
+                    "type": "basic",
+                    "from": <%= from("japanese_eisuu", [], []) %>,
+                    "to": <%= to([["japanese_kana"]]) %>
                 }
             ]
         }

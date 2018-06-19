@@ -85,6 +85,56 @@
           ]
         }
       ]
+    },
+    {
+      "description": "Change command + option + shift + S to redo with sudo in terminal",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "s",
+            "modifiers": {
+              "mandatory": [
+                "shift",
+                "option",
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow"
+            },
+            {
+              "key_code": "a",
+              "modifiers": [
+                "left_control"
+              ]
+            },
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "u"
+            },
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "o"
+            },
+            {
+              "key_code": "spacebar"
+            },
+            {
+              "key_code": "return_or_enter"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

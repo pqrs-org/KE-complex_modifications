@@ -1,5 +1,6 @@
 all:
-	scripts/update-json.sh
+	bash scripts/update-json.sh
+	(cd docs && ruby ../scripts/make-distjs.rb > dist.json)
 
 rebuild:
 	touch src/json/*
@@ -7,4 +8,4 @@ rebuild:
 	scripts/apply-lint.sh
 
 server:
-	ruby -rwebrick -e 'WEBrick::HTTPServer.new(:DocumentRoot => "./docs", :Port => 8000).start'
+	ruby scripts/dev-server.rb

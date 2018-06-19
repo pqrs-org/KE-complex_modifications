@@ -1,5 +1,5 @@
 {
-    "title": "Change caps_lock key",
+    "title": "Change caps_lock key (rev 2)",
     "rules": [
         {
             "description": "Change caps_lock key to command+control+option+shift. (Post escape key when pressed alone)",
@@ -46,6 +46,22 @@
                     "from": <%= from("caps_lock", [], ["any"]) %>,
                     "to": <%= to([["left_control"]]) %>,
                     "to_if_alone": <%= to([["escape"]]) %>
+                }
+            ]
+        },
+        {
+            "description": "Change caps_lock to control if pressed with other keys. (rev 2)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("caps_lock", [], ["any"]) %>,
+                    "to": <%= to([["left_control"]]) %>,
+                    "to_if_alone": [
+                        {
+                            "key_code": "caps_lock",
+                            "hold_down_milliseconds": 500
+                        }
+                    ]
                 }
             ]
         }

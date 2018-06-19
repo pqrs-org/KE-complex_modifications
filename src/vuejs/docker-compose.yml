@@ -1,0 +1,11 @@
+version: "3.6"
+services:
+  ke_complex_modifications:
+    build:
+      context: vue-cli
+      dockerfile: Dockerfile
+    command: sh /init.sh
+    volumes:
+      - ./app:/code
+    ports:
+      - "127.0.0.1:8080:8080"

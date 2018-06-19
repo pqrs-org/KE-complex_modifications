@@ -1,0 +1,83 @@
+{
+    "title": "Swiss PC-Style Shortcuts (AltGr+è -> '[', AltGr+¨ -> ']', AltGr+à -> '{', AltGr+$ -> '}' etc...)",
+    "rules": [
+        {
+            "description": "AltGr+è -> '['",
+            "manipulators": [
+                {
+                    "from": <%= from("open_bracket", ["right_option"], ["any"]) %>,
+                    "to": <%= to([["5", ["option"]]]) %>,
+                    "type": "basic",
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "AltGr+¨-> ']'",
+            "manipulators": [
+                {
+                    "from": <%= from("close_bracket", ["right_option"], ["any"]) %>,
+                    "to": <%= to([["6", ["option"]]]) %>,
+                    "type": "basic",
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "AltGr+2 -> '@'",
+            "manipulators": [
+                {
+                    "from": <%= from("2", ["right_option"], ["any"]) %>,
+                    "to": <%= to([["g", ["option"]]]) %>,
+                    "type": "basic",
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "AltGr+à -> '{'",
+            "manipulators": [
+                {
+                    "from": <%= from("quote", ["right_option"], ["any"]) %>,
+                    "to": <%= to([["8", ["option"]]]) %>,
+                    "type": "basic",
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "AltGr+$ -> '}'",
+            "manipulators": [
+                {
+                    "from": <%= from("backslash", ["right_option"], ["any"]) %>,
+                    "to": <%= to([["9", ["option"]]]) %>,
+                    "type": "basic",
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "AltGr+^ -> '~'",
+            "manipulators": [
+                {
+                    "from": <%= from("equal_sign", ["right_option"], ["any"]) %>,
+                    "to": <%= to([["n", ["option"]]]) %>,
+                    "type": "basic",
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
+                    ]
+                }
+            ]
+        }
+    ]
+}
