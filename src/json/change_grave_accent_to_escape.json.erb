@@ -6,21 +6,36 @@
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("grave_accent_and_tilde", [], ["left_command"]) %>,
-                    "to": <%= to([["grave_accent_and_tilde", ["left_command"]]]) %>,
-                    "to_if_alone": <%= to([["escape"]]) %>
+                    "from": <%= from("grave_accent_and_tilde", ["left_command"], []) %>,
+                    "to": <%= to([["grave_accent_and_tilde", ["left_command"]]]) %>
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("grave_accent_and_tilde", [], ["left_control"]) %>,
+                    "from": <%= from("grave_accent_and_tilde", ["right_command"], []) %>,
+                    "to": <%= to([["grave_accent_and_tilde", ["right_command"]]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("grave_accent_and_tilde", ["left_option"], []) %>,
+                    "to": <%= to([["grave_accent_and_tilde", ["left_option"]]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("grave_accent_and_tilde", ["right_option"], []) %>,
+                    "to": <%= to([["grave_accent_and_tilde", ["right_option"]]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("grave_accent_and_tilde", ["left_control"], []) %>,
                     "to": <%= to([["grave_accent_and_tilde", ["left_control"]]]) %>
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("grave_accent_and_tilde", [], ["left_option"]) %>,
-                    "to": <%= to([["grave_accent_and_tilde"]]) %>
+                    "from": <%= from("grave_accent_and_tilde", [], []) %>,
+                    "to": <%= to([["escape"]]) %>
                 }
             ]
         }
     ]
 }
+
