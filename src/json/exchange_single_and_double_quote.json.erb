@@ -1,0 +1,13 @@
+{
+    "title": "Exchange single and double quote",
+    "rules": [
+        {
+            "description": "Exchange single and double quote",
+            "manipulators": [
+                { "type": "basic", "from": <%= from("quote", [], ["caps_lock"]) %>, "to": <%= to([["quote", ["left_shift"]]]) %> },
+
+                { "type": "basic", "from": <%= from("quote", ["shift"], ["caps_lock"]) %>, "to": <%= to([["quote"]]) %> }
+            ]
+        }
+    ]
+}
