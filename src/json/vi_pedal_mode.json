@@ -1,0 +1,27 @@
+{
+    "title": "Footpedal down hits `i` for edit mode, and returns to command mode on release",
+    "rules": [
+        {
+            "manipulators": [
+                {
+                    "description": "Right footpedal to edit mode, back to command mode on release",
+                    "from": {
+                        "key_code": "keypad_enter"
+                    },
+                    "to": [
+                        {
+                            "key_code": "i",
+                            "repeat": false
+                        }
+                    ],
+                    "to_after_key_up": [
+                        {
+                            "key_code": "escape"
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        }
+    ]
+}
