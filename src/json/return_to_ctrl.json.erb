@@ -1,0 +1,16 @@
+{
+    "title": "Change return to control",
+    "rules": [
+        {
+            "description": "Change return to control if pressed with other keys, to return if pressed alone",
+            "manipulators": [
+                {
+                    "from": <%= from("return_or_enter", [], ["any"]) %>,
+                    "to": <%= to([["right_control"]]) %>,
+                    "to_if_alone": <%= to([["return_or_enter"]]) %>,
+                    "type": "basic"
+                }
+            ]
+        }
+    ]
+}
