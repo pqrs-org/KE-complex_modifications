@@ -1,0 +1,32 @@
+{
+  "title": "MacOs Touchbar Escape Key",
+  "rules": [
+    {
+      "description": "Mac Touchbar Escape key (escape as left_shift and left_shift + escape as escape)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "escape"
+          },
+          "to": [
+            {
+              "key_code": "left_shift"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_shift_and_escape)"
+          },
+          "to": [
+            {
+              "key_code": "escape"
+            }
+          ]
+        }      
+      ]
+    }
+  ]      
+}
