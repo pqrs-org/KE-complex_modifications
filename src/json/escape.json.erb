@@ -1,5 +1,5 @@
 {
-    "title": "Change escape key (rev 3)",
+    "title": "Change escape key (rev 4)",
     "rules": [
         {
             "description": "Post caps_lock if escape is pressed alone. (rev 2)",
@@ -25,6 +25,22 @@
                     "from": <%= from("escape", ["fn"], ["any"]) %>,
                     "to": <%= to([["eject"]]) %>
                 }
+            ]
+        },
+        {
+            "description": "Disale escape; Change shift + escape to escape (For avoiding mistyping on the Touch Bar)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("escape", ["shift"], ["any"]) %>,
+                    "to": <%= to([["escape"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("escape", [], []) %>,
+                    "to": <%= to([["vk_none"]]) %>
+                }
+
             ]
         }
     ]
