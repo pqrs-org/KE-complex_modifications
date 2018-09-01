@@ -86,6 +86,7 @@ module Karabiner
       '^com\.parallels\.vm$',
       '^com\.parallels\.desktop\.console$',
       '^org\.virtualbox\.app\.VirtualBoxVM$',
+      '^com\.citrix\.XenAppViewer$',
       '^com\.vmware\.proxyApp\.', # prefix
       '^com\.parallels\.winapp\.', # prefix
     ],

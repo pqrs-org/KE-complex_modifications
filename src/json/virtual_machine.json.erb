@@ -26,17 +26,6 @@
             ) %>
         },
         {
-            "description": "Left Control -> Command unless in virtual machine/remote desktop",
-            "manipulators": [
-                {
-                    "type": "basic",
-                    "from": <%= from("left_control", [], ["any"]) %>,
-                    "to": <%= to([["left_command"]]) %>,
-                    "conditions": [ <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %> ]
-                }
-            ]
-        },
-        {
             "description": "Use standard function keys in virtual machine/remote desktop",
             "manipulators": <%= each_key(
                 source_keys_list: function_keys,
@@ -47,7 +36,7 @@
             ) %>
         },
         {
-            "description": "Press Fn to use special features in virtual machine/remote desktop",
+            "description": "Press Fn + function keys to use special features in virtual machine/remote desktop",
             "manipulators": <%= each_key(
                 source_keys_list: function_keys,
                 dest_keys_list: function_keys,
