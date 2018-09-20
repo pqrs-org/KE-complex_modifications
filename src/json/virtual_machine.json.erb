@@ -1,6 +1,6 @@
 <%
     function_keys = Array(1..12).map {|x| 'f'+x.to_s}
-    virtual_conditions = [JSON.parse(frontmost_application_if(['remote_desktop', 'virtual_machine']))]
+    virtual_conditions = [JSON.parse(frontmost_application_if(['remote_desktop', 'virtual_machine', 'vnc']))]
 %>
 {
     "title": "Virtual Machine",
@@ -30,6 +30,7 @@
             "manipulators": <%= each_key(
                 source_keys_list: function_keys,
                 dest_keys_list: function_keys,
+                from_optional_modifiers: ['command', 'control', 'option', 'shift'],
                 to_modifiers: ['fn'],
                 conditions: virtual_conditions,
                 as_json: true
@@ -41,6 +42,7 @@
                 source_keys_list: function_keys,
                 dest_keys_list: function_keys,
                 from_mandatory_modifiers: ['fn'],
+                from_optional_modifiers: ['command', 'control', 'option', 'shift'],
                 conditions: virtual_conditions,
                 as_json: true
             ) %>
