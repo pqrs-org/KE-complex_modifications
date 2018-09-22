@@ -99,6 +99,13 @@ module Karabiner
       '^com\.microsoft\.VSCode$',
     ],
 
+    :vnc => [
+      '^com\.geekspiff\.chickenofthevnc$',
+      '^net\.sourceforge\.chicken$',
+      '^de\.jinx\.JollysFastVNC\.', # prefix
+      '^com\.realvnc\.vncviewer\.', # prefix
+    ],
+
     :x11 => [
       '^org\.x\.X11$',
       '^com\.apple\.x11$',
@@ -135,6 +142,7 @@ module Karabiner
     'vi' => BUNDLE_IDENTIFERS[:vi],
     'virtual_machine' => BUNDLE_IDENTIFERS[:virtual_machine],
     'visual_studio_code' => BUNDLE_IDENTIFERS[:visual_studio_code],
+    'vnc' => BUNDLE_IDENTIFERS[:vnc],
     'xcode' => BUNDLE_IDENTIFERS[:xcode],
   }.freeze
 
