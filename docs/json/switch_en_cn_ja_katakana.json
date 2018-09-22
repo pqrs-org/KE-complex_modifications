@@ -1,0 +1,94 @@
+{
+	"title": "switch English, Chinese, Japanese",
+	"rules": [
+		{
+			"description": "Use option+1/2/3/4 to switch language to English, Chinese, Japanese(Hirakana), Japanese(Katakana), respectively.",
+			"manipulators": [
+				{
+					"from": {
+						"key_code": "1",
+						"modifiers": {
+							"mandatory": [
+								"option"
+							],
+							"optional": [
+								"any"
+							]
+						}
+					},
+					"to": [
+						{
+							"select_input_source": {
+								"language": "en"
+							}
+						}
+					],
+					"type": "basic"
+				},
+				{
+					"from": {
+						"key_code": "2",
+						"modifiers": {
+							"mandatory": [
+								"option"
+							],
+							"optional": [
+								"any"
+							]
+						}
+					},
+					"to": [
+						{
+							"select_input_source": {
+								"language": "zh-Hans"
+							}
+						}
+					],
+					"type": "basic"
+				},
+				{
+					"from": {
+						"key_code": "3",
+						"modifiers": {
+							"mandatory": [
+								"option"
+							],
+							"optional": [
+								"any"
+							]
+						}
+					},
+					"to": [
+						{
+							"select_input_source": {
+								"input_mode_id": "com.apple.inputmethod.Japanese"
+							}
+						}
+					],
+					"type": "basic"
+				},
+				{
+					"from": {
+						"key_code": "4",
+						"modifiers": {
+							"mandatory": [
+								"option"
+							],
+							"optional": [
+								"any"
+							]
+						}
+					},
+					"to": [
+						{
+							"select_input_source": {
+								"input_mode_id": "com.apple.inputmethod.Japanese.Katakana"
+							}
+						}
+					],
+					"type": "basic"
+				}
+			]
+		}
+	]
+}
