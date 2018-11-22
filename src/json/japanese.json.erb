@@ -297,6 +297,33 @@
                     "to": <%= to([["japanese_kana"]]) %>
                 }
             ]
+        },
+        {
+            "description": "右コマンドキーを単体で押したときに、かなキーを送信、左コントロールキーを単体で押したときに、英数キーを送信する。",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("left_control", [], ["any"]) %>,
+                    "to": [
+                        {
+                            "key_code": "left_control",
+                            "lazy": true
+                        }
+                    ],
+                    "to_if_alone": <%= to([["japanese_eisuu"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("right_command", [], ["any"]) %>,
+                    "to": [
+                        {
+                            "key_code": "right_command",
+                            "lazy": true
+                        }
+                    ],
+                    "to_if_alone": <%= to([["japanese_kana"]]) %>
+                }
+            ]
         }
     ]
 }
