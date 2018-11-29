@@ -48,6 +48,16 @@
             ]
         },
         {
+            "description": "shift + command + option + spacebar → open screenshot panel",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("spacebar", ["shift", "option", "command"], ["caps_lock"]) %>,
+                    "to": <%= to([["5", ["left_shift", "left_command"]]]) %>
+                }
+            ]
+        },
+        {
             "description": "shift + command + option + equal_sign → 20 equal signs",
             "manipulators": [
                 {
