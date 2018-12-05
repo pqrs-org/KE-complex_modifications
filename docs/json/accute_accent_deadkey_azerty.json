@@ -1,0 +1,30 @@
+{
+    "title": "Convert ù to an accute accent (´) dead key (AZERTY)",
+    "rules": [
+        {
+            "manipulators": [
+                {
+                    "description": "ù to deadkey ´ while leaving % accessible.",
+                    "from": {
+                        "key_code": "quote",
+                        "modifiers": {
+                            "optional": [
+                                "none"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "1",
+                            "modifiers": [
+                                "left_shift",
+                                "left_option"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        }
+    ]
+}
