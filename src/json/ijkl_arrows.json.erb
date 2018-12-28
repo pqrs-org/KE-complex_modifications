@@ -103,6 +103,18 @@
                     "to": <%= to([["right_arrow"]]) %>
                 }
             ]
+        },
+
+        {
+            "description": "Change Ctrl + i to Cmd + i (italics shortcut)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("i", ['control'], ['any']) %>,
+                    "to": <%= to([["i", "command"]]) %>
+                }
+            ]
         }
+
     ]
 }
