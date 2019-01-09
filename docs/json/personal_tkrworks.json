@@ -1,9 +1,47 @@
 {
-    "title": "Pinkyless Dvorak (Rev.2)",
+    "title": "Pinkyless Dvorak (Rev.3)",
     "rules": [
         {
             "description": "Pinkyless Dvorak Layout for JIS keyboard layout.",
             "manipulators": [
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^org\\.gnu\\.Emacs"
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "left_gui"
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_alt"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^org\\.gnu\\.Emacs"
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "left_alt"
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_gui"
+                        }
+                    ]
+                },
                 {
                     "type": "basic",
                     "from": {
