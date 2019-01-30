@@ -143,7 +143,7 @@ import axios from 'axios'
 import lunr from 'lunr'
 import striptags from 'striptags'
 import { Socket } from 'vue-loading-spinner'
-const VueScrollTo = require('vue-scrollto')
+import VueScrollTo from 'vue-scrollto'
 
 const getFileName = path => {
   let name = path.substring(path.lastIndexOf('/') + 1)
@@ -170,9 +170,9 @@ class File {
     this.extraDescription = fileJson.extra_description
     this.title = fileJson.json.title
     this.rules = []
-    for (const ruleIndex in fileJson.json.rules) {
-      this.rules.push(new Rule(ruleIndex, fileJson.json.rules[ruleIndex]))
-    }
+    fileJson.json.rules.forEach((r, ruleIndex) => {
+      this.rules.push(new Rule(ruleIndex, r))
+    })
   }
 
   makeJsonUrl(path) {
@@ -190,9 +190,10 @@ class Group {
     this.id = groupJson.id
     this.name = groupJson.name
     this.files = []
-    for (const fileJson of groupJson.files) {
+
+    groupJson.files.forEach(fileJson => {
       this.files.push(new File(fileJson))
-    }
+    })
   }
 }
 
@@ -229,66 +230,56 @@ export default {
     },
 
     fetchData() {
-      const self = this
+      axios.get('dist.json').then(response => {
+        let type = this.fileName(window.location.pathname)
+        if (type === '') {
+          type = 'index'
+        }
 
-      axios
-        .get('dist.json')
-        .then(function(response) {
-          let type = self.fileName(window.location.pathname)
-          if (type === '') {
-            type = 'index'
-          }
-
-          for (const groupJson of response.data[type]) {
-            self.groups.push(new Group(groupJson))
-          }
-
-          self.filteredGroups = self.groups
-
-          self.updateLoadingState()
-          self.makeLunrIndex()
-          self.setAllFileCollapsed(true)
-          self.scrollToHash()
+        response.data[type].forEach(groupJson => {
+          this.groups.push(new Group(groupJson))
         })
-        .catch(function(error) {
-          console.log(error)
-        })
+
+        this.filteredGroups = this.groups
+
+        this.updateLoadingState()
+        this.makeLunrIndex()
+        this.setAllFileCollapsed(true)
+        this.scrollToHash()
+      })
     },
 
     updateLoadingState() {
-      const self = this
       setTimeout(() => {
-        self.loading = false
+        this.loading = false
       }, 500)
     },
 
     makeLunrIndex() {
-      const self = this
+      this.lunrIndex = lunr(l => {
+        l.ref('fileId')
+        l.field('text')
 
-      this.lunrIndex = lunr(function() {
-        this.ref('fileId')
-        this.field('text')
-
-        for (const g of self.groups) {
-          for (const f of g.files) {
+        this.groups.forEach(g => {
+          g.files.forEach(f => {
             let text = f.title + ' '
-            for (const r of f.rules) {
+            f.rules.forEach(r => {
               text += r.description + ' '
-            }
+            })
             text += striptags(f.extraDescription) + ' '
 
-            this.add({
+            l.add({
               fileId: f.id,
               text: text.toLowerCase()
             })
-          }
-        }
+          })
+        })
       })
     },
 
     updateAllFilesExpanded() {
       this.allFilesExpanded = true
-      for (const v of Object.values(this.fileCollapsed)) {
+      for (let v of Object.values(this.fileCollapsed)) {
         if (v) {
           this.allFilesExpanded = false
           return
@@ -299,11 +290,11 @@ export default {
     setAllFileCollapsed(value) {
       let fileCollapsed = {}
 
-      for (const g of this.groups) {
-        for (const f of g.files) {
+      this.groups.forEach(g => {
+        g.files.forEach(f => {
           fileCollapsed[f.id] = value
-        }
-      }
+        })
+      })
 
       this.fileCollapsed = fileCollapsed
 
@@ -322,16 +313,15 @@ export default {
     },
 
     showJsonModal(fileId) {
-      for (const g of this.groups) {
-        for (const f of g.files) {
+      for (let g of this.groups) {
+        for (let f of g.files) {
           if (f.id == fileId) {
             this.showJsonModalTitle = f.title
             this.showJsonModalBody = 'Loading...'
             this.$refs.showJsonModalRef.show()
 
-            const self = this
-            axios.get(f.jsonUrl).then(function(response) {
-              self.showJsonModalBody = JSON.stringify(response.data, null, 2)
+            axios.get(f.jsonUrl).then(response => {
+              this.showJsonModalBody = JSON.stringify(response.data, null, 2)
             })
 
             return
@@ -353,9 +343,7 @@ export default {
         return
       }
 
-      const self = this
-
-      setTimeout(function() {
+      setTimeout(() => {
         const elementId = window.location.hash.substring(1)
         const element = document.getElementById(elementId)
         if (!element) {
@@ -363,7 +351,7 @@ export default {
         }
 
         scrollToHashTriggered = true
-        self.$set(self.fileCollapsed, elementId, false)
+        this.$set(this.fileCollapsed, elementId, false)
         VueScrollTo.scrollTo(element, 500, {
           offset: -100
         })
@@ -389,9 +377,8 @@ export default {
       })
       let filteredGroups = [group]
 
-      const self = this
-      const results = this.lunrIndex.query(function(q) {
-        lunr.tokenizer(self.searchQuery.toLowerCase()).forEach(function(token) {
+      const results = this.lunrIndex.query(q => {
+        lunr.tokenizer(this.searchQuery.toLowerCase()).forEach(token => {
           const queryString = token.toString()
           q.term(queryString, {
             boost: 100
@@ -407,17 +394,17 @@ export default {
         })
       })
 
-      for (const r of results) {
+      results.forEach(r => {
         const fileId = r.ref
 
-        for (const g of this.groups) {
-          for (const f of g.files) {
+        this.groups.forEach(g => {
+          g.files.forEach(f => {
             if (f.id == fileId) {
               group.files.push(f)
             }
-          }
-        }
-      }
+          })
+        })
+      })
 
       this.filteredGroups = filteredGroups
     }
