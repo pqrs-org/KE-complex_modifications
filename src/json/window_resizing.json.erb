@@ -1,0 +1,48 @@
+{
+    "title": "Window Resizing",
+    <%
+        remap_source_keys = [
+            "u","i","o",
+            "j","k","l",
+            "m","comma","period",
+            "spacebar"
+		]
+        remap_dest_keys = [
+            "1","2","3",
+            "4","5","6",
+            "7","8","9",
+            "0"
+        ]
+        manipulators = each_key(
+            source_keys_list: remap_source_keys,
+            dest_keys_list: remap_dest_keys,
+            from_optional_modifiers: ["any"],
+            conditions: [{ "type"=>"variable_if", "name"=>"window_resize_mode", "value"=>1 }],
+            to_modifiers: ["left_control","left_command","left_option"]
+        )
+        manipulators_str = ""
+        manipulators.each do |m|
+            manipulators_str += ", #{JSON.generate(m)}"
+        end
+    %>
+    "rules": [
+        {
+            "description": "Window Resize Mode [Cmd+Esc as trigger]",
+            "manipulators": [
+                {
+                    "type": "basic",
+
+                    "from": <%= from("escape", ["command"], []) %>,
+                    "to": [
+                        { "set_variable": { "name": "window_resize_mode", "value": 1 } }
+                    ],
+                    "to_if_alone": <%= to([["w"],["e"]]) %>,
+                    "to_after_key_up": [
+                        { "set_variable": { "name": "window_resize_mode", "value": 0 } }
+                    ]
+                }
+                <%= manipulators_str %>
+            ]
+        }
+    ]
+}
