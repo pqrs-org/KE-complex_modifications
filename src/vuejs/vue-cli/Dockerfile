@@ -1,11 +1,8 @@
-FROM node:8
+FROM node:10
 
-RUN apt-get update \
-  && apt-get clean \
-  && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-RUN npm install -g @vue/cli \
-  && npm install -g opencollective
+RUN npm install -g @vue/cli && npm install -g opencollective
 
 RUN mkdir /code
 

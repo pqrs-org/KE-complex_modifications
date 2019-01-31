@@ -13,7 +13,7 @@ def main
     'title' => 'Personal rules (@tekezo)',
     'rules' => [
       {
-        'description' => 'Personal rules (@tekezo) (rev 4)',
+        'description' => 'Personal rules (@tekezo) (rev 5)',
         'manipulators' =>
         control_1234 +
         option_hyphen +
@@ -526,6 +526,40 @@ def app_visual_studio_code
         {
           'key_code' => 'page_up',
           'modifiers' => ['left_control'],
+        },
+      ],
+      'conditions' => [
+        Karabiner.frontmost_application_if(['visual_studio_code']),
+      ],
+    },
+    # command+shift+[ => command+option+left arrow
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => 'open_bracket',
+        'modifiers' => Karabiner.from_modifiers(%w[command shift], ['caps_lock']),
+      },
+      'to' => [
+        {
+          'key_code' => 'left_arrow',
+          'modifiers' => %w[left_command left_option],
+        },
+      ],
+      'conditions' => [
+        Karabiner.frontmost_application_if(['visual_studio_code']),
+      ],
+    },
+    # command+shift+] => command+option+right arrow
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => 'close_bracket',
+        'modifiers' => Karabiner.from_modifiers(%w[command shift], ['caps_lock']),
+      },
+      'to' => [
+        {
+          'key_code' => 'right_arrow',
+          'modifiers' => %w[left_command left_option],
         },
       ],
       'conditions' => [

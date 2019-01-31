@@ -1,86 +1,120 @@
 {
-    "title": "Change fn + i/j/k/l' to arrow keys",
+    "title": "Change Modifier key + i/j/k/l to arrow keys",
     "rules": [
         {
-            "description": "Change fn + i/j/k/l' to arrow keys",
+            "description": "Change Control + i/j/k/l to Arrows",
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": {
-                        "key_code": "i",
-                        "modifiers": {
-                            "mandatory": [
-                                "fn"
-                            ],
-                            "optional": [
-                                "any"
-                            ]
-                        }
-                    },
-                    "to": [
-                        {
-                            "key_code": "up_arrow"
-                        }
-                    ]
+                    "from": <%= from("j", ['control'], ['any']) %>,
+                    "to": <%= to([["left_arrow"]]) %>
                 },
                 {
                     "type": "basic",
-                    "from": {
-                        "key_code": "j",
-                        "modifiers": {
-                            "mandatory": [
-                                "fn"
-                            ],
-                            "optional": [
-                                "any"
-                            ]
-                        }
-                    },
-                    "to": [
-                        {
-                            "key_code": "left_arrow"
-                        }
-                    ]
+                    "from": <%= from("k", ['control'], ['any']) %>,
+                    "to": <%= to([["down_arrow"]]) %>
                 },
                 {
                     "type": "basic",
-                    "from": {
-                        "key_code": "k",
-                        "modifiers": {
-                            "mandatory": [
-                                "fn"
-                            ],
-                            "optional": [
-                                "any"
-                            ]
-                        }
-                    },
-                    "to": [
-                        {
-                            "key_code": "down_arrow"
-                        }
-                    ]
+                    "from": <%= from("i", ['control'], ['any']) %>,
+                    "to": <%= to([["up_arrow"]]) %>
                 },
                 {
                     "type": "basic",
-                    "from": {
-                        "key_code": "l",
-                        "modifiers": {
-                            "mandatory": [
-                                "fn"
-                            ],
-                            "optional": [
-                                "any"
-                            ]
-                        }
-                    },
-                    "to": [
-                        {
-                            "key_code": "right_arrow"
-                        }
-                    ]
+                    "from": <%= from("l", ['control'], ['any']) %>,
+                    "to": <%= to([["right_arrow"]]) %>
+                }
+            ]
+        },
+
+        {
+            "description": "Change Option + i/j/k/l to Arrows",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("j", ['option'], ['any']) %>,
+                    "to": <%= to([["left_arrow"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("k", ['option'], ['any']) %>,
+                    "to": <%= to([["down_arrow"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("i", ['option'], ['any']) %>,
+                    "to": <%= to([["up_arrow"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("l", ['option'], ['any']) %>,
+                    "to": <%= to([["right_arrow"]]) %>
+                }
+            ]
+        },
+
+        {
+            "description": "Change Fn + i/j/k/l to Arrows",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("j", ['fn'], ['any']) %>,
+                    "to": <%= to([["left_arrow"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("k", ['fn'], ['any']) %>,
+                    "to": <%= to([["down_arrow"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("i", ['fn'], ['any']) %>,
+                    "to": <%= to([["up_arrow"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("l", ['fn'], ['any']) %>,
+                    "to": <%= to([["right_arrow"]]) %>
+                }
+            ]
+        },
+
+        {
+            "description": "Change Command + i/j/k/l to Arrows",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("j", ['command'], ['any']) %>,
+                    "to": <%= to([["left_arrow"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("k", ['command'], ['any']) %>,
+                    "to": <%= to([["down_arrow"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("i", ['command'], ['any']) %>,
+                    "to": <%= to([["up_arrow"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("l", ['command'], ['any']) %>,
+                    "to": <%= to([["right_arrow"]]) %>
+                }
+            ]
+        },
+
+        {
+            "description": "Change Ctrl + i to Cmd + i (italics shortcut)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("i", ['control'], ['any']) %>,
+                    "to": <%= to([["i", "command"]]) %>
                 }
             ]
         }
+
     ]
 }

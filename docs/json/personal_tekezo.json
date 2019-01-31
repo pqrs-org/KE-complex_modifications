@@ -2,7 +2,7 @@
   "title": "Personal rules (@tekezo)",
   "rules": [
     {
-      "description": "Personal rules (@tekezo) (rev 4)",
+      "description": "Personal rules (@tekezo) (rev 5)",
       "manipulators": [
         {
           "type": "basic",
@@ -221,6 +221,7 @@
                 "^com\\.parallels\\.vm$",
                 "^com\\.parallels\\.desktop\\.console$",
                 "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
                 "^com\\.vmware\\.proxyApp\\.",
                 "^com\\.parallels\\.winapp\\."
               ]
@@ -270,6 +271,7 @@
                 "^com\\.parallels\\.vm$",
                 "^com\\.parallels\\.desktop\\.console$",
                 "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
                 "^com\\.vmware\\.proxyApp\\.",
                 "^com\\.parallels\\.winapp\\."
               ]
@@ -318,6 +320,7 @@
                 "^com\\.parallels\\.vm$",
                 "^com\\.parallels\\.desktop\\.console$",
                 "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
                 "^com\\.vmware\\.proxyApp\\.",
                 "^com\\.parallels\\.winapp\\."
               ]
@@ -368,6 +371,7 @@
                 "^com\\.parallels\\.vm$",
                 "^com\\.parallels\\.desktop\\.console$",
                 "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
                 "^com\\.vmware\\.proxyApp\\.",
                 "^com\\.parallels\\.winapp\\."
               ]
@@ -418,6 +422,7 @@
                 "^com\\.parallels\\.vm$",
                 "^com\\.parallels\\.desktop\\.console$",
                 "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
                 "^com\\.vmware\\.proxyApp\\.",
                 "^com\\.parallels\\.winapp\\."
               ]
@@ -468,6 +473,7 @@
                 "^com\\.parallels\\.vm$",
                 "^com\\.parallels\\.desktop\\.console$",
                 "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
                 "^com\\.vmware\\.proxyApp\\.",
                 "^com\\.parallels\\.winapp\\."
               ]
@@ -518,6 +524,7 @@
                 "^com\\.parallels\\.vm$",
                 "^com\\.parallels\\.desktop\\.console$",
                 "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
                 "^com\\.vmware\\.proxyApp\\.",
                 "^com\\.parallels\\.winapp\\."
               ]
@@ -567,6 +574,7 @@
                 "^com\\.parallels\\.vm$",
                 "^com\\.parallels\\.desktop\\.console$",
                 "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
                 "^com\\.vmware\\.proxyApp\\.",
                 "^com\\.parallels\\.winapp\\."
               ]
@@ -616,6 +624,7 @@
                 "^com\\.parallels\\.vm$",
                 "^com\\.parallels\\.desktop\\.console$",
                 "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
                 "^com\\.vmware\\.proxyApp\\.",
                 "^com\\.parallels\\.winapp\\."
               ]
@@ -943,6 +952,70 @@
         {
           "type": "basic",
           "from": {
+            "key_code": "open_bracket",
+            "modifiers": {
+              "mandatory": [
+                "command",
+                "shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "left_command",
+                "left_option"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.VSCode$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "close_bracket",
+            "modifiers": {
+              "mandatory": [
+                "command",
+                "shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "left_command",
+                "left_option"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.VSCode$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
             "key_code": "1",
             "modifiers": {
               "mandatory": [
@@ -986,6 +1059,7 @@
                 "^com\\.parallels\\.vm$",
                 "^com\\.parallels\\.desktop\\.console$",
                 "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
                 "^com\\.vmware\\.proxyApp\\.",
                 "^com\\.parallels\\.winapp\\."
               ]
@@ -1038,6 +1112,7 @@
                 "^com\\.parallels\\.vm$",
                 "^com\\.parallels\\.desktop\\.console$",
                 "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
                 "^com\\.vmware\\.proxyApp\\.",
                 "^com\\.parallels\\.winapp\\."
               ]
@@ -1200,6 +1275,7 @@
                 "^com\\.parallels\\.vm$",
                 "^com\\.parallels\\.desktop\\.console$",
                 "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
                 "^com\\.vmware\\.proxyApp\\.",
                 "^com\\.parallels\\.winapp\\."
               ]
