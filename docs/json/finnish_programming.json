@@ -1,0 +1,82 @@
+{
+  "title": "Finnish mapping for programming (|, {} and \\)",
+  "rules": [
+    {
+      "description": "Finnish {} keys",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "7",
+            "modifiers": {
+              "mandatory": ["right_option"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "8",
+              "modifiers": ["right_option", "left_shift"],
+              "lazy": true
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "from": {
+            "key_code": "0",
+            "modifiers": {
+              "mandatory": ["right_option"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "9",
+              "modifiers": ["right_option", "left_shift"],
+              "lazy": true
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Finnish | key",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "non_us_backslash",
+            "modifiers": {
+              "mandatory": ["right_option"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "7",
+              "modifiers": ["right_option"]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Finnish \\ key",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "hyphen",
+            "modifiers": {
+              "mandatory": ["right_option"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "7",
+              "modifiers": ["right_shift", "right_option"]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}
