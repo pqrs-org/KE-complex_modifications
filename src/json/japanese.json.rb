@@ -10,10 +10,10 @@ require_relative '../lib/karabiner.rb'
 
 def main
   puts JSON.pretty_generate(
-    'title' => 'For Japanese （日本語環境向けの設定） (rev 3)',
+    'title' => 'For Japanese （日本語環境向けの設定） (rev 4)',
     'rules' => [
       {
-        'description' => 'コマンドキーを単体で押したときに、英数・かなキーを送信する。（左コマンドキーは英数、右コマンドキーはかな） (rev 2)',
+        'description' => 'コマンドキーを単体で押したときに、英数・かなキーを送信する。（左コマンドキーは英数、右コマンドキーはかな） (rev 3)',
         'manipulators' => [
           {
             'type' => 'basic',
@@ -21,10 +21,18 @@ def main
               'key_code' => 'left_command',
               'modifiers' => Karabiner.from_modifiers(nil, ['any']),
             },
+            'parameters' => {
+              'basic.to_if_held_down_threshold_milliseconds' => 100,
+            },
             'to' => [
               {
                 'key_code' => 'left_command',
                 'lazy' => true,
+              },
+            ],
+            'to_if_held_down' => [
+              {
+                'key_code' => 'left_command',
               },
             ],
             'to_if_alone' => [
@@ -39,10 +47,18 @@ def main
               'key_code' => 'right_command',
               'modifiers' => Karabiner.from_modifiers(nil, ['any']),
             },
+            'parameters' => {
+              'basic.to_if_held_down_threshold_milliseconds' => 100,
+            },
             'to' => [
               {
                 'key_code' => 'right_command',
                 'lazy' => true,
+              },
+            ],
+            'to_if_held_down' => [
+              {
+                'key_code' => 'right_command',
               },
             ],
             'to_if_alone' => [
