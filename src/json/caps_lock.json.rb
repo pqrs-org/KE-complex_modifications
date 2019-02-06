@@ -10,8 +10,34 @@ require_relative '../lib/karabiner.rb'
 
 def main
   puts JSON.pretty_generate(
-    'title' => 'Change caps_lock key (rev 3)',
+    'title' => 'Change caps_lock key (rev 4)',
     'rules' => [
+      {
+        'description' => 'Change caps_lock key to command+control+option+shift. (Post caps_lock when pressed alone)',
+        'manipulators' => [
+          {
+            'type' => 'basic',
+            'from' => {
+              'key_code' => 'caps_lock',
+              'modifiers' => Karabiner.from_modifiers(nil, ['any']),
+            },
+            'to' => [
+              {
+                'key_code' => 'left_shift',
+                'modifiers' => %w[
+                  left_command left_control left_option
+                ],
+              },
+            ],
+            'to_if_alone' => [
+              {
+                "hold_down_milliseconds": 100,
+                'key_code' => 'caps_lock',
+              },
+            ],
+          },
+        ],
+      },
       {
         'description' => 'Change caps_lock key to command+control+option+shift. (Post escape key when pressed alone)',
         'manipulators' => [
