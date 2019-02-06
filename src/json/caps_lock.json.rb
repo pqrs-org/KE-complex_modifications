@@ -31,7 +31,7 @@ def main
             ],
             'to_if_alone' => [
               {
-                "hold_down_milliseconds": 100,
+                'hold_down_milliseconds' => 100,
                 'key_code' => 'caps_lock',
               },
             ],
