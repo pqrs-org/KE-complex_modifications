@@ -1,5 +1,5 @@
 {
-  "title": "Change caps_lock key (rev 2)",
+  "title": "Change caps_lock key (rev 3)",
   "rules": [
     {
       "description": "Change caps_lock key to command+control+option+shift. (Post escape key when pressed alone)",
@@ -156,6 +156,31 @@
             {
               "key_code": "caps_lock",
               "hold_down_milliseconds": 500
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Disable caps_lock delay (rev 1)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "caps_lock",
+              "hold_down_milliseconds": 200
+            },
+            {
+              "key_code": "vk_none"
             }
           ]
         }
