@@ -230,23 +230,29 @@ export default {
     },
 
     fetchData() {
-      axios.get('dist.json').then(response => {
-        let type = this.fileName(window.location.pathname)
-        if (type === '') {
-          type = 'index'
-        }
-
-        response.data[type].forEach(groupJson => {
-          this.groups.push(new Group(groupJson))
+      axios
+        .get('dist.json', {
+          headers: {
+            'Cache-Control': 'no-cache'
+          }
         })
+        .then(response => {
+          let type = this.fileName(window.location.pathname)
+          if (type === '') {
+            type = 'index'
+          }
 
-        this.filteredGroups = this.groups
+          response.data[type].forEach(groupJson => {
+            this.groups.push(new Group(groupJson))
+          })
 
-        this.updateLoadingState()
-        this.makeLunrIndex()
-        this.setAllFileCollapsed(true)
-        this.scrollToHash()
-      })
+          this.filteredGroups = this.groups
+
+          this.updateLoadingState()
+          this.makeLunrIndex()
+          this.setAllFileCollapsed(true)
+          this.scrollToHash()
+        })
     },
 
     updateLoadingState() {
