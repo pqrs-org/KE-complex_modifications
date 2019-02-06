@@ -13,7 +13,7 @@ def main
     'title' => 'Change caps_lock key (rev 4)',
     'rules' => [
       {
-        'description' => 'Change caps_lock key to command+control+option+shift. (Post caps_lock when pressed alone)',
+        'description' => 'Change caps_lock key to command+control+option+shift if pressed with other keys',
         'manipulators' => [
           {
             'type' => 'basic',
