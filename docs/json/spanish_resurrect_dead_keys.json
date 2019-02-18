@@ -1,0 +1,94 @@
+{
+  "title": "Make circumflex, tilde and backtick work with one stroke on Spanish key layout.",
+  "rules": [
+    {
+      "description": "One stroke circumflex.",
+      "manipulators": [
+        {
+          "conditions": {
+            "input_sources": [
+              {
+                "input_source_id": "^com\\.apple\\.keylayout\\.Spanish-ISO$"
+              }
+            ],
+            "type": "input_source_if"
+          },
+          "from": {
+            "key_code": "open_bracket",
+            "modifiers": {
+              "mandatory": ["shift"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "open_bracket",
+              "modifiers": ["shift"]
+            },
+            {
+              "key_code": "spacebar"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "One stroke tilde.",
+      "manipulators": [
+        {
+          "conditions": {
+            "input_sources": [
+              {
+                "input_source_id": "^com\\.apple\\.keylayout\\.Spanish-ISO$"
+              }
+            ],
+            "type": "input_source_if"
+          },
+          "from": {
+            "key_code": "semicolon",
+            "modifiers": {
+              "mandatory": ["option"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "semicolon",
+              "modifiers": ["option"]
+            },
+            {
+              "key_code": "spacebar"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "One stroke backtick.",
+      "manipulators": [
+        {
+          "conditions": {
+            "input_sources": [
+              {
+                "input_source_id": "^com\\.apple\\.keylayout\\.Spanish-ISO$"
+              }
+            ],
+            "type": "input_source_if"
+          },
+          "from": {
+            "key_code": "open_bracket"
+          },
+          "to": [
+            {
+              "key_code": "open_bracket"
+            },
+            {
+              "key_code": "spacebar"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}
