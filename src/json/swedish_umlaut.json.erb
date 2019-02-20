@@ -1,0 +1,31 @@
+{
+    "title": "Swedish Umlaut",
+    "rules": [
+        {
+            "description": "Change option + q/o to ä/ö",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("q", ["option"], ["caps_lock"]) %>,
+                    "to": <%= to([["u", ["left_option"]], ["a"], ["vk_none"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("q", ["option", "shift"], []) %>,
+                    "to": <%= to([["u", ["left_option"]], ["a", ["left_shift"]], ["vk_none"]]) %>
+                },
+
+                {
+                    "type": "basic",
+                    "from": <%= from("o", ["option"], ["caps_lock"]) %>,
+                    "to": <%= to([["u", ["left_option"]], ["o"], ["vk_none"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("o", ["option", "shift"], []) %>,
+                    "to": <%= to([["u", ["left_option"]], ["o", ["left_shift"]], ["vk_none"]]) %>
+                }
+            ]
+        }
+    ]
+}
