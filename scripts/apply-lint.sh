@@ -32,8 +32,6 @@ if $use_partial_lint; then
   lint="$topdir/scripts/partial-lint.rb"
 fi
 
-ruby -rjson -e "open('docs/groups.json') {|f| JSON.parse(f.read) }" || exit 1
-
 for srcfile in $@; do
   echo "check $srcfile"
   sh -c "$lint $srcfile" || exit 1
