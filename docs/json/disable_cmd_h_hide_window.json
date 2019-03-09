@@ -1,28 +1,20 @@
 {
-    "title": "Prevent unintended command-h hide window",
-    "rules": [
-    
+  "title": "Prevent unintended command-h hide window (rev 2)",
+  "rules": [
+    {
+      "description": "Disable Cmd+H Hide (rev 2)",
+      "manipulators": [
         {
-            "description": "Disable Cmd+H Hide",
-            "manipulators": [
-                {
-                    "type": "basic",
-                    "description": "",
-                    "from": {
-                        "key_code": "h",
-                        "modifiers": {
-                            "mandatory": [
-                                "command"
-                            ]
-                        }
-                    },
-                    "to": [
-                        {
-                            "key_code": "VK_NONE"
-                        }
-                    ]
-                }
-            ]
+          "type": "basic",
+          "description": "",
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "mandatory": ["command"]
+            }
+          }
         }
-    ]
+      ]
+    }
+  ]
 }

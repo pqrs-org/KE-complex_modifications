@@ -5,7 +5,7 @@ all:
 rebuild:
 	touch src/json/*
 	$(MAKE) all
-	scripts/apply-lint.sh
+	scripts/apply-lint.sh docs/json/*.json
 
 server:
 	ruby scripts/dev-server.rb
