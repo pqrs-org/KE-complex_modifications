@@ -1,5 +1,5 @@
 {
-    "title": "Personal rules (@kbdluv)",
+    "title": "Personal rules (@kbdluv) (rev 2)",
     "rules": [
         {
             "description": "Post Escape if Command_L is pressed alone.",
@@ -35,24 +35,24 @@
             ]
          },
         {
-            "description": "Post grave_accent_and_tilde if Caps Lock is pressed alone, left_shift if held down.",
+            "description": "Post grave_accent_and_tilde if Caps Lock is pressed alone, left_shift if held down. (rev 2)",
             "manipulators": [
                 {
                     "type": "basic",
                     "from": <%= from("caps_lock", [], ["any"]) %>,
                     "to": [{"key_code": "left_shift", "lazy": true}],
-                    "to_if_alone": <%= to([["grave_accent_and_tilde", "spacebar"]]) %>
+                    "to_if_alone": <%= to([["grave_accent_and_tilde"]]) %>
                 }
             ]
         },
         {
-            "description": "Post return_or_enter if Enter is pressed alone, right_shift if held down.",
+            "description": "Post return_or_enter if Enter is pressed alone, right_shift if held down. (rev 2)",
             "manipulators": [
                 {
                     "type": "basic",
                     "from": <%= from("return_or_enter", [], ["any"]) %>,
                     "to": [{"key_code": "right_shift", "lazy": true}],
-                    "to_if_alone": <%= to([["return_or_enter", "spacebar"]]) %>
+                    "to_if_alone": <%= to([["return_or_enter"]]) %>
                 }
             ]
         }
