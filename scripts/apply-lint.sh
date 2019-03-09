@@ -21,9 +21,12 @@ fi
 lint="'$karabiner_cli' --lint-complex-modifications "
 
 if $use_partial_lint; then
+  echo
+  echo "----------------------------------------"
   echo "WARNING:"
   echo "The complete linting requires Karabiner-Elements 12.2.1 or later."
-  echo "Use partial lint instead."
+  echo "Using partial lint instead."
+  echo "----------------------------------------"
   echo
 
   lint="$topdir/scripts/partial-lint.rb"
