@@ -6,8 +6,6 @@ all:
 rebuild:
 	touch src/json/*
 	$(MAKE) all
-	scripts/apply-lint.sh docs/json/*.json
-	ruby scripts/lint-groups.rb
 
 server:
 	ruby scripts/dev-server.rb
