@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/pqrs-org/KE-complex_modifications.svg?branch=master)](https://travis-ci.org/pqrs-org/KE-complex_modifications)
+[![Build Status](https://travis-ci.com/pqrs-org/KE-complex_modifications.svg?branch=master)](https://travis-ci.com/pqrs-org/KE-complex_modifications)
 
 # KE-complex_modifications
 
