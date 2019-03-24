@@ -1,0 +1,70 @@
+{
+  "title": "Mouse motion to scroll (rev 1)",
+  "maintainer": "tekezo",
+  "rules": [
+    {
+      "description": "Change button4 + mouse motion to scroll wheel (Available since Karabiner-Elements v12.2.6)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button4",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "enable_mouse_motion_to_scroll",
+                "value": 1
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "enable_mouse_motion_to_scroll",
+                "value": 0
+              }
+            }
+          ]
+        },
+        {
+          "type": "mouse_motion_to_scroll",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "enable_mouse_motion_to_scroll",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Change control + mouse motion to scroll wheel (Available since Karabiner-Elements v12.2.6)",
+      "manipulators": [
+        {
+          "type": "mouse_motion_to_scroll",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
