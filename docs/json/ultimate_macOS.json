@@ -106,6 +106,52 @@
             "manipulators": [
                 {
                     "from": {
+                        "key_code": "0",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_command",
+                                "right_command",
+                                "right_control",
+                                "right_shift",
+                                "right_option"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_arrow",
+                            "modifiers": [
+                                "left_command"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "from": {
+                        "key_code": "4",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_command",
+                                "right_command",
+                                "right_control",
+                                "right_shift",
+                                "right_option"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "right_arrow",
+                            "modifiers": [
+                                "left_command"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "from": {
                         "key_code": "h",
                         "modifiers": {
                             "mandatory": [
@@ -142,9 +188,10 @@
                     },
                     "to": [
                         {
-                            "mouse_key": {
-                                "x": -345
-                            }
+                            "key_code": "left_arrow",
+                            "modifiers": [
+                                "left_option"
+                            ]
                         }
                     ],
                     "type": "basic"
@@ -253,9 +300,10 @@
                     },
                     "to": [
                         {
-                            "mouse_key": {
-                                "y": 345
-                            }
+                            "key_code": "down_arrow",
+                            "modifiers": [
+                                "left_option"
+                            ]
                         }
                     ],
                     "type": "basic"
@@ -363,9 +411,10 @@
                     },
                     "to": [
                         {
-                            "mouse_key": {
-                                "y": -345
-                            }
+                            "key_code": "up_arrow",
+                            "modifiers": [
+                                "left_option"
+                            ]
                         }
                     ],
                     "type": "basic"
@@ -474,9 +523,10 @@
                     },
                     "to": [
                         {
-                            "mouse_key": {
-                                "x": 345
-                            }
+                            "key_code": "right_arrow",
+                            "modifiers": [
+                                "left_option"
+                            ]
                         }
                     ],
                     "type": "basic"
@@ -561,10 +611,52 @@
                     },
                     "to": [
                         {
+                            "key_code": "right_arrow"
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "from": {
+                        "key_code": "u",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_command",
+                                "right_command",
+                                "right_control",
+                                "right_shift",
+                                "right_option"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
                             "key_code": "page_up",
                             "modifiers": [
                                 "left_shift"
                             ]
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "from": {
+                        "key_code": "u",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_option",
+                                "right_command",
+                                "right_control",
+                                "right_shift",
+                                "right_option"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "mouse_key": {
+                                "x": -345
+                            }
                         }
                     ],
                     "type": "basic"
@@ -616,6 +708,28 @@
                         "key_code": "i",
                         "modifiers": {
                             "mandatory": [
+                                "left_option",
+                                "right_command",
+                                "right_control",
+                                "right_shift",
+                                "right_option"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "mouse_key": {
+                                "y": 345
+                            }
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "from": {
+                        "key_code": "i",
+                        "modifiers": {
+                            "mandatory": [
                                 "right_command",
                                 "right_control",
                                 "right_shift",
@@ -658,6 +772,28 @@
                         "key_code": "o",
                         "modifiers": {
                             "mandatory": [
+                                "left_option",
+                                "right_command",
+                                "right_control",
+                                "right_shift",
+                                "right_option"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "mouse_key": {
+                                "y": -345
+                            }
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "from": {
+                        "key_code": "o",
+                        "modifiers": {
+                            "mandatory": [
                                 "right_command",
                                 "right_control",
                                 "right_shift",
@@ -691,6 +827,28 @@
                             "modifiers": [
                                 "left_shift"
                             ]
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "from": {
+                        "key_code": "p",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_option",
+                                "right_command",
+                                "right_control",
+                                "right_shift",
+                                "right_option"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "mouse_key": {
+                                "x": 345
+                            }
                         }
                     ],
                     "type": "basic"
@@ -1324,7 +1482,7 @@
             ]
         },
         {
-            "description": "Hyper Application",
+            "description": "Hyper Application (held down CapsLock+G to Fn)",
             "manipulators": [
                 {
                     "from": {
@@ -1494,9 +1652,24 @@
                             ]
                         }
                     },
+                    "parameters": {
+                        "basic.to_if_alone_timeout_milliseconds": 250,
+                        "basic.to_if_held_down_threshold_milliseconds": 250
+                    },
                     "to": [
                         {
-                            "shell_command": "open -a 'GitHub Desktop'"
+                            "key_code": "g",
+                            "modifiers": [
+                                "right_command",
+                                "right_control",
+                                "right_option",
+                                "right_shift"
+                            ]
+                        }
+                    ],
+                    "to_if_held_down": [
+                        {
+                            "key_code": "fn"
                         }
                     ],
                     "type": "basic"
