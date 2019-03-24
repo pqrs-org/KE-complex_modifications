@@ -7,7 +7,7 @@
     "import_url": "karabiner://karabiner/assets/complex_modifications/import?url=https://raw.githubusercontent.com/suliveevil/Capslock/master/mac/ultimate_macOS.json",
     "rules": [
         {
-            "description": "IKBC C87 Change left_command to left_option",
+            "description": "IKBC C87: Change left_command to left_option",
             "manipulators": [
                 {
                     "type": "basic",
@@ -39,7 +39,7 @@
             ]
         },
         {
-            "description": "IKBC C87 Change left_option to left_command",
+            "description": "IKBC C87: Change left_option to left_command",
             "manipulators": [
                 {
                     "type": "basic",
@@ -102,7 +102,7 @@
             ]
         },
         {
-            "description": "Hyper Navigation",
+            "description": "Hyper Navigation: 0 4($) HJKL UIOP",
             "manipulators": [
                 {
                     "from": {
@@ -875,7 +875,7 @@
             ]
         },
         {
-            "description": "Hyper Mousekey",
+            "description": "Hyper Mousekey: ←↓↑→",
             "manipulators": [
                 {
                     "from": {
@@ -1003,7 +1003,7 @@
             ]
         },
         {
-            "description": "Hyper Deletion",
+            "description": "Hyper Deletion: N M , .",
             "manipulators": [
                 {
                     "from": {
@@ -1136,7 +1136,7 @@
             ]
         },
         {
-            "description": "Hyper Window Control",
+            "description": "Hyper Window Control: ⇥ QWASD",
             "manipulators": [
                 {
                     "from": {
@@ -1345,8 +1345,30 @@
             ]
         },
         {
-            "description": "Hyper Bash Control",
+            "description": "Hyper Bash Control: D ZXCVB",
             "manipulators": [
+                {
+                    "from": {
+                        "key_code": "d",
+                        "modifiers": {
+                            "mandatory": [
+                                "right_command",
+                                "right_control",
+                                "right_shift",
+                                "right_option"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "d",
+                            "modifiers": [
+                                "left_control"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                },
                 {
                     "from": {
                         "key_code": "z",
@@ -1456,33 +1478,11 @@
                         }
                     ],
                     "type": "basic"
-                },
-                {
-                    "from": {
-                        "key_code": "d",
-                        "modifiers": {
-                            "mandatory": [
-                                "right_command",
-                                "right_control",
-                                "right_shift",
-                                "right_option"
-                            ]
-                        }
-                    },
-                    "to": [
-                        {
-                            "key_code": "d",
-                            "modifiers": [
-                                "left_control"
-                            ]
-                        }
-                    ],
-                    "type": "basic"
                 }
             ]
         },
         {
-            "description": "Hyper Application (held down CapsLock+G to Fn)",
+            "description": "Hyper Application (held down hyper+g to Fn)",
             "manipulators": [
                 {
                     "from": {
