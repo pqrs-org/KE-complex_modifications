@@ -1,0 +1,215 @@
+{
+  "title": "Workaround broken s,w,2,tab,esc,< by fn+neighbour on Apple internal kbd only",
+  "rules": [
+    {
+      "description": "Change fn + d to s",
+      "manipulators": [
+        {
+         "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 589
+                }
+              ]
+            }
+          ],
+          "type": "basic",
+          "from": {
+            "key_code": "d",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Change fn + e to w",
+      "manipulators": [
+        {
+         "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 589
+                }
+              ]
+            }
+          ],
+          "type": "basic",
+          "from": {
+            "key_code": "e",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "w"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Change fn + 3 to 2",
+      "manipulators": [
+        {
+         "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 589
+                }
+              ]
+            }
+          ],
+          "type": "basic",
+          "from": {
+            "key_code": "3",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Change fn + q to Tab",
+      "manipulators": [
+        {
+         "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 589
+                }
+              ]
+            }
+          ],
+          "type": "basic",
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "tab"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Change fn + 1 to Esc",
+      "manipulators": [
+        {
+         "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 589
+                }
+              ]
+            }
+          ],
+          "type": "basic",
+          "from": {
+            "key_code": "1",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "escape"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Change fn + y to <",
+      "manipulators": [
+        {
+         "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 589
+                }
+              ]
+            }
+          ],
+          "type": "basic",
+          "from": {
+            "key_code": "z",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
