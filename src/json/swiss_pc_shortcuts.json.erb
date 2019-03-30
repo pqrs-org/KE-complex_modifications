@@ -1,6 +1,32 @@
 {
-    "title": "Swiss PC-Style Shortcuts (AltGr+è -> '[', AltGr+¨ -> ']', AltGr+à -> '{', AltGr+$ -> '}' etc...)",
+    "title": "Swiss PC-Style Shortcuts (AltGr+' -> '´', AltGr+< -> 'backslash', AltGr+è -> '[', AltGr+¨ -> ']', AltGr+à -> '{', AltGr+$ -> '}')",
     "rules": [
+        {
+            "description": "AltGr+< -> 'backslash'",
+            "manipulators": [
+                {
+                    "from": <%= from("grave_accent_and_tilde", ["right_option"], ["any"]) %>,
+                    "to": <%= to([["7", ["option", "left_shift"]]]) %>,
+                    "type": "basic",
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "AltGr+' -> '´'",
+            "manipulators": [
+                {
+                    "from": <%= from("hyphen", ["right_option"], ["any"]) %>,
+                    "to": <%= to([["equal_sign", ["option"]]]) %>,
+                    "type": "basic",
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
+                    ]
+                }
+            ]
+        },
         {
             "description": "AltGr+è -> '['",
             "manipulators": [
@@ -57,7 +83,7 @@
             "description": "AltGr+$ -> '}'",
             "manipulators": [
                 {
-                    "from": <%= from("backslash", ["right_option"], ["any"]) %>,
+                    "from": <%= from("non_us_pound", ["right_option"], ["any"]) %>,
                     "to": <%= to([["9", ["option"]]]) %>,
                     "type": "basic",
                     "conditions": [
