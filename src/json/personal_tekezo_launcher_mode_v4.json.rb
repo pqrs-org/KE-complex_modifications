@@ -19,10 +19,10 @@ require_relative '../lib/karabiner.rb'
 
 def main
   data = {
-    'title' => 'Personal rules (@tekezo) Launcher Mode v4 (rev 7)',
+    'title' => 'Personal rules (@tekezo) Launcher Mode v4 (rev 8)',
     'rules' => [
       {
-        'description' => 'Launcher Mode v4 (rev 7)',
+        'description' => 'Launcher Mode v4 (rev 8)',
         'manipulators' => [
           generate_launcher_mode('1', [], [{ 'shell_command' => "open -a 'Xcode.app'" }]),
           generate_launcher_mode('3', [], [{ 'shell_command' => "open -a 'Firefox.app'" }]),
@@ -35,7 +35,6 @@ def main
           generate_launcher_mode('m', [], [{ 'shell_command' => "open -a 'Thunderbird.app'" }]),
           generate_launcher_mode('q', [], [{ 'shell_command' => "open -a 'Dictionary.app'" }]),
           generate_launcher_mode('t', [], [{ 'shell_command' => "open -a 'iTerm.app'" }]),
-          generate_launcher_mode('u', [], [{ 'shell_command' => "open -a 'Skype.app'" }]),
           generate_launcher_mode('w', [], [{ 'shell_command' => "open -a 'Microsoft Word.app'" }]),
           generate_launcher_mode('x', [], [{ 'shell_command' => "open -a 'Microsoft Excel.app'" }]),
 
