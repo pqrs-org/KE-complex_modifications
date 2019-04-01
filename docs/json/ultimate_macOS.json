@@ -5,7 +5,7 @@
     "import_url": "karabiner://karabiner/assets/complex_modifications/import?url=https://raw.githubusercontent.com/suliveevil/Capslock/master/mac/ultimate_macOS.json",
     "rules": [
         {
-            "description": "Device: IKBC C87: Swap left_command and left_option",
+            "description": "Device: IKBC C87: Swap Win/Command and Alt/Option",
             "manipulators": [
                 {
                     "type": "basic",
@@ -58,6 +58,60 @@
                     "to": [
                         {
                             "key_code": "left_command"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "right_command",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "product_id": 31235,
+                                    "vendor_id": 1547
+                                }
+                            ]
+                        }
+                    ],
+                    "to": [
+                        {
+                            "key_code": "right_option"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "right_option",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "product_id": 31235,
+                                    "vendor_id": 1547
+                                }
+                            ]
+                        }
+                    ],
+                    "to": [
+                        {
+                            "key_code": "right_command"
                         }
                     ]
                 }
@@ -2140,7 +2194,7 @@
             ]
         },
         {
-            "description": "Hyper Shifter",
+            "description": "Hyper Shifter (ultimate macOS version: 1554150056)",
             "manipulators": [
                 {
                     "from": {
@@ -2537,7 +2591,7 @@
             ]
         },
         {
-            "description": "Hyper Misc (Check https://github.com/suliveevil/Capslock for all details)",
+            "description": "Hyper Misc    (Check https://github.com/suliveevil/Capslock for all details)",
             "manipulators": [
                 {
                     "type": "basic",
