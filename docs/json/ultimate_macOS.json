@@ -983,7 +983,7 @@
             ]
         },
         {
-            "description": "Hyper Window Control: ⇥ QWASD",
+            "description": "Hyper Window Control: ⇥ QWAS D",
             "manipulators": [
                 {
                     "type": "basic",
@@ -1129,6 +1129,28 @@
                         "key_code": "s",
                         "modifiers": {
                             "mandatory": [
+                                "right_command",
+                                "right_control",
+                                "right_shift",
+                                "right_option"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "tab",
+                            "modifiers": [
+                                "left_control"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "s",
+                        "modifiers": {
+                            "mandatory": [
                                 "left_command",
                                 "right_command",
                                 "right_control",
@@ -1150,32 +1172,10 @@
                 {
                     "type": "basic",
                     "from": {
-                        "key_code": "s",
-                        "modifiers": {
-                            "mandatory": [
-                                "right_command",
-                                "right_control",
-                                "right_shift",
-                                "right_option"
-                            ]
-                        }
-                    },
-                    "to": [
-                        {
-                            "key_code": "tab",
-                            "modifiers": [
-                                "left_control"
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": {
                         "key_code": "d",
                         "modifiers": {
                             "mandatory": [
-                                "left_command",
+                                "left_option",
                                 "right_command",
                                 "right_control",
                                 "right_shift",
@@ -1185,7 +1185,7 @@
                     },
                     "to": [
                         {
-                            "shell_command": "open -a 'Dictionary'"
+                            "key_code": "f11"
                         }
                     ]
                 }
@@ -1337,6 +1337,25 @@
                         "key_code": "e",
                         "modifiers": {
                             "mandatory": [
+                                "right_command",
+                                "right_control",
+                                "right_shift",
+                                "right_option"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "shell_command": "open -a 'finder'"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "e",
+                        "modifiers": {
+                            "mandatory": [
                                 "left_command",
                                 "right_command",
                                 "right_control",
@@ -1354,7 +1373,7 @@
                 {
                     "type": "basic",
                     "from": {
-                        "key_code": "e",
+                        "key_code": "r",
                         "modifiers": {
                             "mandatory": [
                                 "right_command",
@@ -1366,7 +1385,7 @@
                     },
                     "to": [
                         {
-                            "shell_command": "open -a 'finder'"
+                            "shell_command": "open -a 'iTerm'"
                         }
                     ]
                 },
@@ -1393,7 +1412,7 @@
                 {
                     "type": "basic",
                     "from": {
-                        "key_code": "r",
+                        "key_code": "t",
                         "modifiers": {
                             "mandatory": [
                                 "right_command",
@@ -1405,7 +1424,7 @@
                     },
                     "to": [
                         {
-                            "shell_command": "open -a 'iTerm'"
+                            "shell_command": "open -a 'Visual Studio Code'"
                         }
                     ]
                 },
@@ -1432,25 +1451,6 @@
                 {
                     "type": "basic",
                     "from": {
-                        "key_code": "t",
-                        "modifiers": {
-                            "mandatory": [
-                                "right_command",
-                                "right_control",
-                                "right_shift",
-                                "right_option"
-                            ]
-                        }
-                    },
-                    "to": [
-                        {
-                            "shell_command": "open -a 'Visual Studio Code'"
-                        }
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": {
                         "key_code": "y",
                         "modifiers": {
                             "mandatory": [
@@ -1464,6 +1464,26 @@
                     "to": [
                         {
                             "shell_command": "open -a 'Siri'"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "d",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_command",
+                                "right_command",
+                                "right_control",
+                                "right_shift",
+                                "right_option"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "shell_command": "open -a 'Dictionary'"
                         }
                     ]
                 },
@@ -1526,12 +1546,14 @@
                     "to": [
                         {
                             "key_code": "g",
-                            "modifiers": [
-                                "right_command",
-                                "right_control",
-                                "right_option",
-                                "right_shift"
-                            ]
+                            "modifiers": {
+                                "mandatory": [
+                                    "right_command",
+                                    "right_control",
+                                    "right_option",
+                                    "right_shift"
+                                ]
+                            }
                         }
                     ],
                     "to_if_held_down": [
@@ -1568,9 +1590,10 @@
                 {
                     "type": "basic",
                     "from": {
-                        "key_code": "f1",
+                        "key_code": "1",
                         "modifiers": {
                             "mandatory": [
+                                "left_option",
                                 "right_command",
                                 "right_control",
                                 "right_shift",
@@ -1587,9 +1610,10 @@
                 {
                     "type": "basic",
                     "from": {
-                        "key_code": "f2",
+                        "key_code": "2",
                         "modifiers": {
                             "mandatory": [
+                                "left_option",
                                 "right_command",
                                 "right_control",
                                 "right_shift",
@@ -1606,9 +1630,10 @@
                 {
                     "type": "basic",
                     "from": {
-                        "key_code": "f3",
+                        "key_code": "3",
                         "modifiers": {
                             "mandatory": [
+                                "left_option",
                                 "right_command",
                                 "right_control",
                                 "right_shift",
@@ -1628,9 +1653,10 @@
                 {
                     "type": "basic",
                     "from": {
-                        "key_code": "f4",
+                        "key_code": "4",
                         "modifiers": {
                             "mandatory": [
+                                "left_option",
                                 "right_command",
                                 "right_control",
                                 "right_shift",
@@ -1647,9 +1673,10 @@
                 {
                     "type": "basic",
                     "from": {
-                        "key_code": "f5",
+                        "key_code": "5",
                         "modifiers": {
                             "mandatory": [
+                                "left_option",
                                 "right_command",
                                 "right_control",
                                 "right_shift",
@@ -1666,9 +1693,10 @@
                 {
                     "type": "basic",
                     "from": {
-                        "key_code": "f6",
+                        "key_code": "6",
                         "modifiers": {
                             "mandatory": [
+                                "left_option",
                                 "right_command",
                                 "right_control",
                                 "right_shift",
@@ -1685,9 +1713,10 @@
                 {
                     "type": "basic",
                     "from": {
-                        "key_code": "f7",
+                        "key_code": "7",
                         "modifiers": {
                             "mandatory": [
+                                "left_option",
                                 "right_command",
                                 "right_control",
                                 "right_shift",
@@ -1704,9 +1733,10 @@
                 {
                     "type": "basic",
                     "from": {
-                        "key_code": "f8",
+                        "key_code": "8",
                         "modifiers": {
                             "mandatory": [
+                                "left_option",
                                 "right_command",
                                 "right_control",
                                 "right_shift",
@@ -1723,9 +1753,10 @@
                 {
                     "type": "basic",
                     "from": {
-                        "key_code": "f9",
+                        "key_code": "9",
                         "modifiers": {
                             "mandatory": [
+                                "left_option",
                                 "right_command",
                                 "right_control",
                                 "right_shift",
@@ -1742,9 +1773,10 @@
                 {
                     "type": "basic",
                     "from": {
-                        "key_code": "f10",
+                        "key_code": "0",
                         "modifiers": {
                             "mandatory": [
+                                "left_option",
                                 "right_command",
                                 "right_control",
                                 "right_shift",
@@ -1761,9 +1793,10 @@
                 {
                     "type": "basic",
                     "from": {
-                        "key_code": "f11",
+                        "key_code": "hyphen",
                         "modifiers": {
                             "mandatory": [
+                                "left_option",
                                 "right_command",
                                 "right_control",
                                 "right_shift",
@@ -1780,9 +1813,10 @@
                 {
                     "type": "basic",
                     "from": {
-                        "key_code": "f12",
+                        "key_code": "equal_sign",
                         "modifiers": {
                             "mandatory": [
+                                "left_option",
                                 "right_command",
                                 "right_control",
                                 "right_shift",
