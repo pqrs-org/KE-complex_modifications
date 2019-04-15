@@ -12,7 +12,7 @@ require_relative '../lib/karabiner.rb'
 
 def main
   puts JSON.pretty_generate(
-    'title' => 'Mouse motion to scroll (rev 1)',
+    'title' => 'Change mouse motion to scroll (rev 1)',
     'maintainer' => 'tekezo',
     'rules' => [
       {
