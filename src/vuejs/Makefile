@@ -1,7 +1,13 @@
-all: build copy
+all: install build copy
+
+serve:
+	cd app && npm run serve
+
+install:
+	cd app && npm install
 
 build:
-	docker exec -ti vuejs_ke_complex_modifications_1 npm run build
+	cd app && npm run build
 
 copy:
 	rsync -a --delete \

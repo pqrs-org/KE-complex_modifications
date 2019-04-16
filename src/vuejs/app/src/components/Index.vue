@@ -96,12 +96,17 @@
                       <b-dropdown-item-button @click="importJson(file.importUrl)">Import to Karabiner-Elements</b-dropdown-item-button>
                       <b-dropdown-divider></b-dropdown-divider>
                       <b-dropdown-item-button @click="showJsonModal(file.id)">
-                        <small>Show json</small>
+                        <small>Show JSON</small>
                       </b-dropdown-item-button>
                       <b-dropdown-item-button v-clipboard:copy="pageUrl + '#' + file.id"
                                               v-clipboard:success="urlCopied"
                                               v-clipboard:error="urlCopyFailed">
                         <small>Copy URL</small>
+                      </b-dropdown-item-button>
+                      <b-dropdown-item-button v-clipboard:copy="pageUrl + file.jsonUrl"
+                                              v-clipboard:success="urlCopied"
+                                              v-clipboard:error="urlCopyFailed">
+                        <small>Copy JSON URL</small>
                       </b-dropdown-item-button>
                     </b-dropdown>
                   </div>
