@@ -11,6 +11,7 @@ require_relative '../lib/karabiner.rb'
 def main
   puts JSON.pretty_generate(
     'title' => 'Personal rules (@tekezo)',
+    'maintainers' => ['tekezo'],
     'rules' => [
       {
         'description' => 'Personal rules (@tekezo) (rev 7)',

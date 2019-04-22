@@ -14,6 +14,7 @@ require_relative '../lib/karabiner.rb'
 def main
   puts JSON.pretty_generate(
     'title' => 'Personal rules (@tekezo) simple_vi_mode',
+    'maintainers' => ['tekezo'],
     'rules' => [
       {
         'description' => 'Simple Vi Mode v3 (rev 2)',

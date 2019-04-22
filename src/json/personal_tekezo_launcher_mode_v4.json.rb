@@ -20,6 +20,7 @@ require_relative '../lib/karabiner.rb'
 def main
   data = {
     'title' => 'Personal rules (@tekezo) Launcher Mode v4 (rev 9)',
+    'maintainers' => ['tekezo'],
     'rules' => [
       {
         'description' => 'Launcher Mode v4 (rev 9)',

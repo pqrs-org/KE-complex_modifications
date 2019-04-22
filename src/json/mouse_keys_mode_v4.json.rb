@@ -19,6 +19,7 @@ require_relative '../lib/karabiner.rb'
 def main
   puts JSON.pretty_generate(
     'title' => 'Mouse Keys Mode v4 (rev 1)',
+    'maintainers' => ['tekezo'],
     'rules' => [
       {
         'description' => 'Mouse Keys Mode v4 (rev 1)',
