@@ -289,6 +289,11 @@ export default {
         this.groups.forEach(g => {
           g.files.forEach(f => {
             let text = f.title + ' '
+            if (f.maintainers !== undefined) {
+              f.maintainers.forEach(m => {
+                text += m + ' '
+              })
+            }
             f.rules.forEach(r => {
               text += r.description + ' '
             })
