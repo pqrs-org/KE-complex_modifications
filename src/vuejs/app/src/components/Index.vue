@@ -85,6 +85,20 @@
                       <icon name="caret-square-down"></icon>
                     </span>
                     {{ file.title }}
+
+                    <div v-if="file.maintainers"
+                         class="rule-maintainer">
+                      <span class="rule-maintainer-header">
+                        Maintained by
+                      </span>
+                      <span class="rule-maintainer-body">
+                        <span v-for="m in file.maintainers"
+                              :key="m">
+                          @<a :href="'https://github.com/' + m"
+                             target="_blank">{{ m }}</a>
+                        </span>
+                      </span>
+                    </div>
                   </span>
 
                   <div class="float-right">
@@ -174,6 +188,7 @@ class File {
     this.importUrl = this.makeJsonUrl(fileJson.path)
     this.extraDescription = fileJson.extra_description
     this.title = fileJson.json.title
+    this.maintainers = fileJson.json.maintainers
     this.rules = []
     fileJson.json.rules.forEach((r, ruleIndex) => {
       this.rules.push(new Rule(ruleIndex, r))
@@ -459,6 +474,24 @@ export default {
 
         &:hover {
           text-decoration: underline;
+        }
+
+        .rule-maintainer {
+          display: block;
+          float: right;
+          border-width: 1px;
+          border-style: solid;
+          border-color: gray;
+          border-radius: 5px;
+          padding: 0 3px 0 3px;
+
+          .rule-maintainer-header {
+            font-size: 12px;
+          }
+
+          .rule-maintainer-body {
+            font-size: 14px;
+          }
         }
       }
     }
