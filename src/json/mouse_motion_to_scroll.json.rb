@@ -16,7 +16,8 @@ def main
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Change button4 + mouse motion to scroll wheel (rev 1) (Available since Karabiner-Elements v12.2.6)',
+        'description' => 'Change button4 + mouse motion to scroll wheel (rev 1)',
+        'available_since' => '12.3.0',
         'manipulators' => [
           {
             'type' => 'basic',
@@ -51,7 +52,8 @@ def main
         ].flatten,
       },
       {
-        'description' => 'Change button5 + mouse motion to scroll wheel (rev 1) (Available since Karabiner-Elements v12.2.6)',
+        'description' => 'Change button5 + mouse motion to scroll wheel (rev 1)',
+        'available_since' => '12.3.0',
         'manipulators' => [
           {
             'type' => 'basic',
@@ -86,7 +88,8 @@ def main
         ].flatten,
       },
       {
-        'description' => 'Change control + mouse motion to scroll wheel (rev 1) (Available since Karabiner-Elements v12.2.6)',
+        'description' => 'Change control + mouse motion to scroll wheel (rev 1)',
+        'available_since' => '12.3.0',
         'manipulators' => [
           {
             'type' => 'mouse_motion_to_scroll',
