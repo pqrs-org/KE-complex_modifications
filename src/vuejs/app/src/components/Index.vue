@@ -131,6 +131,10 @@
                     <b-list-group-item v-for="rule in file.rules"
                                        :key="rule.id">
                       {{ rule.description }}
+                      <div v-if="rule.availableSince"
+                           class="rule-available-since">
+                        Karabiner-Elements {{ rule.availableSince }} or later
+                      </div>
                     </b-list-group-item>
                     <b-list-group-item v-if="file.extraDescription"
                                        v-html="file.extraDescription">
@@ -178,6 +182,7 @@ class Rule {
   constructor(ruleIndex, ruleJson) {
     this.id = ruleIndex
     this.description = ruleJson.description
+    this.availableSince = ruleJson.available_since
   }
 }
 
@@ -498,6 +503,17 @@ export default {
             font-size: 14px;
           }
         }
+      }
+
+      .rule-available-since {
+        display: block;
+        float: right;
+        border-width: 1px;
+        border-style: solid;
+        border-color: gray;
+        border-radius: 5px;
+        padding: 0 3px 0 3px;
+        font-size: 14px;
       }
     }
   }
