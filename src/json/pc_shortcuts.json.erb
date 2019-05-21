@@ -458,6 +458,19 @@
             ]
         },
         {
+            "description": "Control+Esc Opens Launchpad",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("escape", ["control"], []) %>,
+                    "to": <%= to([["launchpad", []]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
+                    ]
+                }
+            ]
+        },
+        {
             "description": "Control+Shift+Esc Opens Activity Monitor",
             "manipulators": [
                 {
