@@ -6,23 +6,8 @@
       "manipulators": [
          {
           "type": "basic",
-          "from": {
-            "key_code": "f12",
-            "modifiers": {
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "e",
-              "modifiers": [
-                "option",
-                "left_command"
-              ]
-            }
-          ]
+          "from": <%= from("f12", [], ["caps_lock"]) %>,
+          "to": <%= to([["e", ["option", "left_command"]]]) %>
         }
       ]
     }
