@@ -346,6 +346,19 @@
             ]
         },
         {
+            "description": "PC-Style Emoji Picker (Command+.)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("period", ["command"], []) %>,
+                    "to": <%= to([["spacebar", ["left_control", "left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
+                    ]
+                }
+            ]
+        },
+        {
             "description": "PC-Style Lock Screen",
             "manipulators": [
                 {
