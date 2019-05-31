@@ -519,10 +519,9 @@ export default {
   }
 }
 
-  .show-json-modal-body {
-    white-space: pre-wrap;
-    height: 50vh;
-    overflow: auto;
-  }
-
+.show-json-modal-body {
+  white-space: pre-wrap;
+  height: 50vh;
+  overflow: auto;
+}
 </style>
