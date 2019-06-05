@@ -11,6 +11,7 @@ module Karabiner
 
     :browser => [
       '^org\.mozilla\.firefox$',
+      '^org\.mozilla\.nightly$',
       '^com\.microsoft\.Edge', # prefix
       '^com\.google\.Chrome$',
       '^com\.apple\.Safari$',
