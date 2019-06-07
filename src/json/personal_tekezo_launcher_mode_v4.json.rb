@@ -19,11 +19,11 @@ require_relative '../lib/karabiner.rb'
 
 def main
   data = {
-    'title' => 'Personal rules (@tekezo) Launcher Mode v4 (rev 9)',
+    'title' => 'Personal rules (@tekezo) Launcher Mode v4 (rev 10)',
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Launcher Mode v4 (rev 9)',
+        'description' => 'Launcher Mode v4 (rev 10)',
         'manipulators' => [
           generate_launcher_mode('1', [], [{ 'shell_command' => "open -a 'Xcode.app'" }]),
           generate_launcher_mode('3', [], [{ 'shell_command' => "open -a 'Firefox.app'" }]),
@@ -32,7 +32,7 @@ def main
           generate_launcher_mode('6', [], [{ 'shell_command' => "open -a 'Microsoft Excel.app'" }]),
           generate_launcher_mode('a', [], [{ 'shell_command' => "open -a 'Activity Monitor.app'" }]),
           generate_launcher_mode('c', [], [{ 'shell_command' => "open -a 'Google Chrome.app'" }]),
-          generate_launcher_mode('e', [], [{ 'shell_command' => '~/.local/share/karabiner/bin/vscode.sh' }]),
+          generate_launcher_mode('e', [], [{ 'shell_command' => "open -a 'Visual Studio Code.app'" }]),
           generate_launcher_mode('f', [], [{ 'shell_command' => "open -a 'Finder.app'" }]),
           generate_launcher_mode('i', [], [{ 'shell_command' => "open -a 'Adium.app'" }]),
           generate_launcher_mode('m', [], [{ 'shell_command' => "open -a 'Thunderbird.app'" }]),
