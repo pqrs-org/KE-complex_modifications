@@ -3125,6 +3125,34 @@
           ]
         }
       ]
+    },
+    {
+      "description": "Prevent '?' from being treated as 'Option+?' shortcut",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "a",
+              "modifiers": [
+                "left_option",
+                "left_shift"
+              ]
+            },
+            {
+              "key_code": "h"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

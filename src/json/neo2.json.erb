@@ -165,6 +165,18 @@
                     "to_if_alone": <%= to([["tab"]]) %>
                 }
             ]
+        },
+        {
+          "description": "Prevent '?' from being treated as 'Option+?' shortcut",
+          "manipulators": <%= JSON.generate(
+              each_key(
+                  source_keys_list: ["h"],
+                  dest_keys_list: ["h"],
+                  from_mandatory_modifiers: ["option"],
+                  to_modifiers: [],
+                  to_pre_events: [["a", ["left_option", "left_shift"]]]
+              )
+          ) %>
         }
     ]
 }
