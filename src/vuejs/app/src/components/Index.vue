@@ -22,18 +22,10 @@
 
       <b-row align-h="center">
         <b-col md="6">
-          <b-form @submit="search">
-            <b-input-group>
-              <b-form-input v-model="searchQuery"
-                            :disabled="lunrIndex === null"
-                            :placeholder="(lunrIndex ? 'Search keywords...' : 'Fetching data...')">
-              </b-form-input>
-              <b-input-group-append>
-                <b-btn type="submit"
-                       variant="primary">Search</b-btn>
-              </b-input-group-append>
-            </b-input-group>
-          </b-form>
+          <search-form @submit="search"
+                      :disabled="lunrIndex === null"
+                      :placeholder="(lunrIndex ? 'Search keywords...' : 'Fetching data...')">
+          </search-form>
         </b-col>
       </b-row>
     </div>
@@ -167,6 +159,7 @@ import lunr from 'lunr'
 import striptags from 'striptags'
 import { Socket } from 'vue-loading-spinner'
 import VueScrollTo from 'vue-scrollto'
+import SearchForm from './SearchForm.vue'
 
 const getFileName = path => {
   let name = path.substring(path.lastIndexOf('/') + 1)
@@ -225,7 +218,8 @@ class Group {
 export default {
   name: 'Index',
   components: {
-    Socket
+    Socket,
+    SearchForm
   },
   data() {
     return {
@@ -238,7 +232,6 @@ export default {
       fileCollapsed: {},
       showJsonModalTitle: '',
       showJsonModalBody: '',
-      searchQuery: '',
       lunrIndex: null
     }
   },
@@ -394,14 +387,13 @@ export default {
       }, 500)
     },
 
-    search(e) {
-      e.preventDefault()
+    search(searchQuery) {
 
       if (this.lunrIndex === null) {
         return
       }
 
-      if (!this.searchQuery) {
+      if (!searchQuery) {
         this.filteredGroups = this.groups
         return
       }
@@ -414,7 +406,7 @@ export default {
       let filteredGroups = [group]
 
       const results = this.lunrIndex.query(q => {
-        lunr.tokenizer(this.searchQuery.toLowerCase()).forEach(token => {
+        lunr.tokenizer(searchQuery.toLowerCase()).forEach(token => {
           const queryString = token.toString()
           q.term(queryString, {
             boost: 100
