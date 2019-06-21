@@ -22,10 +22,10 @@
 
       <b-row align-h="center">
         <b-col md="6">
-          <input-form @submit="search"
+          <search-form @submit="search"
                       :disabled="lunrIndex === null"
                       :placeholder="(lunrIndex ? 'Search keywords...' : 'Fetching data...')">
-          </input-form>
+          </search-form>
         </b-col>
       </b-row>
     </div>
@@ -159,7 +159,7 @@ import lunr from 'lunr'
 import striptags from 'striptags'
 import { Socket } from 'vue-loading-spinner'
 import VueScrollTo from 'vue-scrollto'
-import InputForm from './InputForm.vue'
+import SearchForm from './SearchForm.vue'
 
 const getFileName = path => {
   let name = path.substring(path.lastIndexOf('/') + 1)
@@ -219,7 +219,7 @@ export default {
   name: 'Index',
   components: {
     Socket,
-    InputForm
+    SearchForm
   },
   data() {
     return {

@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: 'InputForm',
+  name: 'SearchForm',
   props: {
     disabled: Boolean,
     placeholder: String
