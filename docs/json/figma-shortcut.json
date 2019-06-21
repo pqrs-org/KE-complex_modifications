@@ -1,0 +1,44 @@
+{
+  "title": "Figma Shortcut",
+  "rules": [
+    {
+      "description": "Post spacebar to Command+Shift+Ctrl if not press alone in Figma app.",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_control",
+              "modifiers": [
+                "left_shift",
+                "left_command"
+              ],
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+              {
+                "key_code": "spacebar"
+              }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.figma\\.Desktop$"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
