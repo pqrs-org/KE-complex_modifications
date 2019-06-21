@@ -22,11 +22,10 @@
 
       <b-row align-h="center">
         <b-col md="6">
-          <input-form
-            @submit="search"
-            :disabled="lunrIndex === null"
-            :placeholder="(lunrIndex ? 'Search keywords...' : 'Fetching data...')"
-          ></input-form>
+          <input-form @submit="search"
+                      :disabled="lunrIndex === null"
+                      :placeholder="(lunrIndex ? 'Search keywords...' : 'Fetching data...')">
+          </input-form>
         </b-col>
       </b-row>
     </div>
