@@ -8,17 +8,17 @@ complex_modifications for Karabiner-Elements.
 
 ## Add rules
 
-1.  Put a `.erb` template file to [src/json](https://github.com/pqrs-org/KE-complex_modifications/tree/master/src/json). (Or put a `.json` file to [docs/json](https://github.com/pqrs-org/KE-complex_modifications/tree/master/docs/json) directly.)
+1.  Put a `.rb` (or `.erb`) template file to [src/json](https://github.com/pqrs-org/KE-complex_modifications/tree/master/src/json). (Or put a `.json` file to [docs/json](https://github.com/pqrs-org/KE-complex_modifications/tree/master/docs/json) directly.)
 2.  (Optional) Put extra description to [docs/extra_descriptions](https://github.com/pqrs-org/KE-complex_modifications/tree/master/docs/extra_descriptions).
 3.  Add the following json into [docs/groups.json](https://github.com/pqrs-org/KE-complex_modifications/tree/master/docs/groups.json) &gt; `files`.
 
     ```json
     {
-      "path": "json/your_awesome.json"
+      "path": "json/your_awesome_configuration.json"
     },
     ```
 
-4.  Run `make` command on Terminal in order to make `docs/json/your_awesome.json` if you put source file into `src/json`.
+4.  Run `make` command on Terminal in order to make `docs/json/your_awesome_configuration.json` if you put source file into `src/json`.
 
     ```shell
     make
