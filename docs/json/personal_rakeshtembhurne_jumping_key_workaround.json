@@ -1,0 +1,50 @@
+{
+  "title": "Personal rules (@rakeshtembhurne) - Workaround for auto-jumping or non functioning keys",
+  "rules": [
+    {
+      "description": "Disable left_option key",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_option"
+          }
+        }
+      ]
+    },
+    {
+      "description": "Disable key 9 and shift + 9 which is (",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "9",
+            "modifiers": {
+              "optional": ["shift"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "description": "Change fn + 9 to 9 and fn + shift + 9 to (",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "9",
+            "modifiers": {
+              "mandatory": ["fn"]
+            }
+          },
+          "to": [
+            {
+              "halt": true,
+              "key_code": "9"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
