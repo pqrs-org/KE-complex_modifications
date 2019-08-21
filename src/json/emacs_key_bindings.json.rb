@@ -118,7 +118,7 @@ def c_x_key_strokes
         'type' => 'basic',
         'from' => {
           'any' => 'key_code',
-          'modifiers' => Karabiner.from_modifiers(nil, ['any']),
+          'modifiers' => Karabiner.from_modifiers,
         },
         'conditions' => [Karabiner.variable_if('C-x', 1)],
       },

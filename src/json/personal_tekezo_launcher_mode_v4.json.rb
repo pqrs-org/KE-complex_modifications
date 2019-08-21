@@ -58,7 +58,7 @@ def generate_launcher_mode(from_key_code, mandatory_modifiers, to)
     'type' => 'basic',
     'from' => {
       'key_code' => from_key_code,
-      'modifiers' => Karabiner.from_modifiers(mandatory_modifiers, ['any']),
+      'modifiers' => Karabiner.from_modifiers(mandatory_modifiers),
     },
     'to' => to,
     'conditions' => [Karabiner.variable_if('launcher_mode_v4', 1)],
@@ -82,7 +82,7 @@ def generate_launcher_mode(from_key_code, mandatory_modifiers, to)
           Karabiner.set_variable('launcher_mode_v4', 0),
         ],
       },
-      'modifiers' => Karabiner.from_modifiers(mandatory_modifiers, ['any']),
+      'modifiers' => Karabiner.from_modifiers(mandatory_modifiers),
     },
     'to' => [
       Karabiner.set_variable('launcher_mode_v4', 1),

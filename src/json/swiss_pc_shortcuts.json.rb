@@ -20,7 +20,7 @@ def main
           {
             'from' => {
               'key_code' => 'grave_accent_and_tilde',
-              'modifiers' => Karabiner.from_modifiers(['right_option'], ['any']),
+              'modifiers' => Karabiner.from_modifiers(['right_option']),
             },
             'to' => [
               {
@@ -41,7 +41,7 @@ def main
           {
             'from' => {
               'key_code' => 'hyphen',
-              'modifiers' => Karabiner.from_modifiers(['right_option'], ['any']),
+              'modifiers' => Karabiner.from_modifiers(['right_option']),
             },
             'to' => [
               {
@@ -62,7 +62,7 @@ def main
           {
             'from' => {
               'key_code' => 'open_bracket',
-              'modifiers' => Karabiner.from_modifiers(['right_option'], ['any']),
+              'modifiers' => Karabiner.from_modifiers(['right_option']),
             },
             'to' => [
               {
@@ -83,7 +83,7 @@ def main
           {
             'from' => {
               'key_code' => 'close_bracket',
-              'modifiers' => Karabiner.from_modifiers(['right_option'], ['any']),
+              'modifiers' => Karabiner.from_modifiers(['right_option']),
             },
             'to' => [
               {
@@ -104,7 +104,7 @@ def main
           {
             'from' => {
               'key_code' => '2',
-              'modifiers' => Karabiner.from_modifiers(['right_option'], ['any']),
+              'modifiers' => Karabiner.from_modifiers(['right_option']),
             },
             'to' => [
               {
@@ -125,7 +125,7 @@ def main
           {
             'from' => {
               'key_code' => 'quote',
-              'modifiers' => Karabiner.from_modifiers(['right_option'], ['any']),
+              'modifiers' => Karabiner.from_modifiers(['right_option']),
             },
             'to' => [
               {
@@ -146,7 +146,7 @@ def main
           {
             'from' => {
               'key_code' => 'non_us_pound',
-              'modifiers' => Karabiner.from_modifiers(['right_option'], ['any']),
+              'modifiers' => Karabiner.from_modifiers(['right_option']),
             },
             'to' => [
               {
@@ -167,7 +167,7 @@ def main
           {
             'from' => {
               'key_code' => 'equal_sign',
-              'modifiers' => Karabiner.from_modifiers(['right_option'], ['any']),
+              'modifiers' => Karabiner.from_modifiers(['right_option']),
             },
             'to' => [
               {

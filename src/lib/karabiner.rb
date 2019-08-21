@@ -148,7 +148,7 @@ module Karabiner
     'xcode' => BUNDLE_IDENTIFERS[:xcode],
   }.freeze
 
-  def self.from_modifiers(mandatory_modifiers, optional_modifiers)
+  def self.from_modifiers(mandatory_modifiers = nil, optional_modifiers = ['any'])
     modifiers = {}
     modifiers['mandatory'] = mandatory_modifiers unless mandatory_modifiers.nil?
     modifiers['optional'] = optional_modifiers unless optional_modifiers.nil?

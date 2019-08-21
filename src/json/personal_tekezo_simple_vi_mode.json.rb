@@ -36,7 +36,7 @@ def generate_simple_vi_mode(from_key_code, to_key_code)
       'type' => 'basic',
       'from' => {
         'key_code' => from_key_code,
-        'modifiers' => Karabiner.from_modifiers(nil, ['any']),
+        'modifiers' => Karabiner.from_modifiers,
       },
       'to' => [
         {
@@ -65,7 +65,7 @@ def generate_simple_vi_mode(from_key_code, to_key_code)
             Karabiner.set_variable('simple_vi_mode', 0),
           ],
         },
-        'modifiers' => Karabiner.from_modifiers(nil, ['any']),
+        'modifiers' => Karabiner.from_modifiers,
       },
       'to' => [
         Karabiner.set_variable('simple_vi_mode', 1),
