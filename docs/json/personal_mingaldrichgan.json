@@ -1,0 +1,3284 @@
+{
+  "title": "Personal rules (@mingaldrichgan)",
+  "maintainers": [
+    "mingaldrichgan"
+  ],
+  "rules": [
+    {
+      "description": "Change escape/grave_accent_and_tilde/hyphen/equal_sign to fn if pressed with f-keys or delete",
+      "manipulators": [
+        {
+          "description": "Set variable if escape + grave_accent_and_tilde are pressed simultaneously",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "escape"
+              },
+              {
+                "key_code": "grave_accent_and_tilde"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if escape + hyphen are pressed simultaneously",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "escape"
+              },
+              {
+                "key_code": "hyphen"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if escape + equal_sign are pressed simultaneously",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "escape"
+              },
+              {
+                "key_code": "equal_sign"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if grave_accent_and_tilde + hyphen are pressed simultaneously",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "grave_accent_and_tilde"
+              },
+              {
+                "key_code": "hyphen"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if grave_accent_and_tilde + equal_sign are pressed simultaneously",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "grave_accent_and_tilde"
+              },
+              {
+                "key_code": "equal_sign"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if hyphen + equal_sign are pressed simultaneously",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "hyphen"
+              },
+              {
+                "key_code": "equal_sign"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change escape to fn if pressed with f1",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "escape"
+              },
+              {
+                "key_code": "f1"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f1",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change escape to fn if pressed with f2",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "escape"
+              },
+              {
+                "key_code": "f2"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f2",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change escape to fn if pressed with f3",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "escape"
+              },
+              {
+                "key_code": "f3"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f3",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change escape to fn if pressed with f4",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "escape"
+              },
+              {
+                "key_code": "f4"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f4",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change escape to fn if pressed with f5",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "escape"
+              },
+              {
+                "key_code": "f5"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f5",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change escape to fn if pressed with f6",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "escape"
+              },
+              {
+                "key_code": "f6"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f6",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change escape to fn if pressed with f7",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "escape"
+              },
+              {
+                "key_code": "f7"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f7",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change escape to fn if pressed with f8",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "escape"
+              },
+              {
+                "key_code": "f8"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f8",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change escape to fn if pressed with f9",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "escape"
+              },
+              {
+                "key_code": "f9"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f9",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change escape to fn if pressed with f10",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "escape"
+              },
+              {
+                "key_code": "f10"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f10",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change escape to fn if pressed with f11",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "escape"
+              },
+              {
+                "key_code": "f11"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f11",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change escape to fn if pressed with f12",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "escape"
+              },
+              {
+                "key_code": "f12"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f12",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change escape to fn if pressed with delete_or_backspace",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "escape"
+              },
+              {
+                "key_code": "delete_or_backspace"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "delete_or_backspace",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change grave_accent_and_tilde to fn if pressed with f1",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "grave_accent_and_tilde"
+              },
+              {
+                "key_code": "f1"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f1",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change grave_accent_and_tilde to fn if pressed with f2",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "grave_accent_and_tilde"
+              },
+              {
+                "key_code": "f2"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f2",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change grave_accent_and_tilde to fn if pressed with f3",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "grave_accent_and_tilde"
+              },
+              {
+                "key_code": "f3"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f3",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change grave_accent_and_tilde to fn if pressed with f4",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "grave_accent_and_tilde"
+              },
+              {
+                "key_code": "f4"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f4",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change grave_accent_and_tilde to fn if pressed with f5",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "grave_accent_and_tilde"
+              },
+              {
+                "key_code": "f5"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f5",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change grave_accent_and_tilde to fn if pressed with f6",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "grave_accent_and_tilde"
+              },
+              {
+                "key_code": "f6"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f6",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change grave_accent_and_tilde to fn if pressed with f7",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "grave_accent_and_tilde"
+              },
+              {
+                "key_code": "f7"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f7",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change grave_accent_and_tilde to fn if pressed with f8",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "grave_accent_and_tilde"
+              },
+              {
+                "key_code": "f8"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f8",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change grave_accent_and_tilde to fn if pressed with f9",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "grave_accent_and_tilde"
+              },
+              {
+                "key_code": "f9"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f9",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change grave_accent_and_tilde to fn if pressed with f10",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "grave_accent_and_tilde"
+              },
+              {
+                "key_code": "f10"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f10",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change grave_accent_and_tilde to fn if pressed with f11",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "grave_accent_and_tilde"
+              },
+              {
+                "key_code": "f11"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f11",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change grave_accent_and_tilde to fn if pressed with f12",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "grave_accent_and_tilde"
+              },
+              {
+                "key_code": "f12"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f12",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change grave_accent_and_tilde to fn if pressed with delete_or_backspace",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "grave_accent_and_tilde"
+              },
+              {
+                "key_code": "delete_or_backspace"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "delete_or_backspace",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change hyphen to fn if pressed with f1",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "hyphen"
+              },
+              {
+                "key_code": "f1"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f1",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change hyphen to fn if pressed with f2",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "hyphen"
+              },
+              {
+                "key_code": "f2"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f2",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change hyphen to fn if pressed with f3",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "hyphen"
+              },
+              {
+                "key_code": "f3"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f3",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change hyphen to fn if pressed with f4",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "hyphen"
+              },
+              {
+                "key_code": "f4"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f4",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change hyphen to fn if pressed with f5",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "hyphen"
+              },
+              {
+                "key_code": "f5"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f5",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change hyphen to fn if pressed with f6",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "hyphen"
+              },
+              {
+                "key_code": "f6"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f6",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change hyphen to fn if pressed with f7",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "hyphen"
+              },
+              {
+                "key_code": "f7"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f7",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change hyphen to fn if pressed with f8",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "hyphen"
+              },
+              {
+                "key_code": "f8"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f8",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change hyphen to fn if pressed with f9",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "hyphen"
+              },
+              {
+                "key_code": "f9"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f9",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change hyphen to fn if pressed with f10",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "hyphen"
+              },
+              {
+                "key_code": "f10"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f10",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change hyphen to fn if pressed with f11",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "hyphen"
+              },
+              {
+                "key_code": "f11"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f11",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change hyphen to fn if pressed with f12",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "hyphen"
+              },
+              {
+                "key_code": "f12"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f12",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change hyphen to fn if pressed with delete_or_backspace",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "hyphen"
+              },
+              {
+                "key_code": "delete_or_backspace"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "delete_or_backspace",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change equal_sign to fn if pressed with f1",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "equal_sign"
+              },
+              {
+                "key_code": "f1"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f1",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change equal_sign to fn if pressed with f2",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "equal_sign"
+              },
+              {
+                "key_code": "f2"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f2",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change equal_sign to fn if pressed with f3",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "equal_sign"
+              },
+              {
+                "key_code": "f3"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f3",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change equal_sign to fn if pressed with f4",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "equal_sign"
+              },
+              {
+                "key_code": "f4"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f4",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change equal_sign to fn if pressed with f5",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "equal_sign"
+              },
+              {
+                "key_code": "f5"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f5",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change equal_sign to fn if pressed with f6",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "equal_sign"
+              },
+              {
+                "key_code": "f6"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f6",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change equal_sign to fn if pressed with f7",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "equal_sign"
+              },
+              {
+                "key_code": "f7"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f7",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change equal_sign to fn if pressed with f8",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "equal_sign"
+              },
+              {
+                "key_code": "f8"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f8",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change equal_sign to fn if pressed with f9",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "equal_sign"
+              },
+              {
+                "key_code": "f9"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f9",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change equal_sign to fn if pressed with f10",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "equal_sign"
+              },
+              {
+                "key_code": "f10"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f10",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change equal_sign to fn if pressed with f11",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "equal_sign"
+              },
+              {
+                "key_code": "f11"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f11",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change equal_sign to fn if pressed with f12",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "equal_sign"
+              },
+              {
+                "key_code": "f12"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f12",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change equal_sign to fn if pressed with delete_or_backspace",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "equal_sign"
+              },
+              {
+                "key_code": "delete_or_backspace"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "personal_mingaldrichgan.use_symbols_as_fn",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "delete_or_backspace",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Modify f1 with fn if variable is set",
+          "type": "basic",
+          "from": {
+            "key_code": "f1",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f1",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Modify f2 with fn if variable is set",
+          "type": "basic",
+          "from": {
+            "key_code": "f2",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f2",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Modify f3 with fn if variable is set",
+          "type": "basic",
+          "from": {
+            "key_code": "f3",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f3",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Modify f4 with fn if variable is set",
+          "type": "basic",
+          "from": {
+            "key_code": "f4",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f4",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Modify f5 with fn if variable is set",
+          "type": "basic",
+          "from": {
+            "key_code": "f5",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f5",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Modify f6 with fn if variable is set",
+          "type": "basic",
+          "from": {
+            "key_code": "f6",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f6",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Modify f7 with fn if variable is set",
+          "type": "basic",
+          "from": {
+            "key_code": "f7",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f7",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Modify f8 with fn if variable is set",
+          "type": "basic",
+          "from": {
+            "key_code": "f8",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f8",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Modify f9 with fn if variable is set",
+          "type": "basic",
+          "from": {
+            "key_code": "f9",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f9",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Modify f10 with fn if variable is set",
+          "type": "basic",
+          "from": {
+            "key_code": "f10",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f10",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Modify f11 with fn if variable is set",
+          "type": "basic",
+          "from": {
+            "key_code": "f11",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f11",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Modify f12 with fn if variable is set",
+          "type": "basic",
+          "from": {
+            "key_code": "f12",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f12",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Modify delete_or_backspace with fn if variable is set",
+          "type": "basic",
+          "from": {
+            "key_code": "delete_or_backspace",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_or_backspace",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "personal_mingaldrichgan.use_symbols_as_fn",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Sibelius: Nums keypad workarounds",
+      "manipulators": [
+        {
+          "description": "Change 5 to f5 if modified by shift",
+          "type": "basic",
+          "from": {
+            "key_code": "5",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f5",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.avid\\.sibelius$"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "Change return_or_enter to keypad_enter",
+          "type": "basic",
+          "from": {
+            "key_code": "return_or_enter"
+          },
+          "to": [
+            {
+              "key_code": "keypad_enter"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.avid\\.sibelius$"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

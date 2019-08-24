@@ -164,8 +164,7 @@ module Karabiner
     }
   end
 
-  def self.frontmost_application(type, app_aliases)
-    bundle_identifiers = []
+  def self.frontmost_application(type, app_aliases = [], bundle_identifiers: [])
     app_aliases.each do |app_alias|
       if Karabiner::APP_ALIASES[app_alias].nil?
         $stderr << "unknown app_alias: #{app_alias}\n"
@@ -180,12 +179,12 @@ module Karabiner
     }
   end
 
-  def self.frontmost_application_if(app_aliases)
-    frontmost_application('frontmost_application_if', app_aliases)
+  def self.frontmost_application_if(app_aliases = [], bundle_identifiers: [])
+    frontmost_application('frontmost_application_if', app_aliases, bundle_identifiers: bundle_identifiers)
   end
 
-  def self.frontmost_application_unless(app_aliases)
-    frontmost_application('frontmost_application_unless', app_aliases)
+  def self.frontmost_application_unless(app_aliases = [], bundle_identifiers: [])
+    frontmost_application('frontmost_application_unless', app_aliases, bundle_identifiers: bundle_identifiers)
   end
 
   def self.keyboard_type_if(keyboard_types)
