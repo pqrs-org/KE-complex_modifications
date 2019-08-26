@@ -19,7 +19,7 @@ def main
             'type' => 'basic',
             'from' => {
               'key_code' => 'left_command',
-              'modifiers' => Karabiner.from_modifiers(nil, ['any']),
+              'modifiers' => Karabiner.from_modifiers,
             },
             'parameters' => {
               'basic.to_if_held_down_threshold_milliseconds' => 100,
@@ -45,7 +45,7 @@ def main
             'type' => 'basic',
             'from' => {
               'key_code' => 'right_command',
-              'modifiers' => Karabiner.from_modifiers(nil, ['any']),
+              'modifiers' => Karabiner.from_modifiers,
             },
             'parameters' => {
               'basic.to_if_held_down_threshold_milliseconds' => 100,
@@ -86,7 +86,7 @@ def main
             ],
             'from' => {
               'key_code' => 'left_command',
-              'modifiers' => Karabiner.from_modifiers(nil, ['any']),
+              'modifiers' => Karabiner.from_modifiers,
             },
             'to' => [
               {
@@ -114,7 +114,7 @@ def main
             ],
             'from' => {
               'key_code' => 'left_command',
-              'modifiers' => Karabiner.from_modifiers(nil, ['any']),
+              'modifiers' => Karabiner.from_modifiers,
             },
             'to' => [
               {
@@ -142,7 +142,7 @@ def main
             ],
             'from' => {
               'key_code' => 'right_command',
-              'modifiers' => Karabiner.from_modifiers(nil, ['any']),
+              'modifiers' => Karabiner.from_modifiers,
             },
             'to' => [
               {
@@ -170,7 +170,7 @@ def main
             ],
             'from' => {
               'key_code' => 'right_command',
-              'modifiers' => Karabiner.from_modifiers(nil, ['any']),
+              'modifiers' => Karabiner.from_modifiers,
             },
             'to' => [
               {
@@ -203,7 +203,7 @@ def main
             ],
             'from' => {
               'key_code' => 'right_command',
-              'modifiers' => Karabiner.from_modifiers(nil, ['any']),
+              'modifiers' => Karabiner.from_modifiers,
             },
             'to' => [
               {
@@ -231,7 +231,7 @@ def main
             ],
             'from' => {
               'key_code' => 'right_command',
-              'modifiers' => Karabiner.from_modifiers(nil, ['any']),
+              'modifiers' => Karabiner.from_modifiers,
             },
             'to' => [
               {
@@ -254,7 +254,7 @@ def main
             'type' => 'basic',
             'from' => {
               'key_code' => 'japanese_eisuu',
-              'modifiers' => Karabiner.from_modifiers(nil, ['any']),
+              'modifiers' => Karabiner.from_modifiers,
             },
             'to' => [
               {
@@ -271,7 +271,7 @@ def main
             'type' => 'basic',
             'from' => {
               'key_code' => 'japanese_kana',
-              'modifiers' => Karabiner.from_modifiers(nil, ['any']),
+              'modifiers' => Karabiner.from_modifiers,
             },
             'to' => [
               {
@@ -465,7 +465,7 @@ def main
             'type' => 'basic',
             'from' => {
               'key_code' => 'left_control',
-              'modifiers' => Karabiner.from_modifiers(nil, ['any']),
+              'modifiers' => Karabiner.from_modifiers,
             },
             'to' => [
               {
@@ -483,7 +483,7 @@ def main
             'type' => 'basic',
             'from' => {
               'key_code' => 'right_command',
-              'modifiers' => Karabiner.from_modifiers(nil, ['any']),
+              'modifiers' => Karabiner.from_modifiers,
             },
             'to' => [
               {

@@ -32,7 +32,7 @@ def main
             'type' => 'basic',
             'from' => {
               'key_code' => 'tab',
-              'modifiers' => Karabiner.from_modifiers(nil, ['any']),
+              'modifiers' => Karabiner.from_modifiers,
             },
             'to' => [
               {
@@ -52,7 +52,7 @@ def main
             'type' => 'basic',
             'from' => {
               'key_code' => 'f18',
-              'modifiers' => Karabiner.from_modifiers(nil, ['any']),
+              'modifiers' => Karabiner.from_modifiers,
             },
             'to' => [
               { 'key_code' => 'spacebar' },
@@ -102,7 +102,7 @@ def main
             'type' => 'basic',
             'from' => {
               'key_code' => 'right_command',
-              'modifiers' => Karabiner.from_modifiers(nil, ['any']),
+              'modifiers' => Karabiner.from_modifiers,
             },
             'to' => [
               {
@@ -120,7 +120,7 @@ def main
             'type' => 'basic',
             'from' => {
               'key_code' => 'right_command',
-              'modifiers' => Karabiner.from_modifiers(nil, ['any']),
+              'modifiers' => Karabiner.from_modifiers,
             },
             'to' => [
               {
@@ -136,7 +136,7 @@ def main
             'type' => 'basic',
             'from' => {
               'key_code' => 'left_command',
-              'modifiers' => Karabiner.from_modifiers(nil, ['any']),
+              'modifiers' => Karabiner.from_modifiers,
             },
             'to' => [
               {
@@ -382,7 +382,7 @@ def app_terminal
       'type' => 'basic',
       'from' => {
         'key_code' => 'o',
-        'modifiers' => Karabiner.from_modifiers(['command'], ['any']),
+        'modifiers' => Karabiner.from_modifiers(['command']),
       },
       'conditions' => [
         Karabiner.frontmost_application_if(['terminal']),
@@ -392,7 +392,7 @@ def app_terminal
       'type' => 'basic',
       'from' => {
         'key_code' => 'f',
-        'modifiers' => Karabiner.from_modifiers(['command'], ['any']),
+        'modifiers' => Karabiner.from_modifiers(['command']),
       },
       'conditions' => [
         Karabiner.frontmost_application_if(['terminal']),

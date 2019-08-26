@@ -19,7 +19,7 @@ def main
             'type' => 'basic',
             'from' => {
               'key_code' => 'caps_lock',
-              'modifiers' => Karabiner.from_modifiers(nil, ['any']),
+              'modifiers' => Karabiner.from_modifiers,
             },
             'to' => [
               {
@@ -45,7 +45,7 @@ def main
             'type' => 'basic',
             'from' => {
               'key_code' => 'caps_lock',
-              'modifiers' => Karabiner.from_modifiers(nil, ['any']),
+              'modifiers' => Karabiner.from_modifiers,
             },
             'to' => [
               {
@@ -70,7 +70,7 @@ def main
             'type' => 'basic',
             'from' => {
               'key_code' => 'caps_lock',
-              'modifiers' => Karabiner.from_modifiers(nil, ['any']),
+              'modifiers' => Karabiner.from_modifiers,
             },
             'to' => [
               {
@@ -107,7 +107,7 @@ def main
             'type' => 'basic',
             'from' => {
               'key_code' => 'caps_lock',
-              'modifiers' => Karabiner.from_modifiers(nil, ['any']),
+              'modifiers' => Karabiner.from_modifiers,
             },
             'to' => [
               {
@@ -127,7 +127,7 @@ def main
             'type' => 'basic',
             'from' => {
               'key_code' => 'caps_lock',
-              'modifiers' => Karabiner.from_modifiers(nil, ['any']),
+              'modifiers' => Karabiner.from_modifiers,
             },
             'to' => [
               {
@@ -149,7 +149,7 @@ def main
             'type' => 'basic',
             'from' => {
               'key_code' => 'caps_lock',
-              'modifiers' => Karabiner.from_modifiers(nil, ['any']),
+              'modifiers' => Karabiner.from_modifiers,
             },
             'to' => [
               {
@@ -172,7 +172,7 @@ def main
             'type' => 'basic',
             'from' => {
               'key_code' => 'caps_lock',
-              'modifiers' => Karabiner.from_modifiers(nil, ['any']),
+              'modifiers' => Karabiner.from_modifiers,
             },
             'to' => [
               {
