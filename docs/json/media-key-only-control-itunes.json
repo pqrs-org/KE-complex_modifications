@@ -1,0 +1,43 @@
+{
+  "title": "media-key-only-control-itunes",
+  "rules": [
+    {
+      "description": "F8 (play/pause) key should only control iTunes.",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "f8",
+            "modifiers": {}
+          },
+          "to": [
+            {
+              "shell_command": "osascript -e 'tell application \"iTunes\" to playpause'"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Fn+F8 (play/pause) key should only control iTunes.",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "f8",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "osascript -e 'tell application \"iTunes\" to playpause'"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}
