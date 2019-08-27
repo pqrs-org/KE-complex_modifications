@@ -13,6 +13,17 @@
             ]
         },
         {
+            "description": "Post caps_lock if left_control is pressed alone.",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("left_control", [], ["any"]) %>,
+                    "to": <%= to([["left_control"]]) %>,
+                    "to_if_alone": <%= to([["caps_lock"]]) %>
+                }
+            ]
+        },
+        {
             "description": "Post return_or_enter if right_control is pressed alone.",
             "manipulators": [
                 {

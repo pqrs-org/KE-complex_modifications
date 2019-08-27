@@ -2,7 +2,7 @@
   "title": "Personal rules (@apm1467)",
   "rules": [
     {
-      "description": "Use right_command + J/K to switch between tabs in applications",
+      "description": "right_command + j/k → switch between tabs in applications",
       "manipulators": [
         {
           "type": "basic",
@@ -19,9 +19,10 @@
           },
           "to": [
             {
-              "key_code": "tab",
+              "key_code": "close_bracket",
               "modifiers": [
-                "left_control"
+                "right_command",
+                "right_shift"
               ]
             }
           ],
@@ -46,10 +47,10 @@
           },
           "to": [
             {
-              "key_code": "tab",
+              "key_code": "open_bracket",
               "modifiers": [
-                "left_control",
-                "left_shift"
+                "right_command",
+                "right_shift"
               ]
             }
           ],
@@ -62,7 +63,7 @@
       ]
     },
     {
-      "description": "Change right_option to command + option + shift",
+      "description": "right_option → shift + command + option",
       "manipulators": [
         {
           "type": "basic",
@@ -81,6 +82,258 @@
                 "left_option",
                 "left_command"
               ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "shift + command + option + s → redo with sudo",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "s",
+            "modifiers": {
+              "mandatory": [
+                "shift",
+                "option",
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow"
+            },
+            {
+              "key_code": "a",
+              "modifiers": [
+                "left_control"
+              ]
+            },
+            {
+              "key_code": "s"
+            },
+            {
+              "key_code": "u"
+            },
+            {
+              "key_code": "d"
+            },
+            {
+              "key_code": "o"
+            },
+            {
+              "key_code": "spacebar"
+            },
+            {
+              "key_code": "return_or_enter"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "shift + command + option + spacebar → open screenshot panel",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "mandatory": [
+                "shift",
+                "option",
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "5",
+              "modifiers": [
+                "left_shift",
+                "left_command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "shift + command + option + equal_sign → 20 equal signs",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "equal_sign",
+            "modifiers": {
+              "mandatory": [
+                "shift",
+                "option",
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "equal_sign"
+            },
+            {
+              "key_code": "equal_sign"
+            },
+            {
+              "key_code": "equal_sign"
+            },
+            {
+              "key_code": "equal_sign"
+            },
+            {
+              "key_code": "equal_sign"
+            },
+            {
+              "key_code": "equal_sign"
+            },
+            {
+              "key_code": "equal_sign"
+            },
+            {
+              "key_code": "equal_sign"
+            },
+            {
+              "key_code": "equal_sign"
+            },
+            {
+              "key_code": "equal_sign"
+            },
+            {
+              "key_code": "equal_sign"
+            },
+            {
+              "key_code": "equal_sign"
+            },
+            {
+              "key_code": "equal_sign"
+            },
+            {
+              "key_code": "equal_sign"
+            },
+            {
+              "key_code": "equal_sign"
+            },
+            {
+              "key_code": "equal_sign"
+            },
+            {
+              "key_code": "equal_sign"
+            },
+            {
+              "key_code": "equal_sign"
+            },
+            {
+              "key_code": "equal_sign"
+            },
+            {
+              "key_code": "equal_sign"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "shift + command + option + hyphen → 20 hyphens",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "hyphen",
+            "modifiers": {
+              "mandatory": [
+                "shift",
+                "option",
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "hyphen"
+            },
+            {
+              "key_code": "hyphen"
+            },
+            {
+              "key_code": "hyphen"
+            },
+            {
+              "key_code": "hyphen"
+            },
+            {
+              "key_code": "hyphen"
+            },
+            {
+              "key_code": "hyphen"
+            },
+            {
+              "key_code": "hyphen"
+            },
+            {
+              "key_code": "hyphen"
+            },
+            {
+              "key_code": "hyphen"
+            },
+            {
+              "key_code": "hyphen"
+            },
+            {
+              "key_code": "hyphen"
+            },
+            {
+              "key_code": "hyphen"
+            },
+            {
+              "key_code": "hyphen"
+            },
+            {
+              "key_code": "hyphen"
+            },
+            {
+              "key_code": "hyphen"
+            },
+            {
+              "key_code": "hyphen"
+            },
+            {
+              "key_code": "hyphen"
+            },
+            {
+              "key_code": "hyphen"
+            },
+            {
+              "key_code": "hyphen"
+            },
+            {
+              "key_code": "hyphen"
+            },
+            {
+              "key_code": "vk_none"
             }
           ]
         }

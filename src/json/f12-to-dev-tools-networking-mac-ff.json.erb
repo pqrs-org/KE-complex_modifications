@@ -1,0 +1,34 @@
+{
+  "title": "Use F12 to open Dev Tools",
+  "rules": [
+    {
+      "description": "Use F12 to open Dev Tools Network Tab (Mac + Firefox)",
+      "manipulators": [
+         {
+          "type": "basic",
+          "from": <%= from("f12", [], ["caps_lock"]) %>,
+          "to": <%= to([["e", ["option", "left_command"]]]) %>,
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^org\\.mozilla\\.firefox$"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Use F12 to open Dev Tools (all browsers)",
+      "manipulators": [
+         {
+          "type": "basic",
+          "from": <%= from("f12", [], []) %>,
+          "to": <%= to([["i", ["option", "left_command"]]]) %>,
+          "conditions": [
+            <%= frontmost_application_if(["browser"]) %>
+          ]
+        }
+      ]
+    }
+  ]
+}

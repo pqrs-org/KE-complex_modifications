@@ -1,47 +1,41 @@
 {
     "title": "Neo2",
     "rules": [
+        <% def set_mod_4(b)
+            { "set_variable" => { "name" => "neo2_mod_4", "value" => b } }
+        end
+        if_mod_4 = { "type" => "variable_if", "name" => "neo2_mod_4", "value" => 1 }
+        def neo2_modifiers(mod_3_key, mod_4_key)
+            JSON.generate(
+                each_key(
+                    source_keys_list: [
+                        mod_3_key,
+                        "caps_lock",
+                        "right_option",
+                    ],
+                    dest_keys_list: [
+                        "right_option",
+                        "left_option",
+                        "right_command",
+                    ],
+                    from_optional_modifiers: ["any"]
+                ) + [mod_4_key, "right_command"].map { |from_key|
+                    {
+                        "type" => "basic",
+                        "from" => _from(from_key, [], ["any"]),
+                        "to" => [set_mod_4(1)],
+                        "to_after_key_up" => [set_mod_4(0)]
+                    }
+                }
+            )
+        end %>
         {
             "description": "Neo2 mod 3 and 4 keys (Apple keyboard)",
-            "manipulators": <%= each_key(
-                as_json: true,
-                source_keys_list: [
-                    "backslash",
-                    "caps_lock",
-                    "grave_accent_and_tilde",
-                    "right_option",
-                ],
-                dest_keys_list: [
-                    "right_option",
-                    "right_option",
-                    "right_command",
-                    "left_command",
-                ],
-                from_optional_modifiers: [
-                    "shift", "option", "control", "command",
-                ]
-            ) %>
+            "manipulators": <%= neo2_modifiers("backslash", "grave_accent_and_tilde") %>
         },
         {
             "description": "Neo2 mod 3 and 4 keys (Windows keyboard)",
-            "manipulators": <%= each_key(
-                as_json: true,
-                source_keys_list: [
-                    "non_us_pound",
-                    "caps_lock",
-                    "non_us_backslash",
-                    "right_option",
-                ],
-                dest_keys_list: [
-                    "right_option",
-                    "right_option",
-                    "right_command",
-                    "right_command",
-                ],
-                from_optional_modifiers: [
-                    "shift", "option", "control", "command",
-                ]
-            ) %>
+            "manipulators": <%= neo2_modifiers("non_us_pound", "non_us_backslash") %>
         },
         {
             "description": "Neo2 layer 4",
@@ -73,10 +67,10 @@
                 "i" => "keypad_8",
                 "o" => "keypad_9",
                 "spacebar" => "keypad_0",
-                "9" => "keypad_equal_sign",    # divide
-                "0" => "keypad_slash",         # multiply
-                "hyphen" => "keypad_asterisk", # subtract
-                "p" => "keypad_hyphen",        # add
+                "9" => "keypad_slash",
+                "0" => "keypad_asterisk",
+                "hyphen" => "keypad_hyphen",
+                "p" => "keypad_plus",
                 "v" => "return_or_enter",
                 "quote" => "period",
                 "semicolon" => "comma",
@@ -96,24 +90,24 @@
                 each_key(
                     source_keys_list: l4_mappings.keys,
                     dest_keys_list: l4_mappings.values,
-                    from_mandatory_modifiers: ["right_command"],
-                    from_optional_modifiers: ["shift"]
+                    conditions: [if_mod_4],
+                    from_optional_modifiers: ["shift", "caps_lock", "command"]
                 ) + each_key(
                     source_keys_list: ["n", "slash"],
                     dest_keys_list: ["semicolon", "slash"],
-                    from_mandatory_modifiers: ["right_command"],
-                    from_optional_modifiers: ["shift"],
+                    conditions: [if_mod_4],
+                    from_optional_modifiers: ["shift", "caps_lock", "command"],
                     to_modifiers: ["left_option"]
                 ) + each_key(
                     source_keys_list: ["b", "c", "a", "g"],
                     dest_keys_list: ["b", "w", "left_arrow", "right_arrow"],
-                    from_mandatory_modifiers: ["right_command"],
-                    from_optional_modifiers: ["shift"],
+                    conditions: [if_mod_4],
+                    from_optional_modifiers: ["shift", "caps_lock"],
                     to_modifiers: ["left_command"]
                 ) + each_key(
                     source_keys_list: l4_dead_key_mappings,
                     dest_keys_list: l4_dead_key_mappings,
-                    from_mandatory_modifiers: ["right_command"],
+                    conditions: [if_mod_4],
                     to_modifiers: ["left_shift"],
                     to_pre_events: [["z", ["left_option", "left_shift"]]]
                 )
@@ -137,7 +131,8 @@
                 each_key(
                     source_keys_list: l6_dead_key_mappings,
                     dest_keys_list: l6_dead_key_mappings,
-                    from_mandatory_modifiers: ["right_command", "option"],
+                    conditions: [if_mod_4],
+                    from_mandatory_modifiers: ["option"],
                     to_modifiers: ["left_shift", "left_option"],
                     to_pre_events: [["z", ["left_option", "left_shift"]]]
                 )

@@ -2,6 +2,27 @@
   "title": "New Poker II (Backtick, tilde & i/j/k/l as arrows)",
   "rules": [
     {
+      "description": "Left option + Esc to `",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "escape",
+            "modifiers": {
+              "mandatory": [
+                "left_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
       "description": "Capslock + Esc to `",
       "manipulators": [
         {
@@ -40,6 +61,30 @@
               "key_code": "grave_accent_and_tilde",
               "modifiers": [
                 "left_shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "R_Shift + Esc to ~",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "escape",
+            "modifiers": {
+              "mandatory": [
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": [
+                "right_shift"
               ]
             }
           ]

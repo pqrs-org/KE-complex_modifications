@@ -1,0 +1,95 @@
+{
+  "title": "Visual Studio Code",
+  "rules": [
+    {
+      "description": "Change left_shift to cmd+k if pressed alone in VSCode",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "com\\.microsoft\\.VSCode",
+                "com\\.microsoft\\.VSCodeInsiders"
+              ],
+              "type": "frontmost_application_if"
+            }
+          ],
+          "from": {
+            "key_code": "left_shift",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_shift"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "k",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Change mouse button 4/5 to navigate back/forward in VSCode",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "com\\.microsoft\\.VSCode",
+                "com\\.microsoft\\.VSCodeInsiders"
+              ],
+              "type": "frontmost_application_if"
+            }
+          ],
+          "from": {
+            "pointing_button": "button4"
+          },
+          "to": [
+            {
+              "key_code": "hyphen",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "com\\.microsoft\\.VSCode",
+                "com\\.microsoft\\.VSCodeInsiders"
+              ],
+              "type": "frontmost_application_if"
+            }
+          ],
+          "from": {
+            "pointing_button": "button5"
+          },
+          "to": [
+            {
+              "key_code": "hyphen",
+              "modifiers": [
+                "left_control",
+                "left_shift"
+              ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}

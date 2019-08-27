@@ -1,14 +1,19 @@
 {
-    "title": "Change escape key (rev 2)",
+    "title": "Change escape key (rev 4)",
     "rules": [
         {
-            "description": "Post caps_lock if escape is pressed alone.",
+            "description": "Post caps_lock if escape is pressed alone. (rev 2)",
             "manipulators": [
                 {
                     "type": "basic",
                     "from": <%= from("escape", [], ["any"]) %>,
                     "to": <%= to([["escape"]]) %>,
-                    "to_if_alone": <%= to([["caps_lock"]]) %>
+                    "to_if_alone": [
+                        {
+                            "key_code": "caps_lock",
+                            "hold_down_milliseconds": 500
+                        }
+                    ]
                 }
             ]
         },
@@ -20,6 +25,22 @@
                     "from": <%= from("escape", ["fn"], ["any"]) %>,
                     "to": <%= to([["eject"]]) %>
                 }
+            ]
+        },
+        {
+            "description": "Disable escape; Change shift + escape to escape (For avoiding mistyping on the Touch Bar)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("escape", ["shift"], ["any"]) %>,
+                    "to": <%= to([["escape"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("escape", [], []) %>,
+                    "to": <%= to([["vk_none"]]) %>
+                }
+
             ]
         }
     ]

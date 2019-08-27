@@ -1,0 +1,86 @@
+{
+  "title": "Backtick (grave accent/tilde), Z, or Slash as Ctrl",
+  "rules": [
+    {
+      "description": "Post grave_accent_and_tilde if pressed alone, left_control if held down.",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "grave_accent_and_tilde",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_control",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "grave_accent_and_tilde"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Post z if pressed alone, left_control if held down.",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "z",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_control",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Post Slash if pressed alone, right_control if held down.",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "slash",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_control",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "slash"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

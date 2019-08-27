@@ -49,7 +49,7 @@
                     "from": <%= from("home", [], ["shift"]) %>,
                     "to": <%= to([["left_arrow", ["left_command"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "browser"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "browser", "git_gui", "jetbrains_ide"]) %>
                     ]
                 },
                 {
@@ -65,7 +65,7 @@
                     "from": <%= from("home", ["control"], ["shift"]) %>,
                     "to": <%= to([["up_arrow", ["left_command"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "git_gui", "jetbrains_ide"]) %>
                     ]
                 },
                 {
@@ -73,7 +73,7 @@
                     "from": <%= from("end", [], ["shift"]) %>,
                     "to": <%= to([["right_arrow", ["left_command"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "browser"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "browser", "git_gui", "jetbrains_ide"]) %>
                     ]
                 },
                 {
@@ -89,7 +89,7 @@
                     "from": <%= from("end", ["control"], ["shift"]) %>,
                     "to": <%= to([["down_arrow", ["left_command"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "git_gui", "jetbrains_ide"]) %>
                     ]
                 }
             ]
@@ -346,11 +346,50 @@
             ]
         },
         {
+            "description": "PC-Style Emoji Picker (Command+.)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("period", ["command"], []) %>,
+                    "to": <%= to([["spacebar", ["left_control", "left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "PC-Style Spotlight Search (Command+S)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("s", ["command"], []) %>,
+                    "to": <%= to([["spacebar", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "PC-Style Switch Input (Command+Space)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("spacebar", ["command"], []) %>,
+                    "to": <%= to([["spacebar", ["left_control"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
+                    ]
+                }
+            ]
+        },
+        {
             "description": "PC-Style Lock Screen",
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("l", ["command"], ["any"]) %>,
+                    "from": <%= from("l", ["command"], []) %>,
                     "to": <%= to([["power", ["left_control", "left_shift"]]]) %>,
                     "conditions": [
                         <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
@@ -359,7 +398,33 @@
             ]
         },
         {
-            "description": "PC-Style Screenshot(PrtSc for whole, Shift+PrtSc to select)",
+            "description": "PC-Style Screenshot to File (PrintScreen to select)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("print_screen", [], ["any"]) %>,
+                    "to": <%= to([["4", ["left_command", "left_shift"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "PC-Style Screenshot to Clipboard (PrintScreen to select)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("print_screen", [], ["any"]) %>,
+                    "to": <%= to([["4", ["left_command", "left_control", "left_shift"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "PC-Style Screenshot (PrintScreen for whole, Shift+PrintScreen to select)",
             "manipulators": [
                 {
                     "type": "basic",
@@ -380,12 +445,40 @@
             ]
         },
         {
-            "description": "PC-Style Quit Application(Alt+F4 to Command+Q)",
+            "description": "PC-Style Quit Application (Alt+F4 to Command+Q)",
             "manipulators": [
                 {
                     "type": "basic",
                     "from": <%= from("f4", ["option"], []) %>,
                     "to": <%= to([["q", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Command+E Opens Finder",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("e", ["command"], []) %>,
+                    "to": [
+                        { "shell_command": "open -a 'Finder.app'" }
+                    ],
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Control+Esc Opens Launchpad",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("escape", ["control"], []) %>,
+                    "to": <%= to([["launchpad", []]]) %>,
                     "conditions": [
                         <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
                     ]

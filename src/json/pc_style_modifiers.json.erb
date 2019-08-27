@@ -1,0 +1,70 @@
+{
+    "title": "PC-Style Modifiers",
+    "rules": [
+        {
+            "description": "Swap Command with Ctrl",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("left_command", [], ["any"]) %>,
+                    "to": <%= to([["left_control"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("left_control", [], ["any"]) %>,
+                    "to": <%= to([["left_command"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("left_shift", [], ["any"]) %>,
+                    "to": [{"key_code": "left_shift", "lazy": true}]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("right_command", [], ["any"]) %>,
+                    "to": <%= to([["right_control"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("right_control", [], ["any"]) %>,
+                    "to": <%= to([["right_command"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("right_shift", [], ["any"]) %>,
+                    "to": [{"key_code": "right_shift", "lazy": true}]
+                }
+            ]
+        },
+        {
+            "description": "Option+Tab to Command+Tab",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("tab", ["left_option"], ["any"]) %>,
+                    "to": <%= to([["tab", "command"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("tab", ["right_option"], ["any"]) %>,
+                    "to": <%= to([["tab", "command"]]) %>
+                }
+            ]
+        },
+        {
+            "description": "Option+Backtick to Command+Backtick",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("grave_accent_and_tilde", ["left_option"], ["any"]) %>,
+                    "to": <%= to([["grave_accent_and_tilde", "command"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("grave_accent_and_tilde", ["right_option"], ["any"]) %>,
+                    "to": <%= to([["grave_accent_and_tilde", "command"]]) %>
+                }
+            ]
+        }
+    ]
+}

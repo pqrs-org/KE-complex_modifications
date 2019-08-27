@@ -1,5 +1,5 @@
 {
-    "title": "Tmux Prefix (rev 2)",
+    "title": "Tmux Prefix (rev 3)",
     <%
         default_tmux_keys = [
             "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
@@ -43,7 +43,7 @@
             ]
         },
         {
-            "description": "Tmux Prefix Mode [caps_lock as trigger key]",
+            "description": "Tmux Prefix Mode [caps_lock as trigger key] (rev 2)",
             "manipulators": [
                 {
                     "type": "basic",
@@ -51,7 +51,12 @@
                     "to": [
                         { "set_variable": { "name": "tmux_prefix_mode", "value": 1 } }
                     ],
-                    "to_if_alone": <%= to([["caps_lock"]]) %>,
+                    "to_if_alone": [
+                        {
+                            "key_code": "caps_lock",
+                            "hold_down_milliseconds": 500
+                        }
+                    ],
                     "to_after_key_up": [
                         { "set_variable": { "name": "tmux_prefix_mode", "value": 0 } }
                     ],

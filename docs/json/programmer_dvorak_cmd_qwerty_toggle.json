@@ -1,0 +1,82 @@
+{
+  "title": "Programmer Dvorak CmdQwerty Toggle",
+  "rules": [
+    {
+      "description": "While using Programmer Dvorak, holding command temporarily switches to the US qwerty layout.",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_command",
+            "modifiers": {
+              "optional": "any"
+            }
+          },
+          "conditions": [
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                  "input_source_id": "^.*Programmer Dvorak$"
+            	}
+              ]
+            }
+          ],
+          "to": [
+            {
+              "select_input_source": {
+                "input_source_id": "^com\\.apple\\.keylayout\\.US$"
+              }
+            },
+            {
+              "key_code": "left_command"
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "select_input_source": {
+                "input_source_id": "^.*Programmer Dvorak$"
+              }
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_command",
+            "modifiers": {
+              "optional": "any"
+            }
+          },
+          "conditions": [
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                  "input_source_id": "^.*Programmer Dvorak$"
+            	}
+              ]
+            }
+          ],
+          "to": [
+            {
+              "select_input_source": {
+                "input_source_id": "^com\\.apple\\.keylayout\\.US$"
+              }
+            },
+            {
+              "key_code": "right_command"
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "select_input_source": {
+                "input_source_id": "^.*Programmer Dvorak$"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

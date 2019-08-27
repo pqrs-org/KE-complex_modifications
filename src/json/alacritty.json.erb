@@ -1,0 +1,68 @@
+<%
+
+modifiers = %w( left_option right_option )
+key_codes = %w( a b c d e f g h i j k l m n o p q r s t u v w x y z 
+                0 1 2 3 4 5 6 7 8 9 
+                backslash
+                close_bracket
+                comma
+                down_arrow
+                equal_sign
+                grave_accent_and_tilde
+                hyphen
+                left_arrow
+                open_bracket
+                period
+                right_arrow
+                semicolon
+                slash
+                spacebar
+                tab
+                up_arrow )
+
+rules = modifiers.map do |modifier|
+    {
+        description: "Map #{modifier} to soft-meta for Alacritty",
+        manipulators: [{
+            type: "basic",
+            from: {key_code: modifier},
+            to: [{
+                key_code: modifier,
+                lazy: true
+            }],
+            conditions: [{
+                type: "frontmost_application_if",
+                bundle_identifiers: [
+                    "^io\\.alacritty$"
+                ]
+            }]
+        }] + key_codes.map do |key_code|
+            {
+                type: "basic",
+                from: {
+                    key_code: key_code,
+                    modifiers: {
+                        mandatory: [ modifier ],
+                        optional: [ "shift" ]
+                    }
+                },
+                to: [
+                    { key_code: "escape", modifiers: [] },
+                    { key_code: key_code }
+                ],
+                conditions: [{
+                    type: "frontmost_application_if",
+                    bundle_identifiers: [
+                        "^io\\.alacritty$"
+                    ]
+                }]
+            }
+        end
+    }
+end
+
+%>
+{
+    "title": "Map Option to soft-meta for Alacritty",
+    "rules": <%= JSON.generate(rules) %>
+}
