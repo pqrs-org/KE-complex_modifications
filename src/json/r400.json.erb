@@ -1,0 +1,39 @@
+{
+    "title": "Logitech R400",
+    "rules": [
+        {
+            "description": "Map presenter keys for use with Skim",
+            "manipulators": [ 
+                    { "conditions": [
+                        {
+                          "type": "device_if",
+                          "identifiers": [
+                            {
+                              "product_id": 50488,
+                              "vendor_id": 1133
+                            }
+                          ]
+                        } ],
+                        "type": "basic",
+                        "from": <%= from("f5", [], []) %>,
+                        "to": <%= to([["p", ["left_control", "left_command"]]]) %>
+                    },
+                    { "conditions": [
+                        {
+                          "type": "device_if",
+                          "identifiers": [
+                            {
+                              "product_id": 50488,
+                              "vendor_id": 1133
+                            }
+                          ]
+                        } ],
+                        "type": "basic",
+                        "from": <%= from("period", [], []) %>,
+                        "to": <%= to([["b", []]]) %>
+                    }
+                
+            ]
+        }
+    ]
+}
