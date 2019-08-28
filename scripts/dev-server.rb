@@ -5,6 +5,7 @@ require 'webrick'
 Dir.chdir(File.dirname(__dir__) + '/docs')
 
 server = WEBrick::HTTPServer.new(
+  BindAddress: 'localhost',
   Port: 8000,
   DocumentRoot: '.'
 )
