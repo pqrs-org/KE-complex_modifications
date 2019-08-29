@@ -54,7 +54,7 @@ Then open `Karabiner-Elements Preferences > Complex Modifications > Rules > Add 
 
 Follow the instruction if you want to publish your own forked page.
 
-1.  Put this repository into your server.
+1.  Put your forked repository into your server.
 2.  Generate `docs/dist.json` by the following command.
 
     ```shell
