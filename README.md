@@ -12,7 +12,7 @@ complex_modifications for Karabiner-Elements.
 2.  (Optional) Put extra description file into [docs/extra_descriptions](https://github.com/pqrs-org/KE-complex_modifications/tree/master/docs/extra_descriptions).
 3.  Add the following json into [docs/groups.json](https://github.com/pqrs-org/KE-complex_modifications/tree/master/docs/groups.json) &gt; `files`. 
 
-    ```json
+    ```json5
     {
       "path": "json/your_awesome_configuration.json", // required
       "extra_description_path": "extra_descriptions/your_awesome_configuration.html" // optional
