@@ -5,2727 +5,6 @@
   ],
   "rules": [
     {
-      "description": "Matias Ergo Pro Keyboard: Change right_control to b if pressed alone, or while typing",
-      "manipulators": [
-        {
-          "description": "Set variable if 0 is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "0",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "0"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if 1 is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "1",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "1"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if 2 is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "2",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "2"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if 3 is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "3",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "3"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if 4 is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "4",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "4"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if 5 is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "5",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "5"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if 6 is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "6",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "6"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if 7 is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "7",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "7"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if 8 is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "8",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "8"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if 9 is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "9",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "9"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if a is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "a",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "a"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if b is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "b",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "b"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if c is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "c",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "c"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if d is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "d",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "d"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if e is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "e",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "e"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if f is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "f",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "f"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if g is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "g",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "g"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if h is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "h",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "h"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if i is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "i",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "i"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if j is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "j",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "j"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if k is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "k",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "k"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if l is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "l",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "l"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if m is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "m",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "m"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if n is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "n",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "n"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if o is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "o",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "o"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if p is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "p",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "p"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if q is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "q",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "q"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if r is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "r",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "r"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if s is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "s",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "s"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if t is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "t",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "t"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if u is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "u",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "u"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if v is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "v",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "v"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if w is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "w",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "w"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if x is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "x",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "x"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if y is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "y",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "y"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if z is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "z",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "z"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if grave_accent_and_tilde is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "grave_accent_and_tilde",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "grave_accent_and_tilde"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if hyphen is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "hyphen",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "hyphen"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if equal_sign is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "equal_sign",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "equal_sign"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if delete_or_backspace is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "delete_or_backspace",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "delete_or_backspace"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if tab is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "tab",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "tab"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if open_bracket is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "open_bracket",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "open_bracket"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if close_bracket is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "close_bracket",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "close_bracket"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if backslash is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "backslash",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "backslash"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if semicolon is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "semicolon",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "semicolon"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if quote is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "quote",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "quote"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if return_or_enter is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "return_or_enter",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "return_or_enter"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if comma is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "comma",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "comma"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if period is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "period",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "period"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if slash is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "slash",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "slash"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Set variable if spacebar is pressed",
-          "type": "basic",
-          "from": {
-            "key_code": "spacebar",
-            "modifiers": {
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "spacebar"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Change right_control to b if variable is set",
-          "type": "basic",
-          "from": {
-            "key_code": "right_control",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "b"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_if",
-              "name": "matias_ergo_pro.use_right_control_as_b",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "description": "Change right_control to b if pressed alone and not held down",
-          "type": "basic",
-          "from": {
-            "key_code": "right_control",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "right_control",
-              "lazy": true
-            }
-          ],
-          "to_if_alone": [
-            {
-              "set_variable": {
-                "name": "matias_ergo_pro.use_right_control_as_b",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "b"
-            }
-          ],
-          "to_if_held_down": [
-            {
-              "key_code": "right_control"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "matias_ergo_pro.use_right_control_as_b",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "description": "Matias Ergo Pro Keyboard",
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 591
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "matias_ergo_pro.use_right_control_as_b",
-              "value": 1
-            }
-          ],
-          "parameters": {
-            "basic.to_if_alone_timeout_milliseconds": 500,
-            "basic.to_if_held_down_threshold_milliseconds": 500
-          }
-        }
-      ]
-    },
-    {
       "description": "Matias Ergo Pro Keyboard: Change navigation keys to right_option if pressed with another key",
       "manipulators": [
         {
@@ -19162,6 +16441,2727 @@
               "value": 1
             }
           ]
+        }
+      ]
+    },
+    {
+      "description": "Matias Ergo Pro Keyboard: Change right_control to b if pressed alone, or while typing",
+      "manipulators": [
+        {
+          "description": "Set variable if 0 is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "0",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "0"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if 1 is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "1",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "1"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if 2 is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "2",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "2"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if 3 is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "3",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "3"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if 4 is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "4",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "4"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if 5 is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "5",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "5"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if 6 is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "6",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "6"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if 7 is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "7",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "7"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if 8 is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "8",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "8"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if 9 is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "9",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "9"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if a is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "a",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "a"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if b is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "b",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "b"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if c is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "c",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "c"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if d is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "d",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "d"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if e is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "e",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "e"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if f is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "f",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "f"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if g is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "g",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "g"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if h is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "h"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if i is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "i"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if j is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "j"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if k is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "k"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if l is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "l"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if m is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "m",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "m"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if n is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "n",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "n"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if o is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "o"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if p is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "p",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "p"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if q is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "q"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if r is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "r",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "r"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if s is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "s",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "s"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if t is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "t",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "t"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if u is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "u",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "u"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if v is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "v",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "v"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if w is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "w",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "w"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if x is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "x",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "x"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if y is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "y",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "y"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if z is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "z",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "z"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if grave_accent_and_tilde is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "grave_accent_and_tilde",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "grave_accent_and_tilde"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if hyphen is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "hyphen",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "hyphen"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if equal_sign is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "equal_sign",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "equal_sign"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if delete_or_backspace is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "delete_or_backspace",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "delete_or_backspace"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if tab is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "tab",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "tab"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if open_bracket is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "open_bracket",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "open_bracket"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if close_bracket is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "close_bracket",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "close_bracket"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if backslash is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "backslash",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "backslash"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if semicolon is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "semicolon",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "semicolon"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if quote is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "quote",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "quote"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if return_or_enter is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "return_or_enter",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "return_or_enter"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if comma is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "comma",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "comma"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if period is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "period",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "period"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if slash is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "slash",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "slash"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Set variable if spacebar is pressed",
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "spacebar"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_nav_keys_as_right_option",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change right_control to b if variable is set",
+          "type": "basic",
+          "from": {
+            "key_code": "right_control",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "b"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "matias_ergo_pro.use_right_control_as_b",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Change right_control to b if pressed alone and not held down",
+          "type": "basic",
+          "from": {
+            "key_code": "right_control",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_control",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "set_variable": {
+                "name": "matias_ergo_pro.use_right_control_as_b",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "b"
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "right_control"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "matias_ergo_pro.use_right_control_as_b",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "description": "Matias Ergo Pro Keyboard",
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "matias_ergo_pro.use_right_control_as_b",
+              "value": 1
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 500,
+            "basic.to_if_held_down_threshold_milliseconds": 500
+          }
         }
       ]
     }
