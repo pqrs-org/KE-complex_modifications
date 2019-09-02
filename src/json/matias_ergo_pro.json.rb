@@ -10,7 +10,7 @@ def main
   puts JSON.pretty_generate(
     'title' => Device::NAME,
     'maintainers' => ['mingaldrichgan'],
-    'rules' => Rules.constants.map(&Rules.method(:const_get)).map(&:rule)
+    'rules' => [Rules::NavKeys, Rules::RightControl].map(&:rule)
   )
 end
 

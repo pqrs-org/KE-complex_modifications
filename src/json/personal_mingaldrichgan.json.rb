@@ -10,7 +10,7 @@ def main
   puts JSON.pretty_generate(
     'title' => 'Personal rules (@mingaldrichgan)',
     'maintainers' => ['mingaldrichgan'],
-    'rules' => Rules.constants.map(&Rules.method(:const_get)).map(&:rule)
+    'rules' => [Rules::SymbolicFn, Rules::Sibelius].map(&:rule)
   )
 end
 
