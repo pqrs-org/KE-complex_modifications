@@ -2,7 +2,7 @@
 
 # You can generate json by executing the following command on Terminal.
 #
-# $ ruby ./example_halt.json.rb
+# $ ruby ./thumbsense.json.rb
 #
 
 require 'json'
