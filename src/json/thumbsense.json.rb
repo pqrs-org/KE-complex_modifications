@@ -13,7 +13,7 @@ def main
   # conditions
   #
 
-  condition = Karabiner.variable_unless('multitouch_extension_finger_count', 0)
+  condition = Karabiner.variable_unless('multitouch_extension_finger_count_total', 0)
 
   #
   # manipulators
@@ -128,11 +128,11 @@ def main
   end
 
   puts JSON.pretty_generate(
-    'title' => 'ThumbSense (rev 1)',
+    'title' => 'ThumbSense (rev 2)',
     'maintainers' => ['tekezo'],
     'rules' => [
-      'description' => 'ThumbSense (rev 1)',
-      'available_since' => '12.6.6',
+      'description' => 'ThumbSense (rev 2)',
+      'available_since' => '12.6.9',
       'manipulators' => manipulators,
     ]
   )
