@@ -19,11 +19,11 @@ require_relative '../lib/karabiner.rb'
 
 def main
   data = {
-    'title' => 'Personal rules (@tekezo) Launcher Mode v4 (rev 10)',
+    'title' => 'Personal rules (@tekezo) Launcher Mode v4 (rev 11)',
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Launcher Mode v4 (rev 10)',
+        'description' => 'Launcher Mode v4 (rev 11)',
         'manipulators' => [
           generate_launcher_mode('1', [], [{ 'shell_command' => "open -a 'Xcode.app'" }]),
           generate_launcher_mode('3', [], [{ 'shell_command' => "open -a 'Firefox.app'" }]),
@@ -34,13 +34,13 @@ def main
           generate_launcher_mode('c', [], [{ 'shell_command' => "open -a 'Google Chrome.app'" }]),
           generate_launcher_mode('e', [], [{ 'shell_command' => "open -a 'Visual Studio Code.app'" }]),
           generate_launcher_mode('f', [], [{ 'shell_command' => "open -a 'Finder.app'" }]),
-          generate_launcher_mode('i', [], [{ 'shell_command' => "open -a 'Adium.app'" }]),
+          generate_launcher_mode('i', [], [{ 'shell_command' => "open -a 'The Lounge.app'" }]),
           generate_launcher_mode('m', [], [{ 'shell_command' => "open -a 'Thunderbird.app'" }]),
           generate_launcher_mode('q', [], [{ 'shell_command' => "open -a 'Dictionary.app'" }]),
           generate_launcher_mode('t', [], [{ 'shell_command' => "open -a 'iTerm.app'" }]),
 
           generate_launcher_mode('tab', [], [{ 'key_code' => 'mission_control' }]),
-          generate_launcher_mode('spacebar', [], [{ 'shell_command' => "open -a 'Alfred 3.app'" }]),
+          generate_launcher_mode('spacebar', [], [{ 'shell_command' => "open -a 'Alfred 4.app'" }]),
         ].flatten,
       },
     ],
