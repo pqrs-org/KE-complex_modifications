@@ -27,15 +27,15 @@ def main
     #
 
     {
-      :from => { 'key_code' => 'f' },
+      :from => { 'key_code' => 'f', 'modifiers' => Karabiner.from_modifiers },
       :to => { 'pointing_button' => 'button1' },
     },
     {
-      :from => { 'key_code' => 'j' },
+      :from => { 'key_code' => 'j', 'modifiers' => Karabiner.from_modifiers },
       :to => { 'pointing_button' => 'button1' },
     },
     {
-      :from => { 'key_code' => 'spacebar' },
+      :from => { 'key_code' => 'spacebar', 'modifiers' => Karabiner.from_modifiers },
       :to => { 'pointing_button' => 'button1' },
     },
 
@@ -44,11 +44,11 @@ def main
     #
 
     {
-      :from => { 'key_code' => 'd' },
+      :from => { 'key_code' => 'd', 'modifiers' => Karabiner.from_modifiers },
       :to => { 'pointing_button' => 'button2' },
     },
     {
-      :from => { 'key_code' => 'k' },
+      :from => { 'key_code' => 'k', 'modifiers' => Karabiner.from_modifiers },
       :to => { 'pointing_button' => 'button2' },
     },
 
@@ -128,10 +128,10 @@ def main
   end
 
   puts JSON.pretty_generate(
-    'title' => 'ThumbSense (rev 2)',
+    'title' => 'ThumbSense (rev 3)',
     'maintainers' => ['tekezo'],
     'rules' => [
-      'description' => 'ThumbSense (rev 2)',
+      'description' => 'ThumbSense (rev 3)',
       'available_since' => '12.6.9',
       'manipulators' => manipulators,
     ]
