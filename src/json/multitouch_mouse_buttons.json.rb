@@ -26,6 +26,7 @@ def main
       'type' => 'basic',
       'from' => {
         'key_code' => i.to_s,
+        'modifiers' => Karabiner.from_modifiers,
       },
       'to' => [
         {
@@ -37,10 +38,10 @@ def main
   end
 
   puts JSON.pretty_generate(
-    'title' => 'Multitouch Mouse Buttons (rev 1)',
+    'title' => 'Multitouch Mouse Buttons (rev 2)',
     'maintainers' => ['tekezo'],
     'rules' => [
-      'description' => 'Multitouch Mouse Buttons (rev 1)',
+      'description' => 'Multitouch Mouse Buttons (rev 2)',
       'available_since' => '12.6.9',
       'manipulators' => manipulators,
     ]

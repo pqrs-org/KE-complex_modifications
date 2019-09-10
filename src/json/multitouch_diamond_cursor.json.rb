@@ -28,22 +28,22 @@ def main
     #
 
     {
-      :from => { 'key_code' => 'w' },
+      :from => { 'key_code' => 'w', 'modifiers' => Karabiner.from_modifiers },
       :to => { 'key_code' => 'up_arrow' },
       :conditions => [condition1],
     },
     {
-      :from => { 'key_code' => 's' },
+      :from => { 'key_code' => 's', 'modifiers' => Karabiner.from_modifiers },
       :to => { 'key_code' => 'down_arrow' },
       :conditions => [condition1],
     },
     {
-      :from => { 'key_code' => 'a' },
+      :from => { 'key_code' => 'a', 'modifiers' => Karabiner.from_modifiers },
       :to => { 'key_code' => 'left_arrow' },
       :conditions => [condition1],
     },
     {
-      :from => { 'key_code' => 'd' },
+      :from => { 'key_code' => 'd', 'modifiers' => Karabiner.from_modifiers },
       :to => { 'key_code' => 'right_arrow' },
       :conditions => [condition1],
     },
@@ -53,22 +53,22 @@ def main
     #
 
     {
-      :from => { 'key_code' => 'w' },
+      :from => { 'key_code' => 'w', 'modifiers' => Karabiner.from_modifiers },
       :to => { 'key_code' => 'page_up' },
       :conditions => [condition2],
     },
     {
-      :from => { 'key_code' => 's' },
+      :from => { 'key_code' => 's', 'modifiers' => Karabiner.from_modifiers },
       :to => { 'key_code' => 'page_down' },
       :conditions => [condition2],
     },
     {
-      :from => { 'key_code' => 'a' },
+      :from => { 'key_code' => 'a', 'modifiers' => Karabiner.from_modifiers },
       :to => { 'key_code' => 'home' },
       :conditions => [condition2],
     },
     {
-      :from => { 'key_code' => 'd' },
+      :from => { 'key_code' => 'd', 'modifiers' => Karabiner.from_modifiers },
       :to => { 'key_code' => 'end' },
       :conditions => [condition2],
     },
@@ -84,10 +84,10 @@ def main
   end
 
   puts JSON.pretty_generate(
-    'title' => 'Multitouch Diamond Cursor (rev 1)',
+    'title' => 'Multitouch Diamond Cursor (rev 2)',
     'maintainers' => ['tekezo'],
     'rules' => [
-      'description' => 'Multitouch Diamond Cursor (rev 1)',
+      'description' => 'Multitouch Diamond Cursor (rev 2)',
       'available_since' => '12.6.9',
       'manipulators' => manipulators,
     ]
