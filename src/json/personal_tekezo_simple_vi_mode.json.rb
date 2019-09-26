@@ -13,17 +13,20 @@ require_relative '../lib/karabiner.rb'
 
 def main
   puts JSON.pretty_generate(
-    'title' => 'Personal rules (@tekezo) simple_vi_mode',
+    'title' => 'Personal rules (@tekezo) simple_vi_mode (rev 3)',
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Simple Vi Mode v3 (rev 2)',
+        'description' => 'Simple Vi Mode v3 (rev 3)',
         'manipulators' => [
           generate_simple_vi_mode('j', 'down_arrow'),
           generate_simple_vi_mode('k', 'up_arrow'),
           generate_simple_vi_mode('h', 'left_arrow'),
           generate_simple_vi_mode('l', 'right_arrow'),
           generate_simple_vi_mode('f', 'fn'),
+          generate_simple_vi_mode('c', 'left_control'),
+          generate_simple_vi_mode('v', 'left_option'),
+          generate_simple_vi_mode('b', 'left_command'),
         ].flatten,
       },
     ]
