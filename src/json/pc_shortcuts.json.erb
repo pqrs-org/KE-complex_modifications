@@ -95,6 +95,26 @@
             ]
         },
         {
+            "description": "PC-Style Paste(Shift+Insert) for JIS keyboard",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("insert", ["shift"], ["any"]) %>,
+                    "to": <%= to([["v", ["left_command"]]]) %>
+                }
+            ]
+        },
+        {
+            "description": "PC-Style Paste(Shift+Fn) for ANSI keyboard",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("fn", ["shift"], ["any"]) %>,
+                    "to": <%= to([["v", ["left_command"]]]) %>
+                }
+            ]
+        },
+        {
             "description": "Option(Alt)+Tab as Switch Application (Command+Tab)",
             "manipulators": [
                 {
