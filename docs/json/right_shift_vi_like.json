@@ -271,6 +271,31 @@
       ]
     },
     {
+      "description": "Down command 2 (right_shift+cmd+e to cmd+down)",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "e",
+            "modifiers": {
+              "mandatory": [
+                "right_shift",
+                "left_command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "down_arrow",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
       "description": "Down option (right_shift+option+j to option+down)",
       "manipulators": [
         {
@@ -597,6 +622,31 @@
         {
           "from": {
             "key_code": "k",
+            "modifiers": {
+              "mandatory": [
+                "right_shift",
+                "left_command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Up command 2 (right_shift+cmd+a to cmd+up)",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "a",
             "modifiers": {
               "mandatory": [
                 "right_shift",
@@ -1379,11 +1429,11 @@
       ]
     },
     {
-      "description": "Thin arrow (right_shift+. to ->)",
+      "description": "Thin arrow (right_shift+- to ->)",
       "manipulators": [
         {
           "from": {
-            "key_code": "period",
+            "key_code": "hyphen",
             "modifiers": {
               "mandatory": [
                 "right_shift"
@@ -1406,15 +1456,14 @@
       ]
     },
     {
-      "description": "Fat arrow (right_shift+left_shift+period to =>)",
+      "description": "Fat arrow (right_shift+= to =>)",
       "manipulators": [
         {
           "from": {
-            "key_code": "period",
+            "key_code": "equal_sign",
             "modifiers": {
               "mandatory": [
-                "right_shift",
-                "left_shift"
+                "right_shift"
               ]
             }
           },
@@ -1633,6 +1682,108 @@
                 "left_option",
                 "left_shift"
               ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Parentheses closed (right_shift+left_shift+9 to closed paranetheses)",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "9",
+            "modifiers": {
+              "mandatory": [
+                "right_shift",
+                "left_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "9",
+              "modifiers": [
+                "left_shift"
+              ]
+            },
+            {
+              "key_code": "0",
+              "modifiers": [
+                "left_shift"
+              ]
+            },
+            {
+              "key_code": "left_arrow"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Braces closed (right_shift+left_shift+[ to closed braces)",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "open_bracket",
+            "modifiers": {
+              "mandatory": [
+                "right_shift",
+                "left_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "open_bracket",
+              "modifiers": [
+                "left_shift"
+              ]
+            },
+            {
+              "key_code": "close_bracket",
+              "modifiers": [
+                "left_shift"
+              ]
+            },
+            {
+              "key_code": "left_arrow"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Angle brackets closed (right_shift+left_shift+, to closed angle brackets)",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "comma",
+            "modifiers": {
+              "mandatory": [
+                "right_shift",
+                "left_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "comma",
+              "modifiers": [
+                "left_shift"
+              ]
+            },
+            {
+              "key_code": "period",
+              "modifiers": [
+                "left_shift"
+              ]
+            },
+            {
+              "key_code": "left_arrow"
             }
           ],
           "type": "basic"
