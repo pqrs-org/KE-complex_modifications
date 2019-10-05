@@ -27,7 +27,6 @@ def main
             'to' => [
               {
                 'key_code' => 'left_command',
-                'lazy' => true,
               },
             ],
             'to_if_held_down' => [
@@ -53,7 +52,6 @@ def main
             'to' => [
               {
                 'key_code' => 'right_command',
-                'lazy' => true,
               },
             ],
             'to_if_held_down' => [
@@ -94,7 +92,6 @@ def main
             'to' => [
               {
                 'key_code' => 'left_command',
-                'lazy' => true,
               },
             ],
             'to_if_held_down' => [
@@ -130,7 +127,6 @@ def main
             'to' => [
               {
                 'key_code' => 'left_command',
-                'lazy' => true,
               },
             ],
             'to_if_held_down' => [
@@ -166,7 +162,6 @@ def main
             'to' => [
               {
                 'key_code' => 'right_command',
-                'lazy' => true,
               },
             ],
             'to_if_held_down' => [
@@ -202,7 +197,6 @@ def main
             'to' => [
               {
                 'key_code' => 'right_command',
-                'lazy' => true,
               },
             ],
             'to_if_held_down' => [
@@ -243,7 +237,6 @@ def main
             'to' => [
               {
                 'key_code' => 'right_command',
-                'lazy' => true,
               },
             ],
             'to_if_held_down' => [
@@ -279,7 +272,6 @@ def main
             'to' => [
               {
                 'key_code' => 'right_command',
-                'lazy' => true,
               },
             ],
             'to_if_held_down' => [
@@ -539,7 +531,6 @@ def main
             'to' => [
               {
                 'key_code' => 'left_control',
-                'lazy' => true,
               },
             ],
             'to_if_held_down' => [
@@ -565,7 +556,6 @@ def main
             'to' => [
               {
                 'key_code' => 'right_command',
-                'lazy' => true,
               },
             ],
             'to_if_held_down' => [
