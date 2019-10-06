@@ -1,0 +1,77 @@
+{
+    <%
+        def create_manipulators(dest_keys)
+            optional_modifiers = ["caps_lock","left_command","left_control","left_alt","right_command","right_control","right_alt"]
+            remap_source_keys = [
+                "grave_accent_and_tilde","1","2","4","5","6","7","8","9","0","hyphen","equal_sign",
+                "q","w","e","r","t","y","u","i","o","p","open_bracket","close_bracket","backslash",
+                "a","s","d","f","g","h","j","k","l","semicolon","quote",
+                "z","x","c","v","b","n","m","comma","period","slash"
+            ]
+
+            manipulators = each_key(
+                source_keys_list: remap_source_keys,
+                dest_keys_list: dest_keys,
+                from_optional_modifiers: optional_modifiers
+            )
+
+            manipulators += each_key(
+                source_keys_list: remap_source_keys,
+                dest_keys_list: dest_keys,
+                from_mandatory_modifiers: ["left_shift"],
+                from_optional_modifiers: optional_modifiers,
+                to_modifiers: ["left_shift"]
+            )
+
+            manipulators += each_key(
+                source_keys_list: remap_source_keys,
+                dest_keys_list: dest_keys,
+                from_mandatory_modifiers: ["right_shift"],
+                from_optional_modifiers: optional_modifiers,
+                to_modifiers: ["right_shift"]
+            )
+        end
+
+        # Standard
+        manipulators_standard = create_manipulators([
+            "grave_accent_and_tilde","1","2","4","5","6","7","8","9","0","hyphen","equal_sign",
+            "q","w","f","p","b","j","l","u","y","semicolon","open_bracket","close_bracket","backslash",
+            "a","r","s","t","g","k","n","e","i","o","quote",
+            "x","c","d","v","z","m","h","comma","period","slash"
+        ])
+
+        # Wide
+        manipulators_wide = create_manipulators([
+            "grave_accent_and_tilde","1","2","4","5","equal_sign","6","7","8","9","0","hyphen",
+            "q","w","f","p","b","open_bracket","j","l","u","y","semicolon","quote","backslash",
+            "a","r","s","t","g","close_bracket","k","n","e","i","o",
+            "x","c","d","v","z","slash","m","h","comma","period"
+        ])
+
+        # Alt-Home
+        manipulators_alt_home = create_manipulators([
+            "grave_accent_and_tilde","hyphen","1","2","4","5","6","7","8","9","0","equal_sign",
+            "close_bracket","q","w","f","p","b","j","l","u","y","semicolon","quote","backslash",
+            "open_bracket","a","r","s","t","g","k","n","e","i","o",
+            "z","x","c","d","v","slash","m","h","comma","period","slash"
+        ])
+    %>
+    "title": "Colemak Mod-DH Keyboard (ANSI)",
+    "rules": [
+        {
+            "description": "Colemak Mod-DH Standard (ANSI)",
+            "manipulators":
+            <%= JSON.generate(manipulators_standard) %>
+        },
+        {
+            "description": "Colemak Mod-DH Wide (ANSI)",
+            "manipulators":
+            <%= JSON.generate(manipulators_wide) %>
+        },
+        {
+            "description": "Colemak Mod-DH Alt-Home (ANSI)",
+            "manipulators":
+            <%= JSON.generate(manipulators_alt_home) %>
+        }
+    ]
+}
