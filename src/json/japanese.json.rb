@@ -27,6 +27,7 @@ def main
             'to' => [
               {
                 'key_code' => 'left_command',
+                'lazy' => true,
               },
             ],
             'to_if_held_down' => [
@@ -52,6 +53,7 @@ def main
             'to' => [
               {
                 'key_code' => 'right_command',
+                'lazy' => true,
               },
             ],
             'to_if_held_down' => [
@@ -92,6 +94,12 @@ def main
             'to' => [
               {
                 'key_code' => 'left_command',
+                'lazy' => true,
+              },
+            ],
+            'to_if_held_down' => [
+              {
+                'key_code' => 'left_command',
               },
             ],
             'to_if_held_down' => [
@@ -125,6 +133,12 @@ def main
               'basic.to_if_held_down_threshold_milliseconds' => 100,
             },
             'to' => [
+              {
+                'key_code' => 'left_command',
+                'lazy' => true,
+              },
+            ],
+            'to_if_held_down' => [
               {
                 'key_code' => 'left_command',
               },
@@ -162,6 +176,12 @@ def main
             'to' => [
               {
                 'key_code' => 'right_command',
+                'lazy' => true,
+              },
+            ],
+            'to_if_held_down' => [
+              {
+                'key_code' => 'right_command',
               },
             ],
             'to_if_held_down' => [
@@ -195,6 +215,12 @@ def main
               'basic.to_if_held_down_threshold_milliseconds' => 100,
             },
             'to' => [
+              {
+                'key_code' => 'right_command',
+                'lazy' => true,
+              },
+            ],
+            'to_if_held_down' => [
               {
                 'key_code' => 'right_command',
               },
@@ -237,6 +263,12 @@ def main
             'to' => [
               {
                 'key_code' => 'right_command',
+                'lazy' => true,
+              },
+            ],
+            'to_if_held_down' => [
+              {
+                'key_code' => 'right_command',
               },
             ],
             'to_if_held_down' => [
@@ -270,6 +302,12 @@ def main
               'basic.to_if_held_down_threshold_milliseconds' => 100,
             },
             'to' => [
+              {
+                'key_code' => 'right_command',
+                'lazy' => true,
+              },
+            ],
+            'to_if_held_down' => [
               {
                 'key_code' => 'right_command',
               },
@@ -531,6 +569,12 @@ def main
             'to' => [
               {
                 'key_code' => 'left_control',
+                'lazy' => true,
+              },
+            ],
+            'to_if_held_down' => [
+              {
+                'key_code' => 'left_control',
               },
             ],
             'to_if_held_down' => [
@@ -554,6 +598,12 @@ def main
               'basic.to_if_held_down_threshold_milliseconds' => 100,
             },
             'to' => [
+              {
+                'key_code' => 'right_command',
+                'lazy' => true,
+              },
+            ],
+            'to_if_held_down' => [
               {
                 'key_code' => 'right_command',
               },
