@@ -10,7 +10,7 @@ require_relative '../lib/karabiner.rb'
 
 def main
   puts JSON.pretty_generate(
-    'title' => 'For Japanese （日本語環境向けの設定） (rev 4)',
+    'title' => 'For Japanese （日本語環境向けの設定） (rev 5)',
     'rules' => [
       {
         'description' => 'コマンドキーを単体で押したときに、英数・かなキーを送信する。（左コマンドキーは英数、右コマンドキーはかな） (rev 3)',
@@ -70,7 +70,7 @@ def main
         ],
       },
       {
-        'description' => 'コマンドキー（左右どちらでも）を単体で押したときに、英数・かなをトグルで切り替える。',
+        'description' => 'コマンドキー（左右どちらでも）を単体で押したときに、英数・かなをトグルで切り替える。 (rev 2)',
         'manipulators' => [
           {
             'type' => 'basic',
@@ -88,10 +88,18 @@ def main
               'key_code' => 'left_command',
               'modifiers' => Karabiner.from_modifiers,
             },
+            'parameters' => {
+              'basic.to_if_held_down_threshold_milliseconds' => 100,
+            },
             'to' => [
               {
                 'key_code' => 'left_command',
                 'lazy' => true,
+              },
+            ],
+            'to_if_held_down' => [
+              {
+                'key_code' => 'left_command',
               },
             ],
             'to_if_alone' => [
@@ -116,10 +124,18 @@ def main
               'key_code' => 'left_command',
               'modifiers' => Karabiner.from_modifiers,
             },
+            'parameters' => {
+              'basic.to_if_held_down_threshold_milliseconds' => 100,
+            },
             'to' => [
               {
                 'key_code' => 'left_command',
                 'lazy' => true,
+              },
+            ],
+            'to_if_held_down' => [
+              {
+                'key_code' => 'left_command',
               },
             ],
             'to_if_alone' => [
@@ -144,10 +160,18 @@ def main
               'key_code' => 'right_command',
               'modifiers' => Karabiner.from_modifiers,
             },
+            'parameters' => {
+              'basic.to_if_held_down_threshold_milliseconds' => 100,
+            },
             'to' => [
               {
                 'key_code' => 'right_command',
                 'lazy' => true,
+              },
+            ],
+            'to_if_held_down' => [
+              {
+                'key_code' => 'right_command',
               },
             ],
             'to_if_alone' => [
@@ -172,10 +196,18 @@ def main
               'key_code' => 'right_command',
               'modifiers' => Karabiner.from_modifiers,
             },
+            'parameters' => {
+              'basic.to_if_held_down_threshold_milliseconds' => 100,
+            },
             'to' => [
               {
                 'key_code' => 'right_command',
                 'lazy' => true,
+              },
+            ],
+            'to_if_held_down' => [
+              {
+                'key_code' => 'right_command',
               },
             ],
             'to_if_alone' => [
@@ -187,7 +219,7 @@ def main
         ],
       },
       {
-        'description' => 'コマンドキー（右のみ）を単体で押したときに、英数・かなをトグルで切り替える。',
+        'description' => 'コマンドキー（右のみ）を単体で押したときに、英数・かなをトグルで切り替える。 (rev 2)',
         'manipulators' => [
           {
             'type' => 'basic',
@@ -205,10 +237,18 @@ def main
               'key_code' => 'right_command',
               'modifiers' => Karabiner.from_modifiers,
             },
+            'parameters' => {
+              'basic.to_if_held_down_threshold_milliseconds' => 100,
+            },
             'to' => [
               {
                 'key_code' => 'right_command',
                 'lazy' => true,
+              },
+            ],
+            'to_if_held_down' => [
+              {
+                'key_code' => 'right_command',
               },
             ],
             'to_if_alone' => [
@@ -233,10 +273,18 @@ def main
               'key_code' => 'right_command',
               'modifiers' => Karabiner.from_modifiers,
             },
+            'parameters' => {
+              'basic.to_if_held_down_threshold_milliseconds' => 100,
+            },
             'to' => [
               {
                 'key_code' => 'right_command',
                 'lazy' => true,
+              },
+            ],
+            'to_if_held_down' => [
+              {
+                'key_code' => 'right_command',
               },
             ],
             'to_if_alone' => [
@@ -248,7 +296,7 @@ def main
         ],
       },
       {
-        'description' => '英数・かなキーを他のキーと同時に押したときに、Optionキーを送信する',
+        'description' => '英数・かなキーを他のキーと同時に押したときに、Optionキーを送信する (rev 2)',
         'manipulators' => [
           {
             'type' => 'basic',
@@ -256,7 +304,16 @@ def main
               'key_code' => 'japanese_eisuu',
               'modifiers' => Karabiner.from_modifiers,
             },
+            'parameters' => {
+              'basic.to_if_held_down_threshold_milliseconds' => 100,
+            },
             'to' => [
+              {
+                'key_code' => 'left_option',
+                'lazy' => true,
+              },
+            ],
+            'to_if_held_down' => [
               {
                 'key_code' => 'left_option',
               },
@@ -273,7 +330,16 @@ def main
               'key_code' => 'japanese_kana',
               'modifiers' => Karabiner.from_modifiers,
             },
+            'parameters' => {
+              'basic.to_if_held_down_threshold_milliseconds' => 100,
+            },
             'to' => [
+              {
+                'key_code' => 'right_option',
+                'lazy' => true,
+              },
+            ],
+            'to_if_held_down' => [
               {
                 'key_code' => 'right_option',
               },
@@ -459,7 +525,7 @@ def main
         ],
       },
       {
-        'description' => '右コマンドキーを単体で押したときに、かなキーを送信、左コントロールキーを単体で押したときに、英数キーを送信する。',
+        'description' => '右コマンドキーを単体で押したときに、かなキーを送信、左コントロールキーを単体で押したときに、英数キーを送信する。 (rev 2)',
         'manipulators' => [
           {
             'type' => 'basic',
@@ -467,10 +533,18 @@ def main
               'key_code' => 'left_control',
               'modifiers' => Karabiner.from_modifiers,
             },
+            'parameters' => {
+              'basic.to_if_held_down_threshold_milliseconds' => 100,
+            },
             'to' => [
               {
                 'key_code' => 'left_control',
                 'lazy' => true,
+              },
+            ],
+            'to_if_held_down' => [
+              {
+                'key_code' => 'left_control',
               },
             ],
             'to_if_alone' => [
@@ -485,10 +559,18 @@ def main
               'key_code' => 'right_command',
               'modifiers' => Karabiner.from_modifiers,
             },
+            'parameters' => {
+              'basic.to_if_held_down_threshold_milliseconds' => 100,
+            },
             'to' => [
               {
                 'key_code' => 'right_command',
                 'lazy' => true,
+              },
+            ],
+            'to_if_held_down' => [
+              {
+                'key_code' => 'right_command',
               },
             ],
             'to_if_alone' => [
