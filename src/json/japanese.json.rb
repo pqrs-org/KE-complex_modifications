@@ -27,6 +27,7 @@ def main
             'to' => [
               {
                 'key_code' => 'left_command',
+                'lazy' => true,
               },
             ],
             'to_if_held_down' => [
@@ -52,6 +53,7 @@ def main
             'to' => [
               {
                 'key_code' => 'right_command',
+                'lazy' => true,
               },
             ],
             'to_if_held_down' => [
@@ -86,7 +88,16 @@ def main
               'key_code' => 'left_command',
               'modifiers' => Karabiner.from_modifiers,
             },
+            'parameters' => {
+              'basic.to_if_held_down_threshold_milliseconds' => 100,
+            },
             'to' => [
+              {
+                'key_code' => 'left_command',
+                'lazy' => true,
+              },
+            ],
+            'to_if_held_down' => [
               {
                 'key_code' => 'left_command',
               },
@@ -113,7 +124,16 @@ def main
               'key_code' => 'left_command',
               'modifiers' => Karabiner.from_modifiers,
             },
+            'parameters' => {
+              'basic.to_if_held_down_threshold_milliseconds' => 100,
+            },
             'to' => [
+              {
+                'key_code' => 'left_command',
+                'lazy' => true,
+              },
+            ],
+            'to_if_held_down' => [
               {
                 'key_code' => 'left_command',
               },
@@ -140,7 +160,16 @@ def main
               'key_code' => 'right_command',
               'modifiers' => Karabiner.from_modifiers,
             },
+            'parameters' => {
+              'basic.to_if_held_down_threshold_milliseconds' => 100,
+            },
             'to' => [
+              {
+                'key_code' => 'right_command',
+                'lazy' => true,
+              },
+            ],
+            'to_if_held_down' => [
               {
                 'key_code' => 'right_command',
               },
@@ -167,7 +196,16 @@ def main
               'key_code' => 'right_command',
               'modifiers' => Karabiner.from_modifiers,
             },
+            'parameters' => {
+              'basic.to_if_held_down_threshold_milliseconds' => 100,
+            },
             'to' => [
+              {
+                'key_code' => 'right_command',
+                'lazy' => true,
+              },
+            ],
+            'to_if_held_down' => [
               {
                 'key_code' => 'right_command',
               },
@@ -199,7 +237,16 @@ def main
               'key_code' => 'right_command',
               'modifiers' => Karabiner.from_modifiers,
             },
+            'parameters' => {
+              'basic.to_if_held_down_threshold_milliseconds' => 100,
+            },
             'to' => [
+              {
+                'key_code' => 'right_command',
+                'lazy' => true,
+              },
+            ],
+            'to_if_held_down' => [
               {
                 'key_code' => 'right_command',
               },
@@ -226,7 +273,16 @@ def main
               'key_code' => 'right_command',
               'modifiers' => Karabiner.from_modifiers,
             },
+            'parameters' => {
+              'basic.to_if_held_down_threshold_milliseconds' => 100,
+            },
             'to' => [
+              {
+                'key_code' => 'right_command',
+                'lazy' => true,
+              },
+            ],
+            'to_if_held_down' => [
               {
                 'key_code' => 'right_command',
               },
@@ -248,7 +304,16 @@ def main
               'key_code' => 'japanese_eisuu',
               'modifiers' => Karabiner.from_modifiers,
             },
+            'parameters' => {
+              'basic.to_if_held_down_threshold_milliseconds' => 100,
+            },
             'to' => [
+              {
+                'key_code' => 'left_option',
+                'lazy' => true,
+              },
+            ],
+            'to_if_held_down' => [
               {
                 'key_code' => 'left_option',
               },
@@ -265,7 +330,16 @@ def main
               'key_code' => 'japanese_kana',
               'modifiers' => Karabiner.from_modifiers,
             },
+            'parameters' => {
+              'basic.to_if_held_down_threshold_milliseconds' => 100,
+            },
             'to' => [
+              {
+                'key_code' => 'right_option',
+                'lazy' => true,
+              },
+            ],
+            'to_if_held_down' => [
               {
                 'key_code' => 'right_option',
               },
@@ -459,7 +533,16 @@ def main
               'key_code' => 'left_control',
               'modifiers' => Karabiner.from_modifiers,
             },
+            'parameters' => {
+              'basic.to_if_held_down_threshold_milliseconds' => 100,
+            },
             'to' => [
+              {
+                'key_code' => 'left_control',
+                'lazy' => true,
+              },
+            ],
+            'to_if_held_down' => [
               {
                 'key_code' => 'left_control',
               },
@@ -476,7 +559,16 @@ def main
               'key_code' => 'right_command',
               'modifiers' => Karabiner.from_modifiers,
             },
+            'parameters' => {
+              'basic.to_if_held_down_threshold_milliseconds' => 100,
+            },
             'to' => [
+              {
+                'key_code' => 'right_command',
+                'lazy' => true,
+              },
+            ],
+            'to_if_held_down' => [
               {
                 'key_code' => 'right_command',
               },
