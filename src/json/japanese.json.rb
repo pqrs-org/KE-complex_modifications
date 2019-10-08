@@ -10,7 +10,7 @@ require_relative '../lib/karabiner.rb'
 
 def main
   puts JSON.pretty_generate(
-    'title' => 'For Japanese （日本語環境向けの設定） (rev 4)',
+    'title' => 'For Japanese （日本語環境向けの設定） (rev 5)',
     'rules' => [
       {
         'description' => 'コマンドキーを単体で押したときに、英数・かなキーを送信する。（左コマンドキーは英数、右コマンドキーはかな） (rev 3)',
@@ -70,7 +70,7 @@ def main
         ],
       },
       {
-        'description' => 'コマンドキー（左右どちらでも）を単体で押したときに、英数・かなをトグルで切り替える。',
+        'description' => 'コマンドキー（左右どちらでも）を単体で押したときに、英数・かなをトグルで切り替える。 (rev 2)',
         'manipulators' => [
           {
             'type' => 'basic',
@@ -219,7 +219,7 @@ def main
         ],
       },
       {
-        'description' => 'コマンドキー（右のみ）を単体で押したときに、英数・かなをトグルで切り替える。',
+        'description' => 'コマンドキー（右のみ）を単体で押したときに、英数・かなをトグルで切り替える。 (rev 2)',
         'manipulators' => [
           {
             'type' => 'basic',
@@ -296,7 +296,7 @@ def main
         ],
       },
       {
-        'description' => '英数・かなキーを他のキーと同時に押したときに、Optionキーを送信する',
+        'description' => '英数・かなキーを他のキーと同時に押したときに、Optionキーを送信する (rev 2)',
         'manipulators' => [
           {
             'type' => 'basic',
@@ -525,7 +525,7 @@ def main
         ],
       },
       {
-        'description' => '右コマンドキーを単体で押したときに、かなキーを送信、左コントロールキーを単体で押したときに、英数キーを送信する。',
+        'description' => '右コマンドキーを単体で押したときに、かなキーを送信、左コントロールキーを単体で押したときに、英数キーを送信する。 (rev 2)',
         'manipulators' => [
           {
             'type' => 'basic',
