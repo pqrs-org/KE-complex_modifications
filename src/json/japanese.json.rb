@@ -102,11 +102,6 @@ def main
                 'key_code' => 'left_command',
               },
             ],
-            'to_if_held_down' => [
-              {
-                'key_code' => 'left_command',
-              },
-            ],
             'to_if_alone' => [
               {
                 'key_code' => 'japanese_eisuu',
@@ -136,11 +131,6 @@ def main
               {
                 'key_code' => 'left_command',
                 'lazy' => true,
-              },
-            ],
-            'to_if_held_down' => [
-              {
-                'key_code' => 'left_command',
               },
             ],
             'to_if_held_down' => [
@@ -184,11 +174,6 @@ def main
                 'key_code' => 'right_command',
               },
             ],
-            'to_if_held_down' => [
-              {
-                'key_code' => 'right_command',
-              },
-            ],
             'to_if_alone' => [
               {
                 'key_code' => 'japanese_eisuu',
@@ -218,11 +203,6 @@ def main
               {
                 'key_code' => 'right_command',
                 'lazy' => true,
-              },
-            ],
-            'to_if_held_down' => [
-              {
-                'key_code' => 'right_command',
               },
             ],
             'to_if_held_down' => [
@@ -271,11 +251,6 @@ def main
                 'key_code' => 'right_command',
               },
             ],
-            'to_if_held_down' => [
-              {
-                'key_code' => 'right_command',
-              },
-            ],
             'to_if_alone' => [
               {
                 'key_code' => 'japanese_eisuu',
@@ -305,11 +280,6 @@ def main
               {
                 'key_code' => 'right_command',
                 'lazy' => true,
-              },
-            ],
-            'to_if_held_down' => [
-              {
-                'key_code' => 'right_command',
               },
             ],
             'to_if_held_down' => [
@@ -577,11 +547,6 @@ def main
                 'key_code' => 'left_control',
               },
             ],
-            'to_if_held_down' => [
-              {
-                'key_code' => 'left_control',
-              },
-            ],
             'to_if_alone' => [
               {
                 'key_code' => 'japanese_eisuu',
@@ -601,11 +566,6 @@ def main
               {
                 'key_code' => 'right_command',
                 'lazy' => true,
-              },
-            ],
-            'to_if_held_down' => [
-              {
-                'key_code' => 'right_command',
               },
             ],
             'to_if_held_down' => [
