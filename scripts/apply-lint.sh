@@ -5,8 +5,8 @@ karabiner_cli='/Library/Application Support/org.pqrs/Karabiner-Elements/bin/kara
 use_partial_lint=false
 
 # Use built-in binary only when CI
-if [ "$CONTINUOUS_INTEGRATION" = "true" ]; then
-  karabiner_cli="$topdir/.travis/bin/karabiner_cli"
+if [ "$GITHUB_ACTION" != "" ]; then
+  karabiner_cli="$topdir/.github/workflows/bin/karabiner_cli"
 fi
 
 version_number=$("$karabiner_cli" --version-number)
