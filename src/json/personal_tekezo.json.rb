@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 # You can generate json by executing the following command on Terminal.
 #
@@ -14,10 +15,11 @@ def main
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Personal rules (@tekezo) (rev 7)',
+        'description' => 'Personal rules (@tekezo) (rev 8)',
         'manipulators' =>
         control_1234 +
         option_hyphen +
+        media_controls +
         app_virtual_machine +
         app_finder +
         app_terminal +
@@ -234,6 +236,57 @@ def option_hyphen
           'key_code' => 'equal_sign',
           'repeat' => false,
         },
+      ],
+    },
+  ]
+end
+
+def media_controls
+  # Change fn+page_up,page_down to brightness control
+  # Change page_up,page_down to volume control
+  [
+    # fn+page_down
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => 'page_down',
+        'modifiers' => Karabiner.from_modifiers(['fn'], ['any']),
+      },
+      'to' => [
+        { 'consumer_key_code' => 'display_brightness_decrement' },
+      ],
+    },
+    # fn+page_up
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => 'page_up',
+        'modifiers' => Karabiner.from_modifiers(['fn'], ['any']),
+      },
+      'to' => [
+        { 'consumer_key_code' => 'display_brightness_increment' },
+      ],
+    },
+    # page_down
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => 'page_down',
+        'modifiers' => Karabiner.from_modifiers([], ['any']),
+      },
+      'to' => [
+        { 'consumer_key_code' => 'volume_decrement' },
+      ],
+    },
+    # page_up
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => 'page_up',
+        'modifiers' => Karabiner.from_modifiers([], ['any']),
+      },
+      'to' => [
+        { 'consumer_key_code' => 'volume_increment' },
       ],
     },
   ]
