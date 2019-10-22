@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/pqrs-org/KE-complex_modifications.svg?branch=master)](https://travis-ci.com/pqrs-org/KE-complex_modifications)
+[![Build Status](https://github.com/pqrs-org/KE-complex_modifications/workflows/KE-complex_modifications%20CI/badge.svg)](https://github.com/pqrs-org/KE-complex_modifications/actions)
 
 # KE-complex_modifications
 
@@ -10,7 +10,7 @@ complex_modifications for Karabiner-Elements.
 
 1.  Put a `.rb` (or `.erb`) template file into [src/json](https://github.com/pqrs-org/KE-complex_modifications/tree/master/src/json). (Or put a `.json` file into [docs/json](https://github.com/pqrs-org/KE-complex_modifications/tree/master/docs/json) directly.)
 2.  (Optional) Put extra description file into [docs/extra_descriptions](https://github.com/pqrs-org/KE-complex_modifications/tree/master/docs/extra_descriptions).
-3.  Add the following json into [docs/groups.json](https://github.com/pqrs-org/KE-complex_modifications/tree/master/docs/groups.json) &gt; `files`. 
+3.  Add the following json into [docs/groups.json](https://github.com/pqrs-org/KE-complex_modifications/tree/master/docs/groups.json) &gt; `files`.
 
     ```json5
     {
@@ -24,8 +24,8 @@ complex_modifications for Karabiner-Elements.
     ```shell
     make
     ```
-    
-    
+
+
 
 ## complex_modifications documents
 
@@ -36,7 +36,7 @@ complex_modifications for Karabiner-Elements.
 `docs/index.html` does not work properly if you open it via `file://...`.<br />
 Launch a local web server by `make server` in terminal and open <http://localhost:8000>.<br />
 (You can quit the local web server by the `control-c` shortcut in terminal.) <br/>
-Before run `make server`, make sure you've run `make` command to auto generate `docs/dist.json` file. 
+Before run `make server`, make sure you've run `make` command to auto generate `docs/dist.json` file.
 
 Karabiner-Elements cannot import the json from the local web server due to the no https connection between local web server.<br />
 Please import the json via file copy. (See [Test your own rules](#Test-your-own-rules).)
@@ -47,7 +47,7 @@ Please import the json via file copy. (See [Test your own rules](#Test-your-own-
     ```shell
     cp docs/json/your_awesome_configuration.json ~/.config/karabiner/assets/complex_modifications
     ```
-2.  Import rules from Karabiner-Elements Preferences.  
+2.  Import rules from Karabiner-Elements Preferences.
  `Karabiner-Elements Preferences > Complex Modifications > Rules > Add rule`
 
 ## How to publish your own rules
