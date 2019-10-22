@@ -1,0 +1,14 @@
+name: KE-complex_modifications CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: macOS-latest
+
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+      - name: rebuild
+        run: make rebuild
