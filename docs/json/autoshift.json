@@ -1,8 +1,8 @@
 {
-  "title": "Autoshift: Engage shifted key by holding key",
+  "title": "Autoshift: Post key if pressed alone, shifted key if held down",
   "rules": [
     {
-      "description": "Post key if pressed alone, shifted key if held down.",
+      "description": "Autoshift: Post key if pressed alone, shifted key if held down",
       "manipulators": [
         {
           "from": {
@@ -1268,6 +1268,33 @@
           "to_after_key_up": [
             {
               "key_code": "slash",
+              "repeat": false
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to_if_held_down": [
+            {
+              "key_code": "spacebar",
+              "modifiers": [
+                "left_shift"
+              ],
+              "repeat": false,
+              "halt": true
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "key_code": "spacebar",
               "repeat": false
             }
           ],
