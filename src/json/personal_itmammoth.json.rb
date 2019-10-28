@@ -175,7 +175,12 @@ def generate_mission_control_rules(key_code)
     {
       type: 'basic',
       from: from,
-      to: [Karabiner.set_variable(mode, 1)],
+      to: [
+        Karabiner.set_variable(mode, 1),
+        {
+          key_code: key_code,
+        },
+      ],
       to_delayed_action: {
         to_if_invoked: [Karabiner.set_variable(mode, 0)],
         to_if_canceled: [Karabiner.set_variable(mode, 0)],
