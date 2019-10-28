@@ -2,10 +2,10 @@
 <%# A much simplified copy of the vi_mode.json.erb file, for TouchCursor %>
 <%# ---------------------------------------------------------------------%>
 {
-    "title": "TouchCursor Mode",
+    "title": "TouchCursor Mode (rev 2)",
     "rules": [
         {
-            "description": "TouchCursor Mode [Space as Trigger Key]",
+            "description": "TouchCursor Mode [Space as Trigger Key] (rev 2)",
             "manipulators": [
 
                 <%# -------------------------------------------------- %>
@@ -66,7 +66,7 @@
                 {
                     "type": "basic",
                     "from": <%= from("u", [], ["any"]) %>,
-                    "to": <%= to([["home"]]) %>,
+                    "to": <%= to([["left_arrow", ["command"]]]) %>,
                     "conditions": [
                         { "type": "variable_if", "name": "touchcursor_mode", "value": 1 }
                     ]
@@ -74,7 +74,7 @@
                 {
                     "type": "basic",
                     "from": <%= from("o", [], ["any"]) %>,
-                    "to": <%= to([["end"]]) %>,
+                    "to": <%= to([["right_arrow", ["command"]]]) %>,
                     "conditions": [
                         { "type": "variable_if", "name": "touchcursor_mode", "value": 1 }
                     ]
