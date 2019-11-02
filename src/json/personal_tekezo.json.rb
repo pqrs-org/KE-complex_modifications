@@ -15,7 +15,7 @@ def main
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Personal rules (@tekezo) (rev 8)',
+        'description' => 'Personal rules (@tekezo) (rev 9)',
         'manipulators' =>
         control_1234 +
         option_hyphen +
@@ -29,26 +29,6 @@ def main
         app_visual_studio_code +
         switch_input_source +
         [
-          # tab
-          {
-            'type' => 'basic',
-            'from' => {
-              'key_code' => 'tab',
-              'modifiers' => Karabiner.from_modifiers,
-            },
-            'to' => [
-              {
-                'key_code' => 'left_command',
-              },
-            ],
-            'to_if_alone' => [
-              {
-                'key_code' => 'grave_accent_and_tilde',
-                'modifiers' => ['left_command'],
-              },
-            ],
-          },
-
           # f18
           {
             'type' => 'basic',
@@ -144,6 +124,12 @@ def main
               {
                 'key_code' => 'left_control',
                 'lazy' => true,
+              },
+            ],
+            'to_if_alone' => [
+              {
+                'key_code' => 'grave_accent_and_tilde',
+                'modifiers' => ['left_command'],
               },
             ],
           },

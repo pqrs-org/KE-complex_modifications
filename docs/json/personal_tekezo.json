@@ -5,7 +5,7 @@
   ],
   "rules": [
     {
-      "description": "Personal rules (@tekezo) (rev 8)",
+      "description": "Personal rules (@tekezo) (rev 9)",
       "manipulators": [
         {
           "type": "basic",
@@ -1247,30 +1247,6 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "tab",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "left_command"
-            }
-          ],
-          "to_if_alone": [
-            {
-              "key_code": "grave_accent_and_tilde",
-              "modifiers": [
-                "left_command"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
             "key_code": "f18",
             "modifiers": {
               "optional": [
@@ -1398,6 +1374,14 @@
             {
               "key_code": "left_control",
               "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": [
+                "left_command"
+              ]
             }
           ]
         }
