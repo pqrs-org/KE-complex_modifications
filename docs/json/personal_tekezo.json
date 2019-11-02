@@ -1365,14 +1365,20 @@
           "from": {
             "key_code": "left_command",
             "modifiers": {
+              "mandatory": [
+                "right_command"
+              ],
               "optional": [
-                "any"
+                "caps_lock"
               ]
             }
           },
           "to": [
             {
               "key_code": "left_control",
+              "modifiers": [
+                "right_command"
+              ],
               "lazy": true
             }
           ],
@@ -1382,6 +1388,23 @@
               "modifiers": [
                 "left_command"
               ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_command",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_control",
+              "lazy": true
             }
           ]
         }

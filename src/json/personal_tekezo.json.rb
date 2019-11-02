@@ -15,7 +15,7 @@ def main
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Personal rules (@tekezo) (rev 9)',
+        'description' => 'Personal rules (@tekezo) (rev 10)',
         'manipulators' =>
         control_1234 +
         option_hyphen +
@@ -118,11 +118,12 @@ def main
             'type' => 'basic',
             'from' => {
               'key_code' => 'left_command',
-              'modifiers' => Karabiner.from_modifiers,
+              'modifiers' => Karabiner.from_modifiers(['right_command'], ['caps_lock']),
             },
             'to' => [
               {
                 'key_code' => 'left_control',
+                'modifiers' => ['right_command'],
                 'lazy' => true,
               },
             ],
@@ -130,6 +131,19 @@ def main
               {
                 'key_code' => 'grave_accent_and_tilde',
                 'modifiers' => ['left_command'],
+              },
+            ],
+          },
+          {
+            'type' => 'basic',
+            'from' => {
+              'key_code' => 'left_command',
+              'modifiers' => Karabiner.from_modifiers,
+            },
+            'to' => [
+              {
+                'key_code' => 'left_control',
+                'lazy' => true,
               },
             ],
           },
