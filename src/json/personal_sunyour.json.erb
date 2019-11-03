@@ -1,0 +1,84 @@
+{
+  "title": "Sunn Yao's Personal Configurations",
+  "rules": [
+    {
+      "description": "Change enter to control if pressed with other keys",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("return_or_enter", [], ["any"]) %>,
+          "to": <%= to([["right_control"]]) %>,
+          "to_if_alone": <%= to([["return_or_enter"]]) %>
+        }
+      ]
+    },
+    {
+      "description": "Change caps_lock to control if pressed with other keys, to escape if pressed alone.",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("caps_lock", [], ["any"]) %>,
+          "to": <%= to([["left_control"]]) %>,
+          "to_if_alone": <%= to([["escape"]]) %>
+        }
+      ]
+    },
+    {
+      "description": "Post escape if left_control is pressed alone.",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("left_control", [], ["any"]) %>,
+          "to": <%= to([["left_control"]]) %>,
+          "to_if_alone": <%= to([["escape"]]) %>
+        }
+      ]
+    },
+    {
+      "description": "Change left_shift to Ctrl-\\ if pressed alone in Emacs",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("left_shift", [], []) %>,
+          "to": <%= to([["left_shift"]]) %>,
+          "to_if_alone": <%= to([["backslash", ["left_control"]]]) %>,
+          "conditions": [ <%= frontmost_application_if("emacs") %> ]
+        }
+      ]
+    },
+    {
+      "description": "Change right_shift to Ctrl-\\ if pressed alone in Emacs",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("right_shift", [], []) %>,
+          "to": <%= to([["right_shift"]]) %>,
+          "to_if_alone": <%= to([["backslash", ["left_control"]],]) %>,
+          "conditions": [ <%= frontmost_application_if("emacs") %> ]
+        }
+      ]
+     },
+    {
+      "description": "Change left_gui+spacebar to left_alt+spacebar in Emacs",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("spacebar", ["left_gui"], []) %>,
+          "to": <%= to([["spacebar", ["left_alt"]]]) %>,
+          "conditions": [ <%= frontmost_application_if("emacs") %> ]
+        }
+      ]
+     },
+    {
+      "description": "Change left_gui+x to left_alt+x in Emacs",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("x", ["left_gui"], []) %>,
+          "to": <%= to([["x", ["left_alt"]]]) %>,
+          "conditions": [ <%= frontmost_application_if("emacs") %> ]
+        }
+      ]
+    }
+  ]
+}

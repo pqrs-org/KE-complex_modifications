@@ -1,6 +1,10 @@
 # Helper methods for generating json
 module Karabiner
   BUNDLE_IDENTIFERS = {
+    :alfred => [
+      '^com\\.runningwithcrayons\\.Alfred$',
+    ],
+
     :activity_monitor => [
       '^com\.apple\.ActivityMonitor$',
     ],
@@ -121,6 +125,7 @@ module Karabiner
   }.freeze
 
   APP_ALIASES = {
+    'alfred' => BUNDLE_IDENTIFERS[:alfred],
     'activity_monitor' => BUNDLE_IDENTIFERS[:activity_monitor],
     'adium' => BUNDLE_IDENTIFERS[:adium],
     'browser' => BUNDLE_IDENTIFERS[:browser],
