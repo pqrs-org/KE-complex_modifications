@@ -15,7 +15,7 @@ def main
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Personal rules (@tekezo) (rev 10)',
+        'description' => 'Personal rules (@tekezo) (rev 11)',
         'manipulators' =>
         control_1234 +
         option_hyphen +
@@ -664,7 +664,7 @@ def switch_input_source
       'type' => 'basic',
       'from' => {
         'key_code' => '1',
-        'modifiers' => Karabiner.from_modifiers(%w[left_control right_command], %w[caps_lock]),
+        'modifiers' => Karabiner.from_modifiers(%w[right_option], %w[caps_lock]),
       },
       'to' => [
         { 'key_code' => 'lang2' },
@@ -674,7 +674,7 @@ def switch_input_source
       'type' => 'basic',
       'from' => {
         'key_code' => '2',
-        'modifiers' => Karabiner.from_modifiers(%w[left_control right_command], %w[caps_lock]),
+        'modifiers' => Karabiner.from_modifiers(%w[right_option], %w[caps_lock]),
       },
       'to' => [
         { 'key_code' => 'lang1' },
