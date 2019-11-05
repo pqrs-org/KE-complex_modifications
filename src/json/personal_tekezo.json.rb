@@ -15,7 +15,7 @@ def main
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Personal rules (@tekezo) (rev 8)',
+        'description' => 'Personal rules (@tekezo) (rev 10)',
         'manipulators' =>
         control_1234 +
         option_hyphen +
@@ -29,26 +29,6 @@ def main
         app_visual_studio_code +
         switch_input_source +
         [
-          # tab
-          {
-            'type' => 'basic',
-            'from' => {
-              'key_code' => 'tab',
-              'modifiers' => Karabiner.from_modifiers,
-            },
-            'to' => [
-              {
-                'key_code' => 'left_command',
-              },
-            ],
-            'to_if_alone' => [
-              {
-                'key_code' => 'grave_accent_and_tilde',
-                'modifiers' => ['left_command'],
-              },
-            ],
-          },
-
           # f18
           {
             'type' => 'basic',
@@ -134,6 +114,26 @@ def main
 
           # left_command
           # (Change left_command to lazy left_control to suppress single control key press at Emacs key bindings on Alfred)
+          {
+            'type' => 'basic',
+            'from' => {
+              'key_code' => 'left_command',
+              'modifiers' => Karabiner.from_modifiers(['right_command'], ['caps_lock']),
+            },
+            'to' => [
+              {
+                'key_code' => 'left_control',
+                'modifiers' => ['right_command'],
+                'lazy' => true,
+              },
+            ],
+            'to_if_alone' => [
+              {
+                'key_code' => 'grave_accent_and_tilde',
+                'modifiers' => ['left_command'],
+              },
+            ],
+          },
           {
             'type' => 'basic',
             'from' => {
