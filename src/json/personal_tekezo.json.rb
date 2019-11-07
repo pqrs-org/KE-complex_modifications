@@ -15,7 +15,7 @@ def main
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Personal rules (@tekezo) (rev 11)',
+        'description' => 'Personal rules (@tekezo) (rev 12)',
         'manipulators' =>
         control_1234 +
         option_hyphen +
@@ -27,7 +27,6 @@ def main
         app_activity_monitor +
         app_adium +
         app_visual_studio_code +
-        switch_input_source +
         [
           # f18
           {
@@ -79,6 +78,39 @@ def main
             ],
           },
 
+          ########################################
+          # right_command
+          ########################################
+
+          #
+          # virtual_machine
+          #
+
+          # left_control + right_command -> input switch
+          {
+            'type' => 'basic',
+            'from' => {
+              'key_code' => 'right_command',
+              'modifiers' => Karabiner.from_modifiers(['left_control']),
+            },
+            'to' => [
+              {
+                'key_code' => 'right_control',
+                'modifiers' => ['left_control'],
+                'lazy' => true,
+              },
+            ],
+            'to_if_alone' => [
+              {
+                'key_code' => 'grave_accent_and_tilde',
+                'modifiers' => ['left_option'],
+              },
+            ],
+            'conditions' => [
+              Karabiner.frontmost_application_if(%w[remote_desktop virtual_machine]),
+            ],
+          },
+
           # right_command (virtual_machine)
           {
             'type' => 'basic',
@@ -97,7 +129,32 @@ def main
             ],
           },
 
-          # right_command
+          #
+          # except virtual_machine
+          #
+
+          # left_control + right_command -> input switch
+          {
+            'type' => 'basic',
+            'from' => {
+              'key_code' => 'right_command',
+              'modifiers' => Karabiner.from_modifiers(['left_control']),
+            },
+            'to' => [
+              {
+                'key_code' => 'right_command',
+                'modifiers' => ['left_control'],
+                'lazy' => true,
+              },
+            ],
+            'to_if_alone' => [
+              {
+                'key_code' => 'lang2',
+              },
+            ],
+          },
+
+          # right_command (lazy)
           {
             'type' => 'basic',
             'from' => {
@@ -111,6 +168,10 @@ def main
               },
             ],
           },
+
+          ########################################
+          # left_command
+          ########################################
 
           # left_command
           # (Change left_command to lazy left_control to suppress single control key press at Emacs key bindings on Alfred)
@@ -144,6 +205,56 @@ def main
               {
                 'key_code' => 'left_control',
                 'lazy' => true,
+              },
+            ],
+          },
+
+          ########################################
+          # right_option
+          ########################################
+
+          # virtual_machine
+          {
+            'type' => 'basic',
+            'from' => {
+              'key_code' => 'right_option',
+              'modifiers' => Karabiner.from_modifiers(['left_control']),
+            },
+            'to' => [
+              {
+                'key_code' => 'right_option',
+                'modifiers' => ['left_control'],
+                'lazy' => true,
+              },
+            ],
+            'to_if_alone' => [
+              {
+                'key_code' => 'grave_accent_and_tilde',
+                'modifiers' => ['left_option'],
+              },
+            ],
+            'conditions' => [
+              Karabiner.frontmost_application_if(%w[remote_desktop virtual_machine]),
+            ],
+          },
+
+          # except virtual_machine
+          {
+            'type' => 'basic',
+            'from' => {
+              'key_code' => 'right_option',
+              'modifiers' => Karabiner.from_modifiers(['left_control']),
+            },
+            'to' => [
+              {
+                'key_code' => 'right_option',
+                'modifiers' => ['left_control'],
+                'lazy' => true,
+              },
+            ],
+            'to_if_alone' => [
+              {
+                'key_code' => 'lang1',
               },
             ],
           },
@@ -618,66 +729,6 @@ def app_visual_studio_code
       ],
       'conditions' => [
         Karabiner.frontmost_application_if(['visual_studio_code']),
-      ],
-    },
-  ]
-end
-
-def switch_input_source
-  [
-    # virtual machine
-    {
-      'type' => 'basic',
-      'from' => {
-        'key_code' => '1',
-        'modifiers' => Karabiner.from_modifiers(%w[left_control right_control], %w[caps_lock]),
-      },
-      'to' => [
-        {
-          'key_code' => 'grave_accent_and_tilde',
-          'modifiers' => ['left_option'],
-        },
-      ],
-      'conditions' => [
-        Karabiner.frontmost_application_if(%w[remote_desktop virtual_machine]),
-      ],
-    },
-    {
-      'type' => 'basic',
-      'from' => {
-        'key_code' => '2',
-        'modifiers' => Karabiner.from_modifiers(%w[left_control right_control], %w[caps_lock]),
-      },
-      'to' => [
-        {
-          'key_code' => 'grave_accent_and_tilde',
-          'modifiers' => ['left_option'],
-        },
-      ],
-      'conditions' => [
-        Karabiner.frontmost_application_if(%w[remote_desktop virtual_machine]),
-      ],
-    },
-
-    # common apps
-    {
-      'type' => 'basic',
-      'from' => {
-        'key_code' => '1',
-        'modifiers' => Karabiner.from_modifiers(%w[right_option], %w[caps_lock]),
-      },
-      'to' => [
-        { 'key_code' => 'lang2' },
-      ],
-    },
-    {
-      'type' => 'basic',
-      'from' => {
-        'key_code' => '2',
-        'modifiers' => Karabiner.from_modifiers(%w[right_option], %w[caps_lock]),
-      },
-      'to' => [
-        { 'key_code' => 'lang1' },
       ],
     },
   ]
