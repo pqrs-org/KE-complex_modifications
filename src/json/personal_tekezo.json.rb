@@ -15,7 +15,7 @@ def main
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Personal rules (@tekezo) (rev 12)',
+        'description' => 'Personal rules (@tekezo) (rev 13)',
         'manipulators' =>
         control_1234 +
         option_hyphen +
@@ -109,6 +109,9 @@ def main
             'conditions' => [
               Karabiner.frontmost_application_if(%w[remote_desktop virtual_machine]),
             ],
+            'parameters' => {
+              'basic.to_if_alone_timeout_milliseconds' => 250,
+            },
           },
 
           # right_command (virtual_machine)
@@ -152,6 +155,9 @@ def main
                 'key_code' => 'lang2',
               },
             ],
+            'parameters' => {
+              'basic.to_if_alone_timeout_milliseconds' => 250,
+            },
           },
 
           # right_command (lazy)
@@ -194,6 +200,9 @@ def main
                 'modifiers' => ['left_command'],
               },
             ],
+            'parameters' => {
+              'basic.to_if_alone_timeout_milliseconds' => 250,
+            },
           },
           {
             'type' => 'basic',
@@ -236,6 +245,9 @@ def main
             'conditions' => [
               Karabiner.frontmost_application_if(%w[remote_desktop virtual_machine]),
             ],
+            'parameters' => {
+              'basic.to_if_alone_timeout_milliseconds' => 250,
+            },
           },
 
           # except virtual_machine
@@ -257,6 +269,9 @@ def main
                 'key_code' => 'lang1',
               },
             ],
+            'parameters' => {
+              'basic.to_if_alone_timeout_milliseconds' => 250,
+            },
           },
         ],
       },
