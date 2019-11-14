@@ -15,7 +15,7 @@ def main
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Personal rules (@tekezo) (rev 13)',
+        'description' => 'Personal rules (@tekezo) (rev 14)',
         'manipulators' =>
         control_1234 +
         option_hyphen +
@@ -28,56 +28,6 @@ def main
         app_adium +
         app_visual_studio_code +
         [
-          # f18
-          {
-            'type' => 'basic',
-            'from' => {
-              'key_code' => 'f18',
-              'modifiers' => Karabiner.from_modifiers,
-            },
-            'to' => [
-              { 'key_code' => 'spacebar' },
-            ],
-          },
-
-          # escape+1,2
-          {
-            'type' => 'basic',
-            'from' => {
-              'simultaneous' => [
-                {
-                  'key_code' => 'escape',
-                },
-                {
-                  'key_code' => '1',
-                },
-              ],
-            },
-            'to' => [
-              {
-                'consumer_key_code' => 'display_brightness_decrement',
-              },
-            ],
-          },
-          {
-            'type' => 'basic',
-            'from' => {
-              'simultaneous' => [
-                {
-                  'key_code' => 'escape',
-                },
-                {
-                  'key_code' => '2',
-                },
-              ],
-            },
-            'to' => [
-              {
-                'consumer_key_code' => 'display_brightness_increment',
-              },
-            ],
-          },
-
           ########################################
           # right_command
           ########################################
@@ -179,31 +129,6 @@ def main
           # left_command
           ########################################
 
-          # left_command
-          # (Change left_command to lazy left_control to suppress single control key press at Emacs key bindings on Alfred)
-          {
-            'type' => 'basic',
-            'from' => {
-              'key_code' => 'left_command',
-              'modifiers' => Karabiner.from_modifiers(['right_command'], ['caps_lock']),
-            },
-            'to' => [
-              {
-                'key_code' => 'left_control',
-                'modifiers' => ['right_command'],
-                'lazy' => true,
-              },
-            ],
-            'to_if_alone' => [
-              {
-                'key_code' => 'grave_accent_and_tilde',
-                'modifiers' => ['left_command'],
-              },
-            ],
-            'parameters' => {
-              'basic.to_if_alone_timeout_milliseconds' => 250,
-            },
-          },
           {
             'type' => 'basic',
             'from' => {
@@ -267,6 +192,56 @@ def main
             'to_if_alone' => [
               {
                 'key_code' => 'lang1',
+              },
+            ],
+            'parameters' => {
+              'basic.to_if_alone_timeout_milliseconds' => 250,
+            },
+          },
+
+          ########################################
+          # spacebar
+          ########################################
+
+          # right_command+spacebar
+          {
+            'type' => 'basic',
+            'from' => {
+              'key_code' => 'spacebar',
+              'modifiers' => Karabiner.from_modifiers(['right_command']),
+            },
+            'to' => [
+              {
+                'key_code' => 'left_shift',
+                'modifiers' => ['right_command'],
+              },
+            ],
+            'to_if_alone' => [
+              {
+                'key_code' => 'grave_accent_and_tilde',
+                'modifiers' => ['left_command'],
+              },
+            ],
+            'parameters' => {
+              'basic.to_if_alone_timeout_milliseconds' => 250,
+            },
+          },
+
+          # spacebar
+          {
+            'type' => 'basic',
+            'from' => {
+              'key_code' => 'spacebar',
+              'modifiers' => Karabiner.from_modifiers,
+            },
+            'to' => [
+              {
+                'key_code' => 'left_shift',
+              },
+            ],
+            'to_if_alone' => [
+              {
+                'key_code' => 'spacebar',
               },
             ],
             'parameters' => {
