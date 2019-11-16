@@ -99,7 +99,77 @@
 							]
 						}
 					]
+				},
+				{
+					"type": "basic",
+					"from":
+					{
+						"key_code": "q",
+						"modifiers":
+						{
+							"mandatory":
+							[
+								"option"
+							]
+						}
+					},
+					"to":
+					[
+						{
+							"key_code": "q",
+							"modifiers":
+							[
+								"left_gui"
+							]
+						}
+					],
+					"conditions":
+					[
+						{
+							"type": "frontmost_application_if",
+							"bundle_identifiers":
+							[
+								"^com\\.jetbrains\\.*"
+							]
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from":
+					{
+						"key_code": "spacebar",
+						"modifiers":
+						{
+							"mandatory":
+							[
+								"option"
+							]
+						}
+					},
+					"to":
+					[
+						{
+							"key_code": "spacebar",
+							"modifiers":
+							[
+								"left_gui"
+							]
+						}
+					],
+					"conditions":
+					[
+						{
+							"type": "frontmost_application_if",
+							"bundle_identifiers":
+							[
+								"^com\\.jetbrains\\.*"
+							]
+						}
+					]
 				}
+
+
 			]
 		},
 		{
@@ -176,7 +246,7 @@
 					"type": "basic",
 					"from":
 					{
-						"key_code": "control",
+						"key_code": "left_control",
 						"modifiers":
 						{
 							"optional":
@@ -203,6 +273,43 @@
 					]
 				}
 			]
+		},
+		{
+			"description": "Ctrl -> Gui in Jetbrains Rider",
+			"manipulators":
+			[
+				{
+					"type": "basic",
+					"from":
+					{
+						"key_code": "right_control",
+						"modifiers":
+						{
+							"optional":
+							[
+								"any"
+							]
+						}
+					},
+					"to":
+					[
+						{
+							"key_code": "right_gui"
+						}
+					],
+					"conditions":
+					[
+						{
+							"type": "frontmost_application_if",
+							"bundle_identifiers":
+							[
+								"^com\\.jetbrains\\.*"
+							]
+						}
+					]
+				}
+			]
 		}
+
 	]
 }
