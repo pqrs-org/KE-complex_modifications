@@ -53,8 +53,32 @@
           "type": "basic",
           "from": <%= from("right_shift", [], []) %>,
           "to": <%= to([["right_shift"]]) %>,
-          "to_if_alone": <%= to([["backslash", ["left_control"]],]) %>,
+          "to_if_alone": <%= to([["backslash", ["left_control"]]]) %>,
           "conditions": [ <%= frontmost_application_if("emacs") %> ]
+        }
+      ]
+    },
+    {
+      "description": "Change left_shift to Ctrl-Shift-z if pressed alone exclude in Emacs",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("left_shift", [], []) %>,
+          "to": <%= to([["left_shift"]]) %>,
+          "to_if_alone": <%= to([["z", ["left_control", "left_shift"]]]) %>,
+          "conditions": [ <%= frontmost_application_unless("emacs") %> ]
+        }
+      ]
+     },
+    {
+      "description": "Change right_shift to Ctrl-Shift-z if pressed alone exclude in Emacs",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("right_shift", [], []) %>,
+          "to": <%= to([["right_shift"]]) %>,
+          "to_if_alone": <%= to([["z", ["right_control", "right_shift"]]]) %>,
+          "conditions": [ <%= frontmost_application_unless("emacs") %> ]
         }
       ]
      },
