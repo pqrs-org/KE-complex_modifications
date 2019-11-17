@@ -1,0 +1,315 @@
+{
+	"title": "Jetbrains matches Windows",
+	"rules":
+	[
+		{
+			"description": "Command -> Alt in Jetbrains Rider",
+			"manipulators":
+			[
+				{
+					"type": "basic",
+					"from":
+					{
+						"key_code": "left_gui",
+						"modifiers":
+						{
+							"optional":
+							[
+								"any"
+							]
+						}
+					},
+					"to":
+					[
+						{
+							"key_code": "left_alt"
+						}
+					],
+					"conditions":
+					[
+						{
+							"type": "frontmost_application_if",
+							"bundle_identifiers":
+							[
+								"^com\\.jetbrains\\.*"
+							]
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from":
+					{
+						"key_code": "right_gui",
+						"modifiers":
+						{
+							"optional":
+							[
+								"any"
+							]
+						}
+					},
+					"to":
+					[
+						{
+							"key_code": "right_alt"
+						}
+					],
+					"conditions":
+					[
+						{
+							"type": "frontmost_application_if",
+							"bundle_identifiers":
+							[
+								"^com\\.jetbrains\\.*"
+							]
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from":
+					{
+						"key_code": "tab",
+						"modifiers":
+						{
+							"mandatory":
+							[
+								"option"
+							]
+						}
+					},
+					"to":
+					[
+						{
+							"key_code": "tab",
+							"modifiers":
+							[
+								"left_gui"
+							]
+						}
+					],
+					"conditions":
+					[
+						{
+							"type": "frontmost_application_if",
+							"bundle_identifiers":
+							[
+								"^com\\.jetbrains\\.*"
+							]
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from":
+					{
+						"key_code": "q",
+						"modifiers":
+						{
+							"mandatory":
+							[
+								"option"
+							]
+						}
+					},
+					"to":
+					[
+						{
+							"key_code": "q",
+							"modifiers":
+							[
+								"left_gui"
+							]
+						}
+					],
+					"conditions":
+					[
+						{
+							"type": "frontmost_application_if",
+							"bundle_identifiers":
+							[
+								"^com\\.jetbrains\\.*"
+							]
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from":
+					{
+						"key_code": "spacebar",
+						"modifiers":
+						{
+							"mandatory":
+							[
+								"option"
+							]
+						}
+					},
+					"to":
+					[
+						{
+							"key_code": "spacebar",
+							"modifiers":
+							[
+								"left_gui"
+							]
+						}
+					],
+					"conditions":
+					[
+						{
+							"type": "frontmost_application_if",
+							"bundle_identifiers":
+							[
+								"^com\\.jetbrains\\.*"
+							]
+						}
+					]
+				}
+
+
+			]
+		},
+		{
+			"description": "Alt -> Ctrl in Jetbrains Rider",
+			"manipulators":
+			[
+				{
+					"type": "basic",
+					"from":
+					{
+						"key_code": "left_alt",
+						"modifiers":
+						{
+							"optional":
+							[
+								"any"
+							]
+						}
+					},
+					"to":
+					[
+						{
+							"key_code": "left_control"
+						}
+					],
+					"conditions":
+					[
+						{
+							"type": "frontmost_application_if",
+							"bundle_identifiers":
+							[
+								"^com\\.jetbrains\\.*"
+							]
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from":
+					{
+						"key_code": "right_alt",
+						"modifiers":
+						{
+							"optional":
+							[
+								"any"
+							]
+						}
+					},
+					"to":
+					[
+						{
+							"key_code": "right_control"
+						}
+					],
+					"conditions":
+					[
+						{
+							"type": "frontmost_application_if",
+							"bundle_identifiers":
+							[
+								"^com\\.jetbrains\\.*"
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"description": "Ctrl -> Gui in Jetbrains Rider",
+			"manipulators":
+			[
+				{
+					"type": "basic",
+					"from":
+					{
+						"key_code": "left_control",
+						"modifiers":
+						{
+							"optional":
+							[
+								"any"
+							]
+						}
+					},
+					"to":
+					[
+						{
+							"key_code": "left_gui"
+						}
+					],
+					"conditions":
+					[
+						{
+							"type": "frontmost_application_if",
+							"bundle_identifiers":
+							[
+								"^com\\.jetbrains\\.*"
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"description": "Ctrl -> Gui in Jetbrains Rider",
+			"manipulators":
+			[
+				{
+					"type": "basic",
+					"from":
+					{
+						"key_code": "right_control",
+						"modifiers":
+						{
+							"optional":
+							[
+								"any"
+							]
+						}
+					},
+					"to":
+					[
+						{
+							"key_code": "right_gui"
+						}
+					],
+					"conditions":
+					[
+						{
+							"type": "frontmost_application_if",
+							"bundle_identifiers":
+							[
+								"^com\\.jetbrains\\.*"
+							]
+						}
+					]
+				}
+			]
+		}
+
+	]
+}
