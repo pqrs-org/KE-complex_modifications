@@ -1,125 +1,14 @@
 {
-  "title": "Swiss PC-Style Shortcuts (AltGr+' -> '´', AltGr+< -> 'backslash', AltGr+è -> '[', AltGr+¨ -> ']', AltGr+à -> '{', AltGr+$ -> '}')",
+  "title": "Swiss PC-Style Shortcuts",
+  "maintainers": [
+    "Birate"
+  ],
   "rules": [
     {
-      "description": "AltGr+< -> 'backslash'",
+      "description": "Option+[è/ü] -> [",
       "manipulators": [
         {
-          "from": {
-            "key_code": "grave_accent_and_tilde",
-            "modifiers": {
-              "mandatory": [
-                "right_option"
-              ],
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "7",
-              "modifiers": [
-                "option",
-                "left_shift"
-              ]
-            }
-          ],
           "type": "basic",
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^com\\.microsoft\\.rdc$",
-                "^com\\.microsoft\\.rdc\\.mac$",
-                "^com\\.microsoft\\.rdc\\.macos$",
-                "^com\\.microsoft\\.rdc\\.osx\\.beta$",
-                "^net\\.sf\\.cord$",
-                "^com\\.thinomenon\\.RemoteDesktopConnection$",
-                "^com\\.itap-mobile\\.qmote$",
-                "^com\\.nulana\\.remotixmac$",
-                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
-                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.web$",
-                "^com\\.teamviewer\\.TeamViewer$",
-                "^com\\.vmware\\.horizon$",
-                "^com\\.2X\\.Client\\.Mac$",
-                "^com\\.vmware\\.fusion$",
-                "^com\\.vmware\\.horizon$",
-                "^com\\.vmware\\.view$",
-                "^com\\.parallels\\.desktop$",
-                "^com\\.parallels\\.vm$",
-                "^com\\.parallels\\.desktop\\.console$",
-                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
-                "^com\\.citrix\\.XenAppViewer$",
-                "^com\\.vmware\\.proxyApp\\.",
-                "^com\\.parallels\\.winapp\\."
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "AltGr+' -> '´'",
-      "manipulators": [
-        {
-          "from": {
-            "key_code": "hyphen",
-            "modifiers": {
-              "mandatory": [
-                "right_option"
-              ],
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "equal_sign",
-              "modifiers": [
-                "option"
-              ]
-            }
-          ],
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^com\\.microsoft\\.rdc$",
-                "^com\\.microsoft\\.rdc\\.mac$",
-                "^com\\.microsoft\\.rdc\\.macos$",
-                "^com\\.microsoft\\.rdc\\.osx\\.beta$",
-                "^net\\.sf\\.cord$",
-                "^com\\.thinomenon\\.RemoteDesktopConnection$",
-                "^com\\.itap-mobile\\.qmote$",
-                "^com\\.nulana\\.remotixmac$",
-                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
-                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.web$",
-                "^com\\.teamviewer\\.TeamViewer$",
-                "^com\\.vmware\\.horizon$",
-                "^com\\.2X\\.Client\\.Mac$",
-                "^com\\.vmware\\.fusion$",
-                "^com\\.vmware\\.horizon$",
-                "^com\\.vmware\\.view$",
-                "^com\\.parallels\\.desktop$",
-                "^com\\.parallels\\.vm$",
-                "^com\\.parallels\\.desktop\\.console$",
-                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
-                "^com\\.citrix\\.XenAppViewer$",
-                "^com\\.vmware\\.proxyApp\\.",
-                "^com\\.parallels\\.winapp\\."
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "AltGr+è -> '['",
-      "manipulators": [
-        {
           "from": {
             "key_code": "open_bracket",
             "modifiers": {
@@ -127,19 +16,16 @@
                 "right_option"
               ],
               "optional": [
-                "any"
+                "left_option"
               ]
             }
           },
-          "to": [
-            {
-              "key_code": "5",
-              "modifiers": [
-                "option"
-              ]
-            }
-          ],
-          "type": "basic",
+          "to": {
+            "key_code": "5",
+            "modifiers": [
+              "option"
+            ]
+          },
           "conditions": [
             {
               "type": "frontmost_application_unless",
@@ -174,9 +60,10 @@
       ]
     },
     {
-      "description": "AltGr+¨-> ']'",
+      "description": "Option+[¨] -> ]",
       "manipulators": [
         {
+          "type": "basic",
           "from": {
             "key_code": "close_bracket",
             "modifiers": {
@@ -184,19 +71,16 @@
                 "right_option"
               ],
               "optional": [
-                "any"
+                "left_option"
               ]
             }
           },
-          "to": [
-            {
-              "key_code": "6",
-              "modifiers": [
-                "option"
-              ]
-            }
-          ],
-          "type": "basic",
+          "to": {
+            "key_code": "6",
+            "modifiers": [
+              "option"
+            ]
+          },
           "conditions": [
             {
               "type": "frontmost_application_unless",
@@ -231,9 +115,10 @@
       ]
     },
     {
-      "description": "AltGr+2 -> '@'",
+      "description": "Option+[2] -> @ ",
       "manipulators": [
         {
+          "type": "basic",
           "from": {
             "key_code": "2",
             "modifiers": {
@@ -241,19 +126,16 @@
                 "right_option"
               ],
               "optional": [
-                "any"
+                "left_option"
               ]
             }
           },
-          "to": [
-            {
-              "key_code": "g",
-              "modifiers": [
-                "option"
-              ]
-            }
-          ],
-          "type": "basic",
+          "to": {
+            "key_code": "g",
+            "modifiers": [
+              "option"
+            ]
+          },
           "conditions": [
             {
               "type": "frontmost_application_unless",
@@ -288,9 +170,10 @@
       ]
     },
     {
-      "description": "AltGr+à -> '{'",
+      "description": "Option+[à/ä] -> { ",
       "manipulators": [
         {
+          "type": "basic",
           "from": {
             "key_code": "quote",
             "modifiers": {
@@ -298,19 +181,16 @@
                 "right_option"
               ],
               "optional": [
-                "any"
+                "left_option"
               ]
             }
           },
-          "to": [
-            {
-              "key_code": "8",
-              "modifiers": [
-                "option"
-              ]
-            }
-          ],
-          "type": "basic",
+          "to": {
+            "key_code": "8",
+            "modifiers": [
+              "option"
+            ]
+          },
           "conditions": [
             {
               "type": "frontmost_application_unless",
@@ -345,29 +225,27 @@
       ]
     },
     {
-      "description": "AltGr+$ -> '}'",
+      "description": "Option+[$] -> }",
       "manipulators": [
         {
+          "type": "basic",
           "from": {
-            "key_code": "non_us_pound",
+            "key_code": "backslash",
             "modifiers": {
               "mandatory": [
                 "right_option"
               ],
               "optional": [
-                "any"
+                "left_option"
               ]
             }
           },
-          "to": [
-            {
-              "key_code": "9",
-              "modifiers": [
-                "option"
-              ]
-            }
-          ],
-          "type": "basic",
+          "to": {
+            "key_code": "9",
+            "modifiers": [
+              "option"
+            ]
+          },
           "conditions": [
             {
               "type": "frontmost_application_unless",
@@ -402,9 +280,121 @@
       ]
     },
     {
-      "description": "AltGr+^ -> '~'",
+      "description": "Option+[<] -> \\  ",
       "manipulators": [
         {
+          "type": "basic",
+          "from": {
+            "key_code": "grave_accent_and_tilde",
+            "modifiers": {
+              "mandatory": [
+                "right_option"
+              ],
+              "optional": [
+                "left_option"
+              ]
+            }
+          },
+          "to": {
+            "key_code": "7",
+            "modifiers": [
+              "option",
+              "shift"
+            ]
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.mac$",
+                "^com\\.microsoft\\.rdc\\.macos$",
+                "^com\\.microsoft\\.rdc\\.osx\\.beta$",
+                "^net\\.sf\\.cord$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.itap-mobile\\.qmote$",
+                "^com\\.nulana\\.remotixmac$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.web$",
+                "^com\\.teamviewer\\.TeamViewer$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.2X\\.Client\\.Mac$",
+                "^com\\.vmware\\.fusion$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.vmware\\.view$",
+                "^com\\.parallels\\.desktop$",
+                "^com\\.parallels\\.vm$",
+                "^com\\.parallels\\.desktop\\.console$",
+                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
+                "^com\\.vmware\\.proxyApp\\.",
+                "^com\\.parallels\\.winapp\\."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Option+[] -> ´",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "hyphen",
+            "modifiers": {
+              "mandatory": [
+                "right_option"
+              ],
+              "optional": [
+                "left_option"
+              ]
+            }
+          },
+          "to": {
+            "key_code": "equal_sign",
+            "modifiers": [
+              "option"
+            ]
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.mac$",
+                "^com\\.microsoft\\.rdc\\.macos$",
+                "^com\\.microsoft\\.rdc\\.osx\\.beta$",
+                "^net\\.sf\\.cord$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.itap-mobile\\.qmote$",
+                "^com\\.nulana\\.remotixmac$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.web$",
+                "^com\\.teamviewer\\.TeamViewer$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.2X\\.Client\\.Mac$",
+                "^com\\.vmware\\.fusion$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.vmware\\.view$",
+                "^com\\.parallels\\.desktop$",
+                "^com\\.parallels\\.vm$",
+                "^com\\.parallels\\.desktop\\.console$",
+                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
+                "^com\\.vmware\\.proxyApp\\.",
+                "^com\\.parallels\\.winapp\\."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Option+[^] -> ~",
+      "manipulators": [
+        {
+          "type": "basic",
           "from": {
             "key_code": "equal_sign",
             "modifiers": {
@@ -412,19 +402,16 @@
                 "right_option"
               ],
               "optional": [
-                "any"
+                "left_option"
               ]
             }
           },
-          "to": [
-            {
-              "key_code": "n",
-              "modifiers": [
-                "option"
-              ]
-            }
-          ],
-          "type": "basic",
+          "to": {
+            "key_code": "n",
+            "modifiers": [
+              "option"
+            ]
+          },
           "conditions": [
             {
               "type": "frontmost_application_unless",
