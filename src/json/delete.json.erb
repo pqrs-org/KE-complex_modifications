@@ -1,5 +1,5 @@
 {
-    "title": "Change delete key (rev 2)",
+    "title": "Change delete key (rev 3)",
     "rules": [
         {
             "description": "Change shift + delete to forward delete (rev 2)",
@@ -8,6 +8,23 @@
                     "type": "basic",
                     "from": <%= from("delete_or_backspace", ["shift"], ["caps_lock", "option"]) %>,
                     "to": <%= to([["delete_forward"]]) %>
+                }
+            ]
+        },
+        {
+            "description": "Change shift + delete to tilde (rev 1)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("delete_or_backspace", ["shift"], ["caps_lock", "option"]) %>,
+                    "to": [
+                      {
+                        "key_code": "grave_accent_and_tilde",
+                        "modifiers": [
+                          "left_shift"
+                        ]
+                      }
+                    ]
                 }
             ]
         }
