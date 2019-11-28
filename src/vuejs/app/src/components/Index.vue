@@ -23,8 +23,8 @@
       <b-row align-h="center">
         <b-col md="6">
           <search-form @submit="search"
-                      :disabled="lunrIndex === null"
-                      :placeholder="(lunrIndex ? 'Search keywords...' : 'Fetching data...')">
+                       :disabled="lunrIndex === null"
+                       :placeholder="(lunrIndex ? 'Search keywords...' : 'Fetching data...')">
           </search-form>
         </b-col>
       </b-row>
@@ -42,6 +42,7 @@
                    class="float-right">{{ group.files.length }}</b-badge>
         </b-list-group-item>
       </b-list-group>
+
       <div style="margin-top: 1rem; margin-bottom: 3rem">
         <div v-if="allFilesExpanded">
           <b-btn variant="secondary"
@@ -52,6 +53,7 @@
                  @click="setAllFileCollapsed(false)">Expand All</b-btn>
         </div>
       </div>
+
       <div class="card-outer"
            v-for="group in filteredGroups"
            :key="group.id"
@@ -128,9 +130,13 @@
                         Karabiner-Elements {{ rule.availableSince }} or later
                       </div>
                     </b-list-group-item>
-                    <b-list-group-item v-if="file.extraDescription"
-                                       v-html="file.extraDescription">
-                    </b-list-group-item>
+                    <template v-if="file.extraDescription">
+                      <b-list-group-item>
+                        <iframe :id="file.id + '-extra-description'"
+                                :srcdoc="file.extraDescription">
+                        </iframe>
+                      </b-list-group-item>
+                    </template>
                   </b-list-group>
                 </b-collapse>
               </b-card>
@@ -160,6 +166,7 @@ import striptags from 'striptags'
 import { Socket } from 'vue-loading-spinner'
 import VueScrollTo from 'vue-scrollto'
 import SearchForm from './SearchForm.vue'
+import iFrameResize from 'iframe-resizer/js/iframeResizer'
 
 const getFileName = path => {
   let name = path.substring(path.lastIndexOf('/') + 1)
@@ -185,6 +192,17 @@ class File {
     this.jsonUrl = fileJson.path
     this.importUrl = this.makeJsonUrl(fileJson.path)
     this.extraDescription = fileJson.extra_description
+    if (this.extraDescription) {
+      // eslint-disable-next-line
+      const scripts = [
+        'https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.2.1/iframeResizer.contentWindow.min.js'
+      ]
+      scripts.forEach(url => {
+        // eslint-disable-next-line
+        const s = `<script src="${url}"><\/script>`
+        this.extraDescription += s
+      })
+    }
     this.title = fileJson.json.title
     this.maintainers = fileJson.json.maintainers
     this.rules = []
@@ -232,7 +250,8 @@ export default {
       fileCollapsed: {},
       showJsonModalTitle: '',
       showJsonModalBody: '',
-      lunrIndex: null
+      lunrIndex: null,
+      iFrameResizers: {}
     }
   },
   created() {
@@ -268,6 +287,7 @@ export default {
 
           this.updateLoadingState()
           this.makeLunrIndex()
+          this.makeIFrameResizer()
           this.setAllFileCollapsed(true)
           this.scrollToHash()
         })
@@ -322,6 +342,8 @@ export default {
       this.groups.forEach(g => {
         g.files.forEach(f => {
           fileCollapsed[f.id] = value
+
+          this.makeIFrameResizer(f.id)
         })
       })
 
@@ -334,7 +356,18 @@ export default {
       const currentValue = this.fileCollapsed[fileId]
       this.$set(this.fileCollapsed, fileId, !currentValue)
 
+      this.makeIFrameResizer(fileId)
+
       this.updateAllFilesExpanded()
+    },
+
+    makeIFrameResizer(fileId) {
+      this.iFrameResizers[fileId] = iFrameResize(
+        {
+          checkOrigin: false
+        },
+        '#' + fileId + '-extra-description'
+      )
     },
 
     importJson(url) {
@@ -381,6 +414,7 @@ export default {
 
         scrollToHashTriggered = true
         this.$set(this.fileCollapsed, elementId, false)
+        this.makeIFrameResizer(elementId)
         VueScrollTo.scrollTo(element, 500, {
           offset: -100
         })
@@ -388,7 +422,6 @@ export default {
     },
 
     search(searchQuery) {
-
       if (this.lunrIndex === null) {
         return
       }
@@ -435,6 +468,8 @@ export default {
       })
 
       this.filteredGroups = filteredGroups
+
+      window.scrollTo(0, 0)
     }
   }
 }
@@ -506,6 +541,12 @@ export default {
         border-radius: 5px;
         padding: 0 3px 0 3px;
         font-size: 14px;
+      }
+
+      iframe {
+        width: 1px;
+        min-width: 100%;
+        border: none;
       }
     }
   }
