@@ -42,6 +42,7 @@
                    class="float-right">{{ group.files.length }}</b-badge>
         </b-list-group-item>
       </b-list-group>
+
       <div style="margin-top: 1rem; margin-bottom: 3rem">
         <div v-if="allFilesExpanded">
           <b-btn variant="secondary"
@@ -52,6 +53,7 @@
                  @click="setAllFileCollapsed(false)">Expand All</b-btn>
         </div>
       </div>
+
       <div class="card-outer"
            v-for="group in filteredGroups"
            :key="group.id"
@@ -466,6 +468,8 @@ export default {
       })
 
       this.filteredGroups = filteredGroups
+
+      window.scrollTo(0, 0)
     }
   }
 }
