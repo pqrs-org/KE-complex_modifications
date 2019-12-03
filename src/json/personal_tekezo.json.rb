@@ -15,7 +15,7 @@ def main
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Personal rules (@tekezo) (rev 14)',
+        'description' => 'Personal rules (@tekezo) (rev 16)',
         'manipulators' =>
         control_1234 +
         option_hyphen +
@@ -25,7 +25,7 @@ def main
         app_terminal +
         app_browser +
         app_activity_monitor +
-        app_adium +
+        app_microsoft_office +
         app_visual_studio_code +
         [
           ########################################
@@ -578,6 +578,29 @@ end
 
 def app_browser
   [
+    # Disable command+d (bookmark this tab @ Google Chrome)
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => 'd',
+        'modifiers' => Karabiner.from_modifiers(['command'], ['caps_lock']),
+      },
+      'conditions' => [
+        Karabiner.frontmost_application_if(['browser']),
+      ],
+    },
+    # Disable command+shift+d (bookmark all tabs @ Google Chrome)
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => 'd',
+        'modifiers' => Karabiner.from_modifiers(%w[command shift], ['caps_lock']),
+      },
+      'conditions' => [
+        Karabiner.frontmost_application_if(['browser']),
+      ],
+    },
+    # Disable command+shift+i (share email link @ Google Chrome)
     {
       'type' => 'basic',
       'from' => {
@@ -588,6 +611,7 @@ def app_browser
         Karabiner.frontmost_application_if(['browser']),
       ],
     },
+    # Change control+a,e to command+arrow keys
     {
       'type' => 'basic',
       'from' => {
@@ -638,16 +662,24 @@ def app_activity_monitor
   ]
 end
 
-def app_adium
+def app_microsoft_office
   [
     {
       'type' => 'basic',
       'from' => {
-        'key_code' => 'w',
+        'key_code' => 'e',
         'modifiers' => Karabiner.from_modifiers(['command'], ['caps_lock']),
       },
+      'to' => {
+        'key_code' => 'f2',
+      },
       'conditions' => [
-        Karabiner.frontmost_application_if(['adium']),
+        {
+          'type' => 'frontmost_application_if',
+          'bundle_identifiers' => [
+            '^com\.microsoft\.Excel$',
+          ],
+        },
       ],
     },
   ]

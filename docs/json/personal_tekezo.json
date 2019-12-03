@@ -5,7 +5,7 @@
   ],
   "rules": [
     {
-      "description": "Personal rules (@tekezo) (rev 14)",
+      "description": "Personal rules (@tekezo) (rev 16)",
       "manipulators": [
         {
           "type": "basic",
@@ -836,6 +836,59 @@
         {
           "type": "basic",
           "from": {
+            "key_code": "d",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^org\\.mozilla\\.firefox$",
+                "^org\\.mozilla\\.nightly$",
+                "^com\\.microsoft\\.Edge",
+                "^com\\.google\\.Chrome$",
+                "^com\\.apple\\.Safari$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "d",
+            "modifiers": {
+              "mandatory": [
+                "command",
+                "shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^org\\.mozilla\\.firefox$",
+                "^org\\.mozilla\\.nightly$",
+                "^com\\.microsoft\\.Edge",
+                "^com\\.google\\.Chrome$",
+                "^com\\.apple\\.Safari$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
             "key_code": "i",
             "modifiers": {
               "mandatory": [
@@ -955,7 +1008,7 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "w",
+            "key_code": "e",
             "modifiers": {
               "mandatory": [
                 "command"
@@ -965,11 +1018,14 @@
               ]
             }
           },
+          "to": {
+            "key_code": "f2"
+          },
           "conditions": [
             {
               "type": "frontmost_application_if",
               "bundle_identifiers": [
-                "^com\\.adiumX\\.adiumX$"
+                "^com\\.microsoft\\.Excel$"
               ]
             }
           ]
