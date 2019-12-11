@@ -23,6 +23,7 @@
       <b-row align-h="center">
         <b-col md="6">
           <search-form @submit="search"
+                       ref="searchForm"
                        :disabled="lunrIndex === null"
                        :placeholder="(lunrIndex ? 'Search keywords...' : 'Fetching data...')">
           </search-form>
@@ -266,6 +267,10 @@ export default {
       return base
     },
 
+    urlSearchQuery() {
+      return new URLSearchParams(location.search).get('q')
+    },
+
     fetchData() {
       axios
         .get('dist.json', {
@@ -290,6 +295,11 @@ export default {
           this.makeIFrameResizer()
           this.setAllFileCollapsed(true)
           this.scrollToHash()
+
+          const q = this.urlSearchQuery()
+          if (q !== null) {
+            this.$refs.searchForm.setSearchQuery(q)
+          }
         })
     },
 
@@ -422,6 +432,22 @@ export default {
     },
 
     search(searchQuery) {
+      //
+      // Set history
+      //
+
+      if (searchQuery !== this.urlSearchQuery()) {
+        window.history.pushState(
+          { q: searchQuery },
+          '',
+          '?q=' + encodeURIComponent(searchQuery)
+        )
+      }
+
+      //
+      // Search
+      //
+
       if (this.lunrIndex === null) {
         return
       }
