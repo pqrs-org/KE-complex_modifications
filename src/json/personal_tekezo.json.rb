@@ -15,8 +15,9 @@ def main
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Personal rules (@tekezo) (rev 17)',
+        'description' => 'Personal rules (@tekezo) (rev 18)',
         'manipulators' =>
+        core_configuration +
         control_1234 +
         option_hyphen +
         media_controls +
@@ -26,8 +27,7 @@ def main
         app_browser +
         app_activity_monitor +
         app_microsoft_office +
-        app_visual_studio_code +
-        core_configuration,
+        app_visual_studio_code,
       },
     ]
   )
