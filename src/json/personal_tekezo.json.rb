@@ -15,7 +15,7 @@ def main
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Personal rules (@tekezo) (rev 16)',
+        'description' => 'Personal rules (@tekezo) (rev 17)',
         'manipulators' =>
         control_1234 +
         option_hyphen +
@@ -247,6 +247,76 @@ def main
             'parameters' => {
               'basic.to_if_alone_timeout_milliseconds' => 250,
             },
+          },
+
+          ########################################
+          # control + command
+          ########################################
+
+          # command+control+f -> command+shift+[
+          # command+control+j -> command+shift+]
+          # command+control+g -> command+[
+          # command+control+h -> command+]
+
+          {
+            'type' => 'basic',
+            'from' => {
+              'key_code' => 'f',
+              'modifiers' => Karabiner.from_modifiers(%w[control command]),
+            },
+            'to' => [
+              {
+                'key_code' => 'open_bracket',
+                'modifiers' => %w[
+                  command left_shift
+                ],
+              },
+            ],
+          },
+          {
+            'type' => 'basic',
+            'from' => {
+              'key_code' => 'j',
+              'modifiers' => Karabiner.from_modifiers(%w[control command]),
+            },
+            'to' => [
+              {
+                'key_code' => 'close_bracket',
+                'modifiers' => %w[
+                  command left_shift
+                ],
+              },
+            ],
+          },
+          {
+            'type' => 'basic',
+            'from' => {
+              'key_code' => 'g',
+              'modifiers' => Karabiner.from_modifiers(%w[control command]),
+            },
+            'to' => [
+              {
+                'key_code' => 'open_bracket',
+                'modifiers' => %w[
+                  command
+                ],
+              },
+            ],
+          },
+          {
+            'type' => 'basic',
+            'from' => {
+              'key_code' => 'h',
+              'modifiers' => Karabiner.from_modifiers(%w[control command]),
+            },
+            'to' => [
+              {
+                'key_code' => 'close_bracket',
+                'modifiers' => %w[
+                  command
+                ],
+              },
+            ],
           },
         ],
       },

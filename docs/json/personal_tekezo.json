@@ -5,7 +5,7 @@
   ],
   "rules": [
     {
-      "description": "Personal rules (@tekezo) (rev 16)",
+      "description": "Personal rules (@tekezo) (rev 17)",
       "manipulators": [
         {
           "type": "basic",
@@ -1481,6 +1481,100 @@
           "parameters": {
             "basic.to_if_alone_timeout_milliseconds": 250
           }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "command"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "open_bracket",
+              "modifiers": [
+                "command",
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "command"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "close_bracket",
+              "modifiers": [
+                "command",
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "g",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "command"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "open_bracket",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "command"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "close_bracket",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
         }
       ]
     }
