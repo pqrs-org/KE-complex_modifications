@@ -27,301 +27,305 @@ def main
         app_activity_monitor +
         app_microsoft_office +
         app_visual_studio_code +
-        [
-          ########################################
-          # right_command
-          ########################################
-
-          #
-          # virtual_machine
-          #
-
-          # left_control + right_command -> input switch
-          {
-            'type' => 'basic',
-            'from' => {
-              'key_code' => 'right_command',
-              'modifiers' => Karabiner.from_modifiers(['left_control']),
-            },
-            'to' => [
-              {
-                'key_code' => 'right_control',
-                'modifiers' => ['left_control'],
-                'lazy' => true,
-              },
-            ],
-            'to_if_alone' => [
-              {
-                'key_code' => 'grave_accent_and_tilde',
-                'modifiers' => ['left_option'],
-              },
-            ],
-            'conditions' => [
-              Karabiner.frontmost_application_if(%w[remote_desktop virtual_machine]),
-            ],
-            'parameters' => {
-              'basic.to_if_alone_timeout_milliseconds' => 250,
-            },
-          },
-
-          # right_command (virtual_machine)
-          {
-            'type' => 'basic',
-            'from' => {
-              'key_code' => 'right_command',
-              'modifiers' => Karabiner.from_modifiers,
-            },
-            'to' => [
-              {
-                'key_code' => 'right_control',
-                'lazy' => true,
-              },
-            ],
-            'conditions' => [
-              Karabiner.frontmost_application_if(%w[remote_desktop virtual_machine]),
-            ],
-          },
-
-          #
-          # except virtual_machine
-          #
-
-          # left_control + right_command -> input switch
-          {
-            'type' => 'basic',
-            'from' => {
-              'key_code' => 'right_command',
-              'modifiers' => Karabiner.from_modifiers(['left_control']),
-            },
-            'to' => [
-              {
-                'key_code' => 'right_command',
-                'modifiers' => ['left_control'],
-                'lazy' => true,
-              },
-            ],
-            'to_if_alone' => [
-              {
-                'key_code' => 'lang2',
-              },
-            ],
-            'parameters' => {
-              'basic.to_if_alone_timeout_milliseconds' => 250,
-            },
-          },
-
-          # right_command (lazy)
-          {
-            'type' => 'basic',
-            'from' => {
-              'key_code' => 'right_command',
-              'modifiers' => Karabiner.from_modifiers,
-            },
-            'to' => [
-              {
-                'key_code' => 'right_command',
-                'lazy' => true,
-              },
-            ],
-          },
-
-          ########################################
-          # left_command
-          ########################################
-
-          {
-            'type' => 'basic',
-            'from' => {
-              'key_code' => 'left_command',
-              'modifiers' => Karabiner.from_modifiers,
-            },
-            'to' => [
-              {
-                'key_code' => 'left_control',
-                'lazy' => true,
-              },
-            ],
-          },
-
-          ########################################
-          # right_option
-          ########################################
-
-          # virtual_machine
-          {
-            'type' => 'basic',
-            'from' => {
-              'key_code' => 'right_option',
-              'modifiers' => Karabiner.from_modifiers(['left_control']),
-            },
-            'to' => [
-              {
-                'key_code' => 'right_option',
-                'modifiers' => ['left_control'],
-                'lazy' => true,
-              },
-            ],
-            'to_if_alone' => [
-              {
-                'key_code' => 'grave_accent_and_tilde',
-                'modifiers' => ['left_option'],
-              },
-            ],
-            'conditions' => [
-              Karabiner.frontmost_application_if(%w[remote_desktop virtual_machine]),
-            ],
-            'parameters' => {
-              'basic.to_if_alone_timeout_milliseconds' => 250,
-            },
-          },
-
-          # except virtual_machine
-          {
-            'type' => 'basic',
-            'from' => {
-              'key_code' => 'right_option',
-              'modifiers' => Karabiner.from_modifiers(['left_control']),
-            },
-            'to' => [
-              {
-                'key_code' => 'right_option',
-                'modifiers' => ['left_control'],
-                'lazy' => true,
-              },
-            ],
-            'to_if_alone' => [
-              {
-                'key_code' => 'lang1',
-              },
-            ],
-            'parameters' => {
-              'basic.to_if_alone_timeout_milliseconds' => 250,
-            },
-          },
-
-          ########################################
-          # spacebar
-          ########################################
-
-          # right_command+spacebar
-          {
-            'type' => 'basic',
-            'from' => {
-              'key_code' => 'spacebar',
-              'modifiers' => Karabiner.from_modifiers(['right_command']),
-            },
-            'to' => [
-              {
-                'key_code' => 'left_shift',
-                'modifiers' => ['right_command'],
-              },
-            ],
-            'to_if_alone' => [
-              {
-                'key_code' => 'grave_accent_and_tilde',
-                'modifiers' => ['left_command'],
-              },
-            ],
-            'parameters' => {
-              'basic.to_if_alone_timeout_milliseconds' => 250,
-            },
-          },
-
-          # spacebar
-          {
-            'type' => 'basic',
-            'from' => {
-              'key_code' => 'spacebar',
-              'modifiers' => Karabiner.from_modifiers,
-            },
-            'to' => [
-              {
-                'key_code' => 'left_shift',
-              },
-            ],
-            'to_if_alone' => [
-              {
-                'key_code' => 'spacebar',
-              },
-            ],
-            'parameters' => {
-              'basic.to_if_alone_timeout_milliseconds' => 250,
-            },
-          },
-
-          ########################################
-          # control + command
-          ########################################
-
-          # command+control+f -> command+shift+[
-          # command+control+j -> command+shift+]
-          # command+control+g -> command+[
-          # command+control+h -> command+]
-
-          {
-            'type' => 'basic',
-            'from' => {
-              'key_code' => 'f',
-              'modifiers' => Karabiner.from_modifiers(%w[control command]),
-            },
-            'to' => [
-              {
-                'key_code' => 'open_bracket',
-                'modifiers' => %w[
-                  command left_shift
-                ],
-              },
-            ],
-          },
-          {
-            'type' => 'basic',
-            'from' => {
-              'key_code' => 'j',
-              'modifiers' => Karabiner.from_modifiers(%w[control command]),
-            },
-            'to' => [
-              {
-                'key_code' => 'close_bracket',
-                'modifiers' => %w[
-                  command left_shift
-                ],
-              },
-            ],
-          },
-          {
-            'type' => 'basic',
-            'from' => {
-              'key_code' => 'g',
-              'modifiers' => Karabiner.from_modifiers(%w[control command]),
-            },
-            'to' => [
-              {
-                'key_code' => 'open_bracket',
-                'modifiers' => %w[
-                  command
-                ],
-              },
-            ],
-          },
-          {
-            'type' => 'basic',
-            'from' => {
-              'key_code' => 'h',
-              'modifiers' => Karabiner.from_modifiers(%w[control command]),
-            },
-            'to' => [
-              {
-                'key_code' => 'close_bracket',
-                'modifiers' => %w[
-                  command
-                ],
-              },
-            ],
-          },
-        ],
+        core_configuration,
       },
     ]
   )
+end
+
+def core_configuration
+  [
+    ########################################
+    # right_command
+    ########################################
+
+    #
+    # virtual_machine
+    #
+
+    # left_control + right_command -> input switch
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => 'right_command',
+        'modifiers' => Karabiner.from_modifiers(['left_control']),
+      },
+      'to' => [
+        {
+          'key_code' => 'right_control',
+          'modifiers' => ['left_control'],
+          'lazy' => true,
+        },
+      ],
+      'to_if_alone' => [
+        {
+          'key_code' => 'grave_accent_and_tilde',
+          'modifiers' => ['left_option'],
+        },
+      ],
+      'conditions' => [
+        Karabiner.frontmost_application_if(%w[remote_desktop virtual_machine]),
+      ],
+      'parameters' => {
+        'basic.to_if_alone_timeout_milliseconds' => 250,
+      },
+    },
+
+    # right_command (virtual_machine)
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => 'right_command',
+        'modifiers' => Karabiner.from_modifiers,
+      },
+      'to' => [
+        {
+          'key_code' => 'right_control',
+          'lazy' => true,
+        },
+      ],
+      'conditions' => [
+        Karabiner.frontmost_application_if(%w[remote_desktop virtual_machine]),
+      ],
+    },
+
+    #
+    # except virtual_machine
+    #
+
+    # left_control + right_command -> input switch
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => 'right_command',
+        'modifiers' => Karabiner.from_modifiers(['left_control']),
+      },
+      'to' => [
+        {
+          'key_code' => 'right_command',
+          'modifiers' => ['left_control'],
+          'lazy' => true,
+        },
+      ],
+      'to_if_alone' => [
+        {
+          'key_code' => 'lang2',
+        },
+      ],
+      'parameters' => {
+        'basic.to_if_alone_timeout_milliseconds' => 250,
+      },
+    },
+
+    # right_command (lazy)
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => 'right_command',
+        'modifiers' => Karabiner.from_modifiers,
+      },
+      'to' => [
+        {
+          'key_code' => 'right_command',
+          'lazy' => true,
+        },
+      ],
+    },
+
+    ########################################
+    # left_command
+    ########################################
+
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => 'left_command',
+        'modifiers' => Karabiner.from_modifiers,
+      },
+      'to' => [
+        {
+          'key_code' => 'left_control',
+          'lazy' => true,
+        },
+      ],
+    },
+
+    ########################################
+    # right_option
+    ########################################
+
+    # virtual_machine
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => 'right_option',
+        'modifiers' => Karabiner.from_modifiers(['left_control']),
+      },
+      'to' => [
+        {
+          'key_code' => 'right_option',
+          'modifiers' => ['left_control'],
+          'lazy' => true,
+        },
+      ],
+      'to_if_alone' => [
+        {
+          'key_code' => 'grave_accent_and_tilde',
+          'modifiers' => ['left_option'],
+        },
+      ],
+      'conditions' => [
+        Karabiner.frontmost_application_if(%w[remote_desktop virtual_machine]),
+      ],
+      'parameters' => {
+        'basic.to_if_alone_timeout_milliseconds' => 250,
+      },
+    },
+
+    # except virtual_machine
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => 'right_option',
+        'modifiers' => Karabiner.from_modifiers(['left_control']),
+      },
+      'to' => [
+        {
+          'key_code' => 'right_option',
+          'modifiers' => ['left_control'],
+          'lazy' => true,
+        },
+      ],
+      'to_if_alone' => [
+        {
+          'key_code' => 'lang1',
+        },
+      ],
+      'parameters' => {
+        'basic.to_if_alone_timeout_milliseconds' => 250,
+      },
+    },
+
+    ########################################
+    # spacebar
+    ########################################
+
+    # right_command+spacebar
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => 'spacebar',
+        'modifiers' => Karabiner.from_modifiers(['right_command']),
+      },
+      'to' => [
+        {
+          'key_code' => 'left_shift',
+          'modifiers' => ['right_command'],
+        },
+      ],
+      'to_if_alone' => [
+        {
+          'key_code' => 'grave_accent_and_tilde',
+          'modifiers' => ['left_command'],
+        },
+      ],
+      'parameters' => {
+        'basic.to_if_alone_timeout_milliseconds' => 250,
+      },
+    },
+
+    # spacebar
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => 'spacebar',
+        'modifiers' => Karabiner.from_modifiers,
+      },
+      'to' => [
+        {
+          'key_code' => 'left_shift',
+        },
+      ],
+      'to_if_alone' => [
+        {
+          'key_code' => 'spacebar',
+        },
+      ],
+      'parameters' => {
+        'basic.to_if_alone_timeout_milliseconds' => 250,
+      },
+    },
+
+    ########################################
+    # control + command
+    ########################################
+
+    # command+control+f -> command+shift+[
+    # command+control+j -> command+shift+]
+    # command+control+g -> command+[
+    # command+control+h -> command+]
+
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => 'f',
+        'modifiers' => Karabiner.from_modifiers(%w[control command]),
+      },
+      'to' => [
+        {
+          'key_code' => 'open_bracket',
+          'modifiers' => %w[
+            command left_shift
+          ],
+        },
+      ],
+    },
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => 'j',
+        'modifiers' => Karabiner.from_modifiers(%w[control command]),
+      },
+      'to' => [
+        {
+          'key_code' => 'close_bracket',
+          'modifiers' => %w[
+            command left_shift
+          ],
+        },
+      ],
+    },
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => 'g',
+        'modifiers' => Karabiner.from_modifiers(%w[control command]),
+      },
+      'to' => [
+        {
+          'key_code' => 'open_bracket',
+          'modifiers' => %w[
+            command
+          ],
+        },
+      ],
+    },
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => 'h',
+        'modifiers' => Karabiner.from_modifiers(%w[control command]),
+      },
+      'to' => [
+        {
+          'key_code' => 'close_bracket',
+          'modifiers' => %w[
+            command
+          ],
+        },
+      ],
+    },
+  ]
 end
 
 def control_1234
