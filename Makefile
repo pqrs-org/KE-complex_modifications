@@ -1,7 +1,7 @@
 all:
 	bash scripts/update-json.sh
 	ruby scripts/lint-groups.rb
-	bash scripts/renew-distjs.sh
+	bash scripts/update-public-build.sh
 
 rebuild:
 	touch src/json/*

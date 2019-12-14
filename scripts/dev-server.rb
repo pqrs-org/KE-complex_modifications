@@ -13,7 +13,7 @@ server = WEBrick::HTTPServer.new(
 server.mount_proc('/build/dist.json') do |_, res|
   res['Content-Type'] = 'application/json'
 
-  IO.popen('ruby ' + __dir__ + '/make-distjs.rb') do |p|
+  IO.popen('ruby ' + __dir__ + '/make-distjson.rb') do |p|
     res.body = p.read
   end
 end

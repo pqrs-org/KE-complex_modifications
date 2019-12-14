@@ -131,10 +131,10 @@
                         Karabiner-Elements {{ rule.availableSince }} or later
                       </div>
                     </b-list-group-item>
-                    <template v-if="file.extraDescription">
+                    <template v-if="file.extraDescriptionPath">
                       <b-list-group-item>
                         <iframe :id="file.id + '-extra-description'"
-                                :srcdoc="file.extraDescription">
+                                :src="'build/' + file.extraDescriptionPath">
                         </iframe>
                       </b-list-group-item>
                     </template>
@@ -163,7 +163,6 @@
 </template><script>
 import axios from 'axios'
 import lunr from 'lunr'
-import striptags from 'striptags'
 import { Socket } from 'vue-loading-spinner'
 import VueScrollTo from 'vue-scrollto'
 import SearchForm from './SearchForm.vue'
@@ -192,18 +191,8 @@ class File {
     this.id = getFileName(fileJson.path)
     this.jsonUrl = fileJson.path
     this.importUrl = this.makeJsonUrl(fileJson.path)
-    this.extraDescription = fileJson.extra_description
-    if (this.extraDescription) {
-      // eslint-disable-next-line
-      const scripts = [
-        'https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.2.1/iframeResizer.contentWindow.min.js'
-      ]
-      scripts.forEach(url => {
-        // eslint-disable-next-line
-        const s = `<script src="${url}"><\/script>`
-        this.extraDescription += s
-      })
-    }
+    this.extraDescriptionPath = fileJson.extra_description_path
+    this.extraDescriptionText = fileJson.extra_description_text
     this.title = fileJson.json.title
     this.maintainers = fileJson.json.maintainers
     this.rules = []
@@ -325,7 +314,7 @@ export default {
             f.rules.forEach(r => {
               text += r.description + ' '
             })
-            text += striptags(f.extraDescription) + ' '
+            text += f.extraDescriptionText + ' '
 
             l.add({
               fileId: f.id,
@@ -373,9 +362,7 @@ export default {
 
     makeIFrameResizer(fileId) {
       this.iFrameResizers[fileId] = iFrameResize(
-        {
-          checkOrigin: false
-        },
+        {},
         '#' + fileId + '-extra-description'
       )
     },
