@@ -14,4 +14,4 @@ copy:
 		app/dist/index.html \
 		app/dist/js \
 		app/dist/css \
-		../../docs/
+		../../public/

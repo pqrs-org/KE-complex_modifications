@@ -3,7 +3,7 @@
 for srcfile in src/json/*.json.*; do
   extension="${srcfile##*.}"
 
-  dstfile="docs/json/$(basename $srcfile .$extension)"
+  dstfile="public/json/$(basename $srcfile .$extension)"
   if [ "$srcfile" -nt "$dstfile" ]; then
     failed=0
 

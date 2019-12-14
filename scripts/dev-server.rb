@@ -2,7 +2,7 @@
 
 require 'webrick'
 
-Dir.chdir(File.dirname(__dir__) + '/docs')
+Dir.chdir(File.dirname(__dir__) + '/public')
 
 server = WEBrick::HTTPServer.new(
   BindAddress: 'localhost',

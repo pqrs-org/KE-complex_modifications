@@ -14,7 +14,7 @@ def main
         #
         # $ make
         #
-        # in Terminal to generate your new JSON file at docs/json/vi_mode.json.
+        # in Terminal to generate your new JSON file at public/json/vi_mode.json.
         #
         # Copy it to ~/.config/karabiner/assets/complex_modifications then you can enable it in Karabiner-Elements.
         #
