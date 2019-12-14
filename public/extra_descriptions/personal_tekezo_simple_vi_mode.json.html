@@ -1,0 +1,61 @@
+<link rel="stylesheet" href="../../vendor/css/bootstrap.min.css" />
+
+<style>
+  .personal-tekezo-simple-vi-mode span.key {
+    color: #c7254e;
+    background-color: #f9f2f4;
+    font-weight: bold;
+    padding: 0px 5px;
+  }
+</style>
+
+<div class="personal-tekezo-simple-vi-mode">
+  <p style="margin-top: 20px; font-weight: bold">
+    Simple Vi Mode v3 (rev 3)
+  </p>
+
+  <p>
+    You can change keys while <span class="key">s</span> key is pressed down.
+    Simple Vi Mode will be active by the following procedure.
+  </p>
+
+  <ol>
+    <li><span class="key">s</span> key_down</li>
+    <li>
+      any keys of vi operation key_down (<span class="key">h</span>,
+      <span class="key">j</span>, <span class="key">k</span>,
+      <span class="key">l</span>,...)
+    </li>
+    <li>
+      any keys of vi operation key_up (<span class="key">h</span>,
+      <span class="key">j</span>, <span class="key">k</span>,
+      <span class="key">l</span>,...)
+    </li>
+    <li>
+      Then Simple Vi Mode is active until you release
+      <span class="key">s</span> key.
+    </li>
+  </ol>
+
+  <b>Example:</b>
+  <ul>
+    <li>Press <span class="key">s</span></li>
+    <li>Press <span class="key">j</span></li>
+    <li>Press <span class="key">k</span></li>
+    <li>Release <span class="key">j</span></li>
+    <li>Release <span class="key">k</span></li>
+    <li>Release <span class="key">s</span></li>
+  </ul>
+
+  <b>Key bindings:</b>
+  <ul>
+    <li>h: left arrow</li>
+    <li>j: down arrow</li>
+    <li>k: up arrow</li>
+    <li>l: right arrow</li>
+    <li>f: fn</li>
+    <li>c: left control</li>
+    <li>v: left option</li>
+    <li>b: left command</li>
+  </ul>
+</div>

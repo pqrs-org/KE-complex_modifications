@@ -1,8 +1,9 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 require 'webrick'
 
-Dir.chdir(File.dirname(__dir__) + '/docs')
+Dir.chdir(File.dirname(__dir__) + '/public')
 
 server = WEBrick::HTTPServer.new(
   BindAddress: 'localhost',
@@ -10,11 +11,12 @@ server = WEBrick::HTTPServer.new(
   DocumentRoot: '.'
 )
 
-server.mount_proc('/dist.json') do |_, res|
+server.mount_proc('/build/dist.json') do |_, res|
   res['Content-Type'] = 'application/json'
 
-  IO.popen('ruby ' + __dir__ + '/make-distjs.rb') do |p|
-    res.body = p.read
+  system('bash ' + __dir__ + '/update-public-build.sh')
+  open('build/dist.json') do |f|
+    res.body = f.read
   end
 end
 

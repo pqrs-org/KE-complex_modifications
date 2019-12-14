@@ -3,7 +3,7 @@
 require 'json'
 
 files_in_groups = []
-open(File.join(__dir__, '..', 'docs', 'groups.json')) do |f|
+open(File.join(__dir__, '..', 'public', 'groups.json')) do |f|
   data = JSON.parse(f.read)
   data.each_value do |group|
     group.each do |category|
@@ -17,7 +17,7 @@ files_in_groups.sort!
 
 json_files = []
 # Exclude git ignored files
-`git ls-files #{__dir__}/../docs/json`.split(/\n/).each do |file_path|
+`git ls-files #{__dir__}/../public/json`.split(/\n/).each do |file_path|
   json_files << File.basename(file_path)
 end
 json_files.sort!
@@ -27,8 +27,8 @@ unless missing_entries.empty?
   puts ''
   puts '----------------------------------------'
   puts 'ERROR:'
-  puts 'There are some files are not included in docs/groups.json.'
-  puts 'Please add them into docs/groups.json.'
+  puts 'There are some files are not included in public/groups.json.'
+  puts 'Please add them into public/groups.json.'
   puts '----------------------------------------'
   puts ''
 
