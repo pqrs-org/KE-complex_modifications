@@ -273,7 +273,7 @@ export default {
 
     fetchData() {
       axios
-        .get('dist.json', {
+        .get('build/dist.json', {
           headers: {
             'Cache-Control': 'no-cache'
           }

@@ -36,7 +36,7 @@ complex_modifications for Karabiner-Elements.
 `public/index.html` does not work properly if you open it via `file://...`.<br />
 Launch a local web server by `make server` in terminal and open <http://localhost:8000>.<br />
 (You can quit the local web server by the `control-c` shortcut in terminal.) <br/>
-Before run `make server`, make sure you've run `make` command to auto generate `public/dist.json` file.
+Before run `make server`, make sure you've run `make` command to auto generate `public/build/dist.json` file.
 
 Karabiner-Elements cannot import the json from the local web server due to the no https connection between local web server.<br />
 Please import the json via file copy. (See [Test your own rules](#Test-your-own-rules).)
@@ -58,7 +58,7 @@ If you want to publish your own rules into complex_modification repository, foll
 2. Update or add new rules by following [Add rules](#add-rules) section. Don't forget to run `make`
 3. Stage modified files (`git add`) and commit it (`git commit`)
 
-    *NOTE :* The `make` command will auto generate `public/dist.json` file. But do not stage `public/dist.json` file. <br/>(`public/dist.json` file is already ignored by .gitignore)
+    *NOTE :* The `make` command will auto generate `public/build/dist.json` file. But do not stage `public/build/dist.json` file. <br/>(`public/build/dist.json` file is already ignored by .gitignore)
 
 4. Push to your forked repository.
 5. Click "New Pull Request" button, then the maintainer will review your commit.
