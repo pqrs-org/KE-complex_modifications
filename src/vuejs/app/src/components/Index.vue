@@ -301,11 +301,12 @@ export default {
     makeLunrIndex() {
       this.lunrIndex = lunr(l => {
         l.ref('fileId')
+        l.field('title', { boost: 2 })
         l.field('text')
 
         this.groups.forEach(g => {
           g.files.forEach(f => {
-            let text = f.title + ' '
+            let text = ''
             if (f.maintainers !== undefined) {
               f.maintainers.forEach(m => {
                 text += m + ' '
@@ -318,6 +319,7 @@ export default {
 
             l.add({
               fileId: f.id,
+              title: f.title,
               text: text.toLowerCase()
             })
           })
