@@ -306,7 +306,7 @@ export default {
 
         this.groups.forEach(g => {
           g.files.forEach(f => {
-            let text = ' '
+            let text = ''
             if (f.maintainers !== undefined) {
               f.maintainers.forEach(m => {
                 text += m + ' '
