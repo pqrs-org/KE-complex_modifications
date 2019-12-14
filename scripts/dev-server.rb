@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 require 'webrick'
 
@@ -13,8 +14,9 @@ server = WEBrick::HTTPServer.new(
 server.mount_proc('/build/dist.json') do |_, res|
   res['Content-Type'] = 'application/json'
 
-  IO.popen('ruby ' + __dir__ + '/make-distjson.rb') do |p|
-    res.body = p.read
+  system('bash ' + __dir__ + '/update-public-build.sh')
+  open('build/dist.json') do |f|
+    res.body = f.read
   end
 end
 
