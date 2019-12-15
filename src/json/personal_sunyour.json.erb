@@ -59,26 +59,26 @@
       ]
     },
     {
-      "description": "Change left_shift to Ctrl-Shift-z if pressed alone exclude in Emacs",
+      "description": "Change left_shift to Ctrl-Shift-z if pressed alone exclude in Emacs and VitualMachine",
       "manipulators": [
         {
           "type": "basic",
           "from": <%= from("left_shift", [], []) %>,
           "to": <%= to([["left_shift"]]) %>,
           "to_if_alone": <%= to([["z", ["left_control", "left_shift"]]]) %>,
-          "conditions": [ <%= frontmost_application_unless("emacs") %> ]
+          "conditions": [ <%= frontmost_application_unless(["emacs", "virtual_machine"]) %> ]
         }
       ]
      },
     {
-      "description": "Change right_shift to Ctrl-Shift-z if pressed alone exclude in Emacs",
+      "description": "Change right_shift to Ctrl-Shift-z if pressed alone exclude in Emacs and VitualMachine",
       "manipulators": [
         {
           "type": "basic",
           "from": <%= from("right_shift", [], []) %>,
           "to": <%= to([["right_shift"]]) %>,
           "to_if_alone": <%= to([["z", ["right_control", "right_shift"]]]) %>,
-          "conditions": [ <%= frontmost_application_unless("emacs") %> ]
+          "conditions": [ <%= frontmost_application_unless(["emacs", "virtual_machine"]) %> ]
         }
       ]
      },
