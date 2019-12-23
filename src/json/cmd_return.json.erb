@@ -2,11 +2,21 @@
     "title": "Command_L|Command_R + Return to Backslash",
     "rules": [
         {
-            "description": "Command_[L|R] (⌘) + Return (⏎) to Backslash and Command_[L|R] (⌘) + Shift (⇧) + Return (⏎) to Pipe (|)",
+            "description": "Command_L (⌘) + Return (⏎) to Backslash and Command_L (⌘) + Shift (⇧) + Return (⏎) to Pipe (|)",
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("return_or_enter", ["left_command", "right_command"], ["left_shift", "right_shift"]) %>,
+                    "from": <%= from("return_or_enter", ["left_command"], ["left_shift", "right_shift"]) %>,
+                    "to": <%= to([["backslash"]]) %>
+                }
+            ]
+        },
+        {
+            "description": "Command_R (⌘) + Return (⏎) to Backslash and Command_R (⌘) + Shift (⇧) + Return (⏎) to Pipe (|)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("return_or_enter", ["right_command"], ["left_shift", "right_shift"]) %>,
                     "to": <%= to([["backslash"]]) %>
                 }
             ]
