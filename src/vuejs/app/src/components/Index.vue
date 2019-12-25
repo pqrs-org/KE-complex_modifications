@@ -364,7 +364,9 @@ export default {
 
     makeIFrameResizer(fileId) {
       this.iFrameResizers[fileId] = iFrameResize(
-        {},
+        {
+          heightCalculationMethod: 'lowestElement'
+        },
         '#' + fileId + '-extra-description'
       )
     },
