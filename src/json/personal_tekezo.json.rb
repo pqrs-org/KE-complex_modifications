@@ -15,9 +15,10 @@ def main
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Personal rules (@tekezo) (rev 18)',
+        'description' => 'Personal rules (@tekezo) (rev 19)',
         'manipulators' =>
         core_configuration +
+        mouse_motion_to_scroll +
         control_1234 +
         option_hyphen +
         media_controls +
@@ -323,6 +324,50 @@ def core_configuration
             command
           ],
         },
+      ],
+    },
+  ]
+end
+
+def mouse_motion_to_scroll
+  [
+    {
+      'type' => 'basic',
+      'from' => {
+        'pointing_button' => 'button3',
+        'modifiers' => {
+          'optional' => [
+            'any',
+          ],
+        },
+      },
+      'to' => [
+        Karabiner.set_variable('personal_tekezo_enable_mouse_motion_to_scroll', 1),
+      ],
+      'to_after_key_up' => [
+        Karabiner.set_variable('personal_tekezo_enable_mouse_motion_to_scroll', 0),
+      ],
+      'to_if_alone' => [
+        {
+          'pointing_button' => 'button1',
+          'modifiers' => ['left_command'],
+        },
+      ],
+      'parameters' => {
+        'basic.to_if_alone_timeout_milliseconds' => 250,
+      },
+    },
+    {
+      'type' => 'mouse_motion_to_scroll',
+      'from' => {
+        'modifiers' => {
+          'optional' => [
+            'any',
+          ],
+        },
+      },
+      'conditions' => [
+        Karabiner.variable_if('personal_tekezo_enable_mouse_motion_to_scroll', 1),
       ],
     },
   ]
@@ -787,40 +832,6 @@ def app_visual_studio_code
         {
           'key_code' => 'page_up',
           'modifiers' => ['left_control'],
-        },
-      ],
-      'conditions' => [
-        Karabiner.frontmost_application_if(['visual_studio_code']),
-      ],
-    },
-    # command+shift+[ => command+option+left arrow
-    {
-      'type' => 'basic',
-      'from' => {
-        'key_code' => 'open_bracket',
-        'modifiers' => Karabiner.from_modifiers(%w[command shift], ['caps_lock']),
-      },
-      'to' => [
-        {
-          'key_code' => 'left_arrow',
-          'modifiers' => %w[left_command left_option],
-        },
-      ],
-      'conditions' => [
-        Karabiner.frontmost_application_if(['visual_studio_code']),
-      ],
-    },
-    # command+shift+] => command+option+right arrow
-    {
-      'type' => 'basic',
-      'from' => {
-        'key_code' => 'close_bracket',
-        'modifiers' => Karabiner.from_modifiers(%w[command shift], ['caps_lock']),
-      },
-      'to' => [
-        {
-          'key_code' => 'right_arrow',
-          'modifiers' => %w[left_command left_option],
         },
       ],
       'conditions' => [
