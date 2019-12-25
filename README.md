@@ -25,8 +25,6 @@ complex_modifications for Karabiner-Elements.
     make
     ```
 
-
-
 ## complex_modifications documents
 
 <https://pqrs.org/osx/karabiner/json.html>
@@ -48,7 +46,7 @@ Please import the json via file copy. (See [Test your own rules](#Test-your-own-
     cp public/json/your_awesome_configuration.json ~/.config/karabiner/assets/complex_modifications
     ```
 2.  Import rules from Karabiner-Elements Preferences.
- `Karabiner-Elements Preferences > Complex Modifications > Rules > Add rule`
+    `Karabiner-Elements Preferences > Complex Modifications > Rules > Add rule`
 
 ## How to publish your own rules
 
@@ -58,7 +56,7 @@ If you want to publish your own rules into complex_modification repository, foll
 2. Update or add new rules by following [Add rules](#add-rules) section. Don't forget to run `make`
 3. Stage modified files (`git add`) and commit it (`git commit`)
 
-    *NOTE :* The `make` command will auto generate `public/build/dist.json` file. But do not stage `public/build/dist.json` file. <br/>(`public/build/dist.json` file is already ignored by .gitignore)
+   _NOTE :_ The `make` command will auto generate `public/build/dist.json` file. But do not stage `public/build/dist.json` file. <br/>(`public/build/dist.json` file is already ignored by .gitignore)
 
 4. Push to your forked repository.
 5. Click "New Pull Request" button, then the maintainer will review your commit.
