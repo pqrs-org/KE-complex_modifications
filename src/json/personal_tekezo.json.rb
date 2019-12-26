@@ -15,7 +15,7 @@ def main
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Personal rules (@tekezo) (rev 19)',
+        'description' => 'Personal rules (@tekezo) (rev 20)',
         'manipulators' =>
         core_configuration +
         mouse_motion_to_scroll +
@@ -651,6 +651,7 @@ end
 
 def app_terminal
   [
+    # Disable command+o
     {
       'type' => 'basic',
       'from' => {
@@ -661,6 +662,7 @@ def app_terminal
         Karabiner.frontmost_application_if(['terminal']),
       ],
     },
+    # Disable command+f
     {
       'type' => 'basic',
       'from' => {
@@ -671,23 +673,19 @@ def app_terminal
         Karabiner.frontmost_application_if(['terminal']),
       ],
     },
+    # Change command+t to option+t
     {
       'type' => 'basic',
       'from' => {
-        'key_code' => 'f19',
-        'modifiers' => Karabiner.from_modifiers(nil, ['caps_lock']),
+        'key_code' => 't',
+        'modifiers' => Karabiner.from_modifiers(['command']),
       },
-      'to' => [
-        {
-          'key_code' => 'u',
-          'modifiers' => ['left_control'],
-        },
-        { 'key_code' => 'e' },
-        { 'key_code' => 'x' },
-        { 'key_code' => 'i' },
-        { 'key_code' => 't' },
-        { 'key_code' => 'return_or_enter' },
-      ],
+      'to' => {
+        'key_code' => 't',
+        'modifiers' => [
+          'left_option',
+        ]
+      },
       'conditions' => [
         Karabiner.frontmost_application_if(['terminal']),
       ],
