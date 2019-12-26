@@ -5,7 +5,7 @@
   ],
   "rules": [
     {
-      "description": "Personal rules (@tekezo) (rev 19)",
+      "description": "Personal rules (@tekezo) (rev 20)",
       "manipulators": [
         {
           "type": "basic",
@@ -1266,36 +1266,22 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "f19",
+            "key_code": "t",
             "modifiers": {
+              "mandatory": [
+                "command"
+              ],
               "optional": [
-                "caps_lock"
+                "any"
               ]
             }
           },
-          "to": [
-            {
-              "key_code": "u",
-              "modifiers": [
-                "left_control"
-              ]
-            },
-            {
-              "key_code": "e"
-            },
-            {
-              "key_code": "x"
-            },
-            {
-              "key_code": "i"
-            },
-            {
-              "key_code": "t"
-            },
-            {
-              "key_code": "return_or_enter"
-            }
-          ],
+          "to": {
+            "key_code": "t",
+            "modifiers": [
+              "left_option"
+            ]
+          },
           "conditions": [
             {
               "type": "frontmost_application_if",
