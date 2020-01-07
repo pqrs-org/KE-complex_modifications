@@ -6,10 +6,37 @@
       "manipulators": [
         {
           "type": "basic",
-          "from": {"pointing_button": "button4"},
+          "from": {
+            "pointing_button": "button4",
+            "modifiers": {
+              "optional": ["caps_lock"]
+            }
+          },
           "to": [
-            "key_code": "control",
-            "key_code": "z"
+            {
+              "key_code": "z",
+              "modifiers": ["left_control"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "MouseButton4 to Command+z",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button4",
+            "modifiers": {
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "z",
+              "modifiers": ["left_command"]
+            }
           ]
         }
       ]
