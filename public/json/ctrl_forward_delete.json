@@ -1,0 +1,32 @@
+{
+  "title": "Map Ctrl+Forward-Delete to Option+Forward-Delete (forward delete current word)",
+  "rules": [
+    {
+      "description": "Add Ctrl+Forward-Delete",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "delete_forward",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_forward",
+              "modifiers": [
+                "option"
+              ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}
