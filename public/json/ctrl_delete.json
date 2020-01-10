@@ -1,0 +1,32 @@
+{
+  "title": "Map Ctrl+Backward-Delete to Option+Backward-Delete (delete current word)",
+  "rules": [
+    {
+      "description": "Add Ctrl+Backward-Delete",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "delete_or_backspace",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_or_backspace",
+              "modifiers": [
+                "option"
+              ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}
