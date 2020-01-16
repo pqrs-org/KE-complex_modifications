@@ -5,7 +5,7 @@
   ],
   "rules": [
     {
-      "description": "Personal rules (@tekezo) (rev 20)",
+      "description": "Personal rules (@tekezo) (rev 21)",
       "manipulators": [
         {
           "type": "basic",
@@ -1544,6 +1544,28 @@
               ]
             }
           ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.VSCode$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "t",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
           "conditions": [
             {
               "type": "frontmost_application_if",

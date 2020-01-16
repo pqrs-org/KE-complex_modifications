@@ -15,7 +15,7 @@ def main
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Personal rules (@tekezo) (rev 20)',
+        'description' => 'Personal rules (@tekezo) (rev 21)',
         'manipulators' =>
         core_configuration +
         mouse_motion_to_scroll +
@@ -804,6 +804,7 @@ end
 
 def app_visual_studio_code
   [
+    # option+n -> control+page_down
     {
       'type' => 'basic',
       'from' => {
@@ -820,6 +821,7 @@ def app_visual_studio_code
         Karabiner.frontmost_application_if(['visual_studio_code']),
       ],
     },
+    # option+p -> control+page_up
     {
       'type' => 'basic',
       'from' => {
@@ -832,6 +834,17 @@ def app_visual_studio_code
           'modifiers' => ['left_control'],
         },
       ],
+      'conditions' => [
+        Karabiner.frontmost_application_if(['visual_studio_code']),
+      ],
+    },
+    # disable control+t
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => 't',
+        'modifiers' => Karabiner.from_modifiers(['control'], ['caps_lock']),
+      },
       'conditions' => [
         Karabiner.frontmost_application_if(['visual_studio_code']),
       ],
