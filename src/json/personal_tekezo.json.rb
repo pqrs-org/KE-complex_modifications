@@ -15,7 +15,7 @@ def main
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Personal rules (@tekezo) (rev 21)',
+        'description' => 'Personal rules (@tekezo) (rev 22)',
         'manipulators' =>
         core_configuration +
         mouse_motion_to_scroll +
@@ -667,6 +667,17 @@ def app_terminal
       'type' => 'basic',
       'from' => {
         'key_code' => 'f',
+        'modifiers' => Karabiner.from_modifiers(['command']),
+      },
+      'conditions' => [
+        Karabiner.frontmost_application_if(['terminal']),
+      ],
+    },
+    # Disable command+w
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => 'w',
         'modifiers' => Karabiner.from_modifiers(['command']),
       },
       'conditions' => [
