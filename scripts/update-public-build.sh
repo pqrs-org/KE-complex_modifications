@@ -6,6 +6,7 @@ cd $(dirname "$0")/../public
 # Update dist.json
 #
 
+mkdir -p build
 ruby ../scripts/make-distjson.rb >build/dist.json
 
 #
