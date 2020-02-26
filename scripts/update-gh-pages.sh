@@ -10,8 +10,7 @@ if git clone --depth 1 git@github.com:pqrs-org/gh-pages-ke-complex-modifications
     git config user.email "tekezo@pqrs.org" &&
     git add -A &&
     git commit -m "pqrs-org/KE-complex_modifications@$revision" &&
-    echo moge)
-  #  git push)
+    git push)
 else
   echo "Skip updating pqrs-org/gh-pages-ke-complex-modifications.pqrs.org since git clone is failed."
 fi
