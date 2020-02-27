@@ -5,7 +5,7 @@
 
 complex_modifications for Karabiner-Elements.
 
-<https://pqrs.org/osx/karabiner/complex_modifications/>
+<https://ke-complex-modifications.pqrs.org/>
 
 ## Add rules
 
