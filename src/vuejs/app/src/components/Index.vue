@@ -399,9 +399,6 @@ export default {
       for (let g of this.groups) {
         for (let f of g.files) {
           if (f.id == fileId) {
-            this.showJsonModalTitle = f.title
-            this.showJsonModalBody = 'Loading...'
-            this.$refs.showJsonModalRef.show()
 
             axios.get(f.jsonUrl).then(response => {
               const url =
