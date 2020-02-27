@@ -117,6 +117,9 @@
                                               v-clipboard:error="urlCopyFailed">
                         <small>Copy JSON URL</small>
                       </b-dropdown-item-button>
+                      <b-dropdown-item-button @click="editJson(file.id)">
+                        <small>Edit JSON</small>
+                      </b-dropdown-item-button>
                     </b-dropdown>
                   </div>
                 </b-card-header>
@@ -385,6 +388,26 @@ export default {
 
             axios.get(f.jsonUrl).then(response => {
               this.showJsonModalBody = JSON.stringify(response.data, null, 2)
+            })
+
+            return
+          }
+        }
+      }
+    },
+    editJson(fileId) {
+      for (let g of this.groups) {
+        for (let f of g.files) {
+          if (f.id == fileId) {
+            this.showJsonModalTitle = f.title
+            this.showJsonModalBody = 'Loading...'
+            this.$refs.showJsonModalRef.show()
+
+            axios.get(f.jsonUrl).then(response => {
+              const url =
+                'https://genesy.github.io/karabiner-complex-rules-generator/#'
+              const base64string = window.btoa(JSON.stringify(response.data))
+              window.open(url + base64string)
             })
 
             return
