@@ -1,0 +1,27 @@
+{
+    "title": "Using Vi with Footpedal",
+    "rules": [
+        {
+            "description": "Right footpedal down hits i for edit mode, up hits escape for normal mode",
+            "manipulators": [
+                {
+                    "from": {
+                        "key_code": "keypad_enter"
+                    },
+                    "to": [
+                        {
+                            "key_code": "i",
+                            "repeat": false
+                        }
+                    ],
+                    "to_after_key_up": [
+                        {
+                            "key_code": "escape"
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        }
+    ]
+}

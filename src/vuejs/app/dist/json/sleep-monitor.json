@@ -1,0 +1,32 @@
+{
+  "title": "Add Sleep Monitor for Keyboard without Eject",
+  "rules": [
+    {
+        "description": "Ctrl+Cmd+Shift+Esc to Sleep Monitor",
+        "manipulators": [
+        {
+          "from": {
+            "key_code": "escape",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "command",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "eject",
+              "modifiers": [
+                "left_control",
+                "left_shift"
+            ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}

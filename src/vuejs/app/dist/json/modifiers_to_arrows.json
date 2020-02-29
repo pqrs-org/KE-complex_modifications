@@ -1,0 +1,112 @@
+{
+    "title": "Change modifiers to arrows",
+    "maintainers": [
+        "thoelze1"
+    ],
+    "rules": [
+        {
+            "description": "Change left_shift to left_arrow if pressed alone",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "left_shift",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_shift"
+                        }
+                    ],
+                    "to_if_alone": [
+                        {
+                            "key_code": "left_arrow"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Change right_shift to right_arrow if pressed alone",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "right_shift",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "right_shift"
+                        }
+                    ],
+                    "to_if_alone": [
+                        {
+                            "key_code": "right_arrow"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Change left_command to down_arrow if pressed alone",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "left_command",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_command"
+                        }
+                    ],
+                    "to_if_alone": [
+                        {
+                            "key_code": "down_arrow"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Change right_command to up_arrow if pressed alone",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "right_command",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "right_command"
+                        }
+                    ],
+                    "to_if_alone": [
+                        {
+                            "key_code": "up_arrow"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

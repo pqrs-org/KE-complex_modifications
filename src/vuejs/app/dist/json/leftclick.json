@@ -1,0 +1,24 @@
+{
+  "title": "Remove ctrl+left click to right click",
+  "rules": [
+    {
+      "description": "ctrl+left click to left click",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button1",
+            "modifiers": {
+              "mandatory": ["control"]
+            }
+          },
+          "to": [
+            {
+              "pointing_button": "button1"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

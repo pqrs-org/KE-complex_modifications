@@ -1,0 +1,191 @@
+{
+  "title": "Prevent unintended command-q (rev 2)",
+  "rules": [
+    {
+      "description": "Quit application by pressing command-q twice",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "command-q",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "q",
+              "modifiers": "left_command"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "command-q",
+                "value": 1
+              }
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "command-q",
+                  "value": 0
+                }
+              }
+            ],
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "command-q",
+                  "value": 0
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "description": "Quit application by holding command-q",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to_if_held_down": [
+            {
+              "key_code": "q",
+              "modifiers": [
+                "left_command"
+              ],
+              "repeat": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Quit Safari by pressing command-q twice",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "command-q",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Safari$"
+              ]
+            }
+          ],
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "q",
+              "modifiers": "left_command"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Safari$"
+              ]
+            }
+          ],
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "command-q",
+                "value": 1
+              }
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "command-q",
+                  "value": 0
+                }
+              }
+            ],
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "command-q",
+                  "value": 0
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

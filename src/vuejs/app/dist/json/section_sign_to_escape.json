@@ -1,0 +1,94 @@
+{
+  "title": "Section sign (§) to Escape",
+  "maintainers": ["kopach"],
+  "rules": [
+    {
+      "description": "[Any Keyboard] Section sign (§) to Escape and fn + Section sign (§) to Section sign (§).",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "non_us_backslash",
+            "modifiers": {
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "escape"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "non_us_backslash",
+            "modifiers": {
+              "mandatory": ["fn"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "non_us_backslash"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "[Apple Keyboard Only] Section sign (§) to Escape and fn + Section sign (§) to Section sign (§). Useful on Mac with Touch Bar, where is no physical Escape key.",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "non_us_backslash",
+            "modifiers": {
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "escape"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "is_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "non_us_backslash",
+            "modifiers": {
+              "mandatory": ["fn"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "non_us_backslash"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "is_keyboard": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

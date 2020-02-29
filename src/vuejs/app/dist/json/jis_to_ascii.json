@@ -1,0 +1,115 @@
+{
+  "title": "For Japanese （JIS配列をASCII配列風にする設定）",
+  "rules": [
+    {
+      "description": "英数・かなキーを他のキーと組み合わせて押したときに、コマンドキーを送信する。",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "japanese_eisuu",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_command"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "japanese_eisuu"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "japanese_kana",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_command"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "japanese_kana"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_command",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_command"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "japanese_kana"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "コマンドキーをオプションキーに置き換える。",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_command",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_option"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "バッククオートとチルダを割り当てる。",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "international3",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

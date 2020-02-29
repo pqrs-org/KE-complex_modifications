@@ -1,0 +1,189 @@
+{
+  "title": "Finder",
+  "rules": [
+    {
+      "description": "Use Return as Open",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "return_or_enter",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "o",
+              "modifiers": ["right_command"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com.apple.finder"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Use Return as Open and Use Fn+Return as Rename",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "return_or_enter",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "return_or_enter"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com.apple.finder"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "return_or_enter"
+          },
+          "to": [
+            {
+              "key_code": "o",
+              "modifiers": ["right_command"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com.apple.finder"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Use F2 as Rename",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f2"
+          },
+          "to": [
+            {
+              "key_code": "return_or_enter"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com.apple.finder"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Use Delete as Move to Trash",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "delete_forward",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_or_backspace",
+              "modifiers": ["left_command"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com.apple.finder"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Use Fn+Delete as Move to Trash",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "delete_forward",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_or_backspace",
+              "modifiers": ["left_command"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com.apple.finder"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Use Backspace as Go to Previous Folder",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "delete_or_backspace"
+          },
+          "to": [
+            {
+              "key_code": "semicolon",
+              "modifiers": ["left_command"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com.apple.finder"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

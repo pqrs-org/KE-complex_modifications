@@ -1,0 +1,32 @@
+{
+  "title": "Disable Ctrl Click",
+  "rules": [
+    {
+      "description": "Ctrl + Left Click to Left Click",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button1",
+            "modifiers": {
+              "mandatory": [
+                  "left_control"
+              ],
+              "optional": [
+                  "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+                "pointing_button": "button1"
+            },
+            {
+                "key_code": "left_control"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
