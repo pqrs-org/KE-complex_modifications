@@ -1,0 +1,35 @@
+{
+  "title": "Emoji-key",
+  "rules": [
+      {
+      "description": "Press right_alt alone toggles emoji input",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_alt",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_alt"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "spacebar",
+              "modifiers": [
+				"left_control",
+				"left_command"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

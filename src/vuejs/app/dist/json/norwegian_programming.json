@@ -1,0 +1,108 @@
+{
+  "title": "Norwegian mapping for programming (\\, {}, <>)",
+  "rules": [
+    {
+      "description": "non_us_backslash(') => Less/greater than(<>)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "non_us_backslash",
+            "modifiers": {
+                "optional": [
+                    "any"
+                ]
+            }
+          },
+          "to": [
+            {"key_code": "grave_accent_and_tilde"}
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "grave_accent_and_tilde",
+            "modifiers": {
+                "optional": [
+                    "any"
+                ]
+            }
+          },
+          "to": [
+            {"key_code": "non_us_backslash"}
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Right command + 8-9 => curly-brackets {}}",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "8",
+            "modifiers": {
+                "mandatory": [
+                  "right_command"
+                ]
+            }
+          },
+          "to": [
+            {
+            "key_code": "8",
+            "modifiers": [
+              "left_option",
+              "left_shift"
+            ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "9",
+            "modifiers": {
+                "mandatory": [
+                  "right_command"
+                ]
+            }
+          },
+          "to": [
+            {
+            "key_code": "9",
+            "modifiers": [
+              "left_option",
+              "left_shift"
+            ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Right command + 7 => Backslash(\\)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "7",
+            "modifiers": {
+                "mandatory": [
+                    "right_command"
+                ]
+            }
+          },
+          "to": [
+            {
+            "key_code": "7",
+            "modifiers": [
+              "left_option",
+              "left_shift"
+            ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

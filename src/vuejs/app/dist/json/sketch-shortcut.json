@@ -1,0 +1,107 @@
+{
+  "title": "Sketch Shortcut",
+  "rules": [
+    {
+      "description": "Post spacebar to Command+Shift+Ctrl if not press alone in Sketch app.",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_control",
+              "modifiers": [
+                "left_shift",
+                "left_command"
+              ],
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+              {
+                "key_code": "spacebar"
+              }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.bohemiancoding\\.sketch3$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Use spacebar+; and spacebar+' switch artboard in Sketch app. (Should be used with previous rule and put under it)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "semicolon",
+            "modifiers": {
+              "mandatory": [
+                "left_command",
+                "left_shift",
+                "left_control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.bohemiancoding\\.sketch3$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "quote",
+            "modifiers": {
+              "mandatory": [
+                "left_command",
+                "left_shift",
+                "left_control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.bohemiancoding\\.sketch3$"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
