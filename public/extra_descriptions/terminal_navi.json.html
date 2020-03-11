@@ -1,0 +1,10 @@
+<link rel="stylesheet" href="../../vendor/css/bootstrap.min.css" />
+
+<p>In <a href="http://zsh.sourceforge.net">Zsh</a>, the command <code>backward-kill-line</code>
+  does not have a keybinding by default and the shortcut for "Delete to beginning of line" will
+  delete the whole line instead. To get it to work correctly,  you need to add the following to
+  your <code>~/.zshrc</code> file:.</p>
+<pre>bindkey "^U" backward-kill-line</pre>
+<p>If you are using
+  <a href="https://github.com/sorin-ionescu/prezto/tree/master/modules/editor">Prezto's
+  editor module</a>, then this is included automatically.</p>
