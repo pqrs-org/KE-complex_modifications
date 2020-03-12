@@ -1,0 +1,60 @@
+{
+    "title": "Undo/Redo in Terminal Apps",
+    "maintainers": ["marlonrichert"],
+    "rules": [
+        {
+            "description": "⌘Z to Undo",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "z",
+                        "modifiers": {
+                            "mandatory": [
+                                "command"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "hyphen",
+                            "modifiers": [
+                                "left_control"
+                            ]
+                        }
+                    ],
+                    "conditions": [ <%= frontmost_application_if("terminal") %> ]
+                }
+            ]
+        },
+        {
+            "description": "⌘⇧Z to Redo [Zsh only]",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "z",
+                        "modifiers": {
+                            "mandatory": [
+                                "command",
+                                "shift"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "escape"
+                        },
+                        {
+                            "key_code": "hyphen",
+                            "modifiers": [
+                                "left_shift"
+                            ]
+                        }
+                    ],
+                    "conditions": [ <%= frontmost_application_if("terminal") %> ]
+                }
+            ]
+        }
+    ]
+}
