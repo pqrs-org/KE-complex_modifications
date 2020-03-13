@@ -27,15 +27,15 @@
     <td>Move cursor to beginning/end of line</td>
   </tr>
   <tr>
-    <td>Trigger Key + D/F</td>
+    <td>Trigger key + D/F</td>
     <td>Backspace/Delete</td>
   </tr>
   <tr>
-    <td>Trigger Key + E/R</td>
+    <td>Trigger key + E/R</td>
     <td>Delete one word backward/forward</td>
   </tr>
   <tr>
-    <td>Trigger Key + S/G</td>
+    <td>Trigger key + S/G</td>
     <td>Delete to beginning/end of line</td>
   </tr>
 </table>
@@ -50,12 +50,12 @@
     <a href="https://github.com/pqrs-org/KE-complex_modifications">the source code</a> and modify
     <a href="https://github.com/pqrs-org/KE-complex_modifications/tree/master/src/json/ergoemacs_mode.json.rb">this
       file</a>.</li>
-  <li>In <a href="http://zsh.sourceforge.net">Zsh</a>, the command <code>backward-kill-line</code>
+  <li><p>In <a href="http://zsh.sourceforge.net">Zsh</a>, the command <code>backward-kill-line</code>
     does not have a keybinding by default and the shortcut for "Delete to beginning of line" will
     delete the whole line instead. To get it to work correctly,  you need to add the following to
-    your <code>~/.zshrc</code> file:
+    your <code>~/.zshrc</code> file:</p>
     <pre>bindkey "^U" backward-kill-line</pre>
-    If you are using
+    <p>If you are using
     <a href="https://github.com/sorin-ionescu/prezto/tree/master/modules/editor">Prezto's
-    editor module</a>, then this is included automatically.</li>
+    editor module</a>, then this is included automatically.</p></li>
 </ul>
