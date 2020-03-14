@@ -1,0 +1,55 @@
+{
+  "title": "Shift Home and End",
+  "rules": [
+    {
+      "description": "Shift Home to Shift Command Left",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+              "key_code": "home",
+              "modifiers": {
+                "mandatory": [
+                  "left_shift"
+                ]
+              }
+            },
+          "to": [
+            {
+            "key_code": "left_arrow",
+            "modifiers":  [
+              "command",
+              "left_shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Shift End to Shift Command Right",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+              "key_code": "end",
+              "modifiers": {
+                "mandatory": [
+                  "left_shift"
+                ]
+              }
+            },
+          "to": [
+            {
+            "key_code": "right_arrow",
+            "modifiers":  [
+              "command",
+              "left_shift"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
