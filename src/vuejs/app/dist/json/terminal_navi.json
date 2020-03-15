@@ -1,5 +1,8 @@
 {
   "title": "Navigation in Terminal Apps",
+  "maintainers": [
+    "marlonrichert"
+  ],
   "rules": [
     {
       "description": "⌘ + ← | Move cursor to line begin",
@@ -187,7 +190,7 @@
       ]
     },
     {
-      "description": "⌥ + ⌦ | Delete one word ahead",
+      "description": "⌥ + fn + ⌫ | Delete one word ahead [laptop w/out ⌦ key]",
       "manipulators": [
         {
           "type": "basic",
@@ -197,6 +200,43 @@
               "mandatory": [
                 "option",
                 "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "escape"
+            },
+            {
+              "key_code": "d"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "⌥ + ⌦ | Delete one word ahead [keyboard w/ ⌦ key]",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "delete_forward",
+            "modifiers": {
+              "mandatory": [
+                "option"
               ]
             }
           },
@@ -262,7 +302,7 @@
       ]
     },
     {
-      "description": "⌘ + ⌦ | Delete to line end",
+      "description": "⌘ + fn + ⌫ | Delete to line end [laptop w/out ⌦ key]",
       "manipulators": [
         {
           "type": "basic",
@@ -272,6 +312,43 @@
               "mandatory": [
                 "command",
                 "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "k",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "⌘ + ⌦ | Delete to line end [keyboard w/ ⌦ key]",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "delete_forward",
+            "modifiers": {
+              "mandatory": [
+                "command"
               ]
             }
           },
