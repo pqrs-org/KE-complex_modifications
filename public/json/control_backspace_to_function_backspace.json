@@ -1,0 +1,32 @@
+{
+  "title": "Map Ctrl+Backward-Delete to Fn+Backward-Delete (suppr current character)",
+  "rules": [
+    {
+      "description": "Add Ctrl+Backward-Delete",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "delete_or_backspace",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_or_backspace",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}
