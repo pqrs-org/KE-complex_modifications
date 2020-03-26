@@ -1,5 +1,5 @@
 {
-  "title": "Save pinky fingers",
+  "title": "Save pinky fingers (rev 2)",
   "rules": [
     {
       "description": "Change Control + 8 to Enter",
@@ -32,6 +32,30 @@
           "type": "basic",
           "from": {
             "key_code": "9",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "return_or_enter"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Change Control + o to Enter",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "o",
             "modifiers": {
               "mandatory": [
                 "control"
