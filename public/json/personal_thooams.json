@@ -2,6 +2,33 @@
   "title": "Personal Thooams Remapping",
   "rules": [
     {
+      "description": "Map Ctrl+Backspace-Delete to Fn+Backward-Delete (suppr current character)",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "delete_or_backspace",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_or_backspace",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
       "description": "Map Left Option + Spacebar to Enter",
       "manipulators": [
         {
