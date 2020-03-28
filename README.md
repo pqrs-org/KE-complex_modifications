@@ -28,7 +28,9 @@ complex_modifications for Karabiner-Elements.
 
 ## complex_modifications documents
 
-<https://karabiner-elements.pqrs.org/docs/json/>
+-   [karabiner.json Reference Manual](https://karabiner-elements.pqrs.org/docs/json/)
+    -   [Typical complex_modifications examples](https://karabiner-elements.pqrs.org/docs/json/typical-complex-modifications-examples/)
+    -   [complex_modifications manipulator definition](https://karabiner-elements.pqrs.org/docs/json/complex-modifications-manipulator-definition/)
 
 ## Testing complex_modifications webpage on local server
 
