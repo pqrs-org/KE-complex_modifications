@@ -26,7 +26,7 @@ class Variable
   end
 
   # Remaps one or more keys to one or more modifiers when pressed simultaneously with specified keys.
-  # A variable is used as a {virtual modifier}[https://pqrs.org/osx/karabiner/json.html#virtual-modifier],
+  # A variable is used as a {virtual modifier}[https://karabiner-elements.pqrs.org/docs/json/extra/virtual-modifier/],
   # allowing non-modifier keys to act like modifiers and remain active as long as they are held down.
   #
   # @param from_key_codes [<String>] key code(s) that should act like +to_modifiers+
@@ -35,8 +35,8 @@ class Variable
   # @param to_modifiers [<String>] modifier(s) to which +from_key_codes+ are remapped.
   # @param modifiable [<String>] key codes that, when pressed simultaneously with
   #        +from_key_codes+, should act like they are modified by +to_modifiers+ instead.
-  # @param conditions array of {condition definitions}[https://pqrs.org/osx/karabiner/json.html#condition-definition].
-  # @return array of {manipulator definitions}[https://pqrs.org/osx/karabiner/json.html#complex_modifications-manipulator-definition].
+  # @param conditions array of {condition definitions}[https://karabiner-elements.pqrs.org/docs/json/complex-modifications-manipulator-definition/conditions/].
+  # @return array of {manipulator definitions}[https://karabiner-elements.pqrs.org/docs/json/complex-modifications-manipulator-definition/].
   def remap_to_modifiers(from_key_codes,
                          from_modifiers: Karabiner.from_modifiers,
                          to_modifiers: [],
