@@ -28,7 +28,7 @@ complex_modifications for Karabiner-Elements.
 
 ## complex_modifications documents
 
-<https://pqrs.org/osx/karabiner/json.html>
+<https://karabiner-elements.pqrs.org/docs/json/>
 
 ## Testing complex_modifications webpage on local server
 
@@ -43,9 +43,11 @@ Please import the json via file copy. (See [Test your own rules](#Test-your-own-
 ## Testing your own rules
 
 1.  Copy a json file to `~/.config/karabiner/assets/complex_modifications`.
+
     ```shell
     cp public/json/your_awesome_configuration.json ~/.config/karabiner/assets/complex_modifications
     ```
+
 2.  Import rules from Karabiner-Elements Preferences.
     `Karabiner-Elements Preferences > Complex Modifications > Rules > Add rule`
 
@@ -53,14 +55,15 @@ Please import the json via file copy. (See [Test your own rules](#Test-your-own-
 
 If you want to publish your own rules into complex_modification repository, follow this step.
 
-1. Fork this repository to your github account.
-2. Update or add new rules by following [Add rules](#add-rules) section. Don't forget to run `make`
-3. Stage modified files (`git add`) and commit it (`git commit`)
-
-   _NOTE :_ The `make` command will auto generate `public/build/dist.json` file. But do not stage `public/build/dist.json` file. <br/>(`public/build/dist.json` file is already ignored by .gitignore)
-
-4. Push to your forked repository.
-5. Click "New Pull Request" button, then the maintainer will review your commit.
+1.  Fork this repository to your github account.
+2.  Update or add new rules by following [Add rules](#add-rules) section. Don't forget to run `make`
+3.  Stage modified files (`git add`) and commit it (`git commit`)<br/>
+    <br/>
+    _NOTE :_ The `make` command will auto generate `public/build/dist.json` file. But do not stage `public/build/dist.json` file. <br/>
+    (`public/build/dist.json` file is already ignored by .gitignore)<br/>
+    <br/>
+4.  Push to your forked repository.
+5.  Click "New Pull Request" button, then the maintainer will review your commit.
 
 ---
 
