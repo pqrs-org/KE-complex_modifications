@@ -59,6 +59,18 @@
       ]
     },
     {
+      "description": "Change right_shift to Ctrl-Alt-Shift-Command-j if pressed alone in Emacs",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("right_shift", [], []) %>,
+          "to": <%= to([["right_shift"]]) %>,
+          "to_if_alone": <%= to([["j", ["left_control", "left_shift", "left_alt", "left_gui"]]]) %>,
+          "conditions": [ <%= frontmost_application_if("emacs") %> ]
+        }
+      ]
+    },
+    {
       "description": "Change left_shift to Ctrl-Shift-z if pressed alone outside Emacs and VitualMachine",
       "manipulators": [
         {
