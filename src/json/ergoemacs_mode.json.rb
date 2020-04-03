@@ -66,9 +66,7 @@ def generate_ergoemacs_mode(trigger_key)
     generate_ergoemacs_four_part_rule("s", "delete_or_backspace", ["left_command"],
                                       [ { "key_code" => "u", "modifiers" => ["right_control"], } ],
                                       trigger_key, variable),
-    generate_ergoemacs_four_part_rule("g", "delete_forward", ["left_command"],
-                                      [ { "key_code" => "k", "modifiers" => ["left_control"], } ],
-                                      trigger_key, variable),
+    generate_ergoemacs_two_part_rule("g", "k", ["left_control"], trigger_key, variable),
     generate_ergoemacs_trigger_rule(trigger_key, variable),
   ].flatten
 end
