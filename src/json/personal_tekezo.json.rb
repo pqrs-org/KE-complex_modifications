@@ -334,7 +334,7 @@ def mouse_motion_to_scroll
     {
       'type' => 'basic',
       'from' => {
-        'pointing_button' => 'button3',
+        'pointing_button' => 'button5',
         'modifiers' => {
           'optional' => [
             'any',
