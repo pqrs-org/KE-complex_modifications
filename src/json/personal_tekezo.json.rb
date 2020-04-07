@@ -15,10 +15,10 @@ def main
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Personal rules (@tekezo) (rev 23)',
+        'description' => 'Personal rules (@tekezo) (rev 24)',
         'manipulators' =>
         core_configuration +
-        mouse_motion_to_scroll +
+        mouse +
         control_1234 +
         option_hyphen +
         media_controls +
@@ -329,8 +329,9 @@ def core_configuration
   ]
 end
 
-def mouse_motion_to_scroll
+def mouse
   [
+    # mouse_motion_to_scroll (button5)
     {
       'type' => 'basic',
       'from' => {
@@ -368,6 +369,19 @@ def mouse_motion_to_scroll
       },
       'conditions' => [
         Karabiner.variable_if('personal_tekezo_enable_mouse_motion_to_scroll', 1),
+      ],
+    },
+    # button6 -> command + click
+    {
+      'type' => 'basic',
+      'from' => {
+        'pointing_button' => 'button6',
+      },
+      'to' => [
+        {
+          'pointing_button' => 'button1',
+          'modifiers' => ['left_command'],
+        },
       ],
     },
   ]

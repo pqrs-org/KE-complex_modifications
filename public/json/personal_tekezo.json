@@ -5,7 +5,7 @@
   ],
   "rules": [
     {
-      "description": "Personal rules (@tekezo) (rev 23)",
+      "description": "Personal rules (@tekezo) (rev 24)",
       "manipulators": [
         {
           "type": "basic",
@@ -481,6 +481,20 @@
               "type": "variable_if",
               "name": "personal_tekezo_enable_mouse_motion_to_scroll",
               "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button6"
+          },
+          "to": [
+            {
+              "pointing_button": "button1",
+              "modifiers": [
+                "left_command"
+              ]
             }
           ]
         },
