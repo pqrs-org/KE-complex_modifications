@@ -15,7 +15,7 @@ def main
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Personal rules (@tekezo) (rev 22)',
+        'description' => 'Personal rules (@tekezo) (rev 23)',
         'manipulators' =>
         core_configuration +
         mouse_motion_to_scroll +
