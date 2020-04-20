@@ -1,5 +1,5 @@
 {
-  "title": "Change ctrl + i/j/k/l to arrow keys",
+  "title": "personal @jonlev1n",
   "rules": [
     {
       "description": "Change Control + i/j/k/l to Arrows",
@@ -167,6 +167,96 @@
             {
               "key_code": "right_arrow",
               "modifiers": "left_command"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Control and -/= to display brightness",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "hyphen",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "display_brightness_decrement"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "equal_sign",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "display_brightness_increment"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Control and 1/2/3 to rewind/play_or_pause/fastforward",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "1",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "rewind"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "2",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "play_or_pause"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "3",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "fastforward"
             }
           ]
         }
