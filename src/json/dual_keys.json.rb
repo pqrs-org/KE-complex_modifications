@@ -63,7 +63,6 @@ def generate_dual_key_rule(original_key, alternate_key)
       ],
       'parameters' => {
         'basic.to_if_alone_timeout_milliseconds' => PARAMETERS[:to_if_alone_timeout_milliseconds],
-        'basic.to_delayed_action_delay_milliseconds' => PARAMETERS[:to_delayed_action_delay_milliseconds],
         'basic.to_if_held_down_threshold_milliseconds' => PARAMETERS[:to_if_held_down_threshold_milliseconds],
       },
     },
