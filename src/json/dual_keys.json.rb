@@ -20,24 +20,32 @@ def main
         "manipulators" => generate_dual_key_rule("left_gui", "return_or_enter"),
       },
       {
-        "description" => "Left ⌥ to Escape if pressed alone",
-        "manipulators" => generate_dual_key_rule("left_alt", "escape"),
-      },
-      {
-        "description" => "Left ⇧ to [ if pressed alone",
-        "manipulators" => generate_dual_key_rule("left_shift", "open_bracket"),
-      },
-      {
         "description" => "Right ⌘ to - if pressed alone",
         "manipulators" => generate_dual_key_rule("right_gui", "hyphen"),
+      },
+      {
+        "description" => "Left ⌥ to Escape if pressed alone",
+        "manipulators" => generate_dual_key_rule("left_alt", "escape"),
       },
       {
         "description" => "Right ⌥ to = if pressed alone",
         "manipulators" => generate_dual_key_rule("right_alt", "equal_sign"),
       },
       {
-        "description" => "Right ⇧ to ] if pressed alone",
-        "manipulators" => generate_dual_key_rule("right_shift", "close_bracket"),
+        "description" => "Left ⇧ to ` if pressed alone",
+        "manipulators" => generate_dual_key_rule("left_shift", "grave_accent_and_tilde"),
+      },
+      {
+        "description" => "Right ⇧ to ' if pressed alone",
+        "manipulators" => generate_dual_key_rule("right_shift", "quote"),
+      },
+      {
+        "description" => "Left ⌃ to [ if pressed alone",
+        "manipulators" => generate_dual_key_rule("left_control", "open_bracket"),
+      },
+      {
+        "description" => "Right ⌃ to ] if pressed alone",
+        "manipulators" => generate_dual_key_rule("right_control", "close_bracket"),
       },
     ],
   )
