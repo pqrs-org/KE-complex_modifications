@@ -280,7 +280,7 @@
       ]
     },
     {
-      "description": "Change left_gui+spacebar to left_alt+spacebar in Emacs",
+      "description": "Change left_gui-spacebar to left_alt-spacebar in Emacs",
       "manipulators": [
         {
           "type": "basic",
@@ -315,7 +315,42 @@
       ]
     },
     {
-      "description": "Change left_gui+x to left_alt+x in Emacs",
+      "description": "Change left_gui-spacebar to left_control-\\ in Emacs",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "mandatory": [
+                "left_gui"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "backslash",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^org\\.gnu\\.Emacs$",
+                "^org\\.gnu\\.AquamacsEmacs$",
+                "^org\\.gnu\\.Aquamacs$",
+                "^org\\.pqrs\\.unknownapp.conkeror$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Change left_gui-x to left_alt-x in Emacs",
       "manipulators": [
         {
           "type": "basic",
@@ -350,7 +385,7 @@
       ]
     },
     {
-      "description": "Change right_gui to left_control+left_alt",
+      "description": "Change right_gui to left_control-left_alt",
       "manipulators": [
         {
           "type": "basic",
@@ -374,7 +409,7 @@
       ]
     },
     {
-      "description": "Change right_alt to left_control+left_alt+left_gui",
+      "description": "Change right_alt to left_control-left_alt+left_gui",
       "manipulators": [
         {
           "type": "basic",
