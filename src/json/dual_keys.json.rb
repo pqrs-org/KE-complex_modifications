@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 PARAMETERS = {
-  :to_if_alone_timeout_milliseconds => 1000,
+  :to_if_alone_timeout_milliseconds => 300,
   :to_delayed_action_delay_milliseconds => 0,
   :to_if_held_down_threshold_milliseconds => 0,
   :simultaneous_threshold_milliseconds => 300,
