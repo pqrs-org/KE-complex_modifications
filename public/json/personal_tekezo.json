@@ -5,7 +5,7 @@
   ],
   "rules": [
     {
-      "description": "Personal rules (@tekezo) (rev 24)",
+      "description": "Personal rules (@tekezo) (rev 25)",
       "manipulators": [
         {
           "type": "basic",
@@ -1202,7 +1202,7 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "o",
+            "key_code": "d",
             "modifiers": {
               "mandatory": [
                 "command"
@@ -1230,6 +1230,33 @@
           "type": "basic",
           "from": {
             "key_code": "f",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "o",
             "modifiers": {
               "mandatory": [
                 "command"
