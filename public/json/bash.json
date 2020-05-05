@@ -1,0 +1,144 @@
+{
+  "title": "Shell helpers",
+  "rules": [
+    {
+      "description": "Double tap left-shift to return ~/",
+      "manipulators": [
+    {
+        "type": "basic",
+        "from": {
+            "key_code": "left_shift",
+            "modifiers": {
+                "optional": ["any"]
+            }
+        },
+        "to": [
+            {
+                "key_code": "grave_accent_and_tilde",
+		"modifiers": [ "shift" ]
+            },
+            {
+                "key_code": "slash"
+            }
+        ],
+        "conditions": [
+            {
+                "type": "variable_if",
+                "name": "left_shift pressed",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "type": "basic",
+        "from": {
+            "key_code": "left_shift",
+            "modifiers": {
+                "optional": ["any"]
+            }
+        },
+        "to": [
+            {
+                "set_variable": {
+                    "name": "left_shift pressed",
+                    "value": 1
+                }
+            },
+            {
+                "key_code": "left_shift"
+            }
+        ],
+        "to_delayed_action": {
+            "to_if_invoked": [
+                {
+                    "set_variable": {
+                        "name": "left_shift pressed",
+                        "value": 0
+                    }
+                }
+            ],
+            "to_if_canceled": [
+                {
+                    "set_variable": {
+                        "name": "left_shift pressed",
+                        "value": 0
+                    }
+                }
+            ]
+        }
+    }
+      ]
+    },
+    {
+      "description": "Double tap right-shift to return ~/.",
+      "manipulators": [
+    {
+        "type": "basic",
+        "from": {
+            "key_code": "right_shift",
+            "modifiers": {
+                "optional": ["any"]
+            }
+        },
+        "to": [
+            {
+                "key_code": "grave_accent_and_tilde",
+		"modifiers": [ "shift" ]
+            },
+            {
+                "key_code": "slash"
+            },
+            {
+                "key_code": "period"
+            }
+        ],
+        "conditions": [
+            {
+                "type": "variable_if",
+                "name": "right_shift pressed",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "type": "basic",
+        "from": {
+            "key_code": "right_shift",
+            "modifiers": {
+                "optional": ["any"]
+            }
+        },
+        "to": [
+            {
+                "set_variable": {
+                    "name": "right_shift pressed",
+                    "value": 1
+                }
+            },
+            {
+                "key_code": "right_shift"
+            }
+        ],
+        "to_delayed_action": {
+            "to_if_invoked": [
+                {
+                    "set_variable": {
+                        "name": "right_shift pressed",
+                        "value": 0
+                    }
+                }
+            ],
+            "to_if_canceled": [
+                {
+                    "set_variable": {
+                        "name": "right_shift pressed",
+                        "value": 0
+                    }
+                }
+            ]
+        }
+    }
+      ]
+    }
+  ]
+}
