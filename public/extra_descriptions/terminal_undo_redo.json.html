@@ -1,9 +1,15 @@
 <link rel="stylesheet" href="../../vendor/css/bootstrap.min.css" />
 
-<p><a href="http://zsh.sourceforge.net">Zsh</a> is the only shell that supports Redo, but
+<h4>Notes</h4>
+<li><a href="http://zsh.sourceforge.net">Zsh</a> is the only shell that supports Redo, but
   unfortunately, it's not bound by default. To use the shortcut listed here, you need to add the
-  following to your <code>~/.zshrc</code> file:</p>
-<pre>bindkey "^[_" redo</pre>
-<p>If you are using
+  following to your <code>~/.zshrc</code> file:
+<pre>bindkey "^[_" redo</pre></li>
+<li>If you are using
   <a href="https://github.com/sorin-ionescu/prezto/tree/master/modules/editor">Prezto's
-  editor module</a>, then this is included automatically.</p>
+  editor module</a>, then this is included automatically.</li>
+<li>This mod supports English and Finnish keyboards. If you want to use a different keyboard
+  layout, please download
+  <a href="https://github.com/pqrs-org/KE-complex_modifications">the source code</a> and modify
+  <a href="https://github.com/pqrs-org/KE-complex_modifications/tree/master/src/json/terminal_undo_redo.json.erb">
+    <code>terminal_undo_redo.json.erb<code></a>.</li>

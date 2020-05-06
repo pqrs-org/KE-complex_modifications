@@ -100,5 +100,13 @@ def frontmost_application_unless(app_aliases)
   frontmost_application('frontmost_application_unless', app_aliases)
 end
 
+def input_source_if(input_sources)
+  JSON.generate(Karabiner.input_source_if(input_sources))
+end
+
+def input_source_unless(input_sources)
+  JSON.generate(Karabiner.input_source_unless(input_sources))
+end
+
 template = ERB.new $stdin.read
 puts JSON.pretty_generate(JSON.parse(template.result))

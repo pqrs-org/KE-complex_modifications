@@ -28,7 +28,37 @@
             }
           ],
           "parameters": {
-            "basic.to_if_alone_timeout_milliseconds": 1000,
+            "basic.to_if_alone_timeout_milliseconds": 300,
+            "basic.to_if_held_down_threshold_milliseconds": 0
+          }
+        }
+      ]
+    },
+    {
+      "description": "Left ⌃ to Escape if pressed alone",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_control",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to_if_alone": [
+            {
+              "key_code": "escape"
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_control"
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 300,
             "basic.to_if_held_down_threshold_milliseconds": 0
           }
         }
@@ -58,164 +88,14 @@
             }
           ],
           "parameters": {
-            "basic.to_if_alone_timeout_milliseconds": 1000,
+            "basic.to_if_alone_timeout_milliseconds": 300,
             "basic.to_if_held_down_threshold_milliseconds": 0
           }
         }
       ]
     },
     {
-      "description": "Left ⌥ to Escape if pressed alone",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "left_alt",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to_if_alone": [
-            {
-              "key_code": "escape"
-            }
-          ],
-          "to_if_held_down": [
-            {
-              "key_code": "left_alt"
-            }
-          ],
-          "parameters": {
-            "basic.to_if_alone_timeout_milliseconds": 1000,
-            "basic.to_if_held_down_threshold_milliseconds": 0
-          }
-        }
-      ]
-    },
-    {
-      "description": "Right ⌥ to = if pressed alone",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "right_alt",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to_if_alone": [
-            {
-              "key_code": "equal_sign"
-            }
-          ],
-          "to_if_held_down": [
-            {
-              "key_code": "right_alt"
-            }
-          ],
-          "parameters": {
-            "basic.to_if_alone_timeout_milliseconds": 1000,
-            "basic.to_if_held_down_threshold_milliseconds": 0
-          }
-        }
-      ]
-    },
-    {
-      "description": "Left ⇧ to ` if pressed alone",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "left_shift",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to_if_alone": [
-            {
-              "key_code": "grave_accent_and_tilde"
-            }
-          ],
-          "to_if_held_down": [
-            {
-              "key_code": "left_shift"
-            }
-          ],
-          "parameters": {
-            "basic.to_if_alone_timeout_milliseconds": 1000,
-            "basic.to_if_held_down_threshold_milliseconds": 0
-          }
-        }
-      ]
-    },
-    {
-      "description": "Right ⇧ to ' if pressed alone",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "right_shift",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to_if_alone": [
-            {
-              "key_code": "quote"
-            }
-          ],
-          "to_if_held_down": [
-            {
-              "key_code": "right_shift"
-            }
-          ],
-          "parameters": {
-            "basic.to_if_alone_timeout_milliseconds": 1000,
-            "basic.to_if_held_down_threshold_milliseconds": 0
-          }
-        }
-      ]
-    },
-    {
-      "description": "Left ⌃ to [ if pressed alone",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "left_control",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to_if_alone": [
-            {
-              "key_code": "open_bracket"
-            }
-          ],
-          "to_if_held_down": [
-            {
-              "key_code": "left_control"
-            }
-          ],
-          "parameters": {
-            "basic.to_if_alone_timeout_milliseconds": 1000,
-            "basic.to_if_held_down_threshold_milliseconds": 0
-          }
-        }
-      ]
-    },
-    {
-      "description": "Right ⌃ to ] if pressed alone",
+      "description": "Right ⌃ to = if pressed alone",
       "manipulators": [
         {
           "type": "basic",
@@ -229,7 +109,7 @@
           },
           "to_if_alone": [
             {
-              "key_code": "close_bracket"
+              "key_code": "equal_sign"
             }
           ],
           "to_if_held_down": [
@@ -238,7 +118,67 @@
             }
           ],
           "parameters": {
-            "basic.to_if_alone_timeout_milliseconds": 1000,
+            "basic.to_if_alone_timeout_milliseconds": 300,
+            "basic.to_if_held_down_threshold_milliseconds": 0
+          }
+        }
+      ]
+    },
+    {
+      "description": "Left ⇧ to [ if pressed alone",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_shift",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to_if_alone": [
+            {
+              "key_code": "open_bracket"
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_shift"
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 300,
+            "basic.to_if_held_down_threshold_milliseconds": 0
+          }
+        }
+      ]
+    },
+    {
+      "description": "Right ⇧ to ] if pressed alone",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_shift",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to_if_alone": [
+            {
+              "key_code": "close_bracket"
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "right_shift"
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 300,
             "basic.to_if_held_down_threshold_milliseconds": 0
           }
         }
