@@ -1,4 +1,7 @@
-#!/bin/sh
+#!/bin/bash
+
+set -u # forbid undefined variables
+set -e # forbid command failure
 
 cd $(dirname "$0")/../public
 
