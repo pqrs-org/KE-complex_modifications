@@ -1,6 +1,5 @@
 #!/bin/bash
 
-set -u # forbid undefined variables
 set -e # forbid command failure
 
 for srcfile in src/json/*.json.*; do
