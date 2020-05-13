@@ -32,12 +32,20 @@ def main
         "manipulators" => generate_dual_key_rule("right_control", "equal_sign"),
       },
       {
-        "description" => "Left ⇧ to [ if pressed alone",
-        "manipulators" => generate_dual_key_rule("left_shift", "open_bracket"),
+        "description" => "Left ⇧ to ` if pressed alone",
+        "manipulators" => generate_dual_key_rule("left_shift", "grave_accent_and_tilde"),
       },
       {
-        "description" => "Right ⇧ to ] if pressed alone",
-        "manipulators" => generate_dual_key_rule("right_shift", "close_bracket"),
+        "description" => "Right ⇧ to ' if pressed alone",
+        "manipulators" => generate_dual_key_rule("right_shift", "quote"),
+      },
+      {
+        "description" => "Left ⌥ to [ if pressed alone",
+        "manipulators" => generate_dual_key_rule("left_alt", "open_bracket"),
+      },
+      {
+        "description" => "Right ⌥ to ] if pressed alone",
+        "manipulators" => generate_dual_key_rule("right_alt", "close_bracket"),
       },
     ],
   )

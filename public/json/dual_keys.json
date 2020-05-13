@@ -125,7 +125,7 @@
       ]
     },
     {
-      "description": "Left ⇧ to [ if pressed alone",
+      "description": "Left ⇧ to ` if pressed alone",
       "manipulators": [
         {
           "type": "basic",
@@ -139,7 +139,7 @@
           },
           "to_if_alone": [
             {
-              "key_code": "open_bracket"
+              "key_code": "grave_accent_and_tilde"
             }
           ],
           "to_if_held_down": [
@@ -155,7 +155,7 @@
       ]
     },
     {
-      "description": "Right ⇧ to ] if pressed alone",
+      "description": "Right ⇧ to ' if pressed alone",
       "manipulators": [
         {
           "type": "basic",
@@ -169,12 +169,72 @@
           },
           "to_if_alone": [
             {
-              "key_code": "close_bracket"
+              "key_code": "quote"
             }
           ],
           "to_if_held_down": [
             {
               "key_code": "right_shift"
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 300,
+            "basic.to_if_held_down_threshold_milliseconds": 0
+          }
+        }
+      ]
+    },
+    {
+      "description": "Left ⌥ to [ if pressed alone",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_alt",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to_if_alone": [
+            {
+              "key_code": "open_bracket"
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_alt"
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 300,
+            "basic.to_if_held_down_threshold_milliseconds": 0
+          }
+        }
+      ]
+    },
+    {
+      "description": "Right ⌥ to ] if pressed alone",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_alt",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to_if_alone": [
+            {
+              "key_code": "close_bracket"
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "right_alt"
             }
           ],
           "parameters": {
