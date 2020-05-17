@@ -2,7 +2,7 @@
 
 # You can generate json by executing the following command on Terminal.
 #
-# $ ruby ./example_japanese_nicola.json.rb
+# $ ruby ./japanese_nicola.json.rb
 #
 
 require 'json'
@@ -174,10 +174,10 @@ ROMAN_MAP = {
 
 def main
   puts JSON.pretty_generate(
-    'title' => 'Japanese NICOLA (rev 3)',
+    'title' => 'Japanese NICOLA',
     'rules' => [
       {
-        'description' => 'Japanese NICOLA (rev 3)',
+        'description' => 'Japanese NICOLA Type F',
         'manipulators' => [
           # シフトありから並べること
 
