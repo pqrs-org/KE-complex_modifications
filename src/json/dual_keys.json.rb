@@ -16,11 +16,11 @@ def main
     "maintainers" => ["marlonrichert"],
     "rules" => [
       {
-        "description" => "Left ⌘ to Enter if pressed alone",
+        "description" => "Left ⌘ to ↩︎ if pressed alone",
         "manipulators" => generate_dual_key_rule("left_gui", "return_or_enter"),
       },
       {
-        "description" => "Left ⌃ to Escape if pressed alone",
+        "description" => "Left ⌃ to ⎋ if pressed alone",
         "manipulators" => generate_dual_key_rule("left_control", "escape"),
       },
       {
