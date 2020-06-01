@@ -1,0 +1,47 @@
+{
+  "title": "HyperCaps_W_F19_ShiftCaps",
+  "author": "Brian Levin (brian.g.levin@gmail.com)",
+  "rules": [{
+    "description": "Change caps_lock key to command+control+option+shift. (f19 when pressed alone, shift+caps_lock as caps_lock)",
+    "manipulators": [{
+        "from": {
+          "key_code": "caps_lock",
+          "modifiers": {
+            "mandatory": [
+              "shift"
+            ],
+            "optional": [
+              "caps_lock"
+            ]
+          }
+        },
+        "to": [{
+          "key_code": "caps_lock"
+        }],
+        "type": "basic"
+      },
+      {
+        "from": {
+          "key_code": "caps_lock",
+          "modifiers": {
+            "optional": [
+              "any"
+            ]
+          }
+        },
+        "to": [{
+          "key_code": "left_shift",
+          "modifiers": [
+            "left_command",
+            "left_control",
+            "left_option"
+          ]
+        }],
+        "to_if_alone": [{
+          "key_code": "f19"
+        }],
+        "type": "basic"
+      }
+    ]
+  }]
+}
