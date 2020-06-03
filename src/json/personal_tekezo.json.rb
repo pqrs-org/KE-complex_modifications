@@ -15,7 +15,7 @@ def main
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Personal rules (@tekezo) (rev 25)',
+        'description' => 'Personal rules (@tekezo) (rev 26)',
         'manipulators' =>
         core_configuration +
         mouse +
@@ -26,7 +26,6 @@ def main
         app_finder +
         app_terminal +
         app_browser +
-        app_activity_monitor +
         app_microsoft_office +
         app_visual_studio_code,
       },
@@ -795,21 +794,6 @@ def app_browser
       ],
       'conditions' => [
         Karabiner.frontmost_application_if(['browser']),
-      ],
-    },
-  ]
-end
-
-def app_activity_monitor
-  [
-    {
-      'type' => 'basic',
-      'from' => {
-        'key_code' => 'q',
-        'modifiers' => Karabiner.from_modifiers(['command'], ['caps_lock']),
-      },
-      'conditions' => [
-        Karabiner.frontmost_application_if(['activity_monitor']),
       ],
     },
   ]
