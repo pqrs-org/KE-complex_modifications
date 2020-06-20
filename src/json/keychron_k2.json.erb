@@ -6,7 +6,7 @@
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("right_control", [], []) %>,
+                    "from": <%= from("right_control", [], ["any"]) %>,
                     "to": <%= to([["right_option"]]) %>
                 }
             ]
@@ -16,12 +16,12 @@
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("right_command", [], []) %>,
+                    "from": <%= from("right_command", [], ["any"]) %>,
                     "to": <%= to([["fn"]]) %>
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("fn", [], []) %>,
+                    "from": <%= from("fn", [], ["any"]) %>,
                     "to": <%= to([["right_command"]]) %>
                 }
             ]
@@ -31,22 +31,22 @@
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": <%= from("page_up", [], []) %>,
+                    "from": <%= from("page_up", [], ["any"]) %>,
                     "to": <%= to([["vk_none"]]) %>
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("page_down", [], []) %>,
+                    "from": <%= from("page_down", [], ["any"]) %>,
                     "to": <%= to([["vk_none"]]) %>
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("home", [], []) %>,
+                    "from": <%= from("home", [], ["any"]) %>,
                     "to": <%= to([["vk_none"]]) %>
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("end", [], []) %>,
+                    "from": <%= from("end", [], ["any"]) %>,
                     "to": <%= to([["vk_none"]]) %>
                 }
             ]
