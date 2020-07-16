@@ -276,7 +276,7 @@ def main
         ],
       },
       {
-        'description' => 'コマンドキー（右のみ）を単体で押したときに、英数・かなをトグルで切り替える。 (rev 2)',
+        'description' => '右コマンドキーを、英数・かなのトグルに変更する',
         'manipulators' => [
           {
             'type' => 'basic',
@@ -294,21 +294,7 @@ def main
               'key_code' => 'right_command',
               'modifiers' => Karabiner.from_modifiers,
             },
-            'parameters' => {
-              'basic.to_if_held_down_threshold_milliseconds' => 100,
-            },
             'to' => [
-              {
-                'key_code' => 'right_command',
-                'lazy' => true,
-              },
-            ],
-            'to_if_held_down' => [
-              {
-                'key_code' => 'right_command',
-              },
-            ],
-            'to_if_alone' => [
               {
                 'key_code' => 'japanese_eisuu',
               },
@@ -330,21 +316,7 @@ def main
               'key_code' => 'right_command',
               'modifiers' => Karabiner.from_modifiers,
             },
-            'parameters' => {
-              'basic.to_if_held_down_threshold_milliseconds' => 100,
-            },
             'to' => [
-              {
-                'key_code' => 'right_command',
-                'lazy' => true,
-              },
-            ],
-            'to_if_held_down' => [
-              {
-                'key_code' => 'right_command',
-              },
-            ],
-            'to_if_alone' => [
               {
                 'key_code' => 'japanese_kana',
               },
