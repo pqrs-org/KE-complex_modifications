@@ -276,7 +276,7 @@ def main
         ],
       },
       {
-        'description' => 'コマンドキー（右のみ）を単体で押したときに、英数・かなをトグルで切り替える。 (rev 2)',
+        'description' => '右コマンドキーを、英数・かなのトグルに変更する',
         'manipulators' => [
           {
             'type' => 'basic',
