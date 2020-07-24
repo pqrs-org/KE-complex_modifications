@@ -1,0 +1,57 @@
+{
+  "title": "NuPhy NuType F1 keyboard",
+  "rules": [
+    {
+      "manipulators": [
+        {
+          "from": {
+            "modifiers": { "optional": ["any"], "mandatory": ["fn"] },
+            "key_code": "grave_accent_and_tilde"
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591,
+                  "is_keyboard": true
+                }
+              ],
+              "description": "NuPhy NuType F1 keyboards"
+            }
+          ],
+          "to": [{ "repeat": false, "key_code": "escape" }],
+          "type": "basic"
+        }
+      ],
+      "description": "Change fn+escape to escape"
+    },
+    {
+      "description": "Change escape to grave accent and tilde",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "escape",
+            "modifiers": { "optional": ["any"] }
+          },
+          "to": [{ "key_code": "grave_accent_and_tilde" }],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 591,
+                  "is_keyboard": true
+                }
+              ],
+              "description": "NuPhy NuType F1 keyboards"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
