@@ -1,0 +1,73 @@
+{
+  "title": "ARCHISS Quattro TKL for macOS JIS",
+  "rules": [
+    {
+      "description": "L-Button/R-Buttonを英数/かなへ代替",
+      "manipulators": [
+        {
+          "type": "basic",
+          "description": "L-Buttonを英数キーに",
+          "from": {
+            "pointing_button": "button1"
+          },
+          "to": [
+            {
+              "key_code": "japanese_eisuu",
+              "modifiers": []
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "description": "R-Buttonをかなキーに",
+          "from": {
+            "pointing_button": "button2"
+          },
+          "to": [
+            {
+              "key_code": "japanese_kana",
+              "modifiers": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Ctrl+Buttonをマウスクリックへ代替",
+      "manipulators": [
+        {
+          "type": "basic",
+          "description": "Ctrl + L-Buttonを左マウスクリックに",
+          "from": {
+            "pointing_button": "button1",
+            "modifiers": {
+              "mandatory": ["control"]
+            }
+          },
+          "to": [
+            {
+              "pointing_button": "button1",
+              "modifiers": []
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "description": "Ctrl + R-Buttonを右マウスクリック",
+          "from": {
+            "pointing_button": "button2",
+            "modifiers": {
+              "mandatory": ["control"]
+            }
+          },
+          "to": [
+            {
+              "pointing_button": "button2",
+              "modifiers": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
