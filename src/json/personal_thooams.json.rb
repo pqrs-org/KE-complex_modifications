@@ -6,7 +6,8 @@ file_names = [
   "control_backspace_to_function_backspace",
   "map_left_option_plus_spacebar_to_enter",
   "map_left_option_with_j_k_l_semicolon_to_arrows",
-  "map_shift_plus_left_option_with_j_k_l_semicolon_to_page_arrows"
+  "map_shift_plus_left_option_with_j_k_l_semicolon_to_page_arrows",
+  "bepo-cmdqwerty-toggle"
 ]
 
 path = Dir.pwd + "/src/json/"
