@@ -3,7 +3,7 @@
     virtual_conditions = [JSON.parse(frontmost_application_if(['remote_desktop', 'virtual_machine', 'vnc']))]
 %>
 {
-    "title": "Virtual Machine",
+    "title": "Virtual Machine and Remote Desktop (Microsoft or other)",
     "rules": [
         {
             "description": "Swap left command and control in virtual machine/remote desktop",
@@ -46,6 +46,27 @@
                 conditions: virtual_conditions,
                 as_json: true
             ) %>
+        },
+        {
+            "description": "Swap >/< and °/§ in virtual machine/remote desktop",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from('grave_accent_and_tilde', [], ['any']) %>,
+                    "to": <%= to([['non_us_backslash']]) %>,
+                    "conditions": [
+                        <%= frontmost_application_if(['remote_desktop', 'virtual_machine', 'vnc']) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from('non_us_backslash', [], ['any']) %>,
+                    "to": <%= to([['grave_accent_and_tilde']]) %>,
+                    "conditions": [
+                        <%= frontmost_application_if(['remote_desktop', 'virtual_machine', 'vnc']) %>
+                    ]
+                }
+            ]
         }
     ]
 }

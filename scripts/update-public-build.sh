@@ -1,4 +1,6 @@
-#!/bin/sh
+#!/bin/bash
+
+set -e # forbid command failure
 
 cd $(dirname "$0")/../public
 

@@ -1,0 +1,437 @@
+{
+  "title": "CAPS 4 Tenkey",
+  "maintainers": [
+    "IvanShamatov"
+  ],
+  "rules": [
+    {
+      "description": "CAPS Tenkey: TenkeyMode on/off toggle",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "mandatory": [
+
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "type": "basic",
+          "to": {
+            "set_variable": {
+              "name": "tenkey_mode",
+              "value": 1
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "tenkey_mode",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "mandatory": [
+
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "type": "basic",
+          "to": {
+            "set_variable": {
+              "name": "tenkey_mode",
+              "value": 0
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "tenkey_mode",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "CAPS Tenkey: if TenkeyMode ON m,.jkluio maps to 1234567890",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "m",
+            "modifiers": {
+              "mandatory": [
+
+              ],
+              "optional": [
+
+              ]
+            }
+          },
+          "to": {
+            "key_code": "1"
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "tenkey_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "comma",
+            "modifiers": {
+              "mandatory": [
+
+              ],
+              "optional": [
+
+              ]
+            }
+          },
+          "to": {
+            "key_code": "2"
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "tenkey_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "period",
+            "modifiers": {
+              "mandatory": [
+
+              ],
+              "optional": [
+
+              ]
+            }
+          },
+          "to": {
+            "key_code": "3"
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "tenkey_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "mandatory": [
+
+              ],
+              "optional": [
+
+              ]
+            }
+          },
+          "to": {
+            "key_code": "4"
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "tenkey_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "mandatory": [
+
+              ],
+              "optional": [
+
+              ]
+            }
+          },
+          "to": {
+            "key_code": "5"
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "tenkey_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "mandatory": [
+
+              ],
+              "optional": [
+
+              ]
+            }
+          },
+          "to": {
+            "key_code": "6"
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "tenkey_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "u",
+            "modifiers": {
+              "mandatory": [
+
+              ],
+              "optional": [
+
+              ]
+            }
+          },
+          "to": {
+            "key_code": "7"
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "tenkey_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "mandatory": [
+
+              ],
+              "optional": [
+
+              ]
+            }
+          },
+          "to": {
+            "key_code": "8"
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "tenkey_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "mandatory": [
+
+              ],
+              "optional": [
+
+              ]
+            }
+          },
+          "to": {
+            "key_code": "9"
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "tenkey_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "mandatory": [
+
+              ],
+              "optional": [
+
+              ]
+            }
+          },
+          "to": {
+            "key_code": "0"
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "tenkey_mode",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "CAPS Tenkey: if TenkeyMode ON 90p;/ maps to /*-+=",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "semicolon",
+            "modifiers": {
+              "mandatory": [
+
+              ],
+              "optional": [
+
+              ]
+            }
+          },
+          "to": {
+            "key_code": "keypad_plus"
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "tenkey_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "p",
+            "modifiers": {
+              "mandatory": [
+
+              ],
+              "optional": [
+
+              ]
+            }
+          },
+          "to": {
+            "key_code": "keypad_hyphen"
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "tenkey_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "slash",
+            "modifiers": {
+              "mandatory": [
+
+              ],
+              "optional": [
+
+              ]
+            }
+          },
+          "to": {
+            "key_code": "keypad_equal_sign"
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "tenkey_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "9",
+            "modifiers": {
+              "mandatory": [
+
+              ],
+              "optional": [
+
+              ]
+            }
+          },
+          "to": {
+            "key_code": "keypad_slash"
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "tenkey_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "0",
+            "modifiers": {
+              "mandatory": [
+
+              ],
+              "optional": [
+
+              ]
+            }
+          },
+          "to": {
+            "key_code": "keypad_asterisk"
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "tenkey_mode",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

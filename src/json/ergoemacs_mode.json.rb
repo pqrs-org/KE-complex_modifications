@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 PARAMETERS = {
-  :to_if_alone_timeout_milliseconds => 1000,
+  :to_if_alone_timeout_milliseconds => 300,
   :to_delayed_action_delay_milliseconds => 0,
   :to_if_held_down_threshold_milliseconds => 0,
   :simultaneous_threshold_milliseconds => 300,
@@ -66,9 +66,7 @@ def generate_ergoemacs_mode(trigger_key)
     generate_ergoemacs_four_part_rule("s", "delete_or_backspace", ["left_command"],
                                       [ { "key_code" => "u", "modifiers" => ["right_control"], } ],
                                       trigger_key, variable),
-    generate_ergoemacs_four_part_rule("g", "delete_forward", ["left_command"],
-                                      [ { "key_code" => "k", "modifiers" => ["left_control"], } ],
-                                      trigger_key, variable),
+    generate_ergoemacs_two_part_rule("g", "k", ["left_control"], trigger_key, variable),
     generate_ergoemacs_trigger_rule(trigger_key, variable),
   ].flatten
 end

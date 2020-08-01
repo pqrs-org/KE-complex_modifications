@@ -1,0 +1,55 @@
+{
+    "title": "Change Keychron K2 keyboard layout to more closely resemble an Apple keyboard",
+    "rules": [
+        {
+            "description": "Post right_option if right_control is pressed alone.",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("right_control", [], ["any"]) %>,
+                    "to": <%= to([["right_option"]]) %>
+                }
+            ]
+        },
+        {
+            "description": "Exchange right_command and fn.",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("right_command", [], ["any"]) %>,
+                    "to": <%= to([["fn"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("fn", [], ["any"]) %>,
+                    "to": <%= to([["right_command"]]) %>
+                }
+            ]
+        },
+        {
+            "description": "Disable page_up, page_down, home, and end.",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("page_up", [], ["any"]) %>,
+                    "to": <%= to([["vk_none"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("page_down", [], ["any"]) %>,
+                    "to": <%= to([["vk_none"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("home", [], ["any"]) %>,
+                    "to": <%= to([["vk_none"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("end", [], ["any"]) %>,
+                    "to": <%= to([["vk_none"]]) %>
+                }
+            ]
+        }
+    ]
+}

@@ -15,10 +15,10 @@ def main
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Personal rules (@tekezo) (rev 22)',
+        'description' => 'Personal rules (@tekezo) (rev 26)',
         'manipulators' =>
         core_configuration +
-        mouse_motion_to_scroll +
+        mouse +
         control_1234 +
         option_hyphen +
         media_controls +
@@ -26,7 +26,6 @@ def main
         app_finder +
         app_terminal +
         app_browser +
-        app_activity_monitor +
         app_microsoft_office +
         app_visual_studio_code,
       },
@@ -329,12 +328,13 @@ def core_configuration
   ]
 end
 
-def mouse_motion_to_scroll
+def mouse
   [
+    # mouse_motion_to_scroll (button5)
     {
       'type' => 'basic',
       'from' => {
-        'pointing_button' => 'button3',
+        'pointing_button' => 'button5',
         'modifiers' => {
           'optional' => [
             'any',
@@ -368,6 +368,19 @@ def mouse_motion_to_scroll
       },
       'conditions' => [
         Karabiner.variable_if('personal_tekezo_enable_mouse_motion_to_scroll', 1),
+      ],
+    },
+    # button6 -> command + click
+    {
+      'type' => 'basic',
+      'from' => {
+        'pointing_button' => 'button6',
+      },
+      'to' => [
+        {
+          'pointing_button' => 'button1',
+          'modifiers' => ['left_command'],
+        },
       ],
     },
   ]
@@ -651,11 +664,11 @@ end
 
 def app_terminal
   [
-    # Disable command+o
+    # Disable command+d
     {
       'type' => 'basic',
       'from' => {
-        'key_code' => 'o',
+        'key_code' => 'd',
         'modifiers' => Karabiner.from_modifiers(['command']),
       },
       'conditions' => [
@@ -667,6 +680,17 @@ def app_terminal
       'type' => 'basic',
       'from' => {
         'key_code' => 'f',
+        'modifiers' => Karabiner.from_modifiers(['command']),
+      },
+      'conditions' => [
+        Karabiner.frontmost_application_if(['terminal']),
+      ],
+    },
+    # Disable command+o
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => 'o',
         'modifiers' => Karabiner.from_modifiers(['command']),
       },
       'conditions' => [
@@ -695,7 +719,7 @@ def app_terminal
         'key_code' => 't',
         'modifiers' => [
           'left_option',
-        ]
+        ],
       },
       'conditions' => [
         Karabiner.frontmost_application_if(['terminal']),
@@ -770,21 +794,6 @@ def app_browser
       ],
       'conditions' => [
         Karabiner.frontmost_application_if(['browser']),
-      ],
-    },
-  ]
-end
-
-def app_activity_monitor
-  [
-    {
-      'type' => 'basic',
-      'from' => {
-        'key_code' => 'q',
-        'modifiers' => Karabiner.from_modifiers(['command'], ['caps_lock']),
-      },
-      'conditions' => [
-        Karabiner.frontmost_application_if(['activity_monitor']),
       ],
     },
   ]

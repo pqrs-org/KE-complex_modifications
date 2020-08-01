@@ -59,7 +59,19 @@
       ]
     },
     {
-      "description": "Change left_shift to Ctrl-Shift-z if pressed alone exclude in Emacs and VitualMachine",
+      "description": "Change right_shift to Ctrl-Alt-Shift-Command-j if pressed alone in Emacs",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("right_shift", [], []) %>,
+          "to": <%= to([["right_shift"]]) %>,
+          "to_if_alone": <%= to([["j", ["left_control", "left_shift", "left_alt", "left_gui"]]]) %>,
+          "conditions": [ <%= frontmost_application_if("emacs") %> ]
+        }
+      ]
+    },
+    {
+      "description": "Change left_shift to Ctrl-Shift-z if pressed alone outside Emacs and VitualMachine",
       "manipulators": [
         {
           "type": "basic",
@@ -71,7 +83,7 @@
       ]
      },
     {
-      "description": "Change right_shift to Ctrl-Shift-z if pressed alone exclude in Emacs and VitualMachine",
+      "description": "Change right_shift to Ctrl-Shift-z if pressed alone outside Emacs and VitualMachine",
       "manipulators": [
         {
           "type": "basic",
@@ -83,7 +95,7 @@
       ]
      },
     {
-      "description": "Change left_gui+spacebar to left_alt+spacebar in Emacs",
+      "description": "Change left_gui-spacebar to left_alt-spacebar in Emacs",
       "manipulators": [
         {
           "type": "basic",
@@ -94,7 +106,18 @@
       ]
      },
     {
-      "description": "Change left_gui+x to left_alt+x in Emacs",
+      "description": "Change left_gui-spacebar to left_control-\\ in Emacs",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("spacebar", ["left_gui"], []) %>,
+          "to": <%= to([["backslash", ["left_control"]]]) %>,
+          "conditions": [ <%= frontmost_application_if("emacs") %> ]
+        }
+      ]
+     },
+    {
+      "description": "Change left_gui-x to left_alt-x in Emacs",
       "manipulators": [
         {
           "type": "basic",
@@ -105,7 +128,7 @@
       ]
      },
     {
-      "description": "Change right_gui to left_control+left_alt",
+      "description": "Change right_gui to left_control-left_alt",
       "manipulators": [
         {
           "type": "basic",
@@ -115,7 +138,7 @@
       ]
      },
     {
-      "description": "Change right_alt to left_control+left_alt+left_gui",
+      "description": "Change right_alt to left_control-left_alt+left_gui",
       "manipulators": [
         {
           "type": "basic",

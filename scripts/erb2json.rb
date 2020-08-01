@@ -1,4 +1,8 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
+
+Encoding.default_external = Encoding::UTF_8
+Encoding.default_internal = Encoding::UTF_8
 
 require 'erb'
 require 'json'
@@ -98,6 +102,14 @@ end
 
 def frontmost_application_unless(app_aliases)
   frontmost_application('frontmost_application_unless', app_aliases)
+end
+
+def input_source_if(input_sources)
+  JSON.generate(Karabiner.input_source_if(input_sources))
+end
+
+def input_source_unless(input_sources)
+  JSON.generate(Karabiner.input_source_unless(input_sources))
 end
 
 template = ERB.new $stdin.read

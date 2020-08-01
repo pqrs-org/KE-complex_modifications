@@ -1,0 +1,99 @@
+{
+  "title": "Swedish Windows keyboard for programmers",
+  "rules": [
+    {
+      "description": "Swedish keyboard, Right Alt + 7,0 => curly-brackets {}",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "7",
+            "modifiers": {
+              "mandatory": [
+                "right_alt"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "8",
+              "modifiers": [
+                "left_option",
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "0",
+            "modifiers": {
+              "mandatory": [
+                "right_alt"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "9",
+              "modifiers": [
+                "left_option",
+                "left_shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Swedish keyboard, AltGr+key_left_of_backspace => Option+Shift+7 (Backslash \\)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "equal_sign",
+            "modifiers": {
+              "mandatory": [
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "7",
+              "modifiers": [
+                "left_option",
+                "left_shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Swedish keyboard, AltGr+key_left_of_z => Right option+7 (pipe character |)",
+      "manipulators": [
+          {
+              "from": {
+                  "key_code": "non_us_backslash",
+                  "modifiers": {
+                      "mandatory": [
+                          "right_option"
+                      ]
+                  }
+              },
+              "to": [
+                  {
+                      "key_code": "7",
+                      "modifiers": [
+                          "right_option"
+                      ]
+                  }
+              ],
+              "type": "basic"
+          }
+      ]
+    }
+  ]
+}

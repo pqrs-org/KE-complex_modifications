@@ -1,0 +1,100 @@
+{
+	"title": "Swap Cmd+K and Cmd+P in Notion",
+	"rules": [{
+			"description": "Change Left Cmd+K to Left Cmd+P in Notion",
+			"manipulators": [{
+				"from": {
+					"key_code": "k",
+					"modifiers": {
+						"mandatory": ["left_command"]
+					}
+				},
+				"to": [{
+					"key_code": "p",
+					"modifiers": [
+						"left_command"
+					]
+				}],
+				"type": "basic",
+				"conditions": [{
+					"type": "frontmost_application_if",
+					"bundle_identifiers": [
+						"^notion\\.id$"
+					]
+				}]
+			}]
+		},
+		{
+			"description": "Change Right Cmd+K to Right Cmd+P in Notion",
+			"manipulators": [{
+				"from": {
+					"key_code": "k",
+					"modifiers": {
+						"mandatory": ["right_command"]
+					}
+				},
+				"to": [{
+					"key_code": "p",
+					"modifiers": [
+						"right_command"
+					]
+				}],
+				"type": "basic",
+				"conditions": [{
+					"type": "frontmost_application_if",
+					"bundle_identifiers": [
+						"^notion\\.id$"
+					]
+				}]
+			}]
+		},
+		{
+			"description": "Change Left Cmd+P to Left Cmd+K in Notion",
+			"manipulators": [{
+				"from": {
+					"key_code": "p",
+					"modifiers": {
+						"mandatory": ["left_command"]
+					}
+				},
+				"to": [{
+					"key_code": "k",
+					"modifiers": [
+						"left_command"
+					]
+				}],
+				"type": "basic",
+				"conditions": [{
+					"type": "frontmost_application_if",
+					"bundle_identifiers": [
+						"^notion\\.id$"
+					]
+				}]
+			}]
+		},
+		{
+			"description": "Change Right Cmd+P to Right Cmd+K in Notion",
+			"manipulators": [{
+				"from": {
+					"key_code": "p",
+					"modifiers": {
+						"mandatory": ["right_command"]
+					}
+				},
+				"to": [{
+					"key_code": "k",
+					"modifiers": [
+						"right_command"
+					]
+				}],
+				"type": "basic",
+				"conditions": [{
+					"type": "frontmost_application_if",
+					"bundle_identifiers": [
+						"^notion\\.id$"
+					]
+				}]
+			}]
+		}
+	]
+}

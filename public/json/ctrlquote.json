@@ -1,0 +1,25 @@
+{
+  "title": "Convert <c-'> to double quote",
+  "rules": [
+    {
+      "description": "Remaps mistyped control-quote into a shft-quote. Occurs often when caps lock is remapped to control key.",
+      "manipulators": [
+    {
+        "type": "basic",
+        "from": {
+            "key_code": "quote",
+            "modifiers": {
+		"mandatory": [ "left_control" ]
+	    }
+        },
+        "to": [
+            {
+                "key_code": "quote",
+		"modifiers": [ "shift" ]
+            }
+        ]
+    }
+      ]
+    }
+  ]
+}

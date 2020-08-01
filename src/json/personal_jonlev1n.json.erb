@@ -1,0 +1,99 @@
+{
+    "title": "personal @jonlev1n",
+    "rules": [
+        {
+            "description": "Change Control + i/j/k/l to Arrows",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("j", ['control'], ['any']) %>,
+                    "to": <%= to([["left_arrow"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("k", ['control'], ['any']) %>,
+                    "to": <%= to([["down_arrow"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("i", ['control'], ['any']) %>,
+                    "to": <%= to([["up_arrow"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("l", ['control'], ['any']) %>,
+                    "to": <%= to([["right_arrow"]]) %>
+                }
+            ]
+        },
+
+        {
+            "description": "Change Option + j/l to beginning/end of word",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("j", ['option'], ['any']) %>,
+                    "to": <%= to([["left_arrow", 'left_option']]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("l", ['option'], ['any']) %>,
+                    "to": <%= to([["right_arrow", 'left_option']]) %>
+                }
+            ]
+        },
+
+        {
+            "description": "Change CMD + j/l to command left_arrow/right_arrow",
+            "manipulators": [
+                 {
+                    "type": "basic",
+                    "from": <%= from("j", ['command'], ['any']) %>,
+                    "to": <%= to([["left_arrow", 'left_command']]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("l", ['command'], ['any']) %>,
+                    "to": <%= to([["right_arrow", 'left_command']]) %>
+                }
+            ]
+        },
+
+        {
+            "description": "Control and -/= to display brightness",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("hyphen", ['control'], []) %>,
+                    "to": <%= to([["display_brightness_decrement"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("equal_sign", ['control'], []) %>,
+                    "to": <%= to([["display_brightness_increment"]]) %>
+                }
+            ]
+        },
+
+        {
+            "description": "Control and 1/2/3 to rewind/play_or_pause/fastforward",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("1", ['control'], []) %>,
+                    "to": <%= to([["rewind"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("2", ['control'], []) %>,
+                    "to": <%= to([["play_or_pause"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("3", ['control'], []) %>,
+                    "to": <%= to([["fastforward"]]) %>
+                }
+            ]
+        }
+    ]
+}
