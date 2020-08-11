@@ -2,11 +2,28 @@
   "title": "Personal rules (@iliaskarim)",
   "rules": [
     {
-      "description": "Right shift to cut",
+      "description": "Right shift to paste",
       "manipulators": [
         {
           "from": {
             "key_code": "right_shift"
+          },
+          "to": [
+            {
+              "key_code": "v",
+              "modifiers": ["command"]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Right option to cut",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "right_option"
           },
           "to": [
             {
@@ -28,23 +45,6 @@
           "to": [
             {
               "key_code": "c",
-              "modifiers": ["command"]
-            }
-          ],
-          "type": "basic"
-        }
-      ]
-    },
-    {
-      "description": "Right option to paste",
-      "manipulators": [
-        {
-          "from": {
-            "key_code": "right_option"
-          },
-          "to": [
-            {
-              "key_code": "v",
               "modifiers": ["command"]
             }
           ],
