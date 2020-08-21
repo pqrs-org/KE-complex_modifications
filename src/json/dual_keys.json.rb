@@ -36,12 +36,12 @@ def main
         "manipulators" => generate_dual_key_rule("left_gui", "return_or_enter"),
       },
       {
-        "description" => "Left ⌃ to ' if pressed alone",
-        "manipulators" => generate_dual_key_rule("left_control", "quote"),
+        "description" => "Left ⌃ to ` if pressed alone",
+        "manipulators" => generate_dual_key_rule("left_control", "grave_accent_and_tilde"),
       },
       {
-        "description" => "Left ⇧ to ` if pressed alone",
-        "manipulators" => generate_dual_key_rule("left_shift", "grave_accent_and_tilde"),
+        "description" => "Left ⇧ to ' if pressed alone",
+        "manipulators" => generate_dual_key_rule("left_shift", "quote"),
       },
       {
         "description" => "Left ⌥ to ⎋ if pressed alone",
