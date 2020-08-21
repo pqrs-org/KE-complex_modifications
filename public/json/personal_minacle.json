@@ -93,7 +93,140 @@
       ]
     },
     {
-      "description": "(⌃⌃ → Aあ | A가), (⌃␣ → あ가)",
+      "description": "(⌃⌃ → [Aあ][A가])",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "input_sources": [
+                {
+                  "language": "^en$"
+                }
+              ],
+              "type": "input_source_if"
+            }
+          ],
+          "from": {
+            "key_code": "left_control"
+          },
+          "to": {
+            "key_code": "left_control"
+          },
+          "to_if_alone": [
+            {
+              "key_code": "spacebar",
+              "modifiers": [
+                "control",
+                "shift"
+              ]
+            },
+            {
+              "key_code": "vk_none",
+              "modifiers": [
+
+              ]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "input_sources": [
+                {
+                  "language": "^en$"
+                }
+              ],
+              "type": "input_source_if"
+            }
+          ],
+          "from": {
+            "key_code": "right_control"
+          },
+          "to": {
+            "key_code": "right_control"
+          },
+          "to_if_alone": [
+            {
+              "key_code": "spacebar",
+              "modifiers": [
+                "control",
+                "shift"
+              ]
+            },
+            {
+              "key_code": "vk_none",
+              "modifiers": [
+
+              ]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "input_sources": [
+                {
+                  "language": "^en$"
+                }
+              ],
+              "type": "input_source_unless"
+            }
+          ],
+          "from": {
+            "key_code": "left_control"
+          },
+          "to": {
+            "key_code": "left_control"
+          },
+          "to_if_alone": [
+            {
+              "key_code": "japanese_eisuu"
+            },
+            {
+              "key_code": "vk_none",
+              "modifiers": [
+
+              ]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "input_sources": [
+                {
+                  "language": "^en$"
+                }
+              ],
+              "type": "input_source_unless"
+            }
+          ],
+          "from": {
+            "key_code": "right_control"
+          },
+          "to": {
+            "key_code": "right_control"
+          },
+          "to_if_alone": [
+            {
+              "key_code": "japanese_eisuu"
+            },
+            {
+              "key_code": "vk_none",
+              "modifiers": [
+
+              ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "(⌃␣ → あ가)",
       "manipulators": [
         {
           "conditions": [
@@ -154,134 +287,6 @@
           "to": [
             {
               "key_code": "japanese_kana"
-            },
-            {
-              "key_code": "vk_none",
-              "modifiers": [
-
-              ]
-            }
-          ],
-          "type": "basic"
-        },
-        {
-          "conditions": [
-            {
-              "input_sources": [
-                {
-                  "language": "^en$"
-                }
-              ],
-              "type": "input_source_if"
-            }
-          ],
-          "from": {
-            "key_code": "left_control"
-          },
-          "to": {
-            "key_code": "left_control"
-          },
-          "to_if_alone": [
-            {
-              "key_code": "spacebar",
-              "modifiers": [
-                "control",
-                "shift"
-              ]
-            },
-            {
-              "key_code": "vk_none",
-              "modifiers": [
-
-              ]
-            }
-          ],
-          "type": "basic"
-        },
-        {
-          "conditions": [
-            {
-              "input_sources": [
-                {
-                  "language": "^en$"
-                }
-              ],
-              "type": "input_source_if"
-            }
-          ],
-          "from": {
-            "key_code": "right_control"
-          },
-          "to": {
-            "key_code": "right_control"
-          },
-          "to_if_alone": [
-            {
-              "key_code": "spacebar",
-              "modifiers": [
-                "control",
-                "shift"
-              ]
-            },
-            {
-              "key_code": "vk_none",
-              "modifiers": [
-
-              ]
-            }
-          ],
-          "type": "basic"
-        },
-        {
-          "conditions": [
-            {
-              "input_sources": [
-                {
-                  "language": "^en$"
-                }
-              ],
-              "type": "input_source_unless"
-            }
-          ],
-          "from": {
-            "key_code": "left_control"
-          },
-          "to": {
-            "key_code": "left_control"
-          },
-          "to_if_alone": [
-            {
-              "key_code": "japanese_eisuu"
-            },
-            {
-              "key_code": "vk_none",
-              "modifiers": [
-
-              ]
-            }
-          ],
-          "type": "basic"
-        },
-        {
-          "conditions": [
-            {
-              "input_sources": [
-                {
-                  "language": "^en$"
-                }
-              ],
-              "type": "input_source_unless"
-            }
-          ],
-          "from": {
-            "key_code": "right_control"
-          },
-          "to": {
-            "key_code": "right_control"
-          },
-          "to_if_alone": [
-            {
-              "key_code": "japanese_eisuu"
             },
             {
               "key_code": "vk_none",
