@@ -76,6 +76,13 @@ def is_keyboard_not_builtin
     }
 end
 
+def key_transient(key_code)
+    {
+        'key_code' => key_code,
+        'repeat' => false,
+    }
+end
+
 def key_with_loose_modifiers(key_code, modifiers)
     {
         'key_code' => key_code,
@@ -184,7 +191,54 @@ def main
                 ],
             },
             {
-                'description' => '(⌃⌃ → Aあ | A가), (⌃␣ → あ가)',
+                'description' => '(⌃⌃ → [Aあ][A가])',
+                'manipulators' => [
+                    {
+                        'conditions' => [
+                            is_input_source_lang('en'),
+                        ],
+                        'from' => key('left_control'),
+                        'to' => key('left_control'),
+                        'to_if_alone' => [
+                            control_shift_key('spacebar'),
+                            key_clear,
+                        ],
+                        'type' => 'basic',
+                    },
+                    {
+                        'conditions' => [
+                            is_input_source_lang('en'),
+                        ],
+                        'from' => key('right_control'),
+                        'to' => key('right_control'),
+                        'to_if_alone' => [
+                            control_shift_key('spacebar'),
+                            key_clear,
+                        ],
+                        'type' => 'basic',
+                    },
+                    {
+                        'conditions' => [
+                            is_input_source_lang_not('en'),
+                        ],
+                        'from' => key('left_control'),
+                        'to' => key('left_control'),
+                        'to_if_alone' => to_en,
+                        'type' => 'basic',
+                    },
+                    {
+                        'conditions' => [
+                            is_input_source_lang_not('en'),
+                        ],
+                        'from' => key('right_control'),
+                        'to' => key('right_control'),
+                        'to_if_alone' => to_en,
+                        'type' => 'basic',
+                    },
+                ],
+            },
+            {
+                'description' => '(⌃␣ → あ가)',
                 'manipulators' => [
                     {
                         'conditions' => [
@@ -200,48 +254,6 @@ def main
                         ],
                         'from' => key_with_strict_modifiers('spacebar', ['control']),
                         'to' => to_ja,
-                        'type' => 'basic',
-                    },
-                    {
-                        'conditions' => [
-                            is_input_source_lang('en'),
-                        ],
-                        'from' => key('left_control'),
-                        'to' => key('left_control'),
-                        'to_if_alone' => [
-                            control_shift_key('spacebar'),
-                            key_clear,
-                        ],
-                        'type' => 'basic',
-                    },
-                    {
-                        'conditions' => [
-                            is_input_source_lang('en'),
-                        ],
-                        'from' => key('right_control'),
-                        'to' => key('right_control'),
-                        'to_if_alone' => [
-                            control_shift_key('spacebar'),
-                            key_clear,
-                        ],
-                        'type' => 'basic',
-                    },
-                    {
-                        'conditions' => [
-                            is_input_source_lang_not('en'),
-                        ],
-                        'from' => key('left_control'),
-                        'to' => key('left_control'),
-                        'to_if_alone' => to_en,
-                        'type' => 'basic',
-                    },
-                    {
-                        'conditions' => [
-                            is_input_source_lang_not('en'),
-                        ],
-                        'from' => key('right_control'),
-                        'to' => key('right_control'),
-                        'to_if_alone' => to_en,
                         'type' => 'basic',
                     },
                 ],
