@@ -16,14 +16,6 @@ def main
     "maintainers" => ["marlonrichert"],
     "rules" => [
       {
-        "description" => "Left ⌘ to ↩︎ if pressed alone",
-        "manipulators" => generate_dual_key_rule("left_gui", "return_or_enter"),
-      },
-      {
-        "description" => "Left ⌃ to ⎋ if pressed alone",
-        "manipulators" => generate_dual_key_rule("left_control", "escape"),
-      },
-      {
         "description" => "Right ⌘ to - if pressed alone",
         "manipulators" => generate_dual_key_rule("right_gui", "hyphen"),
       },
@@ -32,20 +24,28 @@ def main
         "manipulators" => generate_dual_key_rule("right_control", "equal_sign"),
       },
       {
-        "description" => "Left ⇧ to ` if pressed alone",
-        "manipulators" => generate_dual_key_rule("left_shift", "grave_accent_and_tilde"),
-      },
-      {
-        "description" => "Right ⇧ to ' if pressed alone",
-        "manipulators" => generate_dual_key_rule("right_shift", "quote"),
-      },
-      {
-        "description" => "Left ⌥ to [ if pressed alone",
-        "manipulators" => generate_dual_key_rule("left_alt", "open_bracket"),
+        "description" => "Right ⇧ to [ if pressed alone",
+        "manipulators" => generate_dual_key_rule("right_shift", "open_bracket"),
       },
       {
         "description" => "Right ⌥ to ] if pressed alone",
         "manipulators" => generate_dual_key_rule("right_alt", "close_bracket"),
+      },
+      {
+        "description" => "Left ⌘ to ↩︎ if pressed alone",
+        "manipulators" => generate_dual_key_rule("left_gui", "return_or_enter"),
+      },
+      {
+        "description" => "Left ⌃ to ' if pressed alone",
+        "manipulators" => generate_dual_key_rule("left_control", "quote"),
+      },
+      {
+        "description" => "Left ⇧ to ` if pressed alone",
+        "manipulators" => generate_dual_key_rule("left_shift", "grave_accent_and_tilde"),
+      },
+      {
+        "description" => "Left ⌥ to ⎋ if pressed alone",
+        "manipulators" => generate_dual_key_rule("left_alt", "escape"),
       },
     ],
   )
