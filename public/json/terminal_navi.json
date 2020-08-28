@@ -1,16 +1,16 @@
 {
-  "title": "Navigation in Terminal Apps",
+  "title": "Keyboard shortcuts for Terminal apps",
   "maintainers": [
     "marlonrichert"
   ],
   "rules": [
     {
-      "description": "⌘ + ← | Move cursor to line begin",
+      "description": "Keyboard shortcuts for Terminal apps",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "left_arrow",
+            "key_code": "z",
             "modifiers": {
               "mandatory": [
                 "command"
@@ -19,7 +19,7 @@
           },
           "to": [
             {
-              "key_code": "a",
+              "key_code": "hyphen",
               "modifiers": [
                 "left_control"
               ]
@@ -36,18 +36,21 @@
                 "^io\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$"
               ]
+            },
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                  "language": "en"
+                }
+              ]
             }
           ]
-        }
-      ]
-    },
-    {
-      "description": "⌘ + → | Move cursor to line end",
-      "manipulators": [
+        },
         {
           "type": "basic",
           "from": {
-            "key_code": "right_arrow",
+            "key_code": "z",
             "modifiers": {
               "mandatory": [
                 "command"
@@ -56,7 +59,7 @@
           },
           "to": [
             {
-              "key_code": "e",
+              "key_code": "slash",
               "modifiers": [
                 "left_control"
               ]
@@ -73,14 +76,105 @@
                 "^io\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$"
               ]
+            },
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                  "language": "fi"
+                }
+              ]
             }
           ]
-        }
-      ]
-    },
-    {
-      "description": "⌥ + ← | Move cursor one word behind",
-      "manipulators": [
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "z",
+            "modifiers": {
+              "mandatory": [
+                "command",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "escape"
+            },
+            {
+              "key_code": "hyphen",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            },
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                  "language": "en"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "z",
+            "modifiers": {
+              "mandatory": [
+                "command",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "escape"
+            },
+            {
+              "key_code": "slash",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            },
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                  "language": "fi"
+                }
+              ]
+            }
+          ]
+        },
         {
           "type": "basic",
           "from": {
@@ -112,12 +206,7 @@
               ]
             }
           ]
-        }
-      ]
-    },
-    {
-      "description": "⌥ + → | Move cursor one word ahead",
-      "manipulators": [
+        },
         {
           "type": "basic",
           "from": {
@@ -149,12 +238,71 @@
               ]
             }
           ]
-        }
-      ]
-    },
-    {
-      "description": "⌥ + ⌫ | Delete one word behind",
-      "manipulators": [
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_arrow",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "a",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_arrow",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "e",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            }
+          ]
+        },
         {
           "type": "basic",
           "from": {
@@ -186,12 +334,7 @@
               ]
             }
           ]
-        }
-      ]
-    },
-    {
-      "description": "⌥ + ⌦ | Delete one word ahead",
-      "manipulators": [
+        },
         {
           "type": "basic",
           "from": {
@@ -256,12 +399,7 @@
               ]
             }
           ]
-        }
-      ]
-    },
-    {
-      "description": "⌘ + ⌫ | Delete to line begin",
-      "manipulators": [
+        },
         {
           "type": "basic",
           "from": {
@@ -293,12 +431,7 @@
               ]
             }
           ]
-        }
-      ]
-    },
-    {
-      "description": "⌘ + ⌦ | Delete to line end",
-      "manipulators": [
+        },
         {
           "type": "basic",
           "from": {
