@@ -50,15 +50,57 @@ def generate_ergoemacs_mode(trigger_key)
                                       [ { "key_code" => "escape" }, { "key_code" => "f" } ],
                                       trigger_key, variable),
     generate_ergoemacs_four_part_rule("h", "left_arrow", ["left_command"],
-                                      [ { "key_code" => "a", "modifiers" => ["right_control"], } ],
+                                      [
+                                        {
+                                          "key_code": "escape"
+                                        },
+                                        {
+                                          "key_code": "o",
+                                          "modifiers": [
+                                              "left_shift"
+                                          ]
+                                        },
+                                        {
+                                          "key_code": "h",
+                                          "modifiers": [
+                                              "left_shift"
+                                          ]
+                                        },
+                                      ],
                                       trigger_key, variable),
     generate_ergoemacs_four_part_rule("semicolon", "right_arrow", ["left_command"],
-                                      [ { "key_code" => "e", "modifiers" => ["right_control"], } ],
+                                      [
+                                        {
+                                          "key_code": "escape"
+                                        },
+                                        {
+                                          "key_code": "o",
+                                          "modifiers": [
+                                              "left_shift"
+                                          ]
+                                        },
+                                        {
+                                          "key_code": "f",
+                                          "modifiers": [
+                                              "left_shift"
+                                          ]
+                                        }
+                                      ],
                                       trigger_key, variable),
     generate_ergoemacs_two_part_rule("d", "delete_or_backspace", [], trigger_key, variable),
     generate_ergoemacs_two_part_rule("f", "delete_forward", [], trigger_key, variable),
     generate_ergoemacs_four_part_rule("e", "delete_or_backspace", ["left_option"],
-                                      [ { "key_code" => "w", "modifiers" => ["right_control"], } ],
+                                      [
+                                        {
+                                          "key_code": "escape"
+                                        },
+                                        {
+                                          "key_code": "h",
+                                          "modifiers": [
+                                              "left_control"
+                                          ]
+                                        }
+                                      ],
                                       trigger_key, variable),
     generate_ergoemacs_four_part_rule("r", "delete_forward", ["left_option"],
                                       [ { "key_code" => "escape" }, { "key_code" => "d" }, ],

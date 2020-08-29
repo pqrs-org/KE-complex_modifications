@@ -175,9 +175,18 @@
                     },
                     "to": [
                         {
-                            "key_code": "a",
+                            "key_code": "escape"
+                        },
+                        {
+                            "key_code": "o",
                             "modifiers": [
-                                "left_control"
+                                "left_shift"
+                            ]
+                        },
+                        {
+                            "key_code": "h",
+                            "modifiers": [
+                                "left_shift"
                             ]
                         }
                     ],
@@ -195,9 +204,18 @@
                     },
                     "to": [
                         {
-                            "key_code": "e",
+                            "key_code": "escape"
+                        },
+                        {
+                            "key_code": "o",
                             "modifiers": [
-                                "left_control"
+                                "left_shift"
+                            ]
+                        },
+                        {
+                            "key_code": "f",
+                            "modifiers": [
+                                "left_shift"
                             ]
                         }
                     ],
@@ -218,7 +236,16 @@
                             "key_code": "escape"
                         },
                         {
-                            "key_code": "v"
+                            "key_code": "open_bracket"
+                        },
+                        {
+                            "key_code": "5"
+                        },
+                        {
+                            "key_code": "grave_accent_and_tilde",
+                            "modifiers": [
+                                "left_shift"
+                            ]
                         }
                     ],
                     "conditions": [ <%= frontmost_application_if("terminal") %> ]
@@ -235,9 +262,18 @@
                     },
                     "to": [
                         {
-                            "key_code": "v",
+                            "key_code": "escape"
+                        },
+                        {
+                            "key_code": "open_bracket"
+                        },
+                        {
+                            "key_code": "6"
+                        },
+                        {
+                            "key_code": "grave_accent_and_tilde",
                             "modifiers": [
-                                "left_control"
+                                "left_shift"
                             ]
                         }
                     ],
@@ -292,6 +328,21 @@
                 {
                     "type": "basic",
                     "from": {
+                        "key_code": "delete_or_backspace"
+                    },
+                    "to": [
+                        {
+                            "key_code": "h",
+                            "modifiers": [
+                                "left_control"
+                            ]
+                        }
+                    ],
+                    "conditions": [ <%= frontmost_application_if("terminal") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
                         "key_code": "delete_or_backspace",
                         "modifiers": {
                             "mandatory": [
@@ -301,7 +352,10 @@
                     },
                     "to": [
                         {
-                            "key_code": "w",
+                            "key_code": "escape"
+                        },
+                        {
+                            "key_code": "h",
                             "modifiers": [
                                 "left_control"
                             ]
