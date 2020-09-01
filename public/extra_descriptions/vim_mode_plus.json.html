@@ -1,57 +1,48 @@
 <link rel="stylesheet" href="../../vendor/css/bootstrap.min.css"/>
 
 <h2 id="karabiner-vim-mode-plus">Karabiner Vim Mode Plus</h2>
-<p>A complex modification for
-  <a href="https://karabiner-elements.pqrs.org/" rel="nofollow noopener">Karabiner Elements</a>
-  that mimics
-  <a href="https://vim.fandom.com/wiki/Moving_around" rel="nofollow noopener">Vim's navigation</a>
-  throughout your entire Mac.</p>
-<h3 id="so-what-do-you-get">So what do you get?</h3>
-<h4 id="normal-mode">NORMAL mode</h4>
+
+<p>A complex modification that mimics <a href="https://vim.fandom.com/wiki/Moving_around" target="_blank">Vim's navigation</a> throughout your entire Mac.</p>
+
+<p>Although I try to keep this mod up-to-date in the KE-complex_modifications repository, you might encounter a more recent version in <a href="https://git.sr.ht/~harmtemolder/karabiner-vim-mode-plus" target="_blank">its own repository</a>.</p>
+
+<h3 id="1-so-what-do-you-get">1. So what do you get?</h3>
+
+<h4 id="11-normal-mode">1.1 NORMAL mode</h4>
+
 <ul>
-  <li>Activate with
-    <code>caps lock</code>.</li>
+  <li>Activate with <code>caps lock</code>.</li>
   <li>Deactivate with:
     <ul>
-      <li>
-        <code>i</code>
-        or
-        <code>a</code>
-        (there are more like these, see below)</li>
-      <li>
-        <code>caps lock</code>,</li>
-      <li>
-        <code>escape</code>,</li>
-      <li>
-        <code>control</code>+<code>[</code>,</li>
+      <li> <code>i</code> or <code>a</code> (there are more like these, see below)</li>
+      <li><code>caps lock</code>,</li>
+      <li><code>escape</code>,</li>
+      <li><code>control</code>+<code>[</code>,</li>
       <li>Clicking any mouse button</li>
       <li>Pressing any key within Atom, iTerm2, PyCharm or VSCodium (because those have their own Vim modes)</li>
       <li>Pressing any key while having at least one finger on your trackpad</li>
     </ul>
   </li>
 </ul>
-<p>Alternatively you can hold
-  <code>caps lock</code>
-  for NORMAL mode and release it to exit.</p>
+
+<p>Alternatively you can hold <code>caps lock</code> for NORMAL mode and release it to exit.</p>
+
 <p>Within NORMAL mode you can then move around with:</p>
-<table>
+
+<table class="table">
   <thead>
-    <tr>
+    <tr class="header">
       <th>key</th>
       <th>action</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>
-        <code>h</code>
-      </td>
+      <td><code>h</code></td>
       <td>Move cursor left*</td>
     </tr>
     <tr>
-      <td>
-        <code>j</code>
-      </td>
+      <td><code>j</code></td>
       <td>Move cursor down*</td>
     </tr>
     <tr>
@@ -122,21 +113,14 @@
     </tr>
   </tbody>
 </table>
-<p>*These work with
-  <code>shift</code>,
-  <code>control</code>,
-  <code>option</code>
-  and/or
-  <code>command</code>, e.g. for hotkeys within apps.</p>
-<p>Combine those with
-  <code>d</code>,
-  <code>y</code>
-  and
-  <code>c</code>
-  to delete (“cut”), yank (“copy”) or change (“cut” and exit NORMAL mode) like so:</p>
-<table>
+
+<p>*These work with <code>shift</code>, <code>control</code>, <code>option</code> and/or <code>command</code>, e.g. for hotkeys within apps.</p>
+
+<p>Combine those with <code>d</code>, <code>y</code> and <code>c</code> to delete (“cut”), yank (“copy”) or change (“cut” and exit NORMAL mode) like so:</p>
+
+<table class="table">
   <thead>
-    <tr>
+    <tr class="header">
       <th>key</th>
       <th>action</th>
     </tr>
@@ -174,10 +158,12 @@
     </tr>
   </tbody>
 </table>
+
 <p>Also:</p>
-<table>
+
+<table class="table">
   <thead>
-    <tr>
+    <tr class="header">
       <th>key</th>
       <th>action</th>
     </tr>
@@ -217,10 +203,12 @@
     </tr>
   </tbody>
 </table>
+
 <p>To exit NORMAL mode at specific locations:</p>
-<table>
+
+<table class="table">
   <thead>
-    <tr>
+    <tr class="header">
       <th>key</th>
       <th>action</th>
     </tr>
@@ -264,16 +252,12 @@
     </tr>
   </tbody>
 </table>
-<p>I've also mapped 3 keys to
-  <code>F18</code>,
-  <code>F19</code>
-  and
-  <code>F20</code>, which I pick up on within
-  <a href="https://www.hammerspoon.org/" rel="nofollow noopener">Hammerspoon</a>
-  to load specific modals:</p>
-<table>
+
+<p>I've also mapped 3 keys to <code>F18</code>, <code>F19</code> and <code>F20</code>, which I pick up on within <a href="https://www.hammerspoon.org/">Hammerspoon</a> to load specific modals:</p>
+
+<table class="table">
   <thead>
-    <tr>
+    <tr class="header">
       <th>key</th>
       <th>action</th>
     </tr>
@@ -299,14 +283,14 @@
     </tr>
   </tbody>
 </table>
-<h4 id="visual-mode">VISUAL mode</h4>
-<p>From within NORMAL mode you can switch to VISUAL mode with
-  <code>v</code>. (Unfortunately you cannot switch to the other end of the selection with
-  <code>o</code>
-  as you normally would, so choose your starting point wisely.)</p>
-<table>
+
+<h4 id="12-visual-mode">1.2 VISUAL mode</h4>
+
+<p>From within NORMAL mode you can switch to VISUAL mode with <code>v</code>. (Unfortunately you cannot switch to the other end of the selection with <code>o</code> as you normally would, so choose your starting point wisely.)</p>
+
+<table class="table">
   <thead>
-    <tr>
+    <tr class="header">
       <th>key</th>
       <th>action</th>
     </tr>
@@ -360,28 +344,15 @@
     </tr>
   </tbody>
 </table>
-<h3 id="setting-up">Setting up</h3>
-<ol>
-  <li>
-    <p>Install Karabiner. (I used
-      <a href="https://formulae.brew.sh/cask/karabiner-elements" rel="nofollow noopener">this Homebrew cask</a>.)</p>
-  </li>
-  <li>
-    <p>Import this complex modification straight into Karabiner through this link. (You might have to copy and paste it into your browser's address bar.):</p>
-    <p>
-      <a rel="nofollow noopener"></a>
-      <a rel="nofollow noopener">karabiner://karabiner/assets/complex_modifications/import?url=https%3A%2F%2Fgit.sr.ht%2F~harmtemolder%2Fkarabiner-vim-mode-plus%2Fblob%2Fmaster%2Fvim_mode_plus.json</a>
-    </p>
-  </li>
-</ol>
-<h3 id="making-changes">Making changes</h3>
-<p>I write my complex modifications in
-  <code>YML</code>
-  files, converting them into
-  <code>JSON</code>
-  using
-  <code>yml-to-json.py</code>. You don't have to, but you can, if you want to. Either way, make sure to remove and re-add all parts of this mod in Karabiner's “Complex modifications” tab after making changes. The order they are in is important.</p>
-<h3 id="reporting-issues">Reporting issues</h3>
-<p>If you encounter any issues, please report them
-  <a href="https://todo.sr.ht/~harmtemolder/karabiner-vim-mode-plus" rel="nofollow noopener">here</a>. (If you need help with sourcehut's issue tracker, see
-  <a href="https://man.sr.ht/todo.sr.ht/" rel="nofollow noopener">this man page</a>.) I'd also love to hear additions you would like to see to this setup.</p>
+
+<h3 id="2-setting-up">2. Setting up</h3>
+
+<p>Import this complex modification straight into Karabiner through this link: <a href="karabiner://karabiner/assets/complex_modifications/import?url=https://git.sr.ht/~harmtemolder/karabiner-vim-mode-plus/blob/master/vim_mode_plus.json" target="_blank">karabiner://karabiner/assets/complex_modifications/import?url=https://git.sr.ht/~harmtemolder/karabiner-vim-mode-plus/blob/master/vim_mode_plus.json</a> (You might have to copy and paste it into your browser's address bar if your browser does not render it as a clickable link.)</p>
+
+<h3 id="3-making-changes">3. Making changes</h3>
+
+<p>I write my complex modifications in <code>YML</code> files, converting them into <code>JSON</code> using <code>yml-to-json.py</code>. You don't have to, but you can, if you want to. Either way, make sure to remove and re-add all parts of this mod in Karabiner's “Complex modifications” tab after making changes. The order they are in is important.</p>
+
+<h3 id="4-reporting-issues">4. Reporting issues</h3>
+
+<p>If you encounter any issues, please report them <a href="https://todo.sr.ht/~harmtemolder/karabiner-vim-mode-plus" target="_blank">here</a>. (If you need help with sourcehut's issue tracker, see <a href="https://man.sr.ht/todo.sr.ht/" target="_blank">this man page</a>.) I'd also love to hear additions you would like to see to this setup.</p>
