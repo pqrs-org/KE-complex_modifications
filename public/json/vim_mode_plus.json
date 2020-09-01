@@ -1,11 +1,13 @@
 {
-  "title": "Vim Mode",
+  "title": "Vim Mode Plus",
   "maintainers": [
     "harmtemolder"
   ],
+  "homepage": "https://git.sr.ht/~harmtemolder/karabiner-vim-mode-plus",
+  "import_url": "karabiner://karabiner/assets/complex_modifications/import?url=https://git.sr.ht/~harmtemolder/karabiner-vim-mode-plus/blob/master/vim_mode_plus.json",
   "rules": [
     {
-      "description": "(vim 1/10) caps_lock -> on, i or any pointing_button -> off",
+      "description": "(Vim 1/11) caps_lock -> on, caps_lock, esc, control+[ or any pointing_button -> off",
       "manipulators": [
         {
           "type": "basic",
@@ -49,7 +51,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -76,10 +79,7 @@
               }
             },
             {
-              "shell_command": "osascript -e 'display notification \"[escape] sent\" with title \"-- INSERT --\"'"
-            },
-            {
-              "key_code": "escape"
+              "shell_command": "osascript -e 'display notification with title \"-- INSERT --\"'"
             }
           ],
           "conditions": [
@@ -88,7 +88,79 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
+              ]
+            },
+            {
+              "name": "vim_mode",
+              "type": "variable_if",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "escape"
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "vim_mode",
+                "value": 0
+              }
+            },
+            {
+              "shell_command": "osascript -e 'display notification with title \"-- INSERT --\"'"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "com.googlecode.iterm2",
+                "com.github.atom",
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
+              ]
+            },
+            {
+              "name": "vim_mode",
+              "type": "variable_if",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "open_bracket",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "vim_mode",
+                "value": 0
+              }
+            },
+            {
+              "shell_command": "osascript -e 'display notification with title \"-- INSERT --\"'"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "com.googlecode.iterm2",
+                "com.github.atom",
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -120,7 +192,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -157,7 +230,7 @@
       ]
     },
     {
-      "description": "(vim 2/10) finger on trackpad + any key -> off",
+      "description": "(Vim 2/11) finger on trackpad + any key -> off",
       "available_since": "12.6.9",
       "manipulators": [
         {
@@ -192,7 +265,7 @@
       ]
     },
     {
-      "description": "(vim 3/10) visual mode + h,j,k,l,w,e,b,0,^,$,gg,G,{,} + d,y",
+      "description": "(Vim 3/11) visual mode + h,j,k,l,e,b,0,^,$,gg,G,{,} + d,y,c,x",
       "manipulators": [
         {
           "type": "basic",
@@ -222,7 +295,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -265,7 +339,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -294,7 +369,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -323,7 +399,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -352,7 +429,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -381,37 +459,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
-              ]
-            },
-            {
-              "name": "visual_mode",
-              "type": "variable_if",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "w"
-          },
-          "to": [
-            {
-              "key_code": "right_arrow",
-              "modifiers": [
-                "left_shift",
-                "left_alt"
-              ]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -441,7 +490,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -471,7 +521,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -508,7 +559,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -543,7 +595,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -578,7 +631,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -620,7 +674,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -661,7 +716,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -701,7 +757,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -736,7 +793,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -771,7 +829,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -792,6 +851,21 @@
               "modifiers": [
                 "left_command"
               ]
+            },
+            {
+              "set_variable": {
+                "name": "visual_mode",
+                "value": 0
+              }
+            },
+            {
+              "set_variable": {
+                "name": "vim_mode",
+                "value": 1
+              }
+            },
+            {
+              "shell_command": "osascript -e 'display notification \"Press [i] to leave\" with title \"-- NORMAL --\"'"
             }
           ],
           "conditions": [
@@ -800,7 +874,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -821,6 +896,21 @@
               "modifiers": [
                 "left_command"
               ]
+            },
+            {
+              "set_variable": {
+                "name": "visual_mode",
+                "value": 0
+              }
+            },
+            {
+              "set_variable": {
+                "name": "vim_mode",
+                "value": 1
+              }
+            },
+            {
+              "shell_command": "osascript -e 'display notification \"Press [i] to leave\" with title \"-- NORMAL --\"'"
             }
           ],
           "conditions": [
@@ -829,7 +919,191 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
+              ]
+            },
+            {
+              "name": "visual_mode",
+              "type": "variable_if",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "c"
+          },
+          "to": [
+            {
+              "key_code": "x",
+              "modifiers": [
+                "left_command"
+              ]
+            },
+            {
+              "set_variable": {
+                "name": "visual_mode",
+                "value": 0
+              }
+            },
+            {
+              "set_variable": {
+                "name": "vim_mode",
+                "value": 0
+              }
+            },
+            {
+              "shell_command": "osascript -e 'display notification with title \"-- INSERT --\"'"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "com.googlecode.iterm2",
+                "com.github.atom",
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
+              ]
+            },
+            {
+              "name": "visual_mode",
+              "type": "variable_if",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "x"
+          },
+          "to": [
+            {
+              "key_code": "delete_or_backspace"
+            },
+            {
+              "set_variable": {
+                "name": "visual_mode",
+                "value": 0
+              }
+            },
+            {
+              "set_variable": {
+                "name": "vim_mode",
+                "value": 1
+              }
+            },
+            {
+              "shell_command": "osascript -e 'display notification \"Press [i] to leave\" with title \"-- NORMAL --\"'"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "com.googlecode.iterm2",
+                "com.github.atom",
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
+              ]
+            },
+            {
+              "name": "visual_mode",
+              "type": "variable_if",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_shift",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_shift"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "com.googlecode.iterm2",
+                "com.github.atom",
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
+              ]
+            },
+            {
+              "name": "visual_mode",
+              "type": "variable_if",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_shift",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_shift"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "com.googlecode.iterm2",
+                "com.github.atom",
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
+              ]
+            },
+            {
+              "name": "visual_mode",
+              "type": "variable_if",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "any": "key_code",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "com.googlecode.iterm2",
+                "com.github.atom",
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -842,7 +1116,7 @@
       ]
     },
     {
-      "description": "(vim 4/10) dd,dw,de,db,d0,d^,d$,dgg,dG,d{,d}",
+      "description": "(Vim 4/11) dd,de,db,d0,d^,d$,dgg,dG,d{,d}",
       "manipulators": [
         {
           "type": "basic",
@@ -876,7 +1150,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -935,54 +1210,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
-              ]
-            },
-            {
-              "name": "vim_mode",
-              "type": "variable_if",
-              "value": 1
-            },
-            {
-              "name": "d_pressed",
-              "type": "variable_if",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "w"
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "d_pressed",
-                "value": 0
-              }
-            },
-            {
-              "key_code": "right_arrow",
-              "modifiers": [
-                "left_shift",
-                "left_alt"
-              ]
-            },
-            {
-              "key_code": "x",
-              "modifiers": [
-                "left_command"
-              ]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -1029,7 +1258,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -1076,7 +1306,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -1130,7 +1361,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -1182,7 +1414,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -1234,7 +1467,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -1287,7 +1521,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -1339,7 +1574,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -1391,7 +1627,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -1443,7 +1680,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -1488,7 +1726,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -1506,7 +1745,7 @@
       ]
     },
     {
-      "description": "(vim 5/10) yy,yw,ye,yb,y0,y^,y$,ygg,yG,y{,y}",
+      "description": "(Vim 5/11) yy,ye,yb,y0,y^,y$,ygg,yG,y{,y}",
       "manipulators": [
         {
           "type": "basic",
@@ -1540,7 +1779,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -1599,54 +1839,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
-              ]
-            },
-            {
-              "name": "vim_mode",
-              "type": "variable_if",
-              "value": 1
-            },
-            {
-              "name": "y_pressed",
-              "type": "variable_if",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "w"
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "y_pressed",
-                "value": 0
-              }
-            },
-            {
-              "key_code": "right_arrow",
-              "modifiers": [
-                "left_shift",
-                "left_alt"
-              ]
-            },
-            {
-              "key_code": "c",
-              "modifiers": [
-                "left_command"
-              ]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -1693,7 +1887,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -1740,7 +1935,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -1794,7 +1990,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -1846,7 +2043,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -1898,7 +2096,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -1951,7 +2150,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -2003,7 +2203,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -2055,7 +2256,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -2107,7 +2309,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -2159,7 +2362,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -2177,8 +2381,761 @@
       ]
     },
     {
-      "description": "(vim 6/10) x,X,p,P,u,ctrl+r",
+      "description": "(Vim 6/11) cc,ce,cb,c0,c^,c$,cgg,cG,c{,c}",
       "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "c"
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "c_pressed",
+                "value": 1
+              }
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "c_pressed",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "parameters": {
+            "basic.to_delayed_action_delay_milliseconds": 500
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "com.googlecode.iterm2",
+                "com.github.atom",
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
+              ]
+            },
+            {
+              "name": "vim_mode",
+              "type": "variable_if",
+              "value": 1
+            },
+            {
+              "name": "c_pressed",
+              "type": "variable_unless",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "c"
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "c_pressed",
+                "value": 0
+              }
+            },
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "left_command"
+              ]
+            },
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "left_command"
+              ]
+            },
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "left_command",
+                "left_shift"
+              ]
+            },
+            {
+              "key_code": "x",
+              "modifiers": [
+                "left_command"
+              ]
+            },
+            {
+              "set_variable": {
+                "name": "vim_mode",
+                "value": 0
+              }
+            },
+            {
+              "shell_command": "osascript -e 'display notification with title \"-- INSERT --\"'"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "com.googlecode.iterm2",
+                "com.github.atom",
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
+              ]
+            },
+            {
+              "name": "vim_mode",
+              "type": "variable_if",
+              "value": 1
+            },
+            {
+              "name": "c_pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "e"
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "c_pressed",
+                "value": 0
+              }
+            },
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "left_shift",
+                "left_alt"
+              ]
+            },
+            {
+              "key_code": "x",
+              "modifiers": [
+                "left_command"
+              ]
+            },
+            {
+              "set_variable": {
+                "name": "vim_mode",
+                "value": 0
+              }
+            },
+            {
+              "shell_command": "osascript -e 'display notification with title \"-- INSERT --\"'"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "com.googlecode.iterm2",
+                "com.github.atom",
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
+              ]
+            },
+            {
+              "name": "vim_mode",
+              "type": "variable_if",
+              "value": 1
+            },
+            {
+              "name": "c_pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "b"
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "c_pressed",
+                "value": 0
+              }
+            },
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "left_shift",
+                "left_alt"
+              ]
+            },
+            {
+              "key_code": "x",
+              "modifiers": [
+                "left_command"
+              ]
+            },
+            {
+              "set_variable": {
+                "name": "vim_mode",
+                "value": 0
+              }
+            },
+            {
+              "shell_command": "osascript -e 'display notification with title \"-- INSERT --\"'"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "com.googlecode.iterm2",
+                "com.github.atom",
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
+              ]
+            },
+            {
+              "name": "vim_mode",
+              "type": "variable_if",
+              "value": 1
+            },
+            {
+              "name": "c_pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "0"
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "c_pressed",
+                "value": 0
+              }
+            },
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "left_command",
+                "left_shift"
+              ]
+            },
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "left_command",
+                "left_shift"
+              ]
+            },
+            {
+              "key_code": "x",
+              "modifiers": [
+                "left_command"
+              ]
+            },
+            {
+              "set_variable": {
+                "name": "vim_mode",
+                "value": 0
+              }
+            },
+            {
+              "shell_command": "osascript -e 'display notification with title \"-- INSERT --\"'"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "com.googlecode.iterm2",
+                "com.github.atom",
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
+              ]
+            },
+            {
+              "name": "vim_mode",
+              "type": "variable_if",
+              "value": 1
+            },
+            {
+              "name": "c_pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "6",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "c_pressed",
+                "value": 0
+              }
+            },
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "left_command",
+                "left_shift"
+              ]
+            },
+            {
+              "key_code": "x",
+              "modifiers": [
+                "left_command"
+              ]
+            },
+            {
+              "set_variable": {
+                "name": "vim_mode",
+                "value": 0
+              }
+            },
+            {
+              "shell_command": "osascript -e 'display notification with title \"-- INSERT --\"'"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "com.googlecode.iterm2",
+                "com.github.atom",
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
+              ]
+            },
+            {
+              "name": "vim_mode",
+              "type": "variable_if",
+              "value": 1
+            },
+            {
+              "name": "c_pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "4",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "c_pressed",
+                "value": 0
+              }
+            },
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "left_command",
+                "left_shift"
+              ]
+            },
+            {
+              "key_code": "x",
+              "modifiers": [
+                "left_command"
+              ]
+            },
+            {
+              "set_variable": {
+                "name": "vim_mode",
+                "value": 0
+              }
+            },
+            {
+              "shell_command": "osascript -e 'display notification with title \"-- INSERT --\"'"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "com.googlecode.iterm2",
+                "com.github.atom",
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
+              ]
+            },
+            {
+              "name": "vim_mode",
+              "type": "variable_if",
+              "value": 1
+            },
+            {
+              "name": "c_pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "g"
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "c_pressed",
+                "value": 0
+              }
+            },
+            {
+              "set_variable": {
+                "name": "cg_pressed",
+                "value": 1
+              }
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "cg_pressed",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "parameters": {
+            "basic.to_delayed_action_delay_milliseconds": 500
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "com.googlecode.iterm2",
+                "com.github.atom",
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
+              ]
+            },
+            {
+              "name": "vim_mode",
+              "type": "variable_if",
+              "value": 1
+            },
+            {
+              "name": "c_pressed",
+              "type": "variable_if",
+              "value": 1
+            },
+            {
+              "name": "cg_pressed",
+              "type": "variable_unless",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "g"
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "cg_pressed",
+                "value": 0
+              }
+            },
+            {
+              "key_code": "up_arrow",
+              "modifiers": [
+                "left_shift",
+                "left_command"
+              ]
+            },
+            {
+              "key_code": "x",
+              "modifiers": [
+                "left_command"
+              ]
+            },
+            {
+              "set_variable": {
+                "name": "vim_mode",
+                "value": 0
+              }
+            },
+            {
+              "shell_command": "osascript -e 'display notification with title \"-- INSERT --\"'"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "com.googlecode.iterm2",
+                "com.github.atom",
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
+              ]
+            },
+            {
+              "name": "vim_mode",
+              "type": "variable_if",
+              "value": 1
+            },
+            {
+              "name": "cg_pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "g",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "c_pressed",
+                "value": 0
+              }
+            },
+            {
+              "key_code": "down_arrow",
+              "modifiers": [
+                "left_shift",
+                "left_command"
+              ]
+            },
+            {
+              "key_code": "x",
+              "modifiers": [
+                "left_command"
+              ]
+            },
+            {
+              "set_variable": {
+                "name": "vim_mode",
+                "value": 0
+              }
+            },
+            {
+              "shell_command": "osascript -e 'display notification with title \"-- INSERT --\"'"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "com.googlecode.iterm2",
+                "com.github.atom",
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
+              ]
+            },
+            {
+              "name": "vim_mode",
+              "type": "variable_if",
+              "value": 1
+            },
+            {
+              "name": "c_pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "open_bracket",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "c_pressed",
+                "value": 0
+              }
+            },
+            {
+              "key_code": "a",
+              "modifiers": [
+                "left_control",
+                "left_shift"
+              ]
+            },
+            {
+              "key_code": "x",
+              "modifiers": [
+                "left_command"
+              ]
+            },
+            {
+              "set_variable": {
+                "name": "vim_mode",
+                "value": 0
+              }
+            },
+            {
+              "shell_command": "osascript -e 'display notification with title \"-- INSERT --\"'"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "com.googlecode.iterm2",
+                "com.github.atom",
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
+              ]
+            },
+            {
+              "name": "vim_mode",
+              "type": "variable_if",
+              "value": 1
+            },
+            {
+              "name": "c_pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "close_bracket",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "c_pressed",
+                "value": 0
+              }
+            },
+            {
+              "key_code": "e",
+              "modifiers": [
+                "left_control",
+                "left_shift"
+              ]
+            },
+            {
+              "key_code": "x",
+              "modifiers": [
+                "left_command"
+              ]
+            },
+            {
+              "set_variable": {
+                "name": "vim_mode",
+                "value": 0
+              }
+            },
+            {
+              "shell_command": "osascript -e 'display notification with title \"-- INSERT --\"'"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "com.googlecode.iterm2",
+                "com.github.atom",
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
+              ]
+            },
+            {
+              "name": "vim_mode",
+              "type": "variable_if",
+              "value": 1
+            },
+            {
+              "name": "c_pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "(Vim 7/11) x,X,p,P,u,control+r",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "x"
+          },
+          "to": [
+            {
+              "key_code": "delete_forward"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "com.googlecode.iterm2",
+                "com.github.atom",
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
+              ]
+            },
+            {
+              "name": "vim_mode",
+              "type": "variable_if",
+              "value": 1
+            }
+          ]
+        },
         {
           "type": "basic",
           "from": {
@@ -2200,33 +3157,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
-              ]
-            },
-            {
-              "name": "vim_mode",
-              "type": "variable_if",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "x"
-          },
-          "to": [
-            {
-              "key_code": "delete_forward"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -2255,7 +3187,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -2289,7 +3222,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -2318,7 +3252,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -2353,7 +3288,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -2366,7 +3302,7 @@
       ]
     },
     {
-      "description": "(vim 7/10) h,j,k,l,w,e,b,0,^,$,gg,G,{,} (+ control, option, command)",
+      "description": "(Vim 8/11) h,j,k,l (+ control/option/command/shift),e,b,0,^,$,gg,G,{,}",
       "manipulators": [
         {
           "type": "basic",
@@ -2376,7 +3312,8 @@
               "optional": [
                 "control",
                 "option",
-                "command"
+                "command",
+                "shift"
               ]
             }
           },
@@ -2391,7 +3328,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -2409,7 +3347,8 @@
               "optional": [
                 "control",
                 "option",
-                "command"
+                "command",
+                "shift"
               ]
             }
           },
@@ -2424,7 +3363,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -2442,7 +3382,8 @@
               "optional": [
                 "control",
                 "option",
-                "command"
+                "command",
+                "shift"
               ]
             }
           },
@@ -2457,7 +3398,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -2475,7 +3417,8 @@
               "optional": [
                 "control",
                 "option",
-                "command"
+                "command",
+                "shift"
               ]
             }
           },
@@ -2490,36 +3433,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
-              ]
-            },
-            {
-              "name": "vim_mode",
-              "type": "variable_if",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "w"
-          },
-          "to": [
-            {
-              "key_code": "right_arrow",
-              "modifiers": [
-                "left_alt"
-              ]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2",
-                "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -2548,7 +3463,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -2577,7 +3493,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -2612,7 +3529,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -2646,7 +3564,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -2680,7 +3599,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -2722,7 +3642,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -2762,7 +3683,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -2801,7 +3723,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -2835,7 +3758,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -2869,7 +3793,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -2882,7 +3807,7 @@
       ]
     },
     {
-      "description": "(vim 8/10) i,I,a,A,o,O",
+      "description": "(Vim 9/11) i,I,a,A,o,O",
       "manipulators": [
         {
           "type": "basic",
@@ -2906,7 +3831,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -2949,7 +3875,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -2981,7 +3908,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -3024,7 +3952,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -3065,7 +3994,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -3114,7 +4044,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -3127,7 +4058,7 @@
       ]
     },
     {
-      "description": "(vim 9/10) s,m,spacebar -> Hammerspoon modals",
+      "description": "(Vim 10/11) s,m,spacebar -> Hammerspoon modals",
       "manipulators": [
         {
           "type": "basic",
@@ -3154,7 +4085,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -3189,7 +4121,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -3224,7 +4157,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -3237,7 +4171,7 @@
       ]
     },
     {
-      "description": "(vim 10/10) disable unused keys",
+      "description": "(Vim 11/11) disable unused keys",
       "manipulators": [
         {
           "type": "basic",
@@ -3260,7 +4194,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -3291,7 +4226,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -3322,7 +4258,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -3353,7 +4290,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -3384,7 +4322,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -3415,7 +4354,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -3446,7 +4386,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -3477,7 +4418,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
@@ -3508,7 +4450,8 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2",
                 "com.github.atom",
-                "com.jetbrains.pycharm"
+                "com.jetbrains.pycharm",
+                "com.visualstudio.code.oss"
               ]
             },
             {
