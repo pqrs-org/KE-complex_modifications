@@ -16,65 +16,46 @@ def main
     "maintainers" => ["marlonrichert"],
     "rules" => [
       {
-        "description" => "Right ⌘ to - if pressed alone",
-        "manipulators" => generate_dual_key_rule("right_gui", "hyphen"),
-      },
-      {
-        "description" => "Right ⌃ to = if pressed alone",
-        "manipulators" => generate_dual_key_rule("right_control", "equal_sign"),
-      },
-      {
-        "description" => "Right ⇧ to [ if pressed alone",
-        "manipulators" => generate_dual_key_rule("right_shift", "open_bracket"),
-      },
-      {
-        "description" => "Right ⌥ to ] if pressed alone",
-        "manipulators" => generate_dual_key_rule("right_alt", "close_bracket"),
-      },
-      {
-        "description" => "Left ⌘ to ↩︎ if pressed alone",
-        "manipulators" => generate_dual_key_rule("left_gui", "return_or_enter"),
-      },
-      {
-        "description" => "Left ⌃ to ` if pressed alone",
-        "manipulators" => generate_dual_key_rule("left_control", "grave_accent_and_tilde"),
-      },
-      {
-        "description" => "Left ⇧ to ' if pressed alone",
-        "manipulators" => generate_dual_key_rule("left_shift", "quote"),
-      },
-      {
-        "description" => "Left ⌥ to ⎋ if pressed alone",
-        "manipulators" => generate_dual_key_rule("left_alt", "escape"),
+        "description" => "Dual keys",
+        "manipulators" => [
+          generate_dual_key_rule("left_command", "tab", "left_shift"),
+          generate_dual_key_rule("right_command", "hyphen", "right_shift"),
+          generate_dual_key_rule("left_option", "return_or_enter", "left_command"),
+          generate_dual_key_rule("right_option", "equal_sign", "right_command"),
+          generate_dual_key_rule("grave_accent_and_tilde", "grave_accent_and_tilde", "left_control"),
+          generate_dual_key_rule("slash", "slash", "right_control"),
+        generate_dual_key_rule("caps_lock", "backslash", "left_option"),
+          generate_dual_key_rule("quote", "quote", "right_option"),
+          generate_dual_key_rule("left_control", "open_bracket", "open_bracket"),
+          generate_dual_key_rule("left_arrow", "close_bracket", "close_bracket"),
+        ],
       },
     ],
   )
 end
 
-def generate_dual_key_rule(original_key, alternate_key)
-  [
-    {
-      "type" => "basic",
-      "from" => {
-        "key_code" => original_key,
-        "modifiers" => { "optional" => ["any"] },
-      },
-      "to_if_alone" => [
-        {
-          "key_code" => alternate_key,
-        },
-      ],
-      "to_if_held_down" => [
-        {
-          "key_code" => original_key,
-        },
-      ],
-      'parameters' => {
-        'basic.to_if_alone_timeout_milliseconds' => PARAMETERS[:to_if_alone_timeout_milliseconds],
-        'basic.to_if_held_down_threshold_milliseconds' => PARAMETERS[:to_if_held_down_threshold_milliseconds],
-      },
+def generate_dual_key_rule(input, alone, held_down)
+  {
+    "type" => "basic",
+    "from" => {
+      "key_code" => input,
+      "modifiers" => { "optional" => ["any"] },
     },
-  ]
+    "to_if_alone" => [
+      {
+        "key_code" => alone,
+      },
+    ],
+    "to_if_held_down" => [
+      {
+        "key_code" => held_down,
+      },
+    ],
+    'parameters' => {
+      'basic.to_if_alone_timeout_milliseconds' => PARAMETERS[:to_if_alone_timeout_milliseconds],
+      'basic.to_if_held_down_threshold_milliseconds' => PARAMETERS[:to_if_held_down_threshold_milliseconds],
+    },
+  }
 end
 
 main()

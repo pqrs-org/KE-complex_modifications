@@ -5,12 +5,37 @@
   ],
   "rules": [
     {
-      "description": "Right ⌘ to - if pressed alone",
+      "description": "Dual keys",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "right_gui",
+            "key_code": "left_command",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to_if_alone": [
+            {
+              "key_code": "tab"
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_shift"
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 300,
+            "basic.to_if_held_down_threshold_milliseconds": 0
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_command",
             "modifiers": {
               "optional": [
                 "any"
@@ -24,66 +49,6 @@
           ],
           "to_if_held_down": [
             {
-              "key_code": "right_gui"
-            }
-          ],
-          "parameters": {
-            "basic.to_if_alone_timeout_milliseconds": 300,
-            "basic.to_if_held_down_threshold_milliseconds": 0
-          }
-        }
-      ]
-    },
-    {
-      "description": "Right ⌃ to = if pressed alone",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "right_control",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to_if_alone": [
-            {
-              "key_code": "equal_sign"
-            }
-          ],
-          "to_if_held_down": [
-            {
-              "key_code": "right_control"
-            }
-          ],
-          "parameters": {
-            "basic.to_if_alone_timeout_milliseconds": 300,
-            "basic.to_if_held_down_threshold_milliseconds": 0
-          }
-        }
-      ]
-    },
-    {
-      "description": "Right ⇧ to [ if pressed alone",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "right_shift",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to_if_alone": [
-            {
-              "key_code": "open_bracket"
-            }
-          ],
-          "to_if_held_down": [
-            {
               "key_code": "right_shift"
             }
           ],
@@ -91,46 +56,11 @@
             "basic.to_if_alone_timeout_milliseconds": 300,
             "basic.to_if_held_down_threshold_milliseconds": 0
           }
-        }
-      ]
-    },
-    {
-      "description": "Right ⌥ to ] if pressed alone",
-      "manipulators": [
+        },
         {
           "type": "basic",
           "from": {
-            "key_code": "right_alt",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to_if_alone": [
-            {
-              "key_code": "close_bracket"
-            }
-          ],
-          "to_if_held_down": [
-            {
-              "key_code": "right_alt"
-            }
-          ],
-          "parameters": {
-            "basic.to_if_alone_timeout_milliseconds": 300,
-            "basic.to_if_held_down_threshold_milliseconds": 0
-          }
-        }
-      ]
-    },
-    {
-      "description": "Left ⌘ to ↩︎ if pressed alone",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "left_gui",
+            "key_code": "left_option",
             "modifiers": {
               "optional": [
                 "any"
@@ -144,23 +74,43 @@
           ],
           "to_if_held_down": [
             {
-              "key_code": "left_gui"
+              "key_code": "left_command"
             }
           ],
           "parameters": {
             "basic.to_if_alone_timeout_milliseconds": 300,
             "basic.to_if_held_down_threshold_milliseconds": 0
           }
-        }
-      ]
-    },
-    {
-      "description": "Left ⌃ to ` if pressed alone",
-      "manipulators": [
+        },
         {
           "type": "basic",
           "from": {
-            "key_code": "left_control",
+            "key_code": "right_option",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to_if_alone": [
+            {
+              "key_code": "equal_sign"
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "right_command"
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 300,
+            "basic.to_if_held_down_threshold_milliseconds": 0
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "grave_accent_and_tilde",
             "modifiers": {
               "optional": [
                 "any"
@@ -181,16 +131,61 @@
             "basic.to_if_alone_timeout_milliseconds": 300,
             "basic.to_if_held_down_threshold_milliseconds": 0
           }
-        }
-      ]
-    },
-    {
-      "description": "Left ⇧ to ' if pressed alone",
-      "manipulators": [
+        },
         {
           "type": "basic",
           "from": {
-            "key_code": "left_shift",
+            "key_code": "slash",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to_if_alone": [
+            {
+              "key_code": "slash"
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "right_control"
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 300,
+            "basic.to_if_held_down_threshold_milliseconds": 0
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to_if_alone": [
+            {
+              "key_code": "backslash"
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_option"
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 300,
+            "basic.to_if_held_down_threshold_milliseconds": 0
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "quote",
             "modifiers": {
               "optional": [
                 "any"
@@ -204,23 +199,18 @@
           ],
           "to_if_held_down": [
             {
-              "key_code": "left_shift"
+              "key_code": "right_option"
             }
           ],
           "parameters": {
             "basic.to_if_alone_timeout_milliseconds": 300,
             "basic.to_if_held_down_threshold_milliseconds": 0
           }
-        }
-      ]
-    },
-    {
-      "description": "Left ⌥ to ⎋ if pressed alone",
-      "manipulators": [
+        },
         {
           "type": "basic",
           "from": {
-            "key_code": "left_alt",
+            "key_code": "left_control",
             "modifiers": {
               "optional": [
                 "any"
@@ -229,12 +219,37 @@
           },
           "to_if_alone": [
             {
-              "key_code": "escape"
+              "key_code": "open_bracket"
             }
           ],
           "to_if_held_down": [
             {
-              "key_code": "left_alt"
+              "key_code": "open_bracket"
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 300,
+            "basic.to_if_held_down_threshold_milliseconds": 0
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_arrow",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to_if_alone": [
+            {
+              "key_code": "close_bracket"
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "close_bracket"
             }
           ],
           "parameters": {
