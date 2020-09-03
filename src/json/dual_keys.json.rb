@@ -24,10 +24,10 @@ def main
           generate_dual_key_rule("right_option", "equal_sign", "right_command"),
           generate_dual_key_rule("grave_accent_and_tilde", "grave_accent_and_tilde", "left_control"),
           generate_dual_key_rule("slash", "slash", "right_control"),
-        generate_dual_key_rule("caps_lock", "backslash", "left_option"),
+          generate_dual_key_rule("caps_lock", "backslash", "left_option"),
           generate_dual_key_rule("quote", "quote", "right_option"),
-          generate_dual_key_rule("left_control", "open_bracket", "open_bracket"),
-          generate_dual_key_rule("left_arrow", "close_bracket", "close_bracket"),
+          generate_single_key_rule("left_control", "open_bracket"),
+          generate_single_key_rule("left_arrow", "close_bracket"),
         ],
       },
     ],
@@ -55,6 +55,21 @@ def generate_dual_key_rule(input, alone, held_down)
       'basic.to_if_alone_timeout_milliseconds' => PARAMETERS[:to_if_alone_timeout_milliseconds],
       'basic.to_if_held_down_threshold_milliseconds' => PARAMETERS[:to_if_held_down_threshold_milliseconds],
     },
+  }
+end
+
+def generate_single_key_rule(input, output)
+  {
+    "type" => "basic",
+    "from" => {
+      "key_code" => input,
+      "modifiers" => { "optional" => ["any"] },
+    },
+    "to" => [
+      {
+        "key_code" => output,
+      },
+    ],
   }
 end
 
