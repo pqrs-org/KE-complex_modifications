@@ -16,21 +16,16 @@ def main
     "maintainers" => ["marlonrichert"],
     "rules" => [
       {
-        "description" => "Ergoemacs mode [space as trigger key]",
+        "description" => "Ergoemacs mode",
         "manipulators" => generate_ergoemacs_mode("spacebar"),
-        # If you want to use other trigger keys, just change this above line and run
+        # If you want to use another trigger key, change the line above and run
         #
-        # $ make
+        #   make; cp public/json/ergoemacs_mode.json ~/.config/karabiner/assets/complex_modifications
         #
-        # in Terminal to generate your new JSON file at public/json/ergoemacs_mode.json.
+        # in Terminal. Your new rule will then appear in Karabiner-Elements > Preferences… >
+        # Complex Modifications > Add Rule.
         #
-        # Copy it to ~/.config/karabiner/assets/complex_modifications then you can enable it in Karabiner-Elements.
-        #
-        # Modifier keys such as "command", "option" or "control" cannot be used here.
-      },
-      {
-        "description" => "Ergoemacs mode [tab as trigger key]",
-        "manipulators" => generate_ergoemacs_mode("tab"),
+        # Modifier keys (command, option, control) cannot be used as trigger keys.
       },
     ],
   )
@@ -51,40 +46,46 @@ def generate_ergoemacs_mode(trigger_key)
                                       trigger_key, variable),
     generate_ergoemacs_four_part_rule("h", "left_arrow", ["left_command"],
                                       [
-                                        {
-                                          "key_code": "escape"
-                                        },
-                                        {
-                                          "key_code": "o",
-                                          "modifiers": [
-                                              "left_shift"
-                                          ]
-                                        },
-                                        {
-                                          "key_code": "h",
-                                          "modifiers": [
-                                              "left_shift"
-                                          ]
-                                        },
+                                        { "key_code": "escape" },
+                                        { "key_code": "o", "modifiers": [ "left_shift" ] },
+                                        { "key_code": "h", "modifiers": [ "left_shift" ] },
                                       ],
                                       trigger_key, variable),
     generate_ergoemacs_four_part_rule("semicolon", "right_arrow", ["left_command"],
                                       [
-                                        {
-                                          "key_code": "escape"
-                                        },
-                                        {
-                                          "key_code": "o",
-                                          "modifiers": [
-                                              "left_shift"
-                                          ]
-                                        },
-                                        {
-                                          "key_code": "f",
-                                          "modifiers": [
-                                              "left_shift"
-                                          ]
-                                        }
+                                        { "key_code": "escape" },
+                                        { "key_code": "o", "modifiers": [ "left_shift" ] },
+                                        { "key_code": "f", "modifiers": [ "left_shift" ] }
+                                      ],
+                                      trigger_key, variable),
+    generate_ergoemacs_four_part_rule("m", "page_up", [],
+                                      [
+                                        { "key_code": "escape" },
+                                        { "key_code": "open_bracket" },
+                                        { "key_code": "5" },
+                                        { "key_code": "grave_accent_and_tilde",
+                                          "modifiers": [ "right_shift" ] },
+                                      ],
+                                      trigger_key, variable),
+    generate_ergoemacs_four_part_rule("comma", "page_down", [],
+                                      [
+                                        { "key_code": "escape" },
+                                        { "key_code": "open_bracket" },
+                                        { "key_code": "6" },
+                                        { "key_code": "grave_accent_and_tilde",
+                                          "modifiers": [ "right_shift" ] },
+                                      ],
+                                      trigger_key, variable),
+    generate_ergoemacs_four_part_rule("n", "home", [],
+                                      [
+                                        { "key_code": "escape" },
+                                        { "key_code": "comma", "modifiers": [ "left_shift" ] },
+                                      ],
+                                      trigger_key, variable),
+    generate_ergoemacs_four_part_rule("period", "end", [],
+                                      [
+                                        { "key_code": "escape" },
+                                        { "key_code": "period", "modifiers": [ "left_shift" ] },
                                       ],
                                       trigger_key, variable),
     generate_ergoemacs_two_part_rule("d", "delete_or_backspace", [], trigger_key, variable),
