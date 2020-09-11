@@ -76,13 +76,13 @@ def generate_ergoemacs_mode(trigger_key)
                                           "modifiers": [ "right_shift" ] },
                                       ],
                                       trigger_key, variable),
-    generate_ergoemacs_four_part_rule("n", "home", [],
+    generate_ergoemacs_four_part_rule("n", "up_arrow", ["left_command"],
                                       [
                                         { "key_code": "escape" },
                                         { "key_code": "comma", "modifiers": [ "left_shift" ] },
                                       ],
                                       trigger_key, variable),
-    generate_ergoemacs_four_part_rule("period", "end", [],
+    generate_ergoemacs_four_part_rule("period", "down_arrow", ["left_command"],
                                       [
                                         { "key_code": "escape" },
                                         { "key_code": "period", "modifiers": [ "left_shift" ] },
