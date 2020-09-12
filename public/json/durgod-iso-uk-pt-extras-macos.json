@@ -1,0 +1,1172 @@
+{
+  "title": "British Keyboard (DURGOD Taurus K320) on MacBook Pro with pt-PT support",
+  "rules": [
+    {
+      "description": "Swap Win/CMD, Alt/Opt and App/Opt",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_command",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 130,
+                  "vendor_id": 12136
+                }
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "left_option"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_option",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 130,
+                  "vendor_id": 12136
+                }
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "left_command"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_command",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 130,
+                  "vendor_id": 12136
+                }
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "right_option"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_option",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 130,
+                  "vendor_id": 12136
+                }
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "right_command"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "application",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 130,
+                  "vendor_id": 12136
+                }
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "right_option"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Backslash",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "non_us_backslash",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 130,
+                  "vendor_id": 12136
+                }
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "backslash"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Pipe",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "grave_accent_and_tilde",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 130,
+                  "vendor_id": 12136
+                }
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "backslash",
+              "modifiers": [
+                "shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Non-US pound aka hash and tilde (using shift)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "3",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 130,
+                  "vendor_id": 12136
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "non_us_pound"
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 130,
+                  "vendor_id": 12136
+                }
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "3",
+              "modifiers": [
+                "option"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "non_us_pound",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 130,
+                  "vendor_id": 12136
+                }
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": [
+                "shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "@ symbol",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "quote",
+            "modifiers": {
+              "mandatory": [
+                "left_shift"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 130,
+                  "vendor_id": 12136
+                }
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "2",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "2",
+            "modifiers": {
+              "mandatory": [
+                "left_shift"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 130,
+                  "vendor_id": 12136
+                }
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "quote",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "quote",
+            "modifiers": {
+              "mandatory": [
+                "right_shift"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 130,
+                  "vendor_id": 12136
+                }
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "2",
+              "modifiers": [
+                "right_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "2",
+            "modifiers": {
+              "mandatory": [
+                "right_shift"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 130,
+                  "vendor_id": 12136
+                }
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "quote",
+              "modifiers": [
+                "right_shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "€ symbol",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "2",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 130,
+                  "vendor_id": 12136
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "4",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 130,
+                  "vendor_id": 12136
+                }
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "2",
+              "modifiers": [
+                "option"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "AltGr Win ~ behaviour (ex: ã)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "non_us_pound",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 130,
+                  "vendor_id": 12136
+                }
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "n",
+              "modifiers": [
+                "option"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "AltGr Win ^ behaviour (ex: â)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "6",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 130,
+                  "vendor_id": 12136
+                }
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "i",
+              "modifiers": [
+                "option"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "á using Alt/Option like on Windows",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "a",
+            "modifiers": {
+              "mandatory": [
+                "option",
+                "shift"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 130,
+                  "vendor_id": 12136
+                }
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": [
+                "left_option"
+              ]
+            },
+            {
+              "key_code": "a",
+              "modifiers": [
+                "left_shift"
+              ]
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "a",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 130,
+                  "vendor_id": 12136
+                }
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "e",
+              "modifiers": [
+                "left_option"
+              ]
+            },
+            {
+              "key_code": "a"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "a",
+            "modifiers": {
+              "mandatory": [
+                "option",
+                "shift"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 130,
+                  "vendor_id": 12136
+                }
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "e",
+              "modifiers": [
+                "left_option"
+              ]
+            },
+            {
+              "key_code": "a",
+              "modifiers": [
+                "left_shift"
+              ]
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "é using Alt/Option like on Windows",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "e",
+            "modifiers": {
+              "mandatory": [
+                "option",
+                "shift"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 130,
+                  "vendor_id": 12136
+                }
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": [
+                "left_option"
+              ]
+            },
+            {
+              "key_code": "e",
+              "modifiers": [
+                "left_shift"
+              ]
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "e",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 130,
+                  "vendor_id": 12136
+                }
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "e",
+              "modifiers": [
+                "left_option"
+              ]
+            },
+            {
+              "key_code": "e"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "a",
+            "modifiers": {
+              "mandatory": [
+                "option",
+                "shift"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 130,
+                  "vendor_id": 12136
+                }
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "e",
+              "modifiers": [
+                "left_option"
+              ]
+            },
+            {
+              "key_code": "e",
+              "modifiers": [
+                "left_shift"
+              ]
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "í using Alt/Option like on Windows",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "mandatory": [
+                "option",
+                "shift"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 130,
+                  "vendor_id": 12136
+                }
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": [
+                "left_option"
+              ]
+            },
+            {
+              "key_code": "i",
+              "modifiers": [
+                "left_shift"
+              ]
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 130,
+                  "vendor_id": 12136
+                }
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "e",
+              "modifiers": [
+                "left_option"
+              ]
+            },
+            {
+              "key_code": "i"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "mandatory": [
+                "option",
+                "shift"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 130,
+                  "vendor_id": 12136
+                }
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "e",
+              "modifiers": [
+                "left_option"
+              ]
+            },
+            {
+              "key_code": "i",
+              "modifiers": [
+                "left_shift"
+              ]
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ó using Alt/Option like on Windows",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "mandatory": [
+                "option",
+                "shift"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 130,
+                  "vendor_id": 12136
+                }
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": [
+                "left_option"
+              ]
+            },
+            {
+              "key_code": "o",
+              "modifiers": [
+                "left_shift"
+              ]
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 130,
+                  "vendor_id": 12136
+                }
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "e",
+              "modifiers": [
+                "left_option"
+              ]
+            },
+            {
+              "key_code": "o"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "mandatory": [
+                "option",
+                "shift"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 130,
+                  "vendor_id": 12136
+                }
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "e",
+              "modifiers": [
+                "left_option"
+              ]
+            },
+            {
+              "key_code": "o",
+              "modifiers": [
+                "left_shift"
+              ]
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ú using Alt/Option like on Windows",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "u",
+            "modifiers": {
+              "mandatory": [
+                "option",
+                "shift"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 130,
+                  "vendor_id": 12136
+                }
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": [
+                "left_option"
+              ]
+            },
+            {
+              "key_code": "u",
+              "modifiers": [
+                "left_shift"
+              ]
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "u",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 130,
+                  "vendor_id": 12136
+                }
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "e",
+              "modifiers": [
+                "left_option"
+              ]
+            },
+            {
+              "key_code": "u"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "u",
+            "modifiers": {
+              "mandatory": [
+                "option",
+                "shift"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 130,
+                  "vendor_id": 12136
+                }
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "e",
+              "modifiers": [
+                "left_option"
+              ]
+            },
+            {
+              "key_code": "u",
+              "modifiers": [
+                "left_shift"
+              ]
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
