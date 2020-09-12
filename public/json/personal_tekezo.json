@@ -5,7 +5,7 @@
   ],
   "rules": [
     {
-      "description": "Personal rules (@tekezo) (rev 26)",
+      "description": "Personal rules (@tekezo) (rev 27)",
       "manipulators": [
         {
           "type": "basic",
@@ -299,6 +299,42 @@
               "modifiers": [
                 "left_command"
               ]
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 250
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "mandatory": [
+                "right_option"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_shift",
+              "modifiers": [
+                "right_option"
+              ]
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "tab",
+              "modifiers": [
+                "left_command"
+              ]
+            },
+            {
+              "key_code": "vk_none"
             }
           ],
           "parameters": {

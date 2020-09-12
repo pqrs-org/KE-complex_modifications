@@ -15,7 +15,7 @@ def main
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Personal rules (@tekezo) (rev 26)',
+        'description' => 'Personal rules (@tekezo) (rev 27)',
         'manipulators' =>
         core_configuration +
         mouse +
@@ -228,6 +228,33 @@ def core_configuration
           'key_code' => 'grave_accent_and_tilde',
           'modifiers' => ['left_command'],
         },
+      ],
+      'parameters' => {
+        'basic.to_if_alone_timeout_milliseconds' => 250,
+      },
+    },
+
+    # right_option+spacebar
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => 'spacebar',
+        'modifiers' => Karabiner.from_modifiers(['right_option']),
+      },
+      'to' => [
+        {
+          'key_code' => 'left_shift',
+          'modifiers' => ['right_option'],
+        },
+      ],
+      'to_if_alone' => [
+        {
+          'key_code' => 'tab',
+          'modifiers' => ['left_command'],
+        },
+        {
+          'key_code' => 'vk_none',
+        }
       ],
       'parameters' => {
         'basic.to_if_alone_timeout_milliseconds' => 250,
