@@ -62,6 +62,58 @@
               ]
             }
           },
+          "to_if_alone": [
+            {
+              "set_variable": {
+                "name": "neo2_mod_4",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "neo2_mod_4",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_command",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to_if_alone": [
+            {
+              "set_variable": {
+                "name": "neo2_mod_4",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "neo2_mod_4",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "grave_accent_and_tilde",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
           "to": [
             {
               "set_variable": {
@@ -70,12 +122,28 @@
               }
             }
           ],
+          "to_if_alone": [
+            {
+              "set_variable": {
+                "name": "neo2_mod_4",
+                "value": 2
+              },
+              "halt": true
+            }
+          ],
           "to_after_key_up": [
             {
               "set_variable": {
                 "name": "neo2_mod_4",
                 "value": 0
               }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "neo2_mod_4",
+              "value": 2
             }
           ]
         },
@@ -97,12 +165,28 @@
               }
             }
           ],
+          "to_if_alone": [
+            {
+              "set_variable": {
+                "name": "neo2_mod_4",
+                "value": 2
+              },
+              "halt": true
+            }
+          ],
           "to_after_key_up": [
             {
               "set_variable": {
                 "name": "neo2_mod_4",
                 "value": 0
               }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "neo2_mod_4",
+              "value": 2
             }
           ]
         }
@@ -169,6 +253,58 @@
               ]
             }
           },
+          "to_if_alone": [
+            {
+              "set_variable": {
+                "name": "neo2_mod_4",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "neo2_mod_4",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_command",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to_if_alone": [
+            {
+              "set_variable": {
+                "name": "neo2_mod_4",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "neo2_mod_4",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "non_us_backslash",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
           "to": [
             {
               "set_variable": {
@@ -177,12 +313,28 @@
               }
             }
           ],
+          "to_if_alone": [
+            {
+              "set_variable": {
+                "name": "neo2_mod_4",
+                "value": 2
+              },
+              "halt": true
+            }
+          ],
           "to_after_key_up": [
             {
               "set_variable": {
                 "name": "neo2_mod_4",
                 "value": 0
               }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "neo2_mod_4",
+              "value": 2
             }
           ]
         },
@@ -204,12 +356,28 @@
               }
             }
           ],
+          "to_if_alone": [
+            {
+              "set_variable": {
+                "name": "neo2_mod_4",
+                "value": 2
+              },
+              "halt": true
+            }
+          ],
           "to_after_key_up": [
             {
               "set_variable": {
                 "name": "neo2_mod_4",
                 "value": 0
               }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "neo2_mod_4",
+              "value": 2
             }
           ]
         }
@@ -237,9 +405,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -262,9 +430,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -287,9 +455,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -312,9 +480,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -337,9 +505,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -362,9 +530,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -387,9 +555,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -412,9 +580,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -437,9 +605,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -462,9 +630,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -487,9 +655,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -512,9 +680,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -537,9 +705,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -562,9 +730,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -587,9 +755,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -612,9 +780,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -637,9 +805,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -662,9 +830,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -687,9 +855,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -712,9 +880,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -737,9 +905,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -762,9 +930,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -787,9 +955,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -812,9 +980,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -837,9 +1005,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -862,9 +1030,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -887,9 +1055,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -912,9 +1080,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -940,9 +1108,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -968,9 +1136,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -995,9 +1163,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -1022,9 +1190,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -1049,9 +1217,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -1076,9 +1244,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -1104,9 +1272,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -1132,9 +1300,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -1160,9 +1328,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -1188,9 +1356,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -1216,9 +1384,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -1244,9 +1412,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -1272,9 +1440,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -1300,9 +1468,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -1328,9 +1496,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -1356,9 +1524,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -1384,9 +1552,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -1412,9 +1580,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -1440,9 +1608,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -1468,9 +1636,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         }
@@ -1507,9 +1675,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -1541,9 +1709,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -1575,9 +1743,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -1609,9 +1777,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -1643,9 +1811,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -1677,9 +1845,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -1711,9 +1879,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -1745,9 +1913,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -1779,9 +1947,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -1813,9 +1981,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -1847,9 +2015,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -1881,9 +2049,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -1915,9 +2083,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -1949,9 +2117,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -1983,9 +2151,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -2017,9 +2185,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -2051,9 +2219,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -2085,9 +2253,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -2119,9 +2287,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -2153,9 +2321,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -2187,9 +2355,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -2221,9 +2389,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -2255,9 +2423,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -2289,9 +2457,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -2323,9 +2491,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -2357,9 +2525,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -2391,9 +2559,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -2425,9 +2593,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -2459,9 +2627,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -2493,9 +2661,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -2527,9 +2695,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -2561,9 +2729,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -2595,9 +2763,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -2629,9 +2797,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -2663,9 +2831,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -2697,9 +2865,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -2731,9 +2899,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -2765,9 +2933,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -2799,9 +2967,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -2833,9 +3001,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -2867,9 +3035,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -2901,9 +3069,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -2935,9 +3103,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -2969,9 +3137,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -3003,9 +3171,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         },
@@ -3037,9 +3205,9 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
+              "type": "variable_unless",
               "name": "neo2_mod_4",
-              "value": 1
+              "value": 0
             }
           ]
         }

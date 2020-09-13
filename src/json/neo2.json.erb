@@ -1,8 +1,14 @@
 {
     "title": "Neo2",
     "rules": [
-        <% def set_mod_4(b)
-            { "set_variable" => { "name" => "neo2_mod_4", "value" => b } }
+        <%
+        # halt defaults to 'false'
+        def set_mod_4(value, halt = false)
+            if (halt)
+                { "set_variable" => { "name" => "neo2_mod_4", "value" => value }, "halt" => true }
+            else
+                { "set_variable" => { "name" => "neo2_mod_4", "value" => value } }
+            end
         end
         $if_mod_4_on         = { "type" => "variable_unless", "name" => "neo2_mod_4", "value" => 0 }
         $if_mod_4_locked     = { "type" => "variable_if",     "name" => "neo2_mod_4", "value" => 2 }
@@ -21,18 +27,11 @@
                         "right_command",
                     ],
                     from_optional_modifiers: ["any"]
-                ) + [mod_4_key].map { |from_key|
+                ) + [mod_4_key, "right_command"].map { |from_key|
                     {
                         "type" => "basic",
-                        "from" => _from(from_key, [], []),
-                        "to" => [set_mod_4(2)],
-                        "conditions" => [$if_mod_4_not_locked]
-                    }
-                }  + [mod_4_key].map { |from_key|
-                    {
-                        "type" => "basic",
-                        "from" => _from(from_key, [], []),
-                        "to" => [set_mod_4(0)],
+                        "from" => _from(from_key, [], ["any"]),
+                        "to_if_alone" => [set_mod_4(0)],
                         "conditions" => [$if_mod_4_locked]
                     }
                 } + [mod_4_key, "right_command"].map { |from_key|
@@ -40,6 +39,7 @@
                         "type" => "basic",
                         "from" => _from(from_key, [], ["any"]),
                         "to" => [set_mod_4(1)],
+                        "to_if_alone" => [set_mod_4(2, true)],
                         "to_after_key_up" => [set_mod_4(0)],
                         "conditions" => [$if_mod_4_not_locked]
                     }
@@ -169,31 +169,6 @@
                     "from": <%= from("right_shift", ["left_shift"], ["caps_lock"]) %>,
                     "to": <%= to([["caps_lock"]]) %>,
                     "to_if_alone": <%= to([["right_shift"]]) %>
-                }
-            ]
-        },
-        {
-            "description": "Toggle mod4_lock by pressing left_mod4 + right_mod4 at the same time (Apple keyboard)",
-            "manipulators": [
-                {
-                    "type": "basic",
-                    "from": <%= from("grave_accent_and_tilde", [], []) %>,
-                    "to": [
-                        { "set_variable": { "name": "neo2_mod_4", "value": 2 } }
-                    ],
-                    "conditions": [
-                        { "type": "variable_unless", "name": "neo2_mod_4", "value": 2 }
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("grave_accent_and_tilde", [], []) %>,
-                    "to": [
-                        { "set_variable": { "name": "neo2_mod_4", "value": 0 } }
-                    ],
-                    "conditions": [
-                        { "type": "variable_if", "name": "neo2_mod_4", "value": 2 }
-                    ]
                 }
             ]
         },
