@@ -36,7 +36,7 @@ def _to(events)
   events.each do |e|
     d = {}
     d['key_code'] = e[0]
-    e[1].nil? || d['modifiers'] = e[1]
+    e[1].nil? || d['modifiers'] = e.drop(1)
 
     data << d
   end
