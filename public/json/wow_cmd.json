@@ -1,0 +1,34 @@
+{
+    "title": "Command Key to Control in World of Warcraft",
+    "rules": [
+      {
+        "description": "Use the left CMD key as ctrl for World of Warcraft on Macbook",
+        "manipulators": [
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "left_gui",
+              "modifiers":
+                          {
+                              "optional":
+                              [
+                                  "any"
+                              ]
+                          }
+            },
+            "to": {
+              "key_code": "left_control"
+            },
+            "conditions": [
+              {
+                "type": "frontmost_application_if",
+                "bundle_identifiers": [
+                  "^com\\.blizzard\\.worldofwarcraft"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
