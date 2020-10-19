@@ -1,11 +1,11 @@
 {
-  "title": "Dual-purpose keys to relieve stress from your pinkies",
+  "title": "Dual keys (to relieve stress from your pinkies)",
   "maintainers": [
     "marlonrichert"
   ],
   "rules": [
     {
-      "description": "Dual Keys",
+      "description": "Dual keys",
       "manipulators": [
         {
           "type": "basic",
@@ -74,7 +74,7 @@
           ],
           "to_if_held_down": [
             {
-              "key_code": "left_option"
+              "key_code": "left_command"
             }
           ],
           "parameters": {
@@ -99,56 +99,6 @@
           ],
           "to_if_held_down": [
             {
-              "key_code": "right_option"
-            }
-          ],
-          "parameters": {
-            "basic.to_if_alone_timeout_milliseconds": 300,
-            "basic.to_if_held_down_threshold_milliseconds": 0
-          }
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "f",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to_if_alone": [
-            {
-              "key_code": "f"
-            }
-          ],
-          "to_if_held_down": [
-            {
-              "key_code": "left_command"
-            }
-          ],
-          "parameters": {
-            "basic.to_if_alone_timeout_milliseconds": 300,
-            "basic.to_if_held_down_threshold_milliseconds": 0
-          }
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "j",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to_if_alone": [
-            {
-              "key_code": "j"
-            }
-          ],
-          "to_if_held_down": [
-            {
               "key_code": "right_command"
             }
           ],
@@ -160,7 +110,7 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "d",
+            "key_code": "grave_accent_and_tilde",
             "modifiers": {
               "optional": [
                 "any"
@@ -169,7 +119,7 @@
           },
           "to_if_alone": [
             {
-              "key_code": "d"
+              "key_code": "grave_accent_and_tilde"
             }
           ],
           "to_if_held_down": [
@@ -185,7 +135,7 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "k",
+            "key_code": "slash",
             "modifiers": {
               "optional": [
                 "any"
@@ -194,7 +144,7 @@
           },
           "to_if_alone": [
             {
-              "key_code": "k"
+              "key_code": "slash"
             }
           ],
           "to_if_held_down": [
@@ -210,22 +160,6 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "tab",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "escape"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
             "key_code": "caps_lock",
             "modifiers": {
               "optional": [
@@ -233,9 +167,75 @@
               ]
             }
           },
-          "to": [
+          "to_if_alone": [
             {
               "key_code": "backslash"
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_option"
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 300,
+            "basic.to_if_held_down_threshold_milliseconds": 0
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "quote",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to_if_alone": [
+            {
+              "key_code": "quote"
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "right_option"
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 300,
+            "basic.to_if_held_down_threshold_milliseconds": 0
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_control",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "open_bracket"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_arrow",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "close_bracket"
             }
           ]
         }
