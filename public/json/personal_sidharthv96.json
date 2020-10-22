@@ -7,78 +7,7 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "e",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "down_arrow",
-              "modifiers": [
-
-              ]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "sidv_diamond_mode",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "f"
-              },
-              {
-                "key_code": "e"
-              }
-            ],
-            "simultaneous_options": {
-              "key_down_order": "strict",
-              "key_up_order": "strict_inverse",
-              "detect_key_down_uninterruptedly": true,
-              "to_after_key_up": [
-                {
-                  "set_variable": {
-                    "name": "sidv_diamond_mode",
-                    "value": 0
-                  }
-                }
-              ]
-            },
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "sidv_diamond_mode",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "down_arrow",
-              "modifiers": [
-
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "u",
+            "key_code": "i",
             "modifiers": {
               "optional": [
                 "any"
@@ -109,7 +38,7 @@
                 "key_code": "f"
               },
               {
-                "key_code": "u"
+                "key_code": "i"
               }
             ],
             "simultaneous_options": {
@@ -140,6 +69,77 @@
             },
             {
               "key_code": "up_arrow",
+              "modifiers": [
+
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "down_arrow",
+              "modifiers": [
+
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "sidv_diamond_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "f"
+              },
+              {
+                "key_code": "k"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "detect_key_down_uninterruptedly": true,
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "sidv_diamond_mode",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "sidv_diamond_mode",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "down_arrow",
               "modifiers": [
 
               ]
