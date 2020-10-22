@@ -12,6 +12,10 @@ def main
         "manipulators" => generate_diamond_mode("semicolon"),
       },
       {
+        "description" => "Diamond Nav Mode [E as Trigger Key]",
+        "manipulators" => generate_diamond_mode("e"),
+      },
+      {
       "description" => "Change delete_or_backspace key to hyper and caps_lock to delete_or_backspace.",
       "manipulators" => [
         {
