@@ -70,8 +70,8 @@ end
 
 def generate_diamond_mode(trigger_key)
   [
-    generate_diamond_mode_single_rule("e", "down_arrow", [], trigger_key),
-    generate_diamond_mode_single_rule("u", "up_arrow", [], trigger_key),
+    generate_diamond_mode_single_rule("i", "up_arrow", [], trigger_key),
+    generate_diamond_mode_single_rule("k", "down_arrow", [], trigger_key),
     generate_diamond_mode_single_rule("j", "left_arrow", [], trigger_key),
     generate_diamond_mode_single_rule("l", "right_arrow", [], trigger_key),
   ].flatten
