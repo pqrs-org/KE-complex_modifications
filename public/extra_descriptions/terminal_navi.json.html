@@ -1,0 +1,89 @@
+<link rel="stylesheet" href="../../vendor/css/bootstrap.min.css" />
+
+<h3>Keyboard shortcuts for Terminal apps</h3>
+<p>Makes standard macOS keyboard shortcuts work in terminal apps.</p>
+
+<h4>Included key bindings</h4>
+<table class="table">
+  <tr>
+    <th>Shortcut</th>
+    <th>Action</th>
+    <th>Notes</th>
+  </tr>
+  <tr>
+    <td>⎋ (Esc)</td>
+    <td colspan="2">Abort/Cancel</td>
+  </tr>
+  <tr>
+    <td>⌘ Z</td>
+    <td colspan="2">Undo</td>
+  </tr>
+  <tr>
+    <td>⌘ ⇧ Z</td>
+    <td>Redo [Zsh]</td>
+    <td><p><a href="http://zsh.sourceforge.net">Zsh</a> is the only shell that supports Redo, but
+      unfortunately, it's not bound by default. To enable this shortcut, you need to add the
+      following to your <code>~/.zshrc</code> file:</p>
+      <pre>bindkey "^[_" redo</pre></td>
+  </tr>
+  <tr>
+    <td>⌥ ←</td>
+    <td colspan="2">Move cursor one word backward</td>
+  </tr>
+  <tr>
+    <td>⌥ →</td>
+    <td colspan="2">Move cursor one word forward</td>
+  </tr>
+  <tr>
+    <td>⌘ ←</td>
+    <td colspan="2">Move cursor to beginning of line</td>
+  </tr>
+  <tr>
+    <td>⌘ →</td>
+    <td colspan="2">Move cursor to end of line</td>
+  </tr>
+  <tr>
+    <td>⌥ ↑</td>
+    <td colspan="2">Scroll one page up</td>
+  </tr>
+  <tr>
+    <td>⌥ ↓</td>
+    <td colspan="2">Scroll one page down</td>
+  </tr>
+  <tr>
+    <td>⌘ ↑</td>
+    <td colspan="2">Move cursor to beginning of buffer</td>
+  </tr>
+  <tr>
+    <td>⌘ ↓</td>
+    <td colspan="2">Move cursor to end of buffer</td>
+  </tr>
+  <tr>
+    <td>⌥ ⌫</td>
+    <td colspan="2">Delete one word backward</td>
+  </tr>
+  <tr>
+    <td>⌥ ⌦</td>
+    <td colspan="2">Delete one word forward</td>
+  </tr>
+  <tr>
+    <td>⌘ ⌫</td>
+    <td>Delete to beginning of line</td>
+    <td><p>In <a href="http://zsh.sourceforge.net">Zsh</a>, the command
+      <code>backward-kill-line</code> does not have a keybinding by default and this shortcut will
+      delete the whole line instead. To get it to work correctly, you need to add the following to
+      your <code>~/.zshrc</code> file:.</p>
+      <pre>bindkey "^U" backward-kill-line</pre></td>
+  </tr>
+  <tr>
+    <td>⌘ ⌦</td>
+    <td colspan="2">Delete to end of line</td>
+  </tr>
+</table>
+
+<h4>Additional notes</h4>
+<p>This mod supports English and Finnish keyboards. If you want to use a different keyboard
+  layout, please download
+  <a href="https://github.com/pqrs-org/KE-complex_modifications">the source code</a> and modify
+  <a href="https://github.com/pqrs-org/KE-complex_modifications/tree/master/src/json/terminal_navi.json.erb">
+  <code>terminal_navi.json.erb<code></a>.</p>

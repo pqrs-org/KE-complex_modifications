@@ -1,10 +1,18 @@
 {
     "title": "Neo2",
     "rules": [
-        <% def set_mod_4(b)
-            { "set_variable" => { "name" => "neo2_mod_4", "value" => b } }
+        <%
+        # halt defaults to 'false'
+        def set_mod_4(value, halt = false)
+            if (halt)
+                { "set_variable" => { "name" => "neo2_mod_4", "value" => value }, "halt" => true }
+            else
+                { "set_variable" => { "name" => "neo2_mod_4", "value" => value } }
+            end
         end
-        if_mod_4 = { "type" => "variable_if", "name" => "neo2_mod_4", "value" => 1 }
+        $if_mod_4_on         = { "type" => "variable_unless", "name" => "neo2_mod_4", "value" => 0 }
+        $if_mod_4_locked     = { "type" => "variable_if",     "name" => "neo2_mod_4", "value" => 2 }
+        $if_mod_4_not_locked = { "type" => "variable_unless", "name" => "neo2_mod_4", "value" => 2 }
         def neo2_modifiers(mod_3_key, mod_4_key)
             JSON.generate(
                 each_key(
@@ -23,8 +31,17 @@
                     {
                         "type" => "basic",
                         "from" => _from(from_key, [], ["any"]),
+                        "to_if_alone" => [set_mod_4(0)],
+                        "conditions" => [$if_mod_4_locked]
+                    }
+                } + [mod_4_key, "right_command"].map { |from_key|
+                    {
+                        "type" => "basic",
+                        "from" => _from(from_key, [], ["any"]),
                         "to" => [set_mod_4(1)],
-                        "to_after_key_up" => [set_mod_4(0)]
+                        "to_if_alone" => [set_mod_4(2, true)],
+                        "to_after_key_up" => [set_mod_4(0)],
+                        "conditions" => [$if_mod_4_not_locked]
                     }
                 }
             )
@@ -90,24 +107,24 @@
                 each_key(
                     source_keys_list: l4_mappings.keys,
                     dest_keys_list: l4_mappings.values,
-                    conditions: [if_mod_4],
+                    conditions: [$if_mod_4_on],
                     from_optional_modifiers: ["shift", "caps_lock", "command"]
                 ) + each_key(
                     source_keys_list: ["n", "slash"],
                     dest_keys_list: ["semicolon", "slash"],
-                    conditions: [if_mod_4],
+                    conditions: [$if_mod_4_on],
                     from_optional_modifiers: ["shift", "caps_lock", "command"],
                     to_modifiers: ["left_option"]
                 ) + each_key(
                     source_keys_list: ["b", "c", "a", "g"],
                     dest_keys_list: ["b", "w", "left_arrow", "right_arrow"],
-                    conditions: [if_mod_4],
+                    conditions: [$if_mod_4_on],
                     from_optional_modifiers: ["shift", "caps_lock"],
                     to_modifiers: ["left_command"]
                 ) + each_key(
                     source_keys_list: l4_dead_key_mappings,
                     dest_keys_list: l4_dead_key_mappings,
-                    conditions: [if_mod_4],
+                    conditions: [$if_mod_4_on],
                     to_modifiers: ["left_shift"],
                     to_pre_events: [["z", ["left_option", "left_shift"]]]
                 )
@@ -131,7 +148,7 @@
                 each_key(
                     source_keys_list: l6_dead_key_mappings,
                     dest_keys_list: l6_dead_key_mappings,
-                    conditions: [if_mod_4],
+                    conditions: [$if_mod_4_on],
                     from_mandatory_modifiers: ["option"],
                     to_modifiers: ["left_shift", "left_option"],
                     to_pre_events: [["z", ["left_option", "left_shift"]]]

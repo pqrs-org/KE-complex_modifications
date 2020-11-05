@@ -1,0 +1,86 @@
+{
+  "title": "Personal rules (@iliaskarim)",
+  "rules": [
+    {
+      "description": "Right command to copy",
+      "manipulators": [
+        {
+          "from": { "key_code": "right_command" },
+          "to": [{
+              "key_code": "c",
+              "modifiers": ["command"]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Right option to cut",
+      "manipulators": [
+        {
+          "from": { "key_code": "right_option" },
+          "to": [{
+              "key_code": "x",
+              "modifiers": ["command"]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Right shift to paste",
+      "manipulators": [
+        {
+          "from": { "key_code": "right_shift" },
+          "to": [{
+              "key_code": "v",
+              "modifiers": ["command"]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Disable command+c to copy",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "c",
+            "modifiers": { "mandatory": ["command"] }
+          },
+          "to": [{ "key_code": "vk_none" }],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Disable command+x to cut",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "x",
+            "modifiers": { "mandatory": ["command"] }
+          },
+          "to": [{ "key_code": "vk_none" }],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Disable command+v to paste",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "v",
+            "modifiers": { "mandatory": ["command"] }
+          },
+          "to": [{ "key_code": "vk_none" }],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}

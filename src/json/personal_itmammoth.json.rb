@@ -12,8 +12,8 @@ def main
         manipulators: generate_vi_binding_rules('q'),
       },
       {
-        description: 'Emacs binding [; + aedhk]',
-        manipulators: generate_emacs_binding_ruls('semicolon'),
+        description: "Emacs binding [' + aedhk]",
+        manipulators: generate_emacs_binding_ruls('quote'),
       },
       {
         description: 'Media control [Fn + iop] (for HHKB)',

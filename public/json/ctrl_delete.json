@@ -1,0 +1,45 @@
+{
+  "title": "Map Ctrl+Backward-Delete.",
+  "rules": [
+    {
+      "description": "Add Ctrl+Backward-Delete to Option+Delete (delete current word).",
+      "type": "basic",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "delete_or_backspace",
+            "modifiers": {
+              "mandatory": ["control"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_or_backspace",
+              "modifiers": ["option"]
+            }
+          ]
+        },
+        {
+          "description": "Map Ctrl-Backspace to forward Delete (forward delete one character at a time).",
+          "type": "basic",
+          "manipulators": [
+            {
+              "from": {
+                "key_code": "delete_or_backspace",
+                "modifiers": {
+                  "mandatory": ["left_control"]
+                }
+              },
+              "to": [
+                {
+                  "key_code": "delete_forward"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

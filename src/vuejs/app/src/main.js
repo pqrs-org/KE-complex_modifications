@@ -7,7 +7,12 @@ import BootstrapVue from 'bootstrap-vue'
 
 import VueClipboard from 'vue-clipboard2'
 
-import 'vue-awesome/icons'
+import 'vue-awesome/icons/caret-square-down'
+import 'vue-awesome/icons/caret-square-right'
+import 'vue-awesome/icons/regular/clipboard'
+import 'vue-awesome/icons/regular/comment-alt'
+import 'vue-awesome/icons/regular/edit'
+import 'vue-awesome/icons/external-link-alt'
 import Icon from 'vue-awesome/components/Icon'
 
 Vue.config.productionTip = false

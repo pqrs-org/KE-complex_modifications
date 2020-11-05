@@ -23,8 +23,9 @@
       <b-row align-h="center">
         <b-col md="6">
           <search-form @submit="search"
-                      :disabled="lunrIndex === null"
-                      :placeholder="(lunrIndex ? 'Search keywords...' : 'Fetching data...')">
+                       ref="searchForm"
+                       :disabled="lunrIndex === null"
+                       :placeholder="(lunrIndex ? 'Search keywords...' : 'Fetching data...')">
           </search-form>
         </b-col>
       </b-row>
@@ -42,6 +43,7 @@
                    class="float-right">{{ group.files.length }}</b-badge>
         </b-list-group-item>
       </b-list-group>
+
       <div style="margin-top: 1rem; margin-bottom: 3rem">
         <div v-if="allFilesExpanded">
           <b-btn variant="secondary"
@@ -52,6 +54,7 @@
                  @click="setAllFileCollapsed(false)">Expand All</b-btn>
         </div>
       </div>
+
       <div class="card-outer"
            v-for="group in filteredGroups"
            :key="group.id"
@@ -102,17 +105,32 @@
                       <b-dropdown-item-button @click="importJson(file.importUrl)">Import to Karabiner-Elements</b-dropdown-item-button>
                       <b-dropdown-divider></b-dropdown-divider>
                       <b-dropdown-item-button @click="showJsonModal(file.id)">
-                        <small>Show JSON</small>
+                        <small>
+                          <icon name="regular/comment-alt"></icon>
+                          Show JSON
+                        </small>
                       </b-dropdown-item-button>
                       <b-dropdown-item-button v-clipboard:copy="pageUrl + '#' + file.id"
                                               v-clipboard:success="urlCopied"
                                               v-clipboard:error="urlCopyFailed">
-                        <small>Copy URL</small>
+                        <small>
+                          <icon name="regular/clipboard"></icon>
+                          Copy URL
+                        </small>
                       </b-dropdown-item-button>
                       <b-dropdown-item-button v-clipboard:copy="pageUrl + file.jsonUrl"
                                               v-clipboard:success="urlCopied"
                                               v-clipboard:error="urlCopyFailed">
-                        <small>Copy JSON URL</small>
+                        <small>
+                          <icon name="regular/clipboard"></icon>
+                          Copy JSON URL
+                        </small>
+                      </b-dropdown-item-button>
+                      <b-dropdown-item-button @click="editJson(file.id)">
+                        <small>
+                          <icon name="regular/edit"></icon>
+                          Edit JSON (Open external site)
+                        </small>
                       </b-dropdown-item-button>
                     </b-dropdown>
                   </div>
@@ -128,9 +146,13 @@
                         Karabiner-Elements {{ rule.availableSince }} or later
                       </div>
                     </b-list-group-item>
-                    <b-list-group-item v-if="file.extraDescription"
-                                       v-html="file.extraDescription">
-                    </b-list-group-item>
+                    <template v-if="file.extraDescriptionPath">
+                      <b-list-group-item>
+                        <iframe :id="file.id + '-extra-description'"
+                                :src="'build/' + file.extraDescriptionPath">
+                        </iframe>
+                      </b-list-group-item>
+                    </template>
                   </b-list-group>
                 </b-collapse>
               </b-card>
@@ -156,10 +178,10 @@
 </template><script>
 import axios from 'axios'
 import lunr from 'lunr'
-import striptags from 'striptags'
 import { Socket } from 'vue-loading-spinner'
 import VueScrollTo from 'vue-scrollto'
 import SearchForm from './SearchForm.vue'
+import iFrameResize from 'iframe-resizer/js/iframeResizer'
 
 const getFileName = path => {
   let name = path.substring(path.lastIndexOf('/') + 1)
@@ -184,7 +206,8 @@ class File {
     this.id = getFileName(fileJson.path)
     this.jsonUrl = fileJson.path
     this.importUrl = this.makeJsonUrl(fileJson.path)
-    this.extraDescription = fileJson.extra_description
+    this.extraDescriptionPath = fileJson.extra_description_path
+    this.extraDescriptionText = fileJson.extra_description_text
     this.title = fileJson.json.title
     this.maintainers = fileJson.json.maintainers
     this.rules = []
@@ -232,7 +255,8 @@ export default {
       fileCollapsed: {},
       showJsonModalTitle: '',
       showJsonModalBody: '',
-      lunrIndex: null
+      lunrIndex: null,
+      iFrameResizers: {}
     }
   },
   created() {
@@ -247,9 +271,13 @@ export default {
       return base
     },
 
+    urlSearchQuery() {
+      return new URLSearchParams(location.search).get('q')
+    },
+
     fetchData() {
       axios
-        .get('dist.json', {
+        .get('build/dist.json', {
           headers: {
             'Cache-Control': 'no-cache'
           }
@@ -268,8 +296,14 @@ export default {
 
           this.updateLoadingState()
           this.makeLunrIndex()
+          this.makeIFrameResizer()
           this.setAllFileCollapsed(true)
           this.scrollToHash()
+
+          const q = this.urlSearchQuery()
+          if (q !== null) {
+            this.$refs.searchForm.setSearchQuery(q)
+          }
         })
     },
 
@@ -282,11 +316,12 @@ export default {
     makeLunrIndex() {
       this.lunrIndex = lunr(l => {
         l.ref('fileId')
+        l.field('title', { boost: 2 })
         l.field('text')
 
         this.groups.forEach(g => {
           g.files.forEach(f => {
-            let text = f.title + ' '
+            let text = ''
             if (f.maintainers !== undefined) {
               f.maintainers.forEach(m => {
                 text += m + ' '
@@ -295,10 +330,11 @@ export default {
             f.rules.forEach(r => {
               text += r.description + ' '
             })
-            text += striptags(f.extraDescription) + ' '
+            text += f.extraDescriptionText + ' '
 
             l.add({
               fileId: f.id,
+              title: f.title,
               text: text.toLowerCase()
             })
           })
@@ -322,6 +358,8 @@ export default {
       this.groups.forEach(g => {
         g.files.forEach(f => {
           fileCollapsed[f.id] = value
+
+          this.makeIFrameResizer(f.id)
         })
       })
 
@@ -334,7 +372,18 @@ export default {
       const currentValue = this.fileCollapsed[fileId]
       this.$set(this.fileCollapsed, fileId, !currentValue)
 
+      this.makeIFrameResizer(fileId)
+
       this.updateAllFilesExpanded()
+    },
+
+    makeIFrameResizer(fileId) {
+      this.iFrameResizers[fileId] = iFrameResize(
+        {
+          heightCalculationMethod: 'lowestElement'
+        },
+        '#' + fileId + '-extra-description'
+      )
     },
 
     importJson(url) {
@@ -351,6 +400,22 @@ export default {
 
             axios.get(f.jsonUrl).then(response => {
               this.showJsonModalBody = JSON.stringify(response.data, null, 2)
+            })
+
+            return
+          }
+        }
+      }
+    },
+    editJson(fileId) {
+      for (let g of this.groups) {
+        for (let f of g.files) {
+          if (f.id == fileId) {
+            axios.get(f.jsonUrl).then(response => {
+              const url =
+                'https://genesy.github.io/karabiner-complex-rules-generator/#'
+              const base64string = window.btoa(JSON.stringify(response.data))
+              window.open(url + base64string)
             })
 
             return
@@ -381,6 +446,7 @@ export default {
 
         scrollToHashTriggered = true
         this.$set(this.fileCollapsed, elementId, false)
+        this.makeIFrameResizer(elementId)
         VueScrollTo.scrollTo(element, 500, {
           offset: -100
         })
@@ -388,6 +454,21 @@ export default {
     },
 
     search(searchQuery) {
+      //
+      // Set history
+      //
+
+      if (searchQuery !== this.urlSearchQuery()) {
+        window.history.pushState(
+          { q: searchQuery },
+          '',
+          '?q=' + encodeURIComponent(searchQuery)
+        )
+      }
+
+      //
+      // Search
+      //
 
       if (this.lunrIndex === null) {
         return
@@ -435,6 +516,8 @@ export default {
       })
 
       this.filteredGroups = filteredGroups
+
+      window.scrollTo(0, 0)
     }
   }
 }
@@ -506,6 +589,12 @@ export default {
         border-radius: 5px;
         padding: 0 3px 0 3px;
         font-size: 14px;
+      }
+
+      iframe {
+        width: 1px;
+        min-width: 100%;
+        border: none;
       }
     }
   }

@@ -1,0 +1,79 @@
+{
+  "title": "Lock Screen",
+  "rules": [
+    {
+      "description": "Option+L to Lock Screen (macOS 10.13+)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "mandatory": ["option"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "q",
+              "modifiers": ["left_control", "left_command"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Control+Command+Delete to Lock Screen (macOS 10.13+)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "delete_forward",
+            "modifiers": {
+              "mandatory": ["control", "command"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "q",
+              "modifiers": ["left_control", "left_command"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Eject to Lock Screen (macOS 10.13+)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "consumer_key_code": "eject"
+          },
+          "to": [
+            {
+              "key_code": "q",
+              "modifiers": ["left_control", "left_command"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Eject to Lock Screen - Dvorak (macOS 10.13+)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "consumer_key_code": "eject"
+          },
+          "to": [
+            {
+              "key_code": "x",
+              "modifiers": ["left_control", "left_command"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

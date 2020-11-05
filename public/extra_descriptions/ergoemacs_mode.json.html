@@ -1,0 +1,66 @@
+<link rel="stylesheet" href="../../vendor/css/bootstrap.min.css" />
+
+<h3>Ergoemacs mode</h3>
+
+<p>Ergonomic anti-RSI keybindings for text editing, based on the US Qwerty version of
+  <a href="http://ergoemacs.github.io/key-setup.html">ergoemacs-mode</a>.</p>
+
+<h4>Features</h4>
+<ul>
+  <li>Tuned to feel quick and responsive.</li>
+  <li>Does not trigger accidentally while touch typing.</li>
+  <li>Compatible with terminal apps.</li>
+</ul>
+
+<h4>Included key bindings</h4>
+<table class="table">
+  <tr>
+    <td>Space + I/J/K/L</td>
+    <td>Arrow keys</td>
+  </tr>
+  <tr>
+    <td>Space + U/O</td>
+    <td>Move cursor one word backward/forward</td>
+  </tr>
+  <tr>
+    <td>Space + H/;</td>
+    <td>Move cursor to beginning/end of line</td>
+  </tr>
+  <tr>
+    <td>Space + M/,</td>
+    <td>Scroll one page up/down</td>
+  </tr>
+  <tr>
+    <td>Space + N/.</td>
+    <td>Scroll to beginning/end of document</td>
+  </tr>
+  <tr>
+    <td>Space + D/F</td>
+    <td>Backspace/Delete</td>
+  </tr>
+  <tr>
+    <td>Space + E/R</td>
+    <td>Delete one word backward/forward</td>
+  </tr>
+  <tr>
+    <td>Space + S/G</td>
+    <td>Delete to beginning/end of line</td>
+  </tr>
+</table>
+
+<h4>Usage notes</h4>
+<ul>
+  <li>This mod is made for Qwerty keyboards. If you want to use a different keyboard layout, or
+    another trigger key than space, please download
+    <a href="https://github.com/pqrs-org/KE-complex_modifications">the source code</a> and modify
+    <a href="https://github.com/pqrs-org/KE-complex_modifications/tree/master/src/json/ergoemacs_mode.json.rb">
+      <code>ergoemacs_mode.json.rb</code></a>.</li>
+  <li><p>In <a href="http://zsh.sourceforge.net">Zsh</a>, the command <code>backward-kill-line</code>
+    does not have a keybinding by default and the shortcut for "Delete to beginning of line" will
+    delete the whole line instead. To get it to work correctly,  you need to add the following to
+    your <code>~/.zshrc</code> file:</p>
+    <pre>bindkey "^U" backward-kill-line</pre>
+    <p>If you are using
+    <a href="https://github.com/sorin-ionescu/prezto/tree/master/modules/editor">Prezto's
+    editor module</a>, then this is included automatically.</p></li>
+</ul>

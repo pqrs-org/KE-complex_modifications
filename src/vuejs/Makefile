@@ -5,6 +5,8 @@ serve:
 
 install:
 	cd app && npm install
+	cp app/node_modules/iframe-resizer/js/iframeResizer.contentWindow.min.js app/public/vendor/js
+	cp app/node_modules/bootstrap/dist/css/bootstrap.min.css app/public/vendor/css
 
 build:
 	cd app && npm run build
@@ -12,6 +14,7 @@ build:
 copy:
 	rsync -a --delete \
 		app/dist/index.html \
-		app/dist/js \
 		app/dist/css \
-		../../docs/
+		app/dist/js \
+		app/dist/vendor \
+		../../public/

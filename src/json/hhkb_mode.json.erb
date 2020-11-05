@@ -22,26 +22,26 @@
                 <%# change fn + semicolon/slash/open_bracket/quote to arrow keys %>
                 {
                     "type": "basic",
-                    "from": <%= from("semicolon", ["fn"], ["caps_lock", "option", "command", "shift"]) %>,
+                    "from": <%= from("semicolon", ["fn"], ["caps_lock", "option", "command", "shift", "control"]) %>,
                     "to": <%= to([["left_arrow"]]) %>
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("slash", ["fn"], ["caps_lock", "option", "command", "shift"]) %>,
+                    "from": <%= from("slash", ["fn"], ["caps_lock", "option", "command", "shift", "control"]) %>,
                     "to": <%= to([["down_arrow"]]) %>
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("open_bracket", ["fn"], ["caps_lock", "option", "command", "shift"]) %>,
+                    "from": <%= from("open_bracket", ["fn"], ["caps_lock", "option", "command", "shift", "control"]) %>,
                     "to": <%= to([["up_arrow"]]) %>
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("quote", ["fn"], ["caps_lock", "option", "command", "shift"]) %>,
+                    "from": <%= from("quote", ["fn"], ["caps_lock", "option", "command", "shift", "control"]) %>,
                     "to": <%= to([["right_arrow"]]) %>
                 },
 
-                <%# change fn + l/period/k/cooma to page_up/page_down/home/end %>
+                <%# change fn + l/period/k/comma to page_up/page_down/home/end %>
                 {
                     "type": "basic",
                     "from": <%= from("l", ["fn"], ["caps_lock", "option"]) %>,

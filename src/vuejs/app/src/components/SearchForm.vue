@@ -28,6 +28,15 @@ export default {
   methods: {
     submit(e) {
       e.preventDefault()
+      this.emit()
+    },
+
+    setSearchQuery(q) {
+      this.searchQuery = q
+      this.emit()
+    },
+
+    emit() {
       this.$emit('submit', this.searchQuery)
     }
   }

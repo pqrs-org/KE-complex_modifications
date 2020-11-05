@@ -619,6 +619,19 @@
                     ]
                 }
             ]
+        },
+        {
+            "description": "PC-Style Control+K",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("k", ["control"], ["any"]) %>,
+                    "to": <%= to([["k", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                    ]
+                }
+            ]
         }
     ]
 }

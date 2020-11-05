@@ -1,0 +1,39 @@
+{
+  "title": "mouse_button3_to_back_action(command + left_arrow)",
+  "rules": [
+    {
+      "description": "Mouse button3 to back in web. NOTE: Default key setting",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button3"
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": ["left_command"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Mouse button3 to back in web. NOTE: left_command and left_option is changed to each other. ",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button3"
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": ["left_option"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

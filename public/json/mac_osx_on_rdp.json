@@ -1,0 +1,741 @@
+{
+    "title": "Mac OSX Style Shortcuts for RDP sessions. Translates OSX shortcuts to PC equivalent",
+    "maintainers": [
+      "varp"
+    ],
+    "rules": [
+
+        {
+            "description": "Mac OSX RDP: Home key to the beginning of the sentence (Command + Left)",
+            "manipulators": [{
+                "type": "basic",
+                "parameters": {
+                    "basic.simultaneous_threshold_milliseconds": 500
+                },
+                "from": {
+                    "simultaneous": [
+
+                        {
+                            "key_code": "left_command"
+                        },
+                        {
+                            "key_code": "left_arrow"
+                        }
+                    ]
+                },
+                "to": [{
+                    "key_code": "home"
+                }],
+                "conditions": [{
+                    "bundle_identifiers": [
+                        "^com\\.microsoft\\.rdc$",
+                        "^com\\.microsoft\\.rdc\\.mac$",
+                        "^com\\.microsoft\\.rdc\\.macos$",
+                        "^com\\.microsoft\\.rdc\\.osx\\.beta$",
+                        "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                        "^com\\.teamviewer\\.TeamViewer$",
+                        "^com\\.vmware\\.horizon$"
+                    ],
+                    "type": "frontmost_application_if"
+                }]
+            }]
+        },
+
+
+        {
+            "description": "Mac OSX RDP: End key to the end of the sentence (Command + Right)",
+            "manipulators": [
+
+                {
+                    "type": "basic",
+                    "parameters": {
+                        "basic.simultaneous_threshold_milliseconds": 500
+                    },
+                    "from": {
+                        "simultaneous": [
+
+                            {
+                                "key_code": "left_command"
+                            },
+                            {
+                                "key_code": "right_arrow"
+                            }
+                        ]
+                    },
+                    "to": [{
+                        "key_code": "end"
+                    }],
+                    "conditions": [{
+                        "type": "frontmost_application_if",
+                        "bundle_identifiers": [
+                            "^com\\.microsoft\\.rdc$",
+                            "^com\\.microsoft\\.rdc\\.mac$",
+                            "^com\\.microsoft\\.rdc\\.macos$",
+                            "^com\\.microsoft\\.rdc\\.osx\\.beta$",
+                            "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                            "^com\\.teamviewer\\.TeamViewer$",
+                            "^com\\.vmware\\.horizon$"
+                        ]
+                    }]
+                }
+            ]
+        },
+
+
+
+        {
+            "description": "Mac OSX RDP: Option(Alt)+Tab as Switch Application (Command+Tab)",
+            "manipulators": [{
+                "type": "basic",
+                "from": {
+                    "key_code": "tab",
+                    "modifiers": {
+                        "mandatory": [
+                            "command"
+                        ],
+                        "optional": [
+                            "shift"
+                        ]
+                    }
+                },
+                "to": [{
+                    "key_code": "tab",
+                    "modifiers": ["option"]
+                }],
+                "conditions": [{
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                        "^com\\.microsoft\\.rdc$",
+                        "^com\\.microsoft\\.rdc\\.mac$",
+                        "^com\\.microsoft\\.rdc\\.macos$",
+                        "^com\\.microsoft\\.rdc\\.osx\\.beta$",
+                        "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                        "^com\\.teamviewer\\.TeamViewer$",
+                        "^com\\.vmware\\.horizon$"
+                    ]
+                }]
+            }]
+        },
+
+
+        {
+            "description": "Mac OSX RDP: Copy/Paste/Cut",
+            "manipulators": [
+
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "c",
+                        "modifiers": {
+                            "mandatory": [
+                                "command"
+                            ]
+                        }
+                    },
+                    "to": [{
+                        "key_code": "c",
+                        "modifiers": [
+                            "control"
+                        ]
+                    }],
+                    "conditions": [{
+                        "type": "frontmost_application_if",
+                        "bundle_identifiers": [
+                            "^com\\.microsoft\\.rdc$",
+                            "^com\\.microsoft\\.rdc\\.mac$",
+                            "^com\\.microsoft\\.rdc\\.macos$",
+                            "^com\\.microsoft\\.rdc\\.osx\\.beta$",
+                            "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                            "^com\\.teamviewer\\.TeamViewer$",
+                            "^com\\.vmware\\.horizon$"
+                        ]
+                    }]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "v",
+                        "modifiers": {
+                            "mandatory": ["command"]
+                        }
+                    },
+                    "to": [{
+                        "key_code": "v",
+                        "modifiers": [
+                            "control"
+                        ]
+                    }],
+                    "conditions": [{
+                        "type": "frontmost_application_if",
+                        "bundle_identifiers": [
+                            "^com\\.microsoft\\.rdc$",
+                            "^com\\.microsoft\\.rdc\\.mac$",
+                            "^com\\.microsoft\\.rdc\\.macos$",
+                            "^com\\.microsoft\\.rdc\\.osx\\.beta$",
+                            "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                            "^com\\.teamviewer\\.TeamViewer$",
+                            "^com\\.vmware\\.horizon$"
+                        ]
+                    }]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "x",
+                        "modifiers": {
+                            "mandatory": ["command"]
+                        }
+                    },
+                    "to": [{
+                        "key_code": "x",
+                        "modifiers": [
+                            "control"
+                        ]
+                    }],
+                    "conditions": [{
+                        "type": "frontmost_application_if",
+                        "bundle_identifiers": [
+                            "^com\\.microsoft\\.rdc$",
+                            "^com\\.microsoft\\.rdc\\.mac$",
+                            "^com\\.microsoft\\.rdc\\.macos$",
+                            "^com\\.microsoft\\.rdc\\.osx\\.beta$",
+                            "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                            "^com\\.teamviewer\\.TeamViewer$",
+                            "^com\\.vmware\\.horizon$"
+                        ]
+                    }]
+                }
+            ]
+        },
+
+
+        {
+            "description": "Mac OSX RDP: Alt+Left/Right to Control+Left/Right",
+            "manipulators": [
+
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "left_arrow",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_option"
+                            ],
+                            "optional": ["shift"]
+                        }
+                    },
+                    "to": [{
+                        "key_code": "left_arrow",
+                        "modifiers": [
+                            "control"
+                        ]
+                    }],
+                    "conditions": [{
+                        "type": "frontmost_application_if",
+                        "bundle_identifiers": [
+                            "^com\\.microsoft\\.rdc$",
+                            "^com\\.microsoft\\.rdc\\.mac$",
+                            "^com\\.microsoft\\.rdc\\.macos$",
+                            "^com\\.microsoft\\.rdc\\.osx\\.beta$",
+                            "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                            "^com\\.teamviewer\\.TeamViewer$",
+                            "^com\\.vmware\\.horizon$"
+                        ]
+                    }]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "right_arrow",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_option"
+                            ],
+                            "optional": ["shift"]
+                        }
+                    },
+                    "to": [{
+                        "key_code": "right_arrow",
+                        "modifiers": [
+                            "control"
+                        ]
+                    }],
+                    "conditions": [{
+                        "type": "frontmost_application_if",
+                        "bundle_identifiers": [
+                            "^com\\.microsoft\\.rdc$",
+                            "^com\\.microsoft\\.rdc\\.mac$",
+                            "^com\\.microsoft\\.rdc\\.macos$",
+                            "^com\\.microsoft\\.rdc\\.osx\\.beta$",
+                            "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                            "^com\\.teamviewer\\.TeamViewer$",
+                            "^com\\.vmware\\.horizon$"
+                        ]
+                    }]
+                }
+            ]
+        },
+
+
+
+        {
+            "description": "Mac OSX RDP: Undo",
+            "manipulators": [{
+                "type": "basic",
+                "from": {
+                    "key_code": "z",
+                    "modifiers": {
+                        "mandatory": [
+                            "command"
+                        ]
+                    }
+                },
+                "to": [{
+                    "key_code": "z",
+                    "modifiers": [
+                        "control"
+                    ]
+                }],
+                "conditions": [{
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                        "^com\\.microsoft\\.rdc$",
+                        "^com\\.microsoft\\.rdc\\.mac$",
+                        "^com\\.microsoft\\.rdc\\.macos$",
+                        "^com\\.microsoft\\.rdc\\.osx\\.beta$",
+                        "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                        "^com\\.teamviewer\\.TeamViewer$",
+                        "^com\\.vmware\\.horizon$"
+                    ]
+                }]
+            }]
+        },
+        {
+            "description": "Mac OSX RDP: Redo",
+            "manipulators": [{
+                "type": "basic",
+                "from": {
+                    "key_code": "z",
+                    "modifiers": {
+                        "mandatory": ["command", "shift"]
+                    }
+                },
+                "to": [{
+                    "key_code": "z",
+                    "modifiers": [
+                        "left_control", "left_shift"
+                    ]
+                }],
+                "conditions": [{
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                        "^com\\.microsoft\\.rdc$",
+                        "^com\\.microsoft\\.rdc\\.mac$",
+                        "^com\\.microsoft\\.rdc\\.macos$",
+                        "^com\\.microsoft\\.rdc\\.osx\\.beta$",
+                        "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                        "^com\\.teamviewer\\.TeamViewer$",
+                        "^com\\.vmware\\.horizon$"
+                    ]
+                }]
+            }]
+        },
+        {
+            "description": "Mac OSX RDP: Select-All",
+            "manipulators": [{
+                "type": "basic",
+                "from": {
+                    "key_code": "a",
+                    "modifiers": {
+                        "mandatory": [
+                            "command"
+                        ]
+                    }
+                },
+                "to": [{
+                    "key_code": "a",
+                    "modifiers": [
+                        "control"
+                    ]
+                }],
+                "conditions": [{
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                        "^com\\.microsoft\\.rdc$",
+                        "^com\\.microsoft\\.rdc\\.mac$",
+                        "^com\\.microsoft\\.rdc\\.macos$",
+                        "^com\\.microsoft\\.rdc\\.osx\\.beta$",
+                        "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                        "^com\\.teamviewer\\.TeamViewer$",
+                        "^com\\.vmware\\.horizon$"
+                    ]
+                }]
+            }]
+        },
+        {
+            "description": "Mac OSX RDP: Save",
+            "manipulators": [{
+                "type": "basic",
+                "from": {
+                    "key_code": "s",
+                    "modifiers": {
+                        "mandatory": [
+                            "command"
+                        ]
+                    }
+                },
+                "to": [{
+                    "key_code": "s",
+                    "modifiers": [
+                        "control"
+                    ]
+                }],
+                "conditions": [{
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                        "^com\\.microsoft\\.rdc$",
+                        "^com\\.microsoft\\.rdc\\.mac$",
+                        "^com\\.microsoft\\.rdc\\.macos$",
+                        "^com\\.microsoft\\.rdc\\.osx\\.beta$",
+                        "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                        "^com\\.teamviewer\\.TeamViewer$",
+                        "^com\\.vmware\\.horizon$"
+                    ]
+                }]
+            }]
+        },
+        {
+            "description": "Mac OSX RDP: New",
+            "manipulators": [{
+                "type": "basic",
+                "from": {
+                    "key_code": "n",
+                    "modifiers": {
+                        "mandatory": [
+                            "command"
+                        ]
+                    }
+                },
+                "to": [{
+                    "key_code": "n",
+                    "modifiers": [
+                        "control"
+                    ]
+                }],
+                "conditions": [{
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                        "^com\\.microsoft\\.rdc$",
+                        "^com\\.microsoft\\.rdc\\.mac$",
+                        "^com\\.microsoft\\.rdc\\.macos$",
+                        "^com\\.microsoft\\.rdc\\.osx\\.beta$",
+                        "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                        "^com\\.teamviewer\\.TeamViewer$",
+                        "^com\\.vmware\\.horizon$"
+                    ]
+                }]
+            }]
+        },
+
+
+        {
+            "description": "Mac OSX RDP: Reload browser page Command+R to F5",
+            "manipulators": [
+
+                {
+                    "type": "basic",
+                    "parameters": {
+                        "basic.simultaneous_threshold_milliseconds": 500
+                    },
+                    "from": {
+                        "simultaneous": [{
+                                "key_code": "left_command"
+                            },
+                            {
+                                "key_code": "r"
+                            }
+                        ]
+                    },
+                    "to": [{
+                        "key_code": "f5"
+                    }],
+                    "conditions": [{
+                        "type": "frontmost_application_if",
+                        "bundle_identifiers": [
+                            "^com\\.microsoft\\.rdc$",
+                            "^com\\.microsoft\\.rdc\\.mac$",
+                            "^com\\.microsoft\\.rdc\\.macos$",
+                            "^com\\.microsoft\\.rdc\\.osx\\.beta$",
+                            "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                            "^com\\.teamviewer\\.TeamViewer$",
+                            "^com\\.vmware\\.horizon$"
+                        ]
+                    }]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "r",
+                        "modifiers": {
+                            "mandatory": [
+                                "command",
+                                "shift"
+                            ]
+                        }
+                    },
+                    "to": [{
+                        "key_code": "f5",
+                        "modifiers": [
+                            "left_control"
+                        ]
+                    }],
+                    "conditions": [{
+                        "type": "frontmost_application_if",
+                        "bundle_identifiers": [
+                            "^com\\.microsoft\\.rdc$",
+                            "^com\\.microsoft\\.rdc\\.mac$",
+                            "^com\\.microsoft\\.rdc\\.macos$",
+                            "^com\\.microsoft\\.rdc\\.osx\\.beta$",
+                            "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                            "^com\\.teamviewer\\.TeamViewer$",
+                            "^com\\.vmware\\.horizon$"
+                        ]
+                    }]
+                }
+            ]
+        },
+
+
+        {
+            "description": "Mac OSX RDP: New Tab",
+            "manipulators": [{
+                "type": "basic",
+                "from": {
+                    "key_code": "t",
+                    "modifiers": {
+                        "mandatory": [
+                            "command"
+                        ]
+                    }
+                },
+                "to": [{
+                    "key_code": "t",
+                    "modifiers": [
+                        "control"
+                    ]
+                }],
+                "conditions": [{
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                        "^com\\.microsoft\\.rdc$",
+                        "^com\\.microsoft\\.rdc\\.mac$",
+                        "^com\\.microsoft\\.rdc\\.macos$",
+                        "^com\\.microsoft\\.rdc\\.osx\\.beta$",
+                        "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                        "^com\\.teamviewer\\.TeamViewer$",
+                        "^com\\.vmware\\.horizon$"
+                    ]
+                }]
+            }]
+        },
+        {
+            "description": "Mac OSX RDP: Find",
+            "manipulators": [{
+                "type": "basic",
+                "from": {
+                    "key_code": "f",
+                    "modifiers": {
+                        "mandatory": [
+                            "left_command"
+                        ]
+                    }
+                },
+                "to": [{
+                    "key_code": "f",
+                    "modifiers": [
+                        "control"
+                    ]
+                }],
+                "conditions": [{
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                        "^com\\.microsoft\\.rdc$",
+                        "^com\\.microsoft\\.rdc\\.mac$",
+                        "^com\\.microsoft\\.rdc\\.macos$",
+                        "^com\\.microsoft\\.rdc\\.osx\\.beta$",
+                        "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                        "^com\\.teamviewer\\.TeamViewer$",
+                        "^com\\.vmware\\.horizon$"
+                    ]
+                }]
+            }]
+        },
+        {
+            "description": "Mac OSX RDP: Open",
+            "manipulators": [{
+                "type": "basic",
+                "from": {
+                    "key_code": "o",
+                    "modifiers": {
+                        "mandatory": [
+                            "left_command"
+                        ]
+                    }
+                },
+                "to": [{
+                    "key_code": "o",
+                    "modifiers": [
+                        "control"
+                    ]
+                }],
+                "conditions": [{
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                        "^com\\.microsoft\\.rdc$",
+                        "^com\\.microsoft\\.rdc\\.mac$",
+                        "^com\\.microsoft\\.rdc\\.macos$",
+                        "^com\\.microsoft\\.rdc\\.osx\\.beta$",
+                        "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                        "^com\\.teamviewer\\.TeamViewer$",
+                        "^com\\.vmware\\.horizon$"
+                    ]
+                }]
+            }]
+        },
+        {
+            "description": "Mac OSX RDP: Close Window",
+            "manipulators": [{
+                "type": "basic",
+                "from": {
+                    "key_code": "w",
+                    "modifiers": {
+                        "mandatory": [
+                            "left_command"
+                        ]
+                    }
+                },
+                "to": [{
+                    "key_code": "w",
+                    "modifiers": [
+                        "control"
+                    ]
+                }],
+                "conditions": [{
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                        "^com\\.microsoft\\.rdc$",
+                        "^com\\.microsoft\\.rdc\\.mac$",
+                        "^com\\.microsoft\\.rdc\\.macos$",
+                        "^com\\.microsoft\\.rdc\\.osx\\.beta$",
+                        "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                        "^com\\.teamviewer\\.TeamViewer$",
+                        "^com\\.vmware\\.horizon$"
+                    ]
+                }]
+            }]
+        },
+
+        {
+            "description": "Mac OSX RDP: Fn+Space To Switch Input (Command+Space)",
+            "manipulators": [{
+                "conditions": [{
+                    "bundle_identifiers": [
+                        "^com\\.microsoft\\.rdc$",
+                        "^com\\.microsoft\\.rdc\\.mac$",
+                        "^com\\.microsoft\\.rdc\\.macos$",
+                        "^com\\.microsoft\\.rdc\\.osx\\.beta$",
+                        "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                        "^com\\.teamviewer\\.TeamViewer$",
+                        "^com\\.vmware\\.horizon$"
+                    ],
+                    "type": "frontmost_application_if"
+                }],
+                "from": {
+                    "key_code": "spacebar",
+                    "modifiers": {
+                        "mandatory": [
+                            "fn"
+                        ]
+                    }
+                },
+                "to": [
+
+                    {
+                        "key_code": "left_gui",
+                        "lazy": true
+                    },
+                    {
+                        "key_code": "spacebar",
+                        "modifiers": ["right_gui"]
+                    }
+                ],
+                "type": "basic"
+            }]
+        },
+        {
+            "description": "Mac OSX RDP: Quit Application (Alt+F4 to Command+Q)",
+            "manipulators": [{
+                "type": "basic",
+                "from": {
+                    "key_code": "q",
+                    "modifiers": {
+                        "mandatory": [
+                            "command"
+                        ]
+                    }
+                },
+                "to": [{
+                    "key_code": "f4",
+                    "modifiers": [
+                        "option"
+                    ]
+                }],
+                "conditions": [{
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                        "^com\\.microsoft\\.rdc$",
+                        "^com\\.microsoft\\.rdc\\.mac$",
+                        "^com\\.microsoft\\.rdc\\.macos$",
+                        "^com\\.microsoft\\.rdc\\.osx\\.beta$",
+                        "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                        "^com\\.teamviewer\\.TeamViewer$",
+                        "^com\\.vmware\\.horizon$"
+                    ]
+                }]
+            }]
+        },
+        {
+            "description": "Mac OSX RDP: Browser open location (Ctrl+L)",
+            "manipulators": [{
+                "type": "basic",
+                "from": {
+                    "key_code": "l",
+                    "modifiers": {
+                        "mandatory": [
+                            "command"
+                        ]
+                    }
+                },
+                "to": [{
+                    "key_code": "l",
+                    "modifiers": [
+                        "control"
+                    ]
+                }],
+                "conditions": [{
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                        "^com\\.microsoft\\.rdc$",
+                        "^com\\.microsoft\\.rdc\\.mac$",
+                        "^com\\.microsoft\\.rdc\\.macos$",
+                        "^com\\.microsoft\\.rdc\\.osx\\.beta$",
+                        "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                        "^com\\.teamviewer\\.TeamViewer$",
+                        "^com\\.vmware\\.horizon$"
+                    ]
+                }]
+            }]
+        }
+
+    ]
+}
