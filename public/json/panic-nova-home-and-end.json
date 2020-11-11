@@ -1,0 +1,129 @@
+{
+  "title": "Panic Nova: Home and End",
+  "rules": [
+    {
+      "description": "Panic Nova: Allow Home and End to navigate along a line.",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "home",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": "command"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.panic\\.Nova$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "end",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": "command"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.panic\\.Nova$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Panic Nova: Allow Shift+Home and Shift+End to select text along a line.",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "home",
+            "modifiers": {
+              "mandatory": [
+                "left_shift",
+                "right_shift"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "command",
+                "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.panic\\.Nova$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "end",
+            "modifiers": {
+              "mandatory": [
+                "left_shift",
+                "right_shift"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "command",
+                "right_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.panic\\.Nova$"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -988,6 +988,84 @@
             ]
         },
         {
+          "description": "Ctrl+B => Cmd+B (Bold)",
+          "manipulators": [
+            {
+              "conditions": [
+                {
+                  "bundle_identifiers": [
+                    "^com\\.apple\\.Terminal$",
+                    "^com\\.googlecode\\.iterm2$",
+                    "^co\\.zeit\\.hyper$",
+                    "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                    "^com\\.microsoft\\.rdc\\.macos$"
+                  ],
+                  "type": "frontmost_application_unless"
+                }
+              ],
+              "from": {
+                "key_code": "b",
+                "modifiers": {
+                  "mandatory": [
+                    "control"
+                  ],
+                  "optional": [
+                    "any"
+                  ]
+                }
+              },
+              "to": [
+                {
+                  "key_code": "b",
+                  "modifiers": [
+                    "command"
+                  ]
+                }
+              ],
+              "type": "basic"
+            }
+          ]
+        },
+        {
+          "description": "Ctrl+I => Cmd+I (Italic)",
+          "manipulators": [
+            {
+              "conditions": [
+                {
+                  "bundle_identifiers": [
+                    "^com\\.apple\\.Terminal$",
+                    "^com\\.googlecode\\.iterm2$",
+                    "^co\\.zeit\\.hyper$",
+                    "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                    "^com\\.microsoft\\.rdc\\.macos$"
+                  ],
+                  "type": "frontmost_application_unless"
+                }
+              ],
+              "from": {
+                "key_code": "i",
+                "modifiers": {
+                  "mandatory": [
+                    "control"
+                  ],
+                  "optional": [
+                    "any"
+                  ]
+                }
+              },
+              "to": [
+                {
+                  "key_code": "i",
+                  "modifiers": [
+                    "command"
+                  ]
+                }
+              ],
+              "type": "basic"
+            }
+          ]
+        },
+        {
             "description": "Ctrl+L => Cmd+L (Open url location) (Only in browsers)",
             "manipulators": [
                 {
@@ -1025,6 +1103,45 @@
                     "type": "basic"
                 }
             ]
+        },
+        {
+          "description": "Ctrl+R => Cmd+R (Reload) (Only in browsers)",
+          "manipulators": [
+            {
+              "conditions": [
+                {
+                  "bundle_identifiers": [
+                    "^org\\.mozilla\\.firefox$",
+                    "^org\\.mozilla\\.nightly$",
+                    "^com\\.microsoft\\.Edge",
+                    "^com\\.google\\.Chrome$",
+                    "^com\\.apple\\.Safari$"
+                  ],
+                  "type": "frontmost_application_if"
+                }
+              ],
+              "from": {
+                "key_code": "r",
+                "modifiers": {
+                  "mandatory": [
+                    "control"
+                  ],
+                  "optional": [
+                    "any"
+                  ]
+                }
+              },
+              "to": [
+                {
+                  "key_code": "r",
+                  "modifiers": [
+                    "left_command"
+                  ]
+                }
+              ],
+              "type": "basic"
+            }
+          ]
         },
         {
             "description": "F5 => Cmd+r (Reload)",
