@@ -1757,6 +1757,33 @@
                     ]
                 }
             ]
+        },
+        {
+            "description": "Ctrl+Left Click => Cmd+Left Click (select multiple items)",
+                "manipulators": [
+                    {
+                        "from": {
+                            "pointing_button": "button1",
+                            "modifiers": {
+                                "mandatory": [
+                                  "control"
+                                ],
+                                "optional": [
+                                  "any"
+                                ]
+                            }
+                        },
+                        "to": [
+                            {
+                                "pointing_button": "button1",
+                                "modifiers": [
+                                  "command"
+                                ]
+                            }
+                        ],
+                        "type": "basic"
+                    }
+                ]
         }
-    ]
+      ]
 }
