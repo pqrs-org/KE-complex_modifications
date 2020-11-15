@@ -27,7 +27,21 @@
                         "right_command",
                     ],
                     from_optional_modifiers: ["any"]
-                ) + [mod_4_key, "right_command"].map { |from_key|
+                ) + [mod_4_key].map { |from_key|
+                    {
+                        "type" => "basic",
+                        "from" => { "simultaneous" => [ { "key_code" => from_key }, { "key_code" => "right_command" } ] },
+                        "to" => [ set_mod_4(2, true) ],
+                        "conditions" => [ $if_mod_4_not_locked ]
+                    }
+                } + [mod_4_key].map { |from_key|
+                    {
+                        "type" => "basic",
+                        "from" => { "simultaneous" => [ { "key_code" => from_key }, { "key_code" => "right_command" } ] },
+                        "to" => [ set_mod_4(0) ],
+                        "conditions" => [ $if_mod_4_locked ]
+                    }
+                } + [mod_4_key, "right_command"].map { |from_key|
                     {
                         "type" => "basic",
                         "from" => _from(from_key, [], ["any"]),
@@ -39,50 +53,12 @@
             )
         end %>
         {
-            "description": "Neo2 mod 3 and 4 keys (Apple keyboard)",
+            "description": "Neo2 mod 3 and 4 keys (Apple keyboard). Toggle mod4 by pressing both mod4 keys simultaneously.",
             "manipulators": <%= neo2_modifiers("backslash", "grave_accent_and_tilde") %>
         },
         {
-            "description": "Neo2 mod 3 and 4 keys (Windows keyboard)",
+            "description": "Neo2 mod 3 and 4 keys (Windows keyboard). Toggle mod4 by pressing both mod4 keys simultaneously.",
             "manipulators": <%= neo2_modifiers("non_us_pound", "non_us_backslash") %>
-        },
-        {
-            "description": "Toggle mod4 by pressing grave_accent_and_tilde + right_command at the same time",
-            "manipulators": [
-                    <%= JSON.generate(
-                        {
-                            "type": "basic",
-                            "from": {
-                                "simultaneous": [
-                                    { "key_code": "grave_accent_and_tilde" },
-                                    { "key_code": "right_command" },
-                                ],
-                                "modifiers": {
-                                    "mandatory": [],
-                                    "optional": []
-                                }
-                            },
-                            "to": [ set_mod_4(2, true) ],
-                            "conditions": [ $if_mod_4_not_locked ]
-                        } ) %>,
-                    <%= JSON.generate(
-                        {
-                            "type": "basic",
-                            "from": {
-                                "simultaneous": [
-                                    { "key_code": "grave_accent_and_tilde" },
-                                    { "key_code": "right_command" },
-                                ],
-                                "modifiers": {
-                                    "mandatory": [],
-                                    "optional": []
-                                }
-                            },
-                            "to": [ set_mod_4(0) ],
-                            "conditions": [ $if_mod_4_locked ]
-                        }
-                    ) %>
-            ]
         },
         {
             "description": "Neo2 layer 4",
