@@ -15,7 +15,7 @@ def main
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Personal rules (@tekezo) (rev 27)',
+        'description' => 'Personal rules (@tekezo) (rev 28)',
         'manipulators' =>
         core_configuration +
         mouse +
@@ -254,7 +254,7 @@ def core_configuration
         },
         {
           'key_code' => 'vk_none',
-        }
+        },
       ],
       'parameters' => {
         'basic.to_if_alone_timeout_milliseconds' => 250,
@@ -292,6 +292,33 @@ def core_configuration
     # command+control+g -> command+[
     # command+control+h -> command+]
 
+    #
+    # command+control+f
+    #
+
+    # Excel (option+left_arrow)
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => 'f',
+        'modifiers' => Karabiner.from_modifiers(%w[control command]),
+      },
+      'to' => [
+        {
+          'key_code' => 'left_arrow',
+          'modifiers' => ['option'],
+        },
+      ],
+      'conditions' => [
+        {
+          'type' => 'frontmost_application_if',
+          'bundle_identifiers' => [
+            '^com\.microsoft\.Excel$',
+          ],
+        },
+      ],
+    },
+    # General apps (command+shift+[)
     {
       'type' => 'basic',
       'from' => {
@@ -307,6 +334,34 @@ def core_configuration
         },
       ],
     },
+
+    #
+    # command+control+j
+    #
+
+    # Excel (option+right_arrow)
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => 'j',
+        'modifiers' => Karabiner.from_modifiers(%w[control command]),
+      },
+      'to' => [
+        {
+          'key_code' => 'right_arrow',
+          'modifiers' => ['option'],
+        },
+      ],
+      'conditions' => [
+        {
+          'type' => 'frontmost_application_if',
+          'bundle_identifiers' => [
+            '^com\.microsoft\.Excel$',
+          ],
+        },
+      ],
+    },
+    # General apps (command+shift+])
     {
       'type' => 'basic',
       'from' => {
@@ -322,6 +377,7 @@ def core_configuration
         },
       ],
     },
+
     {
       'type' => 'basic',
       'from' => {
