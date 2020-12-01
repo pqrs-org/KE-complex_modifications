@@ -10,45 +10,13 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "escape"
-          },
-          "to": [
-            {
-              "key_code": "c",
-              "modifiers": [
-                "left_control"
-              ]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^io\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$"
-              ]
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "en"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
             "key_code": "z",
             "modifiers": {
               "mandatory": [
                 "command"
+              ],
+              "optional": [
+
               ]
             }
           },
@@ -89,6 +57,9 @@
             "modifiers": {
               "mandatory": [
                 "command"
+              ],
+              "optional": [
+
               ]
             }
           },
@@ -130,6 +101,9 @@
               "mandatory": [
                 "command",
                 "shift"
+              ],
+              "optional": [
+
               ]
             }
           },
@@ -174,6 +148,9 @@
               "mandatory": [
                 "command",
                 "shift"
+              ],
+              "optional": [
+
               ]
             }
           },
@@ -217,6 +194,9 @@
             "modifiers": {
               "mandatory": [
                 "option"
+              ],
+              "optional": [
+
               ]
             }
           },
@@ -249,6 +229,9 @@
             "modifiers": {
               "mandatory": [
                 "option"
+              ],
+              "optional": [
+
               ]
             }
           },
@@ -281,6 +264,9 @@
             "modifiers": {
               "mandatory": [
                 "command"
+              ],
+              "optional": [
+
               ]
             }
           },
@@ -322,6 +308,9 @@
             "modifiers": {
               "mandatory": [
                 "command"
+              ],
+              "optional": [
+
               ]
             }
           },
@@ -363,6 +352,9 @@
             "modifiers": {
               "mandatory": [
                 "option"
+              ],
+              "optional": [
+
               ]
             }
           },
@@ -400,7 +392,12 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "page_up"
+            "key_code": "page_up",
+            "modifiers": {
+              "optional": [
+
+              ]
+            }
           },
           "to": [
             {
@@ -440,6 +437,9 @@
             "modifiers": {
               "mandatory": [
                 "option"
+              ],
+              "optional": [
+
               ]
             }
           },
@@ -477,7 +477,12 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "page_down"
+            "key_code": "page_down",
+            "modifiers": {
+              "optional": [
+
+              ]
+            }
           },
           "to": [
             {
@@ -513,10 +518,10 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "up_arrow",
+            "key_code": "home",
             "modifiers": {
-              "mandatory": [
-                "command"
+              "optional": [
+
               ]
             }
           },
@@ -548,40 +553,10 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "home"
-          },
-          "to": [
-            {
-              "key_code": "escape"
-            },
-            {
-              "key_code": "comma",
-              "modifiers": [
-                "left_shift"
-              ]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^io\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "down_arrow",
+            "key_code": "end",
             "modifiers": {
-              "mandatory": [
-                "command"
+              "optional": [
+
               ]
             }
           },
@@ -613,37 +588,12 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "end"
-          },
-          "to": [
-            {
-              "key_code": "escape"
-            },
-            {
-              "key_code": "period",
-              "modifiers": [
-                "left_shift"
+            "key_code": "delete_or_backspace",
+            "modifiers": {
+              "optional": [
+
               ]
             }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^io\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "delete_or_backspace"
           },
           "to": [
             {
@@ -674,6 +624,9 @@
             "modifiers": {
               "mandatory": [
                 "option"
+              ],
+              "optional": [
+
               ]
             }
           },
@@ -710,6 +663,9 @@
               "mandatory": [
                 "option",
                 "fn"
+              ],
+              "optional": [
+
               ]
             }
           },
@@ -742,6 +698,9 @@
             "modifiers": {
               "mandatory": [
                 "option"
+              ],
+              "optional": [
+
               ]
             }
           },
@@ -774,6 +733,9 @@
             "modifiers": {
               "mandatory": [
                 "command"
+              ],
+              "optional": [
+
               ]
             }
           },
@@ -807,6 +769,9 @@
               "mandatory": [
                 "command",
                 "fn"
+              ],
+              "optional": [
+
               ]
             }
           },
@@ -839,6 +804,9 @@
             "modifiers": {
               "mandatory": [
                 "command"
+              ],
+              "optional": [
+
               ]
             }
           },
