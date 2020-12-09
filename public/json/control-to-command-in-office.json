@@ -1,0 +1,57 @@
+{
+  "title": "Use left control key as command key in Microsoft Office",
+  "rules": [
+    {
+      "description": "Use left control key as command key in Microsoft Office (rev 1)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_control"
+          },
+          "to": [
+            {
+              "key_code": "left_command"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Excel$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Word$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Use right control key as command key in Microsoft Office (rev 1)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_control"
+          },
+          "to": [
+            {
+              "key_code": "right_command"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Excel$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Word$"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
