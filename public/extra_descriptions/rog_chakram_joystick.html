@@ -1,0 +1,74 @@
+<link rel="stylesheet" href="../../vendor/css/bootstrap.min.css" />
+
+<p>
+  <b>Remap the ROG Chakram Joystick!</b>
+  <br><br>
+  Since Asus doesn't have any software to map out the keys in MacOS (despite what you define in Windows, being carried
+  trough in the mouse internal settings), there was no way to make them have a different behaviour. Set out to redefine
+  the joystick keys (the side
+  keys are not recognised, and hadn't had the time to dwelve into that yet).
+  <br>
+  This configuration is device-specific to the ROG Chakram (vendor_id=2821, product_id=6371), and so far only the
+  joystick keys, in digital mode, have been mapped.
+  <br>
+  For the config to work properly, you'll need to enable the device keyboard mode, in Karabiner Elements Preferences ->
+  Devices:
+  <br><br><img src="rog-chakram-joystick/rog-chakram-devices-settings.png" />
+  <br><br>
+  This is my mapping:
+</p>
+
+<style>
+  table.rog-chakram-buttons {
+    border-collapse: collapse;
+    margin: 10px;
+  }
+
+  table.rog-chakram-buttons th,
+  table.rog-chakram-buttons td {
+    border: 1px solid gray;
+    padding: 5px;
+  }
+
+  table.rog-chakram-buttons th {
+    background-color: #ddd;
+  }
+
+  table.rog-chakram-buttons td:first-child {
+    text-align: left;
+  }
+</style>
+
+<table>
+  <tr>
+    <td>
+      <img src="rog-chakram-joystick/rog-chakram.png" style="width: 100%; max-width: 600px; margin: -10px" />
+    </td>
+    <td>
+      <table class="rog-chakram-buttons">
+        <tbody>
+          <tr>
+            <th>Mouse Button</th>
+            <th>Mapping</th>
+          </tr>
+          <tr>
+            <td>Joystick Up (mapped as Up Arrow)</td>
+            <td>[Left Control] + Up Arrow</td>
+          </tr>
+          <tr>
+            <td>Joystick Down (mapped as Down Arrow)</td>
+            <td>[Left Control] + Down Arrow</td>
+          </tr>
+          <tr>
+            <td>Joystick Right (mapped as Right Arrow)</td>
+            <td>[Left Control] + Right Arrow</td>
+          </tr>
+          <tr>
+            <td>Joystick Left (mapped as Left Arrow)</td>
+            <td>[Left Control] + Left Arrow</td>
+          </tr>
+        </tbody>
+      </table>
+    </td>
+  </tr>
+</table>
