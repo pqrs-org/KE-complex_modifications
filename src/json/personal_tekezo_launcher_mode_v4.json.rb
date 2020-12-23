@@ -15,7 +15,7 @@ PARAMETERS = {
 ############################################################
 
 require 'json'
-require_relative '../lib/karabiner.rb'
+require_relative '../lib/karabiner'
 
 def main
   data = {
@@ -23,7 +23,8 @@ def main
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Launcher Mode v4 (rev 12)',
+        'description' => 'Launcher Mode v4 (rev 13)',
+        'available_since' => '13.1.4',
         'manipulators' => [
           generate_launcher_mode('1', [], [{ 'shell_command' => "open -a 'Xcode.app'" }]),
           generate_launcher_mode('3', [], [{ 'shell_command' => "open -a 'Firefox.app'" }]),
@@ -41,7 +42,7 @@ def main
           generate_launcher_mode('v', [], [{ 'shell_command' => "open -a 'Slack.app'" }]),
 
           generate_launcher_mode('tab', [], [{ 'key_code' => 'mission_control' }]),
-          generate_launcher_mode('spacebar', [], [{ 'shell_command' => "open -a 'Alfred 4.app'" }]),
+          generate_launcher_mode('spacebar', [], [{ 'apple_vendor_keyboard_key_code' => 'spotlight' }]),
         ].flatten,
       },
     ],
