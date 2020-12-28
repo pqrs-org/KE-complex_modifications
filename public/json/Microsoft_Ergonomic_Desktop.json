@@ -1,0 +1,375 @@
+{
+  "title": "Microsoft Ergonomic Desktop (RJU-00004)",
+  "rules": [
+    {
+      "description": "Map the keyboard emojis key to macOS emojis popup.",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "left_command"
+              },
+              {
+                "key_code": "left_option"
+              },
+              {
+                "key_code": "left_shift"
+              },
+              {
+                "key_code": "left_control"
+              },
+              {
+                "key_code": "spacebar"
+              },
+              {
+                "key_code": "spacebar"
+              },
+              {
+                "key_code": "left_control"
+              },
+              {
+                "key_code": "left_shift"
+              },
+              {
+                "key_code": "left_option"
+              },
+              {
+                "key_code": "left_command"
+              }
+            ],
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "spacebar",
+              "modifiers": [
+                "left_control",
+                "left_command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Map the O365 key to right command key.",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "left_command"
+              },
+              {
+                "key_code": "left_option"
+              },
+              {
+                "key_code": "left_shift"
+              },
+              {
+                "key_code": "left_control"
+              }
+            ],
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_command"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Map the application key to left command key.",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "application",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_command"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Map the keyboard screenshot area key to Cmd+Shift+0 for Lightshot App",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "left_command"
+              },
+              {
+                "key_code": "left_shift"
+              },
+              {
+                "key_code": "s"
+              },
+              {
+                "key_code": "s"
+              },
+              {
+                "key_code": "left_shift"
+              },
+              {
+                "key_code": "left_command"
+              }
+            ],
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "0",
+              "modifiers": [
+                "left_shift",
+                "left_command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Map the keyboard magnifying glass key to open calculator",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "right_shift"
+              },
+              {
+                "key_code": "left_command"
+              },
+              {
+                "key_code": "f21"
+              },
+              {
+                "key_code": "f21"
+              },
+              {
+                "key_code": "right_shift"
+              },
+              {
+                "key_code": "left_command"
+              }
+            ],
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open '/System/Applications/Calculator.app'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Map the keyboard window in brakets key to open finder",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "left_command"
+              },
+              {
+                "key_code": "tab"
+              },
+              {
+                "key_code": "tab"
+              },
+              {
+                "key_code": "left_command"
+              }
+            ],
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open ~"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Map the keyboard special key 1 to open Chrome app",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "left_command"
+              },
+              {
+                "key_code": "1"
+              },
+              {
+                "key_code": "1"
+              },
+              {
+                "key_code": "left_command"
+              }
+            ],
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open '/Applications/Google Chrome.app/'"
+            }
+          ]
+        }
+      ]
+    }
+    ,
+    {
+      "description": "Map the keyboard special key 2 to open Firefox",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "left_command"
+              },
+              {
+                "key_code": "2"
+              },
+              {
+                "key_code": "2"
+              },
+              {
+                "key_code": "left_command"
+              }
+            ],
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open '/Applications/Firefox.app/'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Map the keyboard special key 3 to open Webex app",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "left_command"
+              },
+              {
+                "key_code": "3"
+              },
+              {
+                "key_code": "3"
+              },
+              {
+                "key_code": "left_command"
+              }
+            ],
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open '/Applications/Webex.app/'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Mouse button5 to forward (cmd+])",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button5"
+          },
+          "to": [
+            {
+              "key_code": "close_bracket",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Mouse button4 to forward (cmd+[)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button4"
+          },
+          "to": [
+            {
+              "key_code": "open_bracket",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
