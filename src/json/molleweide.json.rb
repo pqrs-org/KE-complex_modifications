@@ -19,6 +19,13 @@ def main
         "description" => "molleweide personal",
         "manipulators" => [
           generate_dual_key_rule("a", "a", "left_control"),
+          generate_dual_key_rule("s", "s", "left_shift"),
+          generate_dual_key_rule("d", "d", "left_option"),
+          generate_dual_key_rule("f", "f", "left_command"),
+          generate_dual_key_rule(";", "f", "left_command"),
+          generate_dual_key_rule("l", "d", "left_option"),
+          generate_dual_key_rule("k", "s", "left_shift"),
+          generate_dual_key_rule("j", "a", "left_control"),
           # generate_dual_key_rule("right_command", "hyphen", "right_shift"),
           # generate_dual_key_rule("left_option", "return_or_enter", "left_command"),
           # generate_dual_key_rule("right_option", "equal_sign", "right_command"),
