@@ -1,9 +1,11 @@
 #!/usr/bin/env ruby
 
+# inspired by marlonrichert "dual_keys" layout
+
 PARAMETERS = {
   :to_if_alone_timeout_milliseconds => 300,
   :to_delayed_action_delay_milliseconds => 0,
-  :to_if_held_down_threshold_milliseconds => 0,
+  :to_if_held_down_threshold_milliseconds => 300,
   :simultaneous_threshold_milliseconds => 300,
 }.freeze
 
