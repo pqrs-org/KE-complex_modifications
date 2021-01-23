@@ -1,11 +1,11 @@
 {
-    "title": "Mouse keys (full) (rev 4)",
+    "title": "Mouse keys (xgwang.me)",
     "rules": [
         {
-            "description": "Mouse keys (full) (rev 4)",
+            "description": "Mouse keys (xgwang.me)",
             "manipulators": [
                 <%# -------------------------------------------------- %>
-                <%# Unset mouse_keys_full variable when right_command is released %>
+                <%# Disable mouse_keys_full by pressing right_command is released %>
                 <%# -------------------------------------------------- %>
 
                 {
@@ -14,18 +14,25 @@
                     "to": <%= to([["right_command"]]) %>,
                     "to_after_key_up": [
                         { "set_variable": { "name": "mouse_keys_full", "value": 0 } }
+                    ],
+                    "conditions": [
+                        { "type": "variable_if", "name": "mouse_keys_full", "value": 1 }
                     ]
                 },
 
                 <%# -------------------------------------------------- %>
-                <%# enable mouse_keys_full by right_command+m %>
+                <%# Enable mouse_keys_full by pressing right_command %>
                 <%# -------------------------------------------------- %>
 
                 {
                     "type": "basic",
-                    "from": <%= from("m", ["right_command"], ["any"]) %>,
-                    "to": [
+                    "from": <%= from("right_command", [], ["any"]) %>,
+                    "to": <%= to([["right_command"]]) %>,
+                    "to_after_key_up": [
                         { "set_variable": { "name": "mouse_keys_full", "value": 1 } }
+                    ],
+                    "conditions": [
+                        { "type": "variable_if", "name": "mouse_keys_full", "value": 0 }
                     ]
                 },
 
@@ -37,7 +44,7 @@
 
                 {
                     "type": "basic",
-                    "from": <%= from("h", ["right_command"], ["any"]) %>,
+                    "from": <%= from("h", [], ["any"]) %>,
                     "to": [ { "mouse_key": { "horizontal_wheel": 32 } } ],
                     "conditions": [
                         { "type": "variable_if", "name": "mouse_keys_full", "value": 1 },
@@ -46,7 +53,7 @@
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("j", ["right_command"], ["any"]) %>,
+                    "from": <%= from("j", [], ["any"]) %>,
                     "to": [ { "mouse_key": { "vertical_wheel": 32 } } ],
                     "conditions": [
                         { "type": "variable_if", "name": "mouse_keys_full", "value": 1 },
@@ -55,7 +62,7 @@
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("k", ["right_command"], ["any"]) %>,
+                    "from": <%= from("k", [], ["any"]) %>,
                     "to": [ { "mouse_key": { "vertical_wheel": -32 } } ],
                     "conditions": [
                         { "type": "variable_if", "name": "mouse_keys_full", "value": 1 },
@@ -64,7 +71,7 @@
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("l", ["right_command"], ["any"]) %>,
+                    "from": <%= from("l", [], ["any"]) %>,
                     "to": [ { "mouse_key": { "horizontal_wheel": -32 } } ],
                     "conditions": [
                         { "type": "variable_if", "name": "mouse_keys_full", "value": 1 },
@@ -76,25 +83,25 @@
 
                 {
                     "type": "basic",
-                    "from": <%= from("h", ["right_command"], ["any"]) %>,
+                    "from": <%= from("h", [], ["any"]) %>,
                     "to": [ { "mouse_key": { "x": -1536 } } ],
                     "conditions": [ { "type": "variable_if", "name": "mouse_keys_full", "value": 1 } ]
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("j", ["right_command"], ["any"]) %>,
+                    "from": <%= from("j", [], ["any"]) %>,
                     "to": [ { "mouse_key": { "y": 1536 } } ],
                     "conditions": [ { "type": "variable_if", "name": "mouse_keys_full", "value": 1 } ]
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("k", ["right_command"], ["any"]) %>,
+                    "from": <%= from("k", [], ["any"]) %>,
                     "to": [ { "mouse_key": { "y": -1536 } } ],
                     "conditions": [ { "type": "variable_if", "name": "mouse_keys_full", "value": 1 } ]
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("l", ["right_command"], ["any"]) %>,
+                    "from": <%= from("l", [], ["any"]) %>,
                     "to": [ { "mouse_key": { "x": 1536 } } ],
                     "conditions": [ { "type": "variable_if", "name": "mouse_keys_full", "value": 1 } ]
                 },
@@ -103,19 +110,19 @@
 
                 {
                     "type": "basic",
-                    "from": <%= from("v", ["right_command"], ["any"]) %>,
+                    "from": <%= from("v", [], ["any"]) %>,
                     "to": [ { "pointing_button": "button1" } ],
                     "conditions": [ { "type": "variable_if", "name": "mouse_keys_full", "value": 1 } ]
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("b", ["right_command"], ["any"]) %>,
+                    "from": <%= from("b", [], ["any"]) %>,
                     "to": [ { "pointing_button": "button3" } ],
                     "conditions": [ { "type": "variable_if", "name": "mouse_keys_full", "value": 1 } ]
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("n", ["right_command"], ["any"]) %>,
+                    "from": <%= from("n", [], ["any"]) %>,
                     "to": [ { "pointing_button": "button2" } ],
                     "conditions": [ { "type": "variable_if", "name": "mouse_keys_full", "value": 1 } ]
                 },
@@ -124,19 +131,19 @@
 
                 {
                     "type": "basic",
-                    "from": <%= from("f", ["right_command"], ["any"]) %>,
+                    "from": <%= from("f", [], ["any"]) %>,
                     "to": [ { "mouse_key": { "speed_multiplier": 2.0 } } ],
                     "conditions": [ { "type": "variable_if", "name": "mouse_keys_full", "value": 1 } ]
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("d", ["right_command"], ["any"]) %>,
+                    "from": <%= from("d", [], ["any"]) %>,
                     "to": [ { "mouse_key": { "speed_multiplier": 0.5 } } ],
                     "conditions": [ { "type": "variable_if", "name": "mouse_keys_full", "value": 1 } ]
                 },
                 {
                     "type": "basic",
-                    "from": <%= from("s", ["right_command"], ["any"]) %>,
+                    "from": <%= from("s", [], ["any"]) %>,
                     "to": [
                         { "set_variable": { "name": "mouse_keys_full_scroll", "value": 1 } }
                     ],
@@ -149,4 +156,3 @@
         }
     ]
 }
-
