@@ -10,7 +10,7 @@ require_relative '../lib/karabiner.rb'
 
 def main
   puts JSON.pretty_generate(
-    'title' => 'Change caps_lock key (rev 4)',
+    'title' => 'Change caps_lock key (rev 5)',
     'rules' => [
       {
         'description' => 'Change caps_lock key to command+control+option+shift if pressed with other keys',
@@ -160,28 +160,6 @@ def main
               {
                 'key_code' => 'caps_lock',
                 'hold_down_milliseconds' => 500,
-              },
-            ],
-          },
-        ],
-      },
-      {
-        'description' => 'Disable caps_lock delay (rev 1)',
-        'manipulators' => [
-          {
-            'type' => 'basic',
-            'from' => {
-              'key_code' => 'caps_lock',
-              'modifiers' => Karabiner.from_modifiers,
-            },
-            'to' => [
-              {
-                'key_code' => 'caps_lock',
-                'hold_down_milliseconds' => 200,
-              },
-              # Put vk_none in order to ensure both caps_lock key_down and key_up events are fired at physical key down.
-              {
-                'key_code' => 'vk_none',
               },
             ],
           },
