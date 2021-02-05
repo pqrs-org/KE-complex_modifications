@@ -1,0 +1,80 @@
+{
+  "title": "Keychron K6 Better Escape Key",
+  "rules": [
+    {
+      "description": "Shift + Esc to ~",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "escape",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "repeat": true,
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Command + Esc to Command + ` (for window switching)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "escape",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Command + Shift + Esc to Command + ~ (for reverse window switching)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "escape",
+            "modifiers": {
+              "mandatory": [
+                "command",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": [
+                "command",
+                "shift"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
