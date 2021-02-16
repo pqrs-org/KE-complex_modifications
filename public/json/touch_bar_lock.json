@@ -1,0 +1,27 @@
+{
+  "title": "Touch bar lock",
+  "maintainers": ["akrmn"],
+  "rules": [
+    {
+      "description": "shift+fn toggles touchbar mode between 'fullControlStrip' and 'functionKeys'",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ]
+            },
+            "key_code": "fn"
+          },
+          "to": [
+            {
+              "shell_command": "if [[ $(defaults read com.apple.touchbar.agent PresentationModeGlobal) == 'functionKeys' ]]; then defaults write com.apple.touchbar.agent PresentationModeGlobal 'fullControlStrip'; else defaults write com.apple.touchbar.agent PresentationModeGlobal 'functionKeys'; fi && pkill ControlStrip"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
