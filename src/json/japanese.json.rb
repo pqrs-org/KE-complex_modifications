@@ -6,11 +6,11 @@
 #
 
 require 'json'
-require_relative '../lib/karabiner.rb'
+require_relative '../lib/karabiner'
 
 def main
   puts JSON.pretty_generate(
-    'title' => 'For Japanese （日本語環境向けの設定） (rev 5)',
+    'title' => 'For Japanese （日本語環境向けの設定） (rev 6)',
     'rules' => [
       {
         'description' => 'コマンドキーを単体で押したときに、英数・かなキーを送信する。（左コマンドキーは英数、右コマンドキーはかな） (rev 3)',
@@ -116,6 +116,63 @@ def main
             'to_if_held_down' => [
               {
                 'key_code' => 'right_control',
+              },
+            ],
+            'to_if_alone' => [
+              {
+                'key_code' => 'japanese_kana',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        'description' => 'オプションキーを単体で押したときに、英数・かなキーを送信する。（左オプションキーは英数キー、右オプションキーはかなキー）',
+        'manipulators' => [
+          {
+            'type' => 'basic',
+            'from' => {
+              'key_code' => 'left_option',
+              'modifiers' => Karabiner.from_modifiers,
+            },
+            'parameters' => {
+              'basic.to_if_held_down_threshold_milliseconds' => 100,
+            },
+            'to' => [
+              {
+                'key_code' => 'left_option',
+                'lazy' => true,
+              },
+            ],
+            'to_if_held_down' => [
+              {
+                'key_code' => 'left_option',
+              },
+            ],
+            'to_if_alone' => [
+              {
+                'key_code' => 'japanese_eisuu',
+              },
+            ],
+          },
+          {
+            'type' => 'basic',
+            'from' => {
+              'key_code' => 'right_option',
+              'modifiers' => Karabiner.from_modifiers,
+            },
+            'parameters' => {
+              'basic.to_if_held_down_threshold_milliseconds' => 100,
+            },
+            'to' => [
+              {
+                'key_code' => 'right_option',
+                'lazy' => true,
+              },
+            ],
+            'to_if_held_down' => [
+              {
+                'key_code' => 'right_option',
               },
             ],
             'to_if_alone' => [
@@ -339,7 +396,7 @@ def main
             'to' => [
               {
                 'key_code' => 'left_option',
-              }
+              },
             ],
             'to_if_alone' => [
               {
@@ -359,7 +416,7 @@ def main
             'to' => [
               {
                 'key_code' => 'right_option',
-              }
+              },
             ],
             'to_if_alone' => [
               {
