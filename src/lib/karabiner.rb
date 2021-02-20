@@ -19,6 +19,7 @@ module Karabiner
       '^org\.mozilla\.firefox$',
       '^org\.mozilla\.nightly$',
       '^com\.microsoft\.Edge', # prefix
+      '^com\.microsoft\.edgemac', # prefix
       '^com\.google\.Chrome$',
       '^com\.apple\.Safari$',
     ],
