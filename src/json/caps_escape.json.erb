@@ -1,0 +1,16 @@
+{
+    "title": "Caps Lock to Escape, enable Caps Lock when held",
+    "rules": [
+        {
+            "description": "Caps Lock to Escape on single press, Caps Lock on press and hold.",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("caps_lock", [], ["any"]) %>,
+                    "to": <%= to([["escape"]]) %>,
+                    "to_if_held_down": <%= to([["caps_lock"]]) %>
+                }
+            ]
+        }
+    ]
+}
