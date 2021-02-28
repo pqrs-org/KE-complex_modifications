@@ -1,0 +1,44 @@
+{
+    "title": "Swap left-ctrl and command except in Terminal",
+    "rules": [
+        {
+            "description": "Swap left-ctrl and command except in Terminal",
+            "manipulators": [
+                {
+                    "from": {
+                        "key_code": "left_command"
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_control"
+                        }
+                    ],
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_unless",
+                            "bundle_identifiers": [ "^com\\.apple\\.Terminal" ]
+                        }
+                    ]
+                },
+                {
+                    "from": {
+                        "key_code": "left_control"
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_command"
+                        }
+                    ],
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_unless",
+                            "bundle_identifiers": [ "^com\\.apple\\.Terminal" ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
