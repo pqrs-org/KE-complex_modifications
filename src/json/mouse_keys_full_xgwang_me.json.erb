@@ -10,7 +10,7 @@
 
                 {
                     "type": "basic",
-                    "from": <%= from("right_command", [], ["any"]) %>,
+                    "from": <%= from("right_command", ["left_command"], ["any"]) %>,
                     "to": <%= to([["right_command"]]) %>,
                     "to_after_key_up": [
                         { "set_variable": { "name": "mouse_keys_full", "value": 0 } }
@@ -26,7 +26,7 @@
 
                 {
                     "type": "basic",
-                    "from": <%= from("right_command", [], ["any"]) %>,
+                    "from": <%= from("right_command", ["left_command"], ["any"]) %>,
                     "to": <%= to([["right_command"]]) %>,
                     "to_after_key_up": [
                         { "set_variable": { "name": "mouse_keys_full", "value": 1 } }
