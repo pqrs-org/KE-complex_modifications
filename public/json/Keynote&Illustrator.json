@@ -1,0 +1,269 @@
+{
+  "title": "Mouse 4,5 -> Keynote Zoom",
+  "maintainers":[
+   "juonic"
+  ],
+  "rules": [
+    {
+      "description": "Mouse button 4 to zoom out",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button4"
+          },
+          "to": [
+            {
+              "key_code": "comma",
+              "modifiers":[
+               "left_command",
+               "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.iWork\\.Keynote$"
+              ]
+            }
+          ]
+        }
+       ]
+     },
+    {
+      "description": "Mouse button 5 to zoom in",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button5"
+          },
+          "to": [
+            {
+              "key_code": "period",
+              "modifiers":[
+               "left_command",
+               "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.iWork\\.Keynote$"
+              ]
+            }
+          ]
+
+        }
+      ]
+    },
+    {
+      "description": "Keynote Group to CTR+G",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "g",
+             "modifiers":{
+              "mandatory":[
+                "left_command"
+                ]
+             }
+          },
+          "to": [
+            {
+              "key_code": "g",
+              "modifiers":[
+               "left_command",
+               "left_option"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.iWork\\.Keynote$"
+              ]
+            }
+          ]
+       }
+      ]
+    },
+    {
+      "description": "Keynote UnGroup to CTR+Shift+G",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "g",
+             "modifiers":{
+              "mandatory":[
+                "left_command",
+                "left_shift"
+                ]
+             }
+          },
+          "to": [
+            {
+              "key_code": "g",
+              "modifiers":[
+               "left_command",
+               "left_option",
+               "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.iWork\\.Keynote$"
+              ]
+            }
+          ]
+       }
+      ]
+    },
+    {
+      "description": "Keynote Layer Top",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "open_bracket",
+             "modifiers":{
+              "mandatory":[
+                "left_command",
+                "left_shift"
+                ]
+             }
+          },
+          "to": [
+            {
+              "key_code": "f",
+              "modifiers":[
+               "left_command",
+               "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.iWork\\.Keynote$"
+              ]
+            }
+          ]
+       }
+      ]
+    },
+    {
+      "description": "Keynote Layer Bottom",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "close_bracket",
+             "modifiers":{
+              "mandatory":[
+                "left_command",
+                "left_shift"
+                ]
+             }
+          },
+          "to": [
+            {
+              "key_code": "b",
+              "modifiers":[
+               "left_command",
+               "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.iWork\\.Keynote$"
+              ]
+            }
+          ]
+       }
+      ]
+    },
+    {
+      "description": "Illustrator Layer Bottom",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "close_bracket",
+             "modifiers":{
+              "mandatory":[
+                "left_command",
+                "left_shift"
+                ]
+             }
+          },
+          "to": [
+            {
+              "key_code": "open_bracket",
+              "modifiers":[
+               "left_command",
+               "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.adobe\\.illustrator$"
+              ]
+            }
+          ]
+       }
+      ]
+    },
+    {
+      "description": "Illustrator Layer Top",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "open_bracket",
+             "modifiers":{
+              "mandatory":[
+                "left_command",
+                "left_shift"
+                ]
+             }
+          },
+          "to": [
+            {
+              "key_code": "close_bracket",
+              "modifiers":[
+               "left_command",
+               "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.adobe\\.illustrator$"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
