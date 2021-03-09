@@ -1,0 +1,59 @@
+{
+  "title": "KKmoon USB game foot switch to Microsoft Teams Mute",
+  "rules": [
+    {
+      "description": "Focus Microsoft Teams Meeting Manager Window",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "b"
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "com.microsoft.teams"
+              ]
+            }
+          ],
+          "to": [
+            {
+              "shell_command": "if [ $(ps aux | grep -v grep | grep -ci \"Microsoft Teams.app/Contents/Frameworks/Microsoft Teams Helper.app\") -gt 0 ]; then osascript -e 'activate application id \"com.microsoft.teams\"' -e 'tell application \"System Events\" to keystroke \"m\" using {command down, shift down}'; fi",
+              "lazy": true,
+              "repeat": true
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Change b to Shift + Cmd + M",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "b"
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.teams$"
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "m",
+              "modifiers": [
+                "left_shift",
+                "left_gui"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
