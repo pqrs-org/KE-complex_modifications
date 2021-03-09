@@ -1,0 +1,141 @@
+{
+  "title": "Quickly switch to Chinese input on a JIS keyboard",
+  "rules": [
+    {
+      "description": "kana*2 to Chinese",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "japanese_kana"
+          },
+          "to": [
+            {
+              "select_input_source": {
+                "language": "zh*"
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "japanese_kana pressed",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "japanese_kana"
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "japanese_kana pressed",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "japanese_kana"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "japanese_kana pressed",
+                  "value": 0
+                }
+              }
+            ],
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "japanese_kana pressed",
+                  "value": 0
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "description": "kana to Japanese/Chinese",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "japanese_kana"
+          },
+          "to": [
+            {
+              "select_input_source": {
+                "language": "zh*"
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                  "language": "ja"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "japanese_kana"
+          },
+          "to": [
+            {
+              "select_input_source": {
+                "input_mode_id": "com.apple.inputmethod.Japanese"
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "input_source_unless",
+              "input_sources": [
+                {
+                  "language": "ja"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "kana+eisuu to Chinese",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "japanese_kana"
+              },
+              {
+                "key_code": "japanese_eisuu"
+              }
+            ]
+          },
+          "to": [
+            {
+              "select_input_source": {
+                "language": "zh*"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
