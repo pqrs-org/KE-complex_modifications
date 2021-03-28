@@ -1,0 +1,83 @@
+{
+  "title": "Sync iTunes and System Volume (no key repeat)",
+  "rules": [
+    {
+	  "description": "Sync iTunes and System Volume (on volume key events)",
+	  "manipulators": [
+		{
+		  "type": "basic",
+		  "from": {
+			"key_code": "volume_increment",
+			"modifiers": {
+			  "optional": [ "any" ]
+			}
+		  },
+		  "to": [
+			{
+			  "shell_command": "osascript -e 'if application \"iTunes\" is running then' -e 'tell application \"Music\" to try' -e 'set the sound volume to output volume of (get volume settings)' -e 'on error' -e 'set the sound volume to sound volume + 6.5' -e 'end try' -e 'end if'"
+			},
+			{
+			  "key_code": "volume_increment"
+			}
+		  ]
+		},
+		{
+		  "type": "basic",
+		  "from": {
+			"key_code": "volume_decrement",
+			"modifiers": {
+			  "optional": [ "any" ]
+			}
+		  },
+		  "to": [
+			{
+			  "shell_command": "osascript -e 'if application \"Music\" is running then' -e 'tell application \"Music\" to try' -e 'set the sound volume to output volume of (get volume settings)' -e 'on error' -e 'set the sound volume to sound volume - 6.5' -e 'end try' -e 'end if'"
+			},
+			{
+			  "key_code": "volume_decrement"
+			}
+		  ]
+		}
+	  ]
+	},
+	{
+	  "description": "Sync iTunes and System Volume (on volume key events, allow offset)",
+	  "manipulators": [
+		{
+		  "type": "basic",
+		  "from": {
+			"key_code": "volume_increment",
+			"modifiers": {
+			  "optional": [ "any" ]
+			}
+		  },
+		  "to": [
+			{
+			  "shell_command": "osascript -e 'if application \"iTunes\" is running then' -e 'tell application \"Music\" to set the sound volume to sound volume + 6.5' -e 'end if'"
+			},
+			{
+			  "key_code": "volume_increment"
+			}
+		  ]
+		},
+		{
+		  "type": "basic",
+		  "from": {
+			"key_code": "volume_decrement",
+			"modifiers": {
+			  "optional": [ "any" ]
+			}
+		  },
+		  "to": [
+			{
+			  "shell_command": "osascript -e 'if application \"iTunes\" is running then' -e 'tell application \"Music\" to set the sound volume to sound volume - 6.5' -e 'end if'"
+			},
+			{
+			  "key_code": "volume_decrement"
+			}
+		  ]
+		}
+	  ]
+	}
+  ]
+}
