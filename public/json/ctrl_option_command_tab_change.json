@@ -1,0 +1,77 @@
+{
+    "title": "Ctrl/Option/Command + Tab Change",
+    "rules": [
+      {
+        "description": "Ctrl/Option/Command + Tab Change",
+        "manipulators": [
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "tab",
+              "modifiers": {
+                "mandatory": [
+                  "command"
+                ],
+                "optional": [
+                  "any"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "tab",
+                "modifiers": [
+                  "control"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "tab",
+              "modifiers": {
+                "mandatory": [
+                  "option"
+                ],
+                "optional": [
+                  "any"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "tab",
+                "modifiers": [
+                  "command"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "tab",
+              "modifiers": {
+                "mandatory": [
+                  "control"
+                ],
+                "optional": [
+                  "any"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "tab",
+                "modifiers": [
+                  "option"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+  
