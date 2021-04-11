@@ -21,6 +21,7 @@ module Karabiner
       '^com\.microsoft\.Edge', # prefix
       '^com\.microsoft\.edgemac', # prefix
       '^com\.google\.Chrome$',
+      '^com\.brave\.Browser$',
       '^com\.apple\.Safari$',
     ],
 
