@@ -167,7 +167,7 @@ ROMAN_MAP = {
   '『' => [key_with_shift('close_bracket')],
   '』' => [key_with_shift('backslash')],
   '．' => [key_with_option('period')],
-  ',' => [key('comma')],
+  '，' => [key_with_option('comma')],
 }.freeze
 
 ########################################
@@ -276,7 +276,7 @@ def main
           normal_key('m', 'そ'),
           normal_key('n', 'め'),
           normal_key('o', 'つ'),
-          normal_key('p', ','),
+          normal_key('p', '，'),
           normal_key('q', '。'),
           normal_key('r', 'こ'),
           normal_key('s', 'し'),
