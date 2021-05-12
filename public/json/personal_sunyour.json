@@ -280,6 +280,70 @@
       ]
     },
     {
+      "description": "Change left_gui to left_alt in Emacs",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_gui",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_alt"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^org\\.gnu\\.Emacs$",
+                "^org\\.gnu\\.AquamacsEmacs$",
+                "^org\\.gnu\\.Aquamacs$",
+                "^org\\.pqrs\\.unknownapp.conkeror$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Change left_alt to left_gui in Emacs",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_alt",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_gui"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^org\\.gnu\\.Emacs$",
+                "^org\\.gnu\\.AquamacsEmacs$",
+                "^org\\.gnu\\.Aquamacs$",
+                "^org\\.pqrs\\.unknownapp.conkeror$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "description": "Change left_gui-spacebar to left_alt-spacebar in Emacs",
       "manipulators": [
         {

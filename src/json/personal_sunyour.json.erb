@@ -95,6 +95,28 @@
       ]
      },
     {
+      "description": "Change left_gui to left_alt in Emacs",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("left_gui", [], ["any"]) %>,
+          "to": <%= to([["left_alt"]]) %>,
+          "conditions": [ <%= frontmost_application_if("emacs") %> ]
+        }
+      ]
+    },
+    {
+      "description": "Change left_alt to left_gui in Emacs",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("left_alt", [], ["any"]) %>,
+          "to": <%= to([["left_gui"]]) %>,
+          "conditions": [ <%= frontmost_application_if("emacs") %> ]
+        }
+      ]
+    },
+    {
       "description": "Change left_gui-spacebar to left_alt-spacebar in Emacs",
       "manipulators": [
         {
