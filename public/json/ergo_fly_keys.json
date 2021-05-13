@@ -110,7 +110,7 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "v",
+            "key_code": "caps_lock",
             "modifiers": {
               "optional": [
                 "any"
@@ -119,7 +119,7 @@
           },
           "to_if_alone": [
             {
-              "key_code": "v"
+              "key_code": "grave_accent_and_tilde"
             }
           ],
           "to_if_held_down": [
@@ -135,7 +135,7 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "n",
+            "key_code": "quote",
             "modifiers": {
               "optional": [
                 "any"
@@ -144,7 +144,7 @@
           },
           "to_if_alone": [
             {
-              "key_code": "n"
+              "key_code": "quote"
             }
           ],
           "to_if_held_down": [
@@ -235,22 +235,6 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "caps_lock",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "grave_accent_and_tilde"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
             "key_code": "b",
             "modifiers": {
               "optional": [
@@ -331,7 +315,167 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "y",
+            "key_code": "v",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "home",
+              "modifiers": [
+
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "ergo_fly_keys_spacebar",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "spacebar"
+              },
+              {
+                "key_code": "v"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "detect_key_down_uninterruptedly": true,
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "ergo_fly_keys_spacebar",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "ergo_fly_keys_spacebar",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "DEBUG simultaneous",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "home",
+              "modifiers": [
+
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 300
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "n",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "end",
+              "modifiers": [
+
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "ergo_fly_keys_spacebar",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "spacebar"
+              },
+              {
+                "key_code": "n"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "detect_key_down_uninterruptedly": true,
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "ergo_fly_keys_spacebar",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "ergo_fly_keys_spacebar",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "DEBUG simultaneous",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "end",
+              "modifiers": [
+
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 300
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "c",
             "modifiers": {
               "optional": [
                 "any"
@@ -362,7 +506,7 @@
                 "key_code": "spacebar"
               },
               {
-                "key_code": "y"
+                "key_code": "c"
               }
             ],
             "simultaneous_options": {
@@ -479,166 +623,6 @@
             },
             {
               "key_code": "return_or_enter",
-              "modifiers": [
-
-              ]
-            }
-          ],
-          "parameters": {
-            "basic.simultaneous_threshold_milliseconds": 300
-          }
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "t",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "home",
-              "modifiers": [
-
-              ]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "ergo_fly_keys_spacebar",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "spacebar"
-              },
-              {
-                "key_code": "t"
-              }
-            ],
-            "simultaneous_options": {
-              "key_down_order": "strict",
-              "key_up_order": "strict_inverse",
-              "detect_key_down_uninterruptedly": true,
-              "to_after_key_up": [
-                {
-                  "set_variable": {
-                    "name": "ergo_fly_keys_spacebar",
-                    "value": 0
-                  }
-                }
-              ]
-            },
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "ergo_fly_keys_spacebar",
-                "value": 1
-              }
-            },
-            {
-              "set_variable": {
-                "name": "DEBUG simultaneous",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "home",
-              "modifiers": [
-
-              ]
-            }
-          ],
-          "parameters": {
-            "basic.simultaneous_threshold_milliseconds": 300
-          }
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "c",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "end",
-              "modifiers": [
-
-              ]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "ergo_fly_keys_spacebar",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "spacebar"
-              },
-              {
-                "key_code": "c"
-              }
-            ],
-            "simultaneous_options": {
-              "key_down_order": "strict",
-              "key_up_order": "strict_inverse",
-              "detect_key_down_uninterruptedly": true,
-              "to_after_key_up": [
-                {
-                  "set_variable": {
-                    "name": "ergo_fly_keys_spacebar",
-                    "value": 0
-                  }
-                }
-              ]
-            },
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "ergo_fly_keys_spacebar",
-                "value": 1
-              }
-            },
-            {
-              "set_variable": {
-                "name": "DEBUG simultaneous",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "end",
               "modifiers": [
 
               ]
@@ -1404,10 +1388,10 @@
           },
           "to": [
             {
-              "key_code": "b",
-              "modifiers": [
-                "right_option"
-              ]
+              "key_code": "escape"
+            },
+            {
+              "key_code": "b"
             }
           ],
           "conditions": [
@@ -1467,10 +1451,10 @@
               }
             },
             {
-              "key_code": "b",
-              "modifiers": [
-                "right_option"
-              ]
+              "key_code": "escape"
+            },
+            {
+              "key_code": "b"
             }
           ],
           "parameters": {
@@ -1606,10 +1590,10 @@
           },
           "to": [
             {
-              "key_code": "f",
-              "modifiers": [
-                "right_option"
-              ]
+              "key_code": "escape"
+            },
+            {
+              "key_code": "f"
             }
           ],
           "conditions": [
@@ -1669,10 +1653,10 @@
               }
             },
             {
-              "key_code": "f",
-              "modifiers": [
-                "right_option"
-              ]
+              "key_code": "escape"
+            },
+            {
+              "key_code": "f"
             }
           ],
           "parameters": {

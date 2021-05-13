@@ -26,27 +26,26 @@ end
 def rules(trigger_key)
   variable = "ergo_fly_keys_#{trigger_key}"
   [
-    dual_key("right_command", "hyphen", "right_shift"),
+    dual_key("right_command", "hyphen",     "right_shift"),
     dual_key("right_option",  "equal_sign", "right_command"),
 
-    dual_key("left_option",   "open_bracket", "left_command"),
-    dual_key("left_command",  "close_bracket", "left_shift"),
+    dual_key("left_option",   "open_bracket",   "left_command"),
+    dual_key("left_command",  "close_bracket",  "left_shift"),
 
-    dual_key("v", "v", "left_option"),
-    dual_key("n", "n", "right_option"),
+    dual_key("caps_lock", "grave_accent_and_tilde", "left_option"),
+    dual_key("quote",     "quote",                  "right_option"),
 
     dual_key("slash",                   "slash",     "right_control"),
     dual_key("grave_accent_and_tilde",  "backslash", "left_control"),
     dual_key("left_shift",              "backslash", "left_control"),
 
-    single_key("caps_lock", "grave_accent_and_tilde"),
-
     two_part_trigger_combo(trigger_key, variable, "b", "tab", []),
 
-    two_part_trigger_combo(trigger_key, variable, "y", "escape", []),
+    two_part_trigger_combo(trigger_key, variable, "v", "home", []),
+    two_part_trigger_combo(trigger_key, variable, "n", "end", []),
+
+    two_part_trigger_combo(trigger_key, variable, "c", "escape", []),
     two_part_trigger_combo(trigger_key, variable, "m", "return_or_enter", []),
-    two_part_trigger_combo(trigger_key, variable, "t", "home", []),
-    two_part_trigger_combo(trigger_key, variable, "c", "end", []),
 
     two_part_trigger_combo(trigger_key, variable, "i", "up_arrow", []),
     two_part_trigger_combo(trigger_key, variable, "j", "left_arrow", []),
@@ -60,11 +59,11 @@ def rules(trigger_key)
 
     four_part_trigger_combo(
         trigger_key, variable, "u", "left_arrow", ["left_option"],
-        [ { "key_code": "b", "modifiers": [ "right_option" ] }, ]
+        [ { "key_code": "escape" }, { "key_code": "b" }, ]
     ),
     four_part_trigger_combo(
         trigger_key, variable, "o", "right_arrow", ["left_option"],
-        [ { "key_code": "f", "modifiers": [ "right_option" ] }, ]
+        [{ "key_code": "escape" }, { "key_code": "f"}, ]
     ),
     four_part_trigger_combo(
         trigger_key, variable, "h", "left_arrow", ["left_command"],
