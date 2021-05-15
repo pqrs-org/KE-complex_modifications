@@ -10,6 +10,44 @@
         {
           "type": "basic",
           "from": {
+            "key_code": "d",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "escape"
+            },
+            {
+              "key_code": "hyphen",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
             "key_code": "z",
             "modifiers": {
               "mandatory": [
@@ -112,9 +150,9 @@
               "key_code": "escape"
             },
             {
-              "key_code": "hyphen",
+              "key_code": "r",
               "modifiers": [
-                "left_shift"
+                "right_control"
               ]
             }
           ],
@@ -159,9 +197,9 @@
               "key_code": "escape"
             },
             {
-              "key_code": "slash",
+              "key_code": "r",
               "modifiers": [
-                "left_shift"
+                "right_control"
               ]
             }
           ],
