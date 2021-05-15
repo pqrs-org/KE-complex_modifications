@@ -26,6 +26,9 @@ end
 def rules(trigger_key)
   variable = "ergo_fly_keys_#{trigger_key}"
   [
+    single_key("tab",           [ { "key_code" => "x", "modifiers" => ["right_control"], } ] ),
+    single_key("open_bracket",  [ { "key_code" => "x", "modifiers" => ["right_control"], } ] ),
+
     dual_key("right_command", "hyphen",     "right_shift"),
     dual_key("right_option",  "equal_sign", "right_command"),
 
@@ -101,11 +104,7 @@ def single_key(input, output)
       "key_code" => input,
       "modifiers" => { "optional" => ["any"] },
     },
-    "to" => [
-      {
-        "key_code" => output,
-      },
-    ],
+    "to" => output,
   }
 end
 
