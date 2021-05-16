@@ -66,7 +66,7 @@ def rules(trigger_key)
     ),
     four_part_trigger_combo(
         trigger_key, variable, "o", "right_arrow", ["left_option"],
-        [{ "key_code": "escape" }, { "key_code": "f"}, ]
+        [ { "key_code": "escape" }, { "key_code": "f"}, ]
     ),
     four_part_trigger_combo(
         trigger_key, variable, "h", "left_arrow", ["left_command"],
@@ -83,7 +83,7 @@ def rules(trigger_key)
     ),
     four_part_trigger_combo(
         trigger_key, variable, "r", "delete_forward", ["left_option"],
-        [ { "key_code": "d", "modifiers": [ "right_option" ] }, ]
+        [ { "key_code": "escape" }, { "key_code": "d" }, ]
     ),
     four_part_trigger_combo(
         trigger_key, variable, "a", "delete_or_backspace", ["left_command"],
