@@ -6,63 +6,64 @@
 <h4>Included key bindings</h4>
 <table class="table">
   <tr>
-    <th>Shortcut</th>
-    <th>Action</th>
+    <th>Input</th>
+    <th>Ouput</th>
     <th>Notes</th>
   </tr>
   <tr>
     <td>⌘Z</td>
-    <td colspan="2">Undo</td>
+    <td>Undo</td>
   </tr>
   <tr>
     <td>⌘⇧Z</td>
     <td>Redo</td>
-    <td><p><a href="http://zsh.sourceforge.net">Zsh</a> is the only shell that supports Redo, but
-      unfortunately, it's not bound by default. To enable this shortcut, you need to add the
-      following to your <code>~/.zshrc</code> file:</p>
-      <pre>bindkey "^[^R" redo</pre></td>
+    <td>
+      <a href="http://zsh.sourceforge.net">Zsh</a> is the only shell that supports <kbd>redo</kbd>,
+      but unfortunately, it's not bound in the default keymap. To enable this shortcut, you need to
+      add the following to your <code>~/.zshrc</code> file:
+      <pre>bindkey "^[^R" redo</pre>
+    </td>
   </tr>
   <tr>
     <td>⌘D</td>
     <td>Duplicate last word</td>
-    <td>(Zsh only)</td>
+    <td>Not bound by default in Bash/Readline.</td>
   </tr>
   <tr>
     <td>⌥←</td>
-    <td colspan="2">Move cursor one word backward</td>
+    <td>Move cursor one word backward</td>
   </tr>
   <tr>
     <td>⌥→</td>
-    <td colspan="2">Move cursor one word forward</td>
+    <td>Move cursor one word forward</td>
   </tr>
   <tr>
     <td>⌘←</td>
-    <td colspan="2">Move cursor to beginning of line</td>
+    <td>Move cursor to beginning of line</td>
   </tr>
   <tr>
     <td>⌘→</td>
-    <td colspan="2">Move cursor to end of line</td>
+    <td>Move cursor to end of line</td>
   </tr>
   <tr>
     <td>⌥⌫</td>
-    <td colspan="2">Delete one word backward</td>
+    <td>Delete one word backward</td>
   </tr>
   <tr>
     <td>⌥⌦</td>
-    <td colspan="2">Delete one word forward</td>
+    <td>Delete one word forward</td>
   </tr>
   <tr>
     <td>⌘⌫</td>
     <td>Delete to beginning of line</td>
-    <td><p>In <a href="http://zsh.sourceforge.net">Zsh</a>, the command
-      <code>backward-kill-line</code> does not have a keybinding by default and this shortcut will
-      delete the whole line instead. To get it to work correctly, you need to add the following to
-      your <code>~/.zshrc</code> file:.</p>
+    <td><p>In <a href="http://zsh.sourceforge.net">Zsh</a>, this shortcut will delete the whole
+      line by default. To get it to work correctly, you need to add the following to your
+      <code>~/.zshrc</code> file:.</p>
       <pre>bindkey "^U" backward-kill-line</pre></td>
   </tr>
   <tr>
     <td>⌘⌦</td>
-    <td colspan="2">Delete to end of line</td>
+    <td>Delete to end of line</td>
   </tr>
 </table>
 

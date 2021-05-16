@@ -60,7 +60,13 @@
           },
           "to": [
             {
-              "key_code": "hyphen",
+              "key_code": "x",
+              "modifiers": [
+                "right_control"
+              ]
+            },
+            {
+              "key_code": "u",
               "modifiers": [
                 "left_control"
               ]
@@ -76,57 +82,6 @@
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$"
-              ]
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "en"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "z",
-            "modifiers": {
-              "mandatory": [
-                "command"
-              ],
-              "optional": [
-
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "slash",
-              "modifiers": [
-                "left_control"
-              ]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^io\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$"
-              ]
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "fi"
-                }
               ]
             }
           ]
