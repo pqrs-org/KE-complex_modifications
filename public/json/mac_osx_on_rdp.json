@@ -1,7 +1,7 @@
 {
     "title": "Mac OSX Style Shortcuts for RDP sessions. Translates OSX shortcuts to PC equivalent",
     "maintainers": [
-      "varp"
+        "varp"
     ],
     "rules": [
 
@@ -636,7 +636,7 @@
         },
 
         {
-            "description": "Mac OSX RDP: Fn+Space To Switch Input (Command+Space)",
+            "description": "Mac OSX RDP: Fn+Space To Switch Input (Left Shift+Left Alt)",
             "manipulators": [{
                 "conditions": [{
                     "bundle_identifiers": [
@@ -661,17 +661,51 @@
                 "to": [
 
                     {
-                        "key_code": "left_gui",
-                        "lazy": true
-                    },
-                    {
-                        "key_code": "spacebar",
-                        "modifiers": ["right_gui"]
+                        "key_code": "left_shift",
+                        "modifiers": [
+                            "left_option"
+                        ]
                     }
                 ],
                 "type": "basic"
             }]
         },
+        {
+            "description": "Mac OSX RDP: Cmd+Space To Switch Input (Left Shift+Left Alt)",
+            "manipulators": [{
+                "conditions": [{
+                    "bundle_identifiers": [
+                        "^com\\.microsoft\\.rdc$",
+                        "^com\\.microsoft\\.rdc\\.mac$",
+                        "^com\\.microsoft\\.rdc\\.macos$",
+                        "^com\\.microsoft\\.rdc\\.osx\\.beta$",
+                        "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                        "^com\\.teamviewer\\.TeamViewer$",
+                        "^com\\.vmware\\.horizon$"
+                    ],
+                    "type": "frontmost_application_if"
+                }],
+                "from": {
+                    "key_code": "spacebar",
+                    "modifiers": {
+                        "mandatory": [
+                            "command"
+                        ]
+                    }
+                },
+                "to": [
+
+                    {
+                        "key_code": "left_shift",
+                        "modifiers": [
+                            "left_option"
+                        ]
+                    }
+                ],
+                "type": "basic"
+            }]
+        },
+
         {
             "description": "Mac OSX RDP: Quit Application (Alt+F4 to Command+Q)",
             "manipulators": [{
