@@ -705,6 +705,41 @@
                 "type": "basic"
             }]
         },
+        {
+            "description": "Mac OSX RDP: Cmd+Space To Switch Input (Left Shift+Left Ctrl)",
+            "manipulators": [{
+                "conditions": [{
+                    "bundle_identifiers": [
+                        "^com\\.microsoft\\.rdc$",
+                        "^com\\.microsoft\\.rdc\\.mac$",
+                        "^com\\.microsoft\\.rdc\\.macos$",
+                        "^com\\.microsoft\\.rdc\\.osx\\.beta$",
+                        "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                        "^com\\.teamviewer\\.TeamViewer$",
+                        "^com\\.vmware\\.horizon$"
+                    ],
+                    "type": "frontmost_application_if"
+                }],
+                "from": {
+                    "key_code": "spacebar",
+                    "modifiers": {
+                        "mandatory": [
+                            "command"
+                        ]
+                    }
+                },
+                "to": [
+
+                    {
+                        "key_code": "left_shift",
+                        "modifiers": [
+                            "left_control"
+                        ]
+                    }
+                ],
+                "type": "basic"
+            }]
+        },
 
         {
             "description": "Mac OSX RDP: Quit Application (Alt+F4 to Command+Q)",
