@@ -1,0 +1,39 @@
+{
+  "title": "Slack shortcuts",
+  "rules": [
+    {
+      "description": "⌘-k to hyperlink in Slack",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "description": "Only for Slack",
+              "bundle_identifiers": [
+                "com.tinyspeck.slackmacgap"
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "u",
+              "modifiers": [
+                "shift",
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
