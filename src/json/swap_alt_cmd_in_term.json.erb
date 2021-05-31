@@ -6,32 +6,16 @@
             "description": "Swap CMD and Option keys in the terminal (useful for CMD + f/b/d/./_ shell keybindings)",
             "manipulators": [
                 {
-                    "conditions": [
-                      <%= frontmost_application_if("terminal") %>
-                    ],
-                    "from": {
-                        "key_code": "left_command"
-                    },
-                    "to": [
-                        {
-                            "key_code": "left_option"
-                        }
-                    ],
-                    "type": "basic"
+                    "type": "basic",
+                    "conditions": [ <%= frontmost_application_if("terminal") %> ],
+                    "from": <%= from("left_command", [], ["any"]) %>,
+                    "to": <%= to([["left_option"]]) %>
                 },
                 {
-                    "conditions": [
-                      <%= frontmost_application_if("terminal") %>
-                    ],
-                    "from": {
-                        "key_code": "left_option"
-                    },
-                    "to": [
-                        {
-                            "key_code": "left_command"
-                        }
-                    ],
-                    "type": "basic"
+                    "type": "basic",
+                    "conditions": [ <%= frontmost_application_if("terminal") %> ],
+                    "from": <%= from("left_option", [], ["any"]) %>,
+                    "to": <%= to([["left_command"]]) %>
                 }
             ]
         }
