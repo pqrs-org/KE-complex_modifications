@@ -1,57 +1,61 @@
 {
-    "rules": [
+  "title": "Swap CMD and Option keys in the terminal (useful for CMD + f/b/d/./_ shell keybindings)",
+  "maintainers": [
+    "jjo"
+  ],
+  "rules": [
+    {
+      "description": "Swap CMD and Option keys in the terminal (useful for CMD + f/b/d/./_ shell keybindings)",
+      "manipulators": [
         {
-            "description": "Swap CMD and Option keys in the terminal (useful for CMD + f/b/d/./_ shell keybindings)",
-            "manipulators": [
-                {
-                    "conditions": [
-                        {
-                            "bundle_identifiers": [
-                                "^com\\.apple\\.Terminal$",
-                                "^com\\.googlecode\\.iterm2$",
-                                "^co\\.zeit\\.hyperterm$",
-                                "^co\\.zeit\\.hyper$",
-                                "^io\\.alacritty$",
-                                "^net\\.kovidgoyal\\.kitty$"
-                            ],
-                            "type": "frontmost_application_if"
-                        }
-                    ],
-                    "from": {
-                        "key_code": "left_command"
-                    },
-                    "to": [
-                        {
-                            "key_code": "left_option"
-                        }
-                    ],
-                    "type": "basic"
-                },
-                {
-                    "conditions": [
-                        {
-                            "bundle_identifiers": [
-                                "^com\\.apple\\.Terminal$",
-                                "^com\\.googlecode\\.iterm2$",
-                                "^co\\.zeit\\.hyperterm$",
-                                "^co\\.zeit\\.hyper$",
-                                "^io\\.alacritty$",
-                                "^net\\.kovidgoyal\\.kitty$"
-                            ],
-                            "type": "frontmost_application_if"
-                        }
-                    ],
-                    "from": {
-                        "key_code": "left_option"
-                    },
-                    "to": [
-                        {
-                            "key_code": "left_command"
-                        }
-                    ],
-                    "type": "basic"
-                }
-            ]
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            }
+          ],
+          "from": {
+            "key_code": "left_command"
+          },
+          "to": [
+            {
+              "key_code": "left_option"
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            }
+          ],
+          "from": {
+            "key_code": "left_option"
+          },
+          "to": [
+            {
+              "key_code": "left_command"
+            }
+          ],
+          "type": "basic"
         }
-    ]
+      ]
+    }
+  ]
 }

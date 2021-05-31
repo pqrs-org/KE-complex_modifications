@@ -1,0 +1,39 @@
+{
+    "title": "Swap CMD and Option keys in the terminal (useful for CMD + f/b/d/./_ shell keybindings)",
+    "maintainers": ["jjo"],
+    "rules": [
+        {
+            "description": "Swap CMD and Option keys in the terminal (useful for CMD + f/b/d/./_ shell keybindings)",
+            "manipulators": [
+                {
+                    "conditions": [
+                      <%= frontmost_application_if("terminal") %>
+                    ],
+                    "from": {
+                        "key_code": "left_command"
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_option"
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                      <%= frontmost_application_if("terminal") %>
+                    ],
+                    "from": {
+                        "key_code": "left_option"
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_command"
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        }
+    ]
+}

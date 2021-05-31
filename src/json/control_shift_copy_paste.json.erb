@@ -1,0 +1,57 @@
+{
+    "title": "Map Control_Shift + C/V to copy/paste in term (ala Linux)",
+    "maintainers": ["jjo"],
+    "rules": [
+        {
+            "description": "Map Control_Shift + C/V to copy/paste in term (ala Linux)",
+            "manipulators": [
+                {
+                    "conditions": [
+                      <%= frontmost_application_if("terminal") %>
+                    ],
+                    "from": {
+                        "key_code": "c",
+                        "modifiers": {
+                            "mandatory": [
+                                "control",
+                                "left_shift"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "c",
+                            "modifiers": [
+                                "command"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                      <%= frontmost_application_if("terminal") %>
+                    ],
+                    "from": {
+                        "key_code": "v",
+                        "modifiers": {
+                            "mandatory": [
+                                "control",
+                                "left_shift"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "v",
+                            "modifiers": [
+                                "command"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        }
+    ]
+}
