@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="../../vendor/css/bootstrap.min.css" />
+
+<h2>Neo2 layout</h3>
+<p>Rules for the <a href="http://neo-layout.org/">Neo2 keyboard layout</a>.</p>
+<p>Intended to be used with the <a href="https://github.com/jgosmann/neo2-layout-osx">corresponding keyboard layout file</a>.</p>
+
+<h3>Base rules</h3>
+<table class="table">
+  <tr>
+    <td>Neo2 layer 4</td>
+    <td>Base rule for activating layer 4.</td>
+  </tr>
+  <tr>
+    <td>Neo2 layer 6</td>
+    <td>Base rule for activating layer 6.</td>
+  <tr>
+    <td>Neo2 mod 3 and 4 keys (Apple keyboard). Toggle mod4 by pressing both mod4 keys simultaneously.</td>
+    <td><p>Toggle <code>mod4</code> by pressing both mod4 keys simultaneously.</p><p>Take this rule if you are using your mac with a common Apple keyboard.</p></td>
+  </tr>
+  <tr>
+    <td>Neo2 mod 3 and 4 keys (Windows keyboard). Toggle mod4 by pressing both mod4 keys simultaneously.</td>
+    <td><p>Toggle <code>mod4</code> by pressing both mod4 keys simultaneously.</p><p>Take this rule if you are using your mac with a Windows keyboard or with the Apple Magic Keyboard with Numeric Keypad.</p></td>
+  </tr>
+</table>
+
+<h3>Extension rules</h3>
+<table class="table">
+  <tr>
+    <td>Neo2 mod 4: Map ↖ to Home and ↘︎ to End in terminal apps.</td>
+    <td>
+        <p>This extra-rule lets you jump to the beginning and the end of a line in your terminal directly using <code>↖</code> and <code>↘︎</code> on layer 4. More precisely it maps <code>a</code> + <code>mod4</code> to <code>Home</code> and <code>g</code> + <code>mod4</code> to <code>End</code> in the following terminal apps: macOS Terminal, iTerm2, Hyper, alacritty, kitty.</p>
+        <p>Make sure to move this rule <em>above</em> the rule 'Neo2 layer 4' in the Karabiner-Elements preferences.</p>
+        <p>In case you use the macOS Terminal: You need to perform an additional configuration step in the macOS Terminal preferences: Go to 'Terminal' -> 'Preferences' -> 'Profiles' -> 'Keyboard' and add the following two entries: Key: ↖ Action: \033OH and Key: ↘︎ Action: \033OF.</p>
+    </td>
+  </tr>
+  <tr>
+    <td>Toggle caps_lock by pressing left_shift + right_shift at the same time</td>
+    <td>Toggle <code>caps_lock</code> by pressing <code>left_shift</code> + <code>right_shift</code> at the same time.</td>
+  </tr>
+  <tr>
+    <td>Tab acts as Ctrl if pressed with another key</td>
+    <td><code>Tab</code> acts as <code>Ctrl</code> if pressed with another key. If pressed alone it acts as usual.</td>
+  </tr>
+  <tr>
+    <td>Prevent problematic keys (?, /, #, =, and ')') from being treated as option key shortcut</td>
+    <td>This rule servers as a workaround for issues that layer 3 could cause in some applications. See <a href="https://github.com/jgosmann/neo2-layout-osx#know-issues">known issues</a> for more information.</td>
+  </tr>
+  <tr>
+    <td>Prevent all layer 3 keys from being treated as option key shortcut</td>
+    <td>This rule servers as a workaround for issues that layer 3 could cause in some applications. See <a href="https://github.com/jgosmann/neo2-layout-osx#know-issues">known issues</a> for more information.</td>
+  </tr>
+</dl>
