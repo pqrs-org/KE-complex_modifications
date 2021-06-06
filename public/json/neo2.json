@@ -4164,7 +4164,7 @@
       ]
     },
     {
-      "description": "Neo2 mod 4: Map ↖ to Home and ↘︎ to End in terminal apps (move this above the rule 'Neo2 layer 4').",
+      "description": "Neo2 mod 4: Map ↖ to Home and ↘︎ to End in terminal apps (move this rule above the rule 'Neo2 layer 4').",
       "manipulators": [
         {
           "type": "basic",
@@ -4185,6 +4185,11 @@
           ],
           "conditions": [
             {
+              "type": "variable_unless",
+              "name": "neo2_mod_4",
+              "value": 0
+            },
+            {
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^com\\.apple\\.Terminal$",
@@ -4194,11 +4199,6 @@
                 "^io\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$"
               ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "neo2_mod_4",
-              "value": 0
             }
           ]
         },

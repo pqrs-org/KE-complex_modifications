@@ -212,6 +212,17 @@
                   to_pre_events: [["a", ["left_option", "left_shift"]]]
               )
           ) %>
+        },
+        {
+          "description": "Neo2 mod 4: Map ↖ to Home and ↘︎ to End in terminal apps (move this rule above the rule 'Neo2 layer 4').",
+          "manipulators":
+            <%= each_key(
+                source_keys_list: ["a", "g"],
+                dest_keys_list: ["home", "end"],
+                conditions: [$if_mod_4_on, JSON.parse(frontmost_application_if(["terminal"])) ],
+                from_optional_modifiers: ["shift", "caps_lock", "left_option"],
+                as_json: true
+            ) %>
         }
     ]
 }
