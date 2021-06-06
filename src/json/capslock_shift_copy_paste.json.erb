@@ -1,0 +1,23 @@
+{
+    "title": "Map Capslock_Shift + C/V to copy/paste in term (ala Linux)",
+    "maintainers": ["jjo"],
+    "rules": [
+        {
+            "description": "Map Capslock_Shift + C/V to copy/paste in term (ala Linux)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "conditions": [ <%= frontmost_application_if("terminal") %> ],
+                    "from": <%= from("c", ["caps_lock", "left_shift"], ["any"]) %>,
+                    "to": <%= to([["c", ["command"]]]) %>
+                },
+                {
+                    "type": "basic",
+                    "conditions": [ <%= frontmost_application_if("terminal") %> ],
+                    "from": <%= from("v", ["caps_lock", "left_shift"], ["any"]) %>,
+                    "to": <%= to([["v", ["command"]]]) %>
+                }
+            ]
+        }
+    ]
+}
