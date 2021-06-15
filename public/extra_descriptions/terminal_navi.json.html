@@ -1,75 +1,129 @@
 <link rel="stylesheet" href="../../vendor/css/bootstrap.min.css" />
 
 <h3>Keyboard shortcuts for Terminal apps</h3>
-<p>Makes standard macOS keyboard shortcuts work in terminal apps.</p>
+<p>Makes the following keyboard shortcuts work the same or similarly in both
+  macOS and terminal apps:</p>
 
-<h4>Included key bindings</h4>
 <table class="table">
   <tr>
-    <th>Input</th>
-    <th>Ouput</th>
-    <th>Notes</th>
+    <th>Shortcut</th>
+    <th>Action</th>
+    <th>Bash/Readline</th>
+    <th>Zsh</th>
   </tr>
   <tr>
     <td>⌘Z</td>
     <td>Undo</td>
+    <td>✅</td>
+    <td>✅</td>
   </tr>
   <tr>
     <td>⌘⇧Z</td>
     <td>Redo</td>
-    <td>
-      <a href="http://zsh.sourceforge.net">Zsh</a> is the only shell that supports <kbd>redo</kbd>,
-      but unfortunately, it's not bound in the default keymap. To enable this shortcut, you need to
-      add the following to your <code>~/.zshrc</code> file:
-      <pre>bindkey "^[^R" redo</pre>
-    </td>
+    <td>❌</td>
+    <td>requires <code>bindkey '^[e' redo</code></td>
   </tr>
   <tr>
     <td>⌘D</td>
-    <td>Duplicate last word</td>
-    <td>Not bound by default in Bash/Readline.</td>
+    <td>Duplicate the word left of the cursor</td>
+    <td>❌</td>
+    <td>✅</td>
   </tr>
   <tr>
     <td>⌥←</td>
-    <td>Move cursor one word backward</td>
+    <td>Go one natural word backward</td>
+    <td>✅</td>
+    <td>requires <code>WORDCHARS=''</code></td>
   </tr>
   <tr>
     <td>⌥→</td>
-    <td>Move cursor one word forward</td>
+    <td>Go one natural word forward</td>
+    <td>✅</td>
+    <td>requires <code>WORDCHARS=''</code></td>
+    </td>
   </tr>
   <tr>
     <td>⌘←</td>
-    <td>Move cursor to beginning of line</td>
-  </tr>
+    <td>Go one shell word backward</td>
+    <td>✅</td>
+    <td>requires <code>bindkey '^[^B' vi-backward-blank-word</code></td>
+    </tr>
   <tr>
     <td>⌘→</td>
-    <td>Move cursor to end of line</td>
+    <td>Go one shell word forward</td>
+    <td>✅</td>
+    <td>requires <code>bindkey '^[^B' vi-forward-blank-word</code></td>
+    </tr>
+  <tr>
+    <td>⌃A</td>
+    <td>Go to previous line break</td>
+    <td>✅</td>
+    <td>✅</td>
+  </tr>
+  <tr>
+    <td>⌃E</td>
+    <td>Go to next line break</td>
+    <td>✅</td>
+    <td>✅</td>
+  </tr>
+  <tr>
+    <td>⌥↑</td>
+    <td>Go to start of editing buffer or history</td>
+    <td>history only</td>
+    <td>✅</td>
+  </tr>
+  <tr>
+    <td>⌥↓</td>
+    <td>Go to end of editing buffer or history</td>
+    <td>history only</td>
+    <td>✅</td>
+  </tr>
+  <tr>
+    <td>⌫</td>
+    <td>Delete one character backward</td>
+    <td>✅</td>
+    <td>✅</td>
+  </tr>
+  <tr>
+    <td>⌦ or <kbd>fn</kbd>⌫</td>
+    <td>Delete one character forward</td>
+    <td>✅</td>
+    <td>✅</td>
   </tr>
   <tr>
     <td>⌥⌫</td>
-    <td>Delete one word backward</td>
+    <td>Cut one natural word backward</td>
+    <td>✅</td>
+    <td>requires <code>WORDCHARS=''</code></td>
   </tr>
   <tr>
-    <td>⌥⌦</td>
-    <td>Delete one word forward</td>
+    <td>⌥⌦ or ⌥<kbd>fn</kbd>⌫</td>
+    <td>Cut one natural word forward</td>
+    <td>✅</td>
+    <td>requires <code>WORDCHARS=''</code></td>
   </tr>
   <tr>
     <td>⌘⌫</td>
-    <td>Delete to beginning of line</td>
-    <td><p>In <a href="http://zsh.sourceforge.net">Zsh</a>, this shortcut will delete the whole
-      line by default. To get it to work correctly, you need to add the following to your
-      <code>~/.zshrc</code> file:.</p>
-      <pre>bindkey "^U" backward-kill-line</pre></td>
+    <td>Cut one shell word backward</td>
+    <td>✅</td>
+    <td>requires <a href="https://github.com/marlonrichert/zsh-edit"><code>zsh-edit</code></a></td>
   </tr>
   <tr>
-    <td>⌘⌦</td>
-    <td>Delete to end of line</td>
+    <td>⌘⌦ or ⌘<kbd>fn</kbd>⌫</td>
+    <td>Cut one shell word forward</td>
+    <td>✅</td>
+    <td>requires <a href="https://github.com/marlonrichert/zsh-edit"><code>zsh-edit</code></a></td>
+  </tr>
+  <tr>
+    <td>⌃U</td>
+    <td>Cut to previous line break</td>
+    <td>✅</td>
+    <td>requires <code>bindkey '^U' backward-kill-line</code></td>
+  </tr>
+  <tr>
+    <td>⌃K</td>
+    <td>Cut to next line break</td>
+    <td>✅</td>
+    <td>✅</td>
   </tr>
 </table>
-
-<h4>Additional notes</h4>
-<p>This mod supports English and Finnish keyboards. If you want to use a different keyboard
-  layout, please download
-  <a href="https://github.com/pqrs-org/KE-complex_modifications">the source code</a> and modify
-  <a href="https://github.com/pqrs-org/KE-complex_modifications/tree/master/src/json/terminal_navi.json.erb">
-  <code>terminal_navi.json.erb<code></a>.</p>
