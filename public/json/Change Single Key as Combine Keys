@@ -1,0 +1,48 @@
+{
+  "title": "Change Single Key as Combine Keys",
+  "rules": [
+    {
+      "description": "Change c/v to left_control + c/v",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "c",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "c",
+              "modifiers": [
+                "left_control"
+            ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "v",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "v",
+              "modifiers": [
+                "left_control"
+            ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
