@@ -353,326 +353,6 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "v",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "home",
-              "modifiers": [
-
-              ]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "ergo_fly_keys_spacebar",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "spacebar"
-              },
-              {
-                "key_code": "v"
-              }
-            ],
-            "simultaneous_options": {
-              "key_down_order": "strict",
-              "key_up_order": "strict_inverse",
-              "detect_key_down_uninterruptedly": true,
-              "to_after_key_up": [
-                {
-                  "set_variable": {
-                    "name": "ergo_fly_keys_spacebar",
-                    "value": 0
-                  }
-                }
-              ]
-            },
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "ergo_fly_keys_spacebar",
-                "value": 1
-              }
-            },
-            {
-              "set_variable": {
-                "name": "DEBUG simultaneous",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "home",
-              "modifiers": [
-
-              ]
-            }
-          ],
-          "parameters": {
-            "basic.simultaneous_threshold_milliseconds": 300
-          }
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "n",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "end",
-              "modifiers": [
-
-              ]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "ergo_fly_keys_spacebar",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "spacebar"
-              },
-              {
-                "key_code": "n"
-              }
-            ],
-            "simultaneous_options": {
-              "key_down_order": "strict",
-              "key_up_order": "strict_inverse",
-              "detect_key_down_uninterruptedly": true,
-              "to_after_key_up": [
-                {
-                  "set_variable": {
-                    "name": "ergo_fly_keys_spacebar",
-                    "value": 0
-                  }
-                }
-              ]
-            },
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "ergo_fly_keys_spacebar",
-                "value": 1
-              }
-            },
-            {
-              "set_variable": {
-                "name": "DEBUG simultaneous",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "end",
-              "modifiers": [
-
-              ]
-            }
-          ],
-          "parameters": {
-            "basic.simultaneous_threshold_milliseconds": 300
-          }
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "c",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "escape",
-              "modifiers": [
-
-              ]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "ergo_fly_keys_spacebar",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "spacebar"
-              },
-              {
-                "key_code": "c"
-              }
-            ],
-            "simultaneous_options": {
-              "key_down_order": "strict",
-              "key_up_order": "strict_inverse",
-              "detect_key_down_uninterruptedly": true,
-              "to_after_key_up": [
-                {
-                  "set_variable": {
-                    "name": "ergo_fly_keys_spacebar",
-                    "value": 0
-                  }
-                }
-              ]
-            },
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "ergo_fly_keys_spacebar",
-                "value": 1
-              }
-            },
-            {
-              "set_variable": {
-                "name": "DEBUG simultaneous",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "escape",
-              "modifiers": [
-
-              ]
-            }
-          ],
-          "parameters": {
-            "basic.simultaneous_threshold_milliseconds": 300
-          }
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "m",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "return_or_enter",
-              "modifiers": [
-
-              ]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "ergo_fly_keys_spacebar",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "spacebar"
-              },
-              {
-                "key_code": "m"
-              }
-            ],
-            "simultaneous_options": {
-              "key_down_order": "strict",
-              "key_up_order": "strict_inverse",
-              "detect_key_down_uninterruptedly": true,
-              "to_after_key_up": [
-                {
-                  "set_variable": {
-                    "name": "ergo_fly_keys_spacebar",
-                    "value": 0
-                  }
-                }
-              ]
-            },
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "ergo_fly_keys_spacebar",
-                "value": 1
-              }
-            },
-            {
-              "set_variable": {
-                "name": "DEBUG simultaneous",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "return_or_enter",
-              "modifiers": [
-
-              ]
-            }
-          ],
-          "parameters": {
-            "basic.simultaneous_threshold_milliseconds": 300
-          }
-        },
-        {
-          "type": "basic",
-          "from": {
             "key_code": "i",
             "modifiers": {
               "optional": [
@@ -741,86 +421,6 @@
             },
             {
               "key_code": "up_arrow",
-              "modifiers": [
-
-              ]
-            }
-          ],
-          "parameters": {
-            "basic.simultaneous_threshold_milliseconds": 300
-          }
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "j",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "left_arrow",
-              "modifiers": [
-
-              ]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "ergo_fly_keys_spacebar",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "spacebar"
-              },
-              {
-                "key_code": "j"
-              }
-            ],
-            "simultaneous_options": {
-              "key_down_order": "strict",
-              "key_up_order": "strict_inverse",
-              "detect_key_down_uninterruptedly": true,
-              "to_after_key_up": [
-                {
-                  "set_variable": {
-                    "name": "ergo_fly_keys_spacebar",
-                    "value": 0
-                  }
-                }
-              ]
-            },
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "ergo_fly_keys_spacebar",
-                "value": 1
-              }
-            },
-            {
-              "set_variable": {
-                "name": "DEBUG simultaneous",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "left_arrow",
               "modifiers": [
 
               ]
@@ -913,6 +513,86 @@
         {
           "type": "basic",
           "from": {
+            "key_code": "j",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "ergo_fly_keys_spacebar",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "spacebar"
+              },
+              {
+                "key_code": "j"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "detect_key_down_uninterruptedly": true,
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "ergo_fly_keys_spacebar",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "ergo_fly_keys_spacebar",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "DEBUG simultaneous",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 300
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
             "key_code": "l",
             "modifiers": {
               "optional": [
@@ -993,6 +673,986 @@
         {
           "type": "basic",
           "from": {
+            "key_code": "u",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "left_option"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "ergo_fly_keys_spacebar",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "spacebar"
+              },
+              {
+                "key_code": "u"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "detect_key_down_uninterruptedly": true,
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "ergo_fly_keys_spacebar",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "ergo_fly_keys_spacebar",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "DEBUG simultaneous",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "left_option"
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 300
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "u",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "escape"
+            },
+            {
+              "key_code": "b"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "ergo_fly_keys_spacebar",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "spacebar"
+              },
+              {
+                "key_code": "u"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "detect_key_down_uninterruptedly": true,
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "ergo_fly_keys_spacebar",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "ergo_fly_keys_spacebar",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "escape"
+            },
+            {
+              "key_code": "b"
+            }
+          ],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 300
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "left_option"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "ergo_fly_keys_spacebar",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "spacebar"
+              },
+              {
+                "key_code": "o"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "detect_key_down_uninterruptedly": true,
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "ergo_fly_keys_spacebar",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "ergo_fly_keys_spacebar",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "DEBUG simultaneous",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "left_option"
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 300
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "escape"
+            },
+            {
+              "key_code": "f"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "ergo_fly_keys_spacebar",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "spacebar"
+              },
+              {
+                "key_code": "o"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "detect_key_down_uninterruptedly": true,
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "ergo_fly_keys_spacebar",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "ergo_fly_keys_spacebar",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "escape"
+            },
+            {
+              "key_code": "f"
+            }
+          ],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 300
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "ergo_fly_keys_spacebar",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "spacebar"
+              },
+              {
+                "key_code": "h"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "detect_key_down_uninterruptedly": true,
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "ergo_fly_keys_spacebar",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "ergo_fly_keys_spacebar",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "DEBUG simultaneous",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 300
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "escape"
+            },
+            {
+              "key_code": "b",
+              "modifiers": [
+                "right_control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "ergo_fly_keys_spacebar",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "spacebar"
+              },
+              {
+                "key_code": "h"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "detect_key_down_uninterruptedly": true,
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "ergo_fly_keys_spacebar",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "ergo_fly_keys_spacebar",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "escape"
+            },
+            {
+              "key_code": "b",
+              "modifiers": [
+                "right_control"
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 300
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "semicolon",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "ergo_fly_keys_spacebar",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "spacebar"
+              },
+              {
+                "key_code": "semicolon"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "detect_key_down_uninterruptedly": true,
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "ergo_fly_keys_spacebar",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "ergo_fly_keys_spacebar",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "DEBUG simultaneous",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 300
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "semicolon",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "escape"
+            },
+            {
+              "key_code": "f",
+              "modifiers": [
+                "right_control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "ergo_fly_keys_spacebar",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "spacebar"
+              },
+              {
+                "key_code": "semicolon"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "detect_key_down_uninterruptedly": true,
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "ergo_fly_keys_spacebar",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "ergo_fly_keys_spacebar",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "escape"
+            },
+            {
+              "key_code": "f",
+              "modifiers": [
+                "right_control"
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 300
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "y",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "a",
+              "modifiers": [
+                "right_control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "ergo_fly_keys_spacebar",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "spacebar"
+              },
+              {
+                "key_code": "y"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "detect_key_down_uninterruptedly": true,
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "ergo_fly_keys_spacebar",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "ergo_fly_keys_spacebar",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "DEBUG simultaneous",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "a",
+              "modifiers": [
+                "right_control"
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 300
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "p",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "e",
+              "modifiers": [
+                "right_control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "ergo_fly_keys_spacebar",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "spacebar"
+              },
+              {
+                "key_code": "p"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "detect_key_down_uninterruptedly": true,
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "ergo_fly_keys_spacebar",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "ergo_fly_keys_spacebar",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "DEBUG simultaneous",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "e",
+              "modifiers": [
+                "right_control"
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 300
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
             "key_code": "e",
             "modifiers": {
               "optional": [
@@ -1002,7 +1662,7 @@
           },
           "to": [
             {
-              "key_code": "page_up",
+              "key_code": "escape",
               "modifiers": [
 
               ]
@@ -1060,7 +1720,7 @@
               }
             },
             {
-              "key_code": "page_up",
+              "key_code": "escape",
               "modifiers": [
 
               ]
@@ -1082,7 +1742,7 @@
           },
           "to": [
             {
-              "key_code": "page_down",
+              "key_code": "return_or_enter",
               "modifiers": [
 
               ]
@@ -1140,7 +1800,7 @@
               }
             },
             {
-              "key_code": "page_down",
+              "key_code": "return_or_enter",
               "modifiers": [
 
               ]
@@ -1313,814 +1973,6 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "u",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "left_arrow",
-              "modifiers": [
-                "left_option"
-              ]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^io\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$"
-              ]
-            },
-            {
-              "type": "variable_if",
-              "name": "ergo_fly_keys_spacebar",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "spacebar"
-              },
-              {
-                "key_code": "u"
-              }
-            ],
-            "simultaneous_options": {
-              "key_down_order": "strict",
-              "key_up_order": "strict_inverse",
-              "detect_key_down_uninterruptedly": true,
-              "to_after_key_up": [
-                {
-                  "set_variable": {
-                    "name": "ergo_fly_keys_spacebar",
-                    "value": 0
-                  }
-                }
-              ]
-            },
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "ergo_fly_keys_spacebar",
-                "value": 1
-              }
-            },
-            {
-              "set_variable": {
-                "name": "DEBUG simultaneous",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "left_arrow",
-              "modifiers": [
-                "left_option"
-              ]
-            }
-          ],
-          "parameters": {
-            "basic.simultaneous_threshold_milliseconds": 300
-          },
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^io\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "u",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "escape"
-            },
-            {
-              "key_code": "b"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^io\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$"
-              ]
-            },
-            {
-              "type": "variable_if",
-              "name": "ergo_fly_keys_spacebar",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "spacebar"
-              },
-              {
-                "key_code": "u"
-              }
-            ],
-            "simultaneous_options": {
-              "key_down_order": "strict",
-              "key_up_order": "strict_inverse",
-              "detect_key_down_uninterruptedly": true,
-              "to_after_key_up": [
-                {
-                  "set_variable": {
-                    "name": "ergo_fly_keys_spacebar",
-                    "value": 0
-                  }
-                }
-              ]
-            },
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "ergo_fly_keys_spacebar",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "escape"
-            },
-            {
-              "key_code": "b"
-            }
-          ],
-          "parameters": {
-            "basic.simultaneous_threshold_milliseconds": 300
-          },
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^io\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "o",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "right_arrow",
-              "modifiers": [
-                "left_option"
-              ]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^io\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$"
-              ]
-            },
-            {
-              "type": "variable_if",
-              "name": "ergo_fly_keys_spacebar",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "spacebar"
-              },
-              {
-                "key_code": "o"
-              }
-            ],
-            "simultaneous_options": {
-              "key_down_order": "strict",
-              "key_up_order": "strict_inverse",
-              "detect_key_down_uninterruptedly": true,
-              "to_after_key_up": [
-                {
-                  "set_variable": {
-                    "name": "ergo_fly_keys_spacebar",
-                    "value": 0
-                  }
-                }
-              ]
-            },
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "ergo_fly_keys_spacebar",
-                "value": 1
-              }
-            },
-            {
-              "set_variable": {
-                "name": "DEBUG simultaneous",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "right_arrow",
-              "modifiers": [
-                "left_option"
-              ]
-            }
-          ],
-          "parameters": {
-            "basic.simultaneous_threshold_milliseconds": 300
-          },
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^io\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "o",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "escape"
-            },
-            {
-              "key_code": "f"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^io\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$"
-              ]
-            },
-            {
-              "type": "variable_if",
-              "name": "ergo_fly_keys_spacebar",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "spacebar"
-              },
-              {
-                "key_code": "o"
-              }
-            ],
-            "simultaneous_options": {
-              "key_down_order": "strict",
-              "key_up_order": "strict_inverse",
-              "detect_key_down_uninterruptedly": true,
-              "to_after_key_up": [
-                {
-                  "set_variable": {
-                    "name": "ergo_fly_keys_spacebar",
-                    "value": 0
-                  }
-                }
-              ]
-            },
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "ergo_fly_keys_spacebar",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "escape"
-            },
-            {
-              "key_code": "f"
-            }
-          ],
-          "parameters": {
-            "basic.simultaneous_threshold_milliseconds": 300
-          },
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^io\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "h",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "left_arrow",
-              "modifiers": [
-                "left_command"
-              ]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^io\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$"
-              ]
-            },
-            {
-              "type": "variable_if",
-              "name": "ergo_fly_keys_spacebar",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "spacebar"
-              },
-              {
-                "key_code": "h"
-              }
-            ],
-            "simultaneous_options": {
-              "key_down_order": "strict",
-              "key_up_order": "strict_inverse",
-              "detect_key_down_uninterruptedly": true,
-              "to_after_key_up": [
-                {
-                  "set_variable": {
-                    "name": "ergo_fly_keys_spacebar",
-                    "value": 0
-                  }
-                }
-              ]
-            },
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "ergo_fly_keys_spacebar",
-                "value": 1
-              }
-            },
-            {
-              "set_variable": {
-                "name": "DEBUG simultaneous",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "left_arrow",
-              "modifiers": [
-                "left_command"
-              ]
-            }
-          ],
-          "parameters": {
-            "basic.simultaneous_threshold_milliseconds": 300
-          },
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^io\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "h",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "a",
-              "modifiers": [
-                "right_control"
-              ]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^io\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$"
-              ]
-            },
-            {
-              "type": "variable_if",
-              "name": "ergo_fly_keys_spacebar",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "spacebar"
-              },
-              {
-                "key_code": "h"
-              }
-            ],
-            "simultaneous_options": {
-              "key_down_order": "strict",
-              "key_up_order": "strict_inverse",
-              "detect_key_down_uninterruptedly": true,
-              "to_after_key_up": [
-                {
-                  "set_variable": {
-                    "name": "ergo_fly_keys_spacebar",
-                    "value": 0
-                  }
-                }
-              ]
-            },
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "ergo_fly_keys_spacebar",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "a",
-              "modifiers": [
-                "right_control"
-              ]
-            }
-          ],
-          "parameters": {
-            "basic.simultaneous_threshold_milliseconds": 300
-          },
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^io\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "semicolon",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "right_arrow",
-              "modifiers": [
-                "left_command"
-              ]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^io\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$"
-              ]
-            },
-            {
-              "type": "variable_if",
-              "name": "ergo_fly_keys_spacebar",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "spacebar"
-              },
-              {
-                "key_code": "semicolon"
-              }
-            ],
-            "simultaneous_options": {
-              "key_down_order": "strict",
-              "key_up_order": "strict_inverse",
-              "detect_key_down_uninterruptedly": true,
-              "to_after_key_up": [
-                {
-                  "set_variable": {
-                    "name": "ergo_fly_keys_spacebar",
-                    "value": 0
-                  }
-                }
-              ]
-            },
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "ergo_fly_keys_spacebar",
-                "value": 1
-              }
-            },
-            {
-              "set_variable": {
-                "name": "DEBUG simultaneous",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "right_arrow",
-              "modifiers": [
-                "left_command"
-              ]
-            }
-          ],
-          "parameters": {
-            "basic.simultaneous_threshold_milliseconds": 300
-          },
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^io\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "semicolon",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "e",
-              "modifiers": [
-                "right_control"
-              ]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^io\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$"
-              ]
-            },
-            {
-              "type": "variable_if",
-              "name": "ergo_fly_keys_spacebar",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "spacebar"
-              },
-              {
-                "key_code": "semicolon"
-              }
-            ],
-            "simultaneous_options": {
-              "key_down_order": "strict",
-              "key_up_order": "strict_inverse",
-              "detect_key_down_uninterruptedly": true,
-              "to_after_key_up": [
-                {
-                  "set_variable": {
-                    "name": "ergo_fly_keys_spacebar",
-                    "value": 0
-                  }
-                }
-              ]
-            },
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "ergo_fly_keys_spacebar",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "e",
-              "modifiers": [
-                "right_control"
-              ]
-            }
-          ],
-          "parameters": {
-            "basic.simultaneous_threshold_milliseconds": 300
-          },
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^io\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
             "key_code": "w",
             "modifiers": {
               "optional": [
@@ -2234,9 +2086,12 @@
           },
           "to": [
             {
-              "key_code": "w",
+              "key_code": "escape"
+            },
+            {
+              "key_code": "h",
               "modifiers": [
-                "right_control"
+                "left_control"
               ]
             }
           ],
@@ -2297,9 +2152,12 @@
               }
             },
             {
-              "key_code": "w",
+              "key_code": "escape"
+            },
+            {
+              "key_code": "h",
               "modifiers": [
-                "right_control"
+                "left_control"
               ]
             }
           ],
@@ -2638,7 +2496,7 @@
           },
           "to": [
             {
-              "key_code": "u",
+              "key_code": "w",
               "modifiers": [
                 "left_control"
               ]
@@ -2701,7 +2559,7 @@
               }
             },
             {
-              "key_code": "u",
+              "key_code": "w",
               "modifiers": [
                 "left_control"
               ]
@@ -2736,13 +2594,28 @@
           },
           "to": [
             {
-              "key_code": "k",
+              "key_code": "right_arrow",
               "modifiers": [
-                "left_control"
+                "left_command",
+                "left_shift"
               ]
+            },
+            {
+              "key_code": "delete_forward"
             }
           ],
           "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            },
             {
               "type": "variable_if",
               "name": "ergo_fly_keys_spacebar",
@@ -2794,9 +2667,1322 @@
               }
             },
             {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "left_command",
+                "left_shift"
+              ]
+            },
+            {
+              "key_code": "delete_forward"
+            }
+          ],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 300
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "g",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "escape"
+            },
+            {
+              "key_code": "d",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "ergo_fly_keys_spacebar",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "spacebar"
+              },
+              {
+                "key_code": "g"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "detect_key_down_uninterruptedly": true,
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "ergo_fly_keys_spacebar",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "ergo_fly_keys_spacebar",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "escape"
+            },
+            {
+              "key_code": "d",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 300
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "a",
+              "modifiers": [
+                "right_control",
+                "right_shift"
+              ]
+            },
+            {
               "key_code": "k",
               "modifiers": [
                 "left_control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "ergo_fly_keys_spacebar",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "spacebar"
+              },
+              {
+                "key_code": "q"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "detect_key_down_uninterruptedly": true,
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "ergo_fly_keys_spacebar",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "ergo_fly_keys_spacebar",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "DEBUG simultaneous",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "a",
+              "modifiers": [
+                "right_control",
+                "right_shift"
+              ]
+            },
+            {
+              "key_code": "k",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 300
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "u",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "ergo_fly_keys_spacebar",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "spacebar"
+              },
+              {
+                "key_code": "q"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "detect_key_down_uninterruptedly": true,
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "ergo_fly_keys_spacebar",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "ergo_fly_keys_spacebar",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "u",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 300
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "t",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "k",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "ergo_fly_keys_spacebar",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "spacebar"
+              },
+              {
+                "key_code": "t"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "detect_key_down_uninterruptedly": true,
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "ergo_fly_keys_spacebar",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "ergo_fly_keys_spacebar",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "DEBUG simultaneous",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "k",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 300
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "z",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "ergo_fly_keys_spacebar",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "spacebar"
+              },
+              {
+                "key_code": "z"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "detect_key_down_uninterruptedly": true,
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "ergo_fly_keys_spacebar",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "ergo_fly_keys_spacebar",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "DEBUG simultaneous",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "up_arrow",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 300
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "x",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow",
+              "modifiers": [
+                "left_option"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "ergo_fly_keys_spacebar",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "spacebar"
+              },
+              {
+                "key_code": "x"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "detect_key_down_uninterruptedly": true,
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "ergo_fly_keys_spacebar",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "ergo_fly_keys_spacebar",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "DEBUG simultaneous",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "up_arrow",
+              "modifiers": [
+                "left_option"
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 300
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "x",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "escape"
+            },
+            {
+              "key_code": "comma",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "ergo_fly_keys_spacebar",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "spacebar"
+              },
+              {
+                "key_code": "x"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "detect_key_down_uninterruptedly": true,
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "ergo_fly_keys_spacebar",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "ergo_fly_keys_spacebar",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "escape"
+            },
+            {
+              "key_code": "comma",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 300
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "c",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "down_arrow",
+              "modifiers": [
+                "left_option"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "ergo_fly_keys_spacebar",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "spacebar"
+              },
+              {
+                "key_code": "c"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "detect_key_down_uninterruptedly": true,
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "ergo_fly_keys_spacebar",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "ergo_fly_keys_spacebar",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "DEBUG simultaneous",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "down_arrow",
+              "modifiers": [
+                "left_option"
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 300
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "c",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "escape"
+            },
+            {
+              "key_code": "period",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "ergo_fly_keys_spacebar",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "spacebar"
+              },
+              {
+                "key_code": "c"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "detect_key_down_uninterruptedly": true,
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "ergo_fly_keys_spacebar",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "ergo_fly_keys_spacebar",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "escape"
+            },
+            {
+              "key_code": "period",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 300
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "v",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "down_arrow",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "ergo_fly_keys_spacebar",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "spacebar"
+              },
+              {
+                "key_code": "v"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "detect_key_down_uninterruptedly": true,
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "ergo_fly_keys_spacebar",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "ergo_fly_keys_spacebar",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "DEBUG simultaneous",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "down_arrow",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 300
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "n",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "home",
+              "modifiers": [
+
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "ergo_fly_keys_spacebar",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "spacebar"
+              },
+              {
+                "key_code": "n"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "detect_key_down_uninterruptedly": true,
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "ergo_fly_keys_spacebar",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "ergo_fly_keys_spacebar",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "DEBUG simultaneous",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "home",
+              "modifiers": [
+
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 300
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "m",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "page_up",
+              "modifiers": [
+
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "ergo_fly_keys_spacebar",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "spacebar"
+              },
+              {
+                "key_code": "m"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "detect_key_down_uninterruptedly": true,
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "ergo_fly_keys_spacebar",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "ergo_fly_keys_spacebar",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "DEBUG simultaneous",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "page_up",
+              "modifiers": [
+
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 300
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "comma",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "page_down",
+              "modifiers": [
+
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "ergo_fly_keys_spacebar",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "spacebar"
+              },
+              {
+                "key_code": "comma"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "detect_key_down_uninterruptedly": true,
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "ergo_fly_keys_spacebar",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "ergo_fly_keys_spacebar",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "DEBUG simultaneous",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "page_down",
+              "modifiers": [
+
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 300
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "period",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "end",
+              "modifiers": [
+
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "ergo_fly_keys_spacebar",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "spacebar"
+              },
+              {
+                "key_code": "period"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "detect_key_down_uninterruptedly": true,
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "ergo_fly_keys_spacebar",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "ergo_fly_keys_spacebar",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "DEBUG simultaneous",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "end",
+              "modifiers": [
+
               ]
             }
           ],

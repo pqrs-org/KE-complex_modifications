@@ -44,54 +44,104 @@ def rules(trigger_key)
 
     two_part_trigger_combo(trigger_key, variable, "b", "tab", []),
 
-    two_part_trigger_combo(trigger_key, variable, "v", "home", []),
-    two_part_trigger_combo(trigger_key, variable, "n", "end", []),
-
-    two_part_trigger_combo(trigger_key, variable, "c", "escape", []),
-    two_part_trigger_combo(trigger_key, variable, "m", "return_or_enter", []),
-
     two_part_trigger_combo(trigger_key, variable, "i", "up_arrow", []),
-    two_part_trigger_combo(trigger_key, variable, "j", "left_arrow", []),
     two_part_trigger_combo(trigger_key, variable, "k", "down_arrow", []),
+    two_part_trigger_combo(trigger_key, variable, "j", "left_arrow", []),
     two_part_trigger_combo(trigger_key, variable, "l", "right_arrow", []),
+    four_part_trigger_combo(
+        trigger_key, variable, "u",
+        [ { "key_code" => "left_arrow", "modifiers" => ["left_option"], } ],
+        [ { "key_code" => "escape" }, { "key_code" => "b" }, ]
+    ),
+    four_part_trigger_combo(
+        trigger_key, variable, "o",
+        [ { "key_code" => "right_arrow", "modifiers" => ["left_option"], } ],
+        [ { "key_code" => "escape" }, { "key_code" => "f"}, ]
+    ),
+    four_part_trigger_combo(
+        trigger_key, variable, "h",
+        [ { "key_code" => "left_arrow", "modifiers" => ["left_command"], } ],
+        [ { "key_code" => "escape" }, { "key_code" => "b", "modifiers" => ["right_control"], }, ]
+    ),
+    four_part_trigger_combo(
+        trigger_key, variable, "semicolon",
+        [ { "key_code" => "right_arrow", "modifiers" => ["left_command"], } ],
+        [ { "key_code" => "escape" }, { "key_code" => "f", "modifiers" => ["right_control"], }, ]
+    ),
+    two_part_trigger_combo(
+      trigger_key, variable, "y", "a", ["right_control"]
+    ),
+    two_part_trigger_combo(
+      trigger_key, variable, "p", "e", ["right_control"]
+    ),
 
-    two_part_trigger_combo(trigger_key, variable, "e", "page_up", []),
-    two_part_trigger_combo(trigger_key, variable, "d", "page_down", []),
+    two_part_trigger_combo(trigger_key, variable, "e", "escape", []),
+    two_part_trigger_combo(trigger_key, variable, "d", "return_or_enter", []),
     two_part_trigger_combo(trigger_key, variable, "s", "delete_or_backspace", []),
     two_part_trigger_combo(trigger_key, variable, "f", "delete_forward", []),
+    four_part_trigger_combo(
+        trigger_key, variable, "w",
+        [ { "key_code" => "delete_or_backspace", "modifiers" => ["left_option"], } ],
+        [ { "key_code" => "escape" }, { "key_code" => "h", "modifiers" => ["left_control"], } ]
+    ),
+    four_part_trigger_combo(
+        trigger_key, variable, "r",
+        [ { "key_code" => "delete_forward", "modifiers" => ["left_option"], } ],
+        [ { "key_code" => "escape" }, { "key_code" => "d" }, ]
+    ),
+    four_part_trigger_combo(
+        trigger_key, variable, "a",
+        [
+          { "key_code" => "delete_or_backspace", "modifiers" => ["left_command"], },
+        ],
+        [ { "key_code" => "w", "modifiers" => ["left_control"], } ]
+    ),
+    four_part_trigger_combo(
+        trigger_key, variable, "g",
+        [
+          { "key_code" => "right_arrow", "modifiers" => ["left_command","left_shift"], },
+          { "key_code" => "delete_forward" },
+        ],
+        [ { "key_code" => "escape" }, { "key_code" => "d", "modifiers" => ["left_control"], } ]
+    ),
 
     four_part_trigger_combo(
-        trigger_key, variable, "u", "left_arrow", ["left_option"],
-        [ { "key_code": "escape" }, { "key_code": "b" }, ]
-    ),
-    four_part_trigger_combo(
-        trigger_key, variable, "o", "right_arrow", ["left_option"],
-        [ { "key_code": "escape" }, { "key_code": "f"}, ]
-    ),
-    four_part_trigger_combo(
-        trigger_key, variable, "h", "left_arrow", ["left_command"],
-        [ { "key_code": "a", "modifiers": [ "right_control" ] }, ]
-    ),
-    four_part_trigger_combo(
-        trigger_key, variable, "semicolon", "right_arrow", ["left_command"],
-        [ { "key_code": "e", "modifiers": [ "right_control" ] }, ]
-    ),
-
-    four_part_trigger_combo(
-        trigger_key, variable, "w", "delete_or_backspace", ["left_option"],
-        [ { "key_code": "w", "modifiers": [ "right_control" ] }, ]
-    ),
-    four_part_trigger_combo(
-        trigger_key, variable, "r", "delete_forward", ["left_option"],
-        [ { "key_code": "escape" }, { "key_code": "d" }, ]
-    ),
-    four_part_trigger_combo(
-        trigger_key, variable, "a", "delete_or_backspace", ["left_command"],
+        trigger_key, variable, "q",
+        [
+          { "key_code" => "a", "modifiers" => ["right_control","right_shift"], },
+          { "key_code" => "k", "modifiers" => ["left_control"], },
+        ],
         [ { "key_code" => "u", "modifiers" => ["left_control"], } ]
     ),
     two_part_trigger_combo(
-        trigger_key, variable, "g", "k", ["left_control"]
+        trigger_key, variable, "t", "k", ["left_control"]
     ),
+
+    two_part_trigger_combo(trigger_key, variable, "z", "up_arrow",   ["left_command"]),
+    four_part_trigger_combo(
+        trigger_key, variable, "x",
+        [ { "key_code" => "up_arrow", "modifiers" => ["left_option"], }, ],
+        [
+          { "key_code" => "escape" },
+          { "key_code" => "comma", "modifiers" => ["left_shift"], }
+        ]
+    ),
+    four_part_trigger_combo(
+        trigger_key, variable, "c",
+        [
+          { "key_code" => "down_arrow", "modifiers" => ["left_option"], },
+        ],
+        [
+          { "key_code" => "escape" },
+          { "key_code" => "period", "modifiers" => ["left_shift"], }
+        ]
+    ),
+    two_part_trigger_combo(trigger_key, variable, "v", "down_arrow", ["left_command"]),
+
+    two_part_trigger_combo(trigger_key, variable, "n",      "home",       []),
+    two_part_trigger_combo(trigger_key, variable, "m",      "page_up",    []),
+    two_part_trigger_combo(trigger_key, variable, "comma",  "page_down",  []),
+    two_part_trigger_combo(trigger_key, variable, "period", "end",        []),
 
     trigger_key(trigger_key, variable),
   ].flatten
@@ -245,8 +295,7 @@ def two_part_trigger_combo(trigger_key, variable, from_key_code, to_key_code, to
   ]
 end
 
-def four_part_trigger_combo(trigger_key, variable, from_key_code, normal_to_key_code,
-                            normal_to_modifiers, terminal_to)
+def four_part_trigger_combo(trigger_key, variable, from_key_code, normal_to, terminal_to)
   [
     {
       "type" => "basic",
@@ -254,18 +303,12 @@ def four_part_trigger_combo(trigger_key, variable, from_key_code, normal_to_key_
         "key_code" => from_key_code,
         "modifiers" => { "optional" => ["any"] },
       },
-      "to" => [
-        {
-          "key_code" => normal_to_key_code,
-          "modifiers" => normal_to_modifiers,
-        },
-      ],
+      "to" => normal_to,
       "conditions" => [
         Karabiner.frontmost_application_unless(["terminal"]),
         Karabiner.variable_if(variable, 1),
       ]
     },
-
     {
       "type" => "basic",
       "from" => {
@@ -286,11 +329,7 @@ def four_part_trigger_combo(trigger_key, variable, from_key_code, normal_to_key_
       "to" => [
         Karabiner.set_variable(variable, 1),
         Karabiner.set_variable("DEBUG simultaneous", 1),
-        {
-          "key_code" => normal_to_key_code,
-          "modifiers" => normal_to_modifiers,
-        },
-      ],
+      ] + normal_to,
       'parameters' => {
         'basic.simultaneous_threshold_milliseconds' => PARAMETERS[:simultaneous_threshold_milliseconds],
       },
