@@ -1,0 +1,102 @@
+{
+  "title": "Logitech G503 Hero",
+  "rules": [
+    {
+      "description": "Middle mouse button to mission control",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 49291,
+                  "vendor_id": 1133,
+                  "is_pointing_device": true
+                }
+              ]
+            }
+          ],
+          "type": "basic",
+          "from": {
+            "pointing_button": "button3"
+          },
+          "to": [
+            {
+              "key_code": "up_arrow",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "G5 button to right arrow",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 49291,
+                  "vendor_id": 1133,
+                  "is_pointing_device": true
+                }
+              ]
+            }
+          ],
+          "type": "basic",
+          "from": {
+            "pointing_button": "button5",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "G4 button to left arrow",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 49291,
+                  "vendor_id": 1133,
+                  "is_pointing_device": true
+                }
+              ]
+            }
+          ],
+          "type": "basic",
+          "from": {
+            "pointing_button": "button4",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
