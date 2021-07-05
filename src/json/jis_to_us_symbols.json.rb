@@ -11,19 +11,10 @@ Mapping = Struct.new(:description, :from_key, :is_from_shift, :to_key, :is_to_sh
 end
 
 def create_rule(mapping)
-  def create_manipulator(from, to)
-    {
-      'type': 'basic',
-      'from': from,
-      'to': [to]
-    }
-  end
-
   from = { 'key_code': mapping.from_key }
-  from_left_shift = from.clone
-  from_right_shift = from.clone
-  from_left_shift[:modifiers] = { 'mandatory': ['left_shift'] }
-  from_right_shift[:modifiers] = { 'mandatory': ['right_shift'] }
+  if mapping.is_from_shift
+    from[:modifiers] = { 'mandatory': ['shift'] }
+  end
 
   to = { 'key_code': mapping.to_key }
   if mapping.is_to_shift
@@ -34,9 +25,13 @@ def create_rule(mapping)
 
   {
     'description': mapping.description,
-    'manipulators': mapping.is_from_shift ?
-      [create_manipulator(from_left_shift, to), create_manipulator(from_right_shift, to)] :
-      [create_manipulator(from, to)]
+    'manipulators': [
+      {
+        'type': 'basic',
+        'from': from,
+        'to': [to]
+      }
+    ]
   }
 end
 
