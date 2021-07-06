@@ -23,13 +23,19 @@ def create_rule(mapping)
     to[:modifiers] = ['left_option']
   end
 
+  condition = {
+    'type': 'keyboard_type_if',
+    'keyboard_types': ['jis']
+  }
+
   {
     'description': mapping.description,
     'manipulators': [
       {
         'type': 'basic',
         'from': from,
-        'to': [to]
+        'to': [to],
+        'conditions': [condition]
       }
     ]
   }
