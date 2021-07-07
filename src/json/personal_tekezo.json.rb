@@ -7,7 +7,7 @@
 #
 
 require 'json'
-require_relative '../lib/karabiner.rb'
+require_relative '../lib/karabiner'
 
 def main
   puts JSON.pretty_generate(
@@ -15,9 +15,10 @@ def main
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Personal rules (@tekezo) (rev 28)',
+        'description' => 'Personal rules (@tekezo) (rev 29)',
         'manipulators' =>
         core_configuration +
+        emacs +
         mouse +
         control_1234 +
         option_hyphen +
@@ -411,6 +412,27 @@ def core_configuration
   ]
 end
 
+def emacs
+  [
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => 'i',
+        'modifiers' => Karabiner.from_modifiers(['control'], %w[caps_lock shift]),
+      },
+      'to' => [{ 'key_code' => 'tab' }],
+    },
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => 'h',
+        'modifiers' => Karabiner.from_modifiers(['control'], %w[caps_lock shift]),
+      },
+      'to' => [{ 'key_code' => 'delete_or_backspace' }],
+    },
+  ]
+end
+
 def mouse
   [
     # mouse_motion_to_scroll (button5)
@@ -738,6 +760,22 @@ def app_finder
         'key_code' => 'l',
         'modifiers' => Karabiner.from_modifiers(['command'], ['caps_lock']),
       },
+      'conditions' => [
+        Karabiner.frontmost_application_if(['finder']),
+      ],
+    },
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => 'q',
+        'modifiers' => Karabiner.from_modifiers(['control'], ['caps_lock']),
+      },
+      'to' => [
+        {
+          'key_code' => 'up_arrow',
+          'modifiers' => ['left_command'],
+        },
+      ],
       'conditions' => [
         Karabiner.frontmost_application_if(['finder']),
       ],
