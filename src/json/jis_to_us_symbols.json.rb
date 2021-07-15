@@ -14,7 +14,7 @@ def create_rule(mapping)
   from = {
     'key_code': mapping.from_key,
     'modifiers': {
-      'optional': ['control', 'option']
+      'optional': ['control', 'option', 'command']
     }
   }
   if mapping.is_from_shift
