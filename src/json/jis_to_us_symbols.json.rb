@@ -11,9 +11,14 @@ Mapping = Struct.new(:description, :from_key, :is_from_shift, :to_key, :is_to_sh
 end
 
 def create_rule(mapping)
-  from = { 'key_code': mapping.from_key }
+  from = {
+    'key_code': mapping.from_key,
+    'modifiers': {
+      'optional': ['control', 'option', 'command']
+    }
+  }
   if mapping.is_from_shift
-    from[:modifiers] = { 'mandatory': ['shift'] }
+    from[:modifiers][:mandatory] = ['shift']
   end
 
   to = { 'key_code': mapping.to_key }
