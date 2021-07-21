@@ -1,8 +1,222 @@
 {
   "title": "Neo2",
   "rules": [
+  {
+      "description": "Neo2 mod 3 and 4 keys (Apple keyboards). Rule applied to Apple-made keyboards only.",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "backslash",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_option"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_option"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_option",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_command"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "grave_accent_and_tilde"
+              },
+              {
+                "key_code": "right_command"
+              }
+            ]
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "neo2_mod_4",
+                "value": 2
+              },
+              "halt": true
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "neo2_mod_4",
+              "value": 2
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "description": "Apple devices"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "grave_accent_and_tilde"
+              },
+              {
+                "key_code": "right_command"
+              }
+            ]
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "neo2_mod_4",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "neo2_mod_4",
+              "value": 2
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "description": "Apple devices"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "grave_accent_and_tilde",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "neo2_mod_4",
+                "value": 1
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "neo2_mod_4",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "neo2_mod_4",
+              "value": 2
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "description": "Apple devices"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_command",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "neo2_mod_4",
+                "value": 1
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "neo2_mod_4",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "neo2_mod_4",
+              "value": 2
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "description": "Apple devices"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
     {
-      "description": "Neo2 mod 3 and 4 keys (Apple keyboard). Toggle mod4 by pressing both mod4 keys simultaneously.",
+      "description": "Neo2 mod 3 and 4 keys (third party Mac keyboard). Rule applied to all keyboards.",
       "manipulators": [
         {
           "type": "basic",
@@ -180,7 +394,7 @@
       ]
     },
     {
-      "description": "Neo2 mod 3 and 4 keys (Windows keyboard). Toggle mod4 by pressing both mod4 keys simultaneously.",
+      "description": "Neo2 mod 3 and 4 keys (Windows keyboard). Rule applied to all non-Apple keyboards.",
       "manipulators": [
         {
           "type": "basic",
@@ -256,6 +470,15 @@
               "type": "variable_unless",
               "name": "neo2_mod_4",
               "value": 2
+            },
+            {
+              "type": "device_unless",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "description": "Apple devices"
+                }
+              ]
             }
           ]
         },
@@ -284,6 +507,15 @@
               "type": "variable_if",
               "name": "neo2_mod_4",
               "value": 2
+            },
+            {
+              "type": "device_unless",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "description": "Apple devices"
+                }
+              ]
             }
           ]
         },
@@ -318,6 +550,15 @@
               "type": "variable_unless",
               "name": "neo2_mod_4",
               "value": 2
+            },
+            {
+              "type": "device_unless",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "description": "Apple devices"
+                }
+              ]
             }
           ]
         },
@@ -352,6 +593,15 @@
               "type": "variable_unless",
               "name": "neo2_mod_4",
               "value": 2
+            },
+            {
+              "type": "device_unless",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "description": "Apple devices"
+                }
+              ]
             }
           ]
         }
