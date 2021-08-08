@@ -1,0 +1,32 @@
+{
+  "title": "Bind Option+Tab to Command+Tab ('cycle through applications')",
+  "rules": [
+    {
+      "description": "Bind Option+Tab to Command+Tab",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "tab",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ],
+              "optional": [
+                "left_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "tab",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}
