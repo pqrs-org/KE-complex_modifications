@@ -1,0 +1,47 @@
+{
+  "title": "CapLock to Korean <-> English (include parallels)",
+  "maintainers": ["wooglae,kim"],
+  "rules": [
+    {
+      "description": "CapLock to Right_Alt for parallels",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "caps_lock"
+          },
+          "to": [
+            {
+              "key_code": "right_option"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["com.parallels.desktop", "com.parallels.vm", "com.parallels.desktop.console", "com.parallels.winapp."]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "CapLock to F19",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f19"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
