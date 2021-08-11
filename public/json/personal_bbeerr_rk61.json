@@ -6,7 +6,9 @@
       "identifiers": [
         {
           "is_built_in_keyboard": false,
-          "is_keyboard": true
+          "is_keyboard": true,
+          "is_pointing_device": false,
+          "vendor_id": 1452
         }
       ]
     }
@@ -55,65 +57,22 @@
       ]
     },
     {
-      "description": "left_control + up_arrow(RK61) → up_arrow",
+      "description": "up_arrow turn to slash when press with left_command or left_shift",
       "manipulators": [
         {
           "type": "basic",
           "from": {
             "key_code": "up_arrow",
-            "modifiers": {
-              "mandatory": [
-                "left_control"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "up_arrow"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "up_arrow",
-            "modifiers": {
-              "mandatory": [
-                "left_control",
-                "left_command"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "up_arrow",
-              "modifiers": [
-                "left_control",
-                "left_command"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "up_arrow(RK61) → slash(normal mode), shift + up_arrow(RK61) → ?(normal mode)",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "up_arrow",
-            "modifiers": {
+            "modifiers":{
               "optional": [
-                "any"
+                "left_command",
+                "left_shift"
               ]
             }
           },
-          "to": [
-            {
-              "key_code": "slash"
-            }
-          ]
+          "to": {
+            "key_code": "slash"
+          }
         }
       ]
     }
