@@ -20,6 +20,7 @@ def main
     'rules' => [
       {
         'description' => 'Personal rules (@tekezo) (rev 30)',
+        'available_since' => '13.5.4',
         'manipulators' =>
         core_configuration +
         emacs +
