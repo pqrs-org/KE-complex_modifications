@@ -1,0 +1,124 @@
+{
+    "title": "left_command + Insert/Delete/Home/End/PageUp/PageDown to Media controls",
+    "rules": [
+        {
+            "description": "Change left_command + Insert/Delete/Home/End/PageUp/PageDown to Media controls",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "insert", 
+                        "modifiers": {
+                            "mandatory": [ 
+                                "left_command" 
+                            ],
+                            "optional": [ 
+                                "any" 
+                            ]
+                        }
+                    }, 
+                    "to": [
+                        {
+                            "key_code": "play_or_pause"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "home", 
+                        "modifiers": {
+                            "mandatory": [ 
+                                "left_command" 
+                            ],
+                            "optional": [ 
+                                "any" 
+                            ]
+                        }
+                    }, 
+                    "to": [
+                        {
+                            "key_code": "play_or_pause"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "page_up", 
+                        "modifiers": {
+                            "mandatory": [ 
+                                "left_command" 
+                            ],
+                            "optional": [ 
+                                "any" 
+                            ]
+                        }
+                    }, 
+                    "to": [
+                        {
+                            "key_code": "volume_increment"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "delete_forward", 
+                        "modifiers": {
+                            "mandatory": [ 
+                                "left_command" 
+                            ],
+                            "optional": [ 
+                                "any" 
+                            ]
+                        }
+                    }, 
+                    "to": [
+                        {
+                            "key_code": "rewind"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "end", 
+                        "modifiers": {
+                            "mandatory": [ 
+                                "left_command" 
+                            ],
+                            "optional": [ 
+                                "any" 
+                            ]
+                        }
+                    }, 
+                    "to": [
+                        {
+                            "key_code": "fastforward"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "page_down", 
+                        "modifiers": {
+                            "mandatory": [ 
+                                "left_command" 
+                            ],
+                            "optional": [ 
+                                "any" 
+                            ]
+                        }
+                    }, 
+                    "to": [
+                        {
+                            "key_code": "volume_decrement"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
