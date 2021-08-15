@@ -1,0 +1,128 @@
+{
+  "title": "For Korean Keyboard",
+  "maintainers": [
+    "Metalliza"
+  ],
+  "rules": [
+    {
+      "description": "shift + 스페이스 를 사용하여 입력 소스 변경",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "spacebar",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "오른쪽 command 키를 사용하여 입력 소스 변경",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_command"
+          },
+          "to": [
+            {
+              "key_code": "spacebar",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "한글 106키 키보드의 한/영 키를 사용하여 입력 소스 변경",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "lang1"
+          },
+          "to": [
+            {
+              "key_code": "spacebar",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "오른쪽 option 키를 사용하여 한글을 한자로 변환",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                  "language": "ko"
+                }
+              ]
+            }
+          ],
+          "from": {
+            "key_code": "right_option"
+          },
+          "to": [
+            {
+              "key_code": "return_or_enter",
+              "modifiers": [
+                "right_option"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "한글 106키 키보드의 한자 키를 사용하여 한글을 한자로 변환",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                  "language": "ko"
+                }
+              ]
+            }
+          ],
+          "from": {
+            "key_code": "lang2"
+          },
+          "to": [
+            {
+              "key_code": "return_or_enter",
+              "modifiers": [
+                "right_option"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
