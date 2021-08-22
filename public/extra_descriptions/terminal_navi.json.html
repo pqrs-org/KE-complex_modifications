@@ -19,7 +19,7 @@
     <td>✅</td>
   </tr>
   <tr>
-    <td>⌘⇧Z</td>
+    <td>⇧⌘Z</td>
     <td>Redo</td>
     <td>❌</td>
     <td>requires <code>bindkey '^[e' redo</code></td>
@@ -28,6 +28,24 @@
     <td>⌘D</td>
     <td>Duplicate the word left of the cursor</td>
     <td>❌</td>
+    <td>✅</td>
+  </tr>
+  <tr>
+    <td>⇧⌘D</td>
+    <td>Duplicate the last word of the previous command line</td>
+    <td>✅</td>
+    <td>✅</td>
+  </tr>
+  <tr>
+    <td>⌫</td>
+    <td>Delete one character backward</td>
+    <td>✅</td>
+    <td>✅</td>
+  </tr>
+  <tr>
+    <td>⌦ or <kbd>fn</kbd>⌫</td>
+    <td>Delete one character forward</td>
+    <td>✅</td>
     <td>✅</td>
   </tr>
   <tr>
@@ -44,54 +62,6 @@
     </td>
   </tr>
   <tr>
-    <td>⌘←</td>
-    <td>Go one shell word backward</td>
-    <td>✅</td>
-    <td>requires <code>bindkey '^[^B' vi-backward-blank-word</code></td>
-    </tr>
-  <tr>
-    <td>⌘→</td>
-    <td>Go one shell word forward</td>
-    <td>✅</td>
-    <td>requires <code>bindkey '^[^B' vi-forward-blank-word</code></td>
-    </tr>
-  <tr>
-    <td>⌃A</td>
-    <td>Go to previous line break</td>
-    <td>✅</td>
-    <td>✅</td>
-  </tr>
-  <tr>
-    <td>⌃E</td>
-    <td>Go to next line break</td>
-    <td>✅</td>
-    <td>✅</td>
-  </tr>
-  <tr>
-    <td>⌥↑</td>
-    <td>Go to start of editing buffer or history</td>
-    <td>history only</td>
-    <td>✅</td>
-  </tr>
-  <tr>
-    <td>⌥↓</td>
-    <td>Go to end of editing buffer or history</td>
-    <td>history only</td>
-    <td>✅</td>
-  </tr>
-  <tr>
-    <td>⌫</td>
-    <td>Delete one character backward</td>
-    <td>✅</td>
-    <td>✅</td>
-  </tr>
-  <tr>
-    <td>⌦ or <kbd>fn</kbd>⌫</td>
-    <td>Delete one character forward</td>
-    <td>✅</td>
-    <td>✅</td>
-  </tr>
-  <tr>
     <td>⌥⌫</td>
     <td>Cut one natural word backward</td>
     <td>✅</td>
@@ -102,6 +72,18 @@
     <td>Cut one natural word forward</td>
     <td>✅</td>
     <td>requires <code>WORDCHARS=''</code></td>
+  </tr>
+  <tr>
+    <td>⌘←</td>
+    <td>Go one shell word backward</td>
+    <td>✅</td>
+    <td>requires <code>bindkey '^[^B' vi-backward-blank-word</code></td>
+  </tr>
+  <tr>
+    <td>⌘→</td>
+    <td>Go one shell word forward</td>
+    <td>✅</td>
+    <td>requires <code>bindkey '^[^F' vi-forward-blank-word</code></td>
   </tr>
   <tr>
     <td>⌘⌫</td>
@@ -116,6 +98,18 @@
     <td>requires <a href="https://github.com/marlonrichert/zsh-edit"><code>zsh-edit</code></a></td>
   </tr>
   <tr>
+    <td>⌃A</td>
+    <td>Go to previous line break</td>
+    <td>✅</td>
+    <td>✅</td>
+  </tr>
+  <tr>
+    <td>⌃E</td>
+    <td>Go to next line break</td>
+    <td>✅</td>
+    <td>✅</td>
+  </tr>
+  <tr>
     <td>⌃U</td>
     <td>Cut to previous line break</td>
     <td>✅</td>
@@ -126,5 +120,17 @@
     <td>Cut to next line break</td>
     <td>✅</td>
     <td>✅</td>
+  </tr>
+  <tr>
+    <td>⌥↑</td>
+    <td>Go to first line</td>
+    <td>✅ first line of history</td>
+    <td>✅ first line of buffer or, if already there, of history</td>
+  </tr>
+  <tr>
+    <td>⌥↓</td>
+    <td>Go to last line</td>
+    <td>✅ last line of history</td>
+    <td>✅ last line of buffer or, if already there, of history</td>
   </tr>
 </table>
