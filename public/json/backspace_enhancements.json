@@ -1,0 +1,52 @@
+{
+  "title": "Backspace Enhancements",
+  "rules": [
+    {
+      "description": "Map Shift + Backspace to Forward Delete",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "delete_or_backspace",
+            "modifiers": {
+              "mandatory": [ "shift" ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_forward"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Map = and Backspace to Forward Delete",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "equal_sign"
+              },
+              {
+                "key_code": "delete_or_backspace"
+              }
+            ],
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_forward"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
