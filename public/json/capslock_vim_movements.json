@@ -1,32 +1,9 @@
 {
-    "title": "Caps Lock Vim Movements",
+    "title": "Caps Lock Vim Movements (rev 2)",
     "rules": [
         {
-            "description": "CAPS › ESC, CAPS+H/J/K/L › ←↓↑→, CAPS+D/U › PG↓↑, CAPS+↩︎ › CAPS",
+            "description": "CAPS › ESC, CAPS+H/J/K/L › ←↓↑→, CAPS+D/U › PG↓↑",
             "manipulators": [
-                {
-                    "conditions": [
-                        {
-                            "name": "caps_lock pressed",
-                            "type": "variable_if",
-                            "value": 1
-                        }
-                    ],
-                    "from": {
-                        "key_code": "return_or_enter",
-                        "modifiers": {
-                            "optional": [
-                                "any"
-                            ]
-                        }
-                    },
-                    "to": [
-                        {
-                            "key_code": "caps_lock"
-                        }
-                    ],
-                    "type": "basic"
-                },
                 {
                     "conditions": [
                         {
@@ -193,6 +170,62 @@
                     "to_if_alone": [
                         {
                             "key_code": "escape"
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "CAPS+↩︎ › CAPS",
+            "manipulators": [
+                {
+                    "conditions": [
+                        {
+                            "name": "caps_lock pressed",
+                            "type": "variable_if",
+                            "value": 1
+                        }
+                    ],
+                    "from": {
+                        "key_code": "return_or_enter",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "caps_lock"
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "CAPS+A › CAPS",
+            "manipulators": [
+                {
+                    "conditions": [
+                        {
+                            "name": "caps_lock pressed",
+                            "type": "variable_if",
+                            "value": 1
+                        }
+                    ],
+                    "from": {
+                        "key_code": "a",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "caps_lock"
                         }
                     ],
                     "type": "basic"
