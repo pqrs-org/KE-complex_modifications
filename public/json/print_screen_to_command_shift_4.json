@@ -1,8 +1,12 @@
 {
-  "title": "Print Screen to Command+Shift+4",
+  "title": "Use PC Print Screen button for screen capture",
+  "maintainers": [
+    "0x15e",
+    "Metalliza"
+  ],
   "rules": [
     {
-      "description": "Use PC print screen button for screen capture",
+      "description": "Print Screen to Command+Shift+4",
       "manipulators": [
         {
           "type": "basic",
@@ -11,6 +15,53 @@
           },
           "to": {
             "key_code": "4",
+            "modifiers": [
+              "left_command",
+              "left_shift"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "description": "Control+Print Screen to Control+Command+Shift+4",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "print_screen",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": {
+            "key_code": "4",
+            "modifiers": [
+              "left_control",
+              "left_command",
+              "left_shift"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "description": "Command+Print Screen to Command+Shift+5",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "print_screen",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ]
+            }
+          },
+          "to": {
+            "key_code": "5",
             "modifiers": [
               "left_command",
               "left_shift"
