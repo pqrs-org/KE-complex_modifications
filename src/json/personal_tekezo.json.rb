@@ -19,7 +19,7 @@ def main
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Personal rules (@tekezo) (rev 31)',
+        'description' => 'Personal rules (@tekezo) (rev 32)',
         'available_since' => '13.5.4',
         'manipulators' =>
         core_configuration +
@@ -168,6 +168,35 @@ def core_configuration
       },
     },
 
+    # right_command+left_command
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => 'left_command',
+        'modifiers' => Karabiner.from_modifiers(['right_command']),
+      },
+      'to' => [
+        {
+          'key_code' => 'left_control',
+          'modifiers' => ['right_command'],
+          'lazy' => true,
+        },
+      ],
+      'to_if_alone' => [
+        {
+          'key_code' => 'tab',
+          'modifiers' => ['left_command'],
+        },
+        {
+          'key_code' => 'vk_none',
+        },
+      ],
+      'parameters' => {
+        'basic.to_if_alone_timeout_milliseconds' => 250,
+      },
+    },
+
+    # left_command
     {
       'type' => 'basic',
       'from' => {
@@ -241,57 +270,6 @@ def core_configuration
     ########################################
     # spacebar
     ########################################
-
-    # right_command+spacebar
-    {
-      'type' => 'basic',
-      'from' => {
-        'key_code' => 'spacebar',
-        'modifiers' => Karabiner.from_modifiers(['right_command']),
-      },
-      'to' => [
-        {
-          'key_code' => 'left_shift',
-          'modifiers' => ['right_command'],
-        },
-      ],
-      'to_if_alone' => [
-        {
-          'key_code' => 'grave_accent_and_tilde',
-          'modifiers' => ['left_command'],
-        },
-      ],
-      'parameters' => {
-        'basic.to_if_alone_timeout_milliseconds' => 250,
-      },
-    },
-
-    # right_option+spacebar
-    {
-      'type' => 'basic',
-      'from' => {
-        'key_code' => 'spacebar',
-        'modifiers' => Karabiner.from_modifiers(['right_option']),
-      },
-      'to' => [
-        {
-          'key_code' => 'left_shift',
-          'modifiers' => ['right_option'],
-        },
-      ],
-      'to_if_alone' => [
-        {
-          'key_code' => 'tab',
-          'modifiers' => ['left_command'],
-        },
-        {
-          'key_code' => 'vk_none',
-        },
-      ],
-      'parameters' => {
-        'basic.to_if_alone_timeout_milliseconds' => 250,
-      },
-    },
 
     # spacebar
     {
