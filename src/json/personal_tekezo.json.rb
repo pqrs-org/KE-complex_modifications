@@ -19,7 +19,7 @@ def main
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Personal rules (@tekezo) (rev 30)',
+        'description' => 'Personal rules (@tekezo) (rev 31)',
         'available_since' => '13.5.4',
         'manipulators' =>
         core_configuration +
@@ -142,6 +142,31 @@ def core_configuration
     ########################################
     # left_command
     ########################################
+
+    # left_shift+left_command
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => 'left_command',
+        'modifiers' => Karabiner.from_modifiers(['left_shift']),
+      },
+      'to' => [
+        {
+          'key_code' => 'left_control',
+          'modifiers' => ['left_shift'],
+          'lazy' => true,
+        },
+      ],
+      'to_if_alone' => [
+        {
+          'key_code' => 'grave_accent_and_tilde',
+          'modifiers' => ['left_command'],
+        },
+      ],
+      'parameters' => {
+        'basic.to_if_alone_timeout_milliseconds' => 250,
+      },
+    },
 
     {
       'type' => 'basic',
