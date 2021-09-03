@@ -9,15 +9,16 @@ PARAMETERS = {
 ############################################################
 
 require 'json'
-require_relative '../lib/karabiner.rb'
+require_relative '../lib/karabiner'
 
 def main
   puts JSON.pretty_generate(
-    'title' => 'Personal rules (@tekezo) simple_vi_mode (rev 3)',
+    'title' => 'Personal rules (@tekezo) simple_vi_mode (rev 4)',
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Simple Vi Mode v3 (rev 3)',
+        'description' => 'Simple Vi Mode v3 (rev 4)',
+        "available_since": '13.6.0',
         'manipulators' => [
           generate_simple_vi_mode('j', 'down_arrow'),
           generate_simple_vi_mode('k', 'up_arrow'),
@@ -66,12 +67,14 @@ def generate_simple_vi_mode(from_key_code, to_key_code)
           'key_up_order' => 'strict_inverse',
           'to_after_key_up' => [
             Karabiner.set_variable('simple_vi_mode', 0),
+            Karabiner.set_notification_message('simple_vi_mode', ''),
           ],
         },
         'modifiers' => Karabiner.from_modifiers,
       },
       'to' => [
         Karabiner.set_variable('simple_vi_mode', 1),
+        Karabiner.set_notification_message('simple_vi_mode', 'Simple Vi Mode v3'),
         {
           'key_code' => to_key_code,
         },

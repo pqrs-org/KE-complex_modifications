@@ -180,6 +180,15 @@ module Karabiner
     }
   end
 
+  def self.set_notification_message(id, text)
+    {
+      'set_notification_message' => {
+        'id' => id,
+        'text' => text,
+      },
+    }
+  end
+
   def self.frontmost_application(type, app_aliases = [], bundle_identifiers: [])
     app_aliases.each do |app_alias|
       if Karabiner::APP_ALIASES[app_alias].nil?

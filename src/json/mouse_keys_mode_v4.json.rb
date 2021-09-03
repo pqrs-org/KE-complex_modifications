@@ -14,15 +14,16 @@ PARAMETERS = {
 ############################################################
 
 require 'json'
-require_relative '../lib/karabiner.rb'
+require_relative '../lib/karabiner'
 
 def main
   puts JSON.pretty_generate(
-    'title' => 'Mouse Keys Mode v4 (rev 1)',
+    'title' => 'Mouse Keys Mode v4 (rev 2)',
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Mouse Keys Mode v4 (rev 1)',
+        'description' => 'Mouse Keys Mode v4 (rev 2)',
+        "available_since": '13.6.0',
         'manipulators' => [
 
           # hjkl
@@ -73,6 +74,34 @@ def main
                                    nil),
           generate_mouse_keys_mode('g',
                                    [{ 'mouse_key' => { 'speed_multiplier' => 0.5 } }],
+                                   nil,
+                                   nil),
+          generate_mouse_keys_mode('i',
+                                   [
+                                     {
+                                       'software_function' => {
+                                         'set_mouse_cursor_position' => {
+                                           'x' => '50%',
+                                           'y' => '50%',
+                                           'screen' => 0,
+                                         },
+                                       },
+                                     },
+                                   ],
+                                   nil,
+                                   nil),
+          generate_mouse_keys_mode('o',
+                                   [
+                                     {
+                                       'software_function' => {
+                                         'set_mouse_cursor_position' => {
+                                           'x' => '50%',
+                                           'y' => '50%',
+                                           'screen' => 1,
+                                         },
+                                       },
+                                     },
+                                   ],
                                    nil,
                                    nil),
         ].flatten,
@@ -140,12 +169,14 @@ def generate_mouse_keys_mode(from_key_code, to, scroll_to, to_after_key_up)
         'to_after_key_up' => [
           Karabiner.set_variable('mouse_keys_mode_v4', 0),
           Karabiner.set_variable('mouse_keys_mode_v4_scroll', 0),
+          Karabiner.set_notification_message('mouse_keys_mode_v4', ''),
         ],
       },
       'modifiers' => Karabiner.from_modifiers,
     },
     'to' => [
       Karabiner.set_variable('mouse_keys_mode_v4', 1),
+      Karabiner.set_notification_message('mouse_keys_mode_v4', 'Mouse Keys Mode v4'),
     ].concat(to),
     'parameters' => {
       'basic.simultaneous_threshold_milliseconds' => PARAMETERS[:simultaneous_threshold_milliseconds],
