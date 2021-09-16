@@ -55,6 +55,14 @@
             "open_bracket","a","r","s","t","g","m","n","e","i","o",
             "z","x","c","d","v","slash","k","h","comma","period","slash"
         ])
+
+        # Colemak Mod-DHk (K <-> M)
+        manipulators_dhk = create_manipulators([
+            "grave_accent_and_tilde","1","2","4","5","6","7","8","9","0","hyphen","equal_sign",
+            "q","w","f","p","b","j","l","u","y","semicolon","open_bracket","close_bracket","backslash",
+            "a","r","s","t","g","k","n","e","i","o","quote",
+            "x","c","d","v","z","m","h","comma","period","slash"
+        ])
     %>
     "title": "Colemak Mod-DH Keyboard (ANSI)",
     "rules": [
@@ -72,6 +80,11 @@
             "description": "Colemak Mod-DH Alt-Home (ANSI)",
             "manipulators":
             <%= JSON.generate(manipulators_alt_home) %>
+        },
+        {
+            "description": "Colemak Mod-DHk (ANSI)",
+            "manipulators":
+            <%= JSON.generate(manipulators_dhk) %>
         }
     ]
 }
