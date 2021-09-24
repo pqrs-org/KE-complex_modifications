@@ -19,7 +19,7 @@ def main
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Personal rules (@tekezo) (rev 32)',
+        'description' => 'Personal rules (@tekezo) (rev 33)',
         'available_since' => '13.6.0',
         'manipulators' =>
         core_configuration +
@@ -205,6 +205,14 @@ def core_configuration
           'lazy' => true,
         },
       ],
+      'to_if_alone' => [
+        {
+          'key_code' => 'spacebar',
+        },
+      ],
+      'parameters' => {
+        'basic.to_if_alone_timeout_milliseconds' => 250,
+      },
     },
 
     ########################################

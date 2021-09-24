@@ -5,7 +5,7 @@
   ],
   "rules": [
     {
-      "description": "Personal rules (@tekezo) (rev 32)",
+      "description": "Personal rules (@tekezo) (rev 33)",
       "available_since": "13.6.0",
       "manipulators": [
         {
@@ -246,7 +246,15 @@
               "key_code": "left_control",
               "lazy": true
             }
-          ]
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "spacebar"
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 250
+          }
         },
         {
           "type": "basic",
