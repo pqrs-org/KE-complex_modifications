@@ -23,10 +23,10 @@ def main
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Launcher Mode v4 (rev 15)',
+        'description' => 'Launcher Mode v4 (rev 16)',
         'available_since' => '13.1.4',
         'manipulators' => [
-          generate_launcher_mode('1', [], [{ 'shell_command' => "open $(dirname $(dirname $(xcode-select -p)))" }]),
+          generate_launcher_mode('1', [], [{ 'shell_command' => 'open "$(dirname $(dirname $(xcode-select -p)))"' }]),
           generate_launcher_mode('3', [], [{ 'shell_command' => "open -a 'Firefox.app'" }]),
           generate_launcher_mode('5', [], [{ 'shell_command' => "open -a 'Microsoft Word.app'" }]),
           generate_launcher_mode('6', [], [{ 'shell_command' => "open -a 'Microsoft Excel.app'" }]),

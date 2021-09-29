@@ -5,7 +5,7 @@
   ],
   "rules": [
     {
-      "description": "Launcher Mode v4 (rev 15)",
+      "description": "Launcher Mode v4 (rev 16)",
       "available_since": "13.1.4",
       "manipulators": [
         {
@@ -23,7 +23,7 @@
           },
           "to": [
             {
-              "shell_command": "open $(dirname $(dirname $(xcode-select -p)))"
+              "shell_command": "open \"$(dirname $(dirname $(xcode-select -p)))\""
             }
           ],
           "conditions": [
@@ -74,7 +74,7 @@
               }
             },
             {
-              "shell_command": "open $(dirname $(dirname $(xcode-select -p)))"
+              "shell_command": "open \"$(dirname $(dirname $(xcode-select -p)))\""
             }
           ],
           "parameters": {
