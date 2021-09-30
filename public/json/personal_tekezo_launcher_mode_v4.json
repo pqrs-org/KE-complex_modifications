@@ -5,7 +5,7 @@
   ],
   "rules": [
     {
-      "description": "Launcher Mode v4 (rev 15)",
+      "description": "Launcher Mode v4 (rev 17)",
       "available_since": "13.1.4",
       "manipulators": [
         {
@@ -23,7 +23,7 @@
           },
           "to": [
             {
-              "shell_command": "open $(dirname $(dirname $(xcode-select -p)))"
+              "shell_command": "open \"$(dirname $(dirname $(xcode-select -p)))\""
             }
           ],
           "conditions": [
@@ -74,7 +74,7 @@
               }
             },
             {
-              "shell_command": "open $(dirname $(dirname $(xcode-select -p)))"
+              "shell_command": "open \"$(dirname $(dirname $(xcode-select -p)))\""
             }
           ],
           "parameters": {
@@ -1033,7 +1033,7 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "tab",
+            "key_code": "left_control",
             "modifiers": {
               "mandatory": [
 
@@ -1064,7 +1064,7 @@
                 "key_code": "o"
               },
               {
-                "key_code": "tab"
+                "key_code": "left_control"
               }
             ],
             "simultaneous_options": {
@@ -1106,7 +1106,7 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "spacebar",
+            "key_code": "left_shift",
             "modifiers": {
               "mandatory": [
 
@@ -1137,7 +1137,7 @@
                 "key_code": "o"
               },
               {
-                "key_code": "spacebar"
+                "key_code": "left_shift"
               }
             ],
             "simultaneous_options": {

@@ -5,168 +5,13 @@
   ],
   "rules": [
     {
-      "description": "Personal rules (@tekezo) (rev 33)",
+      "description": "Personal rules (@tekezo) (rev 35)",
       "available_since": "13.6.0",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "right_command",
-            "modifiers": {
-              "mandatory": [
-                "left_control"
-              ],
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "right_control",
-              "modifiers": [
-                "left_control"
-              ],
-              "lazy": true
-            }
-          ],
-          "to_if_alone": [
-            {
-              "key_code": "grave_accent_and_tilde",
-              "modifiers": [
-                "left_option"
-              ]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.microsoft\\.rdc$",
-                "^com\\.microsoft\\.rdc\\.",
-                "^net\\.sf\\.cord$",
-                "^com\\.thinomenon\\.RemoteDesktopConnection$",
-                "^com\\.itap-mobile\\.qmote$",
-                "^com\\.nulana\\.remotixmac$",
-                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
-                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.",
-                "^com\\.teamviewer\\.TeamViewer$",
-                "^com\\.vmware\\.horizon$",
-                "^com\\.2X\\.Client\\.Mac$",
-                "^com\\.vmware\\.fusion$",
-                "^com\\.vmware\\.horizon$",
-                "^com\\.vmware\\.view$",
-                "^com\\.parallels\\.desktop$",
-                "^com\\.parallels\\.vm$",
-                "^com\\.parallels\\.desktop\\.console$",
-                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
-                "^com\\.citrix\\.XenAppViewer$",
-                "^com\\.vmware\\.proxyApp\\.",
-                "^com\\.parallels\\.winapp\\."
-              ]
-            }
-          ],
-          "parameters": {
-            "basic.to_if_alone_timeout_milliseconds": 250
-          }
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "right_command",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "right_control",
-              "lazy": true
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.microsoft\\.rdc$",
-                "^com\\.microsoft\\.rdc\\.",
-                "^net\\.sf\\.cord$",
-                "^com\\.thinomenon\\.RemoteDesktopConnection$",
-                "^com\\.itap-mobile\\.qmote$",
-                "^com\\.nulana\\.remotixmac$",
-                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
-                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.",
-                "^com\\.teamviewer\\.TeamViewer$",
-                "^com\\.vmware\\.horizon$",
-                "^com\\.2X\\.Client\\.Mac$",
-                "^com\\.vmware\\.fusion$",
-                "^com\\.vmware\\.horizon$",
-                "^com\\.vmware\\.view$",
-                "^com\\.parallels\\.desktop$",
-                "^com\\.parallels\\.vm$",
-                "^com\\.parallels\\.desktop\\.console$",
-                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
-                "^com\\.citrix\\.XenAppViewer$",
-                "^com\\.vmware\\.proxyApp\\.",
-                "^com\\.parallels\\.winapp\\."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "right_command",
-            "modifiers": {
-              "mandatory": [
-                "left_control"
-              ],
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "right_command",
-              "modifiers": [
-                "left_control"
-              ],
-              "lazy": true
-            }
-          ],
-          "to_if_alone": [
-            {
-              "key_code": "lang2"
-            }
-          ],
-          "parameters": {
-            "basic.to_if_alone_timeout_milliseconds": 250
-          }
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "right_command",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "right_command",
-              "lazy": true
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "left_command",
+            "key_code": "left_control",
             "modifiers": {
               "mandatory": [
                 "left_shift"
@@ -200,10 +45,10 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "left_command",
+            "key_code": "left_control",
             "modifiers": {
               "mandatory": [
-                "right_command"
+                "left_command"
               ],
               "optional": [
                 "any"
@@ -214,7 +59,7 @@
             {
               "key_code": "left_control",
               "modifiers": [
-                "right_command"
+                "left_command"
               ],
               "lazy": true
             }
@@ -234,7 +79,7 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "left_command",
+            "key_code": "left_control",
             "modifiers": {
               "optional": [
                 "any"
@@ -259,100 +104,7 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "right_option",
-            "modifiers": {
-              "mandatory": [
-                "left_control"
-              ],
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "right_option",
-              "modifiers": [
-                "left_control"
-              ],
-              "lazy": true
-            }
-          ],
-          "to_if_alone": [
-            {
-              "key_code": "grave_accent_and_tilde",
-              "modifiers": [
-                "left_option"
-              ]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.microsoft\\.rdc$",
-                "^com\\.microsoft\\.rdc\\.",
-                "^net\\.sf\\.cord$",
-                "^com\\.thinomenon\\.RemoteDesktopConnection$",
-                "^com\\.itap-mobile\\.qmote$",
-                "^com\\.nulana\\.remotixmac$",
-                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
-                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.",
-                "^com\\.teamviewer\\.TeamViewer$",
-                "^com\\.vmware\\.horizon$",
-                "^com\\.2X\\.Client\\.Mac$",
-                "^com\\.vmware\\.fusion$",
-                "^com\\.vmware\\.horizon$",
-                "^com\\.vmware\\.view$",
-                "^com\\.parallels\\.desktop$",
-                "^com\\.parallels\\.vm$",
-                "^com\\.parallels\\.desktop\\.console$",
-                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
-                "^com\\.citrix\\.XenAppViewer$",
-                "^com\\.vmware\\.proxyApp\\.",
-                "^com\\.parallels\\.winapp\\."
-              ]
-            }
-          ],
-          "parameters": {
-            "basic.to_if_alone_timeout_milliseconds": 250
-          }
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "right_option",
-            "modifiers": {
-              "mandatory": [
-                "left_control"
-              ],
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "right_option",
-              "modifiers": [
-                "left_control"
-              ],
-              "lazy": true
-            }
-          ],
-          "to_if_alone": [
-            {
-              "key_code": "lang1"
-            }
-          ],
-          "parameters": {
-            "basic.to_if_alone_timeout_milliseconds": 250
-          }
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "spacebar",
+            "key_code": "left_shift",
             "modifiers": {
               "optional": [
                 "any"
@@ -372,6 +124,44 @@
           "parameters": {
             "basic.to_if_alone_timeout_milliseconds": 250
           }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "grave_accent_and_tilde",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "lang2"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "grave_accent_and_tilde",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "lang1"
+            }
+          ]
         },
         {
           "type": "basic",

@@ -23,10 +23,10 @@ def main
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Launcher Mode v4 (rev 15)',
+        'description' => 'Launcher Mode v4 (rev 17)',
         'available_since' => '13.1.4',
         'manipulators' => [
-          generate_launcher_mode('1', [], [{ 'shell_command' => "open $(dirname $(dirname $(xcode-select -p)))" }]),
+          generate_launcher_mode('1', [], [{ 'shell_command' => 'open "$(dirname $(dirname $(xcode-select -p)))"' }]),
           generate_launcher_mode('3', [], [{ 'shell_command' => "open -a 'Firefox.app'" }]),
           generate_launcher_mode('5', [], [{ 'shell_command' => "open -a 'Microsoft Word.app'" }]),
           generate_launcher_mode('6', [], [{ 'shell_command' => "open -a 'Microsoft Excel.app'" }]),
@@ -41,8 +41,8 @@ def main
           generate_launcher_mode('t', [], [{ 'shell_command' => "open -a 'iTerm.app'" }]),
           generate_launcher_mode('v', [], [{ 'shell_command' => "open -a 'Slack.app'" }]),
 
-          generate_launcher_mode('tab', [], [{ 'key_code' => 'mission_control' }]),
-          generate_launcher_mode('spacebar', [], [{ 'apple_vendor_keyboard_key_code' => 'spotlight' }]),
+          generate_launcher_mode('left_control', [], [{ 'key_code' => 'mission_control' }]),
+          generate_launcher_mode('left_shift', [], [{ 'apple_vendor_keyboard_key_code' => 'spotlight' }]),
         ].flatten,
       },
     ],
