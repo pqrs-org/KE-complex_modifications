@@ -19,13 +19,13 @@ def main
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Personal rules (@tekezo) (rev 35)',
+        'description' => 'Personal rules (@tekezo) (rev 36)',
         'available_since' => '13.6.0',
         'manipulators' =>
         core_configuration +
         emacs +
         mouse +
-        control_1234 +
+        extra_cursor +
         option_hyphen +
         media_controls +
         app_virtual_machine +
@@ -151,7 +151,7 @@ def core_configuration
     {
       'type' => 'basic',
       'from' => {
-        'key_code' => 'grave_accent_and_tilde',
+        'key_code' => 'fn',
         'modifiers' => Karabiner.from_modifiers(['option']),
       },
       'to' => [
@@ -164,7 +164,7 @@ def core_configuration
     {
       'type' => 'basic',
       'from' => {
-        'key_code' => 'grave_accent_and_tilde',
+        'key_code' => 'fn',
         'modifiers' => Karabiner.from_modifiers(['command']),
       },
       'to' => [
@@ -381,89 +381,9 @@ def mouse
   ]
 end
 
-def generate_mouse_keys_mode(from_key_code, to, scroll_to, to_after_key_up)
-  data = []
-
-  ############################################################
-
-  unless scroll_to.nil?
-    h = {
-      'type' => 'basic',
-      'from' => {
-        'key_code' => from_key_code,
-        'modifiers' => Karabiner.from_modifiers,
-      },
-      'to' => scroll_to,
-      'conditions' => [
-        Karabiner.variable_if('mouse_keys_mode_v4', 1),
-        Karabiner.variable_if('mouse_keys_mode_v4_scroll', 1),
-      ],
-    }
-
-    h['to_after_key_up'] = to_after_key_up unless to_after_key_up.nil?
-
-    data << h
-  end
-
-  ############################################################
-
-  h = {
-    'type' => 'basic',
-    'from' => {
-      'key_code' => from_key_code,
-      'modifiers' => Karabiner.from_modifiers,
-    },
-    'to' => to,
-    'conditions' => [Karabiner.variable_if('mouse_keys_mode_v4', 1)],
-  }
-
-  h['to_after_key_up'] = to_after_key_up unless to_after_key_up.nil?
-
-  data << h
-
-  ############################################################
-
-  h = {
-    'type' => 'basic',
-    'from' => {
-      'simultaneous' => [
-        {
-          'key_code' => 'd',
-        },
-        {
-          'key_code' => from_key_code,
-        },
-      ],
-      'simultaneous_options' => {
-        'key_down_order' => 'strict',
-        'key_up_order' => 'strict_inverse',
-        'to_after_key_up' => [
-          Karabiner.set_variable('mouse_keys_mode_v4', 0),
-          Karabiner.set_variable('mouse_keys_mode_v4_scroll', 0),
-        ],
-      },
-      'modifiers' => Karabiner.from_modifiers,
-    },
-    'to' => [
-      Karabiner.set_variable('mouse_keys_mode_v4', 1),
-    ].concat(to),
-    'parameters' => {
-      'basic.simultaneous_threshold_milliseconds' => PARAMETERS[:simultaneous_threshold_milliseconds],
-    },
-  }
-
-  h['to_after_key_up'] = to_after_key_up unless to_after_key_up.nil?
-
-  data << h
-
-  ############################################################
-
-  data
-end
-
-def control_1234
-  # control+1,2,3,4 to home,page_down,page_up,end
+def extra_cursor
   [
+    # control+1,2,3,4 to home,page_down,page_up,end
     {
       'type' => 'basic',
       'from' => {
@@ -499,6 +419,28 @@ def control_1234
       'from' => {
         'key_code' => '4',
         'modifiers' => Karabiner.from_modifiers(['left_control'], %w[caps_lock shift]),
+      },
+      'to' => [
+        { 'key_code' => 'end' },
+      ],
+    },
+
+    # option+a,e to home,end
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => 'a',
+        'modifiers' => Karabiner.from_modifiers(['left_option'], %w[caps_lock shift]),
+      },
+      'to' => [
+        { 'key_code' => 'home' },
+      ],
+    },
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => 'e',
+        'modifiers' => Karabiner.from_modifiers(['left_option'], %w[caps_lock shift]),
       },
       'to' => [
         { 'key_code' => 'end' },
