@@ -145,8 +145,10 @@ def core_configuration
     },
 
     ########################################
-    # input source switch
+    # fn
     ########################################
+
+    # input source switch
 
     {
       'type' => 'basic',
@@ -172,6 +174,27 @@ def core_configuration
           'key_code' => 'lang1',
         },
       ],
+    },
+
+    {
+      'type' => 'basic',
+      'from' => {
+        'key_code' => 'fn',
+        'modifiers' => Karabiner.from_modifiers,
+      },
+      'to' => [
+        {
+          'key_code' => 'fn',
+        },
+      ],
+      'to_if_alone' => [
+        {
+          'key_code' => 'grave_accent_and_tilde',
+        },
+      ],
+      'parameters' => {
+        'basic.to_if_alone_timeout_milliseconds' => 250,
+      },
     },
 
     ########################################
