@@ -19,7 +19,7 @@ def main
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Personal rules (@tekezo) (rev 36)',
+        'description' => 'Personal rules (@tekezo) (rev 37)',
         'available_since' => '13.6.0',
         'manipulators' =>
         core_configuration +
@@ -153,7 +153,7 @@ def core_configuration
     {
       'type' => 'basic',
       'from' => {
-        'key_code' => 'fn',
+        'key_code' => 'open_bracket',
         'modifiers' => Karabiner.from_modifiers(['option']),
       },
       'to' => [
@@ -166,8 +166,8 @@ def core_configuration
     {
       'type' => 'basic',
       'from' => {
-        'key_code' => 'fn',
-        'modifiers' => Karabiner.from_modifiers(['command']),
+        'key_code' => 'close_bracket',
+        'modifiers' => Karabiner.from_modifiers(['option']),
       },
       'to' => [
         {
