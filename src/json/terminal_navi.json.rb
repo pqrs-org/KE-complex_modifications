@@ -65,7 +65,7 @@ def rules()
       { "key_code" => "delete_or_backspace", "modifiers" => { "mandatory" => [ "option" ] } },
       [
         { "key_code" => "escape" },
-        { "key_code" => "d", "modifiers" => [ "right_control" ] }
+        { "key_code" => "delete_or_backspace" }
       ]
     ),
     map(
