@@ -11,6 +11,17 @@
                     "to_if_alone": <%= to([["escape"]]) %>
                 }
             ]
+        },
+        {
+            "description": "Post Escape if Command_R is pressed alone. Control Left if held",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("right_command", [], ["any"]) %>,
+                    "to_if_held_down": <%= to([["left_control"]]) %>,
+                    "to_if_alone": <%= to([["escape"]]) %>
+                }
+            ]
         }
     ]
 }
