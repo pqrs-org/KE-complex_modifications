@@ -19,7 +19,7 @@ def main
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Personal rules (@tekezo) (rev 37)',
+        'description' => 'Personal rules (@tekezo) (rev 38)',
         'available_since' => '13.6.0',
         'manipulators' =>
         core_configuration +
@@ -406,48 +406,6 @@ end
 
 def extra_cursor
   [
-    # control+1,2,3,4 to home,page_down,page_up,end
-    {
-      'type' => 'basic',
-      'from' => {
-        'key_code' => '1',
-        'modifiers' => Karabiner.from_modifiers(['left_control'], %w[caps_lock shift]),
-      },
-      'to' => [
-        { 'key_code' => 'home' },
-      ],
-    },
-    {
-      'type' => 'basic',
-      'from' => {
-        'key_code' => '2',
-        'modifiers' => Karabiner.from_modifiers(['left_control'], %w[caps_lock shift]),
-      },
-      'to' => [
-        { 'key_code' => 'page_down' },
-      ],
-    },
-    {
-      'type' => 'basic',
-      'from' => {
-        'key_code' => '3',
-        'modifiers' => Karabiner.from_modifiers(['left_control'], %w[caps_lock shift]),
-      },
-      'to' => [
-        { 'key_code' => 'page_up' },
-      ],
-    },
-    {
-      'type' => 'basic',
-      'from' => {
-        'key_code' => '4',
-        'modifiers' => Karabiner.from_modifiers(['left_control'], %w[caps_lock shift]),
-      },
-      'to' => [
-        { 'key_code' => 'end' },
-      ],
-    },
-
     # option+a,e to home,end
     {
       'type' => 'basic',
