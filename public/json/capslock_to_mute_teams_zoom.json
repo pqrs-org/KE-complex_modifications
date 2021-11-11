@@ -1,0 +1,646 @@
+{
+    "title": "Capslock to microphone mute cmd+shift+m (Teams), cmd+shift+a (Zoom) or m (Slack) - MacOs",
+    "rules": [
+        {
+            "description": "Teams, Zoom or Slack(If active): Switch caps_lock key to mute and show if running (disable caps)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_unless",
+                            "bundle_identifiers": [
+                                "us.zoom.xos",
+                                "com.microsoft.teams",
+                                "com.tinyspeck.slackmacgap"
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "caps_lock",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "shell_command": "if [ $(ps aux | grep -v grep | grep -ci \"Microsoft Teams.app/Contents/Frameworks/Microsoft Teams Helper.app\") -gt 0 ]; then osascript -e 'activate application id \"com.microsoft.teams\"' -e 'tell application \"System Events\" to keystroke \"m\" using {command down, shift down}'; fi & if [ $(ps aux | grep -v grep | grep -ci \"zoom.us.app/Contents/Frameworks/cpthost.app/Contents/MacOS/CptHost\") -gt 0 ]; then osascript -e 'activate application id \"us.zoom.xos\"' -e 'tell application \"System Events\" to keystroke \"a\" using {command down, shift down}'; fi",
+                            "lazy": true,
+                            "repeat": true
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "com.microsoft.teams"
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "caps_lock",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "m",
+                            "modifiers": [
+                                "left_command",
+                                "left_shift"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "us.zoom.xos"
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "caps_lock",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "a",
+                            "modifiers": [
+                                "left_command",
+                                "left_shift"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "com.tinyspeck.slackmacgap"
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "caps_lock",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "m",
+                            "modifiers": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Teams, Zoom or Slack: Switch caps_lock key to mute and show if running (disable caps)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_unless",
+                            "bundle_identifiers": [
+                                "us.zoom.xos",
+                                "com.microsoft.teams",
+                                "com.tinyspeck.slackmacgap"
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "caps_lock",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "shell_command": "if [ $(ps aux | grep -v grep | grep -ci \"Microsoft Teams.app/Contents/Frameworks/Microsoft Teams Helper.app\") -gt 0 ]; then osascript -e 'activate application id \"com.microsoft.teams\"' -e 'tell application \"System Events\" to keystroke \"m\" using {command down, shift down}'; fi & if [ $(ps aux | grep -v grep | grep -ci \"zoom.us.app/Contents/Frameworks/cpthost.app/Contents/MacOS/CptHost\") -gt 0 ]; then osascript -e 'activate application id \"us.zoom.xos\"' -e 'tell application \"System Events\" to keystroke \"a\" using {command down, shift down}'; fi & if [ $(ps aux | grep -v grep | grep -ci \"Slack.app/Contents/MacOS/Slack\") -gt 0 ]; then osascript -e 'activate application id \"com.tinyspeck.slackmacgap\"' -e 'tell application \"System Events\" to keystroke \"m\"'; fi",
+                            "lazy": true,
+                            "repeat": true
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "com.microsoft.teams"
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "caps_lock",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "m",
+                            "modifiers": [
+                                "left_command",
+                                "left_shift"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "us.zoom.xos"
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "caps_lock",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "a",
+                            "modifiers": [
+                                "left_command",
+                                "left_shift"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "com.tinyspeck.slackmacgap"
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "caps_lock",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "m",
+                            "modifiers": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Teams or Zoom: Switch caps_lock key to mute and show (disable caps)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "caps_lock",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "shell_command": "if [ $(ps aux | grep -v grep | grep -ci \"Microsoft Teams.app/Contents/Frameworks/Microsoft Teams Helper.app\") -gt 0 ]; then osascript -e 'activate application id \"com.microsoft.teams\"' -e 'tell application \"System Events\" to keystroke \"m\" using {command down, shift down}'; fi & if [ $(ps aux | grep -v grep | grep -ci \"zoom.us.app/Contents/Frameworks/cpthost.app/Contents/MacOS/CptHost\") -gt 0 ]; then osascript -e 'activate application id \"us.zoom.xos\"' -e 'tell application \"System Events\" to keystroke \"a\" using {command down, shift down}'; fi",
+                            "lazy": true,
+                            "repeat": true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Teams, Zoom or Slack: Switch caps_lock key to mute only if window active (disable caps)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "com.microsoft.teams"
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "caps_lock",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "m",
+                            "modifiers": [
+                                "left_command",
+                                "left_shift"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "us.zoom.xos"
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "caps_lock",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "a",
+                            "modifiers": [
+                                "left_command",
+                                "left_shift"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "com.tinyspeck.slackmacgap"
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "caps_lock",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "m",
+                            "modifiers": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Teams: Show window then switch caps_lock key to mute (MacOs, disable caps)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_unless",
+                            "bundle_identifiers": [
+                                "com.microsoft.teams"
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "caps_lock",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "shell_command": "if [ $(ps aux | grep -v grep | grep -ci \"Microsoft Teams.app/Contents/Frameworks/Microsoft Teams Helper.app\") -gt 0 ]; then osascript -e 'activate application id \"com.microsoft.teams\"' -e 'tell application \"System Events\" to keystroke \"m\" using {command down, shift down}'; fi",
+                            "lazy": true,
+                            "repeat": true
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "com.microsoft.teams"
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "caps_lock",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "m",
+                            "modifiers": [
+                                "left_command",
+                                "left_shift"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Zoom: Show window then switch caps_lock key to mute (MacOs, disable caps)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_unless",
+                            "bundle_identifiers": [
+                                "us.zoom.xos"
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "caps_lock",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "shell_command": "if [ $(ps aux | grep -v grep | grep -ci \"zoom.us.app/Contents/Frameworks/cpthost.app/Contents/MacOS/CptHost\") -gt 0 ]; then osascript -e 'activate application id \"us.zoom.xos\"' -e 'tell application \"System Events\" to keystroke \"a\" using {command down, shift down}'; fi",
+                            "lazy": true,
+                            "repeat": true
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "us.zoom.xos"
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "caps_lock",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "a",
+                            "modifiers": [
+                                "left_command",
+                                "left_shift"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Slack: Show window then switch caps_lock key to mute (MacOs, disable caps)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_unless",
+                            "bundle_identifiers": [
+                                "com.tinyspeck.slackmacgap"
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "caps_lock",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "shell_command": "if [ $(ps aux | grep -v grep | grep -ci \"/Applications/Slack.app/Contents/MacOS/Slack\") -gt 0 ]; then osascript -e 'activate application id \"com.tinyspeck.slackmacgap\"' -e 'tell application \"System Events\" to keystroke \"m\"; fi",
+                            "lazy": true,
+                            "repeat": true
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "com.tinyspeck.slackmacgap"
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "caps_lock",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "space",
+                            "modifiers": [
+                                "left_command",
+                                "left_shift"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Add caps_lock key action to cmd+shift+m if Teams window open or cmd+shift+a if Zoom window open",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "com.microsoft.teams"
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "caps_lock",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "caps_lock",
+                            "modifiers": []
+                        },
+                        {
+                            "key_code": "m",
+                            "modifiers": [
+                                "left_command",
+                                "left_shift"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "us.zoom.xos"
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "caps_lock",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "caps_lock",
+                            "modifiers": []
+                        },
+                        {
+                            "key_code": "a",
+                            "modifiers": [
+                                "left_command",
+                                "left_shift"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Add caps_lock key action to cmd+shift+m",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "caps_lock",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "caps_lock",
+                            "modifiers": []
+                        },
+                        {
+                            "key_code": "m",
+                            "modifiers": [
+                                "left_command",
+                                "left_shift"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Add caps_lock key action to cmd+shift+a",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "caps_lock",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "caps_lock",
+                            "modifiers": []
+                        },
+                        {
+                            "key_code": "m",
+                            "modifiers": [
+                                "left_command",
+                                "left_shift"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
