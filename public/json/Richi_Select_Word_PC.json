@@ -1,5 +1,5 @@
 {
-  "title": "Richi - Select Word PC Style (you must use swape COMMAND and CTRL in other case)",
+  "title": "Richi - Select and Navigate Word PC Style (you must use swap COMMAND and CTRL in other case)",
   "rules": [
     {
       "description": "richi - command+shift+right To options+shift+right ",
@@ -98,6 +98,54 @@
               "modifiers": [
                 "left_option",
                 "left_shift"
+              ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "richi - command+right To options+right ",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "right_arrow",
+            "modifiers": {
+              "mandatory": [
+                "left_command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "left_option"
+              ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "richi - command+left To options+left",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "left_arrow",
+            "modifiers": {
+              "mandatory": [
+                "left_command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "left_option"
               ]
             }
           ],
