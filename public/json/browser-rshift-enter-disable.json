@@ -1,0 +1,39 @@
+{
+  "title": "Don't send shift when accidentally pressing right shift + enter in web browsers (Lshift + enter still works)",
+  "rules": [
+    {
+      "description": "Remap Rshift + enter to enter in web browsers only",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "return_or_enter",
+            "modifiers": {
+              "mandatory": [
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "return_or_enter"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com.apple.Safari",
+                "^com.apple.SafariTechnologyPreview",
+                "^com.google.Chrome",
+                "^org.chromium.Chromium",
+                "^com.brave.Browser",
+                "^org.mozilla.firefox"
+              ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}
