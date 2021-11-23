@@ -1,0 +1,28 @@
+{
+  "title": "Keyboard Brightness Adjustment",
+  "rules": [
+    {
+      "description": "Restore keyboard func to M1 Macs by overwriting dictation key, F5 to go up, hold F5 to go down",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f5"
+          },
+          "to": [
+            {
+              "repeat": true,
+              "key_code": "illumination_increment"
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "repeat": true,
+              "key_code": "illumination_decrement"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
