@@ -5,7 +5,7 @@
   ],
   "rules": [
     {
-      "description": "Launcher Mode v4 (rev 17)",
+      "description": "Launcher Mode v4 (rev 18)",
       "available_since": "13.1.4",
       "manipulators": [
         {
@@ -595,79 +595,6 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "i",
-            "modifiers": {
-              "mandatory": [
-
-              ],
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "shell_command": "open -a 'The Lounge.app'"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "launcher_mode_v4",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "o"
-              },
-              {
-                "key_code": "i"
-              }
-            ],
-            "simultaneous_options": {
-              "key_down_order": "strict",
-              "key_up_order": "strict_inverse",
-              "to_after_key_up": [
-                {
-                  "set_variable": {
-                    "name": "launcher_mode_v4",
-                    "value": 0
-                  }
-                }
-              ]
-            },
-            "modifiers": {
-              "mandatory": [
-
-              ],
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "launcher_mode_v4",
-                "value": 1
-              }
-            },
-            {
-              "shell_command": "open -a 'The Lounge.app'"
-            }
-          ],
-          "parameters": {
-            "basic.simultaneous_threshold_milliseconds": 500
-          }
-        },
-        {
-          "type": "basic",
-          "from": {
             "key_code": "m",
             "modifiers": {
               "mandatory": [
@@ -899,7 +826,7 @@
           },
           "to": [
             {
-              "shell_command": "open -a 'iTerm.app'"
+              "shell_command": "open -a 'Terminal.app'"
             }
           ],
           "conditions": [
@@ -950,7 +877,7 @@
               }
             },
             {
-              "shell_command": "open -a 'iTerm.app'"
+              "shell_command": "open -a 'Terminal.app'"
             }
           ],
           "parameters": {
