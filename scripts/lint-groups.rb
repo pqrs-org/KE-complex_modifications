@@ -12,7 +12,22 @@ open(File.join(__dir__, '..', 'public', 'groups.json')) do |f|
   data.each_value do |group|
     group.each do |category|
       category['files'].each do |file|
-        files_in_groups << File.basename(file['path'])
+        basename = File.basename(file['path'])
+        if files_in_groups.include?(basename)
+          puts ''
+          puts '----------------------------------------'
+          puts 'ERROR:'
+          puts 'There are some duplicated entries in public/groups.json.'
+          puts 'Please remove them from public/groups.json.'
+          puts '----------------------------------------'
+          puts ''
+          puts "- #{basename}"
+          puts ''
+
+          exit 1
+        end
+
+        files_in_groups << basename
       end
     end
   end
