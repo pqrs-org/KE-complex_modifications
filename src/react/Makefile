@@ -9,12 +9,7 @@ build:
 deploy:
 	$(MAKE) build
 	rsync -a --delete \
-		build/asset-manifest.json \
-		build/favicon.ico \
 		build/index.html \
-		build/logo192.png \
-		build/logo512.png \
-		build/manifest.json \
 		build/static \
 		build/vendor \
 		../../public
