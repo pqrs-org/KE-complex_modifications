@@ -3,5 +3,9 @@ export const baseUrl = () => {
     case "development":
       return "https://ke-complex-modifications.pqrs.org";
   }
-  return ".";
+
+  return `${window.location.protocol}//${window.location.host}${window.location.pathname}`.replace(
+    /\/$/,
+    ""
+  );
 };
