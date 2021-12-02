@@ -22,7 +22,9 @@ deploy:
 install:
 	npm ci --no-audit
 	cp node_modules/iframe-resizer/js/iframeResizer.contentWindow.min.js public/vendor/js
+	cp node_modules/iframe-resizer/js/iframeResizer.contentWindow.map public/vendor/js
 	cp node_modules/bootstrap/dist/css/bootstrap.min.css public/vendor/css
+	cp node_modules/bootstrap/dist/css/bootstrap.min.css.map public/vendor/css
 	$(MAKE) audit
 
 update:
