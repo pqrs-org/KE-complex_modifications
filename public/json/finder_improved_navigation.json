@@ -1,0 +1,184 @@
+{
+  "title": "Finder improved Navigation",
+  "rules": [
+    {
+      "description": "Use F2 as Rename and set onedit",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f2"
+          },
+          "to": [
+            {
+              "key_code": "return_or_enter"
+            },
+            {
+              "set_variable": {
+                "name": "onedit",
+                "value": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com.apple.finder"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Use Backspace as Go to Previous Folder in Finder if not onedit",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "^com.apple.finder"
+              ],
+              "type": "frontmost_application_if"
+            },
+            {
+              "name": "onedit",
+              "type": "variable_if",
+              "value": 0
+            }
+          ],
+          "from": {
+            "key_code": "delete_or_backspace"
+          },
+          "to": [
+            {
+              "key_code": "semicolon",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Use Return as Open if not renaming file",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "^com.apple.finder"
+              ],
+              "type": "frontmost_application_if"
+            },
+            {
+              "type": "variable_unless",
+              "name": "onedit",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "return_or_enter",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "o",
+              "modifiers": [
+                "right_command"
+              ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Use Return to finish renaming when onedit=1",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "^com.apple.finder"
+              ],
+              "type": "frontmost_application_if"
+            },
+            {
+              "name": "onedit",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "return_or_enter",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "return_or_enter"
+            },
+            {
+              "set_variable": {
+                "name": "onedit",
+                "value": 0
+              }
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Use Esc to finish renaming when onedit=1",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "^com.apple.finder"
+              ],
+              "type": "frontmost_application_if"
+            },
+            {
+              "name": "onedit",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "escape",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "escape"
+            },
+            {
+              "set_variable": {
+                "name": "onedit",
+                "value": 0
+              }
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}
