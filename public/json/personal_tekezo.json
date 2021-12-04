@@ -5,7 +5,7 @@
   ],
   "rules": [
     {
-      "description": "Personal rules (@tekezo) (rev 37)",
+      "description": "Personal rules (@tekezo) (rev 39)",
       "available_since": "13.6.0",
       "manipulators": [
         {
@@ -128,10 +128,10 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "open_bracket",
+            "key_code": "left_command",
             "modifiers": {
               "mandatory": [
-                "option"
+                "left_option"
               ],
               "optional": [
                 "any"
@@ -140,17 +140,28 @@
           },
           "to": [
             {
-              "key_code": "lang2"
+              "key_code": "left_command",
+              "modifiers": [
+                "left_option"
+              ]
             }
-          ]
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "lang1"
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 250
+          }
         },
         {
           "type": "basic",
           "from": {
-            "key_code": "close_bracket",
+            "key_code": "left_option",
             "modifiers": {
               "mandatory": [
-                "option"
+                "left_command"
               ],
               "optional": [
                 "any"
@@ -159,9 +170,20 @@
           },
           "to": [
             {
-              "key_code": "lang1"
+              "key_code": "left_option",
+              "modifiers": [
+                "left_command"
+              ]
             }
-          ]
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "lang2"
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 250
+          }
         },
         {
           "type": "basic",
@@ -449,86 +471,6 @@
               "modifiers": [
                 "left_command"
               ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "1",
-            "modifiers": {
-              "mandatory": [
-                "left_control"
-              ],
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "home"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "2",
-            "modifiers": {
-              "mandatory": [
-                "left_control"
-              ],
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "page_down"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "3",
-            "modifiers": {
-              "mandatory": [
-                "left_control"
-              ],
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "page_up"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "4",
-            "modifiers": {
-              "mandatory": [
-                "left_control"
-              ],
-              "optional": [
-                "caps_lock",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "end"
             }
           ]
         },
