@@ -19,7 +19,7 @@ def main
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Personal rules (@tekezo) (rev 38)',
+        'description' => 'Personal rules (@tekezo) (rev 39)',
         'available_since' => '13.6.0',
         'manipulators' =>
         core_configuration +
@@ -153,27 +153,49 @@ def core_configuration
     {
       'type' => 'basic',
       'from' => {
-        'key_code' => 'open_bracket',
-        'modifiers' => Karabiner.from_modifiers(['option']),
+        'key_code' => 'left_command',
+        'modifiers' => Karabiner.from_modifiers(['left_option']),
       },
       'to' => [
         {
-          'key_code' => 'lang2',
+          'key_code' => 'left_command',
+          'modifiers' => [
+            'left_option',
+          ],
         },
       ],
+      'to_if_alone' => [
+        {
+          'key_code' => 'lang1',
+        },
+      ],
+      'parameters' => {
+        'basic.to_if_alone_timeout_milliseconds' => 250,
+      },
     },
 
     {
       'type' => 'basic',
       'from' => {
-        'key_code' => 'close_bracket',
-        'modifiers' => Karabiner.from_modifiers(['option']),
+        'key_code' => 'left_option',
+        'modifiers' => Karabiner.from_modifiers(['left_command']),
       },
       'to' => [
         {
-          'key_code' => 'lang1',
+          'key_code' => 'left_option',
+          'modifiers' => [
+            'left_command',
+          ],
         },
       ],
+      'to_if_alone' => [
+        {
+          'key_code' => 'lang2',
+        },
+      ],
+      'parameters' => {
+        'basic.to_if_alone_timeout_milliseconds' => 250,
+      },
     },
 
     {
