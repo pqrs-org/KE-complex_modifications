@@ -50,7 +50,12 @@ const App = () => {
       .then((res) => res.json())
       .then(
         (result: { index: CategoryObject[]; example: CategoryObject[] }) => {
-          setAllCategories(result.index.map((c) => new Category(c)));
+          setAllCategories(
+            [
+              result.index.map((c) => new Category(c)),
+              result.example.map((c) => new Category(c)),
+            ].flat()
+          );
         },
         (error) => {
           console.log(error);
