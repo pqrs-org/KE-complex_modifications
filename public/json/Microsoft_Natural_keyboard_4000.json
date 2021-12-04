@@ -1,0 +1,76 @@
+{
+  "title": "MS Natural Keyboard 4000",
+  "rules": [
+    {
+      "description": "Microsoft Natural Ergonomic Keyboard 4000",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 219,
+                  "vendor_id": 1118
+                }
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^org\\.vim\\.",
+                "^com.googlecode.iterm2"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "end"
+          },
+          "to": [
+            {
+              "key_code": "e",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "home"
+          },
+          "to": [
+            {
+              "key_code": "a",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 219,
+                  "vendor_id": 1118
+                }
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^org\\.vim\\.",
+                "^com.googlecode.iterm2"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
