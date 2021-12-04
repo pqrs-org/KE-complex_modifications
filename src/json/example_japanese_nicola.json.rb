@@ -174,10 +174,10 @@ ROMAN_MAP = {
 
 def main
   puts JSON.pretty_generate(
-    'title' => 'Japanese NICOLA (rev 3)',
+    'title' => 'Japanese NICOLA example (rev 3)',
     'rules' => [
       {
-        'description' => 'Japanese NICOLA (rev 3)',
+        'description' => 'Japanese NICOLA example (rev 3)',
         'manipulators' => [
           # シフトありから並べること
 
