@@ -84,5 +84,5 @@ If you want to publish your own rules into complex_modification repository, foll
 
 Note: You don't need to update the web application if you just want to add new json.
 
-If you want to modify the web application, the source code is in `src/vuejs`.
-Follow the instruction in `src/vuejs/README.md`.
+If you want to modify the web application, the source code is in `src/react`.
+Follow the instruction in `src/react/README.md`.
