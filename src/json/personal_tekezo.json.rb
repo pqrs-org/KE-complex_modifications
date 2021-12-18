@@ -19,7 +19,7 @@ def main
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Personal rules (@tekezo) (rev 39)',
+        'description' => 'Personal rules (@tekezo) (rev 40)',
         'available_since' => '13.6.0',
         'manipulators' =>
         core_configuration +
@@ -191,27 +191,6 @@ def core_configuration
       'to_if_alone' => [
         {
           'key_code' => 'lang2',
-        },
-      ],
-      'parameters' => {
-        'basic.to_if_alone_timeout_milliseconds' => 250,
-      },
-    },
-
-    {
-      'type' => 'basic',
-      'from' => {
-        'key_code' => 'fn',
-        'modifiers' => Karabiner.from_modifiers,
-      },
-      'to' => [
-        {
-          'key_code' => 'fn',
-        },
-      ],
-      'to_if_alone' => [
-        {
-          'key_code' => 'grave_accent_and_tilde',
         },
       ],
       'parameters' => {
