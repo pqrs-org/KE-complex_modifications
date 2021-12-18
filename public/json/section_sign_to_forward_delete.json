@@ -1,0 +1,179 @@
+{
+    "title": "Section Sign (§) to Forward Delete",
+    "maintainers": [
+        "Radllaufer"
+    ],
+    "rules": [
+        {
+            "description": "Remap section sign (§) to forward delete on British Keyboards. Also forward deletes up to the next space and the whole line with 'option + §' and 'command + §' respectively.",
+            "manipulators": [
+                {
+                    "conditions": [
+                        {
+                            "identifiers": [
+                                {
+                                    "is_keyboard": true,
+                                    "vendor_id": 1452
+                                }
+                            ],
+                            "type": "device_if"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "non_us_backslash",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock",
+                                "option"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "delete_forward"
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "identifiers": [
+                                {
+                                    "is_keyboard": true,
+                                    "vendor_id": 1452
+                                }
+                            ],
+                            "type": "device_if"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "non_us_backslash",
+                        "modifiers": {
+                            "mandatory": [
+                                "command"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "k",
+                            "modifiers": [
+                                "control"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "identifiers": [
+                                {
+                                    "is_keyboard": true,
+                                    "vendor_id": 1452
+                                }
+                            ],
+                            "type": "device_if"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "non_us_backslash",
+                        "modifiers": {
+                            "mandatory": [
+                                "control"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "delete_forward"
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "identifiers": [
+                                {
+                                    "is_keyboard": true,
+                                    "vendor_id": 1452
+                                }
+                            ],
+                            "type": "device_if"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "non_us_backslash",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_shift"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "delete_forward"
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "identifiers": [
+                                {
+                                    "is_keyboard": true,
+                                    "vendor_id": 1452
+                                }
+                            ],
+                            "type": "device_if"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "non_us_backslash",
+                        "modifiers": {
+                            "mandatory": [
+                                "right_shift"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "delete_forward"
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "identifiers": [
+                                {
+                                    "is_keyboard": true,
+                                    "vendor_id": 1452
+                                }
+                            ],
+                            "type": "device_if"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "non_us_backslash",
+                        "modifiers": {
+                            "mandatory": [
+                                "fn"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "non_us_backslash"
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        }
+    ]
+}
