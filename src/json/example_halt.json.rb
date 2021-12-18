@@ -10,7 +10,7 @@ require_relative '../lib/karabiner.rb'
 
 def main
   puts JSON.pretty_generate(
-    'title' => 'halt example',
+    'title' => 'to_if_held_down example',
     'rules' => [
       'description' => 'Open Mission Control by hold tab key',
       'manipulators' => [

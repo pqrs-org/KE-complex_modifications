@@ -9,8 +9,34 @@ require 'cgi'
 
 json = JSON.parse(open('groups.json').read)
 
+#
+# Collect json files which are not included in groups.json.
+#
+
+orphan_files = []
+Dir.glob('json/*.json').sort.each do |file_path|
+  orphan_files << "json/#{File.basename(file_path)}"
+end
 json.each do |_type, groups|
   groups.each do |group|
+    group['files'].each do |file|
+      orphan_files.delete(file['path'])
+    end
+  end
+end
+
+json.each do |_type, groups|
+  groups.each do |group|
+    #
+    # Add orphan files into #others.
+    #
+
+    group['files'] = orphan_files.map { |f| { 'path' => f } } if group['id'] == 'others'
+
+    #
+    # Extract json content into groups.json.
+    #
+
     group['files'].each do |file|
       #
       # Strip manipulators
