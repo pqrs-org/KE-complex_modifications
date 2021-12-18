@@ -35,23 +35,21 @@ end
 files_in_groups.sort!
 
 json_files = []
-# Exclude git ignored files
-`git ls-files #{__dir__}/../public/json`.split(/\n/).each do |file_path|
+Dir.glob("#{__dir__}/../public/json/*.json").sort.each do |file_path|
   json_files << File.basename(file_path)
 end
-json_files.sort!
 
-missing_entries = json_files - files_in_groups
-unless missing_entries.empty?
+orphan_files = files_in_groups - json_files
+unless orphan_files.empty?
   puts ''
   puts '----------------------------------------'
   puts 'ERROR:'
-  puts 'There are some files are not included in public/groups.json.'
-  puts 'Please add them into public/groups.json.'
+  puts 'There are some files in public/groups.json are not found.'
+  puts 'Please add them into public/json.'
   puts '----------------------------------------'
   puts ''
 
-  missing_entries.each do |e|
+  orphan_files.each do |e|
     puts "- #{e}"
   end
 
