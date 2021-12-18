@@ -11,7 +11,8 @@ complex_modifications for Karabiner-Elements.
 
 1.  Put a `.rb` (or `.erb`) template file into [src/json](https://github.com/pqrs-org/KE-complex_modifications/tree/main/src/json). (Or put a `.json` file into [public/json](https://github.com/pqrs-org/KE-complex_modifications/tree/main/public/json) directly.)
 2.  (Optional) Put extra description file into [public/extra_descriptions](https://github.com/pqrs-org/KE-complex_modifications/tree/main/public/extra_descriptions).
-3.  Add the following json into [public/groups.json](https://github.com/pqrs-org/KE-complex_modifications/tree/main/public/groups.json) &gt; `files`.
+3.  (Optional) Update [public/groups.json](https://github.com/pqrs-org/KE-complex_modifications/tree/main/public/groups.json) if you want to add your rules into specific category.
+    Add the following entry into `groups.json`.
 
     ```json5
     {
