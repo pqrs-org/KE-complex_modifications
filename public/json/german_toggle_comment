@@ -1,0 +1,100 @@
+{
+  "title": "German toggle comment: CMD+/ (EN) to CMD+# (DE)",
+  "rules": [
+    {
+        "description": "German toggle comment: CMD+/ (EN) to CMD+# (DE)",
+        "manipulators": [
+            {
+                "from": {
+                    "key_code": "backslash",
+                    "modifiers": {
+                        "mandatory": [
+                            "left_command"
+                        ],
+                        "optional": [
+                            "any"
+                        ]
+                    }
+                },
+                "to": [
+                    {
+                        "key_code": "keypad_slash",
+                        "modifiers": [
+                            "left_command"
+                        ]
+                    }
+                ],
+                "type": "basic"
+            },
+            {
+                "from": {
+                    "key_code": "backslash",
+                    "modifiers": {
+                        "mandatory": [
+                            "right_command"
+                        ],
+                        "optional": [
+                            "any"
+                        ]
+                    }
+                },
+                "to": [
+                    {
+                        "key_code": "keypad_slash",
+                        "modifiers": [
+                            "right_command"
+                        ]
+                    }
+                ],
+                "type": "basic"
+            },
+            {
+                "from": {
+                    "key_code": "non_us_pound",
+                    "modifiers": {
+                        "mandatory": [
+                            "left_command"
+                        ],
+                        "optional": [
+                            "any"
+                        ]
+                    }
+                },
+                "to": [
+                    {
+                        "key_code": "keypad_slash",
+                        "modifiers": [
+                            "left_command"
+                        ]
+                    }
+                ],
+                "type": "basic"
+            },
+            {
+                "from": {
+                    "key_code": "non_us_pound",
+                    "modifiers": {
+                        "mandatory": [
+                            "right_command"
+                        ],
+                        "optional": [
+                            "any"
+                        ]
+                    }
+                },
+                "to": [
+                    {
+                        "key_code": "keypad_slash",
+                        "modifiers": [
+                            "right_command"
+                        ]
+                    }
+                ],
+                "type": "basic"
+            }
+        ]
+    }
+  ]
+}
+
+
