@@ -15,7 +15,6 @@
         $if_mod_4_not_locked = { "type" => "variable_unless", "name" => "neo2_mod_4", "value" => 2 }
         $is_apple_device     = { "type" => "device_if",       "identifiers" => [{"vendor_id" => 1452, "description" => "Apple devices"}]}
         $is_not_apple_device = { "type" => "device_unless",   "identifiers" => [{"vendor_id" => 1452, "description" => "Apple devices"}]}
-        $always_true         = { "type" => "variable_unless", "name" => "dummy", "value" => 123 }
         def neo2_modifiers(mod_3_key, mod_4_key, condition)
             JSON.generate(
                 each_key(
