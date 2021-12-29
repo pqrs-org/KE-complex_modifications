@@ -9,11 +9,11 @@
 ############################################################
 
 require 'json'
-require_relative '../lib/karabiner.rb'
+require_relative '../lib/karabiner'
 
 def main
   puts JSON.pretty_generate(
-    'title' => 'Change mouse motion to scroll (rev 2)',
+    'title' => 'Change mouse motion to scroll (rev 3)',
     'maintainers' => ['tekezo'],
     'rules' => [
       {
@@ -133,6 +133,20 @@ def main
             'from' => {
               'modifiers' => {
                 'mandatory' => ['control'],
+              },
+            },
+          },
+        ].flatten,
+      },
+      {
+        'description' => 'Change fn + mouse motion to scroll wheel (rev 1)',
+        'available_since' => '12.3.0',
+        'manipulators' => [
+          {
+            'type' => 'mouse_motion_to_scroll',
+            'from' => {
+              'modifiers' => {
+                'mandatory' => ['fn'],
               },
             },
           },
