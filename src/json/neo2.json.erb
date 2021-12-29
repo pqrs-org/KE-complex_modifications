@@ -13,7 +13,10 @@
         $if_mod_4_on         = { "type" => "variable_unless", "name" => "neo2_mod_4", "value" => 0 }
         $if_mod_4_locked     = { "type" => "variable_if",     "name" => "neo2_mod_4", "value" => 2 }
         $if_mod_4_not_locked = { "type" => "variable_unless", "name" => "neo2_mod_4", "value" => 2 }
-        def neo2_modifiers(mod_3_key, mod_4_key)
+        $is_apple_device     = { "type" => "device_if",       "identifiers" => [{"vendor_id" => 1452, "description" => "Apple devices"}]}
+        $is_not_apple_device = { "type" => "device_unless",   "identifiers" => [{"vendor_id" => 1452, "description" => "Apple devices"}]}
+        $always_true         = { "type" => "variable_unless", "name" => "dummy", "value" => 123 }
+        def neo2_modifiers(mod_3_key, mod_4_key, condition)
             JSON.generate(
                 each_key(
                     source_keys_list: [
@@ -32,14 +35,14 @@
                         "type" => "basic",
                         "from" => { "simultaneous" => [ { "key_code" => from_key }, { "key_code" => "right_command" } ] },
                         "to" => [ set_mod_4(2, true) ],
-                        "conditions" => [ $if_mod_4_not_locked ]
+                        "conditions" => condition == nil ? [ $if_mod_4_not_locked ] : [ $if_mod_4_not_locked, condition]
                     }
                 } + [mod_4_key].map { |from_key|
                     {
                         "type" => "basic",
                         "from" => { "simultaneous" => [ { "key_code" => from_key }, { "key_code" => "right_command" } ] },
                         "to" => [ set_mod_4(0) ],
-                        "conditions" => [ $if_mod_4_locked ]
+                        "conditions" => condition == nil ? [ $if_mod_4_locked ] : [ $if_mod_4_locked, condition]
                     }
                 } + [mod_4_key, "right_command"].map { |from_key|
                     {
@@ -47,18 +50,22 @@
                         "from" => _from(from_key, [], ["any"]),
                         "to" => [set_mod_4(1)],
                         "to_after_key_up" => [set_mod_4(0)],
-                        "conditions" => [$if_mod_4_not_locked]
+                        "conditions" => condition == nil ? [ $if_mod_4_not_locked ] : [ $if_mod_4_not_locked, condition]
                     }
                 }
             )
         end %>
         {
-            "description": "Neo2 mod 3 and 4 keys (Apple keyboard). Toggle mod4 by pressing both mod4 keys simultaneously.",
-            "manipulators": <%= neo2_modifiers("backslash", "grave_accent_and_tilde") %>
+            "description": "Neo2 mod 3 and 4 keys (Apple keyboards). Rule applied to Apple-made keyboards only.",
+            "manipulators": <%= neo2_modifiers("backslash", "grave_accent_and_tilde", $is_apple_device) %>
         },
         {
-            "description": "Neo2 mod 3 and 4 keys (Windows keyboard). Toggle mod4 by pressing both mod4 keys simultaneously.",
-            "manipulators": <%= neo2_modifiers("non_us_pound", "non_us_backslash") %>
+            "description": "Neo2 mod 3 and 4 keys (third party Mac keyboard). Rule applied to all keyboards.",
+            "manipulators": <%= neo2_modifiers("backslash", "grave_accent_and_tilde", nil) %>
+        },
+        {
+            "description": "Neo2 mod 3 and 4 keys (Windows keyboard). Rule applied to all non-Apple keyboards.",
+            "manipulators": <%= neo2_modifiers("non_us_pound", "non_us_backslash", $is_not_apple_device) %>
         },
         {
             "description": "Neo2 layer 4",
@@ -132,7 +139,7 @@
                     dest_keys_list: l4_dead_key_mappings,
                     conditions: [$if_mod_4_on],
                     to_modifiers: ["left_shift"],
-                    to_pre_events: [["z", ["left_option", "left_shift"]]]
+                    to_pre_events: [["keypad_1", ["left_option", "left_shift"]]]
                 )
             ) %>
         },
@@ -157,7 +164,7 @@
                     conditions: [$if_mod_4_on],
                     from_mandatory_modifiers: ["right_option"],
                     to_modifiers: ["left_shift", "left_option"],
-                    to_pre_events: [["z", ["left_option", "left_shift"]]]
+                    to_pre_events: [["keypad_1", ["left_option", "left_shift"]]]
                 )
             ) %>
         },
@@ -197,19 +204,19 @@
                   dest_keys_list: ["h", "s", "z", "o", "k"],
                   from_mandatory_modifiers: ["right_option"],
                   to_modifiers: [],
-                  to_pre_events: [["a", ["left_option", "left_shift"]]]
+                  to_pre_events: [["keypad_2", ["left_option", "left_shift"]]]
               )
           ) %>
         },
         {
-          "description": "Prevent all layer 3 keys from being treated as option key shortcut",
+          "description": "Prevent all layer 3 keys from being treated as option key shortcut. Maps to 'Bugfixes' dummy dead key on Numpad 2 + left_option + left_shift",
           "manipulators": <%= JSON.generate(
               each_key(
                   source_keys_list: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "open_bracket", "semicolon", "quote", "comma", "period", "slash"],
                   dest_keys_list: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "open_bracket", "semicolon", "quote", "comma", "period", "slash"],
                   from_mandatory_modifiers: ["right_option"],
                   to_modifiers: [],
-                  to_pre_events: [["a", ["left_option", "left_shift"]]]
+                  to_pre_events: [["keypad_2", ["left_option", "left_shift"]]]
               )
           ) %>
         },
