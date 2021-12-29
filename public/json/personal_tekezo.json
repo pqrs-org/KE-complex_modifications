@@ -5,9 +5,36 @@
   ],
   "rules": [
     {
-      "description": "Personal rules (@tekezo) (rev 40)",
+      "description": "Personal rules (@tekezo) (rev 41)",
       "available_since": "13.6.0",
       "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "fn",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "fn"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "pointing_button": "button1",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 250
+          }
+        },
         {
           "type": "basic",
           "from": {
@@ -581,82 +608,6 @@
             {
               "key_code": "equal_sign",
               "repeat": false
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "page_down",
-            "modifiers": {
-              "mandatory": [
-                "fn"
-              ],
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "consumer_key_code": "display_brightness_decrement"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "page_up",
-            "modifiers": {
-              "mandatory": [
-                "fn"
-              ],
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "consumer_key_code": "display_brightness_increment"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "page_down",
-            "modifiers": {
-              "mandatory": [
-
-              ],
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "consumer_key_code": "volume_decrement"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "page_up",
-            "modifiers": {
-              "mandatory": [
-
-              ],
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "consumer_key_code": "volume_increment"
             }
           ]
         },
