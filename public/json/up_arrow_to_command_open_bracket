@@ -1,0 +1,38 @@
+{
+  "title": "Up-arrow to Command + [ and Down-arrow to Command + ]",
+  "rules": [
+    {
+      "description": "Up-arrow to Command + [ and Down-arrow to Command + ]",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "up_arrow"
+          },
+          "to": [
+            {
+              "key_code": "open_bracket",
+              "modifiers": [
+                "left_gui"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "down_arrow"
+          },
+          "to": [
+            {
+              "key_code": "close_bracket",
+              "modifiers": [
+                "left_gui"
+              ],
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
