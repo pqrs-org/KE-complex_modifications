@@ -1,0 +1,29 @@
+{
+  "title": "Toggle delete with lock key For Magic Keyboard",
+  "maintainers": [
+    "eunrui"
+  ],
+  "rules": [
+    {
+      "description": "Magic Keyboard 防锁屏误触 短按删除 长按锁屏",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "consumer_key_code": "al_terminal_lock_or_screensaver"
+          },
+          "to_if_alone": [
+            {
+              "key_code": "delete_or_backspace"
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "consumer_key_code": "al_terminal_lock_or_screensaver"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
