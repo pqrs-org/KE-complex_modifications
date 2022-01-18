@@ -1,0 +1,29 @@
+{
+  "title": "Keypad comma to period",
+  "rules": [
+    {
+      "description": "Keypad Period to Comma+shift (period) Belgian Keyboard",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "keypad_period"
+          },
+          "to": [
+            {
+              "repeat": true,
+              "key_code": "comma",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {}
+        }
+      ]
+    }
+  ]
+}
