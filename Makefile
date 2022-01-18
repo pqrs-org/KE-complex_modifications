@@ -1,5 +1,6 @@
 all:
 	bash scripts/update-json.sh
+	ruby scripts/lint-public-json.rb
 	ruby scripts/lint-groups.rb
 	bash scripts/update-public-build.sh
 
