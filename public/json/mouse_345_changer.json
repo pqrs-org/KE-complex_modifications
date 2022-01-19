@@ -1,0 +1,77 @@
+{
+  "title": "MacLee's MacOS Mouse 3/4/5 Changer (3: close tab, 4/5: move tabs)",
+  "rules": [
+    {
+      "description": "Mouse 3 Close Single Tab",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button3"
+          },
+          "to": [
+            {
+              "repeat": false,
+              "key_code": "w",
+              "modifiers": [
+                "left_gui"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Mouse 4 Backward Tab Move",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "left_gui"
+              ]
+            },
+            "pointing_button": "button4"
+          },
+          "to": [
+            {
+              "repeat": false,
+              "key_code": "open_bracket",
+              "modifiers": [
+                "left_shift",
+                "left_gui"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Mouse 5 Forward Tab Move",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "left_gui"
+              ]
+            },
+            "pointing_button": "button5"
+          },
+          "to": [
+            {
+              "repeat": false,
+              "key_code": "close_bracket",
+              "modifiers": [
+                "left_shift",
+                "left_gui"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
