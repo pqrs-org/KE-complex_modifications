@@ -1,0 +1,50 @@
+{
+    "title": "[mac] z to copy & x to paste for 2 keypad",
+    "maintainers": [
+      "goldsky"
+    ],
+    "rules": [
+      {
+        "description": "z to copy",
+        "manipulators": [
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "z"
+            },
+            "to": [
+              {
+                "repeat": false,
+                "modifiers": [
+                  "left_gui",
+                  "right_gui"
+                ],
+                "key_code": "c"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "description": "x to paste",
+        "manipulators": [
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "x"
+            },
+            "to": [
+              {
+                "repeat": false,
+                "modifiers": [
+                  "left_gui",
+                  "right_gui"
+                ],
+                "key_code": "v"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
