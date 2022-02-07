@@ -1,0 +1,32 @@
+{
+  "title": "Command + Shift + v to paste without formatting",
+  "rules": [
+    {
+      "description": "Command + Shift + v does special paste without formatting, equivalent to. cmd+opt+shift+v.",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "v",
+            "modifiers": {
+              "mandatory": [
+                "command",
+				        "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "v",
+              "modifiers": [
+                "left_command",
+                "left_option",
+                "left_shift"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
