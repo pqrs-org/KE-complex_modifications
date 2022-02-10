@@ -1,0 +1,26 @@
+{
+  "title": "Escape enhancements",
+  "rules": [
+    {
+      "description": "Escape toggles capslock if enabled",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "escape",
+            "modifiers": {
+              "mandatory": [
+                "caps_lock"
+              ]
+            }
+          },
+
+          "to_after_key_up": [
+            { "key_code": "caps_lock" },
+            { "key_code": "escape"}
+          ]
+        }
+      ]
+    }
+  ]
+}
