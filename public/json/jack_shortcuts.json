@@ -1,0 +1,221 @@
+{
+  "title": "Jack's Fn Shortcuts",
+  "rules": [{
+      "description": "Fn + W/A/S/D to arrow keys",
+      "manipulators": [{
+          "type": "basic",
+          "from": {
+            "key_code": "w",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ]
+            }
+          },
+          "to": [{
+            "key_code": "up_arrow"
+          }]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "a",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ]
+            }
+          },
+          "to": [{
+            "key_code": "left_arrow"
+          }]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "s",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ]
+            }
+          },
+          "to": [{
+            "key_code": "down_arrow"
+          }]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "d",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ]
+            }
+          },
+          "to": [{
+            "key_code": "right_arrow"
+          }]
+        }
+      ]
+    },
+    {
+      "description": "Fn + E/Q to Home/End",
+      "manipulators": [{
+          "type": "basic",
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ]
+            }
+          },
+          "to": [{
+            "key_code": "home"
+          }]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "e",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ]
+            }
+          },
+          "to": [{
+            "key_code": "end"
+          }]
+        }
+      ]
+    },
+    {
+      "description": "Fn + Tab to Delete",
+      "manipulators": [{
+        "type": "basic",
+        "from": {
+          "key_code": "tab",
+          "modifiers": {
+            "mandatory": [
+              "fn"
+            ]
+          }
+        },
+        "to": [{
+          "key_code": "delete_or_backspace"
+        }]
+      }]
+    },
+    {
+        "description": "Fn + 1 to Enter",
+        "manipulators": [{
+          "type": "basic",
+          "from": {
+            "key_code": "1",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ]
+            }
+          },
+          "to": [{
+            "key_code": "keypad_enter"
+          }]
+        }]
+      },
+      {
+        "description": "Fn + P to Screenshot",
+        "manipulators": [{
+          "type": "basic",
+          "from": {
+            "key_code": "p",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ]
+            }
+          },
+          "to": {
+            "key_code": "5",
+              "modifiers": [
+                "left_shift",
+                "left_command"
+              ]
+          }
+        }]
+      },
+      {
+        "description": "Fn + R/F to Page Up/Page Down",
+        "manipulators": [{
+            "type": "basic",
+            "from": {
+              "key_code": "r",
+              "modifiers": {
+                "mandatory": [
+                  "fn"
+                ]
+              }
+            },
+            "to": {
+              "key_code": "page_up"
+            }
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "f",
+              "modifiers": {
+                "mandatory": [
+                  "fn"
+                ]
+              }
+            },
+            "to": {
+             "key_code": "page_down"
+            }
+          }
+        ]
+      },
+      {
+        "description": "Fn + T to Terminal",
+        "manipulators": [{
+          "type": "basic",
+          "from": {
+            "key_code": "t",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ]
+            }
+          },
+          "to": [{
+            "shell_command": "open -a Terminal ~"
+          }]
+        }]
+      },
+      {
+        "description": "Fn + L to Lock Screen",
+        "manipulators": [{
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ]
+            }
+          },
+          "to": {
+            "key_code": "q",
+            "modifiers":[
+              "left_control",
+              "left_command"
+            ]
+          }
+        }]
+      }
+  ]
+}
