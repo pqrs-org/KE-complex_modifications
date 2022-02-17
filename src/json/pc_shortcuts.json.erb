@@ -49,7 +49,7 @@
                     "from": <%= from("home", [], ["shift"]) %>,
                     "to": <%= to([["left_arrow", ["left_command"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "browser", "git_gui", "jetbrains_ide"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "browser", "git_gui", "jetbrains_ide", "emacs"]) %>
                     ]
                 },
                 {
@@ -65,7 +65,7 @@
                     "from": <%= from("home", ["control"], ["shift"]) %>,
                     "to": <%= to([["up_arrow", ["left_command"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "git_gui", "jetbrains_ide"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "git_gui", "jetbrains_ide", "emacs"]) %>
                     ]
                 },
                 {
@@ -73,7 +73,7 @@
                     "from": <%= from("end", [], ["shift"]) %>,
                     "to": <%= to([["right_arrow", ["left_command"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "browser", "git_gui", "jetbrains_ide"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "browser", "git_gui", "jetbrains_ide", "emacs"]) %>
                     ]
                 },
                 {
@@ -89,7 +89,7 @@
                     "from": <%= from("end", ["control"], ["shift"]) %>,
                     "to": <%= to([["down_arrow", ["left_command"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "git_gui", "jetbrains_ide"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "git_gui", "jetbrains_ide", "emacs"]) %>
                     ]
                 }
             ]
@@ -132,7 +132,7 @@
                     "from": <%= from("left_arrow", ["control"], ["any"]) %>,
                     "to": <%= to([["left_arrow", ["left_option"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "emacs"]) %>
                     ]
                 },
                 {
@@ -140,7 +140,7 @@
                     "from": <%= from("right_arrow", ["control"], ["any"]) %>,
                     "to": <%= to([["right_arrow", ["left_option"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "emacs"]) %>
                     ]
                 },
                 {
@@ -148,7 +148,7 @@
                     "from": <%= from("up_arrow", ["control"], ["any"]) %>,
                     "to": <%= to([["up_arrow", ["left_command"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "emacs"]) %>
                     ]
                 },
                 {
@@ -156,7 +156,7 @@
                     "from": <%= from("down_arrow", ["control"], ["any"]) %>,
                     "to": <%= to([["down_arrow", ["left_command"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "emacs"]) %>
                     ]
                 }
             ]
@@ -169,7 +169,7 @@
                     "from": <%= from("c", ["control"], ["any"]) %>,
                     "to": <%= to([["c", ["left_command"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "emacs"]) %>
                     ]
                 },
                 {
@@ -177,7 +177,7 @@
                     "from": <%= from("v", ["control"], ["any"]) %>,
                     "to": <%= to([["v", ["left_command"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "emacs"]) %>
                     ]
                 },
                 {
@@ -185,7 +185,7 @@
                     "from": <%= from("x", ["control"], ["any"]) %>,
                     "to": <%= to([["x", ["left_command"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "emacs"]) %>
                     ]
                 }
             ]
@@ -198,7 +198,7 @@
                     "from": <%= from("z", ["control"], ["any"]) %>,
                     "to": <%= to([["z", ["left_command"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "emacs"]) %>
                     ]
                 }
             ]
@@ -211,7 +211,7 @@
                     "from": <%= from("y", ["control"], ["any"]) %>,
                     "to": <%= to([["z", ["left_command", "left_shift"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "emacs"]) %>
                     ]
                 }
             ]
@@ -224,7 +224,7 @@
                     "from": <%= from("a", ["control"], ["any"]) %>,
                     "to": <%= to([["a", ["left_command"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "emacs"]) %>
                     ]
                 }
             ]
@@ -237,7 +237,7 @@
                     "from": <%= from("s", ["control"], ["any"]) %>,
                     "to": <%= to([["s", ["left_command"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "emacs"]) %>
                     ]
                 }
             ]
@@ -250,7 +250,7 @@
                     "from": <%= from("n", ["control"], ["any"]) %>,
                     "to": <%= to([["n", ["left_command"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "emacs"]) %>
                     ]
                 }
             ]
@@ -263,7 +263,7 @@
                     "from": <%= from("r", ["control"], ["any"]) %>,
                     "to": <%= to([["r", ["left_command"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "emacs"]) %>
                     ]
                 },
                 {
@@ -271,7 +271,7 @@
                     "from": <%= from("f5", [], ["any"]) %>,
                     "to": <%= to([["r", ["left_command"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "emacs"]) %>
                     ]
                 }
             ]
@@ -284,7 +284,7 @@
                     "from": <%= from("t", ["control"], ["any"]) %>,
                     "to": <%= to([["t", ["left_command"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "emacs"]) %>
                     ]
                 }
             ]
@@ -297,7 +297,7 @@
                     "from": <%= from("f", ["control"], ["any"]) %>,
                     "to": <%= to([["f", ["left_command"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "emacs"]) %>
                     ]
                 },
                 {
@@ -305,7 +305,7 @@
                     "from": <%= from("g", ["control"], ["any"]) %>,
                     "to": <%= to([["g", ["left_command"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "emacs"]) %>
                     ]
                 }
             ]
@@ -318,7 +318,7 @@
                     "from": <%= from("o", ["control"], ["any"]) %>,
                     "to": <%= to([["o", ["left_command"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "emacs"]) %>
                     ]
                 }
             ]
@@ -331,7 +331,7 @@
                     "from": <%= from("b", ["control"], ["any"]) %>,
                     "to": <%= to([["b", ["left_command"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "emacs"]) %>
                     ]
                 },
                 {
@@ -339,7 +339,7 @@
                     "from": <%= from("i", ["control"], ["any"]) %>,
                     "to": <%= to([["i", ["left_command"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "emacs"]) %>
                     ]
                 },
                 {
@@ -347,7 +347,7 @@
                     "from": <%= from("u", ["control"], ["any"]) %>,
                     "to": <%= to([["u", ["left_command"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "emacs"]) %>
                     ]
                 }
             ]
@@ -360,7 +360,7 @@
                     "from": <%= from("w", ["control"], ["any"]) %>,
                     "to": <%= to([["w", ["left_command"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "emacs"]) %>
                     ]
                 }
             ]
@@ -615,7 +615,7 @@
                     "from": <%= from("delete_or_backspace", ["control"], ["any"]) %>,
                     "to": <%= to([["delete_or_backspace", ["option"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "emacs"]) %>
                     ]
                 }
             ]
@@ -628,7 +628,7 @@
                     "from": <%= from("k", ["control"], ["any"]) %>,
                     "to": <%= to([["k", ["left_command"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal", "emacs"]) %>
                     ]
                 }
             ]
