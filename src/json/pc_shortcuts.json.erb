@@ -621,6 +621,19 @@
             ]
         },
         {
+            "description": "PC-Style Control+Delete",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("delete_forward", ["control"], ["any"]) %>,
+                    "to": <%= to([["delete_forward", ["option"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                    ]
+                }
+            ]
+        },
+        {
             "description": "PC-Style Control+K",
             "manipulators": [
                 {
