@@ -1,0 +1,26 @@
+{
+  "title": "commaspace",
+  "rules": [
+    {
+      "description": "add space after using comma",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "comma"
+          },
+          "to_if_alone": [
+            {
+              "repeat": false,
+              "key_code": "comma"
+            },
+            {
+              "repeat": false,
+              "key_code": "spacebar"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
