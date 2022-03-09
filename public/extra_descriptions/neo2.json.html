@@ -14,12 +14,16 @@
     <td>Neo2 layer 6</td>
     <td>Base rule for activating layer 6.</td>
   <tr>
-    <td>Neo2 mod 3 and 4 keys (Apple keyboard). Toggle mod4 by pressing both mod4 keys simultaneously.</td>
+    <td>Neo2 mod 3 and 4 keys (Apple keyboards). Rule applied to Apple-made keyboards only.</td>
     <td><p>Toggle <code>mod4</code> by pressing both mod4 keys simultaneously.</p><p>Take this rule if you are using your Mac with a common Apple keyboard.</p></td>
   </tr>
   <tr>
-    <td>Neo2 mod 3 and 4 keys (Windows keyboard). Toggle mod4 by pressing both mod4 keys simultaneously.</td>
-    <td><p>Toggle <code>mod4</code> by pressing both mod4 keys simultaneously.</p><p>Take this rule if you are using your Mac with a Windows keyboard or with the Apple Magic Keyboard with Numeric Keypad.</p></td>
+      <td>Neo2 mode 3 and 4 keys (third party Mac keyboard). Rule applied to all keyboards.</td>
+      <td><p>Toggle <code>mod4</code> by pressing both mod4 keys simultaneously.</p><p>Take this rule if you are using your Mac with a non-Apple keyboard that behaves like an Apple keyboard. If either the left <code>mod4</code> key or the key left of the <code>1</code> key are misbehaving, try the "Windows keyboard" rule instead.</p></td>
+  </tr>
+  <tr>
+    <td>Neo2 mod 3 and 4 keys (Windows keyboard). Rule applied to all non-Apple keyboards.</td>
+    <td><p>Toggle <code>mod4</code> by pressing both mod4 keys simultaneously.</p><p>Take this rule if you are using your Mac with a Windows keyboard or with the Apple Magic Keyboard with Numeric Keypad. If either the left <code>mod4</code> key or the key left of the <code>1</code> key are misbehaving, try the "third party Mac keyboard" rule instead.</p></td>
   </tr>
 </table>
 
@@ -43,10 +47,10 @@
   </tr>
   <tr>
     <td>Prevent problematic keys (?, /, #, =, and ')') from being treated as option key shortcut</td>
-    <td>This rule serves as a workaround for issues that layer 3 could cause in some applications. See <a href="https://github.com/jgosmann/neo2-layout-osx#know-issues" target="_blank">known issues</a> for more information.</td>
+    <td>This rule serves as a workaround for issues that layer 3 could cause in some applications. See <a href="https://github.com/jgosmann/neo2-layout-osx#know-issues" target="_blank">known issues</a> for more information. The rule maps the problematic keys to a dummy dead key on <code>Numpad 2 + left_option + left_shift</code> followed by the actual key without modifiers.</td>
   </tr>
   <tr>
     <td>Prevent all layer 3 keys from being treated as option key shortcut</td>
-    <td>This rule serves as a workaround for issues that layer 3 could cause in some applications. See <a href="https://github.com/jgosmann/neo2-layout-osx#know-issues" target="_blank">known issues</a> for more information.</td>
+    <td>This rule serves as a workaround for issues that layer 3 could cause in some applications. See <a href="https://github.com/jgosmann/neo2-layout-osx#know-issues" target="_blank">known issues</a> for more information. The rule maps all layer 3 keys to a dummy dead key on <code>Numpad 2 + left_option + left_shift</code> followed by the actual key without modifiers.</td>
   </tr>
 </dl>
