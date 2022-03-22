@@ -5,6 +5,8 @@
 <p>Intended to be used with the <a href="https://github.com/jgosmann/neo2-layout-osx" target="_blank">corresponding keyboard layout file</a>.</p>
 
 <h3>Base rules</h3>
+<p>Base rules will only be active if the corresponding Neo2 keyboard layout is active. This means that the mod3 and mod4 keys will type their actual characters if you activate a different keyboard layout.</p>
+
 <table class="table">
   <tr>
     <td>Neo2 mod 3 key and layer 4 (Apple keyboards). Rule applied to Apple-made keyboards only.</td>
@@ -32,6 +34,7 @@
         <p>This extra-rule lets you jump to the beginning and the end of a line in your terminal using <code>↖</code> and <code>↘︎</code> on layer 4. More precisely, it maps <code>mod4</code>+<code>a</code> to <code>Home</code> and <code>mod4</code>+<code>g</code> to <code>End</code> in the following terminal apps: macOS Terminal, iTerm2, Hyper, alacritty, kitty.</p>
         <p>Make sure to move this rule <em>above</em> the rule 'Neo2 layer 4' in the Karabiner-Elements preferences.</p>
         <p>In case you use the macOS Terminal: You need to perform an additional configuration step in the macOS Terminal preferences: Go to 'Terminal' -> 'Preferences' -> 'Profiles' -> 'Keyboard' and add the following two entries: Key: ↖ Action: \033OH and Key: ↘︎ Action: \033OF.</p>
+        <p>This rule will only be active if the corresponding Neo2 keyboard layout is active.</p>
     </td>
   </tr>
   <tr>
@@ -44,10 +47,16 @@
   </tr>
   <tr>
     <td>Prevent problematic keys (?, /, #, =, and ')') from being treated as option key shortcut</td>
-    <td>This rule serves as a workaround for issues that layer 3 could cause in some applications. See <a href="https://github.com/jgosmann/neo2-layout-osx#know-issues" target="_blank">known issues</a> for more information. The rule maps the problematic keys to a dummy dead key on <code>Numpad 2 + left_option + left_shift</code> followed by the actual key without modifiers.</td>
+    <td>
+        <p>This rule serves as a workaround for issues that layer 3 could cause in some applications. See <a href="https://github.com/jgosmann/neo2-layout-osx#know-issues" target="_blank">known issues</a> for more information. The rule maps the problematic keys to a dummy dead key on <code>Numpad 2 + left_option + left_shift</code> followed by the actual key without modifiers.</p>
+        <p>This rule will only be active if the corresponding Neo2 keyboard layout is active.</p>
+    </td>
   </tr>
   <tr>
     <td>Prevent all layer 3 keys from being treated as option key shortcut</td>
-    <td>This rule serves as a workaround for issues that layer 3 could cause in some applications. See <a href="https://github.com/jgosmann/neo2-layout-osx#know-issues" target="_blank">known issues</a> for more information. The rule maps all layer 3 keys to a dummy dead key on <code>Numpad 2 + left_option + left_shift</code> followed by the actual key without modifiers.</td>
+    <td>
+        <p>This rule serves as a workaround for issues that layer 3 could cause in some applications. See <a href="https://github.com/jgosmann/neo2-layout-osx#know-issues" target="_blank">known issues</a> for more information. The rule maps all layer 3 keys to a dummy dead key on <code>Numpad 2 + left_option + left_shift</code> followed by the actual key without modifiers.</p>
+        <p>This rule will only be active if the corresponding Neo2 keyboard layout is active.</p>
+    </td>
   </tr>
 </dl>
