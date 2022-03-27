@@ -1,0 +1,501 @@
+{
+  "title": "Switchable Vimish Navigation",
+  "rules": [
+    {
+      "description": "Press Control to toggle Vimish navigation",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_control"
+          },
+          "to": [
+            {
+              "key_code": "left_control",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "set_variable": {
+                "name": "vim_mode",
+                "value": 1
+              }
+            },
+            {
+              "shell_command": "osascript -e 'display notification \"Press [⌃] to switch on/off\" with title \"-- Vimish Navigation [On] --\"'"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "vim_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_control"
+          },
+          "to": [
+            {
+              "key_code": "left_control",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "set_variable": {
+                "name": "vim_mode",
+                "value": 0
+              }
+            },
+            {
+              "shell_command": "osascript -e 'display notification \"Press [⌃] to switch on/off\" with title \"-- Vimish Navigation [Off] --\"'"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vim_mode",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Single/Double Tap Control to turn off/on Vimish navigation",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_control"
+          },
+          "to": [
+            {
+              "key_code": "left_control",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "set_variable": {
+                "name": "control_pressed_recently",
+                "value": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vim_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "control_pressed_recently",
+              "value": 1
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "control_pressed_recently",
+                  "value": 0
+                }
+              }
+            ],
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "control_pressed_recently",
+                  "value": 0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_control"
+          },
+          "to": [
+            {
+              "key_code": "left_control",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "set_variable": {
+                "name": "control_pressed_recently",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "vim_mode",
+                "value": 1
+              }
+            },
+            {
+              "shell_command": "osascript -e 'display notification \"Single tap [⌃] to switch off\" with title \"-- Vimish Navigation [ON] --\"'"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vim_mode",
+              "value": 0
+            },
+            {
+              "type": "variable_if",
+              "name": "control_pressed_recently",
+              "value": 1
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "control_pressed_recently",
+                  "value": 0
+                }
+              }
+            ],
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "control_pressed_recently",
+                  "value": 0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_control"
+          },
+          "to": [
+            {
+              "key_code": "left_control",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "set_variable": {
+                "name": "control_pressed_recently",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "vim_mode",
+                "value": 0
+              }
+            },
+            {
+              "shell_command": "osascript -e 'display notification \"Double tap [⌃] to switch on\" with title \"-- Vimish Navigation [OFF] --\"'"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vim_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "control_pressed_recently",
+              "value": 0
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "control_pressed_recently",
+                  "value": 0
+                }
+              }
+            ],
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "control_pressed_recently",
+                  "value": 0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_control"
+          },
+          "to": [
+            {
+              "key_code": "left_control",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "set_variable": {
+                "name": "control_pressed_recently",
+                "value": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vim_mode",
+              "value": 0
+            },
+            {
+              "type": "variable_if",
+              "name": "control_pressed_recently",
+              "value": 0
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "control_pressed_recently",
+                  "value": 0
+                }
+              }
+            ],
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "control_pressed_recently",
+                  "value": 0
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "description": "Double Tap and Hold Control to turn on Vimish navigation",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_control"
+          },
+          "to": [
+            {
+              "key_code": "left_control",
+              "lazy": true
+            },
+            {
+              "set_variable": {
+                "name": "control_pressed_recently",
+                "value": 1
+              }
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "set_variable": {
+                "name": "vim_mode",
+                "value": 1
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "vim_mode",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "control_pressed_recently",
+              "value": 1
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "control_pressed_recently",
+                  "value": 0
+                }
+              }
+            ],
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "control_pressed_recently",
+                  "value": 0
+                }
+              }
+            ]
+          },
+		  "parameters": {
+            "basic.to_if_held_down_threshold_milliseconds": 50
+		  }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_control"
+          },
+          "to": [
+            {
+              "key_code": "left_control",
+              "lazy": true
+            },
+            {
+              "set_variable": {
+                "name": "control_pressed_recently",
+                "value": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "control_pressed_recently",
+              "value": 0
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "control_pressed_recently",
+                  "value": 0
+                }
+              }
+            ],
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "control_pressed_recently",
+                  "value": 0
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "description": "H/J/K/L -> ← ↓ ↑ → ",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vim_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "down_arrow"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vim_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vim_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vim_mode",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
