@@ -1,0 +1,68 @@
+{
+  "title": "Switch between multiple input sources (English, Traditional, and Simplified Chinese)",
+  "rules": [
+    {
+      "description": "Change to US Extended (ABC) with right_option+1",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "1",
+            "modifiers": {
+              "mandatory": ["right_option"]
+            }
+          },
+          "to": [
+            {
+              "select_input_source": {
+                "input_source_id": "com.apple.keylayout.USExtended"
+              }
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Change to Pinyin-Traditional with right_option+2",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "2",
+            "modifiers": {
+              "mandatory": ["right_option"]
+            }
+          },
+          "to": [
+            {
+              "select_input_source": {
+                "input_source_id": "com.apple.inputmethod.TCIM.Pinyin"
+              }
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Change to Pinyin-Simplified with right_option+3",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "3",
+            "modifiers": {
+              "mandatory": ["right_option"]
+            }
+          },
+          "to": [
+            {
+              "select_input_source": {
+                "input_source_id": "com.apple.inputmethod.SCIM.ITABC"
+              }
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}
