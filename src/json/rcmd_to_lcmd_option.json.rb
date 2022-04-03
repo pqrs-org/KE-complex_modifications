@@ -13,7 +13,7 @@ def main
     'title' => 'Right Cmd to Left Cmd + Left Option ',
     'rules' => [
       {
-        'description' => 'Change Right CMD to Left CMD + Left Option',
+        'description' => 'Change Right CMD to Left CMD + Left Option, util for tab navigation with modification WASD or HJKL',
         'manipulators' => [
           {
             'type' => 'basic',
