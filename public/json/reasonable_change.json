@@ -1,0 +1,122 @@
+{
+  "title": "reasonable change",
+  "rules": [
+    {
+      "description": "control + H to backspace",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "left_control"
+              ]
+            },
+            "key_code": "h"
+          },
+          "to": [
+            {
+              "repeat": true,
+              "key_code": "delete_or_backspace"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "shift + control + H to delete",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "left_control",
+                "left_shift"
+              ]
+            },
+            "key_code": "h"
+          },
+          "to": [
+            {
+              "repeat": true,
+              "key_code": "delete_forward"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "capslock to esc if pressed alone else control",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "key_code": "caps_lock"
+          },
+          "to": [
+            {
+              "repeat": true,
+              "key_code": "left_control"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "repeat": false,
+              "key_code": "escape"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "control + M to return",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "left_control"
+              ]
+            },
+            "key_code": "m"
+          },
+          "to": [
+            {
+              "repeat": true,
+              "key_code": "return_or_enter"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "shift + backspace to delete",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "left_shift"
+              ]
+            },
+            "key_code": "delete_or_backspace"
+          },
+          "to": [
+            {
+              "repeat": true,
+              "key_code": "delete_forward"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
