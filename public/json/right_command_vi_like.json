@@ -1,0 +1,434 @@
+{
+  "title": "right command vi like v2",
+  "rules": [
+    {
+      "description": "right command to ` if pressed alone",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "key_code": "right_gui"
+          },
+          "to": [
+            {
+              "repeat": true,
+              "key_code": "right_gui"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "repeat": false,
+              "key_code": "grave_accent_and_tilde"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "right command + H to left arrow",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "right_gui"
+              ],
+              "optional": [
+                "any"
+              ]
+            },
+            "key_code": "h"
+          },
+          "to": [
+            {
+              "repeat": true,
+              "key_code": "left_arrow"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "right command + J to down arrow",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "right_gui"
+              ],
+              "optional": [
+                "any"
+              ]
+            },
+            "key_code": "j"
+          },
+          "to": [
+            {
+              "repeat": true,
+              "key_code": "down_arrow"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "right command + K to up arrow",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "right_gui"
+              ],
+              "optional": [
+                "any"
+              ]
+            },
+            "key_code": "k"
+          },
+          "to": [
+            {
+              "repeat": true,
+              "key_code": "up_arrow"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "right command + L to right arrow",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "right_gui"
+              ],
+              "optional": [
+                "any"
+              ]
+            },
+            "key_code": "l"
+          },
+          "to": [
+            {
+              "repeat": true,
+              "key_code": "right_arrow"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "right command + E to end of line",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "right_gui"
+              ]
+            },
+            "key_code": "e"
+          },
+          "to": [
+            {
+              "repeat": false,
+              "key_code": "right_arrow",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "right command + A to begin of line",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "right_gui"
+              ]
+            },
+            "key_code": "a"
+          },
+          "to": [
+            {
+              "repeat": false,
+              "key_code": "left_arrow",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "right command + W to word forward (option + right arrow)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "right_gui"
+              ]
+            },
+            "key_code": "w"
+          },
+          "to": [
+            {
+              "repeat": true,
+              "key_code": "right_arrow",
+              "modifiers": [
+                "left_alt"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "right command + B to word backward",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "right_gui"
+              ]
+            },
+            "key_code": "b"
+          },
+          "to": [
+            {
+              "repeat": true,
+              "key_code": "left_arrow",
+              "modifiers": [
+                "left_alt"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "right command + U to page up",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "right_gui"
+              ],
+              "optional": [
+                "any"
+              ]
+            },
+            "key_code": "u"
+          },
+          "to": [
+            {
+              "repeat": true,
+              "key_code": "page_up"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "right command + D to page down",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "right_gui"
+              ],
+              "optional": [
+                "any"
+              ]
+            },
+            "key_code": "d"
+          },
+          "to": [
+            {
+              "repeat": true,
+              "key_code": "page_down"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "right command + Y to yark",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "right_gui"
+              ]
+            },
+            "key_code": "y"
+          },
+          "to": [
+            {
+              "repeat": false,
+              "key_code": "c",
+              "modifiers": [
+                "left_gui"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "right command + P to paste",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "right_gui"
+              ]
+            },
+            "key_code": "p"
+          },
+          "to": [
+            {
+              "repeat": true,
+              "key_code": "v",
+              "modifiers": [
+                "left_gui"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "right command + S to delete till begin of line",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "right_gui"
+              ],
+              "optional": [
+                "any"
+              ]
+            },
+            "key_code": "s"
+          },
+          "to": [
+            {
+              "repeat": false,
+              "key_code": "left_arrow",
+              "modifiers": [
+                "left_shift",
+                "left_control"
+              ]
+            },
+            {
+              "repeat": false,
+              "key_code": "delete_or_backspace"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "right command + C to delete current line",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "right_gui"
+              ]
+            },
+            "key_code": "c"
+          },
+          "to": [
+            {
+              "repeat": false,
+              "key_code": "right_arrow",
+              "modifiers": [
+                "left_control"
+              ]
+            },
+            {
+              "repeat": false,
+              "key_code": "left_arrow",
+              "modifiers": [
+                "left_shift",
+                "left_control"
+              ]
+            },
+            {
+              "repeat": false,
+              "key_code": "delete_or_backspace"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "right command + left shift + C to delete till end of line",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "right_gui",
+                "left_shift"
+              ]
+            },
+            "key_code": "c"
+          },
+          "to": [
+            {
+              "repeat": false,
+              "key_code": "right_arrow",
+              "modifiers": [
+                "left_shift",
+                "left_control"
+              ]
+            },
+            {
+              "repeat": false,
+              "key_code": "delete_or_backspace"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
