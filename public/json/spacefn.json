@@ -534,7 +534,7 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "grave_accent_and_tilde",
+            "key_code": "m",
             "modifiers": {
               "optional": [
                 "any"
@@ -544,6 +544,32 @@
           "to": [
             {
               "key_code": "grave_accent_and_tilde"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "spacefn_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "comma",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": [
+                "left_shift"
+              ]
             }
           ],
           "conditions": [
