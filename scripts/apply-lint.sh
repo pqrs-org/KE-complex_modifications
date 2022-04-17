@@ -32,7 +32,18 @@ if $use_partial_lint; then
   lint="$topdir/scripts/partial-lint.rb"
 fi
 
+echo -n "Checking json files"
 for srcfile in $@; do
-  echo "check $srcfile"
-  sh -c "$lint $srcfile" || exit 1
+  echo -n '.'
+  output=$(sh -c "$lint $srcfile")
+  if [ $? -ne 0 ]; then
+    echo
+    echo
+    echo $(basename $srcfile)
+    echo
+    echo $output
+    echo
+    exit 1
+  fi
 done
+echo

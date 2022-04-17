@@ -9,19 +9,23 @@ complex_modifications for Karabiner-Elements.
 
 ## Add rules
 
-1.  Put a `.rb` (or `.erb`) template file into [src/json](https://github.com/pqrs-org/KE-complex_modifications/tree/main/src/json). (Or put a `.json` file into [public/json](https://github.com/pqrs-org/KE-complex_modifications/tree/main/public/json) directly.)
-2.  (Optional) Put extra description file into [public/extra_descriptions](https://github.com/pqrs-org/KE-complex_modifications/tree/main/public/extra_descriptions).
-3.  (Optional) Update [public/groups.json](https://github.com/pqrs-org/KE-complex_modifications/tree/main/public/groups.json) if you want to add your rules into specific category.
+1.  Put a JSON generator file (`.rb`, `.erb` or `.js`) into [src/json](https://github.com/pqrs-org/KE-complex_modifications/tree/main/src/json).
+    (Or put a `.json` file directly into [public/json](https://github.com/pqrs-org/KE-complex_modifications/tree/main/public/json) directly.)
+2.  <details>
+    <summary>(Optional) Update <a href="https://github.com/pqrs-org/KE-complex_modifications/tree/main/public/groups.json">public/groups.json</a> if you want to add your rules into specific category.</summary>
+
     Add the following entry into `groups.json`.
 
     ```json5
     {
-      "path": "json/your_awesome_configuration.json", // required
-      "extra_description_path": "extra_descriptions/your_awesome_configuration.html" // optional
+        "path": "json/your_awesome_configuration.json", // required
+        "extra_description_path": "extra_descriptions/your_awesome_configuration.html" // optional
     },
     ```
 
-4.  Run `make` command on Terminal. <br/> If you've put `.rb` (or `.erb`) source file into `src/json`, formatted json file will be auto generated in the `public/json/your_awesome_configuration.json`.
+    </details>
+
+3.  Run `make` command on Terminal. <br/> If you've a generator file into `src/json`, formatted json file will be auto generated in the `public/json/your_awesome_configuration.json`.
 
     ```shell
     make
