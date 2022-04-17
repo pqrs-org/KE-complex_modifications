@@ -1,0 +1,103 @@
+{
+  "title": "Make single and double quotes non-dead (typed with one keystroke) on the US International - PC keyboard layout.",
+  "rules": [
+    {
+      "description": "One stroke single quote",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "input_sources": [
+                {
+                  "input_source_id": "^com\\.apple\\.keylayout\\.USInternational-PC$"
+                }
+              ],
+              "type": "input_source_if"
+            }
+          ],
+          "from": {
+            "key_code": "quote"
+          },
+          "to": [
+            {
+              "key_code": "quote"
+            },
+            {
+              "key_code": "spacebar"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "One stroke double quote",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "input_sources": [
+                {
+                  "input_source_id": "^com\\.apple\\.keylayout\\.USInternational-PC$"
+                }
+              ],
+              "type": "input_source_if"
+            }
+          ],
+          "from": {
+            "key_code": "quote",
+            "modifiers": {
+              "mandatory": [
+                "left_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "quote",
+              "modifiers": [
+                "left_shift"
+              ]
+            },
+            {
+              "key_code": "spacebar"
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "input_sources": [
+                {
+                  "input_source_id": "^com\\.apple\\.keylayout\\.USInternational-PC$"
+                }
+              ],
+              "type": "input_source_if"
+            }
+          ],
+          "from": {
+            "key_code": "quote",
+            "modifiers": {
+              "mandatory": [
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "quote",
+              "modifiers": [
+                "right_shift"
+              ]
+            },
+            {
+              "key_code": "spacebar"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}
