@@ -18,7 +18,9 @@
         $is_not_apple_device = { "type" => "device_unless",   "identifiers" => [{"vendor_id" => 1452, "description" => "Apple devices"}]}
         $is_layout_active    = { "type" => "input_source_if", "input_sources" => [
           { "input_source_id" => "^org\\.sil\\.ukelele.keyboardlayout\\.neo2\\.deutsch\\(neo2\\)$" },
-          { "input_source_id" => "^org\\.unknown\\.keylayout\\.DeutschNeo2$" }
+          { "input_source_id" => "^org\\.unknown\\.keylayout\\.DeutschNeo2$" },
+          { "input_source_id" => "^org\\.unknown\\.keylayout\\.DeutschBone$" },
+          { "input_source_id" => "^org\\.unknown\\.keylayout\\.DeutschNeoQwertz$" }
         ] }
 
         def neo2_layer4(condition)
@@ -91,7 +93,7 @@
                 dest_keys_list: l4_dead_key_mappings,
                 conditions: condition == nil ? [$is_layout_active, $if_mod_4_on] : [$is_layout_active, $if_mod_4_on, condition],
                 to_modifiers: ["left_shift"],
-                to_pre_events: [["z", ["left_option", "left_shift"]]]
+                to_pre_events: [["page_down", ["left_option", "left_shift"]]]
             )
         end
 
@@ -157,7 +159,7 @@
                 conditions: condition == nil ? [$is_layout_active, $if_mod_4_on] : [$is_layout_active, $if_mod_4_on, condition],
                 from_optional_modifiers: ["any"],
                 to_modifiers: ["left_shift"],
-                to_pre_events: [["z", ["left_option", "left_shift"]]]
+                to_pre_events: [["page_down", ["left_option", "left_shift"]]]
             )
         end
 
@@ -201,7 +203,7 @@
                     conditions: [$is_layout_active, $if_mod_4_on],
                     from_mandatory_modifiers: ["right_option"],
                     to_modifiers: ["left_shift", "left_option"],
-                    to_pre_events: [["z", ["left_option", "left_shift"]]]
+                    to_pre_events: [["page_down", ["left_option", "left_shift"]]]
                 )
             ) %>
         },
@@ -242,7 +244,7 @@
                   conditions: [$is_layout_active],
                   from_mandatory_modifiers: ["right_option"],
                   to_modifiers: [],
-                  to_pre_events: [["a", ["left_option", "left_shift"]]]
+                  to_pre_events: [["page_up", ["left_option", "left_shift"]]]
               )
           ) %>
         },
@@ -256,7 +258,7 @@
                   from_mandatory_modifiers: ["right_option"],
                   from_mandatory_modifiers: ["right_option"],
                   to_modifiers: [],
-                  to_pre_events: [["a", ["left_option", "left_shift"]]]
+                  to_pre_events: [["page_up", ["left_option", "left_shift"]]]
               )
           ) %>
         },
