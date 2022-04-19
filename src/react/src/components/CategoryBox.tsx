@@ -120,13 +120,13 @@ export const CategoryBox = ({ category }: { category: Category }) => {
             </CategoryBoxAccordionSummary>
             <AccordionDetails>
               {f.object.json?.rules?.map((r, i) => (
-                <Box key={`${f.id}-rules-${i}`}>
-                  <Grid
-                    container
-                    direction="row"
-                    alignItems="center"
-                    sx={{ px: 2, my: 1 }}
-                  >
+                <Grid
+                  container
+                  direction="row"
+                  alignItems="center"
+                  sx={{ px: 2, my: 1 }}
+                >
+                  <Box key={`${f.id}-rules-${i}`}>
                     <Box>{r.description}</Box>
                     <Box sx={{ ml: "auto" }}>
                       {r.available_since && (
@@ -136,25 +136,24 @@ export const CategoryBox = ({ category }: { category: Category }) => {
                         />
                       )}
                     </Box>
-                  </Grid>
-
-                  {f.object.extra_description_path && (
-                    <Box
-                      key={`${f.id}-rules-extra-description-${f.object.extra_description_path}`}
-                    >
-                      <IframeResizer
-                        style={{ border: 0, width: "100%" }}
-                        src={`${baseUrl()}/build/${
-                          f.object.extra_description_path
-                        }`}
-                        title={f.object.extra_description_path}
-                      />
-                    </Box>
-                  )}
-
-                  <Divider />
-                </Box>
+                    <Divider />
+                  </Box>
+                </Grid>
               ))}
+              {f.object.extra_description_path && (
+                <Box
+                  key={`${f.id}-rules-extra-description-${f.object.extra_description_path}`}
+                >
+                  <IframeResizer
+                    style={{ border: 0, width: "100%" }}
+                    heightCalculationMethod="lowestElement"
+                    src={`${baseUrl()}/build/${
+                      f.object.extra_description_path
+                    }`}
+                    title={f.object.extra_description_path}
+                  />
+                </Box>
+              )}
             </AccordionDetails>
           </CategoryBoxAccordion>
         );
