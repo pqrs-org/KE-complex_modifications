@@ -79,6 +79,9 @@ module Karabiner
       '^com\.teamviewer\.TeamViewer$',
       '^com\.vmware\.horizon$',
       '^com\.2X\.Client\.Mac$',
+
+      '^com\.OpenText\.Exceed-TurboX-Client$',
+      '^com\.realvnc\.vncviewer$',
     ],
 
     :terminal => [
