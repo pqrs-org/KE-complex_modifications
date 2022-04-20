@@ -7,6 +7,20 @@
         {
           "description": "Set a variable to true/false depending on if caps lock is pressed/lifted.",
           "type": "basic",
+          "conditions": [
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": ["ansi", "iso"]
+            },
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                    "language": "^en$"
+                }
+              ]
+            }
+          ],
           "from": {
             "key_code": "caps_lock",
             "modifiers": {
@@ -35,6 +49,20 @@
         {
           "description": "Disable the caps lock key entirely.",
           "type": "basic",
+          "conditions": [
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": ["ansi", "iso"]
+            },
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                    "language": "^en$"
+                }
+              ]
+            }
+          ],
           "from": {
             "key_code": "caps_lock",
             "modifiers": {
@@ -79,6 +107,18 @@
               "type": "variable_if",
               "name": "caps_lock pressed",
               "value": 1
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": ["ansi", "iso"]
+            },
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                    "language": "^en$"
+                }
+              ]
             }
           ]
         },
@@ -107,6 +147,18 @@
               "type": "variable_if",
               "name": "caps_lock pressed",
               "value": 1
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": ["ansi", "iso"]
+            },
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                    "language": "^en$"
+                }
+              ]
             }
           ]
         },
@@ -135,6 +187,18 @@
               "type": "variable_if",
               "name": "caps_lock pressed",
               "value": 1
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": ["ansi", "iso"]
+            },
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                    "language": "^en$"
+                }
+              ]
             }
           ]
         }
@@ -176,6 +240,18 @@
               "type": "variable_if",
               "name": "caps_lock pressed",
               "value": 1
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": ["ansi", "iso"]
+            },
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                    "language": "^en$"
+                }
+              ]
             }
           ]
         },
@@ -212,6 +288,18 @@
               "type": "variable_if",
               "name": "caps_lock pressed",
               "value": 1
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": ["ansi", "iso"]
+            },
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                    "language": "^en$"
+                }
+              ]
             }
           ]
         },
@@ -248,6 +336,18 @@
               "type": "variable_if",
               "name": "caps_lock pressed",
               "value": 1
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": ["ansi", "iso"]
+            },
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                    "language": "^en$"
+                }
+              ]
             }
           ]
         }
@@ -275,6 +375,18 @@
               "type": "variable_if",
               "name": "caps_lock pressed",
               "value": 1
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": ["ansi", "iso"]
+            },
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                    "language": "^en$"
+                }
+              ]
             }
           ]
         }
