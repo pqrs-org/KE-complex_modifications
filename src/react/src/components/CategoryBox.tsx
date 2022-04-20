@@ -120,13 +120,13 @@ export const CategoryBox = ({ category }: { category: Category }) => {
             </CategoryBoxAccordionSummary>
             <AccordionDetails>
               {f.object.json?.rules?.map((r, i) => (
-                <Grid
-                  container
-                  direction="row"
-                  alignItems="center"
-                  sx={{ px: 2, my: 1 }}
-                >
-                  <Box key={`${f.id}-rules-${i}`}>
+                <Box key={`${f.id}-rules-${i}`}>
+                  <Grid
+                    container
+                    direction="row"
+                    alignItems="center"
+                    sx={{ px: 2, my: 1 }}
+                  >
                     <Box>{r.description}</Box>
                     <Box sx={{ ml: "auto" }}>
                       {r.available_since && (
@@ -136,9 +136,9 @@ export const CategoryBox = ({ category }: { category: Category }) => {
                         />
                       )}
                     </Box>
-                    <Divider />
-                  </Box>
-                </Grid>
+                  </Grid>
+                  <Divider />
+                </Box>
               ))}
               {f.object.extra_description_path && (
                 <Box
