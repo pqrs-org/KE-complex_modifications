@@ -137,24 +137,23 @@ export const CategoryBox = ({ category }: { category: Category }) => {
                       )}
                     </Box>
                   </Grid>
-
-                  {f.object.extra_description_path && (
-                    <Box
-                      key={`${f.id}-rules-extra-description-${f.object.extra_description_path}`}
-                    >
-                      <IframeResizer
-                        style={{ border: 0, width: "100%" }}
-                        src={`${baseUrl()}/build/${
-                          f.object.extra_description_path
-                        }`}
-                        title={f.object.extra_description_path}
-                      />
-                    </Box>
-                  )}
-
                   <Divider />
                 </Box>
               ))}
+              {f.object.extra_description_path && (
+                <Box
+                  key={`${f.id}-rules-extra-description-${f.object.extra_description_path}`}
+                >
+                  <IframeResizer
+                    style={{ border: 0, width: "100%" }}
+                    heightCalculationMethod="lowestElement"
+                    src={`${baseUrl()}/build/${
+                      f.object.extra_description_path
+                    }`}
+                    title={f.object.extra_description_path}
+                  />
+                </Box>
+              )}
             </AccordionDetails>
           </CategoryBoxAccordion>
         );
