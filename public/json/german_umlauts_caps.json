@@ -1,0 +1,396 @@
+{
+  "title": "Use Caps Lock for German Umlauts and Eszett",
+  "rules": [
+    {
+      "description": "Use the caps lock key state for other rules",
+      "manipulators": [
+        {
+          "description": "Set a variable to true/false depending on if caps lock is pressed/lifted.",
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": ["ansi", "iso"]
+            },
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                    "language": "^en$"
+                }
+              ]
+            }
+          ],
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "caps_lock pressed",
+                "value": 1
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "caps_lock pressed",
+                "value": 0
+              }
+            }
+          ]
+        },
+        {
+          "description": "Disable the caps lock key entirely.",
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": ["ansi", "iso"]
+            },
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                    "language": "^en$"
+                }
+              ]
+            }
+          ],
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to_if_alone": [
+            {
+              "key_code": "vk_none"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Convert Caps Lock with [aou] to [äöü]",
+      "manipulators": [
+        {
+          "description": "Caps+a = ä",
+          "type": "basic",
+          "from": {
+            "key_code": "a"
+          },
+          "to": [
+            {
+              "key_code": "u",
+              "modifiers": [
+                "left_option"
+              ]
+            },
+            {
+              "key_code": "a"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "caps_lock pressed",
+              "value": 1
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": ["ansi", "iso"]
+            },
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                    "language": "^en$"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "description": "Caps+o = ö",
+          "type": "basic",
+          "from": {
+            "key_code": "o"
+          },
+          "to": [
+            {
+              "key_code": "u",
+              "modifiers": [
+                "left_option"
+              ]
+            },
+            {
+              "key_code": "o"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "caps_lock pressed",
+              "value": 1
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": ["ansi", "iso"]
+            },
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                    "language": "^en$"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "description": "Caps+u = ü",
+          "type": "basic",
+          "from": {
+            "key_code": "u"
+          },
+          "to": [
+            {
+              "key_code": "u",
+              "modifiers": [
+                "left_option"
+              ]
+            },
+            {
+              "key_code": "u"
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "caps_lock pressed",
+              "value": 1
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": ["ansi", "iso"]
+            },
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                    "language": "^en$"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Convert Caps Lock (in combination with Shift) with [aou] to [ÄÖÜ]",
+      "manipulators": [
+        {
+          "description": "Caps+shift+a = Ä",
+          "type": "basic",
+          "from": {
+            "key_code": "a",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "u",
+              "modifiers": [
+                "left_option"
+              ]
+            },
+            {
+              "key_code": "a",
+              "modifiers": [
+                "left_shift"
+              ]
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "caps_lock pressed",
+              "value": 1
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": ["ansi", "iso"]
+            },
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                    "language": "^en$"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "description": "Caps+shift+o = Ö",
+          "type": "basic",
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "u",
+              "modifiers": [
+                "left_option"
+              ]
+            },
+            {
+              "key_code": "o",
+              "modifiers": [
+                "left_shift"
+              ]
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "caps_lock pressed",
+              "value": 1
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": ["ansi", "iso"]
+            },
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                    "language": "^en$"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "description": "Caps+shift+u = Ü",
+          "type": "basic",
+          "from": {
+            "key_code": "u",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "u",
+              "modifiers": [
+                "left_option"
+              ]
+            },
+            {
+              "key_code": "u",
+              "modifiers": [
+                "left_shift"
+              ]
+            },
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "caps_lock pressed",
+              "value": 1
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": ["ansi", "iso"]
+            },
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                    "language": "^en$"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Convert Caps Lock with [s] to [ß] (Eszett)",
+      "manipulators": [
+        {
+          "description": "Caps+s = ß",
+          "type": "basic",
+          "from": {
+            "key_code": "s"
+          },
+          "to": [
+            {
+              "key_code": "s",
+              "modifiers": [
+                "left_option"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "caps_lock pressed",
+              "value": 1
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": ["ansi", "iso"]
+            },
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                    "language": "^en$"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
