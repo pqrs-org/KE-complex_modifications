@@ -40,7 +40,7 @@
                 "w" => "delete_or_backspace",
                 "r" => "delete_forward",
 
-                # num pad
+                # Neo num pad in layer 4
                 "m" => "keypad_1",
                 "comma" => "keypad_2",
                 "period" => "keypad_3",
@@ -62,13 +62,28 @@
                 # tab
                 "x" => "tab",
                 "8" => "tab",
+
+                # physical num pad layer 4
+                "keypad_0" => "insert",
+                "keypad_1" => "end",
+                "keypad_2" => "down_arrow",
+                "keypad_3" => "page_down",
+                "keypad_4" => "left_arrow",
+                "keypad_5" => "page_down",
+                "keypad_6" => "right_arrow",
+                "keypad_7" => "home",
+                "keypad_8" => "up_arrow",
+                "keypad_9" => "page_up",
+                "keypad_period" => "delete_or_backspace",
             }
 
             l4_dead_key_mappings = [
                 "1", "2", "3", "4", "5", "6", "7",
                 "hyphen", "equal_sign",
                 "open_bracket", "close_bracket",
-                "y", "h"
+                "y", "h",
+                "keypad_plus", "keypad_hyphen", "keypad_asterisk",
+                "keypad_slash", "keypad_num_lock"
             ]
 
             each_key(
@@ -194,7 +209,11 @@
                 "a", "s", "d", "f", "g", "h", "j", "k", "l",
                 "semicolon", "quote",
                 "z", "x", "c", "v", "b", "n", "m",
-                "comma", "period", "slash"
+                "comma", "period", "slash",
+                "keypad_0", "keypad_1", "keypad_2", "keypad_3", "keypad_4",
+                "keypad_5", "keypad_6", "keypad_7", "keypad_8", "keypad_9",
+                "keypad_period", "keypad_plus", "keypad_hyphen",
+                "keypad_asterisk", "keypad_slash", "keypad_num_lock"
             ] %>
             <%= JSON.generate(
                 each_key(
@@ -255,7 +274,6 @@
                   source_keys_list: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "open_bracket", "semicolon", "quote", "comma", "period", "slash"],
                   dest_keys_list: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "open_bracket", "semicolon", "quote", "comma", "period", "slash"],
                   conditions: [$is_layout_active],
-                  from_mandatory_modifiers: ["right_option"],
                   from_mandatory_modifiers: ["right_option"],
                   to_modifiers: [],
                   to_pre_events: [["page_up", ["left_option", "left_shift"]]]
