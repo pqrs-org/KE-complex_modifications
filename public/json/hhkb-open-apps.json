@@ -1,0 +1,119 @@
+{
+	"title": "Launch apps",
+	"rules": [
+		{
+			"description": "right_option + B -> Brave",
+			"manipulators": [
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "b",
+						"modifiers": {
+							"mandatory": ["right_option"]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "open '/System/Applications/Brave Browser.app'"
+						}
+					]
+				}
+			]
+		},
+		{
+			"description": "right_option + E -> VS code",
+			"manipulators": [
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "e",
+						"modifiers": {
+							"mandatory": ["right_option"]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "open '/Applications/Visual Studio Code.app'"
+						}
+					]
+				}
+			]
+		},
+		{
+			"description": "right_option + S -> Signal",
+			"manipulators": [
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "s",
+						"modifiers": {
+							"mandatory": ["right_option"]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "open '/Applications/Signal.app'"
+						}
+					]
+				}
+			]
+		},
+		{
+			"description": "right_option + P -> Postman",
+			"manipulators": [
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "p",
+						"modifiers": {
+							"mandatory": ["right_option"]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "open '/Applications/Postman.app'"
+						}
+					]
+				}
+			]
+		},
+		{
+			"description": "right_option + F -> Finder",
+			"manipulators": [
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "f",
+						"modifiers": {
+							"mandatory": ["right_option"]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "open ~"
+						}
+					]
+				}
+			]
+		},
+		{
+			"description": "right_option + T -> iTerm",
+			"manipulators": [
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "t",
+						"modifiers": {
+							"mandatory": ["right_option"]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "open '/Applications/iTerm.app'"
+						}
+					]
+				}
+			]
+		}
+	]
+}
