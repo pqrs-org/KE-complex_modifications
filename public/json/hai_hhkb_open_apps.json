@@ -59,6 +59,25 @@
 			]
 		},
 		{
+			"description": "right_option + K -> Slack",
+			"manipulators": [
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "k",
+						"modifiers": {
+							"mandatory": ["right_option"]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "open '/Applications/Slack.app'"
+						}
+					]
+				}
+			]
+		},
+		{
 			"description": "right_option + P -> Postman",
 			"manipulators": [
 				{
