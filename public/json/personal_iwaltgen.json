@@ -1,47 +1,62 @@
 {
   "title": "Personal rules (@iwaltgen)",
-  "maintainers": [
-    "iwaltgen"
-  ],
+  "maintainers": ["iwaltgen"],
   "rules": [
     {
-      "description": "Chagne command+space to right command (gureum.io)",
+      "description": "Change command+space to ctrl+shift+space (switch IME)",
       "manipulators": [
         {
           "type": "basic",
           "from": {
             "key_code": "spacebar",
             "modifiers": {
-              "mandatory": [
-                "left_command"
-              ],
-              "optional": [
-                "any"
-              ]
+              "mandatory": ["left_command"],
+              "optional": ["any"]
             }
           },
           "to": [
             {
-              "key_code": "right_command"
+              "key_code": "spacebar",
+              "modifiers": ["control", "shift"]
             }
           ]
         }
       ]
     },
     {
-      "description": "Vi Mode control+[hjkl]",
+      "description": "Esc to Vim Mode",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "escape"
+          },
+          "to_if_alone": [
+            {
+              "key_code": "escape"
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "select_input_source": {
+                "input_source_id": "com.apple.keylayout.ABC",
+                "language": "en"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Vim Mode control+[hjkl]",
       "manipulators": [
         {
           "type": "basic",
           "from": {
             "key_code": "h",
             "modifiers": {
-              "mandatory": [
-                "control"
-              ],
-              "optional": [
-                "any"
-              ]
+              "mandatory": ["control"],
+              "optional": ["any"]
             }
           },
           "to": [
@@ -55,12 +70,8 @@
           "from": {
             "key_code": "j",
             "modifiers": {
-              "mandatory": [
-                "control"
-              ],
-              "optional": [
-                "any"
-              ]
+              "mandatory": ["control"],
+              "optional": ["any"]
             }
           },
           "to": [
@@ -74,12 +85,8 @@
           "from": {
             "key_code": "k",
             "modifiers": {
-              "mandatory": [
-                "control"
-              ],
-              "optional": [
-                "any"
-              ]
+              "mandatory": ["control"],
+              "optional": ["any"]
             }
           },
           "to": [
@@ -93,12 +100,8 @@
           "from": {
             "key_code": "l",
             "modifiers": {
-              "mandatory": [
-                "control"
-              ],
-              "optional": [
-                "any"
-              ]
+              "mandatory": ["control"],
+              "optional": ["any"]
             }
           },
           "to": [
@@ -117,13 +120,8 @@
           "from": {
             "key_code": "delete_or_backspace",
             "modifiers": {
-              "mandatory": [
-                "shift"
-              ],
-              "optional": [
-                "caps_lock",
-                "option"
-              ]
+              "mandatory": ["shift"],
+              "optional": ["caps_lock", "option"]
             }
           },
           "to": [
