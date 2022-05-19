@@ -1,0 +1,73 @@
+{
+	"title": "switch Language with option+1/2/3(kor, eng, ja)",
+	"rules": [
+		{
+			"description": "Use option+1/2/3 to switch language.",
+			"manipulators": [
+				{
+					"from": {
+						"key_code": "1",
+						"modifiers": {
+							"mandatory": [
+								"option"
+							],
+							"optional": [
+								"any"
+							]
+						}
+					},
+					"to": [
+						{
+							"select_input_source": {
+								"language": "ko"
+							}
+						}
+					],
+					"type": "basic"
+				},
+				{
+					"from": {
+						"key_code": "2",
+						"modifiers": {
+							"mandatory": [
+								"option"
+							],
+							"optional": [
+								"any"
+							]
+						}
+					},
+					"to": [
+						{
+							"select_input_source": {
+								"language": "en"
+							}
+						}
+					],
+					"type": "basic"
+				},
+				{
+					"from": {
+						"key_code": "3",
+						"modifiers": {
+							"mandatory": [
+								"option"
+							],
+							"optional": [
+								"any"
+							]
+						}
+					},
+					"to": [
+						{
+							"select_input_source": {
+								"input_mode_id": "com.apple.inputmethod.Japanese"
+							}
+						}
+					],
+					"type": "basic"
+				}
+			]
+		}
+	]
+}
