@@ -24,6 +24,36 @@
       ]
     },
     {
+      "description": "Change Korean Won symbol(₩) to backtick",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "grave_accent_and_tilde",
+            "modifiers": {
+              "optional": ["caps_lock", "option"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": ["control", "option"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                  "input_source_id": "com.apple.inputmethod.Korean.2SetKorean"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "description": "Esc to Vim Mode",
       "manipulators": [
         {
