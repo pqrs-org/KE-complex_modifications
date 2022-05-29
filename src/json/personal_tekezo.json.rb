@@ -19,14 +19,14 @@ def main
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Personal rules (@tekezo) (rev 41)',
+        'description' => 'Personal rules (@tekezo) (rev 42)',
         'available_since' => '13.6.0',
         'manipulators' =>
         core_configuration +
         emacs +
         mouse +
         extra_cursor +
-        option_hyphen +
+        holding_hyphen +
         app_virtual_machine +
         app_finder +
         app_terminal +
@@ -455,16 +455,24 @@ def extra_cursor
   ]
 end
 
-def option_hyphen
-  # option+-,= to ----------,==========
+def holding_hyphen
+  # long press -,= to --------------------,====================
   [
     {
       'type' => 'basic',
       'from' => {
         'key_code' => 'hyphen',
-        'modifiers' => Karabiner.from_modifiers(['option'], ['caps_lock']),
       },
-      'to' => [
+      'to_if_alone' => [
+        { 'key_code' => 'hyphen' },
+      ],
+      'to_if_held_down' => [
+        { 'key_code' => 'hyphen' }, { 'key_code' => 'hyphen' },
+        { 'key_code' => 'hyphen' }, { 'key_code' => 'hyphen' },
+        { 'key_code' => 'hyphen' }, { 'key_code' => 'hyphen' },
+        { 'key_code' => 'hyphen' }, { 'key_code' => 'hyphen' },
+        { 'key_code' => 'hyphen' }, { 'key_code' => 'hyphen' },
+
         { 'key_code' => 'hyphen' }, { 'key_code' => 'hyphen' },
         { 'key_code' => 'hyphen' }, { 'key_code' => 'hyphen' },
         { 'key_code' => 'hyphen' }, { 'key_code' => 'hyphen' },
@@ -475,14 +483,26 @@ def option_hyphen
           'repeat' => false,
         },
       ],
+      'parameters' => {
+        'basic.to_if_alone_timeout_milliseconds' => 250,
+        'basic.to_if_held_down_threshold_milliseconds' => 250,
+      },
     },
     {
       'type' => 'basic',
       'from' => {
         'key_code' => 'equal_sign',
-        'modifiers' => Karabiner.from_modifiers(['option'], ['caps_lock']),
       },
-      'to' => [
+      'to_if_alone' => [
+        { 'key_code' => 'equal_sign' },
+      ],
+      'to_if_held_down' => [
+        { 'key_code' => 'equal_sign' }, { 'key_code' => 'equal_sign' },
+        { 'key_code' => 'equal_sign' }, { 'key_code' => 'equal_sign' },
+        { 'key_code' => 'equal_sign' }, { 'key_code' => 'equal_sign' },
+        { 'key_code' => 'equal_sign' }, { 'key_code' => 'equal_sign' },
+        { 'key_code' => 'equal_sign' }, { 'key_code' => 'equal_sign' },
+
         { 'key_code' => 'equal_sign' }, { 'key_code' => 'equal_sign' },
         { 'key_code' => 'equal_sign' }, { 'key_code' => 'equal_sign' },
         { 'key_code' => 'equal_sign' }, { 'key_code' => 'equal_sign' },
@@ -493,6 +513,10 @@ def option_hyphen
           'repeat' => false,
         },
       ],
+      'parameters' => {
+        'basic.to_if_alone_timeout_milliseconds' => 250,
+        'basic.to_if_held_down_threshold_milliseconds' => 250,
+      },
     },
   ]
 end

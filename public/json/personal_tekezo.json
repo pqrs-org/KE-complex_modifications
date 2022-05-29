@@ -5,7 +5,7 @@
   ],
   "rules": [
     {
-      "description": "Personal rules (@tekezo) (rev 41)",
+      "description": "Personal rules (@tekezo) (rev 42)",
       "available_since": "13.6.0",
       "manipulators": [
         {
@@ -520,17 +520,44 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "hyphen",
-            "modifiers": {
-              "mandatory": [
-                "option"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
+            "key_code": "hyphen"
           },
-          "to": [
+          "to_if_alone": [
+            {
+              "key_code": "hyphen"
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "hyphen"
+            },
+            {
+              "key_code": "hyphen"
+            },
+            {
+              "key_code": "hyphen"
+            },
+            {
+              "key_code": "hyphen"
+            },
+            {
+              "key_code": "hyphen"
+            },
+            {
+              "key_code": "hyphen"
+            },
+            {
+              "key_code": "hyphen"
+            },
+            {
+              "key_code": "hyphen"
+            },
+            {
+              "key_code": "hyphen"
+            },
+            {
+              "key_code": "hyphen"
+            },
             {
               "key_code": "hyphen"
             },
@@ -562,22 +589,53 @@
               "key_code": "hyphen",
               "repeat": false
             }
-          ]
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 250,
+            "basic.to_if_held_down_threshold_milliseconds": 250
+          }
         },
         {
           "type": "basic",
           "from": {
-            "key_code": "equal_sign",
-            "modifiers": {
-              "mandatory": [
-                "option"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
+            "key_code": "equal_sign"
           },
-          "to": [
+          "to_if_alone": [
+            {
+              "key_code": "equal_sign"
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "equal_sign"
+            },
+            {
+              "key_code": "equal_sign"
+            },
+            {
+              "key_code": "equal_sign"
+            },
+            {
+              "key_code": "equal_sign"
+            },
+            {
+              "key_code": "equal_sign"
+            },
+            {
+              "key_code": "equal_sign"
+            },
+            {
+              "key_code": "equal_sign"
+            },
+            {
+              "key_code": "equal_sign"
+            },
+            {
+              "key_code": "equal_sign"
+            },
+            {
+              "key_code": "equal_sign"
+            },
             {
               "key_code": "equal_sign"
             },
@@ -609,7 +667,11 @@
               "key_code": "equal_sign",
               "repeat": false
             }
-          ]
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 250,
+            "basic.to_if_held_down_threshold_milliseconds": 250
+          }
         },
         {
           "type": "basic",
