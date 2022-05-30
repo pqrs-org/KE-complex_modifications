@@ -1,0 +1,66 @@
+{
+  "title": "Plexgear WL-PR1000 HAS wireless mouse side buttons to left and right",
+  "maintainers": ["stoivo"],
+  "rules": [
+    {
+      "description": "HAS wireless mouse alt+f4 to right_arrow",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 9585,
+                  "product_id": 16649
+                }
+              ]
+            }
+          ],
+          "from": {
+            "key_code": "f4",
+            "modifiers": {
+              "mandatory": [
+                "left_option"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            { "key_code": "right_arrow" }
+          ]
+        }
+      ]
+    },
+
+    {
+      "description": "HAS wireless mouse pay_or_pause to left_arrow",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 9585,
+                  "product_id": 16649
+                }
+              ]
+            }
+          ],
+          "from": {
+            "key_code": "play_or_pause",
+            "modifiers": { "optional": ["any"] }
+          },
+          "to": [
+            { "key_code": "left_arrow" }
+          ]
+        }
+      ]
+    }
+  ]
+}
