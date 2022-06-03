@@ -1,24 +1,43 @@
 {
   "title": "Windows-like pipe and backslash key combination for French-AZERTY layout",
   "rules": [{
-    "description": "Right command and 8 for \\",
+    "description": "Right command and 6 for |",
     "manipulators": [{
-      "from": {
-        "key_code": "8",
-        "modifiers": {
-          "mandatory": [
-            "right_command"
+        "from": {
+          "key_code": "6",
+          "modifiers": {
+            "mandatory": [
+              "right_command"
+            ]
+          }
+        },
+        "to": {
+          "key_code": "l",
+          "modifiers": [
+            "left_option",
+            "shift"
           ]
-        }
+        },
+        "type": "basic"
       },
-      "to": {
-        "key_code": "period",
-        "modifiers": [
-          "left_option",
-          "shift"
-        ]
-      },
-      "type": "basic"
-    }]
+      {
+        "from": {
+          "key_code": "8",
+          "modifiers": {
+            "mandatory": [
+              "right_command"
+            ]
+          }
+        },
+        "to": {
+          "key_code": "period",
+          "modifiers": [
+            "left_option",
+            "shift"
+          ]
+        },
+        "type": "basic"
+      }
+    ]
   }]
 }
