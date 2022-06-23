@@ -1,0 +1,69 @@
+{
+  "title": "Caps lock to backspace and backspace to delete forward, but only on Colemak",
+  "rules": [
+    {
+      "description": "Caps lock to backspace, but only on Colemak",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_or_backspace"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "input_source_if",
+              "description": "Colemak",
+              "input_sources": [
+                {
+                  "input_source_id": "^com\\.apple\\.keylayout\\.Colemak$"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Backspace to delete forward, but only on Colemak",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "delete_or_backspace",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_forward"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "input_source_if",
+              "description": "Colemak",
+              "input_sources": [
+                {
+                  "input_source_id": "^com\\.apple\\.keylayout\\.Colemak$"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
