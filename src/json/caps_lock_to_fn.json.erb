@@ -1,0 +1,16 @@
+{
+    "title": "Change caps_lock to fn on press and hold",
+    "rules": [
+        {
+            "description": "Change caps_lock to Fn on press and hold",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("caps_lock", [], ["any"]) %>,
+                    "to": <%= to([["fn"]]) %>,
+                    "to_if_alone": <%= to([["caps_lock"]]) %>
+                }
+            ]
+        }
+    ]
+}
