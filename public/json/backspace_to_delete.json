@@ -1,0 +1,59 @@
+{
+   "title":"Delete when modifier+Backspace",
+   "rules":[
+	  {
+		 "description":"Option+Backspace to Delete",
+		 "manipulators":[
+			{
+			   "type":"basic",
+			   "from":{
+				  "key_code":"delete_or_backspace",
+				  "modifiers":{
+					 "mandatory":[
+						"right_alt"
+					 ],
+					 "optional":[
+						"caps_lock"
+					 ]
+				  }
+			   },
+			   "to":[
+				  {
+					 "key_code":"delete_or_backspace",
+					 "modifiers":[
+						"fn"
+					 ]
+				  }
+			   ]
+			}
+		 ]
+	  },
+	  {
+		 "description":"Shift+Backspace to Delete",
+		 "manipulators":[
+			{
+			   "type":"basic",
+			   "from":{
+				  "modifiers":{
+					 "mandatory":[
+						"shift"
+					 ],
+					 "optional":[
+						"caps_lock"
+					 ]
+				  },
+				  "key_code":"delete_or_backspace"
+			   },
+			   "to":[
+				  {
+					 "key_code":"delete_or_backspace",
+					 "modifiers":[
+						"fn"
+					 ]
+				  }
+			   ]
+			}
+		 ]
+	  }
+   ]
+}
