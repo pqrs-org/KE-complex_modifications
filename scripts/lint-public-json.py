@@ -10,7 +10,7 @@ import sys
 publicJsonDirectory = sys.argv[1] if len(sys.argv) > 1 else ""
 if not os.path.isdir(publicJsonDirectory):
     print('public/json is not found')
-    exit(1)
+    sys.exit(1)
 
 #
 # Check files
@@ -34,7 +34,7 @@ for filePath in filePaths:
             basename))
         print('----------------------------------------')
         print('')
-        exit(1)
+        sys.exit(1)
 
     #
     # Check json validity
@@ -50,13 +50,14 @@ for filePath in filePaths:
             print("{} error: {}".format(filePath, e))
             print('----------------------------------------')
             print('')
-            exit(1)
+            sys.exit(1)
 
 #
 # Apply lint
 #
 
-subprocess.run([
+result = subprocess.run([
     "{}/apply-lint.sh".format(os.path.dirname(__file__)),
     "{}/*.json".format(publicJsonDirectory)
 ])
+sys.exit(result.returncode)
