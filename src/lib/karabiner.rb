@@ -82,6 +82,8 @@ module Karabiner
 
       '^com\.OpenText\.Exceed-TurboX-Client$',
       '^com\.realvnc\.vncviewer$',
+
+      '^com\.citrix\.receiver\.icaviewer',
     ],
 
     :terminal => [

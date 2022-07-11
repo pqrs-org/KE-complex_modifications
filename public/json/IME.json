@@ -1,0 +1,51 @@
+{
+   "title":"IME",
+   "rules":[
+	  {
+		 "description":"CapsLock to Ctrl+Option+SpaceBar (when there is no modifier keystroke)",
+		 "manipulators":[
+			{
+			   "type":"basic",
+			   "from":{
+				  "key_code":"caps_lock"
+			   },
+			   "to":[
+				  {
+					 "repeat":false,
+					 "key_code":"spacebar",
+					 "modifiers":[
+						"left_control",
+						"left_alt"
+					 ]
+				  }
+			   ]
+			}
+		 ]
+	  },
+	  {
+		 "description":"Ctrl+CapsLock to Option+Enter (Chinese Character)",
+		 "manipulators":[
+			{
+			   "type":"basic",
+			   "from":{
+				  "modifiers":{
+					 "mandatory":[
+						"left_control"
+					 ]
+				  },
+				  "key_code":"caps_lock"
+			   },
+			   "to":[
+				  {
+					 "repeat":false,
+					 "key_code":"return_or_enter",
+					 "modifiers":[
+						"left_alt"
+					 ]
+				  }
+			   ]
+			}
+		 ]
+	  }
+   ]
+}
