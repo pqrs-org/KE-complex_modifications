@@ -7,6 +7,7 @@ build:
 	npm run build
 
 deploy:
+	$(MAKE) install
 	$(MAKE) build
 	rsync -a --delete \
 		build/index.html \
