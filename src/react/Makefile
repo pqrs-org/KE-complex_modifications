@@ -7,6 +7,7 @@ build:
 	npm run build
 
 deploy:
+	$(MAKE) install
 	$(MAKE) build
 	rsync -a --delete \
 		build/index.html \
@@ -27,7 +28,7 @@ update:
 	$(MAKE) audit
 
 audit:
-	npm audit --production
+	npm audit --omit=dev
 
 format:
 	npm run format
