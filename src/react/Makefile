@@ -27,7 +27,7 @@ update:
 	$(MAKE) audit
 
 audit:
-	npm audit --production
+	npm audit --omit=dev
 
 format:
 	npm run format
