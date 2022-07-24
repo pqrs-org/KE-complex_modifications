@@ -42,7 +42,22 @@ for filePath in filePaths:
 
     with open(filePath) as f:
         try:
-            json.load(f)
+            j = json.load(f)
+
+            #
+            # Check KE-complex_modifications specific format
+            #
+
+            if 'title' not in j:
+                raise ValueError('`title` is not found')
+            if type(j['title']) is not str:
+                raise ValueError('`title` is not string')
+
+            if 'rules' not in j:
+                raise ValueError('`rules` is not found')
+            if type(j['rules']) is not list:
+                raise ValueError('`rules` is not array')
+
         except Exception as e:
             print('')
             print('----------------------------------------')
