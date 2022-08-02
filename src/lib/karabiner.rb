@@ -111,6 +111,7 @@ module Karabiner
       '^com\.citrix\.XenAppViewer$',
       '^com\.vmware\.proxyApp\.', # prefix
       '^com\.parallels\.winapp\.', # prefix
+      '^com\.utmapp\.UTM$',
     ],
 
     :sublime_text => [
