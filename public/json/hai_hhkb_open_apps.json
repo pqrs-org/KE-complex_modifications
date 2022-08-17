@@ -1,6 +1,25 @@
 {
-	"title": "Hai HHKB Launch apps (Brave, VS Code, Signal, Slack, Postman, Sublime Merge, iTerm, Thunderbird, iMessage, Mail, Draw.IO)",
+	"title": "Hai HHKB Launch apps (Brave, VS Code, Signal, Slack, Postman, Sublime Merge, iTerm, Thunderbird, iMessage, Mail, Draw.IO, Sequel Ace)",
 	"rules": [
+		{
+			"description": "right_option + A -> Sequal Ace",
+			"manipulators": [
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "a",
+						"modifiers": {
+							"mandatory": ["right_option"]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "open '/Applications/Sequel Ace.app'"
+						}
+					]
+				}
+			]
+		},
 		{
 			"description": "right_option + B -> Brave",
 			"manipulators": [
