@@ -1,0 +1,93 @@
+{
+    "title": "Keychron 6 Remap PageUp & PageDown to CMD + Left Arrow & CMD + Right Arrow",
+    "rules": [
+      {
+        "description": "Page Down to CMD + Right Arrow",
+        "manipulators": [
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "page_down"
+            },
+            "to": [
+              {
+                "key_code": "right_arrow",
+                "modifiers": [
+                  "command"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "description": "Page Up to CMD + Left Arrow",
+        "manipulators": [
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "page_up"
+            },
+            "to": [
+              {
+                "key_code": "left_arrow",
+                "modifiers": [
+                  "command"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "description": "Shift + Page Down to Shift + CMD + Right Arrow",
+        "manipulators": [
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "page_down",
+              "modifiers": {
+                "mandatory": [
+                  "shift"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "right_arrow",
+                "modifiers": [
+                  "command",
+                  "left_shift"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "description": "Shift + Page Up to Shift + CMD + Left Arrow",
+        "manipulators": [
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "page_up",
+              "modifiers": {
+                "mandatory": [
+                  "shift"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "left_arrow",
+                "modifiers": [
+                  "command",
+                  "left_shift"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
