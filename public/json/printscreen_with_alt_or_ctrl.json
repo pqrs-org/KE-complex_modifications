@@ -1,0 +1,81 @@
+{
+  "title": "Printscreen, Alt+Printscreen, Ctrl+Printscrren to Capture",
+  "rules": [
+    {
+      "description": "Printscreen key to whole capture (command+shift+3)",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "print_screen"
+          },
+          "to": [
+            {
+              "key_code": "3",
+              "modifiers": [
+                "left_command",
+                "left_shift"
+              ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Alt+Printscreen key to portion capture (command+shift+4)",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "print_screen",
+            "modifiers": {
+                "mandatory": [
+                    "left_option"
+                ],
+                "optional": [
+                    "any"
+                ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "4",
+              "modifiers": [
+                "left_command",
+                "left_shift"
+              ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Ctrl+Printscreen key to panel capature (command+shift+5)",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "print_screen",
+            "modifiers": {
+                "mandatory": [
+                    "left_control"
+                ],
+                "optional": [
+                    "any"
+                ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "5",
+              "modifiers": [
+                "left_command",
+                "left_shift"
+              ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}
