@@ -1,0 +1,147 @@
+{
+    "title": "TES68 Volume and Brightness Macros + Up/Down Arrows",
+    "rules": [
+        {
+            "description": "Page Up as Volume Mod",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                                "key_code": "page_up"
+                            },
+                    "to": [
+                        {
+                            "set_variable": {
+                                "name": "volume_mod",
+                                "value": 1
+                            }
+                        }
+                    ],
+                    "to_after_key_up": [
+                        {
+                            "set_variable": {
+                                "name": "volume_mod",
+                                "value": 0
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Page Down as Brightness Mod",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                                "key_code": "page_down"
+                            },
+                    "to": [
+                        {
+                            "set_variable": {
+                                "name": "brightness_mod",
+                                "value": 1
+                            }
+                        }
+                    ],
+                    "to_after_key_up": [
+                        {
+                            "set_variable": {
+                                "name": "brightness_mod",
+                                "value": 0
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Volume Up - Page Up + Up Arrow",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                            "key_code": "up_arrow"
+                        },
+                    "to": {
+                            "key_code": "volume_increment"
+                        },
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "volume_mod",
+                            "value": 1
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Volume Down - Page Up + Down Arrow",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": 
+                        {
+                            "key_code": "down_arrow"
+                        },
+                    "to": 
+                        {
+                          "key_code": "volume_decrement"
+                        },
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "volume_mod",
+                            "value": 1
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Brightness Up - Page Down + Up Arrow",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                            "key_code": "up_arrow"
+                        },
+                    "to": {
+                            "key_code": "display_brightness_increment"
+                        },
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "brightness_mod",
+                            "value": 1
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Brightness Down - Page Down + Down Arrow",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": 
+                        {
+                            "key_code": "down_arrow"
+                        },
+                    "to": 
+                        {
+                          "key_code": "display_brightness_decrement"
+                        },
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "brightness_mod",
+                            "value": 1
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
