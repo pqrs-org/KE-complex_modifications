@@ -1,0 +1,79 @@
+{
+  "title": "Double tap keypad_enter to double tap fn (start dictation.) Single tap for keypad_enter after a short delay (250ms.)",
+  "rules": [
+    {
+      "description": "This rule solves a problem with the Microsoft Surface Ergonomic Keyboard. The `Fn` key can't be used to start dictation, since it only toggles an internal state on and off, and it does not actually send any keypress event. This rule allows you to start dictation by double tapping the keypad enter key, which will send Fn twice. If you only press the keypad enter key once, it will send the original enter key after a short delay (250ms).",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "name": "keypad_enter pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "keypad_enter",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "fn"
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "from": {
+            "key_code": "keypad_enter",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "keypad_enter pressed",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "fn"
+            }
+          ],
+          "parameters": {
+            "basic.to_delayed_action_delay_milliseconds": 250
+          },
+          "to_delayed_action": {
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "keypad_enter pressed",
+                  "value": 0
+                }
+              }
+            ],
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "keypad_enter pressed",
+                  "value": 0
+                }
+              },
+              {
+                "key_code": "keypad_enter"
+              }
+            ]
+          },
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}
