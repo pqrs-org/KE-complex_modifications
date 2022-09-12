@@ -92,6 +92,7 @@ module Karabiner
       '^co\.zeit\.hyperterm$',
       '^co\.zeit\.hyper$',
       '^io\.alacritty$',
+      '^org\.alacritty$',
       '^net\.kovidgoyal\.kitty$',
     ],
 
