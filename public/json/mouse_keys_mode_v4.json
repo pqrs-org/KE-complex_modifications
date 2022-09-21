@@ -1,11 +1,11 @@
 {
-  "title": "Mouse Keys Mode v4 (rev 2)",
+  "title": "Mouse Keys Mode v4 (rev 3)",
   "maintainers": [
     "tekezo"
   ],
   "rules": [
     {
-      "description": "Mouse Keys Mode v4 (rev 2)",
+      "description": "Mouse Keys Mode v4 (rev 3)",
       "available_since": "13.6.0",
       "manipulators": [
         {
@@ -1027,6 +1027,101 @@
         {
           "type": "basic",
           "from": {
+            "key_code": "u",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "software_function": {
+                "set_mouse_cursor_position": {
+                  "x": "50%",
+                  "y": "50%"
+                }
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mouse_keys_mode_v4",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "d"
+              },
+              {
+                "key_code": "u"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "mouse_keys_mode_v4",
+                    "value": 0
+                  }
+                },
+                {
+                  "set_variable": {
+                    "name": "mouse_keys_mode_v4_scroll",
+                    "value": 0
+                  }
+                },
+                {
+                  "set_notification_message": {
+                    "id": "mouse_keys_mode_v4",
+                    "text": ""
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "mouse_keys_mode_v4",
+                "value": 1
+              }
+            },
+            {
+              "set_notification_message": {
+                "id": "mouse_keys_mode_v4",
+                "text": "Mouse Keys Mode v4"
+              }
+            },
+            {
+              "software_function": {
+                "set_mouse_cursor_position": {
+                  "x": "50%",
+                  "y": "50%"
+                }
+              }
+            }
+          ],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 500
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
             "key_code": "i",
             "modifiers": {
               "optional": [
@@ -1210,6 +1305,103 @@
                   "x": "50%",
                   "y": "50%",
                   "screen": 1
+                }
+              }
+            }
+          ],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 500
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "p",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "software_function": {
+                "set_mouse_cursor_position": {
+                  "x": "50%",
+                  "y": "50%",
+                  "screen": 2
+                }
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mouse_keys_mode_v4",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "d"
+              },
+              {
+                "key_code": "p"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "mouse_keys_mode_v4",
+                    "value": 0
+                  }
+                },
+                {
+                  "set_variable": {
+                    "name": "mouse_keys_mode_v4_scroll",
+                    "value": 0
+                  }
+                },
+                {
+                  "set_notification_message": {
+                    "id": "mouse_keys_mode_v4",
+                    "text": ""
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "mouse_keys_mode_v4",
+                "value": 1
+              }
+            },
+            {
+              "set_notification_message": {
+                "id": "mouse_keys_mode_v4",
+                "text": "Mouse Keys Mode v4"
+              }
+            },
+            {
+              "software_function": {
+                "set_mouse_cursor_position": {
+                  "x": "50%",
+                  "y": "50%",
+                  "screen": 2
                 }
               }
             }
