@@ -18,11 +18,11 @@ require_relative '../lib/karabiner'
 
 def main
   puts JSON.pretty_generate(
-    'title' => 'Mouse Keys Mode v4 (rev 2)',
+    'title' => 'Mouse Keys Mode v4 (rev 3)',
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Mouse Keys Mode v4 (rev 2)',
+        'description' => 'Mouse Keys Mode v4 (rev 3)',
         "available_since": '13.6.0',
         'manipulators' => [
 
@@ -76,6 +76,19 @@ def main
                                    [{ 'mouse_key' => { 'speed_multiplier' => 0.5 } }],
                                    nil,
                                    nil),
+          generate_mouse_keys_mode('u',
+                                   [
+                                     {
+                                       'software_function' => {
+                                         'set_mouse_cursor_position' => {
+                                           'x' => '50%',
+                                           'y' => '50%',
+                                         },
+                                       },
+                                     },
+                                   ],
+                                   nil,
+                                   nil),
           generate_mouse_keys_mode('i',
                                    [
                                      {
@@ -98,6 +111,20 @@ def main
                                            'x' => '50%',
                                            'y' => '50%',
                                            'screen' => 1,
+                                         },
+                                       },
+                                     },
+                                   ],
+                                   nil,
+                                   nil),
+          generate_mouse_keys_mode('p',
+                                   [
+                                     {
+                                       'software_function' => {
+                                         'set_mouse_cursor_position' => {
+                                           'x' => '50%',
+                                           'y' => '50%',
+                                           'screen' => 2,
                                          },
                                        },
                                      },
