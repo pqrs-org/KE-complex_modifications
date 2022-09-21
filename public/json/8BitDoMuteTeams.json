@@ -1,0 +1,34 @@
+{
+  "title": "8Bitdo Mute button on teams",
+  "rules": [
+    {
+      "description": "Turn the left key into the mute button",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 11720,
+                  "product_id": 12848
+                }
+              ]
+            }
+          ],
+          "from": {
+            "key_code": "e"
+          },
+          "to": [
+            {
+              "shell_command": "if [ $(ps aux | grep -v grep | grep -ci \"Microsoft Teams.app/Contents/Frameworks/Microsoft Teams Helper.app\") -gt 0 ]; then osascript -e 'activate application id \"com.microsoft.teams\"' -e 'tell application \"System Events\" to keystroke \"m\" using {command down, shift down}'; fi",
+              "lazy": true,
+              "repeat": true
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}
