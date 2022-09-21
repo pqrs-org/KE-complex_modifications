@@ -1,34 +1,134 @@
 {
-  "title": "8Bitdo Mute button on teams",
-  "rules": [
-    {
-      "description": "Turn the left key into the mute button",
-      "manipulators": [
+    "title": "8Bitdo Mute button on teams",
+    "rules": [
         {
-          "conditions": [
-            {
-              "type": "device_if",
-              "identifiers": [
+            "description": "Bring teams to from and mutes it with the left key",
+            "manipulators": [
                 {
-                  "vendor_id": 11720,
-                  "product_id": 12848
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "vendor_id": 11720,
+                                    "product_id": 12848
+                                }
+                            ]
+                        },
+                        {
+                            "type": "frontmost_application_unless",
+                            "bundle_identifiers": [
+                                "^com\\.microsoft\\.teams$"
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "e"
+                    },
+                    "to": [
+                        {
+                            "shell_command": "if [ $(ps aux | grep -v grep | grep -ci \"Microsoft Teams.app/Contents/Frameworks/Microsoft Teams Helper.app\") -gt 0 ]; then osascript -e 'activate application id \"com.microsoft.teams\"' -e 'tell application \"System Events\" to keystroke \"m\" using {command down, shift down}'; fi",
+                            "lazy": true,
+                            "repeat": true
+                        }
+                    ],
+                    "type": "basic"
                 }
-              ]
-            }
-          ],
-          "from": {
-            "key_code": "e"
-          },
-          "to": [
-            {
-              "shell_command": "if [ $(ps aux | grep -v grep | grep -ci \"Microsoft Teams.app/Contents/Frameworks/Microsoft Teams Helper.app\") -gt 0 ]; then osascript -e 'activate application id \"com.microsoft.teams\"' -e 'tell application \"System Events\" to keystroke \"m\" using {command down, shift down}'; fi",
-              "lazy": true,
-              "repeat": true
-            }
-          ],
-          "type": "basic"
+            ]
+        },
+        {
+            "description": "Turn the left key into the mute button",
+            "manipulators": [
+                {
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "vendor_id": 11720,
+                                    "product_id": 12848
+                                }
+                            ]
+                        },
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com\\.microsoft\\.teams$"
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "e"
+                    },
+                    "to": [
+                        {
+                            "key_code": "m",
+                            "modifiers": [
+                                "left_shift",
+                                "left_gui"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "Teams PTT",
+            "manipulators": [
+                {
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "vendor_id": 11720,
+                                    "product_id": 12848
+                                }
+                            ]
+                        },
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com\\.microsoft\\.teams$"
+                            ]
+                        }
+                    ],
+                    "type": "basic",
+                    "from": {
+                        "key_code": "f"
+                    },
+                    "parameters": {
+                        "basic.to_if_alone_timeout_milliseconds": 250,
+                        "basic.to_if_held_down_threshold_milliseconds": 250
+                      },
+                    "to": [
+                        {
+                          "key_code": "f"
+                        }
+                      ],
+                      "to_after_key_up": [
+                        {
+                          "key_code": "m",
+                          "modifiers": [
+                            "left_shift",
+                            "left_command"
+                          ],
+                          "repeat": false
+                        }
+                      ],
+                      "to_if_held_down": [
+                        {
+                          "key_code": "m",
+                          "modifiers": [
+                            "left_shift",
+                            "left_command"
+                          ],
+                          "repeat": false
+                        }
+                      ]
+                }
+            ]
         }
-      ]
-    }
-  ]
+    ]
 }
