@@ -19,15 +19,15 @@ def main
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Personal rules (@tekezo) (rev 43)',
+        'description' => 'Personal rules (@tekezo) (rev 44)',
         'available_since' => '14.9.0',
         'manipulators' =>
         core_configuration +
         emacs +
         mouse +
         extra_cursor +
-        holding_hyphen +
         device_specific +
+        holding_hyphen +
         app_virtual_machine +
         app_finder +
         app_terminal +
@@ -536,6 +536,8 @@ def device_specific
     '7' => 'keypad_7',
     '8' => 'keypad_8',
     '9' => 'keypad_9',
+    'hyphen' => 'keypad_hyphen',
+    'equal_sign' => 'keypad_equal_sign',
     'f1' => 'f1',
     'f2' => 'f2',
     'f3' => 'f3',
@@ -573,8 +575,14 @@ def device_specific
                       "type": 'device_exists_if',
                       "identifiers": [
                         {
+                          # X-Bows Optical Switches
                           'vendor_id' => 7847,
                           'product_id' => 2311,
+                        },
+                        {
+                          # X-Bows QMK/VIA
+                          'vendor_id' => 22_594,
+                          'product_id' => 20_065,
                         },
                       ],
                     },
