@@ -33,7 +33,8 @@ rules = modifiers.map do |modifier|
             conditions: [{
                 type: "frontmost_application_if",
                 bundle_identifiers: [
-                    "^io\\.alacritty$"
+                    "^io\\.alacritty$",
+                    "^org\\.alacritty$"
                 ]
             }]
         }] + key_codes.map do |key_code|
@@ -53,7 +54,8 @@ rules = modifiers.map do |modifier|
                 conditions: [{
                     type: "frontmost_application_if",
                     bundle_identifiers: [
-                        "^io\\.alacritty$"
+                        "^io\\.alacritty$",
+                        "^org\\.alacritty$"
                     ]
                 }]
             }

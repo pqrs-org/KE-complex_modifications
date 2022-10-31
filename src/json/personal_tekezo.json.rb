@@ -19,13 +19,14 @@ def main
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Personal rules (@tekezo) (rev 42)',
-        'available_since' => '13.6.0',
+        'description' => 'Personal rules (@tekezo) (rev 44)',
+        'available_since' => '14.9.0',
         'manipulators' =>
         core_configuration +
         emacs +
         mouse +
         extra_cursor +
+        device_specific +
         holding_hyphen +
         app_virtual_machine +
         app_finder +
@@ -519,6 +520,77 @@ def holding_hyphen
       },
     },
   ]
+end
+
+def device_specific
+  result = []
+
+  {
+    '0' => 'keypad_0',
+    '1' => 'keypad_1',
+    '2' => 'keypad_2',
+    '3' => 'keypad_3',
+    '4' => 'keypad_4',
+    '5' => 'keypad_5',
+    '6' => 'keypad_6',
+    '7' => 'keypad_7',
+    '8' => 'keypad_8',
+    '9' => 'keypad_9',
+    'hyphen' => 'keypad_hyphen',
+    'equal_sign' => 'keypad_equal_sign',
+    'f1' => 'f1',
+    'f2' => 'f2',
+    'f3' => 'f3',
+    'f4' => 'f4',
+    'f5' => 'f5',
+    'f6' => 'f6',
+    'f7' => 'f7',
+    'f8' => 'f8',
+    'f9' => 'f9',
+    'f10' => 'f10',
+    'f11' => 'f11',
+    'f12' => 'f12',
+  }.each do |from, to|
+    result.push({
+                  'type' => 'basic',
+                  'from' => {
+                    'key_code' => from,
+                  },
+                  'to' => [
+                    { 'key_code' => to },
+                  ],
+                  'conditions' => [
+                    {
+                      # The sub keyboard
+                      "type": 'device_if',
+                      "identifiers": [
+                        {
+                          'vendor_id' => 3141,
+                          'product_id' => 29_699,
+                        },
+                      ],
+                    },
+                    {
+                      # The main keyboard
+                      "type": 'device_exists_if',
+                      "identifiers": [
+                        {
+                          # X-Bows Optical Switches
+                          'vendor_id' => 7847,
+                          'product_id' => 2311,
+                        },
+                        {
+                          # X-Bows QMK/VIA
+                          'vendor_id' => 22_594,
+                          'product_id' => 20_065,
+                        },
+                      ],
+                    },
+                  ],
+                })
+  end
+
+  result
 end
 
 def app_virtual_machine

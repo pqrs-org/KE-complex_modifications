@@ -1,13 +1,8 @@
 #!/bin/bash
 
 topdir="$(dirname $0)/.."
-karabiner_cli='/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli'
+karabiner_cli="${topdir}/bin/karabiner_cli"
 use_partial_lint=false
-
-# Use built-in binary only when CI
-if [ "$GITHUB_ACTION" != "" ]; then
-  karabiner_cli="$topdir/.github/workflows/bin/karabiner_cli"
-fi
 
 version_number=$("$karabiner_cli" --version-number)
 if [ $? -eq 0 ]; then
