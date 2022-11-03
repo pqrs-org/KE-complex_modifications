@@ -250,6 +250,47 @@
         {
           "type": "basic",
           "from": {
+            "key_code": "r",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "r",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "C-x",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^org\\.mozilla\\.firefox$",
+                "^org\\.mozilla\\.nightly$",
+                "^com\\.microsoft\\.Edge",
+                "^com\\.microsoft\\.edgemac",
+                "^com\\.google\\.Chrome$",
+                "^com\\.brave\\.Browser$",
+                "^com\\.apple\\.Safari$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
             "key_code": "s",
             "modifiers": {
               "mandatory": [
@@ -598,13 +639,10 @@
           },
           "to": [
             {
-              "key_code": "left_arrow"
-            },
-            {
-              "set_variable": {
-                "name": "C-spacebar",
-                "value": 0
-              }
+              "key_code": "b",
+              "modifiers": [
+                "control"
+              ]
             }
           ],
           "conditions": [
@@ -681,9 +719,10 @@
           },
           "to": [
             {
-              "key_code": "left_arrow",
+              "key_code": "b",
               "modifiers": [
-                "shift"
+                "shift",
+                "control"
               ]
             }
           ],
@@ -999,13 +1038,10 @@
           },
           "to": [
             {
-              "key_code": "right_arrow"
-            },
-            {
-              "set_variable": {
-                "name": "C-spacebar",
-                "value": 0
-              }
+              "key_code": "f",
+              "modifiers": [
+                "control"
+              ]
             }
           ],
           "conditions": [
@@ -1082,9 +1118,10 @@
           },
           "to": [
             {
-              "key_code": "right_arrow",
+              "key_code": "f",
               "modifiers": [
-                "shift"
+                "shift",
+                "control"
               ]
             }
           ],
@@ -1311,13 +1348,10 @@
           },
           "to": [
             {
-              "key_code": "down_arrow"
-            },
-            {
-              "set_variable": {
-                "name": "C-spacebar",
-                "value": 0
-              }
+              "key_code": "n",
+              "modifiers": [
+                "control"
+              ]
             }
           ],
           "conditions": [
@@ -1394,8 +1428,11 @@
           },
           "to": [
             {
-              "key_code": "down_arrow",
-              "modifiers": "shift"
+              "key_code": "n",
+              "modifiers": [
+                "shift",
+                "control"
+              ]
             }
           ],
           "conditions": [
@@ -1472,13 +1509,10 @@
           },
           "to": [
             {
-              "key_code": "up_arrow"
-            },
-            {
-              "set_variable": {
-                "name": "C-spacebar",
-                "value": 0
-              }
+              "key_code": "p",
+              "modifiers": [
+                "control"
+              ]
             }
           ],
           "conditions": [
@@ -1555,8 +1589,11 @@
           },
           "to": [
             {
-              "key_code": "up_arrow",
-              "modifiers": "shift"
+              "key_code": "p",
+              "modifiers": [
+                "shift",
+                "control"
+              ]
             }
           ],
           "conditions": [
@@ -2464,6 +2501,42 @@
           "type": "basic",
           "from": {
             "key_code": "n",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "t",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^org\\.mozilla\\.firefox$",
+                "^org\\.mozilla\\.nightly$",
+                "^com\\.microsoft\\.Edge",
+                "^com\\.microsoft\\.edgemac",
+                "^com\\.google\\.Chrome$",
+                "^com\\.brave\\.Browser$",
+                "^com\\.apple\\.Safari$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "t",
             "modifiers": {
               "mandatory": [
                 "option"

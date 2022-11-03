@@ -133,6 +133,20 @@ def c_x(unless_emacs)
     {
       "type" => "basic",
       "from" => {
+        "key_code" => "r",
+        "modifiers" => Karabiner.from_modifiers(["control"], ["caps_lock"]),
+      },
+      "to" => [
+        {
+          "key_code" => "r",
+          "modifiers" => ["command"],
+        },
+      ],
+      "conditions" => [Karabiner.variable_if("C-x", 1)] + [if_browser],
+    },
+    {
+      "type" => "basic",
+      "from" => {
         "key_code" => "s",
         "modifiers" => Karabiner.from_modifiers(["control"], ["caps_lock"]),
       },
@@ -224,8 +238,7 @@ def control_keys(unless_emacs)
         "modifiers" => Karabiner.from_modifiers(["control"], %w[caps_lock shift]),
       },
       "to" => [
-        { "key_code" => "left_arrow" },
-        Karabiner.set_variable("C-spacebar", 0)
+        { "key_code" => "b", "modifiers" => ["control"] },
       ],
       "conditions" => [Karabiner.variable_unless("C-spacebar", 1)] + [unless_emacs],
     },
@@ -235,7 +248,9 @@ def control_keys(unless_emacs)
         "key_code" => "b",
         "modifiers" => Karabiner.from_modifiers(["control"], %w[caps_lock shift]),
       },
-      "to" => [{ "key_code" => "left_arrow", "modifiers": ["shift"] }],
+      "to" => [
+        { "key_code" => "b", "modifiers" => ["shift", "control"] }                
+      ],
       "conditions" => [Karabiner.variable_if("C-spacebar", 1)] + [unless_emacs],
     },
     {
@@ -274,9 +289,9 @@ def control_keys(unless_emacs)
         "key_code" => "f",
         "modifiers" => Karabiner.from_modifiers(["control"], %w[caps_lock shift]),
       },
+      
       "to" => [
-        { "key_code" => "right_arrow" },
-        Karabiner.set_variable("C-spacebar", 0)
+        { "key_code" => "f", "modifiers" => ["control"] }
       ],
       "conditions" => [Karabiner.variable_unless("C-spacebar", 1)] + [unless_emacs],
     },
@@ -286,7 +301,9 @@ def control_keys(unless_emacs)
         "key_code" => "f",
         "modifiers" => Karabiner.from_modifiers(["control"], %w[caps_lock shift]),
       },
-      "to" => [{ "key_code" => "right_arrow", "modifiers" => ["shift"] }],
+      "to" => [
+        { "key_code" => "f", "modifiers" => ["shift", "control"] }        
+      ],
       "conditions" => [Karabiner.variable_if("C-spacebar", 1)] + [unless_emacs],
     },
     {
@@ -317,8 +334,7 @@ def control_keys(unless_emacs)
         "modifiers" => Karabiner.from_modifiers(["control"], %w[caps_lock shift]),
       },
       "to" => [
-        { "key_code" => "down_arrow" },
-        Karabiner.set_variable("C-spacebar", 0)
+        { "key_code" => "n", "modifiers" => ["control"] },
       ],
       "conditions" => [Karabiner.variable_unless("C-spacebar", 1)] + [unless_emacs],
     },
@@ -328,7 +344,9 @@ def control_keys(unless_emacs)
         "key_code" => "n",
         "modifiers" => Karabiner.from_modifiers(["control"], %w[caps_lock shift]),
       },
-      "to" => [{ "key_code" => "down_arrow", "modifiers" => "shift" }],
+      "to" => [
+        { "key_code" => "n", "modifiers" => ["shift", "control"] },
+      ],
       "conditions" => [Karabiner.variable_if("C-spacebar", 1)] + [unless_emacs],
     },      
     {
@@ -338,8 +356,7 @@ def control_keys(unless_emacs)
         "modifiers" => Karabiner.from_modifiers(["control"], %w[caps_lock shift]),
       },
       "to" => [
-        { "key_code" => "up_arrow" },
-        Karabiner.set_variable("C-spacebar", 0)
+        { "key_code" => "p", "modifiers" => ["control"] },
       ],
       "conditions" => [Karabiner.variable_unless("C-spacebar", 1)] + [unless_emacs],
     },
@@ -349,7 +366,9 @@ def control_keys(unless_emacs)
         "key_code" => "p",
         "modifiers" => Karabiner.from_modifiers(["control"], %w[caps_lock shift]),
       },
-      "to" => [{ "key_code" => "up_arrow", "modifiers" => "shift" }],
+      "to" => [
+        { "key_code" => "p", "modifiers" => ["shift", "control"] },
+      ],
       "conditions" => [Karabiner.variable_if("C-spacebar", 1)] + [unless_emacs],
     },
     {
@@ -490,7 +509,16 @@ def option_keys(unless_emacs)
       },
       "to" => [{ "key_code" => "t", "modifiers" => ["command"] }],
       "conditions" => [if_browser],
-    },    
+    },
+    {
+      "type" => "basic",
+      "from" => {
+        "key_code" => "t",
+        "modifiers" => Karabiner.from_modifiers(["option"]),
+      },
+      "to" => [{ "key_code" => "t", "modifiers" => ["command"] }],
+      "conditions" => [if_browser],
+    },        
     {
       "type" => "basic",
       "from" => {
