@@ -315,12 +315,38 @@
       ]
     },
     {
-      "description": "Right Control+F1 (Screenshot of the selected area)",
+      "description": "Right Control+F1 (Screenshot of the selected area) (Desktop)",
       "manipulators": [
         {
           "type": "basic",
           "from": {
             "key_code": "f1",
+            "modifiers": {
+              "mandatory": [
+                "right_control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "repeat": false,
+              "key_code": "4",
+              "modifiers": [
+                "left_shift",
+                "left_command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Right Control+F2 (Screenshot of the selected area) (Clipboard)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f2",
             "modifiers": {
               "mandatory": [
                 "right_control"
@@ -342,28 +368,28 @@
       ]
     },
     {
-      "description": "Right Control+F2 (Screenshot options)",
+      "description": "Right Control+F3 (Screenshot options)",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "f2",
+            "key_code": "f3",
             "modifiers": {
               "mandatory": [
                 "right_control"
               ]
             }
           },
-          "to": [
-            {
-              "repeat": false,
-              "key_code": "5",
-              "modifiers": [
-                "left_shift",
-                "left_command"
-              ]
-            }
-          ]
+            "to": [
+                {
+                    "repeat": false,
+                    "key_code": "5",
+                    "modifiers": [
+                        "left_shift",
+                        "left_command"
+                    ]
+                }
+            ]
         }
       ]
     }
