@@ -1,0 +1,32 @@
+{
+  "title": "Change Command-Delete to Command-Backspace",
+  "rules": [
+    {
+      "description": "Change Command-Delete to Command-Backspace",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "delete_forward",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_or_backspace",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}
