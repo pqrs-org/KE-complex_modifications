@@ -1,0 +1,418 @@
+{
+  "title": "Personal rules (@chxmvn)",
+  "rules": [
+    {
+      "description": "Ctrl+Y => Cmd+Shift+Y (Redo) (German keyboard layout)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "left_control"
+              ]
+            },
+            "key_code": "z"
+          },
+          "to": [
+            {
+              "repeat": false,
+              "key_code": "y",
+              "modifiers": [
+                "left_shift",
+                "left_command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\\\.microsoft\\\\.rdc$",
+                "^com\\\\.microsoft\\\\.rdc\\\\.mac$",
+                "^com\\\\.microsoft\\\\.rdc\\\\.macos$",
+                "^com\\\\.microsoft\\\\.rdc\\\\.osx\\\\.beta$",
+                "^net\\\\.sf\\\\.cord$",
+                "^com\\\\.thinomenon\\\\.RemoteDesktopConnection$",
+                "^com\\\\.itap-mobile\\\\.qmote$",
+                "^com\\\\.nulana\\\\.remotixmac$",
+                "^com\\\\.p5sys\\\\.jump\\\\.mac\\\\.viewer$",
+                "^com\\\\.p5sys\\\\.jump\\\\.mac\\\\.viewer\\\\.web$",
+                "^com\\\\.teamviewer\\\\.TeamViewer$",
+                "^com\\\\.vmware\\\\.horizon$",
+                "^com\\\\.2X\\\\.Client\\\\.Mac$",
+                "^com\\\\.vmware\\\\.fusion$",
+                "^com\\\\.vmware\\\\.horizon$",
+                "^com\\\\.vmware\\\\.view$",
+                "^com\\\\.parallels\\\\.desktop$",
+                "^com\\\\.parallels\\\\.vm$",
+                "^com\\\\.parallels\\\\.desktop\\\\.console$",
+                "^org\\\\.virtualbox\\\\.app\\\\.VirtualBoxVM$",
+                "^com\\\\.citrix\\\\.XenAppViewer$",
+                "^com\\\\.vmware\\\\.proxyApp\\\\.",
+                "^com\\\\.parallels\\\\.winapp\\\\.",
+                "^org\\\\.macports\\\\.X11$",
+                "^com\\\\.apple\\\\.Terminal$",
+                "^com\\\\.googlecode\\\\.iterm2$",
+                "^co\\\\.zeit\\\\.hyperterm$",
+                "^co\\\\.zeit\\\\.hyper$",
+                "^io\\\\.alacritty$",
+                "^net\\\\.kovidgoyal\\\\.kitty$",
+                "^tv\\\\.parsec\\\\.www$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Ctrl+Z => Cmd+Z (Undo) (German keyboard layout)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "left_control"
+              ]
+            },
+            "key_code": "y"
+          },
+          "to": [
+            {
+              "repeat": false,
+              "key_code": "y",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\\\.microsoft\\\\.rdc$",
+                "^com\\\\.microsoft\\\\.rdc\\\\.mac$",
+                "^com\\\\.microsoft\\\\.rdc\\\\.macos$",
+                "^com\\\\.microsoft\\\\.rdc\\\\.osx\\\\.beta$",
+                "^net\\\\.sf\\\\.cord$",
+                "^com\\\\.thinomenon\\\\.RemoteDesktopConnection$",
+                "^com\\\\.itap-mobile\\\\.qmote$",
+                "^com\\\\.nulana\\\\.remotixmac$",
+                "^com\\\\.p5sys\\\\.jump\\\\.mac\\\\.viewer$",
+                "^com\\\\.p5sys\\\\.jump\\\\.mac\\\\.viewer\\\\.web$",
+                "^com\\\\.teamviewer\\\\.TeamViewer$",
+                "^com\\\\.vmware\\\\.horizon$",
+                "^com\\\\.2X\\\\.Client\\\\.Mac$",
+                "^com\\\\.vmware\\\\.fusion$",
+                "^com\\\\.vmware\\\\.horizon$",
+                "^com\\\\.vmware\\\\.view$",
+                "^com\\\\.parallels\\\\.desktop$",
+                "^com\\\\.parallels\\\\.vm$",
+                "^com\\\\.parallels\\\\.desktop\\\\.console$",
+                "^org\\\\.virtualbox\\\\.app\\\\.VirtualBoxVM$",
+                "^com\\\\.citrix\\\\.XenAppViewer$",
+                "^com\\\\.vmware\\\\.proxyApp\\\\.",
+                "^com\\\\.parallels\\\\.winapp\\\\.",
+                "^org\\\\.macports\\\\.X11$",
+                "^com\\\\.apple\\\\.Terminal$",
+                "^com\\\\.googlecode\\\\.iterm2$",
+                "^co\\\\.zeit\\\\.hyperterm$",
+                "^co\\\\.zeit\\\\.hyper$",
+                "^io\\\\.alacritty$",
+                "^net\\\\.kovidgoyal\\\\.kitty$",
+                "^tv\\\\.parsec\\\\.www$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Left Option+Left Shift => < (Non US Backslash) (German keyboard layout for QWERTY)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_shift",
+            "modifiers": {
+              "mandatory": [
+                "left_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "repeat": false,
+              "key_code": "non_us_backslash"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\\\.microsoft\\\\.rdc$",
+                "^com\\\\.microsoft\\\\.rdc\\\\.mac$",
+                "^com\\\\.microsoft\\\\.rdc\\\\.macos$",
+                "^com\\\\.microsoft\\\\.rdc\\\\.osx\\\\.beta$",
+                "^net\\\\.sf\\\\.cord$",
+                "^com\\\\.thinomenon\\\\.RemoteDesktopConnection$",
+                "^com\\\\.itap-mobile\\\\.qmote$",
+                "^com\\\\.nulana\\\\.remotixmac$",
+                "^com\\\\.p5sys\\\\.jump\\\\.mac\\\\.viewer$",
+                "^com\\\\.p5sys\\\\.jump\\\\.mac\\\\.viewer\\\\.web$",
+                "^com\\\\.teamviewer\\\\.TeamViewer$",
+                "^com\\\\.vmware\\\\.horizon$",
+                "^com\\\\.2X\\\\.Client\\\\.Mac$",
+                "^com\\\\.vmware\\\\.fusion$",
+                "^com\\\\.vmware\\\\.horizon$",
+                "^com\\\\.vmware\\\\.view$",
+                "^com\\\\.parallels\\\\.desktop$",
+                "^com\\\\.parallels\\\\.vm$",
+                "^com\\\\.parallels\\\\.desktop\\\\.console$",
+                "^org\\\\.virtualbox\\\\.app\\\\.VirtualBoxVM$",
+                "^com\\\\.citrix\\\\.XenAppViewer$",
+                "^com\\\\.vmware\\\\.proxyApp\\\\.",
+                "^com\\\\.parallels\\\\.winapp\\\\.",
+                "^org\\\\.macports\\\\.X11$",
+                "^com\\\\.apple\\\\.Terminal$",
+                "^com\\\\.googlecode\\\\.iterm2$",
+                "^co\\\\.zeit\\\\.hyperterm$",
+                "^co\\\\.zeit\\\\.hyper$",
+                "^io\\\\.alacritty$",
+                "^net\\\\.kovidgoyal\\\\.kitty$",
+                "^tv\\\\.parsec\\\\.www$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Left Option+Z => < (Non US Backslash) (German keyboard layout for QWERTY)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "z",
+            "modifiers": {
+              "mandatory": [
+                "left_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "repeat": false,
+              "key_code": "non_us_backslash",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\\\.microsoft\\\\.rdc$",
+                "^com\\\\.microsoft\\\\.rdc\\\\.mac$",
+                "^com\\\\.microsoft\\\\.rdc\\\\.macos$",
+                "^com\\\\.microsoft\\\\.rdc\\\\.osx\\\\.beta$",
+                "^net\\\\.sf\\\\.cord$",
+                "^com\\\\.thinomenon\\\\.RemoteDesktopConnection$",
+                "^com\\\\.itap-mobile\\\\.qmote$",
+                "^com\\\\.nulana\\\\.remotixmac$",
+                "^com\\\\.p5sys\\\\.jump\\\\.mac\\\\.viewer$",
+                "^com\\\\.p5sys\\\\.jump\\\\.mac\\\\.viewer\\\\.web$",
+                "^com\\\\.teamviewer\\\\.TeamViewer$",
+                "^com\\\\.vmware\\\\.horizon$",
+                "^com\\\\.2X\\\\.Client\\\\.Mac$",
+                "^com\\\\.vmware\\\\.fusion$",
+                "^com\\\\.vmware\\\\.horizon$",
+                "^com\\\\.vmware\\\\.view$",
+                "^com\\\\.parallels\\\\.desktop$",
+                "^com\\\\.parallels\\\\.vm$",
+                "^com\\\\.parallels\\\\.desktop\\\\.console$",
+                "^org\\\\.virtualbox\\\\.app\\\\.VirtualBoxVM$",
+                "^com\\\\.citrix\\\\.XenAppViewer$",
+                "^com\\\\.vmware\\\\.proxyApp\\\\.",
+                "^com\\\\.parallels\\\\.winapp\\\\.",
+                "^org\\\\.macports\\\\.X11$",
+                "^com\\\\.apple\\\\.Terminal$",
+                "^com\\\\.googlecode\\\\.iterm2$",
+                "^co\\\\.zeit\\\\.hyperterm$",
+                "^co\\\\.zeit\\\\.hyper$",
+                "^io\\\\.alacritty$",
+                "^net\\\\.kovidgoyal\\\\.kitty$",
+                "^tv\\\\.parsec\\\\.www$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Right Control+Z => | (Non US Backslash) (German keyboard layout for QWERTY)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "z",
+            "modifiers": {
+              "mandatory": [
+                "right_control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "repeat": false,
+              "key_code": "non_us_backslash",
+              "modifiers": [
+                "left_option"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\\\.microsoft\\\\.rdc$",
+                "^com\\\\.microsoft\\\\.rdc\\\\.mac$",
+                "^com\\\\.microsoft\\\\.rdc\\\\.macos$",
+                "^com\\\\.microsoft\\\\.rdc\\\\.osx\\\\.beta$",
+                "^net\\\\.sf\\\\.cord$",
+                "^com\\\\.thinomenon\\\\.RemoteDesktopConnection$",
+                "^com\\\\.itap-mobile\\\\.qmote$",
+                "^com\\\\.nulana\\\\.remotixmac$",
+                "^com\\\\.p5sys\\\\.jump\\\\.mac\\\\.viewer$",
+                "^com\\\\.p5sys\\\\.jump\\\\.mac\\\\.viewer\\\\.web$",
+                "^com\\\\.teamviewer\\\\.TeamViewer$",
+                "^com\\\\.vmware\\\\.horizon$",
+                "^com\\\\.2X\\\\.Client\\\\.Mac$",
+                "^com\\\\.vmware\\\\.fusion$",
+                "^com\\\\.vmware\\\\.horizon$",
+                "^com\\\\.vmware\\\\.view$",
+                "^com\\\\.parallels\\\\.desktop$",
+                "^com\\\\.parallels\\\\.vm$",
+                "^com\\\\.parallels\\\\.desktop\\\\.console$",
+                "^org\\\\.virtualbox\\\\.app\\\\.VirtualBoxVM$",
+                "^com\\\\.citrix\\\\.XenAppViewer$",
+                "^com\\\\.vmware\\\\.proxyApp\\\\.",
+                "^com\\\\.parallels\\\\.winapp\\\\.",
+                "^org\\\\.macports\\\\.X11$",
+                "^com\\\\.apple\\\\.Terminal$",
+                "^com\\\\.googlecode\\\\.iterm2$",
+                "^co\\\\.zeit\\\\.hyperterm$",
+                "^co\\\\.zeit\\\\.hyper$",
+                "^io\\\\.alacritty$",
+                "^net\\\\.kovidgoyal\\\\.kitty$",
+                "^tv\\\\.parsec\\\\.www$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Right Control+F1 (Screenshot of the selected area) (Desktop)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f1",
+            "modifiers": {
+              "mandatory": [
+                "right_control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "repeat": false,
+              "key_code": "4",
+              "modifiers": [
+                "left_shift",
+                "left_command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Right Control+F2 (Screenshot of the selected area) (Clipboard)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f2",
+            "modifiers": {
+              "mandatory": [
+                "right_control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "repeat": false,
+              "key_code": "4",
+              "modifiers": [
+                "left_control",
+                "left_shift",
+                "left_command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Right Control+F3 (Screenshot options)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f3",
+            "modifiers": {
+              "mandatory": [
+                "right_control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "repeat": false,
+              "key_code": "5",
+              "modifiers": [
+                "left_shift",
+                "left_command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Scroll-Lock => Ctrl+Command+Q",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "scroll_lock"
+          },
+          "to": [
+            {
+              "repeat": false,
+              "key_code": "q",
+              "modifiers": [
+                "left_control",
+                "left_command"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
