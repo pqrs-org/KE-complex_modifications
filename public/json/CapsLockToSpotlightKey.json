@@ -1,0 +1,29 @@
+{
+  "title":"Caps Lock to M1 Mac Spotlight Key",
+  "rules": [
+    {
+      "description": "Caps Lock to M1 Mac Spotlight Key",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "optional": [ "any" ]
+            }
+          },
+          "to": [
+            {
+              "apple_vendor_keyboard_key_code": "spotlight",
+            }
+          ],
+          "to_if_held_down": [
+            {
+            "apple_vendor_keyboard_key_code": "spotlight",
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
