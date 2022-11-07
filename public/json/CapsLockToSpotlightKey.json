@@ -1,25 +1,33 @@
 {
-  "title":"Caps Lock to M1 Mac Spotlight Key",
+  "title": "Caps Lock to Chromebook Search Key",
   "rules": [
     {
-      "description": "Caps Lock to M1 Mac Spotlight Key",
+      "description": "Caps Lock to Chromebook Search Key",
       "manipulators": [
         {
           "type": "basic",
           "from": {
             "key_code": "caps_lock",
             "modifiers": {
-              "optional": [ "any" ]
+              "optional": [
+                "any"
+              ]
             }
           },
           "to": [
             {
-              "apple_vendor_keyboard_key_code": "spotlight",
+              "key_code": "spacebar",
+              "modifiers": [
+                "command"
+              ]
             }
           ],
           "to_if_held_down": [
             {
-            "apple_vendor_keyboard_key_code": "spotlight",
+              "key_code": "spacebar",
+              "modifiers": [
+                "command"
+              ]
             }
           ]
         }
