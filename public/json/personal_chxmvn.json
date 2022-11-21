@@ -38,7 +38,7 @@
                         {
                             "input_sources": [
                                 {
-                                    "language": "en"
+                                    "language": "^en$"
                                 }
                             ],
                             "type": "input_source_if"
@@ -77,7 +77,7 @@
                         {
                             "input_sources": [
                                 {
-                                    "language": "en"
+                                    "language": "^en$"
                                 }
                             ],
                             "type": "input_source_if"
@@ -115,7 +115,7 @@
                         {
                             "input_sources": [
                                 {
-                                    "language": "en"
+                                    "language": "^en$"
                                 }
                             ],
                             "type": "input_source_if"
@@ -154,7 +154,7 @@
                         {
                             "input_sources": [
                                 {
-                                    "language": "en"
+                                    "language": "^en$"
                                 }
                             ],
                             "type": "input_source_if"
@@ -192,7 +192,7 @@
                         {
                             "input_sources": [
                                 {
-                                    "language": "en"
+                                    "language": "^en$"
                                 }
                             ],
                             "type": "input_source_if"
@@ -231,7 +231,7 @@
                         {
                             "input_sources": [
                                 {
-                                    "language": "en"
+                                    "language": "^en$"
                                 }
                             ],
                             "type": "input_source_if"
@@ -257,7 +257,7 @@
                         {
                             "input_sources": [
                                 {
-                                    "language": "en"
+                                    "language": "^en$"
                                 }
                             ],
                             "type": "input_source_if"
@@ -278,7 +278,7 @@
                         {
                             "input_sources": [
                                 {
-                                    "language": "en"
+                                    "language": "^en$"
                                 }
                             ],
                             "type": "input_source_if"
@@ -2225,7 +2225,7 @@
                         {
                             "input_sources": [
                                 {
-                                    "language": "de"
+                                    "language": "^de$"
                                 }
                             ],
                             "type": "input_source_if"
@@ -2258,7 +2258,7 @@
                         {
                             "input_sources": [
                                 {
-                                    "language": "de"
+                                    "language": "^de$"
                                 }
                             ],
                             "type": "input_source_if"
@@ -2286,7 +2286,7 @@
                         {
                             "input_sources": [
                                 {
-                                    "language": "en"
+                                    "language": "^en$"
                                 }
                             ],
                             "type": "input_source_if"
@@ -2314,7 +2314,7 @@
                         {
                             "input_sources": [
                                 {
-                                    "language": "en"
+                                    "language": "^en$"
                                 }
                             ],
                             "type": "input_source_if"
@@ -2364,7 +2364,7 @@
                     "from": {
                         "modifiers": {
                             "mandatory": [
-                                "left_control"
+                                "left_command"
                             ]
                         },
                         "key_code": "z"
@@ -2382,7 +2382,7 @@
                         {
                             "input_sources": [
                                 {
-                                    "language": "de"
+                                    "language": "^de$"
                                 }
                             ],
                             "type": "input_source_if"
@@ -2431,10 +2431,10 @@
                     "from": {
                         "modifiers": {
                             "mandatory": [
-                                "left_control"
+                                "left_command"
                             ]
                         },
-                        "key_code": "y"
+                        "key_code": "z"
                     },
                     "to": [
                         {
@@ -2448,7 +2448,7 @@
                         {
                             "input_sources": [
                                 {
-                                    "language": "de"
+                                    "language": "^de$"
                                 }
                             ],
                             "type": "input_source_if"
@@ -2497,7 +2497,7 @@
                     "from": {
                         "modifiers": {
                             "mandatory": [
-                                "left_control"
+                                "left_command"
                             ]
                         },
                         "key_code": "z"
@@ -2515,7 +2515,7 @@
                         {
                             "input_sources": [
                                 {
-                                    "language": "en"
+                                    "language": "^en$"
                                 }
                             ],
                             "type": "input_source_if"
@@ -2564,7 +2564,7 @@
                     "from": {
                         "modifiers": {
                             "mandatory": [
-                                "left_control"
+                                "left_command"
                             ]
                         },
                         "key_code": "y"
@@ -2581,7 +2581,7 @@
                         {
                             "input_sources": [
                                 {
-                                    "language": "en"
+                                    "language": "^en$"
                                 }
                             ],
                             "type": "input_source_if"
@@ -2649,41 +2649,10 @@
                         {
                             "input_sources": [
                                 {
-                                    "language": "de"
+                                    "language": "^de$"
                                 }
                             ],
                             "type": "input_source_if"
-                        },
-                        {
-                            "type": "frontmost_application_unless",
-                            "bundle_identifiers": [
-                                "^com\\.microsoft\\.rdc$",
-                                "^com\\.microsoft\\.rdc\\.",
-                                "^net\\.sf\\.cord$",
-                                "^com\\.thinomenon\\.RemoteDesktopConnection$",
-                                "^com\\.itap-mobile\\.qmote$",
-                                "^com\\.nulana\\.remotixmac$",
-                                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
-                                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.",
-                                "^com\\.teamviewer\\.TeamViewer$",
-                                "^com\\.philandro\\.anydesk$",
-                                "^com\\.vmware\\.horizon$",
-                                "^com\\.2X\\.Client\\.Mac$",
-                                "^com\\.OpenText\\.Exceed-TurboX-Client$",
-                                "^com\\.realvnc\\.vncviewer$",
-                                "^com\\.citrix\\.receiver\\.icaviewer",
-                                "^com\\.vmware\\.fusion$",
-                                "^com\\.vmware\\.horizon$",
-                                "^com\\.vmware\\.view$",
-                                "^com\\.parallels\\.desktop$",
-                                "^com\\.parallels\\.vm$",
-                                "^com\\.parallels\\.desktop\\.console$",
-                                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
-                                "^com\\.citrix\\.XenAppViewer$",
-                                "^com\\.vmware\\.proxyApp\\.",
-                                "^com\\.parallels\\.winapp\\.",
-                                "^com\\.utmapp\\.UTM$"
-                            ]
                         }
                     ]
                 }
@@ -2714,41 +2683,10 @@
                         {
                             "input_sources": [
                                 {
-                                    "language": "de"
+                                    "language": "^de$"
                                 }
                             ],
                             "type": "input_source_if"
-                        },
-                        {
-                            "type": "frontmost_application_unless",
-                            "bundle_identifiers": [
-                                "^com\\.microsoft\\.rdc$",
-                                "^com\\.microsoft\\.rdc\\.",
-                                "^net\\.sf\\.cord$",
-                                "^com\\.thinomenon\\.RemoteDesktopConnection$",
-                                "^com\\.itap-mobile\\.qmote$",
-                                "^com\\.nulana\\.remotixmac$",
-                                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
-                                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.",
-                                "^com\\.teamviewer\\.TeamViewer$",
-                                "^com\\.philandro\\.anydesk$",
-                                "^com\\.vmware\\.horizon$",
-                                "^com\\.2X\\.Client\\.Mac$",
-                                "^com\\.OpenText\\.Exceed-TurboX-Client$",
-                                "^com\\.realvnc\\.vncviewer$",
-                                "^com\\.citrix\\.receiver\\.icaviewer",
-                                "^com\\.vmware\\.fusion$",
-                                "^com\\.vmware\\.horizon$",
-                                "^com\\.vmware\\.view$",
-                                "^com\\.parallels\\.desktop$",
-                                "^com\\.parallels\\.vm$",
-                                "^com\\.parallels\\.desktop\\.console$",
-                                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
-                                "^com\\.citrix\\.XenAppViewer$",
-                                "^com\\.vmware\\.proxyApp\\.",
-                                "^com\\.parallels\\.winapp\\.",
-                                "^com\\.utmapp\\.UTM$"
-                            ]
                         }
                     ]
                 }
@@ -2779,41 +2717,10 @@
                         {
                             "input_sources": [
                                 {
-                                    "language": "de"
+                                    "language": "^de$"
                                 }
                             ],
                             "type": "input_source_if"
-                        },
-                        {
-                            "type": "frontmost_application_unless",
-                            "bundle_identifiers": [
-                                "^com\\.microsoft\\.rdc$",
-                                "^com\\.microsoft\\.rdc\\.",
-                                "^net\\.sf\\.cord$",
-                                "^com\\.thinomenon\\.RemoteDesktopConnection$",
-                                "^com\\.itap-mobile\\.qmote$",
-                                "^com\\.nulana\\.remotixmac$",
-                                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
-                                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.",
-                                "^com\\.teamviewer\\.TeamViewer$",
-                                "^com\\.philandro\\.anydesk$",
-                                "^com\\.vmware\\.horizon$",
-                                "^com\\.2X\\.Client\\.Mac$",
-                                "^com\\.OpenText\\.Exceed-TurboX-Client$",
-                                "^com\\.realvnc\\.vncviewer$",
-                                "^com\\.citrix\\.receiver\\.icaviewer",
-                                "^com\\.vmware\\.fusion$",
-                                "^com\\.vmware\\.horizon$",
-                                "^com\\.vmware\\.view$",
-                                "^com\\.parallels\\.desktop$",
-                                "^com\\.parallels\\.vm$",
-                                "^com\\.parallels\\.desktop\\.console$",
-                                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
-                                "^com\\.citrix\\.XenAppViewer$",
-                                "^com\\.vmware\\.proxyApp\\.",
-                                "^com\\.parallels\\.winapp\\.",
-                                "^com\\.utmapp\\.UTM$"
-                            ]
                         }
                     ]
                 }
@@ -2847,7 +2754,7 @@
                         {
                             "input_sources": [
                                 {
-                                    "language": "de"
+                                    "language": "^de$"
                                 }
                             ],
                             "type": "input_source_if"
@@ -2909,7 +2816,7 @@
                         {
                             "input_sources": [
                                 {
-                                    "language": "de"
+                                    "language": "^de$"
                                 }
                             ],
                             "type": "input_source_if"
@@ -2951,7 +2858,7 @@
                         {
                             "input_sources": [
                                 {
-                                    "language": "de"
+                                    "language": "^de$"
                                 }
                             ],
                             "type": "input_source_if"
@@ -3013,7 +2920,7 @@
                         {
                             "input_sources": [
                                 {
-                                    "language": "de"
+                                    "language": "^de$"
                                 }
                             ],
                             "type": "input_source_if"
@@ -3049,7 +2956,7 @@
                         {
                             "input_sources": [
                                 {
-                                    "language": "en"
+                                    "language": "^en$"
                                 }
                             ],
                             "type": "input_source_if"
@@ -3111,7 +3018,7 @@
                         {
                             "input_sources": [
                                 {
-                                    "language": "en"
+                                    "language": "^en$"
                                 }
                             ],
                             "type": "input_source_if"
@@ -3150,7 +3057,7 @@
                         {
                             "input_sources": [
                                 {
-                                    "language": "en"
+                                    "language": "^en$"
                                 }
                             ],
                             "type": "input_source_if"
@@ -3212,7 +3119,7 @@
                         {
                             "input_sources": [
                                 {
-                                    "language": "en"
+                                    "language": "^en$"
                                 }
                             ],
                             "type": "input_source_if"
