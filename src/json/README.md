@@ -10,3 +10,11 @@ The output files are saved to public/json.
 -   .js (nodejs is required)
 -   .rb
 -   .erb
+
+## Supported filename format
+
+To generate JSON files successfully, the filename must match `*.json.<file-extension>`. 
+
+- *\** : your self-defined name
+- *.json* : must add `.json` before filename extension
+- *.file-extension* : `.js` or `.rb` or `.erb`
