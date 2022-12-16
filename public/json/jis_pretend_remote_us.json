@@ -1,0 +1,635 @@
+{
+  "title": "US (remote) ← JIS (local) : リモートの US キーボードを JIS キーボードとして使えるようにする",
+  "maintainers": [
+    "tonextone"
+  ],
+  "rules": [
+    {
+      "description": "\"",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "2",
+            "modifiers": {
+              "mandatory": ["shift"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "quote",
+              "modifiers": ["shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.google\\.Chrome$", "^com\\.philandro\\.anydesk$"]
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": ["jis"]
+            }
+          ]
+        }
+      ]
+    },
+    
+    {
+      "description": "&",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "6",
+            "modifiers": {
+              "mandatory": ["shift"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "7",
+              "modifiers": ["shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.google\\.Chrome$", "^com\\.philandro\\.anydesk$"]
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": ["jis"]
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "description": "'",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "7",
+            "modifiers": {
+              "mandatory": ["shift"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "quote"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.google\\.Chrome$", "^com\\.philandro\\.anydesk$"]
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": ["jis"]
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "description": "(",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "8",
+            "modifiers": {
+              "mandatory": ["shift"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "9",
+              "modifiers": ["shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.google\\.Chrome$", "^com\\.philandro\\.anydesk$"]
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": ["jis"]
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "description": ")",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "9",
+            "modifiers": {
+              "mandatory": ["shift"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "0",
+              "modifiers": ["shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.google\\.Chrome$", "^com\\.philandro\\.anydesk$"]
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": ["jis"]
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "description": "=",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "hyphen",
+            "modifiers": {
+              "mandatory": ["shift"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "equal_sign"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.google\\.Chrome$", "^com\\.philandro\\.anydesk$"]
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": ["jis"]
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "description": "^",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "equal_sign",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "6",
+              "modifiers": ["shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.google\\.Chrome$", "^com\\.philandro\\.anydesk$"]
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": ["jis"]
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "description": "~",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "equal_sign",
+            "modifiers": {
+              "mandatory": ["shift"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": ["shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.google\\.Chrome$", "^com\\.philandro\\.anydesk$"]
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": ["jis"]
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "description": "\\",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "international3",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "backslash"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.google\\.Chrome$", "^com\\.philandro\\.anydesk$"]
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": ["jis"]
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "description": "|",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "international3",
+            "modifiers": {
+              "mandatory": ["shift"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "backslash",
+              "modifiers": ["shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.google\\.Chrome$", "^com\\.philandro\\.anydesk$"]
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": ["jis"]
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "description": "@",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "open_bracket",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "2",
+              "modifiers": ["shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.google\\.Chrome$", "^com\\.philandro\\.anydesk$"]
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": ["jis"]
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "description": "`",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "open_bracket",
+            "modifiers": {
+              "mandatory": ["shift"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.google\\.Chrome$", "^com\\.philandro\\.anydesk$"]
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": ["jis"]
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "description": "[",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "close_bracket",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "open_bracket"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.google\\.Chrome$", "^com\\.philandro\\.anydesk$"]
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": ["jis"]
+            }
+          ]
+        }
+      ]
+    },
+    
+    {
+      "description": "]",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "backslash",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "close_bracket"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.google\\.Chrome$", "^com\\.philandro\\.anydesk$"]
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": ["jis"]
+            }
+          ]
+        }
+      ]
+    },
+    
+    {
+      "description": "{",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "close_bracket",
+            "modifiers": {
+              "mandatory": ["shift"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "open_bracket",
+              "modifiers": ["shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.google\\.Chrome$", "^com\\.philandro\\.anydesk$"]
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": ["jis"]
+            }
+          ]
+        }
+      ]
+    },
+    
+    {
+      "description": "}",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "backslash",
+            "modifiers": {
+              "mandatory": ["shift"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "close_bracket",
+              "modifiers": ["shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.google\\.Chrome$", "^com\\.philandro\\.anydesk$"]
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": ["jis"]
+            }
+          ]
+        }
+      ]
+    },
+    
+    {
+      "description": "+",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "semicolon",
+            "modifiers": {
+              "mandatory": ["shift"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "equal_sign",
+              "modifiers": ["shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.google\\.Chrome$", "^com\\.philandro\\.anydesk$"]
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": ["jis"]
+            }
+          ]
+        }
+      ]
+    },
+    
+    {
+      "description": ":",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "quote",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "semicolon",
+              "modifiers": ["shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.google\\.Chrome$", "^com\\.philandro\\.anydesk$"]
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": ["jis"]
+            }
+          ]
+        }
+      ]
+    },
+    
+    {
+      "description": "*",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "quote",
+            "modifiers": {
+              "mandatory": ["shift"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "8",
+              "modifiers": ["shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.google\\.Chrome$", "^com\\.philandro\\.anydesk$"]
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": ["jis"]
+            }
+          ]
+        }
+      ]
+    },
+    
+    {
+      "description": "_",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "international1",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "hyphen",
+              "modifiers": ["shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.google\\.Chrome$", "^com\\.philandro\\.anydesk$"]
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": ["jis"]
+            }
+          ]
+        }
+      ]
+    }
+    
+  ]
+}
