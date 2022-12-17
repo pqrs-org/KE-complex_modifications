@@ -4,6 +4,7 @@
     "tonextone"
   ],
   "rules": [
+    
     {
       "description": "\"",
       "manipulators": [
@@ -164,12 +165,12 @@
     },
 
     {
-      "description": "=",
+      "description": "(null)",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "hyphen",
+            "key_code": "0",
             "modifiers": {
               "mandatory": ["shift"],
               "optional": ["any"]
@@ -177,7 +178,7 @@
           },
           "to": [
             {
-              "key_code": "equal_sign"
+              "key_code": "vk_none"
             }
           ],
           "conditions": [
@@ -195,20 +196,20 @@
     },
 
     {
-      "description": "^",
+      "description": "=",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "equal_sign",
+            "key_code": "hyphen",
             "modifiers": {
+              "mandatory": ["shift"],
               "optional": ["any"]
             }
           },
           "to": [
             {
-              "key_code": "6",
-              "modifiers": ["shift"]
+              "key_code": "equal_sign"
             }
           ],
           "conditions": [
@@ -256,21 +257,21 @@
         }
       ]
     },
-
     {
-      "description": "\\",
+      "description": "^",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "international3",
+            "key_code": "equal_sign",
             "modifiers": {
               "optional": ["any"]
             }
           },
           "to": [
             {
-              "key_code": "backslash"
+              "key_code": "6",
+              "modifiers": ["shift"]
             }
           ],
           "conditions": [
@@ -318,22 +319,20 @@
         }
       ]
     },
-
     {
-      "description": "@",
+      "description": "\\",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "open_bracket",
+            "key_code": "international3",
             "modifiers": {
               "optional": ["any"]
             }
           },
           "to": [
             {
-              "key_code": "2",
-              "modifiers": ["shift"]
+              "key_code": "backslash"
             }
           ],
           "conditions": [
@@ -380,67 +379,37 @@
         }
       ]
     },
+    {
+      "description": "@",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "open_bracket",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "2",
+              "modifiers": ["shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.google\\.Chrome$", "^com\\.philandro\\.anydesk$"]
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": ["jis"]
+            }
+          ]
+        }
+      ]
+    },
 
-    {
-      "description": "[",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "close_bracket",
-            "modifiers": {
-              "optional": ["any"]
-            }
-          },
-          "to": [
-            {
-              "key_code": "open_bracket"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": ["^com\\.google\\.Chrome$", "^com\\.philandro\\.anydesk$"]
-            },
-            {
-              "type": "keyboard_type_if",
-              "keyboard_types": ["jis"]
-            }
-          ]
-        }
-      ]
-    },
-    
-    {
-      "description": "]",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "backslash",
-            "modifiers": {
-              "optional": ["any"]
-            }
-          },
-          "to": [
-            {
-              "key_code": "close_bracket"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": ["^com\\.google\\.Chrome$", "^com\\.philandro\\.anydesk$"]
-            },
-            {
-              "type": "keyboard_type_if",
-              "keyboard_types": ["jis"]
-            }
-          ]
-        }
-      ]
-    },
-    
     {
       "description": "{",
       "manipulators": [
@@ -457,6 +426,35 @@
             {
               "key_code": "open_bracket",
               "modifiers": ["shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.google\\.Chrome$", "^com\\.philandro\\.anydesk$"]
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": ["jis"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "[",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "close_bracket",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "open_bracket"
             }
           ],
           "conditions": [
@@ -489,6 +487,35 @@
             {
               "key_code": "close_bracket",
               "modifiers": ["shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.google\\.Chrome$", "^com\\.philandro\\.anydesk$"]
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": ["jis"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "]",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "backslash",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "close_bracket"
             }
           ],
           "conditions": [
@@ -538,19 +565,20 @@
     },
     
     {
-      "description": ":",
+      "description": "*",
       "manipulators": [
         {
           "type": "basic",
           "from": {
             "key_code": "quote",
             "modifiers": {
+              "mandatory": ["shift"],
               "optional": ["any"]
             }
           },
           "to": [
             {
-              "key_code": "semicolon",
+              "key_code": "8",
               "modifiers": ["shift"]
             }
           ],
@@ -567,22 +595,20 @@
         }
       ]
     },
-    
     {
-      "description": "*",
+      "description": ":",
       "manipulators": [
         {
           "type": "basic",
           "from": {
             "key_code": "quote",
             "modifiers": {
-              "mandatory": ["shift"],
               "optional": ["any"]
             }
           },
           "to": [
             {
-              "key_code": "8",
+              "key_code": "semicolon",
               "modifiers": ["shift"]
             }
           ],
