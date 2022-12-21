@@ -2,16 +2,16 @@ require 'json'
 require_relative '../lib/karabiner.rb'
 
 TENKEY_MAPPING = {
-  'm'=> '1',
-  'comma'=> '2',
-  'period'=> '3',
-  'j'=> '4',
-  'k'=> '5',
-  'l'=> '6',
-  'u'=> '7',
-  'i'=> '8',
-  'o'=> '9',
-  'spacebar'=> '0'
+  'm'=> 'keypad_1',
+  'comma'=> 'keypad_2',
+  'period'=> 'keypad_3',
+  'j'=> 'keypad_4',
+  'k'=> 'keypad_5',
+  'l'=> 'keypad_6',
+  'u'=> 'keypad_7',
+  'i'=> 'keypad_8',
+  'o'=> 'keypad_9',
+  'spacebar'=> 'keypad_0'
 }
 
 ARITHMETIC_SYMBOLS_MAPPING = {
@@ -58,7 +58,7 @@ end
 
 def tenkey_mapping
   {
-    description: 'CAPS Tenkey: if TenkeyMode ON m,.jkluio' ' maps to 1234567890',
+    description: 'CAPS Tenkey: if TenkeyMode ON m,.jkluio' ' maps to keypad_[1234567890]',
     manipulators: map_keys(TENKEY_MAPPING, conditions: tenkey_mode_on)
   }
 end

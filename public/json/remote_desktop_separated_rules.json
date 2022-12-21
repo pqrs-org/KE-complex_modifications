@@ -1,0 +1,105 @@
+{
+  "title": "Remote Desktop (separated rules)",
+  "rules": [
+    {
+      "description": "(Remote Desktop) Left command to left control",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_command"
+          },
+          "to": [
+            {
+              "key_code": "left_control"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com\\.microsoft\\.rdc\\.mac",
+                "com\\.ericom\\.blazeclient"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "(Remote Desktop) Left option to left command",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_option"
+          },
+          "to": [
+            {
+              "key_code": "left_command"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com\\.microsoft\\.rdc\\.mac",
+                "com\\.ericom\\.blazeclient"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "(Remote Desktop) Left control to left command",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_control"
+          },
+          "to": [
+            {
+              "key_code": "left_command"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com\\.microsoft\\.rdc\\.mac",
+                "com\\.ericom\\.blazeclient"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "(Remote Desktop) Caps lock to left control",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "caps_lock"
+          },
+          "to": [
+            {
+              "key_code": "left_control"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com\\.microsoft\\.rdc\\.mac",
+                "com\\.ericom\\.blazeclient"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
