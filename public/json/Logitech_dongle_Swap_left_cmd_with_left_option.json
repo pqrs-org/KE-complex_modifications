@@ -1,0 +1,43 @@
+{
+  "title": "Logitech MX Keys with dongle - Swap left cmd with left option",
+  "maintainers": [
+    "damianjankowski"
+  ],
+  "rules": [{
+    "description": "Swap left cmd with left option. \nKeyboard: Logitech MX Keys with USB dongle \nOS: MacOS.",
+    "manipulators": [
+        {
+            "from": {
+                "key_code": "left_option",
+                "modifiers": {
+                    "optional": [
+                        "any"
+                    ]
+                }
+            },
+            "to": [
+                {
+                    "key_code": "left_command"
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "from": {
+                "key_code": "left_command",
+                "modifiers": {
+                    "optional": [
+                        "any"
+                    ]
+                }
+            },
+            "to": [
+                {
+                    "key_code": "left_option"
+                }
+            ],
+            "type": "basic"
+        }
+    ]
+  }]
+}
