@@ -1,5 +1,5 @@
 {
-  "title": "Personal rules (@toshi-ue)",
+  "title": "Personal rules - JIS(@toshi-ue)",
   "rules": [
     {
       "description": "Swap numbers and symbols",
@@ -429,11 +429,11 @@
       ]
     },
     {
-      "description": "Control + u to Enter key",
+      "description": "Control + j to Enter key",
       "manipulators": [
         {
           "from": {
-            "key_code": "u",
+            "key_code": "j",
             "modifiers": {
               "mandatory": [
                 "control"
@@ -446,22 +446,327 @@
             }
           ],
           "type": "basic"
-        },
+        }
+      ]
+    },
+    {
+      "description": "Control + y to ->",
+      "manipulators": [
         {
           "from": {
-            "key_code": "international3",
+            "key_code": "y",
             "modifiers": {
               "mandatory": [
-                "option"
+                "control"
               ]
             }
           },
           "to": [
             {
-              "key_code": "international3"
+              "key_code": "hyphen"
+            },
+            {
+              "key_code": "period",
+              "modifiers": [
+                "left_shift"
+              ]
             }
           ],
           "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Control + u to =>",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "u",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "hyphen",
+              "modifiers": [
+                "left_shift"
+              ]
+            },
+            {
+              "key_code": "period",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Control + = to =",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "hyphen",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "hyphen",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Control + ^ to ~",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "equal_sign",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "equal_sign",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Control + ¥ to |",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "international3",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "international3",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Control + @ to `",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "open_bracket",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "open_bracket",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Control + ; to +",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "semicolon",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "semicolon",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Control + : to *",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "quote",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "quote",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Control + ] to }",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "backslash",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "backslash",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Control + , to <",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "comma",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "comma",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Control + . to >",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "period",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "period",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Control + / to ?",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "slash",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "slash",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Control + _ to _",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "international1",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "international1",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
         }
       ]
     }
