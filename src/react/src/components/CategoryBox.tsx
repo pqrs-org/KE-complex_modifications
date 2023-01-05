@@ -94,6 +94,13 @@ export const CategoryBox = ({ category }: { category: Category }) => {
               {f.object.json?.title}
 
               <Box sx={{ ml: "auto" }}>
+              {f.object.json?.author && (
+                  <Chip
+                    label={`Author: ${f.object.json.author}`}
+                    variant="outlined"
+                    sx={{ marginRight: 2 }}
+                  />
+                )}
                 {f.object.json?.maintainers &&
                   f.object.json?.maintainers.map((m) => (
                     <Chip
