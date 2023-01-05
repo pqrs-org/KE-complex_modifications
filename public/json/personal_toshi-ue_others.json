@@ -1,0 +1,66 @@
+{
+  "title": "Personal rules JIS (@toshi-ue) others...",
+  "rules": [
+    {
+      "description": "Thumb shift",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_shift"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "spacebar"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "(JIS)Swap ¥ and Alt+¥",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "international3"
+          },
+          "to": [
+            {
+              "key_code": "international3",
+              "modifiers": [
+                "option"
+              ]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "from": {
+            "key_code": "international3",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "international3"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}
