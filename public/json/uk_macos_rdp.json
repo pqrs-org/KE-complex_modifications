@@ -204,7 +204,7 @@
       ]
     },
     {
-      "description": "# key",
+      "description": "# key (left option)",
       "manipulators": [
         {
           "type": "basic",
@@ -212,6 +212,40 @@
             "key_code": "3",
             "modifiers": {
               "mandatory": ["left_option"]
+            }
+          },
+          "to": [
+            {
+              "repeat": true,
+              "key_code": "backslash"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.mac$",
+                "^com\\.microsoft\\.rdc\\.macos$",
+                "^com\\.microsoft\\.rdc\\.osx\\.beta$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.teamviewer\\.TeamViewer$",
+                "^com\\.vmware\\.horizon$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "# key (right option)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "3",
+            "modifiers": {
+              "mandatory": ["right_option"]
             }
           },
           "to": [
@@ -1069,6 +1103,66 @@
             {
               "key_code": "i",
               "modifiers": ["control", "left_shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.mac$",
+                "^com\\.microsoft\\.rdc\\.macos$",
+                "^com\\.microsoft\\.rdc\\.osx\\.beta$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.teamviewer\\.TeamViewer$",
+                "^com\\.vmware\\.horizon$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Command to control (left)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_command"
+          },
+          "to": [
+            {
+              "key_code": "left_control"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.mac$",
+                "^com\\.microsoft\\.rdc\\.macos$",
+                "^com\\.microsoft\\.rdc\\.osx\\.beta$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.teamviewer\\.TeamViewer$",
+                "^com\\.vmware\\.horizon$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Command to control (right)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_command"
+          },
+          "to": [
+            {
+              "key_code": "right_control"
             }
           ],
           "conditions": [
