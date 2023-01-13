@@ -5,7 +5,7 @@ console.log(
       maintainers: ['tekezo'],
       rules: [
         {
-          description: 'Lock screen and sleep by fn+s (rev 1)',
+          description: 'Lock screen and sleep by fn+s (rev 2)',
           manipulators: [
             {
               type: 'basic',
@@ -21,7 +21,11 @@ console.log(
 
                 // Sleep
                 {
-                  shell_command: '/bin/sleep 1; /usr/bin/pmset sleepnow',
+                  software_function: {
+                    iokit_power_management_sleep_system: {
+                      delay_milliseconds: 1000,
+                    },
+                  },
                 },
               ],
             },
