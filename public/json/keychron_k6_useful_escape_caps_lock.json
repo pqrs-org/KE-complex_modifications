@@ -1,0 +1,162 @@
+{
+    "title": "Keychron K6 Useful Escape & Caps Lock Hyper Mod",
+    "rules":
+    [
+        {
+            "description": "Left Shift + Esc: ~ (tilde)",
+            "manipulators":
+            [
+                {
+                    "from":
+                    {
+                        "key_code": "escape",
+                        "modifiers":
+                        {
+                            "mandatory":
+                            [
+                                "left_shift"
+                            ]
+                        }
+                    },
+                    "to":
+                    [
+                        {
+                            "key_code": "grave_accent_and_tilde",
+                            "modifiers":
+                            [
+                                "shift"
+                            ],
+                            "repeat": false
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "Right Shift + Esc: ` (grave)",
+            "manipulators":
+            [
+                {
+                    "from":
+                    {
+                        "key_code": "escape",
+                        "modifiers":
+                        {
+                            "mandatory":
+                            [
+                                "right_shift"
+                            ]
+                        }
+                    },
+                    "to":
+                    [
+                        {
+                            "key_code": "grave_accent_and_tilde"
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "Control + Esc: Control + ` (iTerm hotkey)",
+            "manipulators":
+            [
+                {
+                    "from":
+                    {
+                        "key_code": "escape",
+                        "modifiers":
+                        {
+                            "mandatory":
+                            [
+                                "control"
+                            ]
+                        }
+                    },
+                    "to":
+                    [
+                        {
+                            "key_code": "grave_accent_and_tilde",
+                            "modifiers":
+                            [
+                                "control"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "Command + Esc: ⌘ + ` (app window cycle)",
+            "manipulators":
+            [
+                {
+                    "from":
+                    {
+                        "key_code": "escape",
+                        "modifiers":
+                        {
+                            "mandatory":
+                            [
+                                "command"
+                            ]
+                        }
+                    },
+                    "to":
+                    [
+                        {
+                            "key_code": "grave_accent_and_tilde",
+                            "modifiers":
+                            [
+                                "command"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "Caps Lock (held): ⌃⌥⇧⌘ (Hyper Key)",
+            "manipulators":
+            [
+                {
+                    "from":
+                    {
+                        "key_code": "caps_lock",
+                        "modifiers":
+                        {
+                            "optional":
+                            [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to":
+                    [
+                        {
+                            "key_code": "left_shift",
+                            "modifiers":
+                            [
+                                "left_command",
+                                "left_control",
+                                "left_option"
+                            ]
+                        }
+                    ],
+                    "to_if_alone":
+                    [
+                        {
+                            "repeat": false,
+                            "key_code": "caps_lock"
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        }
+    ]
+}
