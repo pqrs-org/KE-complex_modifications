@@ -15,6 +15,10 @@
                             "mandatory":
                             [
                                 "left_shift"
+                            ],
+                            "optional":
+                            [
+                                "caps_lock"
                             ]
                         }
                     },
@@ -46,13 +50,18 @@
                             "mandatory":
                             [
                                 "right_shift"
+                            ],
+                            "optional":
+                            [
+                                "caps_lock"
                             ]
                         }
                     },
                     "to":
                     [
                         {
-                            "key_code": "grave_accent_and_tilde"
+                            "key_code": "grave_accent_and_tilde",
+                            "repeat": false
                         }
                     ],
                     "type": "basic"
@@ -60,7 +69,7 @@
             ]
         },
         {
-            "description": "Control + Esc: Control + ` (iTerm hotkey)",
+            "description": "Control + Esc: Control + `",
             "manipulators":
             [
                 {
@@ -72,6 +81,10 @@
                             "mandatory":
                             [
                                 "control"
+                            ],
+                            "optional":
+                            [
+                                "caps_lock"
                             ]
                         }
                     },
@@ -102,6 +115,10 @@
                             "mandatory":
                             [
                                 "command"
+                            ],
+                            "optional":
+                            [
+                                "caps_lock"
                             ]
                         }
                     },
@@ -131,7 +148,7 @@
                         {
                             "optional":
                             [
-                                "any"
+                                "caps_lock"
                             ]
                         }
                     },
@@ -144,14 +161,52 @@
                                 "left_command",
                                 "left_control",
                                 "left_option"
-                            ]
+                            ],
+                            "lazy": true
                         }
                     ],
                     "to_if_alone":
                     [
                         {
-                            "repeat": false,
-                            "key_code": "caps_lock"
+                            "key_code": "caps_lock",
+                            "repeat": false
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "Hyper Key + Esc: Shift + Escape",
+            "manipulators":
+            [
+                {
+                    "from":
+                    {
+                        "key_code": "escape",
+                        "modifiers":
+                        {
+                            "mandatory":
+                            [
+                                "left_shift",
+                                "left_command",
+                                "left_control",
+                                "left_option"
+                            ],
+                            "optional":
+                            [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to":
+                    [
+                        {
+                            "key_code": "escape",
+                            "modifiers":
+                            [
+                                "shift"
+                            ]
                         }
                     ],
                     "type": "basic"
