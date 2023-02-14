@@ -58,6 +58,28 @@
       ]
     },
     {
+      "description": "Map 'PrintScreen' key to 'ScreenShoot'",
+      "manipulators": [
+        {
+          "from": {"key_code": "print_screen"},
+          "to": [{"shell_command": "screencapture -i -W -U -c"}],
+          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Map 'Pause' key to 'Fn' key",
+      "manipulators": [
+        {
+          "from": {"key_code": "pause"},
+          "to": [{"key_code": "fn"}],
+          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}],
+          "type": "basic"
+        }
+      ]
+    },
+    {
       "description": "Map 'Task View' key (F2 key) to launching 'Mission Control.app'",
       "manipulators": [
         {
