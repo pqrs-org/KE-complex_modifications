@@ -233,7 +233,7 @@
           },
           "to": [
             {"set_variable": {"name": "NumLock","value":1}},
-            {"shell_command": "osascript -e 'display notification \"🔢 Numeric keys are now active.\" with title \"NumLock enabled\" with title \"Keyboard info\" sound name \"Tink\"'"}
+            {"shell_command": "osascript -e 'display notification \"🔢 Numeric keys are now active.\" with title \"NumLock enabled\" sound name \"Tink\"'"}
           ],
           "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]},{"type": "variable_if","name": "NumLock","value":0}],
           "type": "basic"
@@ -246,7 +246,7 @@
           },
           "to": [
             {"set_variable": {"name": "NumLock","value":0}},
-            {"shell_command": "osascript -e 'display notification \"↔️ Actions keys are now active.\" with title \"NumLock disabled\" with title \"Keyboard info\" sound name \"Tink\"'"}
+            {"shell_command": "osascript -e 'display notification \"↔️ Actions keys are now active.\" with title \"NumLock disabled\" sound name \"Tink\"'"}
           ],
           "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]},{"type": "variable_unless","name": "NumLock","value":0}],
           "type": "basic"
