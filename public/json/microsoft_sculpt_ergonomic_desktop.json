@@ -58,6 +58,28 @@
       ]
     },
     {
+      "description": "Map 'PrintScreen' key to 'ScreenShoot'",
+      "manipulators": [
+        {
+          "from": {"key_code": "print_screen"},
+          "to": [{"shell_command": "screencapture -i -W -U -c"}],
+          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Map 'Pause' key to 'Fn' key",
+      "manipulators": [
+        {
+          "from": {"key_code": "pause"},
+          "to": [{"key_code": "fn"}],
+          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}],
+          "type": "basic"
+        }
+      ]
+    },
+    {
       "description": "Map 'Task View' key (F2 key) to launching 'Mission Control.app'",
       "manipulators": [
         {
@@ -138,7 +160,7 @@
       ]
     },
     {
-      "description": "Map 'Share' key (F6 key) to launching 'AirDrop.app'",
+      "description": "Map 'Share' key (F6 key) to launching 'Calculator.app'",
       "manipulators": [
         {
           "from": {
@@ -151,7 +173,7 @@
               "optional": ["caps_lock"]
             }
           },
-          "to": [{"shell_command": "open -a 'AirDrop.app'"}],
+          "to": [{"shell_command": "open -b com.apple.calculator"}],
           "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}],
           "type": "basic"
         }
@@ -188,7 +210,7 @@
               "optional": ["caps_lock"]
             }
           },
-          "to": [{"shell_command": "open -a 'System Preferences.app'"}],
+          "to": [{"shell_command": "open -b com.apple.systempreferences"}],
           "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}],
           "type": "basic"
         }
@@ -223,33 +245,44 @@
       ]
     },
     {
-      "description": "Toggle 'Numlock' on Numpad",
+      "description": "Toggle 'NumLock' and map action keys on Numpad",
       "manipulators": [
         {
-          "description": "Enable 'Numlock'",
+          "description": "Enable 'NumLock'",
           "from": {
             "key_code": "keypad_num_lock",
             "modifiers": { "optional": ["any"] }
           },
-          "to": [{"set_variable": {"name": "Numlock","value":1}}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]},{"type": "variable_if","name": "Numlock","value":0}],
+          "to": [
+            {"set_variable": {"name": "NumLock","value":1}},
+            {"shell_command": "osascript -e 'display notification \"🔢 Numeric keys are now active.\" with title \"NumLock enabled\" sound name \"Tink\"'"}
+          ],
+          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]},{"type": "variable_if","name": "NumLock","value":0}],
           "type": "basic"
         },
         {
-          "description": "Disable 'Numlock'",
+          "description": "Disable 'NumLock'",
           "from": {
             "key_code": "keypad_num_lock",
             "modifiers": { "optional": ["any"] }
           },
-          "to": [{"set_variable": {"name": "Numlock","value":0}}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]},{"type": "variable_unless","name": "Numlock","value":0}],
+          "to": [
+            {"set_variable": {"name": "NumLock","value":0}},
+            {"shell_command": "osascript -e 'display notification \"↔️ Actions keys are now active.\" with title \"NumLock disabled\" sound name \"Tink\"'"}
+          ],
+          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]},{"type": "variable_unless","name": "NumLock","value":0}],
           "type": "basic"
-        }
-      ]
-    },
-    {
-      "description": "If 'Numlock' enabled map Numpad keys as arrows (7 = Home,1 = End,9 = Page Up,3 = Page Down,8 = Up arrow,2 = Down arrow,4 = Left arrow,6 = Right arrow) and as copy/cut/paste (Shift+. = ⌘+x,Shift+0 = ⌘+v,Ctrl+0 = ⌘+c)",
-      "manipulators": [
+        },
+        {
+          "description": "Execute 'Insert' with 'keypad 0'",
+          "from": {
+            "key_code": "keypad_0",
+            "modifiers": { "optional": ["any"] }
+          },
+          "to": [{"key_code": "insert"}],
+          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless","name": "NumLock","value":1}],
+          "type": "basic"
+        },
         {
           "description": "Execute 'End' with 'keypad 1'",
           "from": {
@@ -257,7 +290,7 @@
             "modifiers": { "optional": ["any"] }
           },
           "to": [{"key_code": "end"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless","name": "Numlock","value":1}],
+          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless","name": "NumLock","value":1}],
           "type": "basic"
         },
         {
@@ -267,7 +300,7 @@
             "modifiers": { "optional": ["any"] }
           },
           "to": [{"key_code": "down_arrow"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless","name": "Numlock","value":1}],
+          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless","name": "NumLock","value":1}],
           "type": "basic"
         },
         {
@@ -277,7 +310,7 @@
             "modifiers": { "optional": ["any"] }
           },
           "to": [{"key_code": "page_down"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless","name": "Numlock","value":1}],
+          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless","name": "NumLock","value":1}],
           "type": "basic"
         },
         {
@@ -287,7 +320,7 @@
             "modifiers": { "optional": ["any"] }
           },
           "to": [{"key_code": "left_arrow"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless","name": "Numlock","value":1}],
+          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless","name": "NumLock","value":1}],
           "type": "basic"
         },
         {
@@ -296,7 +329,7 @@
             "key_code": "keypad_5"
           },
           "to": [{"key_code": "vk_none"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless","name": "Numlock","value":1}],
+          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless","name": "NumLock","value":1}],
           "type": "basic"
         },
         {
@@ -306,7 +339,7 @@
             "modifiers": { "optional": ["any"] }
           },
           "to": [{"key_code": "right_arrow"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless","name": "Numlock","value":1}],
+          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless","name": "NumLock","value":1}],
           "type": "basic"
         },
         {
@@ -316,7 +349,7 @@
             "modifiers": { "optional": ["any"] }
           },
           "to": [{"key_code": "home"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless","name": "Numlock","value":1}],
+          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless","name": "NumLock","value":1}],
           "type": "basic"
         },
         {
@@ -326,7 +359,7 @@
             "modifiers": { "optional": ["any"] }
           },
           "to": [{"key_code": "up_arrow"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless","name": "Numlock","value":1}],
+          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless","name": "NumLock","value":1}],
           "type": "basic"
         },
         {
@@ -336,39 +369,7 @@
             "modifiers": { "optional": ["any"] }
           },
           "to": [{"key_code": "page_up"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless","name": "Numlock","value":1}],
-          "type": "basic"
-        },
-        {
-          "description": "Cut with 'Shift + keypad period'",
-          "from": {
-            "key_code": "keypad_period",
-            "modifiers": {
-              "mandatory": ["shift"]
-            }
-          },
-          "to": [{"key_code": "x","modifiers": ["command"]}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless","name": "Numlock","value":1}],
-          "type": "basic"
-        },
-        {
-          "description": "Copy with 'Control + keypad 0'",
-          "from": {
-            "key_code": "keypad_0",
-            "modifiers": {"mandatory": ["control"]}
-          },
-          "to": [{"key_code": "c","modifiers": ["command"]}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless","name": "Numlock","value":1}],
-          "type": "basic"
-        },
-        {
-          "description": "Paste with 'Shift + keypad 0'",
-          "from": {
-            "key_code": "keypad_0",
-            "modifiers": {"mandatory": ["shift"]}
-          },
-          "to": [{"key_code": "v","modifiers": ["command"]}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless","name": "Numlock","value":1}],
+          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless","name": "NumLock","value":1}],
           "type": "basic"
         }
       ]
