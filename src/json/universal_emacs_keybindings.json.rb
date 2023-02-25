@@ -415,6 +415,18 @@ def control_keys(unless_emacs)
     {
       "type" => "basic",
       "from" => {
+        "key_code" => "w",
+        "modifiers" => Karabiner.from_modifiers(["control"], %w[caps_lock shift]),
+      },
+      "to" => [
+        { "key_code" => "x", "modifiers" => ["command"] },
+        Karabiner.set_variable("C-spacebar", 0)
+      ],
+      "conditions" => [Karabiner.variable_if("C-spacebar", 1)] + [unless_emacs],
+    },
+    {
+      "type" => "basic",
+      "from" => {
         "key_code" => "y",
         "modifiers" => Karabiner.from_modifiers(["control"], %w[caps_lock]),
       },
