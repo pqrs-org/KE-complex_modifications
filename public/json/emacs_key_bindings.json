@@ -919,6 +919,42 @@
         {
           "type": "basic",
           "from": {
+            "key_code": "k",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ],
+              "optional": [
+                "caps_lock",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "end",
+              "modifiers": [
+                "shift"
+              ]
+            },
+            {
+              "key_code": "delete_forward"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Excel$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Word$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
             "key_code": "a",
             "modifiers": {
               "mandatory": [
