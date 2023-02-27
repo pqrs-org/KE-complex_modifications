@@ -17,7 +17,7 @@
         $is_apple_device     = { "type" => "device_if",       "identifiers" => [{"vendor_id" => 1452, "description" => "Apple devices"}]}
         $is_not_apple_device = { "type" => "device_unless",   "identifiers" => [{"vendor_id" => 1452, "description" => "Apple devices"}]}
         $is_layout_active    = { "type" => "input_source_if", "input_sources" => [
-          { "input_source_id" => "^org\\.sil\\.ukelele.keyboardlayout\\.neo2?\\.deutsch\\(neo2\\)$" },
+          { "input_source_id" => "^org\\.sil\\.ukelele.keyboardlayout\\.neo.*$" }, # match any layout in the Ukelele Neo bundle
           { "input_source_id" => "^org\\.unknown\\.keylayout\\.DeutschNeo2$" },
           { "input_source_id" => "^org\\.unknown\\.keylayout\\.DeutschBone$" },
           { "input_source_id" => "^org\\.unknown\\.keylayout\\.DeutschNeoQwertz$" },
