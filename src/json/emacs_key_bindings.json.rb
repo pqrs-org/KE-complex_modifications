@@ -6,19 +6,18 @@
 #
 
 require 'json'
-require_relative '../lib/karabiner.rb'
+require_relative '../lib/karabiner'
 
 def main
-  control_keys_rev = 'rev 10'
+  control_keys_rev = 'rev 11'
   option_keys_rev = 'rev 5'
   bash_style_rev = 'rev 2'
 
   puts JSON.pretty_generate(
-    'title' => 'Emacs key bindings (rev 12)',
+    'title' => 'Emacs key bindings (rev 13)',
     'maintainers' => ['tekezo'],
     'rules' => [
       # generic
-      c_x_key_strokes,
       control_keys(
         :type => :generic,
         :description => "Emacs key bindings [control+keys] (#{control_keys_rev})",
@@ -31,6 +30,7 @@ def main
         :frontmost_application_unless => [Karabiner.frontmost_application_unless(['emacs_key_bindings_exception'])],
         :frontmost_application_if => []
       ),
+      c_x_key_strokes,
       bash_style(
         :type => :generic,
         :description => "Bash style Emacs key bindings (#{bash_style_rev})",
@@ -297,7 +297,7 @@ def control_keys(options)
         'to' => [{
           'key_code' => 'left_arrow',
           'modifiers' => ['left_command'],
-        },],
+        }],
         'conditions' => [Karabiner.frontmost_application_if(['eclipse'])] + options[:frontmost_application_if],
       },
       {
@@ -309,7 +309,7 @@ def control_keys(options)
         'to' => [{
           'key_code' => 'right_arrow',
           'modifiers' => ['left_command'],
-        },],
+        }],
         'conditions' => [Karabiner.frontmost_application_if(['eclipse'])] + options[:frontmost_application_if],
       },
     ],
@@ -326,7 +326,7 @@ def control_keys(options)
         'to' => [{
           'key_code' => 'left_arrow',
           'modifiers' => ['left_command'],
-        },],
+        }],
         'conditions' => [Karabiner.frontmost_application_if(['visual_studio_code'])],
       },
       {
@@ -338,7 +338,7 @@ def control_keys(options)
         'to' => [{
           'key_code' => 'right_arrow',
           'modifiers' => ['left_command'],
-        },],
+        }],
         'conditions' => [Karabiner.frontmost_application_if(['visual_studio_code'])],
       },
     ]
