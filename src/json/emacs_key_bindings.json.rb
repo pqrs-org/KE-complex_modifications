@@ -274,6 +274,23 @@ def control_keys(options)
       {
         'type' => 'basic',
         'from' => {
+          'key_code' => 'k',
+          'modifiers' => Karabiner.from_modifiers(['control'], %w[caps_lock shift]),
+        },
+        'to' => [
+          {
+            'key_code' => 'end',
+            'modifiers' => ['left_shift'],
+          },
+          {
+            'key_code' => 'delete_forward',
+          },
+        ],
+        'conditions' => [Karabiner.frontmost_application_if(['microsoft_office'])] + options[:frontmost_application_if],
+      },
+      {
+        'type' => 'basic',
+        'from' => {
           'key_code' => 'a',
           'modifiers' => Karabiner.from_modifiers(['control'], %w[caps_lock shift]),
         },
