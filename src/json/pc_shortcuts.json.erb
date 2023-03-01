@@ -95,7 +95,17 @@
             ]
         },
         {
-            "description": "PC-Style Paste(Shift+Insert) for JIS keyboard",
+            "description": "PC-Style Copy (Ctrl+Insert) for JIS/PC keyboard",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("insert", ["control"], ["any"]) %>,
+                    "to": <%= to([["c", ["left_command"]]]) %>
+                }
+            ]
+        },
+        {
+            "description": "PC-Style Paste (Shift+Insert) for JIS/PC keyboard",
             "manipulators": [
                 {
                     "type": "basic",
