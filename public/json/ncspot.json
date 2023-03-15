@@ -1,5 +1,8 @@
 {
   "title": "NCSPOT - control Spotify client for the terminal with media keys via netcat",
+  "maintainers": [
+    "n3f"
+  ],
   "rules": [
     {
       "description": "NCSPOT::All",
@@ -20,6 +23,32 @@
                 "any"
               ]
             }
+          },
+          "to": [
+            {
+              "shell_command": "nc -U ~/.cache/ncspot/ncspot.sock <<< 'playpause'"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "ncspot",
+              "value": 1
+            }
+          ],
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ],
+              "mandatory": [
+                "fn"
+              ]
+            },
+            "key_code": "f8"
           },
           "to": [
             {
@@ -94,6 +123,32 @@
                 "any"
               ]
             }
+          },
+          "to": [
+            {
+              "shell_command": "nc -U ~/.cache/ncspot/ncspot.sock <<< 'playpause'"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "ncspot",
+              "value": 1
+            }
+          ],
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ],
+              "mandatory": [
+                "fn"
+              ]
+            },
+            "key_code": "f8"
           },
           "to": [
             {

@@ -37,17 +37,21 @@ const manipulator = ( consumer_key_code, ncspot_command ) => {
 };
 
 const play_pause_manipulator = manipulator( 'play_or_pause', 'playpause' );
+const play_pause_bug = manipulator( 'play_pause', 'playpause' );
+delete play_pause_bug['from']['consumer_key_code'];
+play_pause_bug['from']['key_code'] = 'f8';
+play_pause_bug['from']['modifiers']['mandatory'] = ['fn'];
 const next_manipulator = manipulator( 'scan_next_track', 'next' );
 const previous_manipulator = manipulator( 'scan_previous_track', 'previous' );
 
 const rules = [
   {
     description: 'NCSPOT::All',
-    manipulators: [ play_pause_manipulator, next_manipulator, previous_manipulator ],
+    manipulators: [ play_pause_manipulator, play_pause_bug, next_manipulator, previous_manipulator ],
   },
   {
     description: 'NCSPOT::Play/Pause',
-    manipulators: [ play_pause_manipulator ],
+    manipulators: [ play_pause_manipulator, play_pause_bug ],
   },
   {
     description: 'NCSPOT::Next',
@@ -61,6 +65,7 @@ const rules = [
 
 const json = {
   title: 'NCSPOT - control Spotify client for the terminal with media keys via netcat',
+  maintainers: [ "n3f" ],
   rules: rules,
 };
 
