@@ -1,0 +1,218 @@
+{
+  "title": "NCSPOT - control Spotify client for the terminal with media keys via netcat",
+  "maintainers": [
+    "n3f"
+  ],
+  "rules": [
+    {
+      "description": "NCSPOT::All",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "ncspot",
+              "value": 1
+            }
+          ],
+          "from": {
+            "consumer_key_code": "play_or_pause",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "nc -U ~/.cache/ncspot/ncspot.sock <<< 'playpause'"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "ncspot",
+              "value": 1
+            }
+          ],
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ],
+              "mandatory": [
+                "fn"
+              ]
+            },
+            "key_code": "f8"
+          },
+          "to": [
+            {
+              "shell_command": "nc -U ~/.cache/ncspot/ncspot.sock <<< 'playpause'"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "ncspot",
+              "value": 1
+            }
+          ],
+          "from": {
+            "consumer_key_code": "scan_next_track",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "nc -U ~/.cache/ncspot/ncspot.sock <<< 'next'"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "ncspot",
+              "value": 1
+            }
+          ],
+          "from": {
+            "consumer_key_code": "scan_previous_track",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "nc -U ~/.cache/ncspot/ncspot.sock <<< 'previous'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "NCSPOT::Play/Pause",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "ncspot",
+              "value": 1
+            }
+          ],
+          "from": {
+            "consumer_key_code": "play_or_pause",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "nc -U ~/.cache/ncspot/ncspot.sock <<< 'playpause'"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "ncspot",
+              "value": 1
+            }
+          ],
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ],
+              "mandatory": [
+                "fn"
+              ]
+            },
+            "key_code": "f8"
+          },
+          "to": [
+            {
+              "shell_command": "nc -U ~/.cache/ncspot/ncspot.sock <<< 'playpause'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "NCSPOT::Next",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "ncspot",
+              "value": 1
+            }
+          ],
+          "from": {
+            "consumer_key_code": "scan_next_track",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "nc -U ~/.cache/ncspot/ncspot.sock <<< 'next'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "NCSPOT::Previous",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "ncspot",
+              "value": 1
+            }
+          ],
+          "from": {
+            "consumer_key_code": "scan_previous_track",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "nc -U ~/.cache/ncspot/ncspot.sock <<< 'previous'"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
