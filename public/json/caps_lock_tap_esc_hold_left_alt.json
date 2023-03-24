@@ -1,0 +1,31 @@
+{
+  "title": "Caps Lock to ESC on tap/Left Alt on hold",
+  "rules": [
+    {
+      "description": "Caps Lock to ESC on tap/Left Alt on hold",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "escape"
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_alt"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
