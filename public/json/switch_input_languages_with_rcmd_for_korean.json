@@ -1,0 +1,27 @@
+{
+  "title": "R_CMD to switch input languages like R_ALT in Windows (especially Korean)",
+  "rules": [
+    {
+      "description": "R_CMD to switch input languages like R_ALT in Windows (especially Korean)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_gui"
+          },
+          "to": [
+            {
+              "repeat": false,
+              "key_code": "spacebar",
+              "modifiers": [
+                "left_control",
+                "left_alt"
+              ],
+              "lazy": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
