@@ -5,7 +5,7 @@
   ],
   "rules": [
     {
-      "description": "Personal rules (@tekezo) (rev 44)",
+      "description": "Personal rules (@tekezo) (rev 45)",
       "available_since": "14.9.0",
       "manipulators": [
         {
@@ -25,10 +25,7 @@
           ],
           "to_if_alone": [
             {
-              "pointing_button": "button1",
-              "modifiers": [
-                "left_command"
-              ]
+              "shell_command": "date \"+%s\" | tr -d \"\\n\" | pbcopy"
             }
           ],
           "parameters": {

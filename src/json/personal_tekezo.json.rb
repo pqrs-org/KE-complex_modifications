@@ -19,7 +19,7 @@ def main
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Personal rules (@tekezo) (rev 44)',
+        'description' => 'Personal rules (@tekezo) (rev 45)',
         'available_since' => '14.9.0',
         'manipulators' =>
         core_configuration +
@@ -45,7 +45,7 @@ def core_configuration
     # fn
     ########################################
 
-    # Post command+click when fn is pressed alone
+    # Copy Unix time when fn is pressed alone
     {
       'type' => 'basic',
       'from' => {
@@ -57,8 +57,7 @@ def core_configuration
       ],
       'to_if_alone' => [
         {
-          'pointing_button' => 'button1',
-          'modifiers' => ['left_command'],
+          'shell_command' => 'date "+%s" | tr -d "\n" | pbcopy',
         },
       ],
       'parameters' => {
