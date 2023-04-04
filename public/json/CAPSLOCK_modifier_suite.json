@@ -258,6 +258,29 @@
           "type": "basic"
         },
         {
+          "conditions": [
+            {
+              "name": "caps_lock_arrows_mode",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "left_shift",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "caps_lock"
+            }
+          ],
+          "type": "basic"
+        },
+        {
           "from": {
             "key_code": "caps_lock",
             "modifiers": {
@@ -267,7 +290,7 @@
             }
           },
           "parameters": {
-              "basic.to_if_alone_timeout_milliseconds": 100,
+              "basic.to_if_alone_timeout_milliseconds": 250,
               "basic.to_if_held_down_threshold_milliseconds": 1
           },
           "to_if_held_down":[
@@ -288,10 +311,7 @@
           ],
           "to_if_alone": [
             {
-              "set_variable": {
-                "name": "caps_lock_arrows_mode",
-                "value": 0
-              }
+              "key_code": "caps_lock"
             }
           ],
           "type": "basic"
