@@ -1,0 +1,81 @@
+{
+    "title": "[MAC OS] Belgian Keyboard like windows to develop (current mapping for { and [ ])",
+    "rules": [
+      {
+        "description": "Change Option + 0 to Open Curly Bracket { ",
+        "manipulators": [
+          {
+            "type": "basic",
+            "from": {
+              "modifiers": {
+                "mandatory": [
+                  "right_alt"
+                ]
+              },
+              "key_code": "0"
+            },
+            "to": [
+              {
+                "repeat": true,
+                "key_code": "5",
+                "modifiers": [
+                  "right_alt"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "basic",
+            "from": {}
+          }
+        ]
+      },
+      {
+        "description": "Change Option + ^ and Option + $ to Square bracket [ ] ",
+        "manipulators": [
+          {
+            "type": "basic",
+            "from": {
+              "modifiers": {
+                "mandatory": [
+                  "right_alt"
+                ]
+              },
+              "key_code": "open_bracket"
+            },
+            "to": [
+              {
+                "repeat": true,
+                "key_code": "5",
+                "modifiers": [
+                  "left_shift",
+                  "left_alt"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "basic",
+            "from": {
+              "modifiers": {
+                "mandatory": [
+                  "right_alt"
+                ]
+              },
+              "key_code": "close_bracket"
+            },
+            "to": [
+              {
+                "repeat": true,
+                "key_code": "hyphen",
+                "modifiers": [
+                  "left_alt",
+                  "left_shift"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
