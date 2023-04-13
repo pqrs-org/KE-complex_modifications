@@ -471,7 +471,7 @@
       ]
     },
     {
-      "description": "Media Control(p to pause, f to fast_forward, r to rewind, i to volume increacement, d to volume decrecement)",
+      "description": "Media Control(p to pause, f to fast_forward, r to rewind, i to volume increacement, d to volume decrecement, m to mute)",
       "manipulators": [
         {
           "conditions": [
@@ -584,6 +584,29 @@
           "to": [
             {
               "key_code": "volume_decrement"
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "name": "caps_lock pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "m",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "mute"
             }
           ],
           "type": "basic"
