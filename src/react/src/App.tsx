@@ -105,11 +105,21 @@ const App = () => {
             });
             text = `${text} ${f.object.extra_description_text ?? ""}`;
 
-            l.add({
-              fileId: f.id,
-              title: f.object.json?.title ?? "",
-              text: text.toLowerCase(),
-            });
+            let boost = 1;
+            if (f.object.json?.maintainers || f.object.json?.author) {
+              boost *= 2;
+            }
+
+            l.add(
+              {
+                fileId: f.id,
+                title: f.object.json?.title ?? "",
+                text: text.toLowerCase(),
+              },
+              {
+                boost,
+              }
+            );
           });
         });
       })
