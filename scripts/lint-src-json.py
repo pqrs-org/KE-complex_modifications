@@ -32,3 +32,17 @@ for filePath in filePaths:
         print('----------------------------------------')
         print('')
         sys.exit(1)
+
+    #
+    # Check there are no any extra directories
+    #
+
+    if os.path.isdir(filePath):
+        print('')
+        print('----------------------------------------')
+        print('ERROR:')
+        print("An extra directory is found: {}".format(
+            filePath))
+        print('----------------------------------------')
+        print('')
+        sys.exit(1)
