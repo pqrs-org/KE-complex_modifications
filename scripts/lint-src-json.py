@@ -7,7 +7,7 @@ import sys
 
 srcJsonDirectory = sys.argv[1] if len(sys.argv) > 1 else ""
 if not os.path.isdir(srcJsonDirectory):
-    print('src/json is not found')
+    print('"{}" is not found'.format(srcJsonDirectory))
     sys.exit(1)
 
 #
