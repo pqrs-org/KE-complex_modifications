@@ -9,7 +9,7 @@ import sys
 
 publicJsonDirectory = sys.argv[1] if len(sys.argv) > 1 else ""
 if not os.path.isdir(publicJsonDirectory):
-    print('public/json is not found')
+    print('"{}" is not found'.format(publicJsonDirectory))
     sys.exit(1)
 
 #
@@ -66,6 +66,21 @@ for filePath in filePaths:
             print('----------------------------------------')
             print('')
             sys.exit(1)
+
+    #
+    # Check there are no any extra directories
+    #
+
+    if os.path.isdir(filePath):
+        print('')
+        print('----------------------------------------')
+        print('ERROR:')
+        print("An extra directory is found: {}".format(
+            filePath))
+        print('----------------------------------------')
+        print('')
+        sys.exit(1)
+
 
 #
 # Apply lint
