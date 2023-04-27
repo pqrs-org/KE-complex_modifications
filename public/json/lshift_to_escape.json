@@ -1,8 +1,8 @@
 {
-  "title": "Change shift key",
+  "title": "Left shift to Escape on single press alone, shift when held or combined",
   "rules": [
     {
-      "description": "Change left_shift to caps_lock if alone.",
+      "description": "Left shift to Escape on single press alone, shift on press and hold for more than 250 milliseconds or combined with other keys.",
       "manipulators": [
         {
           "type": "basic",
@@ -16,14 +16,24 @@
           },
           "to": [
             {
-              "key_code": "left_shift"
+              "key_code": "left_shift",
+              "lazy": true
             }
           ],
           "to_if_alone": [
             {
               "key_code": "escape"
             }
-          ]
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_shift"
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 250,
+            "basic.to_if_held_down_threshold_milliseconds": 250
+          }
         }
       ]
     }
