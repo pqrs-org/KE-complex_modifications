@@ -1,0 +1,278 @@
+{
+    "title": "Global app shortcut",
+    "maintainers": [
+        "creatorKoo"
+    ],
+    "rules": [
+        {
+            "description": "Global app shortcut",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "right_option"
+                    },
+                    "to": [
+                        {
+                            "set_notification_message": {
+                                "id": "org.pqrs.notificaion_message_global_shortcut",
+                                "text": "m:Music, f:Finder, n:notes, c:Chrome, S:safari, t:iTerm, i:intellij, C:code, k:kakaotalk, T:telegram, s:Slack"
+                            }
+                        },
+                        {
+                            "set_variable": {
+                                "name": "modifier_down_flag",
+                                "value": true
+                            }
+                        }
+                    ],
+                    "to_after_key_up": [
+                        {
+                            "set_notification_message": {
+                                "id": "org.pqrs.notificaion_message_global_shortcut",
+                                "text": ""
+                            }
+                        },
+                        {
+                            "set_variable": {
+                                "name": "modifier_down_flag",
+                                "value": false
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "m"
+                    },
+                    "to": [
+                        {
+                            "shell_command": "open -a 'Music.app'"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "modifier_down_flag",
+                            "value": true
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "c"
+                    },
+                    "to": [
+                        {
+                            "shell_command": "open -a 'Google Chrome.app'"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "modifier_down_flag",
+                            "value": true
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "t"
+                    },
+                    "to": [
+                        {
+                            "shell_command": "open -a 'iTerm.app'"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "modifier_down_flag",
+                            "value": true
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "s"
+                    },
+                    "to": [
+                        {
+                            "shell_command": "open -a 'Slack.app'"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "modifier_down_flag",
+                            "value": true
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "n"
+                    },
+                    "to": [
+                        {
+                            "shell_command": "open -a 'Notes.app'"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "modifier_down_flag",
+                            "value": true
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "t",
+                        "modifiers": {
+                            "mandatory": [
+                                "shift"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "shell_command": "open -a 'Telegram.app'"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "modifier_down_flag",
+                            "value": true
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "i"
+                    },
+                    "to": [
+                        {
+                            "shell_command": "open -a 'intelliJ IDEA.app'"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "modifier_down_flag",
+                            "value": true
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "v"
+                    },
+                    "to": [
+                        {
+                            "shell_command": "open -a 'Citrix Viewer.app'"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "modifier_down_flag",
+                            "value": true
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "k"
+                    },
+                    "to": [
+                        {
+                            "shell_command": "open -a 'kakaotalk.app'"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "modifier_down_flag",
+                            "value": true
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "c",
+                        "modifiers": {
+                            "mandatory": [
+                                "shift"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "shell_command": "open -a 'Visual Studio Code.app'"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "modifier_down_flag",
+                            "value": true
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "f"
+                    },
+                    "to": [
+                        {
+                            "shell_command": "open -a 'Finder.app'"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "modifier_down_flag",
+                            "value": true
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "s",
+                        "modifiers": {
+                            "mandatory": [
+                                "shift"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "shell_command": "open -a 'Safari.app'"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "modifier_down_flag",
+                            "value": true
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
