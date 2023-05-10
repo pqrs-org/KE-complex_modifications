@@ -1,0 +1,29 @@
+{
+  "title": "Open Safari",
+  "rules": [
+    {
+      "description": "Open Safari with right command key",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": “f5”
+          },
+          "to": [
+            {
+              "shell_command": "open /Applications/Safari.app"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com.apple.safari"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
