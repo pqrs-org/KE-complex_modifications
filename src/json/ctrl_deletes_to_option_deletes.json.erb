@@ -1,0 +1,25 @@
+{
+    "title": "Exchange control + deletes with option + deletes (forward and backward)",
+    "rules": [
+        {
+            "description": "Exchange control + backward delete with option + backward delete",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("delete_or_backspace", ["control"], ["any"]) %>,
+                    "to": <%= to([["delete_or_backspace", ["option"]]]) %>
+                }
+            ]
+        },
+        {
+            "description": "Exchange control + forward delete with option + forward delete",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("delete_forward", ["control"], ["any"]) %>,
+                    "to": <%= to([["delete_forward", ["option"]]]) %>
+                }
+            ]
+        }
+    ]
+}
