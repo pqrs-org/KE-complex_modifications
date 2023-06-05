@@ -5,7 +5,7 @@
   ],
   "rules": [
     {
-      "description": "Personal rules (@tekezo) (rev 45)",
+      "description": "Personal rules (@tekezo) (rev 46)",
       "available_since": "14.9.0",
       "manipulators": [
         {
@@ -1985,6 +1985,28 @@
           "type": "basic",
           "from": {
             "key_code": "l",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.finder$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "w",
             "modifiers": {
               "mandatory": [
                 "command"
