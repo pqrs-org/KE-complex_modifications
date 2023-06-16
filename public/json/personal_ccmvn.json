@@ -3788,60 +3788,55 @@
             ]
         },
         {
-            "title": "Mouse 4/5 to switch tabs in Safari",
-            "rules": [
+            "description": "Mouse 4 => Back",
+            "manipulators": [
                 {
-                    "description": "Mouse 4 => Back",
-                    "manipulators": [
+                    "type": "basic",
+                    "from": {
+                        "pointing_button": "button4"
+                    },
+                    "to": [
                         {
-                            "type": "basic",
-                            "from": {
-                                "pointing_button": "button4"
-                            },
-                            "to": [
-                                {
-                                    "repeat": false,
-                                    "key_code": "left_arrow",
-                                    "modifiers": [
-                                        "left_command"
-                                    ]
-                                }
-                            ],
-                            "conditions": [
-                                {
-                                    "type": "frontmost_application_if",
-                                    "bundle_identifiers": [
-                                        "^com\\.apple\\.Safari$"
-                                    ]
-                                }
+                            "repeat": false,
+                            "key_code": "left_arrow",
+                            "modifiers": [
+                                "left_command"
+                            ]
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com\\.apple\\.Safari$"
                             ]
                         }
                     ]
-                },
+                }
+            ]
+        },
+        { 
+            "description": "Mouse 5 => Forward",
+            "manipulators": [
                 {
-                    "description": "Mouse 5 => Forward",
-                    "manipulators": [
+                    "type": "basic",
+                    "from": {
+                        "pointing_button": "button5"
+                    },
+                    "to": [
                         {
-                            "type": "basic",
-                            "from": {
-                                "pointing_button": "button5"
-                            },
-                            "to": [
-                                {
-                                    "repeat": false,
-                                    "key_code": "right_arrow",
-                                    "modifiers": [
-                                        "left_command"
-                                    ]
-                                }
-                            ],
-                            "conditions": [
-                                {
-                                    "type": "frontmost_application_if",
-                                    "bundle_identifiers": [
-                                        "^com\\.apple\\.Safari$"
-                                    ]
-                                }
+                            "repeat": false,
+                            "key_code": "right_arrow",
+                            "modifiers": [
+                                "left_command"
+                            ]
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com\\.apple\\.Safari$"
                             ]
                         }
                     ]
