@@ -5,7 +5,7 @@
   ],
   "rules": [
     {
-      "description": "Personal rules (@tekezo) (rev 44)",
+      "description": "Personal rules (@tekezo) (rev 46)",
       "available_since": "14.9.0",
       "manipulators": [
         {
@@ -25,10 +25,7 @@
           ],
           "to_if_alone": [
             {
-              "pointing_button": "button1",
-              "modifiers": [
-                "left_command"
-              ]
+              "shell_command": "date \"+%s\" | tr -d \"\\n\" | pbcopy"
             }
           ],
           "parameters": {
@@ -2009,6 +2006,28 @@
         {
           "type": "basic",
           "from": {
+            "key_code": "w",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.finder$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
             "key_code": "q",
             "modifiers": {
               "mandatory": [
@@ -2200,6 +2219,7 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^org\\.mozilla\\.firefox$",
+                "^org\\.mozilla\\.firefoxdeveloperedition$",
                 "^org\\.mozilla\\.nightly$",
                 "^com\\.microsoft\\.Edge",
                 "^com\\.microsoft\\.edgemac",
@@ -2229,6 +2249,7 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^org\\.mozilla\\.firefox$",
+                "^org\\.mozilla\\.firefoxdeveloperedition$",
                 "^org\\.mozilla\\.nightly$",
                 "^com\\.microsoft\\.Edge",
                 "^com\\.microsoft\\.edgemac",
@@ -2258,6 +2279,7 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^org\\.mozilla\\.firefox$",
+                "^org\\.mozilla\\.firefoxdeveloperedition$",
                 "^org\\.mozilla\\.nightly$",
                 "^com\\.microsoft\\.Edge",
                 "^com\\.microsoft\\.edgemac",
@@ -2295,6 +2317,7 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^org\\.mozilla\\.firefox$",
+                "^org\\.mozilla\\.firefoxdeveloperedition$",
                 "^org\\.mozilla\\.nightly$",
                 "^com\\.microsoft\\.Edge",
                 "^com\\.microsoft\\.edgemac",
@@ -2332,6 +2355,7 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^org\\.mozilla\\.firefox$",
+                "^org\\.mozilla\\.firefoxdeveloperedition$",
                 "^org\\.mozilla\\.nightly$",
                 "^com\\.microsoft\\.Edge",
                 "^com\\.microsoft\\.edgemac",
