@@ -1,0 +1,637 @@
+{
+    "title": "Function Key Management",
+    "maintainers": [
+        "creatorKoo"
+    ],
+    "rules": [
+        {
+            "description": "When Specific app foreground, Then Change Fn Key Setting",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "f1",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock",
+                                "command",
+                                "control",
+                                "shift",
+                                "option"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "f1"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "com.jetbrains.intellij"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "f1",
+                        "modifiers": {
+                            "mandatory": [
+                                "fn"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "consumer_key_code": "display_brightness_decrement"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "com.jetbrains.intellij"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "f2",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock",
+                                "command",
+                                "control",
+                                "shift",
+                                "option"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "f2"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "com.jetbrains.intellij"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "f2",
+                        "modifiers": {
+                            "mandatory": [
+                                "fn"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "consumer_key_code": "display_brightness_increment"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "com.jetbrains.intellij"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "f3",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock",
+                                "command",
+                                "control",
+                                "shift",
+                                "option"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "f3"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "com.jetbrains.intellij"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "f3",
+                        "modifiers": {
+                            "mandatory": [
+                                "fn"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "apple_vendor_keyboard_key_code": "mission_control"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "com.jetbrains.intellij"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "f4",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock",
+                                "command",
+                                "control",
+                                "shift",
+                                "option"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "f4"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "com.jetbrains.intellij"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "f4",
+                        "modifiers": {
+                            "mandatory": [
+                                "fn"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "apple_vendor_keyboard_key_code": "spotlight"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "com.jetbrains.intellij"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "f5",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock",
+                                "command",
+                                "control",
+                                "shift",
+                                "option"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "f5"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "com.jetbrains.intellij"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "f5",
+                        "modifiers": {
+                            "mandatory": [
+                                "fn"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "apple_vendor_top_case_key_code": "illumination_down"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "com.jetbrains.intellij"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "f6",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock",
+                                "command",
+                                "control",
+                                "shift",
+                                "option"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "f6"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "com.jetbrains.intellij"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "f6",
+                        "modifiers": {
+                            "mandatory": [
+                                "fn"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "apple_vendor_top_case_key_code": "illumination_up"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "com.jetbrains.intellij"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "f7",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock",
+                                "command",
+                                "control",
+                                "shift",
+                                "option"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "f7"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "com.jetbrains.intellij"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "f7",
+                        "modifiers": {
+                            "mandatory": [
+                                "fn"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "consumer_key_code": "rewind"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "com.jetbrains.intellij"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "f8",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock",
+                                "command",
+                                "control",
+                                "shift",
+                                "option"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "f8"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "com.jetbrains.intellij"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "f8",
+                        "modifiers": {
+                            "mandatory": [
+                                "fn"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "consumer_key_code": "play_or_pause"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "com.jetbrains.intellij"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "f9",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock",
+                                "command",
+                                "control",
+                                "shift",
+                                "option"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "f9"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "com.jetbrains.intellij"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "f9",
+                        "modifiers": {
+                            "mandatory": [
+                                "fn"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "consumer_key_code": "fast_forward"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "com.jetbrains.intellij"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "f10",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock",
+                                "command",
+                                "control",
+                                "shift",
+                                "option"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "f10"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "com.jetbrains.intellij"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "f10",
+                        "modifiers": {
+                            "mandatory": [
+                                "fn"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "consumer_key_code": "mute"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "com.jetbrains.intellij"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "f11",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock",
+                                "command",
+                                "control",
+                                "shift",
+                                "option"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "f11"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "com.jetbrains.intellij"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "f11",
+                        "modifiers": {
+                            "mandatory": [
+                                "fn"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "consumer_key_code": "volume_decrement"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "com.jetbrains.intellij"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "f12",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock",
+                                "command",
+                                "control",
+                                "shift",
+                                "option"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "f12"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "com.jetbrains.intellij"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "f12",
+                        "modifiers": {
+                            "mandatory": [
+                                "fn"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "consumer_key_code": "volume_increment"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "com.jetbrains.intellij"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,12 +1,13 @@
 {
-  "title": "Map Ctrl+Forward-Delete to Option+Forward-Delete (forward delete current word)",
+  "title": "Map Ctrl-Backspace to forward Delete (forward delete one character at a time).",
   "rules": [
     {
-      "description": "Add Ctrl+Forward-Delete",
+      "description": "Map Ctrl-Backspace to forward Delete (forward delete one character at a time).",
       "manipulators": [
         {
+          "type": "basic",
           "from": {
-            "key_code": "delete_forward",
+            "key_code": "delete_or_backspace",
             "modifiers": {
               "mandatory": [
                 "control"
@@ -18,13 +19,9 @@
           },
           "to": [
             {
-              "key_code": "delete_forward",
-              "modifiers": [
-                "option"
-              ]
+              "key_code": "delete_forward"
             }
-          ],
-          "type": "basic"
+          ]
         }
       ]
     }

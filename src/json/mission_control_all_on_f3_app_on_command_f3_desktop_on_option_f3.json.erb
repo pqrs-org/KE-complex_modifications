@@ -1,0 +1,41 @@
+<%
+def rule(description, modifier, shell_command_arg)
+  output = %Q<
+    {
+      "description": "#{description}",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f3"
+  >
+  unless modifier.nil?
+    output += %Q<
+            , "modifiers": {
+              "mandatory": [
+                "#{modifier}"
+              ]
+            }
+    >
+  end
+  output += %Q<
+          },
+          "to": [
+            {
+              "shell_command": "/'System/Applications/Mission Control.app/Contents/MacOS/Mission Control' #{shell_command_arg}"
+            }
+          ]
+        }
+      ]
+    }
+  >
+end
+%>
+{
+  "title": "Mission Control: All on F3, App on ⌘F3, Desktop on ⌥F3",
+  "rules": [
+    <%= rule("Mission Control: All Windows on F3", nil, 0) %>,
+    <%= rule("Mission Control: Application Windows on ⌘F3", "left_gui", 2) %>,
+    <%= rule("Mission Control: Desktop on ⌥F3", "left_alt", 1) %>
+  ]
+}

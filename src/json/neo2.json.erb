@@ -11,18 +11,28 @@
             end
         end
 
+        $apple_identifiers = [
+          {"vendor_id" => 1452},
+          {"is_built_in_keyboard" => true},
+        ]
         $if_mod_4_on         = { "type" => "variable_unless", "name" => "neo2_mod_4", "value" => 0 }
         $if_mod_4_locked     = { "type" => "variable_if",     "name" => "neo2_mod_4", "value" => 2 }
         $if_mod_4_not_locked = { "type" => "variable_unless", "name" => "neo2_mod_4", "value" => 2 }
-        $is_apple_device     = { "type" => "device_if",       "identifiers" => [{"vendor_id" => 1452, "description" => "Apple devices"}]}
-        $is_not_apple_device = { "type" => "device_unless",   "identifiers" => [{"vendor_id" => 1452, "description" => "Apple devices"}]}
+        $is_apple_device     = { "type" => "device_if",       "identifiers" => $apple_identifiers }
+        $is_not_apple_device = { "type" => "device_unless",   "identifiers" => $apple_identifiers }
         $is_layout_active    = { "type" => "input_source_if", "input_sources" => [
-          { "input_source_id" => "^org\\.sil\\.ukelele.keyboardlayout\\.neo2?\\.deutsch\\(neo2\\)$" },
+          { "input_source_id" => "^org\\.sil\\.ukelele.keyboardlayout\\.neo.*$" }, # match any layout in the Ukelele Neo bundle
           { "input_source_id" => "^org\\.unknown\\.keylayout\\.DeutschNeo2$" },
           { "input_source_id" => "^org\\.unknown\\.keylayout\\.DeutschBone$" },
           { "input_source_id" => "^org\\.unknown\\.keylayout\\.DeutschNeoQwertz$" },
           { "input_source_id" => "^org\\.unknown\\.keylayout\\.DeutschADNW$" }
         ] }
+        $is_not_excluded_app = { "type" => "frontmost_application_unless", "bundle_identifiers" => [
+            "com.apple.Terminal",
+            "org.gnu.Emacs",
+            "com.googlecode.iterm2",
+            "dev.warp.Warp-Stable"
+        ]}
 
         def neo2_layer4(condition)
             l4_mappings = {
@@ -261,7 +271,7 @@
               each_key(
                   source_keys_list: ["h", "s", "z", "o", "k"],
                   dest_keys_list: ["h", "s", "z", "o", "k"],
-                  conditions: [$is_layout_active],
+                  conditions: [$is_layout_active, $is_not_excluded_app],
                   from_mandatory_modifiers: ["right_option"],
                   to_modifiers: [],
                   to_pre_events: [["page_up", ["left_option", "left_shift"]]]
@@ -274,8 +284,8 @@
               each_key(
                   source_keys_list: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "open_bracket", "semicolon", "quote", "comma", "period", "slash"],
                   dest_keys_list: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "open_bracket", "semicolon", "quote", "comma", "period", "slash"],
-                  conditions: [$is_layout_active],
                   from_mandatory_modifiers: ["right_option"],
+                  conditions: [$is_layout_active, $is_not_excluded_app],
                   to_modifiers: [],
                   to_pre_events: [["page_up", ["left_option", "left_shift"]]]
               )

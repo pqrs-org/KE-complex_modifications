@@ -1,0 +1,444 @@
+{
+  "title": "Capslock Mode",
+  "maintainers": [
+    "Titancube"
+  ],
+  "author": "https://github.com/Titancube",
+  "repo": "https://github.com/Titancube/KE-complex_modifications",
+  "rules": [
+    {
+      "description": "Capslock to Hyper",
+      "manipulators": [
+        {
+          "description": "Click to Capslock, Hold to Hyper",
+          "type": "basic",
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_shift",
+              "modifiers": [
+                "right_command",
+                "right_control",
+                "right_option"
+              ]
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "caps_lock"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Arrows",
+      "manipulators": [
+        {
+          "description": "CapsLock + h = Left arrow",
+          "type": "basic",
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_option",
+                "right_shift"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": []
+            }
+          ]
+        },
+        {
+          "description": "CapsLock + l = Right arrow",
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_option",
+                "right_shift"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": []
+            }
+          ]
+        },
+        {
+          "description": "CapsLock + k = Up arrow",
+          "type": "basic",
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_option",
+                "right_shift"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow",
+              "modifiers": []
+            }
+          ]
+        },
+        {
+          "description": "CapsLock + j = Down arrow",
+          "type": "basic",
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_option",
+                "right_shift"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "down_arrow",
+              "modifiers": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Tilde, Swung dash (`, ~)",
+      "manipulators": [
+        {
+          "description": "CapsLock + escape = tilde (`)",
+          "type": "basic",
+          "from": {
+            "key_code": "escape",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_option",
+                "right_shift"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": []
+            }
+          ]
+        },
+        {
+          "description": "CapsLock + left shift + escape = Swung dash(~)",
+          "type": "basic",
+          "from": {
+            "key_code": "escape",
+            "modifiers": {
+              "mandatory": [
+                "left_shift",
+                "right_command",
+                "right_control",
+                "right_option",
+                "right_shift"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": [
+                "shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Number rows to F1 ~ F12",
+      "manipulators": [
+        {
+          "description": "CapsLock + 1 = F1",
+          "type": "basic",
+          "from": {
+            "key_code": "1",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_option",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f1"
+            }
+          ]
+        },
+        {
+          "description": "CapsLock + 2 = F2",
+          "type": "basic",
+          "from": {
+            "key_code": "2",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_option",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f2"
+            }
+          ]
+        },
+        {
+          "description": "CapsLock + 3 = F3",
+          "type": "basic",
+          "from": {
+            "key_code": "3",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_option",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f3"
+            }
+          ]
+        },
+        {
+          "description": "CapsLock + 4 = F4",
+          "type": "basic",
+          "from": {
+            "key_code": "4",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_option",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f4"
+            }
+          ]
+        },
+        {
+          "description": "CapsLock + 5 = F5",
+          "type": "basic",
+          "from": {
+            "key_code": "5",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_option",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f5"
+            }
+          ]
+        },
+        {
+          "description": "CapsLock + 6 = F6",
+          "type": "basic",
+          "from": {
+            "key_code": "6",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_option",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f6"
+            }
+          ]
+        },
+        {
+          "description": "CapsLock + 7 = F7",
+          "type": "basic",
+          "from": {
+            "key_code": "7",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_option",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f7"
+            }
+          ]
+        },
+        {
+          "description": "CapsLock + 8 = F8",
+          "type": "basic",
+          "from": {
+            "key_code": "8",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_option",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f8"
+            }
+          ]
+        },
+        {
+          "description": "CapsLock + 9 = F9",
+          "type": "basic",
+          "from": {
+            "key_code": "9",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_option",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f9"
+            }
+          ]
+        },
+        {
+          "description": "CapsLock + 0 = F10",
+          "type": "basic",
+          "from": {
+            "key_code": "0",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_option",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f10"
+            }
+          ]
+        },
+        {
+          "description": "CapsLock + - = F11",
+          "type": "basic",
+          "from": {
+            "key_code": "hyphen",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_option",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f11"
+            }
+          ]
+        },
+        {
+          "description": "CapsLock + + = F11",
+          "type": "basic",
+          "from": {
+            "key_code": "equal_sign",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_option",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f12"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

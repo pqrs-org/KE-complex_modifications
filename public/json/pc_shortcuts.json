@@ -155,6 +155,7 @@
                 "^org\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$",
                 "^org\\.mozilla\\.firefox$",
+                "^org\\.mozilla\\.firefoxdeveloperedition$",
                 "^org\\.mozilla\\.nightly$",
                 "^com\\.microsoft\\.Edge",
                 "^com\\.microsoft\\.edgemac",
@@ -194,6 +195,7 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^org\\.mozilla\\.firefox$",
+                "^org\\.mozilla\\.firefoxdeveloperedition$",
                 "^org\\.mozilla\\.nightly$",
                 "^com\\.microsoft\\.Edge",
                 "^com\\.microsoft\\.edgemac",
@@ -326,6 +328,7 @@
                 "^org\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$",
                 "^org\\.mozilla\\.firefox$",
+                "^org\\.mozilla\\.firefoxdeveloperedition$",
                 "^org\\.mozilla\\.nightly$",
                 "^com\\.microsoft\\.Edge",
                 "^com\\.microsoft\\.edgemac",
@@ -365,6 +368,7 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^org\\.mozilla\\.firefox$",
+                "^org\\.mozilla\\.firefoxdeveloperedition$",
                 "^org\\.mozilla\\.nightly$",
                 "^com\\.microsoft\\.Edge",
                 "^com\\.microsoft\\.edgemac",
@@ -445,7 +449,34 @@
       ]
     },
     {
-      "description": "PC-Style Paste(Shift+Insert) for JIS keyboard",
+      "description": "PC-Style Copy (Ctrl+Insert) for JIS/PC keyboard",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "insert",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "c",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "PC-Style Paste (Shift+Insert) for JIS/PC keyboard",
       "manipulators": [
         {
           "type": "basic",
@@ -2719,6 +2750,7 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^org\\.mozilla\\.firefox$",
+                "^org\\.mozilla\\.firefoxdeveloperedition$",
                 "^org\\.mozilla\\.nightly$",
                 "^com\\.microsoft\\.Edge",
                 "^com\\.microsoft\\.edgemac",
@@ -2760,6 +2792,7 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^org\\.mozilla\\.firefox$",
+                "^org\\.mozilla\\.firefoxdeveloperedition$",
                 "^org\\.mozilla\\.nightly$",
                 "^com\\.microsoft\\.Edge",
                 "^com\\.microsoft\\.edgemac",
@@ -2796,6 +2829,7 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^org\\.mozilla\\.firefox$",
+                "^org\\.mozilla\\.firefoxdeveloperedition$",
                 "^org\\.mozilla\\.nightly$",
                 "^com\\.microsoft\\.Edge",
                 "^com\\.microsoft\\.edgemac",
@@ -2837,6 +2871,7 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^org\\.mozilla\\.firefox$",
+                "^org\\.mozilla\\.firefoxdeveloperedition$",
                 "^org\\.mozilla\\.nightly$",
                 "^com\\.microsoft\\.Edge",
                 "^com\\.microsoft\\.edgemac",
@@ -2873,6 +2908,7 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^org\\.mozilla\\.firefox$",
+                "^org\\.mozilla\\.firefoxdeveloperedition$",
                 "^org\\.mozilla\\.nightly$",
                 "^com\\.microsoft\\.Edge",
                 "^com\\.microsoft\\.edgemac",
@@ -2909,6 +2945,7 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^org\\.mozilla\\.firefox$",
+                "^org\\.mozilla\\.firefoxdeveloperedition$",
                 "^org\\.mozilla\\.nightly$",
                 "^com\\.microsoft\\.Edge",
                 "^com\\.microsoft\\.edgemac",
@@ -2945,6 +2982,7 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^org\\.mozilla\\.firefox$",
+                "^org\\.mozilla\\.firefoxdeveloperedition$",
                 "^org\\.mozilla\\.nightly$",
                 "^com\\.microsoft\\.Edge",
                 "^com\\.microsoft\\.edgemac",
@@ -2981,6 +3019,7 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^org\\.mozilla\\.firefox$",
+                "^org\\.mozilla\\.firefoxdeveloperedition$",
                 "^org\\.mozilla\\.nightly$",
                 "^com\\.microsoft\\.Edge",
                 "^com\\.microsoft\\.edgemac",
@@ -3017,6 +3056,7 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^org\\.mozilla\\.firefox$",
+                "^org\\.mozilla\\.firefoxdeveloperedition$",
                 "^org\\.mozilla\\.nightly$",
                 "^com\\.microsoft\\.Edge",
                 "^com\\.microsoft\\.edgemac",
