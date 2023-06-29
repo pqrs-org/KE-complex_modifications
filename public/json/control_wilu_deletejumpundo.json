@@ -1,0 +1,113 @@
+{
+"title": "control + w,i,l,u -> delete left word,jump one word to the left/right, undo 删除前面一个单词/往前跳一个词/往后跳一个词/undo",
+    "rules": [
+        {
+            "description": "control + w: delete the left word 删除光标前面一个单词",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "w",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_control"
+                            ],
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "delete_or_backspace",
+                            "modifiers": [
+                                "left_control"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "control + i: jump onw word to the left 往左跳一个词",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "i",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_control"
+                            ],
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_arrow",
+                            "modifiers": [
+                                "left_option"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "control + l: jump onw word to the right 往右跳一个词",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "l",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_control"
+                            ],
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "right_arrow",
+                            "modifiers": [
+                                "left_option"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "control + u: undo 取消前一次操作",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "u",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_control"
+                            ],
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "z",
+                            "modifiers": [
+                                "left_command"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
