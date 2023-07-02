@@ -3765,6 +3765,83 @@
                     ]
                 }
             ]
+        },
+        {
+            "description": "Scroll-Lock => Ctrl+Command+Q",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "scroll_lock"
+                    },
+                    "to": [
+                        {
+                            "repeat": false,
+                            "key_code": "q",
+                            "modifiers": [
+                                "left_control",
+                                "left_command"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Mouse 4 => Back",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "pointing_button": "button4"
+                    },
+                    "to": [
+                        {
+                            "repeat": false,
+                            "key_code": "left_arrow",
+                            "modifiers": [
+                                "left_command"
+                            ]
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com\\.apple\\.Safari$"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        { 
+            "description": "Mouse 5 => Forward",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "pointing_button": "button5"
+                    },
+                    "to": [
+                        {
+                            "repeat": false,
+                            "key_code": "right_arrow",
+                            "modifiers": [
+                                "left_command"
+                            ]
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com\\.apple\\.Safari$"
+                            ]
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }

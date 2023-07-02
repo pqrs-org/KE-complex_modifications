@@ -1,0 +1,27 @@
+{
+    "title": "DK: Switch Pause key of Win keyboard to CMD+§ (CMD+non_us_backslash), that can be used as Punto Switcher App hotkey.",
+    "rules": [
+        {
+            "description": "DK: Pause -> CMD+§",
+            "manipulators": [
+                {
+                    "from": {
+                        "key_code": "pause",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "non_us_backslash",
+                            "modifiers": "command"
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        }
+    ]
+}
