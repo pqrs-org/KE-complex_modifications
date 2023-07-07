@@ -9,9 +9,17 @@ complex_modifications for Karabiner-Elements.
 
 ## Add rules
 
-1.  Put a JSON generator file (`.rb`, `.erb` or `.js`) into [src/json](https://github.com/pqrs-org/KE-complex_modifications/tree/main/src/json).
+1.  Clone repository.
+
+    ```shell
+    git clone --depth 1 https://github.com/pqrs-org/KE-complex_modifications.git
+    cd KE-complex_modifications
+    git submodule update --init --recursive --depth 1
+    ```
+
+2.  Put a JSON generator file (`.rb`, `.erb` or `.js`) into [src/json](https://github.com/pqrs-org/KE-complex_modifications/tree/main/src/json).
     (Or put a `.json` file directly into [public/json](https://github.com/pqrs-org/KE-complex_modifications/tree/main/public/json) directly.)
-2.  <details>
+3.  <details>
     <summary>(Optional) Update <a href="https://github.com/pqrs-org/KE-complex_modifications/tree/main/public/groups.json">public/groups.json</a> if you want to add your rules into specific category.</summary>
 
     Add the following entry into `groups.json`.
@@ -25,7 +33,7 @@ complex_modifications for Karabiner-Elements.
 
     </details>
 
-3.  Run `make` command on Terminal. <br/> If you've a generator file into `src/json`, formatted json file will be auto generated in the `public/json/your_awesome_configuration.json`.
+4.  Run `make` command on Terminal. <br/> If you've a generator file into `src/json`, formatted json file will be auto generated in the `public/json/your_awesome_configuration.json`.
 
     ```shell
     make

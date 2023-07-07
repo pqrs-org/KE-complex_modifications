@@ -8,7 +8,7 @@ all:
 	@echo "============================================================"
 	@echo
 
-	bash scripts/update-json.sh
+	sandbox-exec -f core/files/generator.sb bash scripts/update-json.sh
 	python3 scripts/lint-src-json.py src/json
 	python3 scripts/lint-public-json.py public/json
 	ruby scripts/lint-groups.rb
