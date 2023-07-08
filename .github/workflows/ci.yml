@@ -10,9 +10,8 @@ jobs:
       - uses: actions/checkout@v1
         with:
           fetch-depth: 1
+          submodules: recursive
       - name: rebuild
         run: make rebuild
       - name: check uncommitted changes
-        run: bash scripts/check-uncommitted-changes.sh
-      - name: tests
-        run: make -C tests
+        run: bash core/scripts/check-uncommitted-changes.sh

@@ -13,10 +13,11 @@ jobs:
       - uses: actions/checkout@v1
         with:
           fetch-depth: 1
+          submodules: recursive
       - name: build
         run: make
       - uses: webfactory/ssh-agent@v0.4.1
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
       - name: deploy
-        run: bash scripts/update-gh-pages.sh
+        run: bash core/scripts/update-gh-pages.sh
