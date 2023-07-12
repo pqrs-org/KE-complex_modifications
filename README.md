@@ -7,6 +7,12 @@ complex_modifications for Karabiner-Elements.
 
 <https://ke-complex-modifications.pqrs.org/>
 
+## complex_modifications documents
+
+-   [karabiner.json Reference Manual](https://karabiner-elements.pqrs.org/docs/json/)
+    -   [Typical complex_modifications examples](https://karabiner-elements.pqrs.org/docs/json/typical-complex-modifications-examples/)
+    -   [complex_modifications manipulator definition](https://karabiner-elements.pqrs.org/docs/json/complex-modifications-manipulator-definition/)
+
 ## How to add your rules
 
 Follow the steps below to create a PR and add your settings!
@@ -123,9 +129,3 @@ git clean -x -d -f .
 # update GitHub repository
 git push
 ```
-
-## complex_modifications documents
-
--   [karabiner.json Reference Manual](https://karabiner-elements.pqrs.org/docs/json/)
-    -   [Typical complex_modifications examples](https://karabiner-elements.pqrs.org/docs/json/typical-complex-modifications-examples/)
-    -   [complex_modifications manipulator definition](https://karabiner-elements.pqrs.org/docs/json/complex-modifications-manipulator-definition/)
