@@ -87,7 +87,7 @@ Follow the steps below to create a PR and add your settings!
     ```shell
     git add -A
     git commit -m 'your commit message'
-    git push
+    git push --set-upstream origin my-settings
     ```
 
 10. Create a PR on GitHub.
