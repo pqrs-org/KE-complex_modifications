@@ -19,8 +19,8 @@ def main
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Personal rules (@tekezo) (rev 46)',
-        'available_since' => '14.9.0',
+        'description' => 'Personal rules (@tekezo) (rev 47)',
+        'available_since' => '14.12.6',
         'manipulators' =>
         core_configuration +
         emacs +
@@ -385,10 +385,13 @@ def mouse
         },
       },
       'to' => [
-        Karabiner.set_variable('personal_tekezo_enable_mouse_motion_to_scroll', 1),
-      ],
-      'to_after_key_up' => [
-        Karabiner.set_variable('personal_tekezo_enable_mouse_motion_to_scroll', 0),
+        {
+          'set_variable' => {
+            'name' => 'personal_tekezo_enable_mouse_motion_to_scroll',
+            'value' => 1,
+            'key_up_value' => 0,
+          },
+        },
       ],
       'to_if_alone' => [
         {
