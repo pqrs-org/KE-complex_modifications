@@ -1,0 +1,54 @@
+{
+  "title": "EisuuFN",
+  "rules": [
+    {
+      "description": "EisuuFN: japanese_eisuu to fn unlesss alone",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "japanese_eisuu",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "fn",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "japanese_eisuu"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "japanese_pc_nfer",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "fn",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "japanese_eisuu"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
