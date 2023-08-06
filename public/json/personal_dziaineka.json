@@ -1,0 +1,532 @@
+{
+  "title": "Personal rules (@dziaineka)",
+  "rules": [
+    {
+      "description": "Left CMD -> en",
+      "manipulators": [
+        {
+          "to_if_alone": [{ "select_input_source": { "language": "en" } }],
+          "from": { "key_code": "left_command" },
+          "to": [{ "key_code": "left_command" }],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Right CMD -> ruby",
+      "manipulators": [
+        {
+          "to_if_alone": [{ "select_input_source": { "language": "be" } }],
+          "from": { "key_code": "right_command" },
+          "to": [{ "key_code": "right_command" }],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "caps_lock toggle to get into vim-like navigation (but different)",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "name": "navigation_mode",
+              "type": "variable_unless",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": { "optional": ["any"] }
+          },
+          "to_if_alone": [
+            {
+              "set_variable": {
+                "name": "navigation_mode",
+                "value": 1
+              }
+            },
+            {
+              "halt": true,
+              "set_notification_message": {
+                "id": "vim_mode_plus_enabled",
+                "text": "Navigation Mode"
+              }
+            }
+          ],
+          "to": [{ "key_code": "left_control" }],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "name": "navigation_mode",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": { "optional": ["any"] }
+          },
+          "to_if_alone": [
+            {
+              "set_variable": {
+                "name": "navigation_mode",
+                "value": 0
+              }
+            },
+            {
+              "halt": true,
+              "set_notification_message": {
+                "id": "vim_mode_plus_enabled",
+                "text": ""
+              }
+            }
+          ],
+          "to": [{ "key_code": "left_control" }],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "name": "navigation_mode",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "j"
+          },
+          "to": [
+            {
+              "key_code": "left_arrow"
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "name": "navigation_mode",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "mandatory": ["shift"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": ["left_shift"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "name": "navigation_mode",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "k"
+          },
+          "to": [
+            {
+              "key_code": "down_arrow"
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "name": "navigation_mode",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "mandatory": ["shift"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "down_arrow",
+              "modifiers": ["left_shift"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "name": "navigation_mode",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "i"
+          },
+          "to": [
+            {
+              "key_code": "up_arrow"
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "name": "navigation_mode",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "mandatory": ["shift"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow",
+              "modifiers": ["left_shift"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "name": "navigation_mode",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "l"
+          },
+          "to": [
+            {
+              "key_code": "right_arrow"
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "name": "navigation_mode",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "mandatory": ["shift"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": ["left_shift"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "name": "navigation_mode",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "g"
+          },
+          "to": [
+            {
+              "key_code": "home"
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "name": "navigation_mode",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "g",
+            "modifiers": {
+              "mandatory": ["shift"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "home",
+              "modifiers": ["left_shift"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "name": "navigation_mode",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "h"
+          },
+          "to": [
+            {
+              "key_code": "end"
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "name": "navigation_mode",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "mandatory": ["shift"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "end",
+              "modifiers": ["left_shift"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "name": "navigation_mode",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "d"
+          },
+          "to": [
+            {
+              "key_code": "delete_or_backspace"
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "name": "navigation_mode",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "d",
+            "modifiers": {
+              "mandatory": ["left_shift"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_or_backspace",
+              "modifiers": ["command"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "name": "navigation_mode",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "d",
+            "modifiers": {
+              "mandatory": ["right_shift"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_or_backspace",
+              "modifiers": ["option"]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Quit application by pressing command-q twice",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "command-q",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "mandatory": ["command"],
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "q",
+              "modifiers": "left_command"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "mandatory": ["command"],
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "command-q",
+                "value": 1
+              }
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "command-q",
+                  "value": 0
+                }
+              }
+            ],
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "command-q",
+                  "value": 0
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "description": "Quit Safari by pressing command-q twice",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "command-q",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.apple\\.Safari$"]
+            }
+          ],
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "mandatory": ["command"],
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "q",
+              "modifiers": "left_command"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.apple\\.Safari$"]
+            }
+          ],
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "mandatory": ["command"],
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "command-q",
+                "value": 1
+              }
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "command-q",
+                  "value": 0
+                }
+              }
+            ],
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "command-q",
+                  "value": 0
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
