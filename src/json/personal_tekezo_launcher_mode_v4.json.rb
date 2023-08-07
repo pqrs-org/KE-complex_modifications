@@ -23,7 +23,7 @@ def main
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Launcher Mode v4 (rev 18)',
+        'description' => 'Launcher Mode v4 (rev 19)',
         'available_since' => '13.1.4',
         'manipulators' => [
           generate_launcher_mode('1', [], [{ 'shell_command' => 'open "$(dirname $(dirname $(xcode-select -p)))"' }]),
@@ -41,7 +41,7 @@ def main
           generate_launcher_mode('v', [], [{ 'shell_command' => "open -a 'Slack.app'" }]),
 
           generate_launcher_mode('left_control', [], [{ 'key_code' => 'mission_control' }]),
-          generate_launcher_mode('left_shift', [], [{ 'apple_vendor_keyboard_key_code' => 'spotlight' }]),
+          generate_launcher_mode('left_shift', [], [{ 'apple_vendor_keyboard_key_code' => 'launchpad' }]),
         ].flatten,
       },
     ],
