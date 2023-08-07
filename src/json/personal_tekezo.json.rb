@@ -19,7 +19,7 @@ def main
     'maintainers' => ['tekezo'],
     'rules' => [
       {
-        'description' => 'Personal rules (@tekezo) (rev 47)',
+        'description' => 'Personal rules (@tekezo) (rev 48)',
         'available_since' => '14.12.6',
         'manipulators' =>
         core_configuration +
@@ -372,7 +372,9 @@ def emacs
 end
 
 def mouse
-  [
+  result = []
+
+  result += [
     # mouse_motion_to_scroll (button5)
     {
       'type' => 'basic',
@@ -430,6 +432,41 @@ def mouse
       ],
     },
   ]
+
+  # hjkl -> fn+arrows
+  [
+    { :from => 'h', :to => 'left_arrow' },
+    { :from => 'j', :to => 'down_arrow' },
+    { :from => 'k', :to => 'up_arrow' },
+    { :from => 'l', :to => 'right_arrow' },
+  ].each do |v|
+    result.push(
+      {
+        'type' => 'basic',
+        'from' => {
+          'key_code' => v[:from],
+          'modifiers' => {
+            'optional' => [
+              'any',
+            ],
+          },
+        },
+        'to' => [
+          {
+            'key_code' => v[:to],
+            'modifiers' => [
+              'fn',
+            ],
+          },
+        ],
+        'conditions' => [
+          Karabiner.variable_if('personal_tekezo_enable_mouse_motion_to_scroll', 1),
+        ],
+      }
+    )
+  end
+
+  result
 end
 
 def extra_cursor
