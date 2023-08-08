@@ -101,6 +101,52 @@
               "shell_command": "nc -U ~/.cache/ncspot/ncspot.sock <<< 'previous'"
             }
           ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "ncspot",
+              "value": 1
+            }
+          ],
+          "from": {
+            "consumer_key_code": "volume_increment",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "nc -U ~/.cache/ncspot/ncspot.sock <<< 'volup 5'"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "ncspot",
+              "value": 1
+            }
+          ],
+          "from": {
+            "consumer_key_code": "volume_decrement",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "nc -U ~/.cache/ncspot/ncspot.sock <<< 'voldown 5'"
+            }
+          ]
         }
       ]
     },
@@ -209,6 +255,62 @@
           "to": [
             {
               "shell_command": "nc -U ~/.cache/ncspot/ncspot.sock <<< 'previous'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "NCSPOT::Volume Up",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "ncspot",
+              "value": 1
+            }
+          ],
+          "from": {
+            "consumer_key_code": "volume_increment",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "nc -U ~/.cache/ncspot/ncspot.sock <<< 'volup 5'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "NCSPOT::Volume Down",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "ncspot",
+              "value": 1
+            }
+          ],
+          "from": {
+            "consumer_key_code": "volume_decrement",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "nc -U ~/.cache/ncspot/ncspot.sock <<< 'voldown 5'"
             }
           ]
         }

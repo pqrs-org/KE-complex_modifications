@@ -43,11 +43,20 @@ play_pause_bug['from']['key_code'] = 'f8';
 play_pause_bug['from']['modifiers']['mandatory'] = ['fn'];
 const next_manipulator = manipulator( 'scan_next_track', 'next' );
 const previous_manipulator = manipulator( 'scan_previous_track', 'previous' );
+const volume_up_manipulator = manipulator( 'volume_increment', 'volup 5' );
+const volume_down_manipulator = manipulator( 'volume_decrement', 'voldown 5' );
 
 const rules = [
   {
     description: 'NCSPOT::All',
-    manipulators: [ play_pause_manipulator, play_pause_bug, next_manipulator, previous_manipulator ],
+    manipulators: [
+      play_pause_manipulator,
+      play_pause_bug,
+      next_manipulator,
+      previous_manipulator,
+      volume_up_manipulator,
+      volume_down_manipulator
+    ],
   },
   {
     description: 'NCSPOT::Play/Pause',
@@ -60,6 +69,14 @@ const rules = [
   {
     description: 'NCSPOT::Previous',
     manipulators: [ previous_manipulator ],
+  },
+  {
+    description: 'NCSPOT::Volume Up',
+    manipulators: [ volume_up_manipulator ],
+  },
+  {
+    description: 'NCSPOT::Volume Down',
+    manipulators: [ volume_down_manipulator ],
   },
 ];
 
