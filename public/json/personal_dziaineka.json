@@ -387,6 +387,34 @@
             }
           ],
           "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "name": "navigation_mode",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "any": "key_code"
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "navigation_mode",
+                "value": 0
+              }
+            },
+            {
+              "halt": true,
+              "set_notification_message": {
+                "id": "vim_mode_plus_enabled",
+                "text": ""
+              }
+            }
+          ],
+          "type": "basic"
         }
       ]
     },
