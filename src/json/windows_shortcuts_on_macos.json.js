@@ -116,8 +116,48 @@ console.log(
         {
           description: 'Ctrl+Z => Cmd+Z (Undo)',
           manipulators: [
+            // The character key code of Z is {"key_code":"y"} for German input source.
             {
               conditions: [
+                {
+                  input_sources: [
+                    {
+                      language: '^de$',
+                    },
+                  ],
+                  type: 'input_source_if',
+                },
+                {
+                  bundle_identifiers: excludeBundleIdentifiersFull,
+                  type: 'frontmost_application_unless',
+                },
+              ],
+              from: {
+                key_code: 'y',
+                modifiers: {
+                  mandatory: ['control'],
+                  optional: ['any'],
+                },
+              },
+              to: [
+                {
+                  key_code: 'y',
+                  modifiers: ['left_command'],
+                },
+              ],
+              type: 'basic',
+            },
+            // For other input sources.
+            {
+              conditions: [
+                {
+                  input_sources: [
+                    {
+                      language: '^de$',
+                    },
+                  ],
+                  type: 'input_source_unless',
+                },
                 {
                   bundle_identifiers: excludeBundleIdentifiersFull,
                   type: 'frontmost_application_unless',
@@ -141,10 +181,51 @@ console.log(
           ],
         },
         {
-          description: 'Ctrl+Y => Cmd+Shift+Y (Redo)',
+          description: 'Ctrl+Y => Cmd+Shift+Z (Redo)',
           manipulators: [
+            // The character key code of Y is {"key_code":"z"} for German input source.
+            // The character key code of Z is {"key_code":"y"} for German input source.
             {
               conditions: [
+                {
+                  input_sources: [
+                    {
+                      language: '^de$',
+                    },
+                  ],
+                  type: 'input_source_if',
+                },
+                {
+                  bundle_identifiers: excludeBundleIdentifiersFull,
+                  type: 'frontmost_application_unless',
+                },
+              ],
+              from: {
+                key_code: 'z',
+                modifiers: {
+                  mandatory: ['control'],
+                  optional: ['any'],
+                },
+              },
+              to: [
+                {
+                  key_code: 'y',
+                  modifiers: ['left_command', 'left_shift'],
+                },
+              ],
+              type: 'basic',
+            },
+            // For other input sources.
+            {
+              conditions: [
+                {
+                  input_sources: [
+                    {
+                      language: '^de$',
+                    },
+                  ],
+                  type: 'input_source_unless',
+                },
                 {
                   bundle_identifiers: excludeBundleIdentifiersFull,
                   type: 'frontmost_application_unless',
