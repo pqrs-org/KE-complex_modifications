@@ -1024,86 +1024,86 @@
             ]
         },
         {
-          "description": "Ctrl+B => Cmd+B (Bold)",
-          "manipulators": [
-            {
-              "conditions": [
+            "description": "Ctrl+B => Cmd+B (Bold)",
+            "manipulators": [
                 {
-                  "bundle_identifiers": [
-                    "^org\\.macports\\.X11$",
-                    "^com\\.apple\\.Terminal$",
-                    "^com\\.googlecode\\.iterm2$",
-                    "^co\\.zeit\\.hyper$",
-                    "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
-                    "^com\\.microsoft\\.rdc\\.macos$",
-                    "^tv\\.parsec\\.www$"
-                  ],
-                  "type": "frontmost_application_unless"
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "^org\\.macports\\.X11$",
+                                "^com\\.apple\\.Terminal$",
+                                "^com\\.googlecode\\.iterm2$",
+                                "^co\\.zeit\\.hyper$",
+                                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                "^com\\.microsoft\\.rdc\\.macos$",
+                                "^tv\\.parsec\\.www$"
+                            ],
+                            "type": "frontmost_application_unless"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "b",
+                        "modifiers": {
+                            "mandatory": [
+                                "control"
+                            ],
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "b",
+                            "modifiers": [
+                                "command"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
                 }
-              ],
-              "from": {
-                "key_code": "b",
-                "modifiers": {
-                  "mandatory": [
-                    "control"
-                  ],
-                  "optional": [
-                    "any"
-                  ]
-                }
-              },
-              "to": [
-                {
-                  "key_code": "b",
-                  "modifiers": [
-                    "command"
-                  ]
-                }
-              ],
-              "type": "basic"
-            }
-          ]
+            ]
         },
         {
-          "description": "Ctrl+I => Cmd+I (Italic)",
-          "manipulators": [
-            {
-              "conditions": [
+            "description": "Ctrl+I => Cmd+I (Italic)",
+            "manipulators": [
                 {
-                  "bundle_identifiers": [
-                    "^org\\.macports\\.X11$",
-                    "^com\\.apple\\.Terminal$",
-                    "^com\\.googlecode\\.iterm2$",
-                    "^co\\.zeit\\.hyper$",
-                    "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
-                    "^com\\.microsoft\\.rdc\\.macos$",
-                    "^tv\\.parsec\\.www$"
-                  ],
-                  "type": "frontmost_application_unless"
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "^org\\.macports\\.X11$",
+                                "^com\\.apple\\.Terminal$",
+                                "^com\\.googlecode\\.iterm2$",
+                                "^co\\.zeit\\.hyper$",
+                                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                "^com\\.microsoft\\.rdc\\.macos$",
+                                "^tv\\.parsec\\.www$"
+                            ],
+                            "type": "frontmost_application_unless"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "i",
+                        "modifiers": {
+                            "mandatory": [
+                                "control"
+                            ],
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "i",
+                            "modifiers": [
+                                "command"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
                 }
-              ],
-              "from": {
-                "key_code": "i",
-                "modifiers": {
-                  "mandatory": [
-                    "control"
-                  ],
-                  "optional": [
-                    "any"
-                  ]
-                }
-              },
-              "to": [
-                {
-                  "key_code": "i",
-                  "modifiers": [
-                    "command"
-                  ]
-                }
-              ],
-              "type": "basic"
-            }
-          ]
+            ]
         },
         {
             "description": "Ctrl+L => Cmd+L (Open url location) (Only in browsers)",
@@ -1147,45 +1147,45 @@
             ]
         },
         {
-          "description": "Ctrl+R => Cmd+R (Reload) (Only in browsers)",
-          "manipulators": [
-            {
-              "conditions": [
+            "description": "Ctrl+R => Cmd+R (Reload) (Only in browsers)",
+            "manipulators": [
                 {
-                  "bundle_identifiers": [
-                    "^org\\.mozilla\\.firefox$",
-                    "^org\\.mozilla\\.firefoxdeveloperedition$",
-                    "^org\\.mozilla\\.nightly$",
-                    "^com\\.microsoft\\.Edge",
-                    "^com\\.google\\.Chrome$",
-                    "^com\\.brave\\.Browser$",
-                    "^com\\.apple\\.Safari$"
-                  ],
-                  "type": "frontmost_application_if"
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "^org\\.mozilla\\.firefox$",
+                                "^org\\.mozilla\\.firefoxdeveloperedition$",
+                                "^org\\.mozilla\\.nightly$",
+                                "^com\\.microsoft\\.Edge",
+                                "^com\\.google\\.Chrome$",
+                                "^com\\.brave\\.Browser$",
+                                "^com\\.apple\\.Safari$"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "r",
+                        "modifiers": {
+                            "mandatory": [
+                                "control"
+                            ],
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "r",
+                            "modifiers": [
+                                "left_command"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
                 }
-              ],
-              "from": {
-                "key_code": "r",
-                "modifiers": {
-                  "mandatory": [
-                    "control"
-                  ],
-                  "optional": [
-                    "any"
-                  ]
-                }
-              },
-              "to": [
-                {
-                  "key_code": "r",
-                  "modifiers": [
-                    "left_command"
-                  ]
-                }
-              ],
-              "type": "basic"
-            }
-          ]
+            ]
         },
         {
             "description": "F5 => Cmd+r (Reload)",
@@ -1816,30 +1816,30 @@
         },
         {
             "description": "Ctrl+Left Click => Cmd+Left Click (select multiple items)",
-                "manipulators": [
-                    {
-                        "from": {
+            "manipulators": [
+                {
+                    "from": {
+                        "pointing_button": "button1",
+                        "modifiers": {
+                            "mandatory": [
+                                "control"
+                            ],
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
                             "pointing_button": "button1",
-                            "modifiers": {
-                                "mandatory": [
-                                  "control"
-                                ],
-                                "optional": [
-                                  "any"
-                                ]
-                            }
-                        },
-                        "to": [
-                            {
-                                "pointing_button": "button1",
-                                "modifiers": [
-                                  "command"
-                                ]
-                            }
-                        ],
-                        "type": "basic"
-                    }
-                ]
+                            "modifiers": [
+                                "command"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
         }
-      ]
+    ]
 }
