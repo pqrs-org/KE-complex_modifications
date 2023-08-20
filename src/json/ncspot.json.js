@@ -1,3 +1,5 @@
+// Javascript should be written in ECMAScript 5.1.
+
 /**
  * This script generates a JSON file for Karabiner-Elements to control the
  * ncspot Spotify client for the terminal via netcat.
@@ -8,11 +10,11 @@
  * Changed this by modifying the `conditons` array in the `manipulator` function.
  */
 
-const shell_command = ( ncspot_command ) => {
-  return `nc -U ~/.cache/ncspot/ncspot.sock <<< '${ncspot_command}'`;
-};
+const shell_command = function (ncspot_command) {
+  return "nc -U ~/.cache/ncspot/ncspot.sock <<< '" + ncspot_command + "'"
+}
 
-const manipulator = ( consumer_key_code, ncspot_command ) => {
+const manipulator = function (consumer_key_code, ncspot_command) {
   return {
     type: 'basic',
     conditions: [
@@ -26,25 +28,25 @@ const manipulator = ( consumer_key_code, ncspot_command ) => {
       consumer_key_code: consumer_key_code,
       modifiers: {
         optional: ['any'],
-      }
+      },
     },
     to: [
       {
-        shell_command: shell_command( ncspot_command ),
+        shell_command: shell_command(ncspot_command),
       },
     ],
-  };
-};
+  }
+}
 
-const play_pause_manipulator = manipulator( 'play_or_pause', 'playpause' );
-const play_pause_bug = manipulator( 'play_pause', 'playpause' );
-delete play_pause_bug['from']['consumer_key_code'];
-play_pause_bug['from']['key_code'] = 'f8';
-play_pause_bug['from']['modifiers']['mandatory'] = ['fn'];
-const next_manipulator = manipulator( 'scan_next_track', 'next' );
-const previous_manipulator = manipulator( 'scan_previous_track', 'previous' );
-const volume_up_manipulator = manipulator( 'volume_increment', 'volup 5' );
-const volume_down_manipulator = manipulator( 'volume_decrement', 'voldown 5' );
+const play_pause_manipulator = manipulator('play_or_pause', 'playpause')
+const play_pause_bug = manipulator('play_pause', 'playpause')
+delete play_pause_bug['from']['consumer_key_code']
+play_pause_bug['from']['key_code'] = 'f8'
+play_pause_bug['from']['modifiers']['mandatory'] = ['fn']
+const next_manipulator = manipulator('scan_next_track', 'next')
+const previous_manipulator = manipulator('scan_previous_track', 'previous')
+const volume_up_manipulator = manipulator('volume_increment', 'volup 5')
+const volume_down_manipulator = manipulator('volume_decrement', 'voldown 5')
 
 const rules = [
   {
@@ -55,41 +57,36 @@ const rules = [
       next_manipulator,
       previous_manipulator,
       volume_up_manipulator,
-      volume_down_manipulator
+      volume_down_manipulator,
     ],
   },
   {
     description: 'NCSPOT::Play/Pause',
-    manipulators: [ play_pause_manipulator, play_pause_bug ],
+    manipulators: [play_pause_manipulator, play_pause_bug],
   },
   {
     description: 'NCSPOT::Next',
-    manipulators: [ next_manipulator ],
+    manipulators: [next_manipulator],
   },
   {
     description: 'NCSPOT::Previous',
-    manipulators: [ previous_manipulator ],
+    manipulators: [previous_manipulator],
   },
   {
     description: 'NCSPOT::Volume Up',
-    manipulators: [ volume_up_manipulator ],
+    manipulators: [volume_up_manipulator],
   },
   {
     description: 'NCSPOT::Volume Down',
-    manipulators: [ volume_down_manipulator ],
+    manipulators: [volume_down_manipulator],
   },
-];
+]
 
 const json = {
-  title: 'NCSPOT - control Spotify client for the terminal with media keys via netcat',
-  maintainers: [ "n3f" ],
+  title:
+    'NCSPOT - control Spotify client for the terminal with media keys via netcat',
+  maintainers: ['n3f'],
   rules: rules,
-};
+}
 
-console.log(
-  JSON.stringify(
-    json,
-    null,
-    '  '
-  )
-)
+console.log(JSON.stringify(json, null, '  '))
