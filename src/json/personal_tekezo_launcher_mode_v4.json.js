@@ -16,87 +16,55 @@ function main() {
             description: 'Launcher Mode v4 (rev 19)',
             available_since: '13.1.4',
             manipulators: [].concat(
-              generate_launcher_mode(
-                '1',
-                [],
-                [
-                  {
-                    shell_command:
-                      'open "$(dirname $(dirname $(xcode-select -p)))"',
-                  },
-                ]
-              ),
-              generate_launcher_mode(
-                '3',
-                [],
-                [{ shell_command: "open -a 'Firefox.app'" }]
-              ),
-              generate_launcher_mode(
-                '5',
-                [],
-                [{ shell_command: "open -a 'Microsoft Word.app'" }]
-              ),
-              generate_launcher_mode(
-                '6',
-                [],
-                [{ shell_command: "open -a 'Microsoft Excel.app'" }]
-              ),
-              generate_launcher_mode(
-                'a',
-                [],
-                [{ shell_command: "open -a 'Activity Monitor.app'" }]
-              ),
-              generate_launcher_mode(
-                'c',
-                [],
-                [{ shell_command: "open -a 'Google Chrome.app'" }]
-              ),
-              generate_launcher_mode(
-                'e',
-                [],
-                [{ shell_command: "open -a 'Visual Studio Code.app'" }]
-              ),
-              generate_launcher_mode(
-                'f',
-                [],
-                [{ shell_command: "open -a 'Finder.app'" }]
-              ),
-              generate_launcher_mode(
-                'm',
-                [],
-                [{ shell_command: "open -a 'Thunderbird.app'" }]
-              ),
-              generate_launcher_mode(
-                'q',
-                [],
-                [{ shell_command: "open -a 'Dictionary.app'" }]
-              ),
-              generate_launcher_mode(
-                's',
-                [],
-                [{ shell_command: "open -a 'Safari.app'" }]
-              ),
-              generate_launcher_mode(
-                't',
-                [],
-                [{ shell_command: "open -a 'Terminal.app'" }]
-              ),
-              generate_launcher_mode(
-                'v',
-                [],
-                [{ shell_command: "open -a 'Slack.app'" }]
-              ),
+              generateLauncherMode('1', [
+                {
+                  shell_command:
+                    'open "$(dirname $(dirname $(xcode-select -p)))"',
+                },
+              ]),
+              generateLauncherMode('3', [
+                { shell_command: "open -a 'Firefox.app'" },
+              ]),
+              generateLauncherMode('5', [
+                { shell_command: "open -a 'Microsoft Word.app'" },
+              ]),
+              generateLauncherMode('6', [
+                { shell_command: "open -a 'Microsoft Excel.app'" },
+              ]),
+              generateLauncherMode('a', [
+                { shell_command: "open -a 'Activity Monitor.app'" },
+              ]),
+              generateLauncherMode('c', [
+                { shell_command: "open -a 'Google Chrome.app'" },
+              ]),
+              generateLauncherMode('e', [
+                { shell_command: "open -a 'Visual Studio Code.app'" },
+              ]),
+              generateLauncherMode('f', [
+                { shell_command: "open -a 'Finder.app'" },
+              ]),
+              generateLauncherMode('m', [
+                { shell_command: "open -a 'Thunderbird.app'" },
+              ]),
+              generateLauncherMode('q', [
+                { shell_command: "open -a 'Dictionary.app'" },
+              ]),
+              generateLauncherMode('s', [
+                { shell_command: "open -a 'Safari.app'" },
+              ]),
+              generateLauncherMode('t', [
+                { shell_command: "open -a 'Terminal.app'" },
+              ]),
+              generateLauncherMode('v', [
+                { shell_command: "open -a 'Slack.app'" },
+              ]),
 
-              generate_launcher_mode(
-                'left_control',
-                [],
-                [{ key_code: 'mission_control' }]
-              ),
-              generate_launcher_mode(
-                'left_shift',
-                [],
-                [{ apple_vendor_keyboard_key_code: 'launchpad' }]
-              )
+              generateLauncherMode('left_control', [
+                { key_code: 'mission_control' },
+              ]),
+              generateLauncherMode('left_shift', [
+                { apple_vendor_keyboard_key_code: 'launchpad' },
+              ])
             ),
           },
         ],
@@ -107,7 +75,7 @@ function main() {
   )
 }
 
-function generate_launcher_mode(from_key_code, mandatory_modifiers, to) {
+function generateLauncherMode(from_key_code, to) {
   return [
     {
       type: 'basic',
