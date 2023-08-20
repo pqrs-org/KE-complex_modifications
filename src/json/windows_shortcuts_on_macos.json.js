@@ -1,3 +1,5 @@
+// Javascript should be written in ECMAScript 5.1.
+
 const excludeBundleIdentifiersWindows = [
   '^com\\.microsoft\\.rdc$',
   '^com\\.microsoft\\.rdc\\.mac$',
@@ -25,8 +27,7 @@ const excludeBundleIdentifiersWindows = [
   '^tv\\.parsec\\.www$',
 ]
 
-const excludeBundleIdentifiersFull = [
-  ...excludeBundleIdentifiersWindows,
+const excludeBundleIdentifiersFull = excludeBundleIdentifiersWindows.concat([
   '^org\\.macports\\.X11$',
   '^com\\.apple\\.Terminal$',
   '^com\\.googlecode\\.iterm2$',
@@ -34,7 +35,7 @@ const excludeBundleIdentifiersFull = [
   '^co\\.zeit\\.hyper$',
   '^io\\.alacritty$',
   '^net\\.kovidgoyal\\.kitty$',
-]
+])
 
 console.log(
   JSON.stringify(
