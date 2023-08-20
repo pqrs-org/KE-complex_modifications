@@ -1,4 +1,4 @@
-// Javascript should be written in ECMAScript 5.1.
+// JavaScript should be written in ECMAScript 5.1.
 
 const excludeBundleIdentifiersWindows = [
   '^com\\.microsoft\\.rdc$',
