@@ -15,14 +15,14 @@ function main() {
             description: 'Simple Vi Mode v3 (rev 4)',
             available_since: '13.6.0',
             manipulators: [].concat(
-              generate_simple_vi_mode('j', 'down_arrow'),
-              generate_simple_vi_mode('k', 'up_arrow'),
-              generate_simple_vi_mode('h', 'left_arrow'),
-              generate_simple_vi_mode('l', 'right_arrow'),
-              generate_simple_vi_mode('f', 'fn'),
-              generate_simple_vi_mode('c', 'left_control'),
-              generate_simple_vi_mode('v', 'left_option'),
-              generate_simple_vi_mode('b', 'left_command')
+              generateSimpleVIMode('j', 'down_arrow'),
+              generateSimpleVIMode('k', 'up_arrow'),
+              generateSimpleVIMode('h', 'left_arrow'),
+              generateSimpleVIMode('l', 'right_arrow'),
+              generateSimpleVIMode('f', 'fn'),
+              generateSimpleVIMode('c', 'left_control'),
+              generateSimpleVIMode('v', 'left_option'),
+              generateSimpleVIMode('b', 'left_command')
             ),
           },
         ],
@@ -33,7 +33,7 @@ function main() {
   )
 }
 
-function generate_simple_vi_mode(from_key_code, to_key_code) {
+function generateSimpleVIMode(from_key_code, to_key_code) {
   return [
     {
       type: 'basic',
