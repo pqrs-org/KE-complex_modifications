@@ -1,5 +1,7 @@
 // JavaScript should be written in ECMAScript 5.1.
 
+const karabiner = require('../lib/karabiner')
+
 function main() {
   console.log(
     JSON.stringify(
@@ -23,9 +25,7 @@ function main() {
 function manipulators() {
   const result = []
 
-  const keys = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
-
-  keys.forEach(function (key) {
+  karabiner.numbers.forEach(function (key) {
     result.push({
       type: 'basic',
       from: {
@@ -43,7 +43,7 @@ function manipulators() {
     })
   })
 
-  keys.forEach(function (key) {
+  karabiner.numbers.forEach(function (key) {
     result.push({
       type: 'basic',
       from: {
