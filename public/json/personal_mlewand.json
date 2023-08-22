@@ -1,0 +1,773 @@
+{
+  "title": "Capslock as a modifier key - arrows emulation, media keys, basic os hotkeys (@mlewand)",
+  "maintainers": [
+    "mlewand"
+  ],
+  "rules": [
+    {
+      "description": "Capslock override & caps lock toggle replacement (caps+\\) (required by all other groups)",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "caps_lock pressed",
+                "value": 1
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "caps_lock pressed",
+                "value": 0
+              }
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "caps_lock pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "backslash",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "caps_lock"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Typing base (j k l i → arrow keys, h→enter, space→backspace, ;→delete, n→home, m→end, u→pgup, p→pgdn)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "caps_lock pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "caps_lock pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "down_arrow"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "caps_lock pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "caps_lock pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "caps_lock pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "return_or_enter"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "caps_lock pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_or_backspace"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "caps_lock pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "semicolon",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_forward"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "caps_lock pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "u",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "page_up"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "caps_lock pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "page_down"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "caps_lock pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "n",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "home"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "caps_lock pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "m",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "end"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Typing extras (caps+s→,, caps+d→., caps+w→(, caps+e→))",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "caps_lock pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "s",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "comma"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "caps_lock pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "d",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "period"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "caps_lock pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "w",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "9",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "caps_lock pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "e",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "0",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Media keys (caps+f1 → mute, caps+f2→rewind, caps+f3→next track)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "caps_lock pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "f1",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "mute"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "caps_lock pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "f2",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "rewind"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "caps_lock pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "f3",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "fastforward"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "os management (caps+t→focus dock, caps+b→focus icon tray, caps+r→focus app menu)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "caps_lock pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "t",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f3",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "caps_lock pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "b",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f8",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "caps_lock pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "r",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f2",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "caps_lock pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "f12",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f14",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Dock app keys (hardcoded for my dock order, sorry!)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "caps_lock pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "1",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a \"Firefox\""
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "caps_lock pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "2",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a \"Google Chrome\""
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "caps_lock pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "3",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a \"Slack\""
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "caps_lock pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "4",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a \"Visual Studio Code\""
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "caps_lock pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "5",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a \"Spotify\""
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "caps_lock pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "7",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a \"iTerm\""
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "caps_lock pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "8",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a \"Notion\""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
