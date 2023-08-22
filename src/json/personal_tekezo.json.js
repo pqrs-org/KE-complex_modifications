@@ -1,6 +1,6 @@
 // JavaScript should be written in ECMAScript 5.1.
 
-karabiner = require('../lib/karabiner')
+const karabiner = require('../lib/karabiner')
 
 function main() {
   console.log(
