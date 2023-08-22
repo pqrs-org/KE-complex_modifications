@@ -135,6 +135,7 @@ const sections = [
 			getDockApplicationManipulator( 2, 'Google Chrome' ),
 			getDockApplicationManipulator( 3, 'Slack' ),
 			getDockApplicationManipulator( 4, 'Visual Studio Code' ),
+			getDockApplicationManipulator( 7, 'iTerm' ),
 			getDockApplicationManipulator( 8, 'Notion' )
 		]
 	},
