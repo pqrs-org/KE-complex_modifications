@@ -2,16 +2,11 @@
 
 /*
 Next step:
-* add missing hotkeys
+* improve main title
+* check names
+* publish the preset
 
 */
-
-const exampleBasicManipulator = {
-	type: 'basic',
-	conditions: [ { "name": "caps_lock pressed", "type": "variable_if", "value": 1 } ],
-	from: 'j',
-	to: 'left_arrow'
-};
 
 function getBasicCapsManipulator( info ) {
 	return {
@@ -111,14 +106,29 @@ const sections = [
 		]
 	},
 	{
-		name: 'Typing base (arrows, enter, backspace)',
+		name: 'Typing base (arrows, enter, backspace, home, end, pgup, pgdn)',
 		manipulators: [
 			getBasicCapsManipulator( { from: 'j', to: 'left_arrow' } ),
 			getBasicCapsManipulator( { from: 'k', to: 'down_arrow' } ),
 			getBasicCapsManipulator( { from: 'l', to: 'right_arrow' } ),
 			getBasicCapsManipulator( { from: 'i', to: 'up_arrow' } ),
 			getBasicCapsManipulator( { from: 'h', to: 'return_or_enter' } ),
-			getBasicCapsManipulator( { from: 'spacebar', to: 'delete_or_backspace' } )
+			getBasicCapsManipulator( { from: 'spacebar', to: 'delete_or_backspace' } ),
+			getBasicCapsManipulator( { from: 'semicolon', to: 'delete_forward' } ),
+			getBasicCapsManipulator( { from: 'u', to: 'page_up' } ),
+			getBasicCapsManipulator( { from: 'o', to: 'page_down' } ),
+			getBasicCapsManipulator( { from: 'n', to: 'home' } ),
+			getBasicCapsManipulator( { from: 'm', to: 'end' } ),
+		]
+	},
+	{
+		name: 'Typing extras (caps+s→,, caps+d→., caps+w→(, caps+e→))',
+		manipulators: [
+			// getBasicCapsManipulator( { from: 'a', to: [ 'open_bracket', 'close_bracket' ] } ), // unsupported fromat yet
+			getBasicCapsManipulator( { from: 's', to: 'comma' } ),
+			getBasicCapsManipulator( { from: 'd', to: 'period' } ),
+			getBasicCapsManipulator( { from: 'w', to: { key: '9', modifiers: [ 'left_shift' ] } } ),
+			getBasicCapsManipulator( { from: 'e', to: { key: '0', modifiers: [ 'left_shift' ] } } )
 		]
 	},
 	{
@@ -152,15 +162,6 @@ const sections = [
 			getBasicCapsManipulator( { from: 'f12', to: { key: 'f14', modifiers: [ 'left_command' ] } } )
 		]
 	}
-	// * capslock override
-	//   * it could include caps + c for caps lock toggle
-	// * typing base
-	// * typing extra (parenthesis, dots)
-	// * dock app keys
-	// * media keys
-	// * os management (if I manage to get there)
-	//   * focus handling
-	//   * lock screen
 ];
 
 const json = {
