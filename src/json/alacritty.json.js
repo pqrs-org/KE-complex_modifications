@@ -1,5 +1,7 @@
 // JavaScript should be written in ECMAScript 5.1.
 
+const karabiner = require('../lib/karabiner')
+
 function main() {
   console.log(
     JSON.stringify(
@@ -15,30 +17,24 @@ function main() {
 
 function rules() {
   const modifiers = ['left_option', 'right_option']
-  const key_codes = [].concat(
-    ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'],
-    ['k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't'],
-    ['u', 'v', 'w', 'x', 'y', 'z'],
-    ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
-    [
-      'backslash',
-      'close_bracket',
-      'comma',
-      'down_arrow',
-      'equal_sign',
-      'grave_accent_and_tilde',
-      'hyphen',
-      'left_arrow',
-      'open_bracket',
-      'period',
-      'right_arrow',
-      'semicolon',
-      'slash',
-      'spacebar',
-      'tab',
-      'up_arrow',
-    ]
-  )
+  const key_codes = [].concat(karabiner.letters, karabiner.numbers, [
+    'backslash',
+    'close_bracket',
+    'comma',
+    'down_arrow',
+    'equal_sign',
+    'grave_accent_and_tilde',
+    'hyphen',
+    'left_arrow',
+    'open_bracket',
+    'period',
+    'right_arrow',
+    'semicolon',
+    'slash',
+    'spacebar',
+    'tab',
+    'up_arrow',
+  ])
 
   const result = []
   modifiers.forEach(function (modifier) {
