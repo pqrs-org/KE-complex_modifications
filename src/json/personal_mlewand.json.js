@@ -73,7 +73,7 @@ function getDockApplicationManipulator( number, applicationName ) {
 
 const sections = [
 	{
-		name: 'Capslock override & caps lock toggle replacement (caps+\\)',
+		name: 'Capslock override & caps lock toggle replacement (caps+\\) (required by all other groups)',
 		manipulators: [
 			{
 				"from": {
@@ -106,7 +106,7 @@ const sections = [
 		]
 	},
 	{
-		name: 'Typing base (arrows, enter, backspace, home, end, pgup, pgdn)',
+		name: 'Typing base (j k l i → arrow keys, h→enter, space→backspace, ;→delete, n→home, m→end, u→pgup, p→pgdn)',
 		manipulators: [
 			getBasicCapsManipulator( { from: 'j', to: 'left_arrow' } ),
 			getBasicCapsManipulator( { from: 'k', to: 'down_arrow' } ),
@@ -132,6 +132,23 @@ const sections = [
 		]
 	},
 	{
+		name: 'Media keys (caps+f1 → mute, caps+f2→rewind, caps+f3→next track)',
+		manipulators: [
+			getBasicCapsManipulator( { from: 'f1', to: 'mute' } ),
+			getBasicCapsManipulator( { from: 'f2', to: 'rewind' } ),
+			getBasicCapsManipulator( { from: 'f3', to: 'fastforward' } )
+		]
+	},
+	{
+		name: 'os management (caps+t→focus dock, caps+b→focus icon tray, caps+r→focus app menu)',
+		manipulators: [
+			getBasicCapsManipulator( { from: 't', to: { key: 'f3', modifiers: [ 'left_control' ] } } ),
+			getBasicCapsManipulator( { from: 'b', to: { key: 'f8', modifiers: [ 'left_control' ] } } ),
+			getBasicCapsManipulator( { from: 'r', to: { key: 'f2', modifiers: [ 'left_control' ] } } ),
+			getBasicCapsManipulator( { from: 'f12', to: { key: 'f14', modifiers: [ 'left_command' ] } } )
+		]
+	},
+	{
 		name: 'Dock app keys (hardcoded for my dock order, sorry!)',
 		manipulators: [
 			getDockApplicationManipulator( 1, 'Firefox' ),
@@ -142,31 +159,12 @@ const sections = [
 			getDockApplicationManipulator( 7, 'iTerm' ),
 			getDockApplicationManipulator( 8, 'Notion' )
 		]
-	},
-	{
-		name: 'Media keys: caps+f1 → mute, caps+f2→rewind, caps+f3→next track',
-		manipulators: [
-			getBasicCapsManipulator( { from: 'f1', to: 'mute' } ),
-			getBasicCapsManipulator( { from: 'f2', to: 'rewind' } ),
-			getBasicCapsManipulator( { from: 'f3', to: 'fastforward' } )
-		]
-	},
-	{
-		name: 'os management (caps+t→focus dock, caps+b→focus icon tray, caps+q→focus app menu)',
-		manipulators: [
-			getBasicCapsManipulator( { from: 't', to: { key: 'f3', modifiers: [ 'left_control' ] } } ),
-			getBasicCapsManipulator( { from: 'b', to: { key: 'f8', modifiers: [ 'left_control' ] } } ),
-			// For some reason ctrl+f2 doesn't work on my mac, all others are wokring, so I remapped it to f5 as a workaround :/
-			// getBasicCapsManipulator( { from: 'q', to: { key: 'f2', modifiers: [ 'left_control' ] } } ),
-			getBasicCapsManipulator( { from: 'q', to: { key: 'f5', modifiers: [ 'left_control' ] } } ),
-			getBasicCapsManipulator( { from: 'f12', to: { key: 'f14', modifiers: [ 'left_command' ] } } )
-		]
 	}
 ];
 
 const json = {
 	title:
-		'personal rules for @mlewand - override caps lock to work as a modifier key to replicate keys like arrows, home/end/page up/page down, some media keys etc.',
+		'Capslock as a modifier key - arrows emulation, media keys, basic os hotkeys (@mlewand)',
 	maintainers: [ 'mlewand' ],
 	rules: sections.map( function( sectionItem ) {
 		return {
