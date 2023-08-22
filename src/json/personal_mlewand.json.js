@@ -49,12 +49,28 @@ function getBasicCapsManipulator( info ) {
 				]
 			}
 		},
-		to: [
-			{
-				"key_code": info.to
-			}
-		]
+		to: getToKeys()
 	};
+
+	function getToKeys() {
+		const configKey = info.to;
+		if ( typeof configKey == 'string' ) {
+			return [
+				{
+					"key_code": configKey
+				}
+			];
+		} else if ( typeof configKey == 'object' && configKey.key ) {
+			return [
+				{
+					"key_code": configKey.key,
+					modifiers: configKey.modifiers || []
+				}
+			];
+		} else {
+			throw 'To key should be a string or a specific interfaced object, ' + JSON.stringify( info.to ) + ' given instead.';
+		}
+	}
 }
 
 function getDockApplicationManipulator( number, applicationName ) {
@@ -114,7 +130,8 @@ const sections = [
 					}
 				],
 				"type": "basic"
-			}
+			},
+			getBasicCapsManipulator( { from: 'backslash', to: 'caps_lock' } )
 		]
 	},
 	{
@@ -135,6 +152,7 @@ const sections = [
 			getDockApplicationManipulator( 2, 'Google Chrome' ),
 			getDockApplicationManipulator( 3, 'Slack' ),
 			getDockApplicationManipulator( 4, 'Visual Studio Code' ),
+			getDockApplicationManipulator( 5, 'Spotify' ),
 			getDockApplicationManipulator( 7, 'iTerm' ),
 			getDockApplicationManipulator( 8, 'Notion' )
 		]
@@ -146,7 +164,28 @@ const sections = [
 			getBasicCapsManipulator( { from: 'f2', to: 'rewind' } ),
 			getBasicCapsManipulator( { from: 'f3', to: 'fastforward' } )
 		]
+	},
+	{
+		name: 'os management (⌘+t -> focus dock, ⌘+b -> focus icon tray, ⌘+q -> focus app menu)',
+		manipulators: [
+			// ctrl + f3
+			getBasicCapsManipulator( { from: 't', to: { key: 'f3', modifiers: [ 'left_control' ] } } ),
+			getBasicCapsManipulator( { from: 'b', to: { key: 'f8', modifiers: [ 'left_control' ] } } ),
+			// For some reason ctrl+f2 doesn't work on my mac, all others are wokring, so I remapped it to f5 as a workaround :/
+			// getBasicCapsManipulator( { from: 'q', to: { key: 'f2', modifiers: [ 'left_control' ] } } ),
+			getBasicCapsManipulator( { from: 'q', to: { key: 'f5', modifiers: [ 'left_control' ] } } ),
+			getBasicCapsManipulator( { from: 'f12', to: { key: 'f14', modifiers: [ 'left_command' ] } } )
+		]
 	}
+	// * capslock override
+	//   * it could include caps + c for caps lock toggle
+	// * typing base
+	// * typing extra (parenthesis, dots)
+	// * dock app keys
+	// * media keys
+	// * os management (if I manage to get there)
+	//   * focus handling
+	//   * lock screen
 ];
 
 const json = {
