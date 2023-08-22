@@ -1,13 +1,5 @@
 // JavaScript should be written in ECMAScript 5.1.
 
-/*
-Next step:
-* improve main title
-* check names
-* publish the preset
-
-*/
-
 function getBasicCapsManipulator( info ) {
 	return {
 		type: info.type || 'basic',
