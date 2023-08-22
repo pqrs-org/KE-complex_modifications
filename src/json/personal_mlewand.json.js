@@ -1,33 +1,9 @@
 // JavaScript should be written in ECMAScript 5.1.
 
-// Hemingway bridge:
-// I need to start off by figuring out easiest (least verbose) way to express/list my capslock keys.
-// I should be able to do this easier than it is done in this file, especially that it mostly works on shell commands.
-
 /*
+Next step:
+* add missing hotkeys
 
-I could divide it to blocks:
-* capslock override
-  * it could include caps + c for caps lock toggle
-* typing base
-* typing extra (parenthesis, dots)
-* dock app keys
-* media keys
-* os management (if I manage to get there)
-  * focus handling
-  * lock screen
-*/
-
-/*
-
-Single manipulator (caps-based):
-{
-	type = 'basic',
-	conditions = [ { "name": "caps_lock pressed", "type": "variable_if", "value": 1 } ]
-	from (string): j   // or obj { key: 'j', modifiers: unefined = any || [ string ] = required }
-	to (string): j   // or obj { key: 'j', modifiers: unefined = any || [ string ] = required }
-
-}
 */
 
 const exampleBasicManipulator = {
@@ -102,7 +78,7 @@ function getDockApplicationManipulator( number, applicationName ) {
 
 const sections = [
 	{
-		name: 'Capslock override',
+		name: 'Capslock override & caps lock toggle replacement (caps+\\)',
 		manipulators: [
 			{
 				"from": {
@@ -158,7 +134,7 @@ const sections = [
 		]
 	},
 	{
-		name: 'Media keys',
+		name: 'Media keys: caps+f1 → mute, caps+f2→rewind, caps+f3→next track',
 		manipulators: [
 			getBasicCapsManipulator( { from: 'f1', to: 'mute' } ),
 			getBasicCapsManipulator( { from: 'f2', to: 'rewind' } ),
@@ -166,9 +142,8 @@ const sections = [
 		]
 	},
 	{
-		name: 'os management (⌘+t -> focus dock, ⌘+b -> focus icon tray, ⌘+q -> focus app menu)',
+		name: 'os management (caps+t→focus dock, caps+b→focus icon tray, caps+q→focus app menu)',
 		manipulators: [
-			// ctrl + f3
 			getBasicCapsManipulator( { from: 't', to: { key: 'f3', modifiers: [ 'left_control' ] } } ),
 			getBasicCapsManipulator( { from: 'b', to: { key: 'f8', modifiers: [ 'left_control' ] } } ),
 			// For some reason ctrl+f2 doesn't work on my mac, all others are wokring, so I remapped it to f5 as a workaround :/
