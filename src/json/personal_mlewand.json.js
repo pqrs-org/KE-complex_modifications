@@ -59,7 +59,7 @@ function getBasicCapsManipulator( info ) {
 
 function getDockApplicationManipulator( number, applicationName ) {
 	const normalizedValue = parseInt( number, 10 );
-	const applicationNameSanitized = applicationName.replace( / /, '\\ ' ).replace( /\"/, '' );
+	const applicationNameSanitized = applicationName.replace( /\"/g, '' );
 
 	if ( normalizedValue < 1 || normalizedValue > 9 ) {
 		throw 'Number passed to the getDockApplicationManipulator() function should be a number greater than 0 and less than 10';
@@ -87,6 +87,35 @@ function getDockApplicationManipulator( number, applicationName ) {
 const sections = [
 	{
 		name: 'Capslock override',
+		manipulators: [
+			{
+				"from": {
+					"key_code": "caps_lock",
+					"modifiers": {
+						"optional": [
+							"any"
+						]
+					}
+				},
+				"to": [
+					{
+						"set_variable": {
+							"name": "caps_lock pressed",
+							"value": 1
+						}
+					}
+				],
+				"to_after_key_up": [
+					{
+						"set_variable": {
+							"name": "caps_lock pressed",
+							"value": 0
+						}
+					}
+				],
+				"type": "basic"
+			}
+		]
 	},
 	{
 		name: 'Typing base (arrows, enter, backspace)',
@@ -96,22 +125,26 @@ const sections = [
 			getBasicCapsManipulator( { from: 'l', to: 'right_arrow' } ),
 			getBasicCapsManipulator( { from: 'i', to: 'up_arrow' } ),
 			getBasicCapsManipulator( { from: 'h', to: 'return_or_enter' } ),
-			getBasicCapsManipulator( { from: 'space_bar', to: 'delete_or_backspace' } ),
-
+			getBasicCapsManipulator( { from: 'spacebar', to: 'delete_or_backspace' } )
 		]
 	},
 	{
 		name: 'Dock app keys (hardcoded for my dock order, sorry!)',
 		manipulators: [
-			getDockApplicationManipulator( 1, 'Firefox'),
-			getDockApplicationManipulator( 2, 'Google Chrome'),
-			getDockApplicationManipulator( 3, 'Slack'),
-			getDockApplicationManipulator( 4, 'Visual Studio Code'),
-			getDockApplicationManipulator( 8, 'Notion')
+			getDockApplicationManipulator( 1, 'Firefox' ),
+			getDockApplicationManipulator( 2, 'Google Chrome' ),
+			getDockApplicationManipulator( 3, 'Slack' ),
+			getDockApplicationManipulator( 4, 'Visual Studio Code' ),
+			getDockApplicationManipulator( 8, 'Notion' )
 		]
 	},
 	{
-		name: 'Media keys'
+		name: 'Media keys',
+		manipulators: [
+			getBasicCapsManipulator( { from: 'f1', to: 'mute' } ),
+			getBasicCapsManipulator( { from: 'f2', to: 'rewind' } ),
+			getBasicCapsManipulator( { from: 'f3', to: 'fastforward' } )
+		]
 	}
 ];
 
@@ -127,5 +160,4 @@ const json = {
 	} )
 }
 
-console.log( JSON.stringify( json, null, '  ' ) )
-,
+console.log( JSON.stringify( json, null, '  ' ) );
