@@ -5,28 +5,7 @@ function main() {
     JSON.stringify(
       {
         title: 'Map Left Option + Spacebar to Enter',
-        rules: [
-          {
-            description: 'Map Left Option + Spacebar to Enter',
-            manipulators: [
-              {
-                type: 'basic',
-                from: {
-                  modifiers: {
-                    mandatory: ['left_alt'],
-                  },
-                  key_code: 'spacebar',
-                },
-                to: [
-                  {
-                    repeat: true,
-                    key_code: 'return_or_enter',
-                  },
-                ],
-              },
-            ],
-          },
-        ],
+        rules: rules(),
       },
       null,
       '  '
@@ -34,6 +13,33 @@ function main() {
   )
 }
 
-if (__filename.endsWith('map_left_option_plus_spacebar_to_enter.json.js')) {
+function rules() {
+  return [
+    {
+      description: 'Map Left Option + Spacebar to Enter',
+      manipulators: [
+        {
+          type: 'basic',
+          from: {
+            modifiers: {
+              mandatory: ['left_alt'],
+            },
+            key_code: 'spacebar',
+          },
+          to: [
+            {
+              repeat: true,
+              key_code: 'return_or_enter',
+            },
+          ],
+        },
+      ],
+    },
+  ]
+}
+
+if (__main.endsWith('/map_left_option_plus_spacebar_to_enter.json.js')) {
   main()
+} else {
+  exports.rules = rules()
 }
