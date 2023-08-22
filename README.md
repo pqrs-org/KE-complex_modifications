@@ -32,7 +32,7 @@ Follow the steps below to create a PR and add your settings!
     git switch -c my-settings
     ```
 
-4.  Put a JSON generator file (`.rb`, `.erb` or `.js`) into [src/json](https://github.com/pqrs-org/KE-complex_modifications/tree/main/src/json).
+4.  Put a JSON generator file (`.js`, `.rb` or `.erb`) into [src/json](https://github.com/pqrs-org/KE-complex_modifications/tree/main/src/json).
     (Or put a `.json` file directly into [public/json](https://github.com/pqrs-org/KE-complex_modifications/tree/main/public/json) directly.)
 5.  <details>
     <summary>
