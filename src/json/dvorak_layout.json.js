@@ -4,10 +4,10 @@ function main() {
   console.log(
     JSON.stringify(
       {
-        title: 'Colemak Keyboard',
+        title: 'Dvorak Keyboard',
         rules: [
           {
-            description: 'Remap keys to use Colemak keyboard layout',
+            description: 'Remap keys to use Dvorak keyboard layout',
             manipulators: manipulators(),
           },
         ],
@@ -23,10 +23,10 @@ function manipulators() {
     'caps_lock',
     'left_command',
     'left_control',
-    'left_alt',
+    'left_option',
     'right_command',
     'right_control',
-    'right_alt',
+    'right_option',
   ]
 
   const remapFromKeys = [].concat(
@@ -34,19 +34,18 @@ function manipulators() {
     ['7', '8', '9', '0', 'hyphen', 'equal_sign'],
     ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
     ['open_bracket', 'close_bracket', 'backslash'],
-    ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
-    ['semicolon', 'quote'],
-    ['z', 'x', 'c', 'v', 'b', 'n', 'm'],
-    ['comma', 'period', 'slash']
+    ['a', 's', 'd', 'f', 'g', 'h'],
+    ['j', 'k', 'l', 'semicolon', 'quote'],
+    ['z', 'x', 'c', 'v', 'b', 'n', 'm', 'comma', 'period', 'slash']
   )
 
   const remapToKeys = [].concat(
     ['grave_accent_and_tilde', '1', '2', '4', '5', '6'],
-    ['7', '8', '9', '0', 'hyphen', 'equal_sign'],
-    ['q', 'w', 'f', 'p', 'g', 'j', 'l', 'u', 'y'],
-    ['semicolon', 'open_bracket', 'close_bracket', 'backslash'],
-    ['a', 'r', 's', 't', 'd', 'h', 'n', 'e', 'i', 'o', 'quote'],
-    ['z', 'x', 'c', 'v', 'b', 'k', 'm', 'comma', 'period', 'slash']
+    ['7', '8', '9', '0', 'open_bracket', 'close_bracket'],
+    ['quote', 'comma', 'period', 'p', 'y', 'f', 'g'],
+    ['c', 'r', 'l', 'slash', 'equal_sign', 'backslash'],
+    ['a', 'o', 'e', 'u', 'i', 'd', 'h', 't', 'n', 's', 'hyphen'],
+    ['semicolon', 'q', 'j', 'k', 'x', 'b', 'm', 'w', 'v', 'z']
   )
 
   return [].concat(
@@ -74,10 +73,6 @@ function manipulators() {
       },
       toKeys: remapToKeys,
       toModifiers: ['right_shift'],
-    }),
-    eachKey({
-      fromKeys: ['caps_lock'],
-      toKeys: ['delete_or_backspace'],
     })
   )
 }

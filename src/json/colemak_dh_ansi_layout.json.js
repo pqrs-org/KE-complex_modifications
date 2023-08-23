@@ -92,6 +92,7 @@ function manipulators(toKeys) {
     'right_control',
     'right_alt',
   ]
+
   const remapFromKeys = [].concat(
     ['grave_accent_and_tilde', '1', '2', '4', '5'],
     ['6', '7', '8', '9', '0', 'hyphen', 'equal_sign'],
