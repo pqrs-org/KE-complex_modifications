@@ -1,5 +1,23 @@
 // JavaScript should be written in ECMAScript 5.1.
 
+function main() {
+  console.log(
+    JSON.stringify(
+      {
+        title: 'Shift key training wheels',
+        rules: [
+          {
+            description: 'Disable incorrect shift + letter combos',
+            manipulators: generate_commands(),
+          },
+        ],
+      },
+      null,
+      '  '
+    )
+  )
+}
+
 const generate_disable_left_shift_json = function (letter) {
   return {
     type: 'basic',
@@ -47,18 +65,4 @@ const generate_commands = function () {
   return result
 }
 
-console.log(
-  JSON.stringify(
-    {
-      title: 'Shift key training wheels',
-      rules: [
-        {
-          description: 'Disable incorrect shift + letter combos',
-          manipulators: generate_commands(),
-        },
-      ],
-    },
-    null,
-    '  '
-  )
-)
+main()
