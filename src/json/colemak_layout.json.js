@@ -72,7 +72,6 @@ function manipulators() {
         mandatory: ['right_shift'],
         optional: optionalModifiers,
       },
-
       toKeys: remapToKeys,
       toModifiers: ['right_shift'],
     }),
