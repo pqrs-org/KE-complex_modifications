@@ -82,7 +82,7 @@ function main() {
   )
 }
 
-function manipulators(destKeys) {
+function manipulators(toKeys) {
   const optionalModifiers = [
     'caps_lock',
     'left_command',
@@ -92,7 +92,7 @@ function manipulators(destKeys) {
     'right_control',
     'right_alt',
   ]
-  const remapSourceKeys = [].concat(
+  const remapFromKeys = [].concat(
     ['grave_accent_and_tilde', '1', '2', '4', '5'],
     ['6', '7', '8', '9', '0', 'hyphen', 'equal_sign'],
     ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
@@ -103,28 +103,28 @@ function manipulators(destKeys) {
 
   return [].concat(
     eachKey({
-      fromKeys: remapSourceKeys,
+      fromKeys: remapFromKeys,
       fromModifiers: {
         optional: optionalModifiers,
       },
-      toKeys: destKeys,
+      toKeys: toKeys,
     }),
     eachKey({
-      fromKeys: remapSourceKeys,
+      fromKeys: remapFromKeys,
       fromModifiers: {
         mandatory: ['left_shift'],
         optional: optionalModifiers,
       },
-      toKeys: destKeys,
+      toKeys: toKeys,
       toModifiers: ['left_shift'],
     }),
     eachKey({
-      fromKeys: remapSourceKeys,
+      fromKeys: remapFromKeys,
       fromModifiers: {
         mandatory: ['right_shift'],
         optional: optionalModifiers,
       },
-      toKeys: destKeys,
+      toKeys: toKeys,
       toModifiers: ['right_shift'],
     })
   )
