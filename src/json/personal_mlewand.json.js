@@ -1,4 +1,5 @@
 // JavaScript should be written in ECMAScript 5.1.
+// Handful link for key codes: https://github.com/JoshuaManuel/Karabiner-Elements-Key-List
 
 function getBasicCapsManipulator( info ) {
 	return {
@@ -132,12 +133,13 @@ const sections = [
 		]
 	},
 	{
-		name: 'os management (caps+t→focus dock, caps+b→focus icon tray, caps+r→focus app menu)',
+		name: 'os management (caps+t→focus dock, caps+b→focus icon tray, caps+~→pnt screen, caps+r→focus app menu)',
 		manipulators: [
 			getBasicCapsManipulator( { from: 't', to: { key: 'f3', modifiers: [ 'left_control' ] } } ),
 			getBasicCapsManipulator( { from: 'b', to: { key: 'f8', modifiers: [ 'left_control' ] } } ),
 			getBasicCapsManipulator( { from: 'r', to: { key: 'f2', modifiers: [ 'left_control' ] } } ),
-			getBasicCapsManipulator( { from: 'f12', to: { key: 'f14', modifiers: [ 'left_command' ] } } )
+			getBasicCapsManipulator( { from: 'grave_accent_and_tilde', to: 'print_screen' } ),
+			getBasicCapsManipulator( { from: 'f12', to: { key: 'f14', modifiers: [ 'left_command' ] } } ) // sign out
 		]
 	},
 	{
