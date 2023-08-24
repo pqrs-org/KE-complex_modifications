@@ -42,8 +42,7 @@ function main() {
             ],
           },
           {
-            description:
-              'Disable escape; Change shift + escape to escape (For avoiding mistyping on the Touch Bar)',
+            description: 'Disable escape; Change shift + escape to escape (For avoiding mistyping on the Touch Bar)',
             manipulators: [
               {
                 type: 'basic',

@@ -7,8 +7,7 @@ function main() {
         title: 'Change shift key (rev 2)',
         rules: [
           {
-            description:
-              'Change left_shift to caps_lock if pressed alone (rev 2)',
+            description: 'Change left_shift to caps_lock if pressed alone (rev 2)',
             manipulators: [
               {
                 type: 'basic',
@@ -17,9 +16,7 @@ function main() {
                   modifiers: { optional: ['any'] },
                 },
                 to: [{ key_code: 'left_shift' }],
-                to_if_alone: [
-                  { key_code: 'caps_lock', hold_down_milliseconds: 500 },
-                ],
+                to_if_alone: [{ key_code: 'caps_lock', hold_down_milliseconds: 500 }],
               },
             ],
           },
@@ -33,15 +30,12 @@ function main() {
                   modifiers: { optional: ['any'] },
                 },
                 to: [{ key_code: 'right_shift' }],
-                to_if_alone: [
-                  { key_code: 'caps_lock', hold_down_milliseconds: 500 },
-                ],
+                to_if_alone: [{ key_code: 'caps_lock', hold_down_milliseconds: 500 }],
               },
             ],
           },
           {
-            description:
-              'Toggle caps_lock by pressing left_shift + right_shift at the same time',
+            description: 'Toggle caps_lock by pressing left_shift + right_shift at the same time',
             manipulators: [
               {
                 type: 'basic',

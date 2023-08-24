@@ -4,12 +4,10 @@ function main() {
   console.log(
     JSON.stringify(
       {
-        title:
-          'Exchange control + deletes with option + deletes (forward and backward)',
+        title: 'Exchange control + deletes with option + deletes (forward and backward)',
         rules: [
           {
-            description:
-              'Exchange control + backward delete with option + backward delete',
+            description: 'Exchange control + backward delete with option + backward delete',
             manipulators: [
               {
                 type: 'basic',
@@ -17,15 +15,12 @@ function main() {
                   key_code: 'delete_or_backspace',
                   modifiers: { mandatory: ['control'], optional: ['any'] },
                 },
-                to: [
-                  { key_code: 'delete_or_backspace', modifiers: ['option'] },
-                ],
+                to: [{ key_code: 'delete_or_backspace', modifiers: ['option'] }],
               },
             ],
           },
           {
-            description:
-              'Exchange control + forward delete with option + forward delete',
+            description: 'Exchange control + forward delete with option + forward delete',
             manipulators: [
               {
                 type: 'basic',

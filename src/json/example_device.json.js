@@ -30,8 +30,7 @@ function main() {
             ],
           },
           {
-            description:
-              'Open Karabiner-EventViewer by f6 in HHKB BT JP keyboards',
+            description: 'Open Karabiner-EventViewer by f6 in HHKB BT JP keyboards',
             manipulators: [
               {
                 conditions: [

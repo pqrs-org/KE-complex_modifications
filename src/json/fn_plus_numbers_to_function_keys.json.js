@@ -14,20 +14,13 @@ function main() {
 }
 
 function rules() {
-  const remapFromKeys = [].concat(
-    ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'],
-    ['hyphen', 'equal_sign']
-  )
+  const remapFromKeys = [].concat(['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'], ['hyphen', 'equal_sign'])
 
-  const remapToKeys = [].concat(
-    ['f1', 'f2', 'f3', 'f4', 'f5', 'f6'],
-    ['f7', 'f8', 'f9', 'f10', 'f11', 'f12']
-  )
+  const remapToKeys = [].concat(['f1', 'f2', 'f3', 'f4', 'f5', 'f6'], ['f7', 'f8', 'f9', 'f10', 'f11', 'f12'])
 
   return [
     {
-      description:
-        'Map fn + number keys to their corresponding function keys (rev 1)',
+      description: 'Map fn + number keys to their corresponding function keys (rev 1)',
       manipulators: eachKey({
         fromKeys: remapFromKeys,
         fromModifiers: {
@@ -39,8 +32,7 @@ function rules() {
       }),
     },
     {
-      description:
-        'Map fn + number keys to their corresponding media control keys (rev 2)',
+      description: 'Map fn + number keys to their corresponding media control keys (rev 2)',
       manipulators: eachKey({
         fromKeys: remapFromKeys,
         fromModifiers: {

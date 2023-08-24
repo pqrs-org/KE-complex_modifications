@@ -7,8 +7,7 @@ function main() {
         title: 'Command_L + backslash to slash',
         rules: [
           {
-            description:
-              'Command_L + backslash to slash and Command_L + backslash + left_shift to ? due to dead button',
+            description: 'Command_L + backslash to slash and Command_L + backslash + left_shift to ? due to dead button',
             manipulators: [
               {
                 type: 'basic',

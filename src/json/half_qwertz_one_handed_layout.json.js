@@ -7,8 +7,7 @@ function main() {
         title: 'Half-QWERTZ (German one-handed layout)',
         rules: [
           {
-            description:
-              'Half-QWERTZ (German one-handed layout). Hold space to mirror the layout. The + and # keys are not mapped.',
+            description: 'Half-QWERTZ (German one-handed layout). Hold space to mirror the layout. The + and # keys are not mapped.',
             manipulators: [
               {
                 from: {

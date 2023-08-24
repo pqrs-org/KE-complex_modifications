@@ -7,21 +7,14 @@ function main() {
         title: 'Happy Hacking Keyboard Compatible Mode (rev 2)',
         rules: [
           {
-            description:
-              'HHKB Arrow Mode (fn + semicolon/slash/open_bracket/quote to arrow keys, etc)',
+            description: 'HHKB Arrow Mode (fn + semicolon/slash/open_bracket/quote to arrow keys, etc)',
             manipulators: [].concat(
               // change fn + semicolon/slash/open_bracket/quote to arrow keys
               eachKey({
                 fromKeys: ['semicolon', 'slash', 'open_bracket', 'quote'],
                 fromModifiers: {
                   mandatory: ['fn'],
-                  optional: [
-                    'caps_lock',
-                    'option',
-                    'command',
-                    'shift',
-                    'control',
-                  ],
+                  optional: ['caps_lock', 'option', 'command', 'shift', 'control'],
                 },
                 toKeys: ['left_arrow', 'down_arrow', 'up_arrow', 'right_arrow'],
               }),
@@ -46,8 +39,7 @@ function main() {
             ),
           },
           {
-            description:
-              'HHKB Media Key Mode (fn + asdf to Volume down/up/mute, eject) (rev 2)',
+            description: 'HHKB Media Key Mode (fn + asdf to Volume down/up/mute, eject) (rev 2)',
             manipulators: [
               {
                 type: 'basic',

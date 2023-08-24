@@ -10,8 +10,7 @@ function main() {
         maintainers: ['jjo'],
         rules: [
           {
-            description:
-              'Map Control_Shift + C/V to copy/paste in term (ala Linux)',
+            description: 'Map Control_Shift + C/V to copy/paste in term (ala Linux)',
             manipulators: [
               {
                 type: 'basic',

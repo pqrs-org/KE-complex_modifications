@@ -7,8 +7,7 @@ function main() {
         title: 'EmsSpree’s personal rules',
         rules: [
           {
-            description:
-              'Launchpad: Post F13 if LSHIFT﹢MB32 is pressed (set CAPSLOCK to MB32 first)',
+            description: 'Launchpad: Post F13 if LSHIFT﹢MB32 is pressed (set CAPSLOCK to MB32 first)',
             manipulators: [
               {
                 type: 'basic',
@@ -21,8 +20,7 @@ function main() {
             ],
           },
           {
-            description:
-              'Show Desktop: Post MB30 if LCTRL+LSHIFT﹢MB32 is pressed (set CAPSLOCK to MB32 first)',
+            description: 'Show Desktop: Post MB30 if LCTRL+LSHIFT﹢MB32 is pressed (set CAPSLOCK to MB32 first)',
             manipulators: [
               {
                 type: 'basic',

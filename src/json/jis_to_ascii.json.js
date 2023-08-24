@@ -7,8 +7,7 @@ function main() {
         title: 'For Japanese （JIS配列をASCII配列風にする設定）',
         rules: [
           {
-            description:
-              '英数・かなキーを他のキーと組み合わせて押したときに、コマンドキーを送信する。',
+            description: '英数・かなキーを他のキーと組み合わせて押したときに、コマンドキーを送信する。',
             manipulators: [
               {
                 type: 'basic',

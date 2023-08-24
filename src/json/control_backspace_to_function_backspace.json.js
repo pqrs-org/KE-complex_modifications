@@ -4,8 +4,7 @@ function main() {
   console.log(
     JSON.stringify(
       {
-        title:
-          'Map Ctrl+Backspace-Delete to Fn+Backward-Delete (suppr current character)',
+        title: 'Map Ctrl+Backspace-Delete to Fn+Backward-Delete (suppr current character)',
         rules: rules(),
       },
       null,
@@ -17,8 +16,7 @@ function main() {
 function rules() {
   return [
     {
-      description:
-        'Map Ctrl+Backspace-Delete to Fn+Backward-Delete (suppr current character)',
+      description: 'Map Ctrl+Backspace-Delete to Fn+Backward-Delete (suppr current character)',
       manipulators: [
         {
           from: {

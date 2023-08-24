@@ -7,8 +7,7 @@ function main() {
         title: 'Change Command_L (Left Command) and Caps_Lock Key ',
         rules: [
           {
-            description:
-              'Change Command_L + Caps_Lock to escape only if pressed at the same time.',
+            description: 'Change Command_L + Caps_Lock to escape only if pressed at the same time.',
             manipulators: [
               {
                 type: 'basic',

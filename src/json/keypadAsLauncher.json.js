@@ -60,8 +60,8 @@ function main() {
         ],
       },
       null,
-      '  ',
-    ),
+      '  '
+    )
   )
 }
 

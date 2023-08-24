@@ -8,8 +8,7 @@ function main() {
         maintainers: ['Lance1o7'],
         rules: [
           {
-            description:
-              'CAPSLOCK + hjkl to arrow keys (Post ESCAPE if press CAPSLOCK alone)',
+            description: 'CAPSLOCK + hjkl to arrow keys (Post ESCAPE if press CAPSLOCK alone)',
             manipulators: [
               {
                 conditions: [
@@ -163,8 +162,7 @@ function main() {
             ],
           },
           {
-            description:
-              'Change left_shift + Command_L to escape only if pressed at the same time.',
+            description: 'Change left_shift + Command_L to escape only if pressed at the same time.',
             manipulators: [
               {
                 from: {
@@ -189,8 +187,7 @@ function main() {
             ],
           },
           {
-            description:
-              'Post COMMAND + A/C/V/X/Z to, when CAPSLOCK + A/C/V/X/Z is pressed',
+            description: 'Post COMMAND + A/C/V/X/Z to, when CAPSLOCK + A/C/V/X/Z is pressed',
             manipulators: [
               {
                 conditions: [

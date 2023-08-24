@@ -4,8 +4,7 @@ function main() {
   console.log(
     JSON.stringify(
       {
-        title:
-          'Richi - Select and Navigate Word PC Style (you must use swap COMMAND and CTRL in other case)',
+        title: 'Richi - Select and Navigate Word PC Style (you must use swap COMMAND and CTRL in other case)',
         rules: [
           {
             description: 'richi - command+shift+right To options+shift+right ',

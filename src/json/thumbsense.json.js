@@ -67,9 +67,7 @@ function manipulators() {
         key_code: 'close_bracket',
         modifiers: ['left_command'],
       },
-      conditions: [
-        { type: 'keyboard_type_if', keyboard_types: ['ansi', 'iso'] },
-      ],
+      conditions: [{ type: 'keyboard_type_if', keyboard_types: ['ansi', 'iso'] }],
     },
     {
       from: { key_code: 'g' },
@@ -90,9 +88,7 @@ function manipulators() {
         key_code: 'open_bracket',
         modifiers: ['left_command'],
       },
-      conditions: [
-        { type: 'keyboard_type_if', keyboard_types: ['ansi', 'iso'] },
-      ],
+      conditions: [{ type: 'keyboard_type_if', keyboard_types: ['ansi', 'iso'] }],
     },
     {
       from: { key_code: 'h' },

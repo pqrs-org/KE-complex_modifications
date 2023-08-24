@@ -7,8 +7,7 @@ function main() {
         title: 'Command_L|Command_R + Return to Backslash',
         rules: [
           {
-            description:
-              'Command_[L|R] (⌘) + Return (⏎) to Backslash and Command_[L|R] (⌘) + Shift (⇧) + Return (⏎) to Pipe (|)',
+            description: 'Command_[L|R] (⌘) + Return (⏎) to Backslash and Command_[L|R] (⌘) + Shift (⇧) + Return (⏎) to Pipe (|)',
             manipulators: [
               {
                 type: 'basic',

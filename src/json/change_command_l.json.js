@@ -7,8 +7,7 @@ function main() {
         title: 'Change Command_L Key (Left Command)',
         rules: [
           {
-            description:
-              'Change Command_R + Command_L to escape only if pressed at the same time.',
+            description: 'Change Command_R + Command_L to escape only if pressed at the same time.',
             manipulators: [
               {
                 type: 'basic',

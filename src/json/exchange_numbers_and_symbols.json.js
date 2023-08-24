@@ -10,8 +10,7 @@ function main() {
         maintainers: ['tekezo'],
         rules: [
           {
-            description:
-              'Exchange numbers and symbols (1234567890 and !@#$%^&*())',
+            description: 'Exchange numbers and symbols (1234567890 and !@#$%^&*())',
             manipulators: manipulators(),
           },
         ],

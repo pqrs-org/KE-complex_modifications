@@ -4,8 +4,7 @@ function main() {
   console.log(
     JSON.stringify(
       {
-        title:
-          'Change Keychron K2 keyboard layout to more closely resemble an Apple keyboard',
+        title: 'Change Keychron K2 keyboard layout to more closely resemble an Apple keyboard',
         rules: [
           {
             description: 'Post right_option if right_control is pressed alone.',

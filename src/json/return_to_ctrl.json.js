@@ -7,8 +7,7 @@ function main() {
         title: 'Change return to control',
         rules: [
           {
-            description:
-              'Change return to control if pressed with other keys, to return if pressed alone',
+            description: 'Change return to control if pressed with other keys, to return if pressed alone',
             manipulators: [
               {
                 from: {

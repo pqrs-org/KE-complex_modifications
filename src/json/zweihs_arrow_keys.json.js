@@ -15,14 +15,7 @@ function main() {
                   key_code: 'i',
                   modifiers: {
                     mandatory: ['fn'],
-                    optional: [
-                      'left_shift',
-                      'right_shift',
-                      'left_gui',
-                      'right_gui',
-                      'left_alt',
-                      'right_alt',
-                    ],
+                    optional: ['left_shift', 'right_shift', 'left_gui', 'right_gui', 'left_alt', 'right_alt'],
                   },
                 },
                 to: [
@@ -37,14 +30,7 @@ function main() {
                   key_code: 'j',
                   modifiers: {
                     mandatory: ['fn'],
-                    optional: [
-                      'left_shift',
-                      'right_shift',
-                      'left_gui',
-                      'right_gui',
-                      'left_alt',
-                      'right_alt',
-                    ],
+                    optional: ['left_shift', 'right_shift', 'left_gui', 'right_gui', 'left_alt', 'right_alt'],
                   },
                 },
                 to: [
@@ -59,14 +45,7 @@ function main() {
                   key_code: 'k',
                   modifiers: {
                     mandatory: ['fn'],
-                    optional: [
-                      'left_shift',
-                      'right_shift',
-                      'left_gui',
-                      'right_gui',
-                      'left_alt',
-                      'right_alt',
-                    ],
+                    optional: ['left_shift', 'right_shift', 'left_gui', 'right_gui', 'left_alt', 'right_alt'],
                   },
                 },
                 to: [
@@ -81,14 +60,7 @@ function main() {
                   key_code: 'l',
                   modifiers: {
                     mandatory: ['fn'],
-                    optional: [
-                      'left_shift',
-                      'right_shift',
-                      'left_gui',
-                      'right_gui',
-                      'left_alt',
-                      'right_alt',
-                    ],
+                    optional: ['left_shift', 'right_shift', 'left_gui', 'right_gui', 'left_alt', 'right_alt'],
                   },
                 },
                 to: [
