@@ -15,11 +15,7 @@ function main() {
                   key_code: 'a',
                   modifiers: { mandatory: ['option'], optional: ['caps_lock'] },
                 },
-                to: [
-                  { key_code: 'u', modifiers: ['left_option'] },
-                  { key_code: 'a' },
-                  { key_code: 'vk_none' },
-                ],
+                to: [{ key_code: 'u', modifiers: ['left_option'] }, { key_code: 'a' }, { key_code: 'vk_none' }],
               },
               {
                 type: 'basic',
@@ -27,11 +23,7 @@ function main() {
                   key_code: 'a',
                   modifiers: { mandatory: ['option', 'shift'] },
                 },
-                to: [
-                  { key_code: 'u', modifiers: ['left_option'] },
-                  { key_code: 'a', modifiers: ['left_shift'] },
-                  { key_code: 'vk_none' },
-                ],
+                to: [{ key_code: 'u', modifiers: ['left_option'] }, { key_code: 'a', modifiers: ['left_shift'] }, { key_code: 'vk_none' }],
               },
               {
                 type: 'basic',
@@ -39,11 +31,7 @@ function main() {
                   key_code: 'o',
                   modifiers: { mandatory: ['option'], optional: ['caps_lock'] },
                 },
-                to: [
-                  { key_code: 'u', modifiers: ['left_option'] },
-                  { key_code: 'o' },
-                  { key_code: 'vk_none' },
-                ],
+                to: [{ key_code: 'u', modifiers: ['left_option'] }, { key_code: 'o' }, { key_code: 'vk_none' }],
               },
               {
                 type: 'basic',
@@ -51,11 +39,7 @@ function main() {
                   key_code: 'o',
                   modifiers: { mandatory: ['option', 'shift'] },
                 },
-                to: [
-                  { key_code: 'u', modifiers: ['left_option'] },
-                  { key_code: 'o', modifiers: ['left_shift'] },
-                  { key_code: 'vk_none' },
-                ],
+                to: [{ key_code: 'u', modifiers: ['left_option'] }, { key_code: 'o', modifiers: ['left_shift'] }, { key_code: 'vk_none' }],
               },
               {
                 type: 'basic',
@@ -63,11 +47,7 @@ function main() {
                   key_code: 'u',
                   modifiers: { mandatory: ['option'], optional: ['caps_lock'] },
                 },
-                to: [
-                  { key_code: 'u', modifiers: ['left_option'] },
-                  { key_code: 'u' },
-                  { key_code: 'vk_none' },
-                ],
+                to: [{ key_code: 'u', modifiers: ['left_option'] }, { key_code: 'u' }, { key_code: 'vk_none' }],
               },
               {
                 type: 'basic',
@@ -75,11 +55,7 @@ function main() {
                   key_code: 'u',
                   modifiers: { mandatory: ['option', 'shift'] },
                 },
-                to: [
-                  { key_code: 'u', modifiers: ['left_option'] },
-                  { key_code: 'u', modifiers: ['left_shift'] },
-                  { key_code: 'vk_none' },
-                ],
+                to: [{ key_code: 'u', modifiers: ['left_option'] }, { key_code: 'u', modifiers: ['left_shift'] }, { key_code: 'vk_none' }],
               },
             ],
           },

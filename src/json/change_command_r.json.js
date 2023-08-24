@@ -21,8 +21,7 @@ function main() {
             ],
           },
           {
-            description:
-              'Post Escape if Command_R is pressed alone. Control Left if held',
+            description: 'Post Escape if Command_R is pressed alone. Control Left if held',
             manipulators: [
               {
                 type: 'basic',

@@ -4,8 +4,7 @@ function main() {
   console.log(
     JSON.stringify(
       {
-        title:
-          'Map Left Shift plus Left Option with j/k/l/; to Page Arrows (QWERTY alt)',
+        title: 'Map Left Shift plus Left Option with j/k/l/; to Page Arrows (QWERTY alt)',
         rules: rules(),
       },
       null,
@@ -17,8 +16,7 @@ function main() {
 function rules() {
   return [
     {
-      description:
-        'Map Left Shift plus Left Option with j/k/l/; to Page Arrows (QWERTY alt)',
+      description: 'Map Left Shift plus Left Option with j/k/l/; to Page Arrows (QWERTY alt)',
       manipulators: [
         {
           type: 'basic',
@@ -57,11 +55,7 @@ function rules() {
   ]
 }
 
-if (
-  __main.endsWith(
-    '/map_shift_plus_left_option_with_j_k_l_semicolon_to_page_arrows.json.js'
-  )
-) {
+if (__main.endsWith('/map_shift_plus_left_option_with_j_k_l_semicolon_to_page_arrows.json.js')) {
   main()
 } else {
   exports.rules = rules()

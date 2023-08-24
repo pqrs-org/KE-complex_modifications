@@ -7,8 +7,7 @@ function main() {
         title: 'Fine volume control (rev 2)',
         rules: [
           {
-            description:
-              'Map volume controls to fine volume controls (Option + Shift + Volume)',
+            description: 'Map volume controls to fine volume controls (Option + Shift + Volume)',
             manipulators: [
               {
                 type: 'basic',
@@ -43,8 +42,7 @@ function main() {
             ],
           },
           {
-            description:
-              'Map fn + volume controls to fine volume controls (Option + Shift + Volume)',
+            description: 'Map fn + volume controls to fine volume controls (Option + Shift + Volume)',
             manipulators: [
               {
                 type: 'basic',

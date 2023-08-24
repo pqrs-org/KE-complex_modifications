@@ -35,8 +35,7 @@ function main() {
             ],
           },
           {
-            description:
-              'Post return_or_enter if right_control is pressed alone.',
+            description: 'Post return_or_enter if right_control is pressed alone.',
             manipulators: [
               {
                 type: 'basic',

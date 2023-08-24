@@ -37,9 +37,7 @@ function manipulators() {
           key_code: 'right_command',
         },
       ],
-      to_after_key_up: [
-        { set_variable: { name: 'mouse_keys_full', value: 0 } },
-      ],
+      to_after_key_up: [{ set_variable: { name: 'mouse_keys_full', value: 0 } }],
     },
 
     //

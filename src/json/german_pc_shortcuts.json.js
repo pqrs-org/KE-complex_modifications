@@ -6,12 +6,10 @@ function main() {
   console.log(
     JSON.stringify(
       {
-        title:
-          'German PC-Style Shortcuts (Enable various Alt Gr key combinations)',
+        title: 'German PC-Style Shortcuts (Enable various Alt Gr key combinations)',
         rules: [
           {
-            description:
-              'PC-Style German Alt Gr (Backslash, @, pipe, tilde, brackets)',
+            description: 'PC-Style German Alt Gr (Backslash, @, pipe, tilde, brackets)',
             manipulators: [
               {
                 from: {
@@ -26,10 +24,7 @@ function main() {
                 conditions: [
                   {
                     type: 'frontmost_application_unless',
-                    bundle_identifiers: [].concat(
-                      karabiner.bundleIdentifiers.remoteDesktop,
-                      karabiner.bundleIdentifiers.virtualMachine
-                    ),
+                    bundle_identifiers: [].concat(karabiner.bundleIdentifiers.remoteDesktop, karabiner.bundleIdentifiers.virtualMachine),
                   },
                 ],
               },
@@ -46,10 +41,7 @@ function main() {
                 conditions: [
                   {
                     type: 'frontmost_application_unless',
-                    bundle_identifiers: [].concat(
-                      karabiner.bundleIdentifiers.remoteDesktop,
-                      karabiner.bundleIdentifiers.virtualMachine
-                    ),
+                    bundle_identifiers: [].concat(karabiner.bundleIdentifiers.remoteDesktop, karabiner.bundleIdentifiers.virtualMachine),
                   },
                 ],
               },
@@ -66,10 +58,7 @@ function main() {
                 conditions: [
                   {
                     type: 'frontmost_application_unless',
-                    bundle_identifiers: [].concat(
-                      karabiner.bundleIdentifiers.remoteDesktop,
-                      karabiner.bundleIdentifiers.virtualMachine
-                    ),
+                    bundle_identifiers: [].concat(karabiner.bundleIdentifiers.remoteDesktop, karabiner.bundleIdentifiers.virtualMachine),
                   },
                 ],
               },
@@ -86,10 +75,7 @@ function main() {
                 conditions: [
                   {
                     type: 'frontmost_application_unless',
-                    bundle_identifiers: [].concat(
-                      karabiner.bundleIdentifiers.remoteDesktop,
-                      karabiner.bundleIdentifiers.virtualMachine
-                    ),
+                    bundle_identifiers: [].concat(karabiner.bundleIdentifiers.remoteDesktop, karabiner.bundleIdentifiers.virtualMachine),
                   },
                 ],
               },
@@ -106,10 +92,7 @@ function main() {
                 conditions: [
                   {
                     type: 'frontmost_application_unless',
-                    bundle_identifiers: [].concat(
-                      karabiner.bundleIdentifiers.remoteDesktop,
-                      karabiner.bundleIdentifiers.virtualMachine
-                    ),
+                    bundle_identifiers: [].concat(karabiner.bundleIdentifiers.remoteDesktop, karabiner.bundleIdentifiers.virtualMachine),
                   },
                 ],
               },
@@ -126,10 +109,7 @@ function main() {
                 conditions: [
                   {
                     type: 'frontmost_application_unless',
-                    bundle_identifiers: [].concat(
-                      karabiner.bundleIdentifiers.remoteDesktop,
-                      karabiner.bundleIdentifiers.virtualMachine
-                    ),
+                    bundle_identifiers: [].concat(karabiner.bundleIdentifiers.remoteDesktop, karabiner.bundleIdentifiers.virtualMachine),
                   },
                 ],
               },
@@ -146,10 +126,7 @@ function main() {
                 conditions: [
                   {
                     type: 'frontmost_application_unless',
-                    bundle_identifiers: [].concat(
-                      karabiner.bundleIdentifiers.remoteDesktop,
-                      karabiner.bundleIdentifiers.virtualMachine
-                    ),
+                    bundle_identifiers: [].concat(karabiner.bundleIdentifiers.remoteDesktop, karabiner.bundleIdentifiers.virtualMachine),
                   },
                 ],
               },
@@ -166,10 +143,7 @@ function main() {
                 conditions: [
                   {
                     type: 'frontmost_application_unless',
-                    bundle_identifiers: [].concat(
-                      karabiner.bundleIdentifiers.remoteDesktop,
-                      karabiner.bundleIdentifiers.virtualMachine
-                    ),
+                    bundle_identifiers: [].concat(karabiner.bundleIdentifiers.remoteDesktop, karabiner.bundleIdentifiers.virtualMachine),
                   },
                 ],
               },

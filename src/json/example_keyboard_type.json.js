@@ -46,8 +46,7 @@ function main() {
             ],
           },
           {
-            description:
-              'Change escape to mission_control if keyboard_type != ansi',
+            description: 'Change escape to mission_control if keyboard_type != ansi',
             manipulators: [
               {
                 type: 'basic',

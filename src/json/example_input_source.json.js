@@ -7,8 +7,7 @@ function main() {
         title: 'input_source_if,input_source_unless example',
         rules: [
           {
-            description:
-              'Toggle input sources (English or Japanese) by grave_accent_and_tilde',
+            description: 'Toggle input sources (English or Japanese) by grave_accent_and_tilde',
             manipulators: [
               {
                 conditions: [

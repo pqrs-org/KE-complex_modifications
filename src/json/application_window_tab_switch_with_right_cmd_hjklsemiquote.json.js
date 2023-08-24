@@ -4,12 +4,10 @@ function main() {
   console.log(
     JSON.stringify(
       {
-        title:
-          "Use right_command+h/j/k/l/;/' to switch current tab/window/application",
+        title: "Use right_command+h/j/k/l/;/' to switch current tab/window/application",
         rules: [
           {
-            description:
-              "Use right_command+;/' to cycle through running applications (like command+tab).",
+            description: "Use right_command+;/' to cycle through running applications (like command+tab).",
             manipulators: [
               {
                 type: 'basic',
@@ -35,8 +33,7 @@ function main() {
             ],
           },
           {
-            description:
-              'Use right_command+h/l to switch tabs in an application.',
+            description: 'Use right_command+h/l to switch tabs in an application.',
             manipulators: [
               {
                 type: 'basic',
@@ -62,8 +59,7 @@ function main() {
             ],
           },
           {
-            description:
-              'Use right_command+j/k to switch windows of the foreground application .',
+            description: 'Use right_command+j/k to switch windows of the foreground application .',
             manipulators: [
               {
                 type: 'basic',
@@ -94,8 +90,7 @@ function main() {
             ],
           },
           {
-            description:
-              'Disable left_command+(tab/shift+tab) (to retrain reflexes using the other manipulators).',
+            description: 'Disable left_command+(tab/shift+tab) (to retrain reflexes using the other manipulators).',
             manipulators: [
               {
                 type: 'basic',

@@ -251,8 +251,7 @@ function generateMouseKeysMode(options) {
       },
     ].concat(options.to),
     parameters: {
-      'basic.simultaneous_threshold_milliseconds':
-        parameters.simultaneous_threshold_milliseconds,
+      'basic.simultaneous_threshold_milliseconds': parameters.simultaneous_threshold_milliseconds,
     },
     to_after_key_up: options.toAfterKeyUp,
   })

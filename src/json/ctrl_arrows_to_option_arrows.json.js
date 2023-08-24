@@ -7,8 +7,7 @@ function main() {
         title: 'Exchange control + arrows keys with option + arrows keys',
         rules: [
           {
-            description:
-              'Exchange control + arrow keys with option + arrow keys',
+            description: 'Exchange control + arrow keys with option + arrow keys',
             manipulators: manipulators(),
           },
         ],

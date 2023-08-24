@@ -7,8 +7,7 @@ function main() {
         title: 'select_input_source example',
         rules: [
           {
-            description:
-              'Change input source to U.S. by left_command, RussianWin by right_command.',
+            description: 'Change input source to U.S. by left_command, RussianWin by right_command.',
             manipulators: [
               {
                 type: 'basic',
@@ -43,8 +42,7 @@ function main() {
             ],
           },
           {
-            description:
-              'Change input source to French while right_option is pressed.',
+            description: 'Change input source to French while right_option is pressed.',
             manipulators: [
               {
                 type: 'basic',

@@ -7,8 +7,7 @@ function main() {
         title: 'For Japanese （日本語環境向けの設定） (rev 6)',
         rules: [
           {
-            description:
-              'コマンドキーを単体で押したときに、英数・かなキーを送信する。（左コマンドキーは英数、右コマンドキーはかな） (rev 3)',
+            description: 'コマンドキーを単体で押したときに、英数・かなキーを送信する。（左コマンドキーは英数、右コマンドキーはかな） (rev 3)',
             manipulators: [
               {
                 type: 'basic',
@@ -65,8 +64,7 @@ function main() {
             ],
           },
           {
-            description:
-              'CTRLキーを単体で押したときに、英数・かなキーを送信する。（左CTRLキーは英数、右CTRLキーはかな）',
+            description: 'CTRLキーを単体で押したときに、英数・かなキーを送信する。（左CTRLキーは英数、右CTRLキーはかな）',
             manipulators: [
               {
                 type: 'basic',
@@ -123,8 +121,7 @@ function main() {
             ],
           },
           {
-            description:
-              'オプションキーを単体で押したときに、英数・かなキーを送信する。（左オプションキーは英数キー、右オプションキーはかなキー）',
+            description: 'オプションキーを単体で押したときに、英数・かなキーを送信する。（左オプションキーは英数キー、右オプションキーはかなキー）',
             manipulators: [
               {
                 type: 'basic',
@@ -181,8 +178,7 @@ function main() {
             ],
           },
           {
-            description:
-              'コマンドキー（左右どちらでも）を単体で押したときに、英数・かなをトグルで切り替える。 (rev 2)',
+            description: 'コマンドキー（左右どちらでも）を単体で押したときに、英数・かなをトグルで切り替える。 (rev 2)',
             manipulators: [
               {
                 type: 'basic',
@@ -380,8 +376,7 @@ function main() {
             ],
           },
           {
-            description:
-              '英数・かなキーを他のキーと同時に押したときに、Optionキーを送信する (rev 3)',
+            description: '英数・かなキーを他のキーと同時に押したときに、Optionキーを送信する (rev 3)',
             manipulators: [
               {
                 type: 'basic',
@@ -445,8 +440,7 @@ function main() {
             ],
           },
           {
-            description:
-              'Ctrl+[を押したときに、英数キーも送信する（vim用） (rev 2)',
+            description: 'Ctrl+[を押したときに、英数キーも送信する（vim用） (rev 2)',
             manipulators: [
               {
                 type: 'basic',
@@ -597,8 +591,7 @@ function main() {
             ],
           },
           {
-            description:
-              '右コマンドキーを単体で押したときに、かなキーを送信、左コントロールキーを単体で押したときに、英数キーを送信する。 (rev 2)',
+            description: '右コマンドキーを単体で押したときに、かなキーを送信、左コントロールキーを単体で押したときに、英数キーを送信する。 (rev 2)',
             manipulators: [
               {
                 type: 'basic',
@@ -655,8 +648,7 @@ function main() {
             ],
           },
           {
-            description:
-              'シフトキーを単体で押したときに、英数・かなキーを送信する。（左シフトキーは英数、右シフトキーはかな)',
+            description: 'シフトキーを単体で押したときに、英数・かなキーを送信する。（左シフトキーは英数、右シフトキーはかな)',
             manipulators: [
               {
                 type: 'basic',

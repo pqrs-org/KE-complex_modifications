@@ -17,9 +17,7 @@ function main() {
                 type: 'basic',
                 from: { key_code: '9', modifiers: { optional: ['caps_lock'] } },
                 to: [{ set_variable: { name: 'amethyst_mode', value: 1 } }],
-                to_after_key_up: [
-                  { set_variable: { name: 'amethyst_mode', value: 0 } },
-                ],
+                to_after_key_up: [{ set_variable: { name: 'amethyst_mode', value: 0 } }],
                 to_if_alone: [{ key_code: '9' }],
               },
 
@@ -29,16 +27,10 @@ function main() {
 
               {
                 type: 'basic',
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
                 from: { key_code: '0', modifiers: { optional: ['caps_lock'] } },
-                to: [
-                  { set_variable: { name: 'amethyst_second_mode', value: 1 } },
-                ],
-                to_after_key_up: [
-                  { set_variable: { name: 'amethyst_second_mode', value: 0 } },
-                ],
+                to: [{ set_variable: { name: 'amethyst_second_mode', value: 1 } }],
+                to_after_key_up: [{ set_variable: { name: 'amethyst_second_mode', value: 0 } }],
                 to_if_alone: [{ key_code: '0' }],
               },
             ],
@@ -57,9 +49,7 @@ function main() {
                     modifiers: ['left_option', 'left_shift'],
                   },
                 ],
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
               },
               {
                 type: 'basic',
@@ -76,9 +66,7 @@ function main() {
                     modifiers: ['left_control', 'left_option', 'left_shift'],
                   },
                 ],
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
               },
             ],
           },
@@ -95,9 +83,7 @@ function main() {
                     modifiers: ['left_option', 'left_shift'],
                   },
                 ],
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
               },
               {
                 type: 'basic',
@@ -108,9 +94,7 @@ function main() {
                     modifiers: ['left_option', 'left_shift'],
                   },
                 ],
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
               },
             ],
           },
@@ -133,9 +117,7 @@ function main() {
                     modifiers: ['left_option', 'left_shift'],
                   },
                 ],
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
               },
               {
                 type: 'basic',
@@ -146,15 +128,12 @@ function main() {
                     modifiers: ['left_option', 'left_shift'],
                   },
                 ],
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
               },
             ],
           },
           {
-            description:
-              '90+J/j swap focused window clockwise / counter clockwise',
+            description: '90+J/j swap focused window clockwise / counter clockwise',
             manipulators: [
               // 90+J/j swap focused window clockwise / counter clockwise
               {
@@ -200,8 +179,7 @@ function main() {
             ],
           },
           {
-            description:
-              '90+8/* swap focused window clockwise / counter clockwise screen',
+            description: '90+8/* swap focused window clockwise / counter clockwise screen',
             manipulators: [
               // 90+8/* swap focused window clockwise / counter clockwise screen
               {
@@ -247,8 +225,7 @@ function main() {
             ],
           },
           {
-            description:
-              '9+ui/UI focus screen 12 / throw focus window to screen 12',
+            description: '9+ui/UI focus screen 12 / throw focus window to screen 12',
             manipulators: [
               // 9+ui/UI focus screen 12 / throw focus window to screen 12
               {
@@ -260,9 +237,7 @@ function main() {
                     modifiers: ['left_option', 'left_shift'],
                   },
                 ],
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
               },
               {
                 type: 'basic',
@@ -279,9 +254,7 @@ function main() {
                     modifiers: ['left_option', 'left_shift', 'left_control'],
                   },
                 ],
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
               },
               {
                 type: 'basic',
@@ -292,9 +265,7 @@ function main() {
                     modifiers: ['left_option', 'left_shift'],
                   },
                 ],
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
               },
               {
                 type: 'basic',
@@ -311,15 +282,12 @@ function main() {
                     modifiers: ['left_option', 'left_shift', 'left_control'],
                   },
                 ],
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
               },
             ],
           },
           {
-            description:
-              '9+zxc/ZXC focus screen 123 / throw focus window to screen 123',
+            description: '9+zxc/ZXC focus screen 123 / throw focus window to screen 123',
             manipulators: [
               // 9+zxc/ZXC focus screen 123 / throw focus window to screen 123
               {
@@ -331,9 +299,7 @@ function main() {
                     modifiers: ['left_option', 'left_shift'],
                   },
                 ],
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
               },
               {
                 type: 'basic',
@@ -350,9 +316,7 @@ function main() {
                     modifiers: ['left_option', 'left_shift', 'left_control'],
                   },
                 ],
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
               },
               {
                 type: 'basic',
@@ -363,9 +327,7 @@ function main() {
                     modifiers: ['left_option', 'left_shift'],
                   },
                 ],
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
               },
               {
                 type: 'basic',
@@ -382,9 +344,7 @@ function main() {
                     modifiers: ['left_option', 'left_shift', 'left_control'],
                   },
                 ],
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
               },
               {
                 type: 'basic',
@@ -395,9 +355,7 @@ function main() {
                     modifiers: ['left_option', 'left_shift'],
                   },
                 ],
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
               },
               {
                 type: 'basic',
@@ -414,9 +372,7 @@ function main() {
                     modifiers: ['left_option', 'left_shift', 'left_control'],
                   },
                 ],
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
               },
             ],
           },
@@ -434,9 +390,7 @@ function main() {
                     modifiers: ['left_option', 'left_shift', 'left_control'],
                   },
                 ],
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
               },
             ],
           },
@@ -454,9 +408,7 @@ function main() {
                     modifiers: ['left_option', 'left_shift'],
                   },
                 ],
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
               },
               {
                 type: 'basic',
@@ -467,9 +419,7 @@ function main() {
                     modifiers: ['left_option', 'left_shift'],
                   },
                 ],
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
               },
               {
                 type: 'basic',
@@ -480,9 +430,7 @@ function main() {
                     modifiers: ['left_option', 'left_shift'],
                   },
                 ],
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
               },
               {
                 type: 'basic',
@@ -493,9 +441,7 @@ function main() {
                     modifiers: ['left_option', 'left_shift'],
                   },
                 ],
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
               },
             ],
           },
@@ -517,9 +463,7 @@ function main() {
                     },
                   },
                 ],
-                to_after_key_up: [
-                  { set_variable: { name: 'amethyst_mode', value: 0 } },
-                ],
+                to_after_key_up: [{ set_variable: { name: 'amethyst_mode', value: 0 } }],
                 to_if_alone: [
                   {
                     key_code: '9',
@@ -533,9 +477,7 @@ function main() {
 
               {
                 type: 'basic',
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
                 from: { key_code: '0', modifiers: { optional: ['caps_lock'] } },
                 to: [
                   {
@@ -573,9 +515,7 @@ function main() {
                     modifiers: ['left_option', 'left_shift'],
                   },
                 ],
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
               },
               {
                 type: 'basic',
@@ -592,9 +532,7 @@ function main() {
                     modifiers: ['left_control', 'left_option', 'left_shift'],
                   },
                 ],
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
               },
 
               // 9+q/w shrink expand main pane
@@ -607,9 +545,7 @@ function main() {
                     modifiers: ['left_option', 'left_shift'],
                   },
                 ],
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
               },
               {
                 type: 'basic',
@@ -620,9 +556,7 @@ function main() {
                     modifiers: ['left_option', 'left_shift'],
                   },
                 ],
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
               },
 
               // 9+J/j move focuse clockwise / counter clockwise
@@ -641,9 +575,7 @@ function main() {
                     modifiers: ['left_option', 'left_shift'],
                   },
                 ],
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
               },
               {
                 type: 'basic',
@@ -654,9 +586,7 @@ function main() {
                     modifiers: ['left_option', 'left_shift'],
                   },
                 ],
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
               },
 
               // 90+J/j swap focused window clockwise / counter clockwise
@@ -753,9 +683,7 @@ function main() {
                     modifiers: ['left_option', 'left_shift'],
                   },
                 ],
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
               },
               {
                 type: 'basic',
@@ -772,9 +700,7 @@ function main() {
                     modifiers: ['left_option', 'left_shift', 'left_control'],
                   },
                 ],
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
               },
               {
                 type: 'basic',
@@ -785,9 +711,7 @@ function main() {
                     modifiers: ['left_option', 'left_shift'],
                   },
                 ],
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
               },
               {
                 type: 'basic',
@@ -804,9 +728,7 @@ function main() {
                     modifiers: ['left_option', 'left_shift', 'left_control'],
                   },
                 ],
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
               },
 
               // 9+zxc/ZXC focus screen 123 / throw focus window to screen 123
@@ -819,9 +741,7 @@ function main() {
                     modifiers: ['left_option', 'left_shift'],
                   },
                 ],
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
               },
               {
                 type: 'basic',
@@ -838,9 +758,7 @@ function main() {
                     modifiers: ['left_option', 'left_shift', 'left_control'],
                   },
                 ],
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
               },
 
               {
@@ -852,9 +770,7 @@ function main() {
                     modifiers: ['left_option', 'left_shift'],
                   },
                 ],
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
               },
               {
                 type: 'basic',
@@ -871,9 +787,7 @@ function main() {
                     modifiers: ['left_option', 'left_shift', 'left_control'],
                   },
                 ],
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
               },
 
               {
@@ -885,9 +799,7 @@ function main() {
                     modifiers: ['left_option', 'left_shift'],
                   },
                 ],
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
               },
               {
                 type: 'basic',
@@ -904,9 +816,7 @@ function main() {
                     modifiers: ['left_option', 'left_shift', 'left_control'],
                   },
                 ],
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
               },
 
               // 9+t toggle flot for current window
@@ -920,9 +830,7 @@ function main() {
                     modifiers: ['left_option', 'left_shift', 'left_control'],
                   },
                 ],
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
               },
 
               // 9+asdf select tall/wide/column/fullscren layout
@@ -936,9 +844,7 @@ function main() {
                     modifiers: ['left_option', 'left_shift'],
                   },
                 ],
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
               },
               {
                 type: 'basic',
@@ -949,9 +855,7 @@ function main() {
                     modifiers: ['left_option', 'left_shift'],
                   },
                 ],
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
               },
               {
                 type: 'basic',
@@ -962,9 +866,7 @@ function main() {
                     modifiers: ['left_option', 'left_shift'],
                   },
                 ],
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
               },
               {
                 type: 'basic',
@@ -975,9 +877,7 @@ function main() {
                     modifiers: ['left_option', 'left_shift'],
                   },
                 ],
-                conditions: [
-                  { type: 'variable_if', name: 'amethyst_mode', value: 1 },
-                ],
+                conditions: [{ type: 'variable_if', name: 'amethyst_mode', value: 1 }],
               },
             ],
           },

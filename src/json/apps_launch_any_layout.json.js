@@ -4,8 +4,7 @@ function main() {
   console.log(
     JSON.stringify(
       {
-        title:
-          'Launch apps from any layout (Safari, Brave, Chrome, Finder, VS Code, PyCharm, Mail, Slack, Telegram, Figma, Sublime, iTerm, Activity Monitor)',
+        title: 'Launch apps from any layout (Safari, Brave, Chrome, Finder, VS Code, PyCharm, Mail, Slack, Telegram, Figma, Sublime, iTerm, Activity Monitor)',
         rules: [
           {
             description: 'right_option + B -> Brave',
@@ -77,8 +76,7 @@ function main() {
                 },
                 to: [
                   {
-                    shell_command:
-                      "open '/Applications/Visual Studio Code.app'",
+                    shell_command: "open '/Applications/Visual Studio Code.app'",
                   },
                 ],
               },
@@ -249,8 +247,7 @@ function main() {
                 },
                 to: [
                   {
-                    shell_command:
-                      "open '/System/Applications/Utilities/Activity Monitor.app'",
+                    shell_command: "open '/System/Applications/Utilities/Activity Monitor.app'",
                   },
                 ],
               },

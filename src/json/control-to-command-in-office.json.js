@@ -9,8 +9,7 @@ function main() {
         title: 'Use left control key as command key in Microsoft Office',
         rules: [
           {
-            description:
-              'Use left control key as command key in Microsoft Office (rev 1)',
+            description: 'Use left control key as command key in Microsoft Office (rev 1)',
             manipulators: [
               {
                 type: 'basic',
@@ -19,16 +18,14 @@ function main() {
                 conditions: [
                   {
                     type: 'frontmost_application_if',
-                    bundle_identifiers:
-                      karabiner.bundleIdentifiers.microsoftOffice,
+                    bundle_identifiers: karabiner.bundleIdentifiers.microsoftOffice,
                   },
                 ],
               },
             ],
           },
           {
-            description:
-              'Use right control key as command key in Microsoft Office (rev 1)',
+            description: 'Use right control key as command key in Microsoft Office (rev 1)',
             manipulators: [
               {
                 type: 'basic',
@@ -37,8 +34,7 @@ function main() {
                 conditions: [
                   {
                     type: 'frontmost_application_if',
-                    bundle_identifiers:
-                      karabiner.bundleIdentifiers.microsoftOffice,
+                    bundle_identifiers: karabiner.bundleIdentifiers.microsoftOffice,
                   },
                 ],
               },

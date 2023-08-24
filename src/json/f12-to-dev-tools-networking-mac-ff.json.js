@@ -9,8 +9,7 @@ function main() {
         title: 'Use F12 to open Dev Tools',
         rules: [
           {
-            description:
-              'Use F12 to open Dev Tools Network Tab (Mac + Firefox)',
+            description: 'Use F12 to open Dev Tools Network Tab (Mac + Firefox)',
             manipulators: [
               {
                 type: 'basic',

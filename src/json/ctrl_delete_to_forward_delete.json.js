@@ -4,12 +4,10 @@ function main() {
   console.log(
     JSON.stringify(
       {
-        title:
-          'Map Ctrl-Backspace to forward Delete (forward delete one character at a time).',
+        title: 'Map Ctrl-Backspace to forward Delete (forward delete one character at a time).',
         rules: [
           {
-            description:
-              'Map Ctrl-Backspace to forward Delete (forward delete one character at a time).',
+            description: 'Map Ctrl-Backspace to forward Delete (forward delete one character at a time).',
             manipulators: [
               {
                 type: 'basic',

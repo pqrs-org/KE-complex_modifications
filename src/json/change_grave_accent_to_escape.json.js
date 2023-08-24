@@ -4,12 +4,10 @@ function main() {
   console.log(
     JSON.stringify(
       {
-        title:
-          'Change grave accent (backtick) to escape, option grave accent to grave accent',
+        title: 'Change grave accent (backtick) to escape, option grave accent to grave accent',
         rules: [
           {
-            description:
-              'Post Escape if grave_accent_and_tilde (backtick) is pressed alone; post grave_accent (backtick) if Option + grave_accent_and_tilde is pressed.',
+            description: 'Post Escape if grave_accent_and_tilde (backtick) is pressed alone; post grave_accent (backtick) if Option + grave_accent_and_tilde is pressed.',
             manipulators: [
               {
                 type: 'basic',

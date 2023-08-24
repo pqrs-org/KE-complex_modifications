@@ -1069,8 +1069,7 @@ function main() {
             ],
           },
           {
-            description:
-              'Change spacebar to right_shift. (Post spacebar if pressed alone)',
+            description: 'Change spacebar to right_shift. (Post spacebar if pressed alone)',
             manipulators: [
               {
                 from: {
@@ -1106,11 +1105,7 @@ function main() {
                 to: [
                   {
                     key_code: 'right_shift',
-                    modifiers: [
-                      'right_command',
-                      'right_control',
-                      'right_option',
-                    ],
+                    modifiers: ['right_command', 'right_control', 'right_option'],
                   },
                 ],
                 to_if_alone: [
@@ -1123,8 +1118,7 @@ function main() {
             ],
           },
           {
-            description:
-              'Change Right_command To CapsLock, Hold to Right_Command',
+            description: 'Change Right_command To CapsLock, Hold to Right_Command',
             manipulators: [
               {
                 from: {

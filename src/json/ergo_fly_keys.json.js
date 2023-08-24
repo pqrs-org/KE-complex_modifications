@@ -50,65 +50,21 @@ function manipulators(triggerKeyCode) {
     twoPartTriggerCombo(triggerKeyCode, variable, 'k', 'down_arrow', []),
     twoPartTriggerCombo(triggerKeyCode, variable, 'j', 'left_arrow', []),
     twoPartTriggerCombo(triggerKeyCode, variable, 'l', 'right_arrow', []),
-    fourPartTriggerCombo(
-      triggerKeyCode,
-      variable,
-      'u',
-      [{ key_code: 'left_arrow', modifiers: ['left_option'] }],
-      [{ key_code: 'escape' }, { key_code: 'b' }]
-    ),
-    fourPartTriggerCombo(
-      triggerKeyCode,
-      variable,
-      'o',
-      [{ key_code: 'right_arrow', modifiers: ['left_option'] }],
-      [{ key_code: 'escape' }, { key_code: 'f' }]
-    ),
+    fourPartTriggerCombo(triggerKeyCode, variable, 'u', [{ key_code: 'left_arrow', modifiers: ['left_option'] }], [{ key_code: 'escape' }, { key_code: 'b' }]),
+    fourPartTriggerCombo(triggerKeyCode, variable, 'o', [{ key_code: 'right_arrow', modifiers: ['left_option'] }], [{ key_code: 'escape' }, { key_code: 'f' }]),
     twoPartTriggerCombo(triggerKeyCode, variable, 'h', 'a', ['right_control']),
-    twoPartTriggerCombo(triggerKeyCode, variable, 'semicolon', 'e', [
-      'right_control',
-    ]),
-    fourPartTriggerCombo(
-      triggerKeyCode,
-      variable,
-      'y',
-      [{ key_code: 'left_arrow', modifiers: ['left_command'] }],
-      [{ key_code: 'escape' }, { key_code: 'b', modifiers: ['right_control'] }]
-    ),
-    fourPartTriggerCombo(
-      triggerKeyCode,
-      variable,
-      'p',
-      [{ key_code: 'right_arrow', modifiers: ['left_command'] }],
-      [{ key_code: 'escape' }, { key_code: 'f', modifiers: ['right_control'] }]
-    ),
+    twoPartTriggerCombo(triggerKeyCode, variable, 'semicolon', 'e', ['right_control']),
+    fourPartTriggerCombo(triggerKeyCode, variable, 'y', [{ key_code: 'left_arrow', modifiers: ['left_command'] }], [{ key_code: 'escape' }, { key_code: 'b', modifiers: ['right_control'] }]),
+    fourPartTriggerCombo(triggerKeyCode, variable, 'p', [{ key_code: 'right_arrow', modifiers: ['left_command'] }], [{ key_code: 'escape' }, { key_code: 'f', modifiers: ['right_control'] }]),
     twoPartTriggerCombo(triggerKeyCode, variable, 'n', 'home', []),
     twoPartTriggerCombo(triggerKeyCode, variable, 'm', 'page_up', []),
     twoPartTriggerCombo(triggerKeyCode, variable, 'comma', 'page_down', []),
     twoPartTriggerCombo(triggerKeyCode, variable, 'period', 'end', []),
 
-    twoPartTriggerCombo(
-      triggerKeyCode,
-      variable,
-      'd',
-      'delete_or_backspace',
-      []
-    ),
+    twoPartTriggerCombo(triggerKeyCode, variable, 'd', 'delete_or_backspace', []),
     twoPartTriggerCombo(triggerKeyCode, variable, 'f', 'delete_forward', []),
-    fourPartTriggerCombo(
-      triggerKeyCode,
-      variable,
-      'e',
-      [{ key_code: 'delete_or_backspace', modifiers: ['left_option'] }],
-      [{ key_code: 'escape' }, { key_code: 'delete_or_backspace' }]
-    ),
-    fourPartTriggerCombo(
-      triggerKeyCode,
-      variable,
-      'r',
-      [{ key_code: 'delete_forward', modifiers: ['left_option'] }],
-      [{ key_code: 'escape' }, { key_code: 'd' }]
-    ),
+    fourPartTriggerCombo(triggerKeyCode, variable, 'e', [{ key_code: 'delete_or_backspace', modifiers: ['left_option'] }], [{ key_code: 'escape' }, { key_code: 'delete_or_backspace' }]),
+    fourPartTriggerCombo(triggerKeyCode, variable, 'r', [{ key_code: 'delete_forward', modifiers: ['left_option'] }], [{ key_code: 'escape' }, { key_code: 'd' }]),
     fourPartTriggerCombo(
       triggerKeyCode,
       variable,
@@ -120,48 +76,20 @@ function manipulators(triggerKeyCode) {
       [{ key_code: 'u', modifiers: ['left_control'] }]
     ),
     twoPartTriggerCombo(triggerKeyCode, variable, 'g', 'k', ['left_control']),
-    fourPartTriggerCombo(
-      triggerKeyCode,
-      variable,
-      'w',
-      [{ key_code: 'delete_or_backspace', modifiers: ['left_command'] }],
-      [{ key_code: 'w', modifiers: ['left_control'] }]
-    ),
+    fourPartTriggerCombo(triggerKeyCode, variable, 'w', [{ key_code: 'delete_or_backspace', modifiers: ['left_command'] }], [{ key_code: 'w', modifiers: ['left_control'] }]),
     fourPartTriggerCombo(
       triggerKeyCode,
       variable,
       't',
-      [
-        { key_code: 'right_arrow', modifiers: ['left_command', 'left_shift'] },
-        { key_code: 'delete_forward' },
-      ],
+      [{ key_code: 'right_arrow', modifiers: ['left_command', 'left_shift'] }, { key_code: 'delete_forward' }],
       [{ key_code: 'escape' }, { key_code: 'd', modifiers: ['left_control'] }]
     ),
     twoPartTriggerCombo(triggerKeyCode, variable, 'z', 'escape', []),
-    twoPartTriggerCombo(triggerKeyCode, variable, 'x', 'up_arrow', [
-      'left_command',
-    ]),
-    twoPartTriggerCombo(triggerKeyCode, variable, 'c', 'down_arrow', [
-      'left_command',
-    ]),
+    twoPartTriggerCombo(triggerKeyCode, variable, 'x', 'up_arrow', ['left_command']),
+    twoPartTriggerCombo(triggerKeyCode, variable, 'c', 'down_arrow', ['left_command']),
     twoPartTriggerCombo(triggerKeyCode, variable, 'v', 'return_or_enter', []),
-    fourPartTriggerCombo(
-      triggerKeyCode,
-      variable,
-      'q',
-      [{ key_code: 'up_arrow', modifiers: ['left_option'] }],
-      [{ key_code: 'escape' }, { key_code: 'comma', modifiers: ['left_shift'] }]
-    ),
-    fourPartTriggerCombo(
-      triggerKeyCode,
-      variable,
-      'a',
-      [{ key_code: 'down_arrow', modifiers: ['left_option'] }],
-      [
-        { key_code: 'escape' },
-        { key_code: 'period', modifiers: ['left_shift'] },
-      ]
-    ),
+    fourPartTriggerCombo(triggerKeyCode, variable, 'q', [{ key_code: 'up_arrow', modifiers: ['left_option'] }], [{ key_code: 'escape' }, { key_code: 'comma', modifiers: ['left_shift'] }]),
+    fourPartTriggerCombo(triggerKeyCode, variable, 'a', [{ key_code: 'down_arrow', modifiers: ['left_option'] }], [{ key_code: 'escape' }, { key_code: 'period', modifiers: ['left_shift'] }]),
 
     triggerKey(triggerKeyCode, variable)
   )
@@ -175,10 +103,8 @@ function dualKey(input, alone, held_down) {
       to_if_alone: [{ key_code: alone }],
       to_if_held_down: [{ key_code: held_down }],
       parameters: {
-        'basic.to_if_alone_timeout_milliseconds':
-          parameters.to_if_alone_timeout_milliseconds,
-        'basic.to_if_held_down_threshold_milliseconds':
-          parameters.to_if_held_down_threshold_milliseconds,
+        'basic.to_if_alone_timeout_milliseconds': parameters.to_if_alone_timeout_milliseconds,
+        'basic.to_if_held_down_threshold_milliseconds': parameters.to_if_held_down_threshold_milliseconds,
       },
     },
   ]
@@ -204,19 +130,10 @@ function triggerKey(triggerKey, variable) {
         { set_variable: { name: 'DEBUG halt', value: 1 } },
         { key_code: triggerKey, halt: true },
       ],
-      to_if_held_down: [
-        { set_variable: { name: 'DEBUG trigger held down', value: 1 } },
-        { set_variable: { name: variable, value: 1 } },
-      ],
-      to_after_key_up: [
-        { set_variable: { name: 'DEBUG trigger key up', value: 1 } },
-        { set_variable: { name: variable, value: 0 } },
-        { key_code: 'vk_none' },
-      ],
+      to_if_held_down: [{ set_variable: { name: 'DEBUG trigger held down', value: 1 } }, { set_variable: { name: variable, value: 1 } }],
+      to_after_key_up: [{ set_variable: { name: 'DEBUG trigger key up', value: 1 } }, { set_variable: { name: variable, value: 0 } }, { key_code: 'vk_none' }],
       to_delayed_action: {
-        to_if_invoked: [
-          { set_variable: { name: 'DEBUG trigger delay invoked', value: 1 } },
-        ],
+        to_if_invoked: [{ set_variable: { name: 'DEBUG trigger delay invoked', value: 1 } }],
         to_if_canceled: [
           { set_variable: { name: 'DEBUG trigger delay canceled', value: 1 } },
           { set_variable: { name: variable, value: 0 } },
@@ -225,24 +142,15 @@ function triggerKey(triggerKey, variable) {
         ],
       },
       parameters: {
-        'basic.to_if_alone_timeout_milliseconds':
-          parameters.to_if_alone_timeout_milliseconds,
-        'basic.to_delayed_action_delay_milliseconds':
-          parameters.to_delayed_action_delay_milliseconds,
-        'basic.to_if_held_down_threshold_milliseconds':
-          parameters.to_if_held_down_threshold_milliseconds,
+        'basic.to_if_alone_timeout_milliseconds': parameters.to_if_alone_timeout_milliseconds,
+        'basic.to_delayed_action_delay_milliseconds': parameters.to_delayed_action_delay_milliseconds,
+        'basic.to_if_held_down_threshold_milliseconds': parameters.to_if_held_down_threshold_milliseconds,
       },
     },
   ]
 }
 
-function twoPartTriggerCombo(
-  triggerKey,
-  variable,
-  fromKeyCode,
-  toKeyCode,
-  toModifiers
-) {
+function twoPartTriggerCombo(triggerKey, variable, fromKeyCode, toKeyCode, toModifiers) {
   return [
     {
       type: 'basic',
@@ -263,26 +171,15 @@ function twoPartTriggerCombo(
         },
         modifiers: { optional: ['any'] },
       },
-      to: [
-        { set_variable: { name: variable, value: 1 } },
-        { set_variable: { name: 'DEBUG simultaneous', value: 1 } },
-        { key_code: toKeyCode, modifiers: toModifiers },
-      ],
+      to: [{ set_variable: { name: variable, value: 1 } }, { set_variable: { name: 'DEBUG simultaneous', value: 1 } }, { key_code: toKeyCode, modifiers: toModifiers }],
       parameters: {
-        'basic.simultaneous_threshold_milliseconds':
-          parameters.simultaneous_threshold_milliseconds,
+        'basic.simultaneous_threshold_milliseconds': parameters.simultaneous_threshold_milliseconds,
       },
     },
   ]
 }
 
-function fourPartTriggerCombo(
-  triggerKey,
-  variable,
-  fromKeyCode,
-  normalTo,
-  terminalTo
-) {
+function fourPartTriggerCombo(triggerKey, variable, fromKeyCode, normalTo, terminalTo) {
   return [
     {
       type: 'basic',
@@ -308,13 +205,9 @@ function fourPartTriggerCombo(
         },
         modifiers: { optional: ['any'] },
       },
-      to: [
-        { set_variable: { name: variable, value: 1 } },
-        { set_variable: { name: 'DEBUG simultaneous', value: 1 } },
-      ].concat(normalTo),
+      to: [{ set_variable: { name: variable, value: 1 } }, { set_variable: { name: 'DEBUG simultaneous', value: 1 } }].concat(normalTo),
       parameters: {
-        'basic.simultaneous_threshold_milliseconds':
-          parameters.simultaneous_threshold_milliseconds,
+        'basic.simultaneous_threshold_milliseconds': parameters.simultaneous_threshold_milliseconds,
       },
       conditions: [
         {
@@ -354,8 +247,7 @@ function fourPartTriggerCombo(
       },
       to: [{ set_variable: { name: variable, value: 1 } }].concat(terminalTo),
       parameters: {
-        'basic.simultaneous_threshold_milliseconds':
-          parameters.simultaneous_threshold_milliseconds,
+        'basic.simultaneous_threshold_milliseconds': parameters.simultaneous_threshold_milliseconds,
       },
       conditions: [
         {

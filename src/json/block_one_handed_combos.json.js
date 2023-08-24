@@ -21,12 +21,7 @@ function rules() {
   modifiers.forEach(function (modifier) {
     const leftManipulators = []
 
-    const leftKeyCodes = [].concat(
-      ['grave_accent_and_tilde', '1', '2', '3', '4', '5'],
-      ['q', 'w', 'e', 'r', 't'],
-      ['a', 's', 'd', 'f', 'g'],
-      ['z', 'x', 'c', 'v']
-    )
+    const leftKeyCodes = [].concat(['grave_accent_and_tilde', '1', '2', '3', '4', '5'], ['q', 'w', 'e', 'r', 't'], ['a', 's', 'd', 'f', 'g'], ['z', 'x', 'c', 'v'])
 
     leftKeyCodes.forEach(function (keyCode) {
       leftManipulators.push({
@@ -59,14 +54,12 @@ function rules() {
     })
 
     result.push({
-      description:
-        'Block left-handed ' + modifier + ' + left-handed key (rev 2)',
+      description: 'Block left-handed ' + modifier + ' + left-handed key (rev 2)',
       manipulators: leftManipulators,
     })
 
     result.push({
-      description:
-        'Block right-handed ' + modifier + ' + right-handed key (rev 2)',
+      description: 'Block right-handed ' + modifier + ' + right-handed key (rev 2)',
       manipulators: rightManipulators,
     })
   })

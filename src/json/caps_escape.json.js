@@ -7,8 +7,7 @@ function main() {
         title: 'Caps Lock to Escape, enable Caps Lock when held',
         rules: [
           {
-            description:
-              'Caps Lock to Escape on single press, Caps Lock on press and hold.',
+            description: 'Caps Lock to Escape on single press, Caps Lock on press and hold.',
             manipulators: [
               {
                 type: 'basic',

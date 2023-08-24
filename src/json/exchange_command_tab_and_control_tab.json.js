@@ -4,8 +4,7 @@ function main() {
   console.log(
     JSON.stringify(
       {
-        title:
-          "Exchange Command+Tab (generally 'cycle through applications') and Control+Tab (generally 'cycle through tabs')",
+        title: "Exchange Command+Tab (generally 'cycle through applications') and Control+Tab (generally 'cycle through tabs')",
         rules: [
           {
             description: 'Change Command+Tab to Control+Tab',

@@ -7,8 +7,7 @@ function main() {
         title: 'Change caps_lock key (rev 5)',
         rules: [
           {
-            description:
-              'Change caps_lock key to command+control+option+shift if pressed with other keys',
+            description: 'Change caps_lock key to command+control+option+shift if pressed with other keys',
             manipulators: [
               {
                 type: 'basic',
@@ -32,8 +31,7 @@ function main() {
             ],
           },
           {
-            description:
-              'Change caps_lock key to command+control+option+shift. (Post escape key when pressed alone)',
+            description: 'Change caps_lock key to command+control+option+shift. (Post escape key when pressed alone)',
             manipulators: [
               {
                 type: 'basic',
@@ -56,8 +54,7 @@ function main() {
             ],
           },
           {
-            description:
-              'Change caps_lock key to command+control+option+shift. (Post f19 key when pressed alone)',
+            description: 'Change caps_lock key to command+control+option+shift. (Post f19 key when pressed alone)',
             manipulators: [
               {
                 type: 'basic',
@@ -80,8 +77,7 @@ function main() {
             ],
           },
           {
-            description:
-              'Change caps_lock key to command+control+option+shift. (Use shift+caps_lock as caps_lock)',
+            description: 'Change caps_lock key to command+control+option+shift. (Use shift+caps_lock as caps_lock)',
             manipulators: [
               {
                 type: 'basic',
@@ -114,8 +110,7 @@ function main() {
             ],
           },
           {
-            description:
-              'Change caps_lock to control if pressed with other keys, to escape if pressed alone.',
+            description: 'Change caps_lock to control if pressed with other keys, to escape if pressed alone.',
             manipulators: [
               {
                 type: 'basic',
@@ -137,8 +132,7 @@ function main() {
             ],
           },
           {
-            description:
-              'Change caps_lock to control if pressed with other keys. (rev 2)',
+            description: 'Change caps_lock to control if pressed with other keys. (rev 2)',
             manipulators: [
               {
                 type: 'basic',

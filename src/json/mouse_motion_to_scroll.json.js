@@ -8,8 +8,7 @@ function main() {
         maintainers: ['tekezo'],
         rules: [
           {
-            description:
-              'Change button3 + mouse motion to scroll wheel (rev 1)',
+            description: 'Change button3 + mouse motion to scroll wheel (rev 1)',
             available_since: '12.3.0',
             manipulators: [
               {
@@ -55,8 +54,7 @@ function main() {
             ],
           },
           {
-            description:
-              'Change button4 + mouse motion to scroll wheel (rev 1)',
+            description: 'Change button4 + mouse motion to scroll wheel (rev 1)',
             available_since: '12.3.0',
             manipulators: [
               {
@@ -102,8 +100,7 @@ function main() {
             ],
           },
           {
-            description:
-              'Change button5 + mouse motion to scroll wheel (rev 1)',
+            description: 'Change button5 + mouse motion to scroll wheel (rev 1)',
             available_since: '12.3.0',
             manipulators: [
               {
@@ -149,8 +146,7 @@ function main() {
             ],
           },
           {
-            description:
-              'Change control + mouse motion to scroll wheel (rev 1)',
+            description: 'Change control + mouse motion to scroll wheel (rev 1)',
             available_since: '12.3.0',
             manipulators: [
               {

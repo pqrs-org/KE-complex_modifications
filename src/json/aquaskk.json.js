@@ -23,10 +23,7 @@ function main() {
                 conditions: [
                   {
                     type: 'frontmost_application_if',
-                    bundle_identifiers: [
-                      '^com\\.googlecode\\.iterm2',
-                      '^com\\.apple\\.Terminal',
-                    ],
+                    bundle_identifiers: ['^com\\.googlecode\\.iterm2', '^com\\.apple\\.Terminal'],
                   },
                 ],
               },
@@ -52,8 +49,7 @@ function jetBrainsManipulators() {
       type: 'input_source_if',
       input_sources: [
         {
-          input_source_id:
-            '^jp\\.sourceforge\\.inputmethod\\.aquaskk\\.(Hiragana|Katakana|HalfWidthKana)$',
+          input_source_id: '^jp\\.sourceforge\\.inputmethod\\.aquaskk\\.(Hiragana|Katakana|HalfWidthKana)$',
         },
       ],
     },
@@ -70,8 +66,7 @@ function jetBrainsManipulators() {
         {
           select_input_source: {
             language: 'ja',
-            input_source_id:
-              'jp.sourceforge.inputmethod.aquaskk.FullWidthRoman',
+            input_source_id: 'jp.sourceforge.inputmethod.aquaskk.FullWidthRoman',
             input_mode_id: 'com.apple.inputmethod.Japanese.FullWidthRoman',
           },
         },

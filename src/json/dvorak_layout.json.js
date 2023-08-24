@@ -19,15 +19,7 @@ function main() {
 }
 
 function manipulators() {
-  const optionalModifiers = [
-    'caps_lock',
-    'left_command',
-    'left_control',
-    'left_option',
-    'right_command',
-    'right_control',
-    'right_option',
-  ]
+  const optionalModifiers = ['caps_lock', 'left_command', 'left_control', 'left_option', 'right_command', 'right_control', 'right_option']
 
   const remapFromKeys = [].concat(
     ['grave_accent_and_tilde', '1', '2', '4', '5', '6'],

@@ -6,11 +6,7 @@ function main() {
       {
         title: 'CAPS 4 Tenkey',
         maintainers: ['IvanShamatov'],
-        rules: [].concat(
-          tenkeyToggle(),
-          tenkeyMapping(),
-          arithmeticSymbolsMapping()
-        ),
+        rules: [].concat(tenkeyToggle(), tenkeyMapping(), arithmeticSymbolsMapping()),
       },
       null,
       '  '
@@ -76,8 +72,7 @@ function tenkeyMapping() {
   ]
 
   return {
-    description:
-      'CAPS Tenkey: if TenkeyMode ON m,.jkluio maps to keypad_[1234567890]',
+    description: 'CAPS Tenkey: if TenkeyMode ON m,.jkluio maps to keypad_[1234567890]',
     manipulators: mapKeys(mapping, tenkeyModeOn()),
   }
 }
