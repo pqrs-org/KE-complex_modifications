@@ -6,10 +6,10 @@ function main() {
   console.log(
     JSON.stringify(
       {
-        title: 'Japanese NICOLA example (rev 3)',
+        title: 'Japanese NICOLA',
         rules: [
           {
-            description: 'Japanese NICOLA example (rev 3)',
+            description: 'Japanese NICOLA Type F',
             manipulators: manipulators(),
           },
         ],
@@ -177,7 +177,7 @@ function manipulators() {
     '『': [keyWithShift('close_bracket')],
     '』': [keyWithShift('backslash')],
     '．': [keyWithOption('period')],
-    ',': [key('comma')],
+    '，': [keyWithOption('comma')],
   }
 
   const normalKey = function (key, char) {
@@ -333,7 +333,7 @@ function manipulators() {
     normalKey('m', 'そ'),
     normalKey('n', 'め'),
     normalKey('o', 'つ'),
-    normalKey('p', ','),
+    normalKey('p', '，'),
     normalKey('q', '。'),
     normalKey('r', 'こ'),
     normalKey('s', 'し'),
