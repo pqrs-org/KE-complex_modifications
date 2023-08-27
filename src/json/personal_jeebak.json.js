@@ -6,7 +6,7 @@ function main() {
   console.log(
     JSON.stringify(
       //
-      // A much simplified copy of the vi_mode.json.erb file, for TouchCursor Extended
+      // A much simplified copy of the vi_mode.json.js file, for TouchCursor Extended
       //
 
       {
