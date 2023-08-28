@@ -16,8 +16,7 @@ function main() {
 function rules() {
   return [
     {
-      description:
-        'While using Programmer Bepo, holding command temporarily switches to the Australian qwerty layout.',
+      description: 'While using Programmer Bepo, holding command temporarily switches to the Australian qwerty layout.',
       manipulators: [
         {
           type: 'basic',
@@ -32,8 +31,7 @@ function rules() {
               type: 'input_source_if',
               input_sources: [
                 {
-                  input_source_id:
-                    '^com\\.apple\\.keyboardlayout\\.bepo\\.keylayout\\.bépo-QwertyCmd$',
+                  input_source_id: '^com\\.apple\\.keyboardlayout\\.bepo\\.keylayout\\.bépo-QwertyCmd$',
                 },
               ],
             },
@@ -51,8 +49,7 @@ function rules() {
           to_after_key_up: [
             {
               select_input_source: {
-                input_source_id:
-                  '^com\\.apple\\.keyboardlayout\\.bepo\\.keylayout\\.bépo-QwertyCmd$',
+                input_source_id: '^com\\.apple\\.keyboardlayout\\.bepo\\.keylayout\\.bépo-QwertyCmd$',
               },
             },
           ],
@@ -70,8 +67,7 @@ function rules() {
               type: 'input_source_if',
               input_sources: [
                 {
-                  input_source_id:
-                    '^com\\.apple\\.keyboardlayout\\.bepo\\.keylayout\\.bépo-QwertyCmd$',
+                  input_source_id: '^com\\.apple\\.keyboardlayout\\.bepo\\.keylayout\\.bépo-QwertyCmd$',
                 },
               ],
             },
@@ -89,8 +85,7 @@ function rules() {
           to_after_key_up: [
             {
               select_input_source: {
-                input_source_id:
-                  '^com\\.apple\\.keyboardlayout\\.bepo\\.keylayout\\.bépo-QwertyCmd$',
+                input_source_id: '^com\\.apple\\.keyboardlayout\\.bepo\\.keylayout\\.bépo-QwertyCmd$',
               },
             },
           ],

@@ -83,9 +83,7 @@ function rules() {
   ]
 }
 
-if (
-  __main.endsWith('/map_left_option_with_j_k_l_semicolon_to_arrows.json.js')
-) {
+if (__main.endsWith('/map_left_option_with_j_k_l_semicolon_to_arrows.json.js')) {
   main()
 } else {
   exports.rules = rules()

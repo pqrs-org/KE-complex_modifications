@@ -678,10 +678,7 @@ function appVirtualMachine() {
       conditions: [
         {
           type: 'frontmost_application_if',
-          bundle_identifiers: [].concat(
-            karabiner.bundleIdentifiers.remoteDesktop,
-            karabiner.bundleIdentifiers.virtualMachine
-          ),
+          bundle_identifiers: [].concat(karabiner.bundleIdentifiers.remoteDesktop, karabiner.bundleIdentifiers.virtualMachine),
         },
       ],
     },
@@ -698,10 +695,7 @@ function appVirtualMachine() {
       conditions: [
         {
           type: 'frontmost_application_if',
-          bundle_identifiers: [].concat(
-            karabiner.bundleIdentifiers.remoteDesktop,
-            karabiner.bundleIdentifiers.virtualMachine
-          ),
+          bundle_identifiers: [].concat(karabiner.bundleIdentifiers.remoteDesktop, karabiner.bundleIdentifiers.virtualMachine),
         },
       ],
     },
@@ -718,10 +712,7 @@ function appVirtualMachine() {
       conditions: [
         {
           type: 'frontmost_application_if',
-          bundle_identifiers: [].concat(
-            karabiner.bundleIdentifiers.remoteDesktop,
-            karabiner.bundleIdentifiers.virtualMachine
-          ),
+          bundle_identifiers: [].concat(karabiner.bundleIdentifiers.remoteDesktop, karabiner.bundleIdentifiers.virtualMachine),
         },
       ],
     },
@@ -738,10 +729,7 @@ function appVirtualMachine() {
       conditions: [
         {
           type: 'frontmost_application_if',
-          bundle_identifiers: [].concat(
-            karabiner.bundleIdentifiers.remoteDesktop,
-            karabiner.bundleIdentifiers.virtualMachine
-          ),
+          bundle_identifiers: [].concat(karabiner.bundleIdentifiers.remoteDesktop, karabiner.bundleIdentifiers.virtualMachine),
         },
       ],
     },
@@ -758,10 +746,7 @@ function appVirtualMachine() {
       conditions: [
         {
           type: 'frontmost_application_if',
-          bundle_identifiers: [].concat(
-            karabiner.bundleIdentifiers.remoteDesktop,
-            karabiner.bundleIdentifiers.virtualMachine
-          ),
+          bundle_identifiers: [].concat(karabiner.bundleIdentifiers.remoteDesktop, karabiner.bundleIdentifiers.virtualMachine),
         },
       ],
     },
@@ -778,10 +763,7 @@ function appVirtualMachine() {
       conditions: [
         {
           type: 'frontmost_application_if',
-          bundle_identifiers: [].concat(
-            karabiner.bundleIdentifiers.remoteDesktop,
-            karabiner.bundleIdentifiers.virtualMachine
-          ),
+          bundle_identifiers: [].concat(karabiner.bundleIdentifiers.remoteDesktop, karabiner.bundleIdentifiers.virtualMachine),
         },
       ],
     },
@@ -798,10 +780,7 @@ function appVirtualMachine() {
       conditions: [
         {
           type: 'frontmost_application_if',
-          bundle_identifiers: [].concat(
-            karabiner.bundleIdentifiers.remoteDesktop,
-            karabiner.bundleIdentifiers.virtualMachine
-          ),
+          bundle_identifiers: [].concat(karabiner.bundleIdentifiers.remoteDesktop, karabiner.bundleIdentifiers.virtualMachine),
         },
       ],
     },
@@ -818,10 +797,7 @@ function appVirtualMachine() {
       conditions: [
         {
           type: 'frontmost_application_if',
-          bundle_identifiers: [].concat(
-            karabiner.bundleIdentifiers.remoteDesktop,
-            karabiner.bundleIdentifiers.virtualMachine
-          ),
+          bundle_identifiers: [].concat(karabiner.bundleIdentifiers.remoteDesktop, karabiner.bundleIdentifiers.virtualMachine),
         },
       ],
     },
@@ -838,10 +814,7 @@ function appVirtualMachine() {
       conditions: [
         {
           type: 'frontmost_application_if',
-          bundle_identifiers: [].concat(
-            karabiner.bundleIdentifiers.remoteDesktop,
-            karabiner.bundleIdentifiers.virtualMachine
-          ),
+          bundle_identifiers: [].concat(karabiner.bundleIdentifiers.remoteDesktop, karabiner.bundleIdentifiers.virtualMachine),
         },
       ],
     },

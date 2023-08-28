@@ -51,14 +51,7 @@ const volume_down_manipulator = manipulator('volume_decrement', 'voldown 5')
 const rules = [
   {
     description: 'NCSPOT::All',
-    manipulators: [
-      play_pause_manipulator,
-      play_pause_bug,
-      next_manipulator,
-      previous_manipulator,
-      volume_up_manipulator,
-      volume_down_manipulator,
-    ],
+    manipulators: [play_pause_manipulator, play_pause_bug, next_manipulator, previous_manipulator, volume_up_manipulator, volume_down_manipulator],
   },
   {
     description: 'NCSPOT::Play/Pause',
@@ -83,8 +76,7 @@ const rules = [
 ]
 
 const json = {
-  title:
-    'NCSPOT - control Spotify client for the terminal with media keys via netcat',
+  title: 'NCSPOT - control Spotify client for the terminal with media keys via netcat',
   maintainers: ['n3f'],
   rules: rules,
 }

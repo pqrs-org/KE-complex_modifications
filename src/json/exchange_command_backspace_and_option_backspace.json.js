@@ -4,12 +4,10 @@ function main() {
   console.log(
     JSON.stringify(
       {
-        title:
-          'Exchange Command+Backward-Delete (delete current line) and Option+Backward-Delete (delete current word)',
+        title: 'Exchange Command+Backward-Delete (delete current line) and Option+Backward-Delete (delete current word)',
         rules: [
           {
-            description:
-              'Change Command+Backward-Delete and Option+Backward-Delete',
+            description: 'Change Command+Backward-Delete and Option+Backward-Delete',
             manipulators: [
               {
                 from: {
@@ -30,8 +28,7 @@ function main() {
             ],
           },
           {
-            description:
-              'Change Option+Backward-Delete to Command+Backward-Delete',
+            description: 'Change Option+Backward-Delete to Command+Backward-Delete',
             manipulators: [
               {
                 from: {

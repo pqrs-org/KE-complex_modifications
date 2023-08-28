@@ -4,13 +4,11 @@
 // Key codes
 //
 
-exports.letters = [].concat(
-  ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'],
-  ['k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't'],
-  ['u', 'v', 'w', 'x', 'y', 'z']
-)
+exports.letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 exports.numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+
+exports.arrows = ['left_arrow', 'right_arrow', 'up_arrow', 'down_arrow']
 
 //
 // Bundle identifiers
@@ -37,6 +35,7 @@ const rawBundleIdentifers = {
   eclipse: ['^org\\.eclipse\\.platform\\.ide$'],
 
   emacs: [
+    // --- Comment to prevent line combination by Prettier ---
     '^org\\.gnu\\.Emacs$',
     '^org\\.gnu\\.AquamacsEmacs$',
     '^org\\.gnu\\.Aquamacs$',
@@ -54,6 +53,7 @@ const rawBundleIdentifers = {
   loginwindow: ['^com\\.apple\\.loginwindow$'],
 
   microsoftOffice: [
+    // --- Comment to prevent line combination by Prettier ---
     '^com\\.microsoft\\.Excel$',
     '^com\\.microsoft\\.Powerpoint$',
     '^com\\.microsoft\\.Word$',
@@ -88,6 +88,7 @@ const rawBundleIdentifers = {
   ],
 
   terminal: [
+    // --- Comment to prevent line combination by Prettier ---
     '^com\\.apple\\.Terminal$',
     '^com\\.googlecode\\.iterm2$',
     '^co\\.zeit\\.hyperterm$',
@@ -130,6 +131,7 @@ const rawBundleIdentifers = {
   ],
 
   x11: [
+    // --- Comment to prevent line combination by Prettier ---
     '^org\\.x\\.X11$',
     '^com\\.apple\\.x11$',
     '^org\\.macosforge\\.xquartz\\.X11$',

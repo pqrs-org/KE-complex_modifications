@@ -32,8 +32,8 @@ Follow the steps below to create a PR and add your settings!
     git switch -c my-settings
     ```
 
-4.  Put a JSON generator file (`.js`, `.rb` or `.erb`) into [src/json](https://github.com/pqrs-org/KE-complex_modifications/tree/main/src/json).
-    (Or put a `.json` file directly into [public/json](https://github.com/pqrs-org/KE-complex_modifications/tree/main/public/json) directly.)
+4.  Put a JSON generator file (`.js`) into [src/json](https://github.com/pqrs-org/KE-complex_modifications/tree/main/src/json).
+    (Or put a `.json` file directly into [public/json](https://github.com/pqrs-org/KE-complex_modifications/tree/main/public/json) directory.)
 5.  <details>
     <summary>
         (Optional) Update public/groups.json if you want to add your rules to a particular category.
@@ -129,3 +129,29 @@ git clean -x -d -f .
 # update GitHub repository
 git push
 ```
+
+## Notes on creating your generators
+
+The code in `src/json/*.js` is executed by [Duktape](https://duktape.org/), which is built into the Karabiner-Elements's command line interface ( `karabiner_cli`).
+
+Unlike the latest Node.js, the basic language specification is ES5.1, so the following features cannot be used.
+
+-   `let` (`const` is specially supported)
+-   Arrow functions
+-   Default parameters
+-   Spread (...) syntax
+-   Template literals
+
+### Examples
+
+There are many existing codes. Here are some of the more distinctive ones among them.
+
+-   Use the predefined list of bundle identifiers in `frontmost_application_if`.
+    -   [capslock_shift_copy_paste.json.js](https://github.com/pqrs-org/KE-complex_modifications/blob/main/src/json/capslock_shift_copy_paste.json.js)
+-   Generate remappings from a list of characters
+    -   [colemak_layout.json.js](https://github.com/pqrs-org/KE-complex_modifications/blob/main/src/json/colemak_layout.json.js)
+-   Include file from another file
+    -   [personal_thooams.json.js](https://github.com/pqrs-org/KE-complex_modifications/blob/main/src/json/personal_thooams.json.js)
+    -   [control_backspace_to_function_backspace.json.js](https://github.com/pqrs-org/KE-complex_modifications/blob/main/src/json/control_backspace_to_function_backspace.json.js)
+-   Generate rules from key combinations
+    -   [matias_ergo_pro.json.js](https://github.com/pqrs-org/KE-complex_modifications/blob/main/src/json/matias_ergo_pro.json.js)

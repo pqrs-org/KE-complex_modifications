@@ -96,8 +96,7 @@ function generateSimpleVIMode(from_key_code, to_key_code) {
         },
       ],
       parameters: {
-        'basic.simultaneous_threshold_milliseconds':
-          parameters.simultaneous_threshold_milliseconds,
+        'basic.simultaneous_threshold_milliseconds': parameters.simultaneous_threshold_milliseconds,
       },
     },
   ]

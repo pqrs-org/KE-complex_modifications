@@ -7,8 +7,7 @@ function main() {
         title: 'Change control+comma & control+period',
         rules: [
           {
-            description:
-              'Change control+comma to comma, control+period to period',
+            description: 'Change control+comma to comma, control+period to period',
             manipulators: [
               {
                 type: 'basic',

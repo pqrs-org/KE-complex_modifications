@@ -16,26 +16,22 @@ function main() {
           // generic
           controlKeys({
             type: 'generic',
-            description:
-              'Emacs key bindings [control+keys] (' + controlKeysRev + ')',
+            description: 'Emacs key bindings [control+keys] (' + controlKeysRev + ')',
             frontmostApplicationUnless: [
               {
                 type: 'frontmost_application_unless',
-                bundle_identifiers:
-                  karabiner.bundleIdentifiers.emacsKeyBindingsException,
+                bundle_identifiers: karabiner.bundleIdentifiers.emacsKeyBindingsException,
               },
             ],
             frontmostApplicationIf: [],
           }),
           optionKeys({
             type: 'generic',
-            description:
-              'Emacs key bindings [option+keys] (' + optionKeysRev + ')',
+            description: 'Emacs key bindings [option+keys] (' + optionKeysRev + ')',
             frontmostApplicationUnless: [
               {
                 type: 'frontmost_application_unless',
-                bundle_identifiers:
-                  karabiner.bundleIdentifiers.emacsKeyBindingsException,
+                bundle_identifiers: karabiner.bundleIdentifiers.emacsKeyBindingsException,
               },
             ],
             frontmostApplicationIf: [],
@@ -47,8 +43,7 @@ function main() {
             frontmostApplicationUnless: [
               {
                 type: 'frontmost_application_unless',
-                bundle_identifiers:
-                  karabiner.bundleIdentifiers.emacsKeyBindingsException,
+                bundle_identifiers: karabiner.bundleIdentifiers.emacsKeyBindingsException,
               },
             ],
             frontmostApplicationIf: [],
@@ -57,46 +52,34 @@ function main() {
           // Visual Studio Code
           controlKeys({
             type: 'visualStudioCode',
-            description:
-              'For Visual Studio Code: Emacs key bindings [control+keys] (' +
-              controlKeysRev +
-              ')',
+            description: 'For Visual Studio Code: Emacs key bindings [control+keys] (' + controlKeysRev + ')',
             frontmostApplicationUnless: [],
             frontmostApplicationIf: [
               {
                 type: 'frontmost_application_if',
-                bundle_identifiers:
-                  karabiner.bundleIdentifiers.visualStudioCode,
+                bundle_identifiers: karabiner.bundleIdentifiers.visualStudioCode,
               },
             ],
           }),
           optionKeys({
             type: 'visualStudioCode',
-            description:
-              'For Visual Studio Code: Emacs key bindings [option+keys] (' +
-              optionKeysRev +
-              ')',
+            description: 'For Visual Studio Code: Emacs key bindings [option+keys] (' + optionKeysRev + ')',
             frontmostApplicationUnless: [],
             frontmostApplicationIf: [
               {
                 type: 'frontmost_application_if',
-                bundle_identifiers:
-                  karabiner.bundleIdentifiers.visualStudioCode,
+                bundle_identifiers: karabiner.bundleIdentifiers.visualStudioCode,
               },
             ],
           }),
           bashStyle({
             type: 'visualStudioCode',
-            description:
-              'For Visual Studio Code: Bash style Emacs key bindings (' +
-              bashStyleRev +
-              ')',
+            description: 'For Visual Studio Code: Bash style Emacs key bindings (' + bashStyleRev + ')',
             frontmostApplicationUnless: [],
             frontmostApplicationIf: [
               {
                 type: 'frontmost_application_if',
-                bundle_identifiers:
-                  karabiner.bundleIdentifiers.visualStudioCode,
+                bundle_identifiers: karabiner.bundleIdentifiers.visualStudioCode,
               },
             ],
           })
@@ -244,8 +227,7 @@ function cxKeyStrokes() {
         conditions: [
           {
             type: 'frontmost_application_unless',
-            bundle_identifiers:
-              karabiner.bundleIdentifiers.emacsKeyBindingsException,
+            bundle_identifiers: karabiner.bundleIdentifiers.emacsKeyBindingsException,
           },
         ],
       },
@@ -267,10 +249,7 @@ function controlKeys(options) {
           },
         },
         to: [{ key_code: 'delete_forward' }],
-        conditions: [].concat(
-          options.frontmostApplicationUnless,
-          options.frontmostApplicationIf
-        ),
+        conditions: [].concat(options.frontmostApplicationUnless, options.frontmostApplicationIf),
       },
       {
         type: 'basic',
@@ -282,10 +261,7 @@ function controlKeys(options) {
           },
         },
         to: [{ key_code: 'delete_or_backspace' }],
-        conditions: [].concat(
-          options.frontmostApplicationUnless,
-          options.frontmostApplicationIf
-        ),
+        conditions: [].concat(options.frontmostApplicationUnless, options.frontmostApplicationIf),
       },
       {
         type: 'basic',
@@ -297,10 +273,7 @@ function controlKeys(options) {
           },
         },
         to: [{ key_code: 'tab' }],
-        conditions: [].concat(
-          options.frontmostApplicationUnless,
-          options.frontmostApplicationIf
-        ),
+        conditions: [].concat(options.frontmostApplicationUnless, options.frontmostApplicationIf),
       },
       {
         type: 'basic',
@@ -361,10 +334,7 @@ function controlKeys(options) {
           },
         },
         to: [{ key_code: 'left_arrow' }],
-        conditions: [].concat(
-          options.frontmostApplicationUnless,
-          options.frontmostApplicationIf
-        ),
+        conditions: [].concat(options.frontmostApplicationUnless, options.frontmostApplicationIf),
       },
       {
         type: 'basic',
@@ -376,10 +346,7 @@ function controlKeys(options) {
           },
         },
         to: [{ key_code: 'right_arrow' }],
-        conditions: [].concat(
-          options.frontmostApplicationUnless,
-          options.frontmostApplicationIf
-        ),
+        conditions: [].concat(options.frontmostApplicationUnless, options.frontmostApplicationIf),
       },
       {
         type: 'basic',
@@ -391,10 +358,7 @@ function controlKeys(options) {
           },
         },
         to: [{ key_code: 'down_arrow' }],
-        conditions: [].concat(
-          options.frontmostApplicationUnless,
-          options.frontmostApplicationIf
-        ),
+        conditions: [].concat(options.frontmostApplicationUnless, options.frontmostApplicationIf),
       },
       {
         type: 'basic',
@@ -406,10 +370,7 @@ function controlKeys(options) {
           },
         },
         to: [{ key_code: 'up_arrow' }],
-        conditions: [].concat(
-          options.frontmostApplicationUnless,
-          options.frontmostApplicationIf
-        ),
+        conditions: [].concat(options.frontmostApplicationUnless, options.frontmostApplicationIf),
       },
       {
         type: 'basic',
@@ -421,10 +382,7 @@ function controlKeys(options) {
           },
         },
         to: [{ key_code: 'page_down' }],
-        conditions: [].concat(
-          options.frontmostApplicationUnless,
-          options.frontmostApplicationIf
-        ),
+        conditions: [].concat(options.frontmostApplicationUnless, options.frontmostApplicationIf),
       },
       {
         type: 'basic',
@@ -598,10 +556,7 @@ function optionKeys(options) {
           },
         },
         to: [{ key_code: 'page_up' }],
-        conditions: [].concat(
-          options.frontmostApplicationUnless,
-          options.frontmostApplicationIf
-        ),
+        conditions: [].concat(options.frontmostApplicationUnless, options.frontmostApplicationIf),
       },
       {
         type: 'basic',
@@ -613,10 +568,7 @@ function optionKeys(options) {
           },
         },
         to: [{ key_code: 'left_arrow', modifiers: ['left_option'] }],
-        conditions: [].concat(
-          options.frontmostApplicationUnless,
-          options.frontmostApplicationIf
-        ),
+        conditions: [].concat(options.frontmostApplicationUnless, options.frontmostApplicationIf),
       },
       {
         type: 'basic',
@@ -628,10 +580,7 @@ function optionKeys(options) {
           },
         },
         to: [{ key_code: 'right_arrow', modifiers: ['left_option'] }],
-        conditions: [].concat(
-          options.frontmostApplicationUnless,
-          options.frontmostApplicationIf
-        ),
+        conditions: [].concat(options.frontmostApplicationUnless, options.frontmostApplicationIf),
       },
       {
         type: 'basic',
@@ -643,10 +592,7 @@ function optionKeys(options) {
           },
         },
         to: [{ key_code: 'delete_forward', modifiers: ['left_option'] }],
-        conditions: [].concat(
-          options.frontmostApplicationUnless,
-          options.frontmostApplicationIf
-        ),
+        conditions: [].concat(options.frontmostApplicationUnless, options.frontmostApplicationIf),
       },
     ],
   }
@@ -668,10 +614,7 @@ function bashStyle(options) {
           },
         },
         to: [{ key_code: 'delete_or_backspace', modifiers: ['left_option'] }],
-        conditions: [].concat(
-          options.frontmostApplicationUnless,
-          options.frontmostApplicationIf
-        ),
+        conditions: [].concat(options.frontmostApplicationUnless, options.frontmostApplicationIf),
       },
       {
         type: 'basic',
@@ -692,10 +635,7 @@ function bashStyle(options) {
             repeat: false,
           },
         ],
-        conditions: [].concat(
-          options.frontmostApplicationUnless,
-          options.frontmostApplicationIf
-        ),
+        conditions: [].concat(options.frontmostApplicationUnless, options.frontmostApplicationIf),
       },
     ],
   }

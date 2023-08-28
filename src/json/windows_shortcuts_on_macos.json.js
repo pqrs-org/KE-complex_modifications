@@ -44,8 +44,7 @@ function main() {
         title: 'Windows shortcuts on macOS',
         rules: [
           {
-            description:
-              'Ctrl+C, Ctrl+V, Ctrl+X => Cmd+C (Copy), Cmd+V (Paste), Cmd+X (Cut)',
+            description: 'Ctrl+C, Ctrl+V, Ctrl+X => Cmd+C (Copy), Cmd+V (Paste), Cmd+X (Cut)',
             manipulators: [
               {
                 type: 'basic',
@@ -434,8 +433,7 @@ function main() {
             ],
           },
           {
-            description:
-              'Home => Cmd+Left arrow (Move cursor to beginning of line)',
+            description: 'Home => Cmd+Left arrow (Move cursor to beginning of line)',
             manipulators: [
               {
                 conditions: [
@@ -466,8 +464,7 @@ function main() {
             ],
           },
           {
-            description:
-              'Shift+Home => Cmd+Shift+Left arrow (Move cursor to beginning of line with selection)',
+            description: 'Shift+Home => Cmd+Shift+Left arrow (Move cursor to beginning of line with selection)',
             manipulators: [
               {
                 conditions: [
@@ -501,8 +498,7 @@ function main() {
             ],
           },
           {
-            description:
-              'Ctrl+Home, Ctrl+Shift+Home => Cmd+Up arrow, Cmd+Shift+Up arrow (Move cursor to beginning of file with and without selection)',
+            description: 'Ctrl+Home, Ctrl+Shift+Home => Cmd+Up arrow, Cmd+Shift+Up arrow (Move cursor to beginning of file with and without selection)',
             manipulators: [
               {
                 conditions: [
@@ -568,8 +564,7 @@ function main() {
             ],
           },
           {
-            description:
-              'Shift+End => Cmd+Shift+Right arrow (Move cursor to end of line with selection)',
+            description: 'Shift+End => Cmd+Shift+Right arrow (Move cursor to end of line with selection)',
             manipulators: [
               {
                 conditions: [
@@ -603,8 +598,7 @@ function main() {
             ],
           },
           {
-            description:
-              'Ctrl+End, Ctrl+Shift+End => Cmd+down arrow, Cmd+Shift+down arrow (Move cursor to end of file with and without selection)',
+            description: 'Ctrl+End, Ctrl+Shift+End => Cmd+down arrow, Cmd+Shift+down arrow (Move cursor to end of file with and without selection)',
             manipulators: [
               {
                 conditions: [
@@ -744,8 +738,7 @@ function main() {
             ],
           },
           {
-            description:
-              'Ctrl+L => Cmd+L (Open url location) (Only in browsers)',
+            description: 'Ctrl+L => Cmd+L (Open url location) (Only in browsers)',
             manipulators: [
               {
                 conditions: [
@@ -878,8 +871,7 @@ function main() {
             ],
           },
           {
-            description:
-              'Cmd+Tab => Cmd+Alt+0 (Reassigned command for opening Mission control)',
+            description: 'Cmd+Tab => Cmd+Alt+0 (Reassigned command for opening Mission control)',
             manipulators: [
               {
                 from: {
@@ -900,8 +892,7 @@ function main() {
             ],
           },
           {
-            description:
-              'Ctrl+(Shift)+Right/left arrow => Alt+(Shift)+Right/left arrow (Move cursor one word with selection and without selection)',
+            description: 'Ctrl+(Shift)+Right/left arrow => Alt+(Shift)+Right/left arrow (Move cursor one word with selection and without selection)',
             manipulators: [
               {
                 conditions: [
@@ -950,8 +941,7 @@ function main() {
             ],
           },
           {
-            description:
-              'Ctrl+Up/down arrow => Up/down arrow (Move cursor up/down)',
+            description: 'Ctrl+Up/down arrow => Up/down arrow (Move cursor up/down)',
             manipulators: [
               {
                 type: 'basic',
@@ -1011,8 +1001,7 @@ function main() {
                 },
                 to: [
                   {
-                    shell_command:
-                      '/System/Library/CoreServices/Menu\\ Extras/User.menu/Contents/Resources/CGSession -suspend',
+                    shell_command: '/System/Library/CoreServices/Menu\\ Extras/User.menu/Contents/Resources/CGSession -suspend',
                   },
                 ],
                 type: 'basic',
@@ -1168,8 +1157,7 @@ function main() {
             ],
           },
           {
-            description:
-              'Ctrl+Left Click => Cmd+Left Click (select multiple items)',
+            description: 'Ctrl+Left Click => Cmd+Left Click (select multiple items)',
             manipulators: [
               {
                 from: {
