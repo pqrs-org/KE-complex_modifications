@@ -5,7 +5,7 @@
 function getBasicCapsManipulator(info) {
   return {
     type: info.type || 'basic',
-    conditions: info.conditions || [ { "name": "caps_lock pressed", "type": "variable_if", "value": 1 } ],
+    conditions: info.conditions || [ { 'name': 'caps_lock pressed', 'type': 'variable_if', 'value': 1 } ],
     from: typeof info.from == 'string' ? {
       key_code: info.from,
       modifiers: {
