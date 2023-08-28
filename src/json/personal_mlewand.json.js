@@ -150,8 +150,8 @@ const sections = [
       getDockApplicationManipulator(7, 'iTerm'),
       getDockApplicationManipulator(8, 'Notion'),
     ],
-  }
-];
+  },
+]
 
 const json = {
   title: 'Capslock as a modifier key - arrows emulation, media keys, basic os hotkeys (@mlewand)',
