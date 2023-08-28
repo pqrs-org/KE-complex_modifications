@@ -378,6 +378,58 @@
           "from": {
             "key_code": "w",
             "modifiers": {
+              "mandatory": [
+                "left_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "open_bracket",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "caps_lock pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "e",
+            "modifiers": {
+              "mandatory": [
+                "left_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "close_bracket",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "caps_lock pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "w",
+            "modifiers": {
               "optional": [
                 "any"
               ]
@@ -495,7 +547,7 @@
       ]
     },
     {
-      "description": "os management (caps+t→focus dock, caps+b→focus icon tray, caps+r→focus app menu)",
+      "description": "os management (caps+t→focus dock, caps+b→focus icon tray, caps+~→pnt screen, caps+r→focus app menu)",
       "manipulators": [
         {
           "type": "basic",

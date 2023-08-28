@@ -1,18 +1,19 @@
 // JavaScript should be written in ECMAScript 5.1.
 // Handful link for key codes: https://github.com/JoshuaManuel/Karabiner-Elements-Key-List
+// Docs link for from structure: https://karabiner-elements.pqrs.org/docs/json/complex-modifications-manipulator-definition/from/
 
 function getBasicCapsManipulator( info ) {
 	return {
 		type: info.type || 'basic',
 		conditions: info.conditions || [ { "name": "caps_lock pressed", "type": "variable_if", "value": 1 } ],
-		from: {
+		from: typeof info.from == 'string' ? {
 			"key_code": info.from,
 			"modifiers": {
 				"optional": [
 					"any"
 				]
 			}
-		},
+		} : info.from,
 		to: getToKeys()
 	};
 
@@ -115,13 +116,15 @@ const sections = [
 		]
 	},
 	{
-		name: 'Typing extras (caps+s→,, caps+d→., caps+w→(, caps+e→))',
+		name: 'Typing extras (caps+s→,, caps+d→., caps+w→(, caps+e→), caps+shift+w→{, caps+shift+e→})',
 		manipulators: [
 			// getBasicCapsManipulator( { from: 'a', to: [ 'open_bracket', 'close_bracket' ] } ), // unsupported fromat yet
 			getBasicCapsManipulator( { from: 's', to: 'comma' } ),
 			getBasicCapsManipulator( { from: 'd', to: 'period' } ),
+			getBasicCapsManipulator( { from: { key_code: 'w', modifiers: { mandatory: [ 'left_shift' ] } }, to: { key: 'open_bracket', modifiers: [ 'left_shift' ] } } ),
+			getBasicCapsManipulator( { from: { key_code: 'e', modifiers: { mandatory: [ 'left_shift' ] } }, to: { key: 'close_bracket', modifiers: [ 'left_shift' ] } } ),
 			getBasicCapsManipulator( { from: 'w', to: { key: '9', modifiers: [ 'left_shift' ] } } ),
-			getBasicCapsManipulator( { from: 'e', to: { key: '0', modifiers: [ 'left_shift' ] } } )
+			getBasicCapsManipulator( { from: 'e', to: { key: '0', modifiers: [ 'left_shift' ] } } ),
 		]
 	},
 	{
