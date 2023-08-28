@@ -1,17 +1,19 @@
 // JavaScript should be written in ECMAScript 5.1.
+// Handful link for key codes: https://github.com/JoshuaManuel/Karabiner-Elements-Key-List
+// Docs link for from structure: https://karabiner-elements.pqrs.org/docs/json/complex-modifications-manipulator-definition/from/
 
 function getBasicCapsManipulator(info) {
   return {
     type: info.type || 'basic',
-    conditions: info.conditions || [{ name: 'caps_lock pressed', type: 'variable_if', value: 1 }],
-    from: {
+    conditions: info.conditions || [ { 'name': 'caps_lock pressed', 'type': 'variable_if', 'value': 1 } ],
+    from: typeof info.from == 'string' ? {
       key_code: info.from,
       modifiers: {
         optional: ['any'],
       },
-    },
-    to: getToKeys(),
-  }
+    } : info.from,
+    to: getToKeys()
+  };
 
   function getToKeys() {
     const configKey = info.to
@@ -108,26 +110,33 @@ const sections = [
     ],
   },
   {
-    name: 'Typing extras (caps+s→,, caps+d→., caps+w→(, caps+e→))',
+    name: 'Typing extras (caps+s→,, caps+d→., caps+w→(, caps+e→), caps+shift+w→{, caps+shift+e→})',
     manipulators: [
-      // getBasicCapsManipulator( { from: 'a', to: [ 'open_bracket', 'close_bracket' ] } ), // unsupported fromat yet
+      // getBasicCapsManipulator({ from: 'a', to: [ 'open_bracket', 'close_bracket' ] }), // unsupported fromat yet
       getBasicCapsManipulator({ from: 's', to: 'comma' }),
       getBasicCapsManipulator({ from: 'd', to: 'period' }),
-      getBasicCapsManipulator({ from: 'w', to: { key: '9', modifiers: ['left_shift'] } }),
-      getBasicCapsManipulator({ from: 'e', to: { key: '0', modifiers: ['left_shift'] } }),
+      getBasicCapsManipulator({ from: { key_code: 'w', modifiers: { mandatory: [ 'left_shift' ] } }, to: { key: 'open_bracket', modifiers: [ 'left_shift' ] } }),
+      getBasicCapsManipulator({ from: { key_code: 'e', modifiers: { mandatory: [ 'left_shift' ] } }, to: { key: 'close_bracket', modifiers: [ 'left_shift' ] } }),
+      getBasicCapsManipulator({ from: 'w', to: { key: '9', modifiers: [ 'left_shift' ] } }),
+      getBasicCapsManipulator({ from: 'e', to: { key: '0', modifiers: [ 'left_shift' ] } }),
     ],
   },
   {
     name: 'Media keys (caps+f1 → mute, caps+f2→rewind, caps+f3→next track)',
-    manipulators: [getBasicCapsManipulator({ from: 'f1', to: 'mute' }), getBasicCapsManipulator({ from: 'f2', to: 'rewind' }), getBasicCapsManipulator({ from: 'f3', to: 'fastforward' })],
+    manipulators: [
+      getBasicCapsManipulator({ from: 'f1', to: 'mute' }),
+      getBasicCapsManipulator({ from: 'f2', to: 'rewind' }),
+      getBasicCapsManipulator({ from: 'f3', to: 'fastforward' }),
+    ]
   },
   {
-    name: 'os management (caps+t→focus dock, caps+b→focus icon tray, caps+r→focus app menu)',
+    name: 'os management (caps+t→focus dock, caps+b→focus icon tray, caps+~→pnt screen, caps+r→focus app menu)',
     manipulators: [
       getBasicCapsManipulator({ from: 't', to: { key: 'f3', modifiers: ['left_control'] } }),
       getBasicCapsManipulator({ from: 'b', to: { key: 'f8', modifiers: ['left_control'] } }),
       getBasicCapsManipulator({ from: 'r', to: { key: 'f2', modifiers: ['left_control'] } }),
-      getBasicCapsManipulator({ from: 'f12', to: { key: 'f14', modifiers: ['left_command'] } }),
+      getBasicCapsManipulator({ from: 'grave_accent_and_tilde', to: 'print_screen' }),
+      getBasicCapsManipulator({ from: 'f12', to: { key: 'f14', modifiers: ['left_command'] } } ) // sign out
     ],
   },
   {

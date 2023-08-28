@@ -318,7 +318,7 @@
       ]
     },
     {
-      "description": "Typing extras (caps+s→,, caps+d→., caps+w→(, caps+e→))",
+      "description": "Typing extras (caps+s→,, caps+d→., caps+w→(, caps+e→), caps+shift+w→{, caps+shift+e→})",
       "manipulators": [
         {
           "type": "basic",
@@ -363,6 +363,58 @@
           "to": [
             {
               "key_code": "period"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "caps_lock pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "w",
+            "modifiers": {
+              "mandatory": [
+                "left_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "open_bracket",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "caps_lock pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "e",
+            "modifiers": {
+              "mandatory": [
+                "left_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "close_bracket",
+              "modifiers": [
+                "left_shift"
+              ]
             }
           ]
         },
@@ -495,7 +547,7 @@
       ]
     },
     {
-      "description": "os management (caps+t→focus dock, caps+b→focus icon tray, caps+r→focus app menu)",
+      "description": "os management (caps+t→focus dock, caps+b→focus icon tray, caps+~→pnt screen, caps+r→focus app menu)",
       "manipulators": [
         {
           "type": "basic",
@@ -572,6 +624,29 @@
               "modifiers": [
                 "left_control"
               ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "caps_lock pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "grave_accent_and_tilde",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "print_screen"
             }
           ]
         },
