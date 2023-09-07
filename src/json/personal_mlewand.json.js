@@ -146,9 +146,11 @@ const sections = [
       getDockApplicationManipulator(2, 'Google Chrome'),
       getDockApplicationManipulator(3, 'Slack'),
       getDockApplicationManipulator(4, 'Visual Studio Code'),
-      getDockApplicationManipulator(5, 'Spotify'),
+      getDockApplicationManipulator(5, 'eM Client'),
+      getDockApplicationManipulator(6, 'Spotify'),
       getDockApplicationManipulator(7, 'iTerm'),
       getDockApplicationManipulator(8, 'Notion'),
+      getDockApplicationManipulator(9, 'System Settings'),
     ],
   },
 ]
