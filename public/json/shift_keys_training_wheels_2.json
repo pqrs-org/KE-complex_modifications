@@ -421,6 +421,135 @@
           ]
         }
       ]
+    },
+    {
+      "description": "incorrect shortcut combos not allowed",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "w",
+            "modifiers": {
+              "mandatory": [
+                "left_command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_notification_message": {
+                "id": "org.pqrs.notificaion_message_example",
+                "text": "Don't do that!"
+              }
+            },
+            {
+              "key_code": "vk_none",
+              "halt": true
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "mandatory": [
+                "left_command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_notification_message": {
+                "id": "org.pqrs.notificaion_message_example",
+                "text": "Don't do that!"
+              }
+            },
+            {
+              "key_code": "vk_none",
+              "halt": true
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "tab",
+            "modifiers": {
+              "mandatory": [
+                "left_option"
+              ],
+              "optional": [
+                "left_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_notification_message": {
+                "id": "org.pqrs.notificaion_message_example",
+                "text": "Don't do that!"
+              }
+            },
+            {
+              "key_code": "vk_none",
+              "halt": true
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "tab",
+            "modifiers": {
+              "mandatory": [
+                "left_control"
+              ],
+              "optional": [
+                "left_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_notification_message": {
+                "id": "org.pqrs.notificaion_message_example",
+                "text": "Don't do that!"
+              }
+            },
+            {
+              "key_code": "vk_none",
+              "halt": true
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "~",
+            "modifiers": {
+              "mandatory": [
+                "left_option"
+              ],
+              "optional": [
+                "left_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_notification_message": {
+                "id": "org.pqrs.notificaion_message_example",
+                "text": "Don't do that!"
+              }
+            },
+            {
+              "key_code": "vk_none",
+              "halt": true
+            }
+          ]
+        }
+      ]
     }
   ]
 }
