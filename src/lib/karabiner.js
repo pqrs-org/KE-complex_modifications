@@ -52,12 +52,11 @@ const rawBundleIdentifers = {
 
   loginwindow: ['^com\\.apple\\.loginwindow$'],
 
-  microsoftOffice: [
-    // --- Comment to prevent line combination by Prettier ---
-    '^com\\.microsoft\\.Excel$',
-    '^com\\.microsoft\\.Powerpoint$',
-    '^com\\.microsoft\\.Word$',
-  ],
+  microsoftExcel: ['^com\\.microsoft\\.Excel$'],
+
+  microsoftPowerpoint: ['^com\\.microsoft\\.Powerpoint$'],
+
+  microsoftWord: ['^com\\.microsoft\\.Word$'],
 
   remoteDesktop: [
     // com.microsoft.rdc
@@ -162,7 +161,14 @@ exports.bundleIdentifiers = {
   gitGUI: rawBundleIdentifers.gitGUI,
   jetbrainsIDE: rawBundleIdentifers.jetbrainsIDE,
   loginwindow: rawBundleIdentifers.loginwindow,
-  microsoftOffice: rawBundleIdentifers.microsoftOffice,
+  microsoftOffice: [].concat(
+    rawBundleIdentifers.microsoftExcel,
+    rawBundleIdentifers.microsoftPowerpoint,
+    rawBundleIdentifers.microsoftWord
+  ),
+  microsoftExcel: rawBundleIdentifers.microsoftExcel,
+  microsoftPowerpoint: rawBundleIdentifers.microsoftPowerpoint,
+  microsoftExcel: rawBundleIdentifers.microsoftWord,
   remoteDesktop: rawBundleIdentifers.remoteDesktop,
   terminal: rawBundleIdentifers.terminal,
   vi: rawBundleIdentifers.vi,
