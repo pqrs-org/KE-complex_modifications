@@ -110,9 +110,10 @@ const sections = [
     ],
   },
   {
-    name: 'Typing extras (caps+s→,, caps+d→., caps+w→(, caps+e→), caps+shift+w→{, caps+shift+e→})',
+    name: 'Typing extras (caps+s→,, caps+d→., caps+w→(, caps+e→), caps+shift+w→{, caps+shift+e→}, caps+a→[, caps+shift+a→])',
     manipulators: [
-      // getBasicCapsManipulator({ from: 'a', to: [ 'open_bracket', 'close_bracket' ] }), // unsupported fromat yet
+      getBasicCapsManipulator({ from: { key_code: 'a', modifiers: { mandatory: [ 'left_shift' ] } }, to: 'close_bracket' }),
+      getBasicCapsManipulator({ from: 'a', to: 'open_bracket' }),
       getBasicCapsManipulator({ from: 's', to: 'comma' }),
       getBasicCapsManipulator({ from: 'd', to: 'period' }),
       getBasicCapsManipulator({ from: { key_code: 'w', modifiers: { mandatory: [ 'left_shift' ] } }, to: { key: 'open_bracket', modifiers: [ 'left_shift' ] } }),
