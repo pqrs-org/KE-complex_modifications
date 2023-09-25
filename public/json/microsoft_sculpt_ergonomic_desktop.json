@@ -2,18 +2,18 @@
   "title": "Microsoft Sculpt Ergonomic Desktop (L5V)",
   "rules": [
     {
-      "description": "Swap left midifier keys - map [⎇ Left alt] key to [⌘ Left Command] key and [⊞ Windows] key to [⌥ left Option] key",
+      "description": "Swap left midifier keys - map [⎇ Left alt] key to [⌘ Left Command] key and [⊞ Windows] key to [⌥ Left Option] key",
       "manipulators": [
         {
-          "from": {"key_code": "left_option","modifiers": {"optional": ["any"]}},
+          "from": {"key_code": "left_option", "modifiers": {"optional": ["any"]}},
           "to": [{"key_code": "left_command"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}],
           "type": "basic"
         },
         {
-          "from": {"key_code": "left_command","modifiers": {"optional": ["any"]}},
+          "from": {"key_code": "left_command", "modifiers": {"optional": ["any"]}},
           "to": [{"key_code": "left_option"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}],
           "type": "basic"
         }
       ]
@@ -22,15 +22,32 @@
       "description": "Swap right midifier keys - map [⎇ Right alt] key to [⌘ Right Command] key and [≣ Menu] key to [⌥ Right Option] key",
       "manipulators": [
         {
-          "from": {"key_code": "right_option","modifiers": {"optional": ["any"]}},
+          "from": {"key_code": "right_option", "modifiers": {"optional": ["any"]}},
           "to": [{"key_code": "right_command"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}],
           "type": "basic"
         },
         {
-          "from": {"key_code": "application","modifiers": {"optional": ["any"]}},
+          "from": {"key_code": "application", "modifiers": {"optional": ["any"]}},
           "to": [{"key_code": "right_option"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Change [§] key to [`] and [£] to [~]",
+      "manipulators": [
+        {
+          "from": {"key_code": "grave_accent_and_tilde"},
+          "to": [{"key_code": "non_us_backslash"}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}],
+          "type": "basic"
+        },
+        {
+          "from": {"key_code": "grave_accent_and_tilde", "modifiers": {"optional": ["shift"]}},
+          "to": [{"key_code": "non_us_backslash", "modifiers": "shift"}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}],
           "type": "basic"
         }
       ]
@@ -40,8 +57,8 @@
       "manipulators": [
         {
           "from": {"key_code": "home"},
-          "to": [{"key_code": "left_arrow","modifiers": "command"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}],
+          "to": [{"key_code": "left_arrow", "modifiers": "command"}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}],
           "type": "basic"
         }
       ]
@@ -51,8 +68,8 @@
       "manipulators": [
         {
           "from": {"key_code": "end"},
-          "to": [{"key_code": "right_arrow","modifiers": "command"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}],
+          "to": [{"key_code": "right_arrow", "modifiers": "command"}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}],
           "type": "basic"
         }
       ]
@@ -63,7 +80,7 @@
         {
           "from": {"key_code": "print_screen"},
           "to": [{"shell_command": "screencapture -i -W -U -c"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}],
           "type": "basic"
         }
       ]
@@ -74,7 +91,7 @@
         {
           "from": {"key_code": "pause"},
           "to": [{"key_code": "fn"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}],
           "type": "basic"
         }
       ]
@@ -91,7 +108,7 @@
             }
           },
           "to": [{"apple_vendor_keyboard_key_code": "mission_control"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}],
           "type": "basic"
         }
       ]
@@ -110,8 +127,8 @@
               "optional": ["caps_lock"]
             }
           },
-          "to": [{"key_code": "left_arrow","modifiers": ["left_control"]}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}],
+          "to": [{"key_code": "left_arrow", "modifiers": ["left_control"]}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}],
           "type": "basic"
         }
       ]
@@ -134,7 +151,7 @@
             "key_code": "right_arrow",
             "modifiers": ["left_control"]
           }],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}],
           "type": "basic"
         }
       ]
@@ -154,7 +171,7 @@
             }
           },
           "to": [{"apple_vendor_keyboard_key_code": "spotlight"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}],
           "type": "basic"
         }
       ]
@@ -174,7 +191,7 @@
             }
           },
           "to": [{"shell_command": "open -b com.apple.calculator"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}],
           "type": "basic"
         }
       ]
@@ -194,7 +211,7 @@
             }
           },
           "to": [{"shell_command": "open -a [Screen Sharing.app]"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}],
           "type": "basic"
         }
       ]
@@ -211,7 +228,7 @@
             }
           },
           "to": [{"shell_command": "open -b com.apple.systempreferences"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}],
           "type": "basic"
         }
       ]
@@ -225,7 +242,7 @@
             "modifiers": {"optional": ["any"]}
           },
           "to": [{"apple_vendor_keyboard_key_code": "mission_control"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}],
           "type": "basic"
         }
       ]
@@ -239,7 +256,7 @@
             "modifiers": {"optional": ["any"]}
           },
           "to": [{"shell_command": "open -a [Launchpad.app]"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}],
           "type": "basic"
         }
       ]
@@ -254,10 +271,10 @@
             "modifiers": { "optional": ["any"] }
           },
           "to": [
-            {"set_variable": {"name": "NumLock","value":1}},
+            {"set_variable": {"name": "NumLock", "value":1}},
             {"shell_command": "osascript -e 'display notification \"🔢 Numeric keys are now active.\" with title \"NumLock enabled\" sound name \"Tink\"'"}
           ],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]},{"type": "variable_if","name": "NumLock","value":0}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]},{"type": "variable_if", "name": "NumLock", "value":0}],
           "type": "basic"
         },
         {
@@ -267,10 +284,10 @@
             "modifiers": { "optional": ["any"] }
           },
           "to": [
-            {"set_variable": {"name": "NumLock","value":0}},
+            {"set_variable": {"name": "NumLock", "value":0}},
             {"shell_command": "osascript -e 'display notification \"↔️ Actions keys are now active.\" with title \"NumLock disabled\" sound name \"Tink\"'"}
           ],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]},{"type": "variable_unless","name": "NumLock","value":0}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]},{"type": "variable_unless", "name": "NumLock", "value":0}],
           "type": "basic"
         },
         {
@@ -280,7 +297,7 @@
             "modifiers": { "optional": ["any"] }
           },
           "to": [{"key_code": "insert"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless","name": "NumLock","value":1}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless", "name": "NumLock", "value":1}],
           "type": "basic"
         },
         {
@@ -290,7 +307,7 @@
             "modifiers": { "optional": ["any"] }
           },
           "to": [{"key_code": "end"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless","name": "NumLock","value":1}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless", "name": "NumLock", "value":1}],
           "type": "basic"
         },
         {
@@ -300,7 +317,7 @@
             "modifiers": { "optional": ["any"] }
           },
           "to": [{"key_code": "down_arrow"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless","name": "NumLock","value":1}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless", "name": "NumLock", "value":1}],
           "type": "basic"
         },
         {
@@ -310,7 +327,7 @@
             "modifiers": { "optional": ["any"] }
           },
           "to": [{"key_code": "page_down"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless","name": "NumLock","value":1}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless", "name": "NumLock", "value":1}],
           "type": "basic"
         },
         {
@@ -320,7 +337,7 @@
             "modifiers": { "optional": ["any"] }
           },
           "to": [{"key_code": "left_arrow"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless","name": "NumLock","value":1}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless", "name": "NumLock", "value":1}],
           "type": "basic"
         },
         {
@@ -329,7 +346,7 @@
             "key_code": "keypad_5"
           },
           "to": [{"key_code": "vk_none"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless","name": "NumLock","value":1}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless", "name": "NumLock", "value":1}],
           "type": "basic"
         },
         {
@@ -339,7 +356,7 @@
             "modifiers": { "optional": ["any"] }
           },
           "to": [{"key_code": "right_arrow"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless","name": "NumLock","value":1}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless", "name": "NumLock", "value":1}],
           "type": "basic"
         },
         {
@@ -349,7 +366,7 @@
             "modifiers": { "optional": ["any"] }
           },
           "to": [{"key_code": "home"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless","name": "NumLock","value":1}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless", "name": "NumLock", "value":1}],
           "type": "basic"
         },
         {
@@ -359,7 +376,7 @@
             "modifiers": { "optional": ["any"] }
           },
           "to": [{"key_code": "up_arrow"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless","name": "NumLock","value":1}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless", "name": "NumLock", "value":1}],
           "type": "basic"
         },
         {
@@ -369,7 +386,7 @@
             "modifiers": { "optional": ["any"] }
           },
           "to": [{"key_code": "page_up"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless","name": "NumLock","value":1}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless", "name": "NumLock", "value":1}],
           "type": "basic"
         }
       ]
