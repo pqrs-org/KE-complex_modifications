@@ -2,7 +2,7 @@
   "title": "Microsoft Sculpt Ergonomic Desktop (L5V)",
   "rules": [
     {
-      "description": "Swap 'left Alt ⎇' key and 'Windows key'",
+      "description": "Swap left midifier keys - map [⎇ Left alt] key to [⌘ Left Command] key and [⊞ Windows] key to [⌥ left Option] key",
       "manipulators": [
         {
           "from": {"key_code": "left_option","modifiers": {"optional": ["any"]}},
@@ -19,7 +19,7 @@
       ]
     },
     {
-      "description": "Swap 'right Alt ⎇' key and 'Menu/Application' key",
+      "description": "Swap right midifier keys - map [⎇ Right alt] key to [⌘ Right Command] key and [≣ Menu] key to [⌥ Right Option] key",
       "manipulators": [
         {
           "from": {"key_code": "right_option","modifiers": {"optional": ["any"]}},
@@ -36,7 +36,7 @@
       ]
     },
     {
-      "description": "Map 'Home' key to '⌘ + Left arrow'",
+      "description": "Map [Home] key to [⌘ Command]+[← left arrow]",
       "manipulators": [
         {
           "from": {"key_code": "home"},
@@ -47,7 +47,7 @@
       ]
     },
     {
-      "description": "Map 'End' key to '⌘ + Right arrow'",
+      "description": "Map [End] key to [⌘ Command]+[→ right arrow]",
       "manipulators": [
         {
           "from": {"key_code": "end"},
@@ -58,7 +58,7 @@
       ]
     },
     {
-      "description": "Map 'PrintScreen' key to 'ScreenShoot'",
+      "description": "Map [⎙ PrintScreen] key to 'ScreenShoot'",
       "manipulators": [
         {
           "from": {"key_code": "print_screen"},
@@ -69,7 +69,7 @@
       ]
     },
     {
-      "description": "Map 'Pause' key to 'Fn' key",
+      "description": "Map [Pause] key to [Fn] key",
       "manipulators": [
         {
           "from": {"key_code": "pause"},
@@ -80,7 +80,7 @@
       ]
     },
     {
-      "description": "Map 'Task View' key (F2 key) to launching 'Mission Control.app'",
+      "description": "Map [Task View/F2] key to launching 'Mission Control.app'",
       "manipulators": [
         {
           "from": {
@@ -97,7 +97,7 @@
       ]
     },
     {
-      "description": "Map 'Desktop Left' key (F3 key) to 'Move left a space' action",
+      "description": "Map [Desktop Left/F3] key to 'Move left a space' action",
       "manipulators": [
         {
           "from": {
@@ -117,7 +117,7 @@
       ]
     },
     {
-      "description": "Map 'Desktop Right' key (F4 key) to 'Move right a space' action",
+      "description": "Map [Desktop Right/F4] key to 'Move right a space' action",
       "manipulators": [
         {
           "from": {
@@ -140,7 +140,7 @@
       ]
     },
     {
-      "description": "Map 'Cortana/Search' key (F5 key) to launching 'Spotlight'",
+      "description": "Map [Cortana/Search/F5] key to launching 'Spotlight'",
       "manipulators": [
         {
           "from": {
@@ -160,7 +160,7 @@
       ]
     },
     {
-      "description": "Map 'Share' key (F6 key) to launching 'Calculator.app'",
+      "description": "Map [Share/F6] key to launching 'Calculator.app'",
       "manipulators": [
         {
           "from": {
@@ -180,7 +180,7 @@
       ]
     },
     {
-      "description": "Map 'Connect' key (F7 key) to launching 'Screen Sharing.app'",
+      "description": "Map [Connect/F7] key to launching 'Screen Sharing.app'",
       "manipulators": [
         {
           "from": {
@@ -193,14 +193,14 @@
               "optional": ["caps_lock"]
             }
           },
-          "to": [{"shell_command": "open -a 'Screen Sharing.app'"}],
+          "to": [{"shell_command": "open -a [Screen Sharing.app]"}],
           "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}],
           "type": "basic"
         }
       ]
     },
     {
-      "description": "Map 'Windows Settings' key (F8 key) to launching 'System Preferences.app'",
+      "description": "Map [Windows Settings/F8] key to launching 'System Preferences.app'",
       "manipulators": [
         {
           "from": {
@@ -217,7 +217,7 @@
       ]
     },
     {
-    "description": "Map 'Back' mouse button to 'Mission Control.app' action",
+    "description": "Map [Back] mouse button to 'Mission Control.app' action",
       "manipulators": [
         {
           "from": {
@@ -231,24 +231,24 @@
       ]
     },
     {
-      "description": "Map 'Windows' mouse button to launching 'Launchpad.app'",
+      "description": "Map [⊞ Windows] mouse button to launching 'Launchpad.app'",
       "manipulators": [
         {
           "from": {
             "key_code": "right_gui",
             "modifiers": {"optional": ["any"]}
           },
-          "to": [{"shell_command": "open -a 'Launchpad.app'"}],
+          "to": [{"shell_command": "open -a [Launchpad.app]"}],
           "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}],
           "type": "basic"
         }
       ]
     },
     {
-      "description": "Toggle 'NumLock' and map action keys on Numpad",
+      "description": "Toggle [⇭ NumLock] and map action keys on Numpad",
       "manipulators": [
         {
-          "description": "Enable 'NumLock'",
+          "description": "Enable NumLock",
           "from": {
             "key_code": "keypad_num_lock",
             "modifiers": { "optional": ["any"] }
@@ -261,7 +261,7 @@
           "type": "basic"
         },
         {
-          "description": "Disable 'NumLock'",
+          "description": "Disable NumLock",
           "from": {
             "key_code": "keypad_num_lock",
             "modifiers": { "optional": ["any"] }
@@ -274,7 +274,7 @@
           "type": "basic"
         },
         {
-          "description": "Execute 'Insert' with 'keypad 0'",
+          "description": "Execute [Insert] with [KeyPad 0]",
           "from": {
             "key_code": "keypad_0",
             "modifiers": { "optional": ["any"] }
@@ -284,7 +284,7 @@
           "type": "basic"
         },
         {
-          "description": "Execute 'End' with 'keypad 1'",
+          "description": "Execute [End] with [KeyPad 1]",
           "from": {
             "key_code": "keypad_1",
             "modifiers": { "optional": ["any"] }
@@ -294,7 +294,7 @@
           "type": "basic"
         },
         {
-          "description": "Execute 'Down arrow' with 'keypad 2'",
+          "description": "Execute [Down arrow] with [KeyPad 2]",
           "from": {
             "key_code": "keypad_2",
             "modifiers": { "optional": ["any"] }
@@ -304,7 +304,7 @@
           "type": "basic"
         },
         {
-          "description": "Execute 'Page down' with 'keypad 3'",
+          "description": "Execute [Page down] with [KeyPad 3]",
           "from": {
             "key_code": "keypad_3",
             "modifiers": { "optional": ["any"] }
@@ -314,7 +314,7 @@
           "type": "basic"
         },
         {
-          "description": "Execute 'Left arrow' with 'keypad 4'",
+          "description": "Execute [Left arrow] with [KeyPad 4]",
           "from": {
             "key_code": "keypad_4",
             "modifiers": { "optional": ["any"] }
@@ -324,7 +324,7 @@
           "type": "basic"
         },
         {
-          "description": "Disable 'keypad 5'",
+          "description": "Disable [KeyPad 5]",
           "from": {
             "key_code": "keypad_5"
           },
@@ -333,7 +333,7 @@
           "type": "basic"
         },
         {
-          "description": "Execute 'Right arrow' with 'keypad 6'",
+          "description": "Execute [Right arrow] with [KeyPad 6]",
           "from": {
             "key_code": "keypad_6",
             "modifiers": { "optional": ["any"] }
@@ -343,7 +343,7 @@
           "type": "basic"
         },
         {
-          "description": "Execute 'Home' with 'keypad 7'",
+          "description": "Execute [Home] with [KeyPad 7]",
           "from": {
             "key_code": "keypad_7",
             "modifiers": { "optional": ["any"] }
@@ -353,7 +353,7 @@
           "type": "basic"
         },
         {
-          "description": "Execute 'Up arrow' with 'keypad 8'",
+          "description": "Execute [Up arrow] with [KeyPad 8]",
           "from": {
             "key_code": "keypad_8",
             "modifiers": { "optional": ["any"] }
@@ -363,7 +363,7 @@
           "type": "basic"
         },
         {
-          "description": "Execute 'Page up' with 'keypad 9'",
+          "description": "Execute [Page up] with [KeyPad 9]",
           "from": {
             "key_code": "keypad_9",
             "modifiers": { "optional": ["any"] }
