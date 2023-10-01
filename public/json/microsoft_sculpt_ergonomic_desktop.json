@@ -2,85 +2,102 @@
   "title": "Microsoft Sculpt Ergonomic Desktop (L5V)",
   "rules": [
     {
-      "description": "Swap 'left Alt ⎇' key and 'Windows key'",
+      "description": "Swap left midifier keys - map [⎇ Left alt] key to [⌘ Left Command] key and [⊞ Windows] key to [⌥ Left Option] key",
       "manipulators": [
         {
-          "from": {"key_code": "left_option","modifiers": {"optional": ["any"]}},
+          "from": {"key_code": "left_option", "modifiers": {"optional": ["any"]}},
           "to": [{"key_code": "left_command"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}],
           "type": "basic"
         },
         {
-          "from": {"key_code": "left_command","modifiers": {"optional": ["any"]}},
+          "from": {"key_code": "left_command", "modifiers": {"optional": ["any"]}},
           "to": [{"key_code": "left_option"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}],
           "type": "basic"
         }
       ]
     },
     {
-      "description": "Swap 'right Alt ⎇' key and 'Menu/Application' key",
+      "description": "Swap right midifier keys - map [⎇ Right alt] key to [⌘ Right Command] key and [≣ Menu] key to [⌥ Right Option] key",
       "manipulators": [
         {
-          "from": {"key_code": "right_option","modifiers": {"optional": ["any"]}},
+          "from": {"key_code": "right_option", "modifiers": {"optional": ["any"]}},
           "to": [{"key_code": "right_command"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}],
           "type": "basic"
         },
         {
-          "from": {"key_code": "application","modifiers": {"optional": ["any"]}},
+          "from": {"key_code": "application", "modifiers": {"optional": ["any"]}},
           "to": [{"key_code": "right_option"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}],
           "type": "basic"
         }
       ]
     },
     {
-      "description": "Map 'Home' key to '⌘ + Left arrow'",
+      "description": "Change [§] key to [`] and [£] to [~]",
+      "manipulators": [
+        {
+          "from": {"key_code": "grave_accent_and_tilde"},
+          "to": [{"key_code": "non_us_backslash"}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}],
+          "type": "basic"
+        },
+        {
+          "from": {"key_code": "grave_accent_and_tilde", "modifiers": {"optional": ["shift"]}},
+          "to": [{"key_code": "non_us_backslash", "modifiers": "shift"}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Map [Home] key to [⌘ Command]+[← left arrow]",
       "manipulators": [
         {
           "from": {"key_code": "home"},
-          "to": [{"key_code": "left_arrow","modifiers": "command"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}],
+          "to": [{"key_code": "left_arrow", "modifiers": "command"}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}],
           "type": "basic"
         }
       ]
     },
     {
-      "description": "Map 'End' key to '⌘ + Right arrow'",
+      "description": "Map [End] key to [⌘ Command]+[→ right arrow]",
       "manipulators": [
         {
           "from": {"key_code": "end"},
-          "to": [{"key_code": "right_arrow","modifiers": "command"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}],
+          "to": [{"key_code": "right_arrow", "modifiers": "command"}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}],
           "type": "basic"
         }
       ]
     },
     {
-      "description": "Map 'PrintScreen' key to 'ScreenShoot'",
+      "description": "Map [⎙ PrintScreen] key to 'ScreenShoot'",
       "manipulators": [
         {
           "from": {"key_code": "print_screen"},
           "to": [{"shell_command": "screencapture -i -W -U -c"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}],
           "type": "basic"
         }
       ]
     },
     {
-      "description": "Map 'Pause' key to 'Fn' key",
+      "description": "Map [Pause] key to [Fn] key",
       "manipulators": [
         {
           "from": {"key_code": "pause"},
           "to": [{"key_code": "fn"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}],
           "type": "basic"
         }
       ]
     },
     {
-      "description": "Map 'Task View' key (F2 key) to launching 'Mission Control.app'",
+      "description": "Map [Task View/F2] key to launching 'Mission Control.app'",
       "manipulators": [
         {
           "from": {
@@ -91,13 +108,13 @@
             }
           },
           "to": [{"apple_vendor_keyboard_key_code": "mission_control"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}],
           "type": "basic"
         }
       ]
     },
     {
-      "description": "Map 'Desktop Left' key (F3 key) to 'Move left a space' action",
+      "description": "Map [Desktop Left/F3] key to 'Move left a space' action",
       "manipulators": [
         {
           "from": {
@@ -110,14 +127,14 @@
               "optional": ["caps_lock"]
             }
           },
-          "to": [{"key_code": "left_arrow","modifiers": ["left_control"]}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}],
+          "to": [{"key_code": "left_arrow", "modifiers": ["left_control"]}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}],
           "type": "basic"
         }
       ]
     },
     {
-      "description": "Map 'Desktop Right' key (F4 key) to 'Move right a space' action",
+      "description": "Map [Desktop Right/F4] key to 'Move right a space' action",
       "manipulators": [
         {
           "from": {
@@ -134,13 +151,13 @@
             "key_code": "right_arrow",
             "modifiers": ["left_control"]
           }],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}],
           "type": "basic"
         }
       ]
     },
     {
-      "description": "Map 'Cortana/Search' key (F5 key) to launching 'Spotlight'",
+      "description": "Map [Cortana/Search/F5] key to launching 'Spotlight'",
       "manipulators": [
         {
           "from": {
@@ -154,13 +171,13 @@
             }
           },
           "to": [{"apple_vendor_keyboard_key_code": "spotlight"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}],
           "type": "basic"
         }
       ]
     },
     {
-      "description": "Map 'Share' key (F6 key) to launching 'Calculator.app'",
+      "description": "Map [Share/F6] key to launching 'Calculator.app'",
       "manipulators": [
         {
           "from": {
@@ -174,13 +191,13 @@
             }
           },
           "to": [{"shell_command": "open -b com.apple.calculator"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}],
           "type": "basic"
         }
       ]
     },
     {
-      "description": "Map 'Connect' key (F7 key) to launching 'Screen Sharing.app'",
+      "description": "Map [Connect/F7] key to launching 'Screen Sharing.app'",
       "manipulators": [
         {
           "from": {
@@ -194,13 +211,13 @@
             }
           },
           "to": [{"shell_command": "open -a 'Screen Sharing.app'"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}],
           "type": "basic"
         }
       ]
     },
     {
-      "description": "Map 'Windows Settings' key (F8 key) to launching 'System Preferences.app'",
+      "description": "Map [Windows Settings/F8] key to launching 'System Preferences.app'",
       "manipulators": [
         {
           "from": {
@@ -211,13 +228,13 @@
             }
           },
           "to": [{"shell_command": "open -b com.apple.systempreferences"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}],
           "type": "basic"
         }
       ]
     },
     {
-    "description": "Map 'Back' mouse button to 'Mission Control.app' action",
+    "description": "Map [Back] mouse button to 'Mission Control.app' action",
       "manipulators": [
         {
           "from": {
@@ -225,13 +242,13 @@
             "modifiers": {"optional": ["any"]}
           },
           "to": [{"apple_vendor_keyboard_key_code": "mission_control"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}],
           "type": "basic"
         }
       ]
     },
     {
-      "description": "Map 'Windows' mouse button to launching 'Launchpad.app'",
+      "description": "Map [⊞ Windows] mouse button to launching 'Launchpad.app'",
       "manipulators": [
         {
           "from": {
@@ -239,137 +256,137 @@
             "modifiers": {"optional": ["any"]}
           },
           "to": [{"shell_command": "open -a 'Launchpad.app'"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}],
           "type": "basic"
         }
       ]
     },
     {
-      "description": "Toggle 'NumLock' and map action keys on Numpad",
+      "description": "Toggle [⇭ NumLock] and map action keys on Numpad",
       "manipulators": [
         {
-          "description": "Enable 'NumLock'",
+          "description": "Enable NumLock",
           "from": {
             "key_code": "keypad_num_lock",
             "modifiers": { "optional": ["any"] }
           },
           "to": [
-            {"set_variable": {"name": "NumLock","value":1}},
+            {"set_variable": {"name": "NumLock", "value":1}},
             {"shell_command": "osascript -e 'display notification \"🔢 Numeric keys are now active.\" with title \"NumLock enabled\" sound name \"Tink\"'"}
           ],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]},{"type": "variable_if","name": "NumLock","value":0}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]},{"type": "variable_if", "name": "NumLock", "value":0}],
           "type": "basic"
         },
         {
-          "description": "Disable 'NumLock'",
+          "description": "Disable NumLock",
           "from": {
             "key_code": "keypad_num_lock",
             "modifiers": { "optional": ["any"] }
           },
           "to": [
-            {"set_variable": {"name": "NumLock","value":0}},
+            {"set_variable": {"name": "NumLock", "value":0}},
             {"shell_command": "osascript -e 'display notification \"↔️ Actions keys are now active.\" with title \"NumLock disabled\" sound name \"Tink\"'"}
           ],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]},{"type": "variable_unless","name": "NumLock","value":0}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]},{"type": "variable_unless", "name": "NumLock", "value":0}],
           "type": "basic"
         },
         {
-          "description": "Execute 'Insert' with 'keypad 0'",
+          "description": "Execute [Insert] with [KeyPad 0]",
           "from": {
             "key_code": "keypad_0",
             "modifiers": { "optional": ["any"] }
           },
           "to": [{"key_code": "insert"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless","name": "NumLock","value":1}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless", "name": "NumLock", "value":1}],
           "type": "basic"
         },
         {
-          "description": "Execute 'End' with 'keypad 1'",
+          "description": "Execute [End] with [KeyPad 1]",
           "from": {
             "key_code": "keypad_1",
             "modifiers": { "optional": ["any"] }
           },
           "to": [{"key_code": "end"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless","name": "NumLock","value":1}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless", "name": "NumLock", "value":1}],
           "type": "basic"
         },
         {
-          "description": "Execute 'Down arrow' with 'keypad 2'",
+          "description": "Execute [Down arrow] with [KeyPad 2]",
           "from": {
             "key_code": "keypad_2",
             "modifiers": { "optional": ["any"] }
           },
           "to": [{"key_code": "down_arrow"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless","name": "NumLock","value":1}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless", "name": "NumLock", "value":1}],
           "type": "basic"
         },
         {
-          "description": "Execute 'Page down' with 'keypad 3'",
+          "description": "Execute [Page down] with [KeyPad 3]",
           "from": {
             "key_code": "keypad_3",
             "modifiers": { "optional": ["any"] }
           },
           "to": [{"key_code": "page_down"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless","name": "NumLock","value":1}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless", "name": "NumLock", "value":1}],
           "type": "basic"
         },
         {
-          "description": "Execute 'Left arrow' with 'keypad 4'",
+          "description": "Execute [Left arrow] with [KeyPad 4]",
           "from": {
             "key_code": "keypad_4",
             "modifiers": { "optional": ["any"] }
           },
           "to": [{"key_code": "left_arrow"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless","name": "NumLock","value":1}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless", "name": "NumLock", "value":1}],
           "type": "basic"
         },
         {
-          "description": "Disable 'keypad 5'",
+          "description": "Disable [KeyPad 5]",
           "from": {
             "key_code": "keypad_5"
           },
           "to": [{"key_code": "vk_none"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless","name": "NumLock","value":1}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless", "name": "NumLock", "value":1}],
           "type": "basic"
         },
         {
-          "description": "Execute 'Right arrow' with 'keypad 6'",
+          "description": "Execute [Right arrow] with [KeyPad 6]",
           "from": {
             "key_code": "keypad_6",
             "modifiers": { "optional": ["any"] }
           },
           "to": [{"key_code": "right_arrow"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless","name": "NumLock","value":1}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless", "name": "NumLock", "value":1}],
           "type": "basic"
         },
         {
-          "description": "Execute 'Home' with 'keypad 7'",
+          "description": "Execute [Home] with [KeyPad 7]",
           "from": {
             "key_code": "keypad_7",
             "modifiers": { "optional": ["any"] }
           },
           "to": [{"key_code": "home"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless","name": "NumLock","value":1}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless", "name": "NumLock", "value":1}],
           "type": "basic"
         },
         {
-          "description": "Execute 'Up arrow' with 'keypad 8'",
+          "description": "Execute [Up arrow] with [KeyPad 8]",
           "from": {
             "key_code": "keypad_8",
             "modifiers": { "optional": ["any"] }
           },
           "to": [{"key_code": "up_arrow"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless","name": "NumLock","value":1}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless", "name": "NumLock", "value":1}],
           "type": "basic"
         },
         {
-          "description": "Execute 'Page up' with 'keypad 9'",
+          "description": "Execute [Page up] with [KeyPad 9]",
           "from": {
             "key_code": "keypad_9",
             "modifiers": { "optional": ["any"] }
           },
           "to": [{"key_code": "page_up"}],
-          "conditions": [{"type": "device_if","identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless","name": "NumLock","value":1}],
+          "conditions": [{"type": "device_if", "identifiers": [{"vendor_id":1118,"product_id":1957}]}, {"type": "variable_unless", "name": "NumLock", "value":1}],
           "type": "basic"
         }
       ]
