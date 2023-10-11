@@ -83,7 +83,7 @@
             ]
         },
         {
-            "description": "d & l (simultaneously for 0.25 sec) => Open Finder > Download",
+            "description": "d & l (simultaneously for 0.25 sec) => Open Finder > Downloads",
             "manipulators": [
                 {
                     "type": "basic",
@@ -346,6 +346,33 @@
                     "to_if_held_down": [
                         {
                             "shell_command": "open '/Applications/Adobe XD/Adobe XD.app'"
+                        }
+                    ],
+                    "parameters": {
+                        "basic.simultaneous_threshold_milliseconds": 25,
+                        "basic.to_if_held_down_threshold_milliseconds": 250
+                    }
+                }
+            ]
+        },
+        {
+            "description": "n & t (simultaneously for 0.25 sec) => Open Notion",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "simultaneous": [
+                            {
+                                "key_code": "n"
+                            },
+                            {
+                                "key_code": "t"
+                            }
+                        ]
+                    },
+                    "to_if_held_down": [
+                        {
+                            "shell_command": "open '/Applications/Notion.app'"
                         }
                     ],
                     "parameters": {
