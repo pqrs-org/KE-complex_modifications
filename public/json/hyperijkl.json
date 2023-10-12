@@ -1,0 +1,3405 @@
+{
+  "title": "HyperIJKL",
+  "url": "https://raw.githubusercontent.com/RomanYuldashev/HyperIJKL/main/mac/hyperijkl.json",
+  "version": "1.0.0",
+  "maintainers": [
+    "RomanYuldashev"
+  ],
+  "author": "Roman Yuldashev (RomanYuldashev@proton.me)",
+  "website": "https://github.com/RomanYuldashev/HyperIJKL",
+  "json_url": "https://raw.githubusercontent.com/RomanYuldashev/HyperIJKL/main/mac/hyperijkl.json",
+  "import_url": "karabiner://karabiner/assets/complex_modifications/import?url=https://raw.githubusercontent.com/RomanYuldashev/HyperIJKL/main/mac/hyperijkl.json",
+  "gallery_url": "https://ke-complex-modifications.pqrs.org/#emulation-modes",
+  "repo": "https://github.com/RomanYuldashev/HyperIJKL",
+  "rules": [
+    {
+      "description": "[HyperIJKL] Capslock to Hyper",
+      "manipulators": [
+        {
+          "description": "capslock (press) -> esc; capslock (hold) -> Hyper",
+          "type": "basic",
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": {
+            "set_variable": {
+              "name": "HYPER",
+              "value": 1
+            }
+          },
+          "to_after_key_up": {
+            "set_variable": {
+              "name": "HYPER",
+              "value": 0
+            }
+          },
+          "to_if_alone": [
+            {
+              "key_code": "escape"
+            }
+          ]
+        },
+        {
+          "description": "capslock + esc -> switch capslock state",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "escape",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "caps_lock",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "[HyperIJKL] Text Navigation",
+      "manipulators": [
+        {
+          "description": "i -> up",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow"
+            }
+          ]
+        },
+        {
+          "description": "command + i -> shift + up",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow",
+              "modifiers": [
+                "shift"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "k -> down",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "down_arrow"
+            }
+          ]
+        },
+        {
+          "description": "command + k -> shift + down",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "down_arrow",
+              "modifiers": [
+                "shift"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "j -> left",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow"
+            }
+          ]
+        },
+        {
+          "description": "command + j -> shift + left",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "shift"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "option + j -> option + left",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "option"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "option + command + j -> option + shift + left",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "mandatory": [
+                "option",
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "option",
+                "shift"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "l -> right",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow"
+            }
+          ]
+        },
+        {
+          "description": "command + l -> shift + right",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "shift"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "option + l -> option + right",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "option"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "option + command + l -> option + shift + right",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "mandatory": [
+                "option",
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "shift",
+                "option"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "u -> home",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "u",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "command + u -> shift + home",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "u",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "shift",
+                "command"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "u -> move cursor to line start",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "u",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "a",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "option + command + u -> select line, cursor home",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "u",
+            "modifiers": {
+              "mandatory": [
+                "option",
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "command"
+              ]
+            },
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "shift",
+                "command"
+              ]
+            },
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "shift",
+                "command"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "o -> end",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "command + o -> shift + end",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "shift",
+                "command"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "o -> move cursor to line end",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "e",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "option + command + o -> select line, cursor end",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "mandatory": [
+                "option",
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "command"
+              ]
+            },
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "shift",
+                "command"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "y -> page_up",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "y",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "page_up"
+            }
+          ]
+        },
+        {
+          "description": "command + y -> shift + page_up",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "y",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "page_up",
+              "modifiers": [
+                "shift"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "h -> page_down",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "page_down"
+            }
+          ]
+        },
+        {
+          "description": "command + h -> shift + page_down",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "page_down",
+              "modifiers": [
+                "shift"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "n -> delete character left (backspace)",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "n",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_or_backspace"
+            }
+          ]
+        },
+        {
+          "description": "command + n -> delete line left",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "n",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "shift",
+                "command"
+              ]
+            },
+            {
+              "key_code": "delete_or_backspace"
+            }
+          ]
+        },
+        {
+          "description": "option + n -> delete word left",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "n",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_or_backspace",
+              "modifiers": [
+                "option"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "m -> delete current line",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "m",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "command"
+              ]
+            },
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "shift",
+                "command"
+              ]
+            },
+            {
+              "key_code": "delete_or_backspace"
+            }
+          ]
+        },
+        {
+          "description": "command + m -> select current line",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "m",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "command"
+              ]
+            },
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "shift",
+                "command"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "option + m -> move line down",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "m",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "down_arrow",
+              "modifiers": [
+                "option",
+                "shift"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "option + comma -> move line up",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "comma",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow",
+              "modifiers": [
+                "option",
+                "shift"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "period -> delete character right (fn + backspace)",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "period",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_forward"
+            }
+          ]
+        },
+        {
+          "description": "command + period -> delete line right",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "period",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "shift",
+                "command"
+              ]
+            },
+            {
+              "key_code": "delete_or_backspace"
+            }
+          ]
+        },
+        {
+          "description": "option + period -> delete word right",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "period",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_forward",
+              "modifiers": [
+                "option"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "[ -> (",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "open_bracket",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "9",
+              "modifiers": [
+                "shift"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "cmd + [ -> undo",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "open_bracket",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "z",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "] -> )",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "close_bracket",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "0",
+              "modifiers": [
+                "shift"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "cmd + ] -> redo",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "close_bracket",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "z",
+              "modifiers": [
+                "shift",
+                "command"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "Ignore Hyper while pressing Enter",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "return_or_enter",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "return_or_enter"
+            }
+          ]
+        },
+        {
+          "description": "Ignore Hyper while pressing Backspace",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "delete_or_backspace",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_or_backspace"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "[HyperIJKL] OS Navigation",
+      "manipulators": [
+        {
+          "description": "shift + i -> control + up",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "shift + k -> Launchpad",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'Launchpad'"
+            }
+          ]
+        },
+        {
+          "description": "shift + j -> shift + control + tab",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "tab",
+              "modifiers": [
+                "control",
+                "shift"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "shift + l -> control + tab",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "tab",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "shift + u -> control + left",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "u",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "shift + o -> control + right",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "shift + y -> control + command + f",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "y",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f",
+              "modifiers": [
+                "control",
+                "command"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "shift + h -> command + h",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "h",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "[HyperIJKL] Mouse Navigation",
+      "manipulators": [
+        {
+          "description": "shift + command + i -> mouse up",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "mandatory": [
+                "shift",
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "y": -1600
+              }
+            }
+          ]
+        },
+        {
+          "description": "option + shift + i -> mouse wheel up",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "mandatory": [
+                "option",
+                "shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "vertical_wheel": -64
+              }
+            }
+          ]
+        },
+        {
+          "description": "shift + command + k -> mouse down",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "mandatory": [
+                "shift",
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "y": 1600
+              }
+            }
+          ]
+        },
+        {
+          "description": "option + shift + k -> mouse wheel down",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "mandatory": [
+                "option",
+                "shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "vertical_wheel": 64
+              }
+            }
+          ]
+        },
+        {
+          "description": "shift + command + j -> mouse left",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "mandatory": [
+                "shift",
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "x": -1600
+              }
+            }
+          ]
+        },
+        {
+          "description": "option + shift + j -> mouse wheel left",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "mandatory": [
+                "option",
+                "shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "horizontal_wheel": 64
+              }
+            }
+          ]
+        },
+        {
+          "description": "shift + command + l -> mouse right",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "mandatory": [
+                "shift",
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "x": 1600
+              }
+            }
+          ]
+        },
+        {
+          "description": "option + shift + l -> mouse wheel right",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "mandatory": [
+                "option",
+                "shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "horizontal_wheel": -64
+              }
+            }
+          ]
+        },
+        {
+          "description": "shift + command + u -> mouse left click",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "u",
+            "modifiers": {
+              "mandatory": [
+                "shift",
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "pointing_button": "button1"
+            }
+          ]
+        },
+        {
+          "description": "option + shift + u -> mouse left click",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "u",
+            "modifiers": {
+              "mandatory": [
+                "option",
+                "shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "pointing_button": "button1"
+            }
+          ]
+        },
+        {
+          "description": "shift + command + o -> mouse right click",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "mandatory": [
+                "shift",
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "pointing_button": "button2"
+            }
+          ]
+        },
+        {
+          "description": "option + shift + o -> mouse right click",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "mandatory": [
+                "option",
+                "shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "pointing_button": "button2"
+            }
+          ]
+        },
+        {
+          "description": "shift + command + h -> mouse middle click",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "mandatory": [
+                "shift",
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "pointing_button": "button3"
+            }
+          ]
+        },
+        {
+          "description": "option + shift + h -> mouse middle click",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "mandatory": [
+                "option",
+                "shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "pointing_button": "button3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "[HyperIJKL] Left Hand Window Navigation",
+      "manipulators": [
+        {
+          "description": "s -> Next Desktop",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "s",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "command + s -> Previous Desktop",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "s",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "w -> Next Tab",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "w",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "tab",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "command + w -> Previous Tab",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "w",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "tab",
+              "modifiers": [
+                "control",
+                "shift"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "x -> Forward",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "x",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "close_bracket",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "z -> Back",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "z",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "open_bracket",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "[HyperIJKL] Applications",
+      "manipulators": [
+        {
+          "description": "e -> Microsoft Outlook",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "e",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'Microsoft Outlook'"
+            }
+          ]
+        },
+        {
+          "description": "command + e -> Notes",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "e",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a notes"
+            }
+          ]
+        },
+        {
+          "description": "option + e -> Thunderbird",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "e",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a thunderbird"
+            }
+          ]
+        },
+        {
+          "description": "r -> Intellij IDEA",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "r",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'Intellij IDEA'"
+            }
+          ]
+        },
+        {
+          "description": "command + r -> Visual Studio Code",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "r",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'Visual Studio Code'"
+            }
+          ]
+        },
+        {
+          "description": "option + r -> DBeaver",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "r",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a dbeaver"
+            }
+          ]
+        },
+        {
+          "description": "t -> iTerm",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "t",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a iterm"
+            }
+          ]
+        },
+        {
+          "description": "command + t -> Activity Monitor",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "t",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'Activity Monitor'"
+            }
+          ]
+        },
+        {
+          "description": "option + t -> Settings",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "t",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a settings"
+            }
+          ]
+        },
+        {
+          "description": "d -> Postman",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "d",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a postman"
+            }
+          ]
+        },
+        {
+          "description": "command + d -> Docker",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "d",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'Docker Desktop'"
+            }
+          ]
+        },
+        {
+          "description": "option + d -> Lens",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "d",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a lens"
+            }
+          ]
+        },
+        {
+          "description": "f -> Finder",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "f",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a finder"
+            }
+          ]
+        },
+        {
+          "description": "command + f -> Forklift",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "f",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a forklift"
+            }
+          ]
+        },
+        {
+          "description": "option + f -> Preview",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "f",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a preview"
+            }
+          ]
+        },
+        {
+          "description": "g -> KeePassXC",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "g",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a keepassxc"
+            }
+          ]
+        },
+        {
+          "description": "command + g -> Spotify",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "g",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a spotify"
+            }
+          ]
+        },
+        {
+          "description": "option + g -> IINA",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "g",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a iina"
+            }
+          ]
+        },
+        {
+          "description": "c -> Telegram",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "c",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a telegram"
+            }
+          ]
+        },
+        {
+          "description": "command + c -> Rocket.Chat",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "c",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'Rocket.Chat.app'"
+            }
+          ]
+        },
+        {
+          "description": "option + c -> Signal",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "c",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a signal"
+            }
+          ]
+        },
+        {
+          "description": "v -> Zoom",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "v",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a zoom.us"
+            }
+          ]
+        },
+        {
+          "description": "command + v -> Microsoft Teams",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "v",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'Microsoft Teams'"
+            }
+          ]
+        },
+        {
+          "description": "option + v -> Skype",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "v",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a skype"
+            }
+          ]
+        },
+        {
+          "description": "b -> Chrome",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "b",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'Google Chrome'"
+            }
+          ]
+        },
+        {
+          "description": "command + b -> Firefox",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "b",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a firefox"
+            }
+          ]
+        },
+        {
+          "description": "option + b -> Safari",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "b",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a safari"
+            }
+          ]
+        },
+        {
+          "description": "§ -> Start Work Environment",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "non_us_backslash",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'Microsoft Outlook'; open -a 'Intellij IDEA'; open -a 'Google Chrome'; open -a telegram; open -a notes; open -a postman; open -a 'Docker Desktop'; open -a zoom.us; open -a keepassxc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "[HyperIJKL] Display Selection",
+      "manipulators": [
+        {
+          "description": "1 -> Center Cursor on Display 1",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "1",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "software_function": {
+                "set_mouse_cursor_position": {
+                  "x": "50%",
+                  "y": "50%",
+                  "screen": 0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "description": "2 -> Center Cursor on Display 2",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "2",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "software_function": {
+                "set_mouse_cursor_position": {
+                  "x": "50%",
+                  "y": "50%",
+                  "screen": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "description": "3 -> Center Cursor on Display 3",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "3",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "software_function": {
+                "set_mouse_cursor_position": {
+                  "x": "50%",
+                  "y": "50%",
+                  "screen": 2
+                }
+              }
+            }
+          ]
+        },
+        {
+          "description": " 4 -> Center Cursor on Display 4",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "4",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "software_function": {
+                "set_mouse_cursor_position": {
+                  "x": "50%",
+                  "y": "50%",
+                  "screen": 3
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "[HyperIJKL] Input Language Selection",
+      "manipulators": [
+        {
+          "description": "Hyper + space -> Language Switch (Previous Input Language)",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "spacebar",
+              "modifiers": [
+                "option"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "Hyper + command + space -> Next Input Language in Input Menu",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "spacebar",
+              "modifiers": [
+                "option",
+                "command"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "semicolon -> EN",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "semicolon",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "select_input_source": {
+                "language": "en"
+              }
+            }
+          ]
+        },
+        {
+          "description": "p -> RU",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "p",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "select_input_source": {
+                "language": "ru"
+              }
+            }
+          ]
+        },
+        {
+          "description": "slash -> JA",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "slash",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "select_input_source": {
+                "language": "ja"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "[HyperIJKL] Advanced Shortcuts (Manual Setup Required)",
+      "manipulators": [
+        {
+          "description": "option + i -> option + page_up",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "page_up",
+              "modifiers": [
+                "option"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "option + command + i -> option + shift + page_up",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "mandatory": [
+                "option",
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "page_up",
+              "modifiers": [
+                "option",
+                "shift"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "option + k -> option + page_down",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "page_down",
+              "modifiers": [
+                "option"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "option + command + k -> option + shift + page_down",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "mandatory": [
+                "option",
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "page_down",
+              "modifiers": [
+                "option",
+                "shift"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "option + y -> command + home",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "y",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "home",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "option + command + y -> shift + command + home",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "y",
+            "modifiers": {
+              "mandatory": [
+                "option",
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "home",
+              "modifiers": [
+                "shift",
+                "command"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "option + h -> command + end",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "end",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "option + command + h -> shift + command + end",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "mandatory": [
+                "option",
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "end",
+              "modifiers": [
+                "shift",
+                "command"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "comma -> delete current word",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "comma",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow",
+              "modifiers": [
+                "option"
+              ]
+            },
+            {
+              "key_code": "delete_or_backspace"
+            }
+          ]
+        },
+        {
+          "description": "command + comma -> select current word",
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "HYPER",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "comma",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow",
+              "modifiers": [
+                "option"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
