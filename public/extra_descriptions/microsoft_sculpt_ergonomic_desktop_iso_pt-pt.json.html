@@ -1,0 +1,82 @@
+<link rel="stylesheet" href="../../vendor/css/bootstrap.min.css" />
+
+<h3>Microsoft Sculpt Ergonomic Desktop (ISO PT-pt keyboard layout)</h3>
+<p>This set of complex modifications provides macOS-friendly customizations to <a href="https://www.microsoft.com/pt-pt/d/microsoft-sculpt-ergonomic-desktop/8xk02kz6k69w" target="_blank" rel="nofollow noopener noreferrer">Microsoft Sculpt Ergonomic Desktop (ISO PT-pt keyboard layout)</a>.</p>
+
+<h4>Customizations</h4>
+<ul>
+  <li>Swap midifier keys, so that their arrangement matches that of Apple keyboards:
+    <ul>
+      <li><button>⎇ Left alt</button> key to <button>⌘ Left Command</button> key</li>
+      <li><button>⊞ Windows</button> key to  <button>⌥ Left Option</button> key</li>
+      <li><button>⎇ Right alt</button> key to <button>⌘ Right Command</button> key</li>
+      <li><button>≣ Menu</button> key to <button>⌥ Right Option</button> key</li>
+    </ul>
+  </li>
+  <li>Map <button>Home</button> key to <button>⌘</button> + <button>Left arrow</button>.</li>
+  <li>Map <button>End</button> key to <button>⌘</button> + <button>Right arrow</button>.</li>
+  <li>Map <button>PrtScn</button> key to <code>screencapture -i -W -U -c</code> command.</li>
+  <li>Map <button>ScrLk</button> key to <button>⌘</button> + <button>⌃</button> + <button>Q</button> (<em>lock screen</em>).</li>
+  <li>Map <button>Pause</button> key to <button>Fn</button> key.</li>
+  <li>Maps the top row of keys as controls for similar, built-in macOS features:
+    <ul>
+      <li>Map <button>Task View</button> (<em>F2</em>) key to launching <em>Mission Control</em>.</li>
+      <li>Map <button>Desktop Left</button> (<em>F3</em>) key to <em>Move left a space</em> action.</li>
+      <li>Map <button>Desktop Right</button> (<em>F4</em>) key to <em>Move right a space</em> action.</li>
+      <li>Map <button>Cortana/Search</button> (<em>F5</em>) key to launching <em>Spotlight</em>.</li>
+      <li>Map <button>Share</button> (<em>F6</em>) key to launching <em>Calculator</em>.</li>
+      <li>Map <button>Connect</button> (<em>F7</em>) key to launching <em>Screen Sharing</em>.</li>
+      <li>Map <button>Windows Settings</button> (<em>F8</em>) key to launching <em>System Preferences</em>.</li>
+    </ul>
+  </li>
+  <li>Maps the <button>Back</button> mouse button to <button>⌘</button> + <button>Right arrow</button> (previous page).</li>
+  <li>Maps the <button>Windows</button> mouse button to launching applications list (the <em>Launchpad</em>).</li>
+  <li>Toggle <button>NumLock</button> and map key actions on Numpad. If <em>NumLock</em> enabled map Numpad keys actions: <key>7 = Home</key>, <key>1 = End</key>, <key>9 = Page Up</key>, <key>3 = Page Down</key>, <key>8 = Up arrow</key>, <key>2 = Down arrow</key>, <key>4 = Left arrow</key>, <key>6 = Right arrow</key>, <key>0 = Insert</key>, <key>. = Delete</key>.</li>
+  <li>Maps the keys to the correct ISO PT-pt keyboard layout:
+    <ul>
+      <li>Fix <button>\</button> (<em>backslash</em>) and <button>|</button> (<em>pipe</em>) keys mapping.</li>
+      <li>Fix <button>&lt;</button> (<em>less than</em>) and <button>&gt;</button> (<em>greater than</em>) keys mapping.</li>
+      <li>Fix <button>~</button> (<em>tilde</em>) and <button>^</button> (<em>circumflex</em>) keys mapping.</li>
+      <li>Fix <button>º</button> (<em>male ordinal indicator</em>) and <button>ª</button> (<em>female ordinal indicator</em>) keys mapping.</li>
+      <li>Fix <button>+</button> (<em>plus</em>), <button>*</button> (<em>times</em>) and <button>¨</button> (<em>umlaut</em>) keys mapping.</li>
+      <li>Fix <button>«</button> and <button>»</button> (<em>guillemets</em>) keys mapping.</li>
+      <li>Fix <button>{</button> (<em>right curly bracket</em>) and <button>}</button> (<em>left curly bracket</em>) keys mapping.</li>
+      <li>Fix <button>£</button> (<em>pound</em>) key mapping.</li>
+      <li>Fix <button>§</button> (<em>section sign</em>) key mapping.</li>
+      <li>Fix <button>€</button> (<em>euro</em>) key mapping.</li>
+    </ul>
+  </li>
+</ul>
+
+<h4>Usage</h4>
+<h5>Toggle Fn Switch on Keyboard</h5>
+<p>Move the <button>Fn</button> toggle on Microsoft Sculpt Ergonomic Keyboard to the blue position so that the top row of keys work as controls for built-in macOS features.</p>
+
+<h5>Sync CapsLock between build in and MS keyboard</h5>
+<p>Go to "Karabiner-Elements / Devices" and enable "Modify events" for Your MS keyboard.</p>
+
+<h5>Change Top Row of Keys to Work as Standard Function Keys</h5>
+<p>This puts Karabiner-Elements (as opposed to macOS) in charge of mapping key codes to controls for built-in macOS features. This also disables the default 'Function keys' mappings shipped with Karabiner-Elements so that customizations would not be overriden down the <a href="https://karabiner-elements.pqrs.org/docs/manual/misc/event-modification-chaining/" target="_blank" rel="nofollow noopener noreferrer">Input Event Modification Chain</a>.</p>
+<ul>
+  <li>Choose Apple menu <code> > System Preferences</code>.</li>
+  <li>Click Keyboard.</li>
+  <li>Click Keyboard Shortcuts.</li>
+  <li>Select Function Keys on the left side.</li>
+  <li>Enable <em>Use F1, F2, etc. keys as standard function keys</em> on the right side.</li>
+</ul>
+
+<h5>Disable display brightness keyboard shortcuts</h5>
+<p>If the <em>Decrease display brightness</em> or <em>Increase display brightness</em> keyboard shortcuts are enbaled and set to <em>F14</em> and <em>F15</em>, respectively, it might stop ScrLk and Pause keys from working.</p>
+<ul>
+  <li>Choose Apple menu <code> > System Preferences</code>.</li>
+  <li>Click Keyboard.</li>
+  <li>Click Keyboard Shortcuts.</li>
+  <li>Select Display on the left side.</li>
+  <li>Disable <em>Decrease display brightness</em> and <em>Increase display brightness</em> options on the right side.</li>
+</ul>
+
+<h4>Notes</h4>
+<ul>
+  <li>The <button>Home</button> (<em>F1</em>) key and the <button>Calculator</button> key are impossible to map. This is due to <a href="https://apple.stackexchange.com/questions/317548/how-do-i-get-the-calculator-button-on-a-microsoft-sculpt-keyboard-working" target="_blank" rel="nofollow noopener noreferrer">macOS not being able to receive the scancodes from these keys</a>.</li>
+  <li>Media playback control keys do not need special treatments as they work out of the box.</li>
+</ul>
