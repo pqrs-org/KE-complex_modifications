@@ -155,6 +155,14 @@ const sections = [
       getDockApplicationManipulator(0, 'Calendar'),
     ],
   },
+  {
+    name: 'Auxillary keys',
+    manipulators: [
+      getBasicCapsManipulator({ from: 'q', to: 'f18' }),
+      getBasicCapsManipulator({ from: 'f', to: 'f17' }),
+      getBasicCapsManipulator({ from: 'c', to: 'f16' }),
+    ],
+  },
 ]
 
 const json = {
