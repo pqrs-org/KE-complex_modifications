@@ -838,7 +838,7 @@
           },
           "to": [
             {
-              "shell_command": "open -a \"eM Client\""
+              "shell_command": "open -a \"Mail\""
             }
           ]
         },
@@ -931,6 +931,29 @@
           "to": [
             {
               "shell_command": "open -a \"System Settings\""
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "name": "caps_lock pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "0",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a \"Calendar\""
             }
           ]
         }
