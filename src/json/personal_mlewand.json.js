@@ -40,8 +40,8 @@ function getDockApplicationManipulator(number, applicationName) {
   const normalizedValue = parseInt(number, 10)
   const applicationNameSanitized = applicationName.replace(/\"/g, '')
 
-  if (normalizedValue < 1 || normalizedValue > 9) {
-    throw 'Number passed to the getDockApplicationManipulator() function should be a number greater than 0 and less than 10'
+  if (normalizedValue < 0 || normalizedValue > 9) {
+    throw 'Number passed to the getDockApplicationManipulator() function should be a number greater or equal 0 and less than 10'
   }
 
   return {
@@ -147,11 +147,20 @@ const sections = [
       getDockApplicationManipulator(2, 'Google Chrome'),
       getDockApplicationManipulator(3, 'Slack'),
       getDockApplicationManipulator(4, 'Visual Studio Code'),
-      getDockApplicationManipulator(5, 'eM Client'),
+      getDockApplicationManipulator(5, 'Mail'),
       getDockApplicationManipulator(6, 'Spotify'),
       getDockApplicationManipulator(7, 'iTerm'),
       getDockApplicationManipulator(8, 'Notion'),
       getDockApplicationManipulator(9, 'System Settings'),
+      getDockApplicationManipulator(0, 'Calendar'),
+    ],
+  },
+  {
+    name: 'Auxillary keys',
+    manipulators: [
+      getBasicCapsManipulator({ from: 'q', to: 'f18' }),
+      getBasicCapsManipulator({ from: 'f', to: 'f17' }),
+      getBasicCapsManipulator({ from: 'c', to: 'f16' }),
     ],
   },
 ]
