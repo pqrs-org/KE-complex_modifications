@@ -13,14 +13,10 @@ function main() {
         maintainers: ['tekezo'],
         rules: [
           {
-            description: 'Launcher Mode v4 (rev 19)',
+            description: 'Launcher Mode v4 (rev 20)',
             available_since: '13.1.4',
             manipulators: [].concat(
-              generateLauncherMode('1', [
-                {
-                  shell_command: 'open "$(dirname $(dirname $(xcode-select -p)))"',
-                },
-              ]),
+              generateLauncherMode('1', [{ shell_command: "open -a 'Xcode.app'" }]),
               generateLauncherMode('3', [{ shell_command: "open -a 'Firefox.app'" }]),
               generateLauncherMode('5', [{ shell_command: "open -a 'Microsoft Word.app'" }]),
               generateLauncherMode('6', [{ shell_command: "open -a 'Microsoft Excel.app'" }]),
