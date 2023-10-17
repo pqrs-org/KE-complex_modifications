@@ -10,7 +10,7 @@ function main() {
         maintainers: ['tekezo'],
         rules: [
           {
-            description: 'Personal rules (@tekezo) (rev 48)',
+            description: 'Personal rules (@tekezo) (rev 49)',
             available_since: '14.12.6',
             manipulators: [].concat(
               coreConfiguration(),
@@ -473,6 +473,61 @@ function mouse() {
         {
           type: 'variable_if',
           name: 'personal_tekezo_enable_mouse_motion_to_scroll',
+          value: 1,
+        },
+      ],
+    })
+  })
+
+  // ;+jkl -> mouse buttons
+  result.push({
+    type: 'basic',
+    from: {
+      key_code: 'semicolon',
+      modifiers: {
+        optional: ['any'],
+      },
+    },
+    to: [
+      {
+        set_variable: {
+          name: 'personal_tekezo_mouse_buttons',
+          value: 1,
+          key_up_value: 0,
+        },
+      },
+    ],
+    to_if_alone: [
+      {
+        key_code: 'semicolon',
+      },
+    ],
+    parameters: {
+      'basic.to_if_alone_timeout_milliseconds': 250,
+    },
+  })
+  ;[
+    { from: 'j', to: 'button1' },
+    { from: 'k', to: 'button3' },
+    { from: 'l', to: 'button2' },
+  ].forEach(function (def) {
+    result.push({
+      type: 'basic',
+      from: {
+        key_code: def.from,
+        modifiers: {
+          optional: ['any'],
+        },
+      },
+      to: [
+        {
+          pointing_button: def.to,
+        },
+      ],
+      conditions: [
+        {
+          type: 'variable_if',
+          name: 'personal_tekezo_mouse_buttons',
           value: 1,
         },
       ],
