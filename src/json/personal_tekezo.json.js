@@ -10,7 +10,7 @@ function main() {
         maintainers: ['tekezo'],
         rules: [
           {
-            description: 'Personal rules (@tekezo) (rev 49)',
+            description: 'Personal rules (@tekezo) (rev 50)',
             available_since: '14.12.6',
             manipulators: [].concat(
               coreConfiguration(),
@@ -507,9 +507,10 @@ function mouse() {
     },
   })
   ;[
-    { from: 'j', to: 'button1' },
-    { from: 'k', to: 'button3' },
-    { from: 'l', to: 'button2' },
+    { from: 'j', to: [{ pointing_button: 'button1' }] },
+    { from: 'k', to: [{ pointing_button: 'button3' }] },
+    { from: 'l', to: [{ pointing_button: 'button2' }] },
+    { from: 'i', to: [{ software_function: { set_mouse_cursor_position: { screen: 0, x: '50%', y: '50%' } } }] },
   ].forEach(function (def) {
     result.push({
       type: 'basic',
@@ -519,11 +520,7 @@ function mouse() {
           optional: ['any'],
         },
       },
-      to: [
-        {
-          pointing_button: def.to,
-        },
-      ],
+      to: def.to,
       conditions: [
         {
           type: 'variable_if',

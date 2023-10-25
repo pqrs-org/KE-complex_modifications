@@ -5,7 +5,7 @@
   ],
   "rules": [
     {
-      "description": "Personal rules (@tekezo) (rev 49)",
+      "description": "Personal rules (@tekezo) (rev 50)",
       "available_since": "14.12.6",
       "manipulators": [
         {
@@ -658,6 +658,35 @@
           "to": [
             {
               "pointing_button": "button2"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "personal_tekezo_mouse_buttons",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "software_function": {
+                "set_mouse_cursor_position": {
+                  "screen": 0,
+                  "x": "50%",
+                  "y": "50%"
+                }
+              }
             }
           ],
           "conditions": [
