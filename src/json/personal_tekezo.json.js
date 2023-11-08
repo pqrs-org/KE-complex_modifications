@@ -10,7 +10,7 @@ function main() {
         maintainers: ['tekezo'],
         rules: [
           {
-            description: 'Personal rules (@tekezo) (rev 48)',
+            description: 'Personal rules (@tekezo) (rev 51)',
             available_since: '14.12.6',
             manipulators: [].concat(
               coreConfiguration(),
@@ -479,6 +479,58 @@ function mouse() {
     })
   })
 
+  // ;+jkl -> mouse buttons
+  result.push({
+    type: 'basic',
+    from: {
+      key_code: 'semicolon',
+      modifiers: {
+        optional: ['any'],
+      },
+    },
+    to: [
+      {
+        set_variable: {
+          name: 'personal_tekezo_mouse_buttons',
+          value: 1,
+          key_up_value: 0,
+        },
+      },
+    ],
+    to_if_alone: [
+      {
+        key_code: 'semicolon',
+      },
+    ],
+    parameters: {
+      'basic.to_if_alone_timeout_milliseconds': 250,
+    },
+  })
+  ;[
+    { from: 'j', to: [{ pointing_button: 'button1' }] },
+    { from: 'k', to: [{ pointing_button: 'button3' }] },
+    { from: 'l', to: [{ pointing_button: 'button2' }] },
+    { from: 'i', to: [{ software_function: { set_mouse_cursor_position: { screen: 0, x: '50%', y: '50%' } } }] },
+  ].forEach(function (def) {
+    result.push({
+      type: 'basic',
+      from: {
+        key_code: def.from,
+        modifiers: {
+          optional: ['any'],
+        },
+      },
+      to: def.to,
+      conditions: [
+        {
+          type: 'variable_if',
+          name: 'personal_tekezo_mouse_buttons',
+          value: 1,
+        },
+      ],
+    })
+  })
+
   return result
 }
 
@@ -828,24 +880,6 @@ function appFinder() {
       type: 'basic',
       from: {
         key_code: 'l',
-        modifiers: {
-          mandatory: ['command'],
-          optional: ['caps_lock'],
-        },
-      },
-      conditions: [
-        {
-          type: 'frontmost_application_if',
-          bundle_identifiers: karabiner.bundleIdentifiers.finder,
-        },
-      ],
-    },
-
-    // Disable command+W
-    {
-      type: 'basic',
-      from: {
-        key_code: 'w',
         modifiers: {
           mandatory: ['command'],
           optional: ['caps_lock'],

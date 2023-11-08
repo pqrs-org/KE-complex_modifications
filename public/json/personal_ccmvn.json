@@ -627,35 +627,6 @@
             ]
         },
         {
-            "description": "Left Command+Right Command (Only escape if pressed at the same time)",
-            "manipulators": [
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "right_command",
-                        "modifiers": {
-                            "mandatory": [
-                                "left_command"
-                            ],
-                            "optional": [
-                                "any"
-                            ]
-                        }
-                    },
-                    "to": [
-                        {
-                            "key_code": "escape"
-                        }
-                    ],
-                    "to_if_alone": [
-                        {
-                            "key_code": "caps_lock"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
             "description": "Ctrl+C, Ctrl+V, Ctrl+X => Command+C (Copy), Command+V (Paste), Command+X (Cut)",
             "manipulators": [
                 {
@@ -3745,48 +3716,6 @@
                                 "^com\\.google\\.Chrome$",
                                 "^com\\.brave\\.Browser$",
                                 "^com\\.apple\\.Safari$"
-                            ]
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "description": "Scroll-Lock => Ctrl+Command+Q",
-            "manipulators": [
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "scroll_lock"
-                    },
-                    "to": [
-                        {
-                            "repeat": false,
-                            "key_code": "q",
-                            "modifiers": [
-                                "left_control",
-                                "left_command"
-                            ]
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "description": "Scroll-Lock => Ctrl+Command+Q",
-            "manipulators": [
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "scroll_lock"
-                    },
-                    "to": [
-                        {
-                            "repeat": false,
-                            "key_code": "q",
-                            "modifiers": [
-                                "left_control",
-                                "left_command"
                             ]
                         }
                     ]

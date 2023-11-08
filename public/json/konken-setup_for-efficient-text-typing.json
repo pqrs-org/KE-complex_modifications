@@ -1,0 +1,324 @@
+{
+    "title": "KonKen's Setup: For Efficient Text Typing",
+    "rules": [
+        {
+            "description": "Left Ctrl + Spacebar => Backward Delete (Beware of the Spotlight shortcut conflicts.)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "spacebar",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_control"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "delete_or_backspace",
+                            "lazy": true,
+                            "repeat": true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Shift + Backspace => Forward Delete",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "delete_or_backspace",
+                        "modifiers": {
+                            "mandatory": [
+                                "shift"
+                            ],
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "delete_or_backspace",
+                            "modifiers": [
+                                "fn"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Ctrl + h/j/k/l => ←/↓/↑/→ Arrows (Vim-like UI. Japanese Mac Users may want to enable \"Windows-like shortcuts (Windows風のキー操作)\" to perform batch conversion with Ctrl + u/i/o/p instead of Ctrl + j/k/l/;.)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "h",
+                        "modifiers": {
+                            "mandatory": [
+                                "control"
+                            ],
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_arrow"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "j",
+                        "modifiers": {
+                            "mandatory": [
+                                "control"
+                            ],
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "down_arrow"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "k",
+                        "modifiers": {
+                            "mandatory": [
+                                "control"
+                            ],
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "up_arrow"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "l",
+                        "modifiers": {
+                            "mandatory": [
+                                "control"
+                            ],
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "right_arrow"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Caps Lock => Left Command",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "caps_lock",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_command"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Left Opt & c (simultaneously) => Copy the current paragraph",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "simultaneous": [
+                            {
+                                "key_code": "left_alt"
+                            },
+                            {
+                                "key_code": "c"
+                            }
+                        ]
+                    },
+                    "to": [
+                        {
+                            "key_code": "right_arrow"
+                        },
+                        {
+                            "key_code": "up_arrow",
+                            "modifiers": [
+                                "left_alt"
+                            ]
+                        },
+                        {
+                            "key_code": "down_arrow",
+                            "modifiers": [
+                                "left_alt",
+                                "shift"
+                            ]
+                        },
+                        {
+                            "key_code": "c",
+                            "modifiers": [
+                                "command"
+                            ]
+                        }
+                    ],
+                    "to_delayed_action": {
+                        "to_if_invoked": [
+                            {
+                                "key_code": "right_arrow"
+                            }
+                        ]
+                    },
+                    "parameters": {
+                        "basic.to_delayed_action_delay_milliseconds": 125
+                    }
+                }
+            ]
+        },
+        {
+            "description": "Cmnd + Shift + x => Cut the current paragraph (To make the most of this shortcut, also enable \"Caps Lock => Left Command.\")",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "x",
+                        "modifiers": {
+                            "mandatory": [
+                                "command",
+                                "shift"
+                            ],
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "right_arrow"
+                        },
+                        {
+                            "key_code": "up_arrow",
+                            "modifiers": [
+                                "left_alt"
+                            ]
+                        },
+                        {
+                            "key_code": "down_arrow",
+                            "modifiers": [
+                                "left_alt",
+                                "shift"
+                            ]
+                        },
+                        {
+                            "key_code": "x",
+                            "modifiers": [
+                                "command"
+                            ]
+                        }
+                    ],
+                    "to_delayed_action": {
+                        "to_if_invoked": [
+                            {
+                                "key_code": "left_arrow"
+                            }
+                        ]
+                    },
+                    "parameters": {
+                        "basic.to_delayed_action_delay_milliseconds": 150
+                    }
+                }
+            ]
+        },
+        {
+            "description": "Ctrl + Opt + Shift + ↓ => Duplicate the current paragraph below (Behavior may vary depending on text editors.)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "down_arrow",
+                        "modifiers": {
+                            "mandatory": [
+                                "control",
+                                "shift",
+                                "left_alt"
+                            ],
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "right_arrow"
+                        },
+                        {
+                            "key_code": "up_arrow",
+                            "modifiers": [
+                                "left_alt"
+                            ]
+                        },
+                        {
+                            "key_code": "down_arrow",
+                            "modifiers": [
+                                "left_alt",
+                                "shift"
+                            ]
+                        },
+                        {
+                            "key_code": "c",
+                            "modifiers": [
+                                "command"
+                            ]
+                        }
+                    ],
+                    "to_delayed_action": {
+                        "to_if_invoked": [
+                            {
+                                "key_code": "right_arrow"
+                            },
+                            {
+                                "key_code": "v",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    "parameters": {
+                        "basic.to_delayed_action_delay_milliseconds": 350
+                    }
+                }
+            ]
+        }
+    ]
+}

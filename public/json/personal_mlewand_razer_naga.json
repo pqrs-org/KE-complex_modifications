@@ -1,0 +1,117 @@
+{
+  "title": "Mappings for (fairly old) Razer Naga Epic mouse (@mlewand)",
+  "maintainers": [
+    "mlewand"
+  ],
+  "rules": [
+    {
+      "description": "Typing extras (7→move to left screen, 8→move to right screen, 10→maximize, 11→shrink)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 5426,
+                  "product_id": 31
+                }
+              ]
+            }
+          ],
+          "from": {
+            "key_code": "7"
+          },
+          "to": [
+            {
+              "key_code": "j",
+              "modifiers": [
+                "left_shift",
+                "left_command"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 5426,
+                  "product_id": 31
+                }
+              ]
+            }
+          ],
+          "from": {
+            "key_code": "8"
+          },
+          "to": [
+            {
+              "key_code": "l",
+              "modifiers": [
+                "left_shift",
+                "left_command"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 5426,
+                  "product_id": 31
+                }
+              ]
+            }
+          ],
+          "from": {
+            "key_code": "0"
+          },
+          "to": [
+            {
+              "key_code": "i",
+              "modifiers": [
+                "left_shift",
+                "left_command"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 5426,
+                  "product_id": 31
+                }
+              ]
+            }
+          ],
+          "from": {
+            "key_code": "hyphen"
+          },
+          "to": [
+            {
+              "key_code": "k",
+              "modifiers": [
+                "left_shift",
+                "left_command"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
