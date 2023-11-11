@@ -1,3 +1,5 @@
+// JavaScript should be written in ECMAScript 5.1.
+
 console.log(
   JSON.stringify(
     {

@@ -1,5 +1,8 @@
 {
   "title": "Disable YubiKey 5C Nano Keystrokes @jonatasrenan",
+  "maintainers": [
+    "jonatasrenan"
+  ],
   "rules": [
     {
       "description": "Disable YubiKey 5C Nano Keystrokes @jonatasrenan",
@@ -491,7 +494,51 @@
         {
           "type": "basic",
           "from": {
+            "key_code": "w"
+          },
+          "to": [
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 1031,
+                  "vendor_id": 4176
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
             "key_code": "x"
+          },
+          "to": [
+            {
+              "key_code": "vk_none"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 1031,
+                  "vendor_id": 4176
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "y"
           },
           "to": [
             {

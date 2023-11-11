@@ -1,0 +1,39 @@
+{
+  "title": "Finnish internal keyboard | (vertical bar, pipe)",
+  "maintainers": [
+    "wtflm"
+  ],
+  "rules": [
+    {
+      "description": "Finnish internal keyboard | (vertical bar, pipe)",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 834
+                }
+              ]
+            }
+          ],
+          "type": "basic",
+          "from": {
+            "key_code": "grave_accent_and_tilde",
+            "modifiers": {
+              "mandatory": ["right_option"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "7",
+              "modifiers": ["right_option"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

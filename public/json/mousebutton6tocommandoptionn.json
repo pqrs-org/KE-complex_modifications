@@ -1,0 +1,25 @@
+{
+  "title": "MouseButton6 to Command + option + n (don’t forget to enable your mouse under Devices)",
+  "rules": [
+    {
+      "description": "MouseButton6 to Command + option + n",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button6",
+            "modifiers": {
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "n",
+              "modifiers": ["left_command", "left_option"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

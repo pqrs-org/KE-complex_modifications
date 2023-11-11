@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+      <html lang="en">
+        <head>
+          <title>HyperIJKL</title>
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <meta charset="UTF-8">
+        </head>
+        <body>
+          <div id='content'>
+      <h1 id="hyperijkl">HyperIJKL</h1>
+<p><a href="https://github.com/RomanYuldashev/HyperIJKL"><img src="https://img.shields.io/badge/Open_on_GitHub-blue.svg" alt="GitHub" /></a></p>
+<p>Yet another one productivity-oriented keyboard keys remapper for macOS.  <br />
+It is largely based on <a href="https://github.com/Vonng">Vonng's</a> <a href="https://github.com/Vonng/Capslock">CapsLock Enhancement</a>, but with a twist: <br />
+WASD-style navigation instead of Vim-style.  <br />
+For those who are more accustomed to arrow keys or FPS controls ᗜωᗜ</p>
+<p>This set up is tailored specifically to my workflow and has no aim to cover all possible use cases, <br />
+though it is easily customizable to your preferences if you like the general idea.</p>
+<h2 id="overview">Overview</h2>
+<p>Turn <code>Capslock</code> into a new modifier – <strong>Hyper</strong> <code>*</code>. <br />
+Do stuff without moving your hands away from the keyboard's home row:</p>
+<ul>
+<li><p>Navigate and edit text quickly</p></li>
+<li><p>Delete words and lines with a single key press</p></li>
+<li><p>Navigate macOS: desktops, apps and tabs</p></li>
+<li><p>Start and switch active apps</p></li>
+<li><p>Control the mouse pointer, buttons and wheels with a keyboard</p></li>
+<li><p>… and other workflow enhancements</p></li>
+</ul>
+<h2 id="contents">Contents</h2>
+<p><details><br />
+  <summary>Expand</summary>
+            <ul>
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#description">Description</a></li>
+<li><a href="#general">General</a><ul>
+<li><a href="#legend">Legend</a></li></ul></li>
+<li><a href="#text-navigation">Text Navigation</a></li>
+<li><a href="#os-navigation">OS Navigation</a></li>
+<li><a href="#mouse-navigation">Mouse Navigation</a></li>
+<li><a href="#left-hand-window-navigation">Left Hand Window Navigation</a></li>
+<li><a href="#applications">Applications</a></li>
+<li><a href="#display-selection">Display Selection</a></li>
+<li><a href="#input-source-language-selection">Input Source (Language) Selection</a></li>
+<li><a href="#general-key-scheme">General Key Scheme</a></li>
+<li><a href="#zones">Zones</a></li>
+<li><a href="#legend">Legend</a></li>
+<li><a href="#key-mappings-by-layer">Key Mappings by Layer</a></li>
+<li><a href="#normal">Normal</a></li>
+<li><a href="#select">Select</a></li>
+<li><a href="#word">Word</a></li>
+<li><a href="#word-select">Word Select</a></li>
+<li><a href="#os-navigation">OS Navigation</a></li>
+<li><a href="#mouse-pointer">Mouse Pointer</a></li>
+<li><a href="#mouse-wheel">Mouse Wheel</a></li>
+<li><a href="#making-hyperijkl-work-on-login-screen">Making HyperIJKL Work on Login Screen</a></li>
+<li><a href="#modifying-hyperijkl">Modifying HyperIJKL</a></li>
+<li><a href="#advanced-installation">Advanced Installation</a></li>
+<li><a href="#setting-up-defaultkeybindingsdict">Setting Up DefaultKeyBindings.dict</a></li>
+<li><a href="#setting-up-additional-idea-shortcuts">Setting Up Additional IDEA Shortcuts</a><ul>
+<li><a href="#modifying-key-mapping-configuration-directly-faster-way">Modifying Key Mapping Configuration Directly (Faster Way)</a></li>
+<li><a href="#alternative-adding-shortcuts-through-settings-panel-more-obvious-way">Alternative: Adding Shortcuts through Settings Panel (More Obvious Way)</a></li></ul></li>
+<li><a href="#about">About</a></li>
+</ul>
+<p></details>
+            <h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li><p>macOS </p></li>
+<li><p><a href="https://brew.sh/">brew</a></p></li>
+</ul>
+<h2 id="installation">Installation</h2>
+<ol>
+<li>Install Karabiner-Elements:</li>
+</ol>
+<pre><code class="hljs bash language-bash">   brew install --cask karabiner-elements
+</code></pre>
+<ol start="2">
+<li><p><a href="karabiner://karabiner/assets/complex_modifications/import?url=https://raw.githubusercontent.com/RomanYuldashev/HyperIJKL/main/mac/hyperijkl.json">Download the configuration</a> (or use <code>Import</code> button on the current page) and allow Karabiner to load it;</p></li>
+<li><p>Enable HyperIJKL in Karabiner-Elements:</p></li>
+</ol>
+<blockquote>
+  <p>Karabiner-Elements → Complex Modifications → Add rule → Enable all</p>
+</blockquote>
+<ol start="4">
+<li>Enjoy!</li>
+</ol>
+<p><em>Several non-essential HyperIJKL features (marked in <a href="#description">Description</a> section) require additional 
+installation steps. See <a href="#advanced-installation">Advanced Installation</a> for instructions.</em></p>
+<h2 id="description">Description</h2>
+<h3 id="general">General</h3>
+<p>Hold <code>Capslock</code> to activate <strong>Hyper</strong> <code>*</code> mode.  <br />
+Press <code>Capslock</code> once to send <code>esc</code>.  <br />
+<code>Capslock + esc</code> to toggle Capslock mode.  </p>
+<h4 id="legend">Legend</h4>
+<table aria-describedby="legend">
+<thead>
+<tr>
+<th style="text-align:center;"><code>*</code></th>
+<th style="text-align:center;"><code>⌥</code></th>
+<th style="text-align:center;"><code>⇧</code></th>
+<th style="text-align:center;"><code>⌘</code></th>
+<th><code>␣</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">Hyper</td>
+<td style="text-align:center;">option</td>
+<td style="text-align:center;">shift</td>
+<td style="text-align:center;">command</td>
+<td>space</td>
+</tr>
+</tbody>
+</table>
+<h3 id="text-navigation">Text Navigation</h3>
+<table aria-describedby="text-navigation">
+<thead>
+<tr>
+<th style="text-align:center;">button / layer</th>
+<th style="text-align:center;"><code>*</code></th>
+<th style="text-align:center;"><code>* ⌘</code></th>
+<th style="text-align:center;"><code>* ⌥</code></th>
+<th style="text-align:center;"><code>* ⌥ ⌘</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;"><code>i</code></td>
+<td style="text-align:center;">up</td>
+<td style="text-align:center;">select line up</td>
+<td style="text-align:center;">paragraph up*</td>
+<td style="text-align:center;">select paragraph up*</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>j</code></td>
+<td style="text-align:center;">left</td>
+<td style="text-align:center;">select character left</td>
+<td style="text-align:center;">word left</td>
+<td style="text-align:center;">select word left</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>k</code></td>
+<td style="text-align:center;">down</td>
+<td style="text-align:center;">select line down</td>
+<td style="text-align:center;">paragraph down*</td>
+<td style="text-align:center;">select paragraph down*</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>l</code></td>
+<td style="text-align:center;">right</td>
+<td style="text-align:center;">select character right</td>
+<td style="text-align:center;">word right</td>
+<td style="text-align:center;">select word right</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>u</code></td>
+<td style="text-align:center;">home</td>
+<td style="text-align:center;">home with selection</td>
+<td style="text-align:center;">line start</td>
+<td style="text-align:center;">select line, cursor home</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>o</code></td>
+<td style="text-align:center;">end</td>
+<td style="text-align:center;">end with selection</td>
+<td style="text-align:center;">line end</td>
+<td style="text-align:center;">select line, cursor end</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>y</code></td>
+<td style="text-align:center;">page up</td>
+<td style="text-align:center;">select previous page</td>
+<td style="text-align:center;">document start*</td>
+<td style="text-align:center;">select up to document start*</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>h</code></td>
+<td style="text-align:center;">page down</td>
+<td style="text-align:center;">select next page</td>
+<td style="text-align:center;">document end*</td>
+<td style="text-align:center;">select up to document end*</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>n</code></td>
+<td style="text-align:center;">delete left (backspace)</td>
+<td style="text-align:center;">delete line left</td>
+<td style="text-align:center;">delete word left</td>
+<td style="text-align:center;">-</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>m</code></td>
+<td style="text-align:center;">delete current line</td>
+<td style="text-align:center;">select current line</td>
+<td style="text-align:center;">move line down</td>
+<td style="text-align:center;">-</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>,</code></td>
+<td style="text-align:center;">delete current word*</td>
+<td style="text-align:center;">select current word*</td>
+<td style="text-align:center;">move line up</td>
+<td style="text-align:center;">-</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>.</code></td>
+<td style="text-align:center;">delete right (delete)</td>
+<td style="text-align:center;">delete line right</td>
+<td style="text-align:center;">delete word right</td>
+<td style="text-align:center;">-</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>[</code></td>
+<td style="text-align:center;">(</td>
+<td style="text-align:center;">undo</td>
+<td style="text-align:center;">-</td>
+<td style="text-align:center;">-</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>]</code></td>
+<td style="text-align:center;">)</td>
+<td style="text-align:center;">redo</td>
+<td style="text-align:center;">-</td>
+<td style="text-align:center;">-</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>esc</code></td>
+<td style="text-align:center;">capslock</td>
+<td style="text-align:center;">-</td>
+<td style="text-align:center;">-</td>
+<td style="text-align:center;">-</td>
+</tr>
+</tbody>
+</table>
+<p><em>* additional set up required. See <a href="#advanced-installation">Advanced Installation</a>.</em></p>
+<h3 id="os-navigation">OS Navigation</h3>
+<p>Navigate macOS: desktops, windows, tabs, Mission Control and Launchpad.</p>
+<table aria-describedby="os-navigation">
+<thead>
+<tr>
+<th style="text-align:center;">button / layer</th>
+<th style="text-align:center;"><code>* ⇧</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;"><code>i</code></td>
+<td style="text-align:center;">Mission Control</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>j</code></td>
+<td style="text-align:center;">Launchpad</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>k</code></td>
+<td style="text-align:center;">previous tab</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>l</code></td>
+<td style="text-align:center;">next tab</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>u</code></td>
+<td style="text-align:center;">previous desktop</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>o</code></td>
+<td style="text-align:center;">next desktop</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>y</code></td>
+<td style="text-align:center;">fullscreen</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>h</code></td>
+<td style="text-align:center;">hide current window</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mouse-navigation">Mouse Navigation</h3>
+<p>Use keyboard keys to control the mouse pointer, buttons and wheels.</p>
+<table aria-describedby="mouse-navigation">
+<thead>
+<tr>
+<th style="text-align:center;">button / layer</th>
+<th style="text-align:center;"><code>* ⇧</code></th>
+<th style="text-align:center;"><code>* ⌥ ⇧</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;"><code>i</code></td>
+<td style="text-align:center;">pointer up</td>
+<td style="text-align:center;">wheel up</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>j</code></td>
+<td style="text-align:center;">pointer left</td>
+<td style="text-align:center;">wheel left</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>k</code></td>
+<td style="text-align:center;">pointer down</td>
+<td style="text-align:center;">wheel down</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>l</code></td>
+<td style="text-align:center;">pointer right</td>
+<td style="text-align:center;">wheel right</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>u</code></td>
+<td style="text-align:center;">left mouse button</td>
+<td style="text-align:center;">left mouse button</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>o</code></td>
+<td style="text-align:center;">right mouse button</td>
+<td style="text-align:center;">right mouse button</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>h</code></td>
+<td style="text-align:center;">middle mouse button</td>
+<td style="text-align:center;">middle mouse button</td>
+</tr>
+</tbody>
+</table>
+<h3 id="left-hand-window-navigation">Left Hand Window Navigation</h3>
+<p>These shortcuts duplicate some shortcuts from <a href="#os-navigation">OS Navigation</a>. Their aim is to grant the ability <br />
+to navigate windows and desktops while using a mouse with your right hand at the same time.</p>
+<table aria-describedby="left-hand-window-navigation">
+<thead>
+<tr>
+<th style="text-align:center;">button / layer</th>
+<th style="text-align:center;"><code>*</code></th>
+<th style="text-align:center;"><code>* ⌘</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;"><code>w</code></td>
+<td style="text-align:center;">next tab</td>
+<td style="text-align:center;">previous tab</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>s</code></td>
+<td style="text-align:center;">next desktop</td>
+<td style="text-align:center;">previous desktop</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>x</code></td>
+<td style="text-align:center;">forward</td>
+<td style="text-align:center;">-</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>z</code></td>
+<td style="text-align:center;">back</td>
+<td style="text-align:center;">-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="applications">Applications</h3>
+<p>These shortcuts launch applications or switch to a desktop with the said application if it is already running.  <br />
+<code>* §</code> starts multiple apps that are configured in <code>hyperijkl.yml</code>.  <br />
+<code>§</code> is placed on top of a <code>tab</code> on ISO (EU) keyboards, <br />
+replace it with <code>`</code> to get similar results on ANSI (US) keyboards (see <a href="#modifying-hyperijkl">Modifying HyperIJKL</a>).</p>
+<table aria-describedby="applications">
+<thead>
+<tr>
+<th style="text-align:center;">button / layer</th>
+<th style="text-align:center;"><code>*</code></th>
+<th style="text-align:center;"><code>* ⌘</code></th>
+<th style="text-align:center;"><code>* ⌥</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;"><code>e</code></td>
+<td style="text-align:center;">Outlook</td>
+<td style="text-align:center;">Notes</td>
+<td style="text-align:center;">Thunderbird</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>r</code></td>
+<td style="text-align:center;">IDEA</td>
+<td style="text-align:center;">VSCode</td>
+<td style="text-align:center;">DBeaver</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>t</code></td>
+<td style="text-align:center;">iTerm</td>
+<td style="text-align:center;">Activity Monitor</td>
+<td style="text-align:center;">Settings</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>d</code></td>
+<td style="text-align:center;">Postman</td>
+<td style="text-align:center;">Docker</td>
+<td style="text-align:center;">Lens</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>f</code></td>
+<td style="text-align:center;">Finder</td>
+<td style="text-align:center;">Forklift</td>
+<td style="text-align:center;">Preview</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>g</code></td>
+<td style="text-align:center;">KeepassXC</td>
+<td style="text-align:center;">Spotify</td>
+<td style="text-align:center;">IINA</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>c</code></td>
+<td style="text-align:center;">Telegram</td>
+<td style="text-align:center;">Rocket.Chat</td>
+<td style="text-align:center;">Signal</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>v</code></td>
+<td style="text-align:center;">Zoom</td>
+<td style="text-align:center;">Microsoft Teams</td>
+<td style="text-align:center;">Skype</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>b</code></td>
+<td style="text-align:center;">Chrome</td>
+<td style="text-align:center;">Firefox</td>
+<td style="text-align:center;">Safari</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>§</code></td>
+<td style="text-align:center;">start work env</td>
+<td style="text-align:center;">-</td>
+<td style="text-align:center;">-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="display-selection">Display Selection</h3>
+<p>Press <code>* 1</code> to center the mouse pointer on Display 1. Works with digits from 1 to 4.</p>
+<table aria-describedby="display-selection">
+<thead>
+<tr>
+<th style="text-align:center;">button / layer</th>
+<th style="text-align:center;"><code>*</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;"><code>1</code></td>
+<td style="text-align:center;">display 1</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>2</code></td>
+<td style="text-align:center;">display 2</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>3</code></td>
+<td style="text-align:center;">display 3</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>4</code></td>
+<td style="text-align:center;">display 4</td>
+</tr>
+</tbody>
+</table>
+<h3 id="input-source-language-selection">Input Source (Language) Selection</h3>
+<table aria-describedby="input-source-language-selection">
+<thead>
+<tr>
+<th style="text-align:center;">button / layer</th>
+<th style="text-align:center;"><code>*</code></th>
+<th style="text-align:center;"><code>* ⌘</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;"><code>;</code></td>
+<td style="text-align:center;">EN</td>
+<td style="text-align:center;">-</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>p</code></td>
+<td style="text-align:center;">input source (language) 2</td>
+<td style="text-align:center;">-</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>/</code></td>
+<td style="text-align:center;">input source (language) 3</td>
+<td style="text-align:center;">-</td>
+</tr>
+<tr>
+<td style="text-align:center;"><code>␣</code></td>
+<td style="text-align:center;">previous input source (language)</td>
+<td style="text-align:center;">next input source (language) in menu</td>
+</tr>
+</tbody>
+</table>
+<p>Press <code>* ;</code> to select EN input source.  <br />
+<code>* p</code> to select the second input source.  <br />
+<code>* /</code> to select the third input source.  <br />
+<code>* ␣</code> to select the previous input source (like the default <code>⌥ ␣</code> in macOS).  <br />
+<code>* ⌘ ␣</code> to select the next source in the input menu<br />
+(iterates through the full list of input sources like the default <code>⌥ ⌘ ␣</code>).</p>
+<p>Requires manual set up of additional input sources to work.<br />
+You will have to edit <code>hyperijkl.yml</code> by replacing predefined input language codes to desired ones.<br />
+Those input languages should also be configured in macOS. <br />
+Reinstall the script (see <a href="#modifying-hyperijkl">Modifying HyperIJKL</a>)<br />
+after those steps and check if LANG2 and LANG3 shortcuts work.</p>
+<h2 id="general-key-scheme">General Key Scheme</h2>
+<h3 id="zones">Zones</h3>
+<p><img src="https://raw.githubusercontent.com/RomanYuldashev/HyperIJKL/main/mac/img/png/keyboard-keys-general-scheme.png" alt="" /></p>
+<h3 id="legend-1">Legend</h3>
+<p><img src="https://raw.githubusercontent.com/RomanYuldashev/HyperIJKL/main/mac/img/png/color-zones.png" alt="" /></p>
+<h2 id="key-mappings-by-layer">Key Mappings by Layer</h2>
+<p><em>* additional set up required. See <a href="#advanced-installation">Advanced Installation</a>.</em></p>
+<h3 id="normal">Normal</h3>
+<p><img src="https://raw.githubusercontent.com/RomanYuldashev/HyperIJKL/main/mac/img/png/text-navigation.png" alt="" /></p>
+<h3 id="select">Select</h3>
+<p><img src="https://raw.githubusercontent.com/RomanYuldashev/HyperIJKL/main/mac/img/png/text-selection.png" alt="" /></p>
+<h3 id="word">Word</h3>
+<p><img src="https://raw.githubusercontent.com/RomanYuldashev/HyperIJKL/main/mac/img/png/word-navigation.png" alt="" /></p>
+<h3 id="word-select">Word Select</h3>
+<p><img src="https://raw.githubusercontent.com/RomanYuldashev/HyperIJKL/main/mac/img/png/word-selection.png" alt="" /></p>
+<h3 id="os-navigation-1">OS Navigation</h3>
+<p><img src="https://raw.githubusercontent.com/RomanYuldashev/HyperIJKL/main/mac/img/png/os-navigation.png" alt="" /></p>
+<h3 id="mouse-pointer">Mouse Pointer</h3>
+<p><img src="https://raw.githubusercontent.com/RomanYuldashev/HyperIJKL/main/mac/img/png/mouse-pointer.png" alt="" /></p>
+<h3 id="mouse-wheel">Mouse Wheel</h3>
+<p><img src="https://raw.githubusercontent.com/RomanYuldashev/HyperIJKL/main/mac/img/png/mouse-wheel.png" alt="" /></p>
+<h2 id="making-hyperijkl-work-on-login-screen">Making HyperIJKL Work on Login Screen</h2>
+<p>You can make HyperIJKL work on Login Screen.</p>
+<ol>
+<li>Go to:</li>
+</ol>
+<blockquote>
+  <p>Karabiner-Elements → Misc</p>
+</blockquote>
+<ol start="2">
+<li>Press <code>Copy the current configuration to the system default configuration</code>. You will be prompted for admin password.</li>
+</ol>
+<h2 id="modifying-hyperijkl">Modifying HyperIJKL</h2>
+<p>You can edit HyperIJKL's shortcuts with the following steps:</p>
+<ol>
+<li><p>Open HyperIJKL/mac/hyperijkl.yml;</p></li>
+<li><p>Edit shortcuts (see <a href="https://karabiner-elements.pqrs.org/docs/">Karabiner docs</a> for reference);</p></li>
+<li><p>Run in <code>mac</code> directory:</p></li>
+</ol>
+<pre><code class="hljs bash language-bash">   make all
+</code></pre>
+<ol start="4">
+<li>Go to:</li>
+</ol>
+<blockquote>
+  <p>Karabiner-Elements → Complex Modifications</p>
+</blockquote>
+<ol start="5">
+<li><p>Delete all the old HyperIJKL's modifications;</p></li>
+<li><p>Press:</p></li>
+</ol>
+<blockquote>
+  <p>Add rule → Enable all</p>
+</blockquote>
+<p>on newly edited modifications.</p>
+<h2 id="advanced-installation">Advanced Installation</h2>
+<p>Advanced Installation of HyperIJKL allows you to use several additional shortcuts, <br />
+but requires more complex configuration that involves modifying key bindings in macOS and in IntelliJ IDEA.</p>
+<ol>
+<li>Install Karabiner-Elements:</li>
+</ol>
+<pre><code class="hljs bash language-bash">   brew install --cask karabiner-elements
+</code></pre>
+<ol start="2">
+<li>Clone HyperIJKL:</li>
+</ol>
+<pre><code class="hljs bash language-bash">   git clone https://github.com/RomanYuldashev/HyperIJKL.git
+</code></pre>
+<ol start="3">
+<li>Run installation script in HyperIJKL's <code>mac</code> directory:</li>
+</ol>
+<pre><code class="hljs bash language-bash">   make all
+</code></pre>
+<p>This step automatically sets up <code>DefaultKeyBindings.dict</code> in macOS. See <a href="#setting-up-defaultkeybindingsdict">Setting Up DefaultKeyBindings.dict</a> for details.</p>
+<ol start="4">
+<li>Enable HyperIJKL in Karabiner-Elements:</li>
+</ol>
+<blockquote>
+  <p>Karabiner-Elements → Complex Modifications → Add rule → Enable all</p>
+</blockquote>
+<ol start="5">
+<li>Set up additional IDEA shortcuts (see <a href="#setting-up-additional-idea-shortcuts">Setting Up Additional IDEA Shortcuts</a>).</li>
+</ol>
+<h3 id="setting-up-defaultkeybindingsdict">Setting Up DefaultKeyBindings.dict</h3>
+<p>HyperIJKL requires modification of DefaultKeyBindings.dict for advanced shortcuts to work.<br />
+If you have no custom key bindings in your macOS — you are good!<br />
+Otherwise, you will have to manually merge HyperIJKL's key bindings into existing ones.<br />
+In this case HyperIJKL's advanced installation script will notify you about key bindings conflict.</p>
+<h3 id="setting-up-additional-idea-shortcuts">Setting Up Additional IDEA Shortcuts</h3>
+<p>HyperIJKL utilizes a couple of text navigation actions that are supported by macOS but are rarely recognized by apps.<br />
+To enable these actions in IntelliJ IDEA you will have to add shortcuts for them either through in-app Settings<br />
+or by directly modifying configuration files.</p>
+<h4 id="modifying-key-mapping-configuration-directly-faster-way">Modifying Key Mapping Configuration Directly (Faster Way)</h4>
+<ol>
+<li><p>Perform previous steps of HyperIJKL's Advanced Installation;</p></li>
+<li><p>Go to IDEA configuration directory (directory name may vary between app versions):</p></li>
+</ol>
+<pre><code class="hljs bash language-bash">   cd ~/Library/Application\ Support/JetBrains/[IntelliJIdea]
+</code></pre>
+<ol start="3">
+<li><p>If directory <code>[IdeaConfigBasePath]/keymaps</code> doesn't exist, copy it from HyperIJKL's <code>mac/idea</code> directory and paste here;</p>
+<p>Else go to <code>keymaps</code>, open <code>macOS.xml</code> with a text editor and paste all the <code>&lt;action&gt;</code> blocks from HyperIJKL's <code>mac/idea/keymaps/macOS.xml</code> into it;</p></li>
+<li><p>Go to <code>[IdeaConfigBasePath]/options/mac</code> and open <code>keymap.xml</code>. Make sure that <code>active_keymap</code> name is aligned with an .xml from <code>keymaps</code> directory:</p></li>
+</ol>
+<blockquote>
+  <p><active_keymap name="macOS"></active_keymap></p>
+</blockquote>
+<ol start="5">
+<li><p>Restart IDEA;</p></li>
+<li><p>Check if these shortcuts work in IDEA:</p></li>
+</ol>
+<blockquote>
+  <p><code>* ⌥ i</code> → move to beginning of paragraph</p>
+  <p><code>* ⌥ ⌘ i</code> → select previous paragraph</p>
+  <p><code>* ⌥ k</code> → move to end of paragraph</p>
+  <p><code>* ⌥ ⌘ k</code> → select next paragraph</p>
+</blockquote>
+<h4 id="alternative-adding-shortcuts-through-settings-panel-more-obvious-way">Alternative: Adding Shortcuts through Settings Panel (More Obvious Way)</h4>
+<ol>
+<li><p>Perform previous steps of HyperIJKL's <a href="#advanced-installation">Advanced Installation</a>;</p></li>
+<li><p>Open IntelliJ IDEA;</p></li>
+<li><p>Go to:</p></li>
+</ol>
+<blockquote>
+  <p>Settings → Keymap → Find</p>
+</blockquote>
+<ol start="4">
+<li>Add these shortcuts:</li>
+</ol>
+<blockquote>
+  <p>Move Caret Backward a Paragraph → <code>* ⌥ i</code></p>
+  <p>Move Caret Backward a Paragraph with Selection → <code>* ⌥ ⌘ i</code></p>
+  <p>Move Caret Forward a Paragraph → <code>* ⌥ k</code></p>
+  <p>Move Caret Forward a Paragraph with Selection → <code>* ⌥ ⌘ k</code></p>
+</blockquote>
+<h2 id="about">About</h2>
+<p>Author: Roman Yuldashev (<a href="mailto:RomanYuldashev@proton.me">RomanYuldashev@proton.me</a>)</p>
+<p>License: <a href="https://raw.githubusercontent.com/RomanYuldashev/HyperIJKL/main/LICENSE">Apache 2.0 License</a></p>
+<p>ᗜˬᗜ</p>
+
+          </div>
+          <style>body {
+    font: 400 16px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #111;
+    background-color: #fbfbfb;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-feature-settings: "kern" 1;
+    -moz-font-feature-settings: "kern" 1;
+    -o-font-feature-settings: "kern" 1;
+    font-feature-settings: "kern" 1;
+    font-kerning: normal;
+    padding: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        padding: 5px;
+    }
+    body>#content {
+        padding: 0 20px 20px 20px !important;
+    }
+}
+
+body>#content {
+    max-width: 900px;
+    border: 1px solid #e1e4e8;
+    padding: 10px 40px 20px;
+    border-radius: 2px;
+    margin: 0 auto;
+}
+
+summary {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+hr {
+    color: #bbb;
+    background-color: #bbb;
+    height: 1px;
+    flex: 0 1 auto;
+    margin: 1em 0;
+    padding: 0;
+    border: none;
+}
+
+/**
+ * Links
+ */
+
+a {
+    color: #0366d6;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #0366d6;
+}
+
+a:hover {
+    color: #0366d6;
+    text-decoration: underline;
+}
+
+pre {
+    background-color: #f6f8fa;
+    border-radius: 3px;
+    font-size: 85%;
+    line-height: 1.45;
+    overflow: auto;
+    padding: 16px;
+}
+
+
+/**
+  * Code blocks
+  */
+
+code {
+    background-color: rgba(27, 31, 35, .05);
+    border-radius: 3px;
+    font-size: 85%;
+    margin: 0;
+    word-wrap: break-word;
+    padding: .2em .4em;
+    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
+}
+
+pre>code {
+    background-color: transparent;
+    border: 0;
+    display: inline;
+    line-height: inherit;
+    margin: 0;
+    overflow: visible;
+    padding: 0;
+    word-wrap: normal;
+    font-size: 100%;
+}
+
+
+/**
+ * Blockquotes
+ */
+
+blockquote {
+    margin-left: 30px;
+    margin-top: 0;
+    margin-bottom: 16px;
+  color: #828282;
+    border-left: 4px solid #e8e8e8;
+  padding: 0 1em 0 15px;
+  font-size: 18px;
+    letter-spacing: -1px;
+    font-style: italic;
+}
+
+blockquote * {
+    font-style: normal !important;
+    letter-spacing: 0;
+    color: #6a737d !important;
+}
+
+
+/**
+ * Tables
+ */
+
+table {
+  display: block;
+    font-size: 14px;
+    overflow: auto;
+    width: 100%;
+    margin-bottom: 16px;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 6px 13px;
+    border: 1px solid #dfe2e5;
+}
+
+th {
+    font-weight: 600;
+    padding: 6px 13px;
+    border: 1px solid #dfe2e5;
+}
+
+tr {
+    background-color: #fff;
+    border-top: 1px solid #c6cbd1;
+}
+
+table tr:nth-child(2n) {
+    background-color: #f6f8fa;
+}
+
+
+/**
+ * Others
+ */
+
+img {
+    max-width: 100%;
+}
+
+p {
+    line-height: 24px;
+    font-weight: 400;
+    font-size: 16px;
+    color: #24292e;
+}
+
+ul {
+    margin-top: 0;
+}
+
+li {
+    color: #24292e;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+li+li {
+    margin-top: 0.25em;
+}
+
+* {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: #24292e;
+}
+
+a:visited {
+    color: #0366d6;
+}
+
+h1,
+h2,
+h3 {
+    border-bottom: 1px solid #eaecef;
+    color: #111;
+    /* Darker */
+}
+
+code>* {
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace !important;
+}</style>
+          <style>pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}.hljs{color:#abb2bf;background:#282c34}</style>
+        </body>
+      </html>
