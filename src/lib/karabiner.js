@@ -168,7 +168,7 @@ exports.bundleIdentifiers = {
   ),
   microsoftExcel: rawBundleIdentifers.microsoftExcel,
   microsoftPowerpoint: rawBundleIdentifers.microsoftPowerpoint,
-  microsoftExcel: rawBundleIdentifers.microsoftWord,
+  microsoftWord: rawBundleIdentifers.microsoftWord,
   remoteDesktop: rawBundleIdentifers.remoteDesktop,
   terminal: rawBundleIdentifers.terminal,
   vi: rawBundleIdentifers.vi,
