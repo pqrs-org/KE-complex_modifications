@@ -16,22 +16,20 @@ function main() {
             description: 'Launcher Mode v4 (rev 20)',
             available_since: '13.1.4',
             manipulators: [].concat(
-              generateLauncherMode('1', [{ shell_command: "open -a 'Xcode.app'" }]),
-              generateLauncherMode('3', [{ shell_command: "open -a 'Firefox.app'" }]),
-              generateLauncherMode('5', [{ shell_command: "open -a 'Microsoft Word.app'" }]),
-              generateLauncherMode('6', [{ shell_command: "open -a 'Microsoft Excel.app'" }]),
-              generateLauncherMode('a', [{ shell_command: "open -a 'Activity Monitor.app'" }]),
-              generateLauncherMode('c', [{ shell_command: "open -a 'Google Chrome.app'" }]),
-              generateLauncherMode('e', [{ shell_command: "open -a 'Visual Studio Code.app'" }]),
-              generateLauncherMode('f', [{ shell_command: "open -a 'Finder.app'" }]),
-              generateLauncherMode('m', [{ shell_command: "open -a 'Thunderbird.app'" }]),
-              generateLauncherMode('q', [{ shell_command: "open -a 'Dictionary.app'" }]),
-              generateLauncherMode('s', [{ shell_command: "open -a 'Safari.app'" }]),
-              generateLauncherMode('t', [{ shell_command: "open -a 'Terminal.app'" }]),
-              generateLauncherMode('v', [{ shell_command: "open -a 'Slack.app'" }]),
+              generateLauncherMode('1', { bundleIdentifier: 'com.apple.dt.Xcode' }),
+              generateLauncherMode('3', { bundleIdentifier: 'org.mozilla.firefox' }),
+              generateLauncherMode('a', { bundleIdentifier: 'com.apple.ActivityMonitor' }),
+              generateLauncherMode('c', { bundleIdentifier: 'com.google.Chrome' }),
+              generateLauncherMode('e', { bundleIdentifier: 'com.microsoft.VSCode' }),
+              generateLauncherMode('f', { bundleIdentifier: 'com.apple.finder' }),
+              generateLauncherMode('m', { bundleIdentifier: 'org.mozilla.thunderbird' }),
+              generateLauncherMode('q', { bundleIdentifier: 'com.apple.Dictionary' }),
+              generateLauncherMode('s', { bundleIdentifier: 'com.apple.Safari' }),
+              generateLauncherMode('t', { bundleIdentifier: 'com.apple.Terminal' }),
+              generateLauncherMode('v', { bundleIdentifier: 'com.tinyspeck.slackmacgap' }),
 
-              generateLauncherMode('left_control', [{ key_code: 'mission_control' }]),
-              generateLauncherMode('left_shift', [{ apple_vendor_keyboard_key_code: 'launchpad' }])
+              generateLauncherMode('left_control', { to: [{ key_code: 'mission_control' }] }),
+              generateLauncherMode('left_shift', { to: [{ apple_vendor_keyboard_key_code: 'launchpad' }] })
             ),
           },
         ],
@@ -42,7 +40,25 @@ function main() {
   )
 }
 
-function generateLauncherMode(from_key_code, to) {
+function generateLauncherMode(
+  from_key_code,
+  /**
+   * @type {{
+   *   bundleIdentifier?: string,
+   *   to: any[],
+   * }} */
+  definition
+) {
+  var to = []
+  if (definition.bundleIdentifier !== undefined) {
+    to.push({
+      shell_command: "open -b '" + definition.bundleIdentifier + "'",
+    })
+  }
+  if (definition.to !== undefined) {
+    to = to.concat(definition.to)
+  }
+
   return [
     {
       type: 'basic',

@@ -20,7 +20,7 @@
           },
           "to": [
             {
-              "shell_command": "open -a 'Xcode.app'"
+              "shell_command": "open -b 'com.apple.dt.Xcode'"
             }
           ],
           "conditions": [
@@ -68,7 +68,7 @@
               }
             },
             {
-              "shell_command": "open -a 'Xcode.app'"
+              "shell_command": "open -b 'com.apple.dt.Xcode'"
             }
           ],
           "parameters": {
@@ -87,7 +87,7 @@
           },
           "to": [
             {
-              "shell_command": "open -a 'Firefox.app'"
+              "shell_command": "open -b 'org.mozilla.firefox'"
             }
           ],
           "conditions": [
@@ -135,141 +135,7 @@
               }
             },
             {
-              "shell_command": "open -a 'Firefox.app'"
-            }
-          ],
-          "parameters": {
-            "basic.simultaneous_threshold_milliseconds": 500
-          }
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "5",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "shell_command": "open -a 'Microsoft Word.app'"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "launcher_mode_v4",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "o"
-              },
-              {
-                "key_code": "5"
-              }
-            ],
-            "simultaneous_options": {
-              "key_down_order": "strict",
-              "key_up_order": "strict_inverse",
-              "to_after_key_up": [
-                {
-                  "set_variable": {
-                    "name": "launcher_mode_v4",
-                    "value": 0
-                  }
-                }
-              ]
-            },
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "launcher_mode_v4",
-                "value": 1
-              }
-            },
-            {
-              "shell_command": "open -a 'Microsoft Word.app'"
-            }
-          ],
-          "parameters": {
-            "basic.simultaneous_threshold_milliseconds": 500
-          }
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "6",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "shell_command": "open -a 'Microsoft Excel.app'"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "launcher_mode_v4",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "o"
-              },
-              {
-                "key_code": "6"
-              }
-            ],
-            "simultaneous_options": {
-              "key_down_order": "strict",
-              "key_up_order": "strict_inverse",
-              "to_after_key_up": [
-                {
-                  "set_variable": {
-                    "name": "launcher_mode_v4",
-                    "value": 0
-                  }
-                }
-              ]
-            },
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "launcher_mode_v4",
-                "value": 1
-              }
-            },
-            {
-              "shell_command": "open -a 'Microsoft Excel.app'"
+              "shell_command": "open -b 'org.mozilla.firefox'"
             }
           ],
           "parameters": {
@@ -288,7 +154,7 @@
           },
           "to": [
             {
-              "shell_command": "open -a 'Activity Monitor.app'"
+              "shell_command": "open -b 'com.apple.ActivityMonitor'"
             }
           ],
           "conditions": [
@@ -336,7 +202,7 @@
               }
             },
             {
-              "shell_command": "open -a 'Activity Monitor.app'"
+              "shell_command": "open -b 'com.apple.ActivityMonitor'"
             }
           ],
           "parameters": {
@@ -355,7 +221,7 @@
           },
           "to": [
             {
-              "shell_command": "open -a 'Google Chrome.app'"
+              "shell_command": "open -b 'com.google.Chrome'"
             }
           ],
           "conditions": [
@@ -403,7 +269,7 @@
               }
             },
             {
-              "shell_command": "open -a 'Google Chrome.app'"
+              "shell_command": "open -b 'com.google.Chrome'"
             }
           ],
           "parameters": {
@@ -422,7 +288,7 @@
           },
           "to": [
             {
-              "shell_command": "open -a 'Visual Studio Code.app'"
+              "shell_command": "open -b 'com.microsoft.VSCode'"
             }
           ],
           "conditions": [
@@ -470,7 +336,7 @@
               }
             },
             {
-              "shell_command": "open -a 'Visual Studio Code.app'"
+              "shell_command": "open -b 'com.microsoft.VSCode'"
             }
           ],
           "parameters": {
@@ -489,7 +355,7 @@
           },
           "to": [
             {
-              "shell_command": "open -a 'Finder.app'"
+              "shell_command": "open -b 'com.apple.finder'"
             }
           ],
           "conditions": [
@@ -537,7 +403,7 @@
               }
             },
             {
-              "shell_command": "open -a 'Finder.app'"
+              "shell_command": "open -b 'com.apple.finder'"
             }
           ],
           "parameters": {
@@ -556,7 +422,7 @@
           },
           "to": [
             {
-              "shell_command": "open -a 'Thunderbird.app'"
+              "shell_command": "open -b 'org.mozilla.thunderbird'"
             }
           ],
           "conditions": [
@@ -604,7 +470,7 @@
               }
             },
             {
-              "shell_command": "open -a 'Thunderbird.app'"
+              "shell_command": "open -b 'org.mozilla.thunderbird'"
             }
           ],
           "parameters": {
@@ -623,7 +489,7 @@
           },
           "to": [
             {
-              "shell_command": "open -a 'Dictionary.app'"
+              "shell_command": "open -b 'com.apple.Dictionary'"
             }
           ],
           "conditions": [
@@ -671,7 +537,7 @@
               }
             },
             {
-              "shell_command": "open -a 'Dictionary.app'"
+              "shell_command": "open -b 'com.apple.Dictionary'"
             }
           ],
           "parameters": {
@@ -690,7 +556,7 @@
           },
           "to": [
             {
-              "shell_command": "open -a 'Safari.app'"
+              "shell_command": "open -b 'com.apple.Safari'"
             }
           ],
           "conditions": [
@@ -738,7 +604,7 @@
               }
             },
             {
-              "shell_command": "open -a 'Safari.app'"
+              "shell_command": "open -b 'com.apple.Safari'"
             }
           ],
           "parameters": {
@@ -757,7 +623,7 @@
           },
           "to": [
             {
-              "shell_command": "open -a 'Terminal.app'"
+              "shell_command": "open -b 'com.apple.Terminal'"
             }
           ],
           "conditions": [
@@ -805,7 +671,7 @@
               }
             },
             {
-              "shell_command": "open -a 'Terminal.app'"
+              "shell_command": "open -b 'com.apple.Terminal'"
             }
           ],
           "parameters": {
@@ -824,7 +690,7 @@
           },
           "to": [
             {
-              "shell_command": "open -a 'Slack.app'"
+              "shell_command": "open -b 'com.tinyspeck.slackmacgap'"
             }
           ],
           "conditions": [
@@ -872,7 +738,7 @@
               }
             },
             {
-              "shell_command": "open -a 'Slack.app'"
+              "shell_command": "open -b 'com.tinyspeck.slackmacgap'"
             }
           ],
           "parameters": {
