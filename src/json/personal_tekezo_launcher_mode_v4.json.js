@@ -13,7 +13,7 @@ function main() {
         maintainers: ['tekezo'],
         rules: [
           {
-            description: 'Launcher Mode v4 (rev 20)',
+            description: 'Launcher Mode v4 (rev 21)',
             available_since: '13.1.4',
             manipulators: [].concat(
               generateLauncherMode('1', { bundleIdentifier: 'com.apple.dt.Xcode' }),
