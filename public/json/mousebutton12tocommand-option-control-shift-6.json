@@ -1,0 +1,25 @@
+{
+  "title": "MouseButton 12 to command + option + control + shift + 6 (don’t forget to enable your mouse under Devices)",
+  "rules": [
+    {
+      "description": "MouseButton 12 to command + option + control + shift + 6",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button12",
+            "modifiers": {
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "6",
+              "modifiers": ["left_command", "left_option", "left_control", "left_shift"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
