@@ -2,28 +2,45 @@
   "title": "Windows style input change Alt + Shift for Mac",
   "rules": [
     {
-      "description": "Cmd + Shift to Ctrl + Option + Space",
+      "description": "Alt + Shift to Ctrl + Option + Space",
       "manipulators": [
         {
           "from": {
-              "key_code": "left_shift",
-              "modifiers": {
-                "mandatory": ["left_command"]
-              } 
+            "key_code": "left_shift",
+            "modifiers": {
+              "mandatory": ["left_alt"]
+            }
           },
           "to_if_alone": [
-              {
-                  "key_code": "spacebar",
-                  "modifiers": [
-                    "left_control",
-                    "left_option"
-                  ]
-              }
+            {
+              "key_code": "spacebar",
+              "modifiers": [
+                "left_control",
+                "left_option"
+              ]
+            }
           ],
           "type": "basic"
+        },
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": ["left_shift"]
+            },
+            "key_code": "left_alt"
+          },
+          "to_if_alone": [
+            {
+              "key_code": "spacebar",
+              "modifiers": [
+                "left_control",
+                "left_alt"
+              ]
+            }
+          ]
         }
       ]
     }
-  ] 
+  ]
 }
-
