@@ -1,0 +1,603 @@
+{ "title": "Advanced Keymap for JIS Keyboard: Project “UTILITY”", "rules": [
+
+    { "description": "【 UTILITY 】\t ☆☆☆☆☆ \t ⚠️ 上から「英数｣「かな｣「修飾キー関連」の順に設定すること ⚠️", "manipulators": [
+
+        { "description": " FN + HYPER + F20 ▶︎ SHOW ALERT ",
+            "from": { "key_code": "f20", "modifiers": { "mandatory": [ "fn", "command", "control", "option", "shift" ] } }, "type": "basic",
+            "to": [ { "shell_command": "osascript -e 'display notification \"上から「英数｣「かな｣「修飾キー関連」の 順に設定すること\" with title \"Advanced Keymap “UTILITY”\"' " } ]
+        }
+
+    ] },
+
+
+    { "description": "【 UTILITY 】\t ★★★★★ \t 英数 ① カーソル移動（ Fn1 + HJKL ▶︎ ←↓↑→ ）", "manipulators": [
+
+        { "description": " FN1 + H ▶︎ LEFT ARROW ",
+            "from": { "key_code": "h", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN1", "value": 1 } ],
+            "to": [ { "key_code": "left_arrow" } ]
+        },
+        { "description": " FN1 + J ▶︎ DOWN ARROW ",
+            "from": { "key_code": "j", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN1", "value": 1 } ],
+            "to": [ { "key_code": "down_arrow" } ]
+        },
+        { "description": " FN1 + K ▶︎ UP ARROW ",
+            "from": { "key_code": "k", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN1", "value": 1 } ],
+            "to": [ { "key_code": "up_arrow" } ]
+        },
+        { "description": " FN1 + L ▶︎ RIGHT ARROW ",
+            "from": { "key_code": "l", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN1", "value": 1 } ],
+            "to": [ { "key_code": "right_arrow" } ]
+        },
+
+        { "description": " MUHENKAN ▶︎ FN1 ",
+            "from": { "key_code": "japanese_pc_nfer", "modifiers": { "optional": [ "any" ] } }, "type": "basic",
+                "to_after_key_up": [ { "set_variable": { "name": "FN1", "value": 0 } } ],
+                "to_if_alone": [ { "key_code": "japanese_eisuu" } ],
+            "to": [ { "set_variable": { "name": "FN1", "value": 1 } }, { "key_code": "fn" } ]
+        },
+        { "description": " EISUU ▶︎ FN1 ",
+            "from": { "key_code": "japanese_eisuu", "modifiers": { "optional": [ "any" ] } }, "type": "basic",
+                "to_after_key_up": [ { "set_variable": { "name": "FN1", "value": 0 } } ],
+                "to_if_alone": [ { "key_code": "japanese_eisuu" } ],
+            "to": [ { "set_variable": { "name": "FN1", "value": 1 } }, { "key_code": "fn" } ]
+        }
+
+        ] },
+
+    { "description": "【 UTILITY 】\t ★★★★★ \t 英数 ② 特殊キー（ Fn1 + ERTDFN ▶︎ ⎋  ⇤  ⇥  ⌫  ⌦  ⏎ ）", "manipulators": [
+
+        { "description": " FN1 + E ▶︎ ESCAPE ",
+            "from": { "key_code": "e", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN1", "value": 1 } ],
+            "to": [ { "key_code": "escape" } ]
+        },
+        { "description": " FN1 + R ▶︎ SHIFT TAB ",
+            "from": { "key_code": "r", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN1", "value": 1 } ],
+            "to": [ { "key_code": "tab", "modifiers": [ "left_shift" ] } ]
+        },
+        { "description": " FN1 + T ▶︎ TAB ",
+            "from": { "key_code": "t", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN1", "value": 1 } ],
+            "to": [ { "key_code": "tab" } ]
+        },
+        { "description": " FN1 + D ▶︎ DELETE ",
+            "from": { "key_code": "d", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN1", "value": 1 } ],
+            "to": [ { "key_code": "delete_or_backspace" } ]
+        },
+        { "description": " FN1 + F ▶︎ FORWARD DELETE ALL ",
+            "from": { "key_code": "f", "modifiers": { "mandatory": [ "fn", "command" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN1", "value": 1 } ],
+            "to": [ { "key_code": "k", "modifiers": [ "left_control" ] } ]
+        },
+        { "description": " FN1 + F ▶︎ FORWARD DELETE ",
+            "from": { "key_code": "f", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN1", "value": 1 } ],
+            "to": [ { "key_code": "delete_forward" } ]
+        },
+        { "description": " FN1 + N ▶︎ ENTER ",
+            "from": { "key_code": "n", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN1", "value": 1 } ],
+            "to": [ { "key_code": "return_or_enter" } ]
+        },
+
+        { "description": " MUHENKAN ▶︎ FN1 ",
+            "from": { "key_code": "japanese_pc_nfer", "modifiers": { "optional": [ "any" ] } }, "type": "basic",
+                "to_after_key_up": [ { "set_variable": { "name": "FN1", "value": 0 } } ],
+                "to_if_alone": [ { "key_code": "japanese_eisuu" } ],
+            "to": [ { "set_variable": { "name": "FN1", "value": 1 } }, { "key_code": "fn" } ]
+        },
+        { "description": " EISUU ▶︎ FN1 ",
+            "from": { "key_code": "japanese_eisuu", "modifiers": { "optional": [ "any" ] } }, "type": "basic",
+                "to_after_key_up": [ { "set_variable": { "name": "FN1", "value": 0 } } ],
+                "to_if_alone": [ { "key_code": "japanese_eisuu" } ],
+            "to": [ { "set_variable": { "name": "FN1", "value": 1 } }, { "key_code": "fn" } ]
+        }
+
+        ] },
+
+    { "description": "【 UTILITY 】\t ★★★★  \t 英数 ③ 引用符（ Fn1 + QW ▶︎ ' \" ）", "manipulators": [
+
+        { "description": " FN1 + Q ▶︎ QUOTATION ",
+            "from": { "key_code": "q", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN1", "value": 1 } ],
+            "to": [ { "key_code": "7", "modifiers": [ "left_shift" ] } ]
+        },
+        { "description": " FN1 + W ▶︎ DOUBLE QUOTATION ",
+            "from": { "key_code": "w", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN1", "value": 1 } ],
+            "to": [ { "key_code": "2", "modifiers": [ "left_shift" ] } ]
+        },
+
+        { "description": " MUHENKAN ▶︎ FN1 ",
+            "from": { "key_code": "japanese_pc_nfer", "modifiers": { "optional": [ "any" ] } }, "type": "basic",
+                "to_after_key_up": [ { "set_variable": { "name": "FN1", "value": 0 } } ],
+                "to_if_alone": [ { "key_code": "japanese_eisuu" } ],
+            "to": [ { "set_variable": { "name": "FN1", "value": 1 } }, { "key_code": "fn" } ]
+        },
+        { "description": " EISUU ▶︎ FN1 ",
+            "from": { "key_code": "japanese_eisuu", "modifiers": { "optional": [ "any" ] } }, "type": "basic",
+                "to_after_key_up": [ { "set_variable": { "name": "FN1", "value": 0 } } ],
+                "to_if_alone": [ { "key_code": "japanese_eisuu" } ],
+            "to": [ { "set_variable": { "name": "FN1", "value": 1 } }, { "key_code": "fn" } ]
+        }
+
+        ] },
+
+    { "description": "【 UTILITY 】\t ★★★★  \t 英数 ④ よく使う記号（ Fn1 + UIO ▶︎ \"[] ）", "manipulators": [
+
+        { "description": " FN1 + U ▶︎ DOUBLE QUOTATION ",
+            "from": { "key_code": "u", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN1", "value": 1 } ],
+            "to": [ { "key_code": "2", "modifiers": [ "left_shift" ] } ]
+        },
+        { "description": " FN1 + I ▶︎ OPEN BRACKET ",
+            "from": { "key_code": "i", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN1", "value": 1 } ],
+            "to": [ { "key_code": "close_bracket" } ]
+        },
+        { "description": " FN1 + O ▶︎ CLOSE BRACKET ",
+            "from": { "key_code": "o", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN1", "value": 1 } ],
+            "to": [ { "key_code": "backslash" } ]
+        },
+
+        { "description": " MUHENKAN ▶︎ FN1 ",
+            "from": { "key_code": "japanese_pc_nfer", "modifiers": { "optional": [ "any" ] } }, "type": "basic",
+                "to_after_key_up": [ { "set_variable": { "name": "FN1", "value": 0 } } ],
+                "to_if_alone": [ { "key_code": "japanese_eisuu" } ],
+            "to": [ { "set_variable": { "name": "FN1", "value": 1 } }, { "key_code": "fn" } ]
+        },
+        { "description": " EISUU ▶︎ FN1 ",
+            "from": { "key_code": "japanese_eisuu", "modifiers": { "optional": [ "any" ] } }, "type": "basic",
+                "to_after_key_up": [ { "set_variable": { "name": "FN1", "value": 0 } } ],
+                "to_if_alone": [ { "key_code": "japanese_eisuu" } ],
+            "to": [ { "set_variable": { "name": "FN1", "value": 1 } }, { "key_code": "fn" } ]
+        }
+
+        ] },
+
+    { "description": "【 UTILITY 】\t ★★★★  \t 英数 ⑤ 算術記号類（ Fn1 + ;:P@./_ ▶︎ ^=-+*/\\ ）", "manipulators": [
+
+        { "description": " FN1 + ; ▶︎ HAT ",
+            "from": { "key_code": "semicolon", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN1", "value": 1 } ],
+                "to_if_alone": [ { "key_code": "equal_sign" } ],
+            "to": [ { "key_code": "left_control", "lazy": true } ]
+        },
+        { "description": " FN1 + : ▶︎ EQUAL ",
+            "from": { "key_code": "quote", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN1", "value": 1 } ],
+            "to": [ { "key_code": "hyphen", "modifiers": [ "left_shift" ] } ]
+        },
+        { "description": " SHIFT FN1 + P ▶︎ UNDERSCORE ",
+            "from": { "key_code": "p", "modifiers": { "mandatory": [ "fn", "shift" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN1", "value": 1 } ],
+            "to": [ { "key_code": "international1" } ]
+        },
+        { "description": " FN1 + P ▶︎ MINUS ",
+            "from": { "key_code": "p", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN1", "value": 1 } ],
+            "to": [ { "key_code": "hyphen" } ]
+        },
+        { "description": " FN1 + @ ▶︎ PLUS ",
+            "from": { "key_code": "open_bracket", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN1", "value": 1 } ],
+            "to": [ { "key_code": "semicolon", "modifiers": [ "left_shift" ] } ]
+        },
+        { "description": " FN1 + . ▶︎ ASTERISK ",
+            "from": { "key_code": "period", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN1", "value": 1 } ],
+            "to": [ { "key_code": "quote", "modifiers": [ "left_shift" ] } ]
+        },
+        { "description": " FN1 + / ▶︎ SLASH ",
+            "from": { "key_code": "slash", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN1", "value": 1 } ],
+            "to": [ { "key_code": "slash" } ]
+        },
+        { "description": " FN1 + _ ▶︎ BACKSLASH ",
+            "from": { "key_code": "international1", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN1", "value": 1 } ],
+            "to": [ { "key_code": "international3" } ]
+        },
+
+        { "description": " MUHENKAN ▶︎ FN1 ",
+            "from": { "key_code": "japanese_pc_nfer", "modifiers": { "optional": [ "any" ] } }, "type": "basic",
+                "to_after_key_up": [ { "set_variable": { "name": "FN1", "value": 0 } } ],
+                "to_if_alone": [ { "key_code": "japanese_eisuu" } ],
+            "to": [ { "set_variable": { "name": "FN1", "value": 1 } }, { "key_code": "fn" } ]
+        },
+        { "description": " EISUU ▶︎ FN1 ",
+            "from": { "key_code": "japanese_eisuu", "modifiers": { "optional": [ "any" ] } }, "type": "basic",
+                "to_after_key_up": [ { "set_variable": { "name": "FN1", "value": 0 } } ],
+                "to_if_alone": [ { "key_code": "japanese_eisuu" } ],
+            "to": [ { "set_variable": { "name": "FN1", "value": 1 } }, { "key_code": "fn" } ]
+        }
+
+        ] },
+
+    { "description": "【 UTILITY 】\t ★★★★  \t 英数 ⑥ Enter キー類（ Fn1 + NM, ▶︎ ⏎  ⇧⏎  ⌘⏎ ）", "manipulators": [
+
+        { "description": " FN1 + N ▶︎ ENTER ",
+            "from": { "key_code": "n", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN1", "value": 1 } ],
+            "to": [ { "key_code": "return_or_enter" } ]
+        },
+        { "description": " FN1 + M ▶︎ SHIFT ENTER ",
+            "from": { "key_code": "m", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN1", "value": 1 } ],
+            "to": [ { "key_code": "return_or_enter", "modifiers": [ "left_shift" ] } ]
+        },
+        { "description": " FN1 + , ▶︎ COMMAND ENTER ",
+            "from": { "key_code": "comma", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN1", "value": 1 } ],
+            "to": [ { "key_code": "return_or_enter", "modifiers": [ "left_command" ] } ]
+        },
+
+        { "description": " MUHENKAN ▶︎ FN1 ",
+            "from": { "key_code": "japanese_pc_nfer", "modifiers": { "optional": [ "any" ] } }, "type": "basic",
+                "to_after_key_up": [ { "set_variable": { "name": "FN1", "value": 0 } } ],
+                "to_if_alone": [ { "key_code": "japanese_eisuu" } ],
+            "to": [ { "set_variable": { "name": "FN1", "value": 1 } }, { "key_code": "fn" } ]
+        },
+        { "description": " EISUU ▶︎ FN1 ",
+            "from": { "key_code": "japanese_eisuu", "modifiers": { "optional": [ "any" ] } }, "type": "basic",
+                "to_after_key_up": [ { "set_variable": { "name": "FN1", "value": 0 } } ],
+                "to_if_alone": [ { "key_code": "japanese_eisuu" } ],
+            "to": [ { "set_variable": { "name": "FN1", "value": 1 } }, { "key_code": "fn" } ]
+        }
+
+        ] },
+
+    { "description": "【 UTILITY 】\t ★★★★  \t 英数 ⑦ よく使う機能（ Fn1 + ASZXCV ▶︎ ⌃⇤  ⌃⇥  ⌘[  ⌘]  ⌘⇤  ⌘⇥ ）", "manipulators": [
+
+        { "description": " FN1 + A ▶︎ PREVIOUS TAB ",
+            "from": { "key_code": "a", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN1", "value": 1 } ],
+            "to": [ { "key_code": "tab", "modifiers": [ "left_control", "left_shift" ] } ]
+        },
+        { "description": " FN1 + S ▶︎ NEXT TAB ",
+            "from": { "key_code": "s", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN1", "value": 1 } ],
+            "to": [ { "key_code": "tab", "modifiers": [ "left_control" ] } ]
+        },
+
+        { "description": " FN1 + Z ▶︎ BACKWARD ",
+            "from": { "key_code": "z", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN1", "value": 1 } ],
+            "to": [ { "key_code": "close_bracket", "modifiers": [ "left_command" ] } ]
+        },
+        { "description": " FN1 + X ▶︎ FORWARD ",
+            "from": { "key_code": "x", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN1", "value": 1 } ],
+            "to": [ { "key_code": "backslash", "modifiers": [ "left_command" ] } ]
+        },
+
+        { "description": " FN1 + C ▶︎ PREVIOUS APPLICATION ",
+            "from": { "key_code": "c", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN1", "value": 1 } ],
+            "to": [ { "key_code": "tab", "modifiers": [ "left_command", "left_shift" ] } ]
+        },
+        { "description": " FN1 + V ▶︎ NEXT APPLICATION ",
+            "from": { "key_code": "v", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN1", "value": 1 } ],
+            "to": [ { "key_code": "tab", "modifiers": [ "left_command" ] } ]
+        },
+
+        { "description": " MUHENKAN ▶︎ FN1 ",
+            "from": { "key_code": "japanese_pc_nfer", "modifiers": { "optional": [ "any" ] } }, "type": "basic",
+                "to_after_key_up": [ { "set_variable": { "name": "FN1", "value": 0 } } ],
+                "to_if_alone": [ { "key_code": "japanese_eisuu" } ],
+            "to": [ { "set_variable": { "name": "FN1", "value": 1 } }, { "key_code": "fn" } ]
+        },
+        { "description": " EISUU ▶︎ FN1 ",
+            "from": { "key_code": "japanese_eisuu", "modifiers": { "optional": [ "any" ] } }, "type": "basic",
+                "to_after_key_up": [ { "set_variable": { "name": "FN1", "value": 0 } } ],
+                "to_if_alone": [ { "key_code": "japanese_eisuu" } ],
+            "to": [ { "set_variable": { "name": "FN1", "value": 1 } }, { "key_code": "fn" } ]
+        }
+
+        ] },
+
+
+    { "description": "\t\t────────────────────────────────────────", "manipulators": [
+
+        { "description": " FN + HYPER + F20 ▶︎ SHOW ALERT ",
+            "from": { "key_code": "f20", "modifiers": { "mandatory": [ "fn", "command", "control", "option", "shift" ] } }, "type": "basic",
+            "to": [ { "shell_command": "osascript -e 'display notification \"Advanced Keymap “UTILITY”\" with title \"This is\"' " } ]
+        }
+
+    ] },
+
+
+    { "description": "【 UTILITY 】\t ★★★★★ \t かな ① 数字（ Fn2 + ASDFGHJKL; ▶︎ 1234567890 ）", "manipulators": [
+
+        { "description": " FN2 + A ▶︎ 1 ",
+            "from": { "key_code": "a", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN2", "value": 1 } ],
+            "to": [ { "key_code": "1" } ]
+        },
+        { "description": " FN2 + S ▶︎ 2 ",
+            "from": { "key_code": "s", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN2", "value": 1 } ],
+            "to": [ { "key_code": "2" } ]
+        },
+        { "description": " FN2 + D ▶︎ 3 ",
+            "from": { "key_code": "d", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN2", "value": 1 } ],
+            "to": [ { "key_code": "3" } ]
+        },
+        { "description": " FN2 + F ▶︎ 4 ",
+            "from": { "key_code": "f", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN2", "value": 1 } ],
+            "to": [ { "key_code": "4" } ]
+        },
+        { "description": " FN2 + G ▶︎ 5 ",
+            "from": { "key_code": "g", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN2", "value": 1 } ],
+            "to": [ { "key_code": "5" } ]
+        },
+        { "description": " FN2 + H ▶︎ 6 ",
+            "from": { "key_code": "h", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN2", "value": 1 } ],
+            "to": [ { "key_code": "6" } ]
+        },
+        { "description": " FN2 + J ▶︎ 7 ",
+            "from": { "key_code": "j", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN2", "value": 1 } ],
+            "to": [ { "key_code": "7" } ]
+        },
+        { "description": " FN2 + K ▶︎ 8 ",
+            "from": { "key_code": "k", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN2", "value": 1 } ],
+            "to": [ { "key_code": "8" } ]
+        },
+        { "description": " FN2 + L ▶︎ 9 ",
+            "from": { "key_code": "l", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN2", "value": 1 } ],
+            "to": [ { "key_code": "9" } ]
+        },
+        { "description": " FN2 + ; ▶︎ 0 ",
+            "from": { "key_code": "semicolon", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN2", "value": 1 } ],
+                "to_if_alone": [ { "key_code": "0" } ],
+            "to": [ { "key_code": "left_control", "lazy": true } ]
+        },
+
+        { "description": " HENKAN ▶︎ FN2 ",
+            "from": { "key_code": "japanese_pc_xfer", "modifiers": { "optional": [ "any" ] } }, "type": "basic",
+                "to_after_key_up": [ { "set_variable": { "name": "FN2", "value": 0 } } ],
+                "to_if_alone": [ { "key_code": "japanese_kana" } ],
+            "to": [ { "set_variable": { "name": "FN2", "value": 1 } }, { "key_code": "fn" } ]
+        },
+        { "description": " KANA ▶︎ FN2 ",
+            "from": { "key_code": "japanese_kana", "modifiers": { "optional": [ "any" ] } }, "type": "basic",
+                "to_after_key_up": [ { "set_variable": { "name": "FN2", "value": 0 } } ],
+                "to_if_alone": [ { "key_code": "japanese_kana" } ],
+            "to": [ { "set_variable": { "name": "FN2", "value": 1 } }, { "key_code": "fn" } ]
+        }
+
+        ] },
+
+    { "description": "【 UTILITY 】\t ★★★★★ \t かな ② 記号（ Fn2 + QWERTYUIO ▶︎ !\"#$%&'() ）", "manipulators": [
+
+        { "description": " FN2 + Q ▶︎ SHIFT 1 ",
+            "from": { "key_code": "q", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN2", "value": 1 } ],
+            "to": [ { "key_code": "1", "modifiers": [ "left_shift" ] } ]
+        },
+        { "description": " FN2 + W ▶︎ SHIFT 2 ",
+            "from": { "key_code": "w", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN2", "value": 1 } ],
+            "to": [ { "key_code": "2", "modifiers": [ "left_shift" ] } ]
+        },
+        { "description": " FN2 + E ▶︎ SHIFT 3 ",
+            "from": { "key_code": "e", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN2", "value": 1 } ],
+            "to": [ { "key_code": "3", "modifiers": [ "left_shift" ] } ]
+        },
+        { "description": " FN2 + R ▶︎ SHIFT 4 ",
+            "from": { "key_code": "r", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN2", "value": 1 } ],
+            "to": [ { "key_code": "4", "modifiers": [ "left_shift" ] } ]
+        },
+        { "description": " FN2 + T ▶︎ SHIFT 5 ",
+            "from": { "key_code": "t", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN2", "value": 1 } ],
+            "to": [ { "key_code": "5", "modifiers": [ "left_shift" ] } ]
+        },
+        { "description": " FN2 + Y ▶︎ SHIFT 6 ",
+            "from": { "key_code": "y", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN2", "value": 1 } ],
+            "to": [ { "key_code": "6", "modifiers": [ "left_shift" ] } ]
+        },
+        { "description": " FN2 + U ▶︎ SHIFT 7 ",
+            "from": { "key_code": "u", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN2", "value": 1 } ],
+            "to": [ { "key_code": "7", "modifiers": [ "left_shift" ] } ]
+        },
+        { "description": " FN2 + I ▶︎ SHIFT 8 ",
+            "from": { "key_code": "i", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN2", "value": 1 } ],
+            "to": [ { "key_code": "8", "modifiers": [ "left_shift" ] } ]
+        },
+        { "description": " FN2 + O ▶︎ SHIFT 9 ",
+            "from": { "key_code": "o", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN2", "value": 1 } ],
+            "to": [ { "key_code": "9", "modifiers": [ "left_shift" ] } ]
+        },
+
+        { "description": " HENKAN ▶︎ FN2 ",
+            "from": { "key_code": "japanese_pc_xfer", "modifiers": { "optional": [ "any" ] } }, "type": "basic",
+                "to_after_key_up": [ { "set_variable": { "name": "FN2", "value": 0 } } ],
+                "to_if_alone": [ { "key_code": "japanese_kana" } ],
+            "to": [ { "set_variable": { "name": "FN2", "value": 1 } }, { "key_code": "fn" } ]
+        },
+        { "description": " KANA ▶︎ FN2 ",
+            "from": { "key_code": "japanese_kana", "modifiers": { "optional": [ "any" ] } }, "type": "basic",
+                "to_after_key_up": [ { "set_variable": { "name": "FN2", "value": 0 } } ],
+                "to_if_alone": [ { "key_code": "japanese_kana" } ],
+            "to": [ { "set_variable": { "name": "FN2", "value": 1 } }, { "key_code": "fn" } ]
+        }
+
+        ] },
+
+    { "description": "【 UTILITY 】\t ★★★★  \t かな ③ 算術記号類（ Fn2 + :P@./_ ▶︎ =-+*/\\ ）", "manipulators": [
+
+        { "description": " FN2 + : ▶︎ EQUAL ",
+            "from": { "key_code": "quote", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN2", "value": 1 } ],
+            "to": [ { "key_code": "hyphen", "modifiers": [ "left_shift" ] } ]
+        },
+        { "description": " SHIFT FN2 + P ▶︎ UNDERSCORE ",
+            "from": { "key_code": "p", "modifiers": { "mandatory": [ "fn", "shift" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN2", "value": 1 } ],
+            "to": [ { "key_code": "international1" } ]
+        },
+        { "description": " FN2 + P ▶︎ MINUS ",
+            "from": { "key_code": "p", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN2", "value": 1 } ],
+            "to": [ { "key_code": "hyphen" } ]
+        },
+        { "description": " FN2 + @ ▶︎ PLUS ",
+            "from": { "key_code": "open_bracket", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN2", "value": 1 } ],
+            "to": [ { "key_code": "semicolon", "modifiers": [ "left_shift" ] } ]
+        },
+        { "description": " FN2 + . ▶︎ ASTERISK ",
+            "from": { "key_code": "period", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN2", "value": 1 } ],
+            "to": [ { "key_code": "quote", "modifiers": [ "left_shift" ] } ]
+        },
+        { "description": " FN2 + / ▶︎ SLASH ",
+            "from": { "key_code": "slash", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN2", "value": 1 } ],
+            "to": [ { "key_code": "slash" } ]
+        },
+        { "description": " FN2 + _ ▶︎ BACKSLASH ",
+            "from": { "key_code": "international1", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN2", "value": 1 } ],
+            "to": [ { "key_code": "international3" } ]
+        },
+
+        { "description": " HENKAN ▶︎ FN2 ",
+            "from": { "key_code": "japanese_pc_xfer", "modifiers": { "optional": [ "any" ] } }, "type": "basic",
+                "to_after_key_up": [ { "set_variable": { "name": "FN2", "value": 0 } } ],
+                "to_if_alone": [ { "key_code": "japanese_kana" } ],
+            "to": [ { "set_variable": { "name": "FN2", "value": 1 } }, { "key_code": "fn" } ]
+        },
+        { "description": " KANA ▶︎ FN2 ",
+            "from": { "key_code": "japanese_kana", "modifiers": { "optional": [ "any" ] } }, "type": "basic",
+                "to_after_key_up": [ { "set_variable": { "name": "FN2", "value": 0 } } ],
+                "to_if_alone": [ { "key_code": "japanese_kana" } ],
+            "to": [ { "set_variable": { "name": "FN2", "value": 1 } }, { "key_code": "fn" } ]
+        }
+
+        ] },
+
+    { "description": "【 UTILITY 】\t ★★★★  \t かな ④ 感嘆・疑問符（ Fn2 + m, ▶︎ !? ）", "manipulators": [
+
+        { "description": " FN2 + M ▶︎ EXCLAMATION ",
+            "from": { "key_code": "m", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN2", "value": 1 } ],
+            "to": [ { "key_code": "1", "modifiers": [ "left_shift" ] } ]
+        },
+        { "description": " FN2 + , ▶︎ QUESTION ",
+            "from": { "key_code": "comma", "modifiers": { "mandatory": [ "fn" ], "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN2", "value": 1 } ],
+            "to": [ { "key_code": "slash", "modifiers": [ "left_shift" ] } ]
+        },
+
+        { "description": " HENKAN ▶︎ FN2 ",
+            "from": { "key_code": "japanese_pc_xfer", "modifiers": { "optional": [ "any" ] } }, "type": "basic",
+                "to_after_key_up": [ { "set_variable": { "name": "FN2", "value": 0 } } ],
+                "to_if_alone": [ { "key_code": "japanese_kana" } ],
+            "to": [ { "set_variable": { "name": "FN2", "value": 1 } }, { "key_code": "fn" } ]
+        },
+        { "description": " KANA ▶︎ FN2 ",
+            "from": { "key_code": "japanese_kana", "modifiers": { "optional": [ "any" ] } }, "type": "basic",
+                "to_after_key_up": [ { "set_variable": { "name": "FN2", "value": 0 } } ],
+                "to_if_alone": [ { "key_code": "japanese_kana" } ],
+            "to": [ { "set_variable": { "name": "FN2", "value": 1 } }, { "key_code": "fn" } ]
+        }
+
+        ] },
+
+
+    { "description": "\t\t────────────────────────────────────────", "manipulators": [
+
+        { "description": " FN + HYPER + F20 ▶︎ SHOW ALERT ",
+            "from": { "key_code": "f20", "modifiers": { "mandatory": [ "fn", "command", "control", "option", "shift" ] } }, "type": "basic",
+            "to": [ { "shell_command": "osascript -e 'display notification \"Advanced Keymap “UTILITY”\" with title \"This is\"' " } ]
+        }
+
+    ] },
+
+
+    { "description": "【 UTILITY 】\t ★★★★★ \t 左 Command（ ⌘ ）単押し ▶︎ Enter（ ⏎ ）", "manipulators": [
+
+        { "description": " LEFT COMMAND ALONE ▶︎ RETURN ",
+            "from": { "key_code": "left_command", "modifiers": { "optional": [ "any" ] } }, "type": "basic",
+                "to_if_alone": [ { "key_code": "return_or_enter" } ],
+            "to": [ { "key_code": "left_command" } ]
+        }
+
+        ] },
+
+    { "description": "【 UTILITY 】\t ★★★★★ \t 右 Command（ ⌘ ）単押し ▶︎ Delete（ ⌫ ）", "manipulators": [
+
+        { "description": " RIGHT COMMAND ALONE ▶︎ DELETE ",
+            "from": { "key_code": "right_command", "modifiers": { "optional": [ "any" ] } }, "type": "basic",
+                "to_if_alone": [ { "key_code": "delete_or_backspace" } ],
+            "to": [ { "key_code": "right_command" } ]
+        }
+
+        ] },
+
+    { "description": "【 UTILITY 】\t ★★★★★ \t スペースバーの長押し（ 単押しは Space のまま ）▶︎ Shift（ ⇧ ）", "manipulators": [
+
+        { "description": " SPACE HOLD AFTER TAPPING → SPACE REPEAT ",
+            "from": { "key_code": "spacebar", "modifiers": { "optional": [ "caps_lock", "shift" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "SPACE REPEAT", "value": 1 } ],
+                "to_after_key_up": [ { "set_variable": { "name": "SPACE REPEAT", "value": 0 } } ],
+            "to": [ { "key_code": "spacebar" } ]
+        },
+        { "description": " SPACE HOLD → RIGHT SHIFT ",
+            "from": { "key_code": "spacebar", "modifiers": { "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "SPACE REPEAT", "value": 0 } ],
+                "to_delayed_action": { "to_if_canceled": [ { "set_variable": { "name": "SPACE REPEAT", "value": 0 } } ],
+                    "to_if_invoked": [ { "set_variable": { "name": "SPACE REPEAT", "value": 0 } } ] },
+                "to_if_alone": [ { "set_variable": { "name": "SPACE REPEAT", "value": 1 } }, { "key_code": "spacebar" } ],
+                    "parameters": { "basic.to_delayed_action_delay_milliseconds": 200, "basic.to_if_alone_timeout_milliseconds": 200 },
+            "to": [ { "key_code": "right_shift" } ]
+        }
+
+        ] },
+
+    { "description": "【 UTILITY 】\t ★★★★★ \t セミコロン（ ; ）の長押し（ 単押しは ; のまま ）▶︎ Ctrl（ ⌃ ）", "manipulators": [
+
+        { "description": " SEMICOLON ▶︎ LEFT CONTROL ",
+            "from": { "key_code": "semicolon", "modifiers": { "optional": [ "any" ] } }, "type": "basic",
+                "to_if_alone": [ { "key_code": "semicolon" } ],
+            "to": [ { "key_code": "left_control", "lazy": true } ]
+        }
+
+        ] },
+
+
+    { "description": "【 UTILITY 】\t ☆☆☆☆☆ \t ⚠️ 上から「英数｣「かな｣「修飾キー関連」の順に設定すること ⚠️", "manipulators": [
+
+        { "description": " FN + HYPER + F20 ▶︎ SHOW ALERT ",
+            "from": { "key_code": "f20", "modifiers": { "mandatory": [ "fn", "command", "control", "option", "shift" ] } }, "type": "basic",
+            "to": [ { "shell_command": "osascript -e 'display notification \"上から「英数｣「かな｣「修飾キー関連」の 順に設定すること\" with title \"Advanced Keymap “UTILITY”\"' " } ]
+        }
+
+    ] }
+
+] }
+
