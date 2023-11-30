@@ -1,0 +1,25 @@
+{
+  "title": "MouseButton 16 to command + option + control + shift + 8 (don’t forget to enable your mouse under Devices)",
+  "rules": [
+    {
+      "description": "MouseButton 16 to command + option + control + shift + 8",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button16",
+            "modifiers": {
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "8",
+              "modifiers": ["left_command", "left_option", "left_control", "left_shift"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
