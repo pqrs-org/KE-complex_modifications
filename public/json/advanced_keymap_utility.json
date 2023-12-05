@@ -12,6 +12,27 @@
 
     { "description": "【 UTILITY 】\t ★★★★★ \t 英数 ① カーソル移動（ Fn1 + HJKL ▶︎ ←↓↑→ ）", "manipulators": [
 
+        { "description": " FN1 + FN2 + H ▶︎ HOME ",
+            "from": { "key_code": "h", "modifiers": { "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN1", "value": 1 }, { "type": "variable_if", "name": "FN2", "value": 1 } ],
+            "to": [ { "key_code": "left_arrow", "modifiers": [ "fn" ] } ]
+        },
+        { "description": " FN1 + FN2 + J ▶︎ PAGE DOWN ",
+            "from": { "key_code": "j", "modifiers": { "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN1", "value": 1 }, { "type": "variable_if", "name": "FN2", "value": 1 } ],
+            "to": [ { "key_code": "down_arrow", "modifiers": [ "fn" ] } ]
+        },
+        { "description": " FN1 + FN2 + K ▶︎ PAGE UP ",
+            "from": { "key_code": "k", "modifiers": { "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN1", "value": 1 }, { "type": "variable_if", "name": "FN2", "value": 1 } ],
+            "to": [ { "key_code": "up_arrow", "modifiers": [ "fn" ] } ]
+        },
+        { "description": " FN1 + FN2 + L ▶︎ END ",
+            "from": { "key_code": "l", "modifiers": { "optional": [ "any" ] } }, "type": "basic",
+                "conditions": [ { "type": "variable_if", "name": "FN1", "value": 1 }, { "type": "variable_if", "name": "FN2", "value": 1 } ],
+            "to": [ { "key_code": "right_arrow", "modifiers": [ "fn" ] } ]
+        },
+
         { "description": " FN1 + H ▶︎ LEFT ARROW ",
             "from": { "key_code": "h", "modifiers": { "optional": [ "any" ] } }, "type": "basic",
                 "conditions": [ { "type": "variable_if", "name": "FN1", "value": 1 } ],
