@@ -1,0 +1,26 @@
+{
+  "title": "Ctrl key -> hyper key without shift (⌘⌥⌃)",
+	"maintainers": ["dmun"],
+	"rules": [
+		{
+			"description": "Ctrl key -> hyper key without shift (⌘⌥⌃)",
+			"manipulators": [
+				{
+					"from": {
+						"key_code": "left_control",
+						"modifiers": {
+							"optional": ["caps_lock"]
+						}
+					},
+					"to": [
+						{
+							"key_code": "left_command",
+							"modifiers": ["left_option", "left_control"]
+						}
+					],
+					"type": "basic"
+				}
+			]
+		}
+	]
+}
