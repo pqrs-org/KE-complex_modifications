@@ -2,7 +2,119 @@
     "title": "Tomita-shiki modifications",
     "rules": [
         {
-            "description": "left command + J/I/K/L で矢印(左/上/下/右)",
+            "description": "Control → Enter, かな → Delete",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "left_control",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "return_or_enter"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "japanese_kana",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "delete_or_backspace"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "英数キーを短く押す → 英数・かなを切り替え, 長押し → Left_command ",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "japanese_eisuu",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to_if_alone": [
+                        {
+                            "key_code": "japanese_eisuu"
+                        }
+                    ],
+                    "to_if_held_down": [
+                        {
+                            "key_code": "left_command"
+                        }
+                    ],
+                    "parameters": {
+                        "basic.to_if_alone_timeout_milliseconds": 100,
+                        "basic.to_if_held_down_threshold_milliseconds": 100
+                    }
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "language": "en"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "japanese_eisuu",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to_if_alone": [
+                        {
+                            "key_code": "japanese_kana"
+                        }
+                    ],
+                    "to_if_held_down": [
+                        {
+                            "key_code": "left_command"
+                        }
+                    ],
+                    "parameters": {
+                        "basic.to_if_alone_timeout_milliseconds": 100,
+                        "basic.to_if_held_down_threshold_milliseconds": 100
+                    }
+                }
+            ]
+        },
+        {
+            "description": "left command + J/I/K/L → 矢印(左/上/下/右)",
             "manipulators": [
                 {
                     "type": "basic",
@@ -87,110 +199,18 @@
             ]
         },
         {
-            "description": "英数キーで英数かな切替",
-            "manipulators": [
-                {
-                    "conditions": [
-                        {
-                            "type": "input_source_if",
-                            "input_sources": [
-                                {
-                                    "language": "ja"
-                                }
-                            ]
-                        }
-                    ],
-                    "type": "basic",
-                    "from": {
-                        "key_code": "japanese_kana"
-                    },
-                    "to": [
-                        {
-                            "key_code": "japanese_eisuu"
-                        }
-                    ]
-                },
-                {
-                    "conditions": [
-                        {
-                            "type": "input_source_unless",
-                            "input_sources": [
-                                {
-                                    "language": "ja"
-                                }
-                            ]
-                        }
-                    ],
-                    "type": "basic",
-                    "from": {
-                        "key_code": "japanese_eisuu"
-                    },
-                    "to": [
-                        {
-                            "key_code": "japanese_kana"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "description": "left command + M(,) で左(右)クリック",
+            "description": "Control + w-c → 1-9",
             "manipulators": [
                 {
                     "type": "basic",
                     "from": {
                         "modifiers": {
-                            "mandatory": [
-                                "left_command"
-                            ],
+                            "mandatory": "left_option",
                             "optional": [
                                 "any"
                             ]
                         },
-                        "key_code": "m"
-                    },
-                    "to": [
-                        {
-                            "pointing_button": "button1"
-                        }
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": {
-                        "modifiers": {
-                            "mandatory": [
-                                "left_command"
-                            ],
-                            "optional": [
-                                "any"
-                            ]
-                        },
-                        "key_code": "comma"
-                    },
-                    "to": [
-                        {
-                            "pointing_button": "button2"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "description": "Option + u/i/o/j/k/l/m/,/. で1-9",
-            "manipulators": [
-                {
-                    "type": "basic",
-                    "from": {
-                        "modifiers": {
-                            "mandatory": 
-                                "option"
-                            ,
-                            "optional": [
-                                "any"
-                            ]
-                        },
-                        "key_code": "u"
+                        "key_code": "q"
                     },
                     "to": [
                         {
@@ -203,13 +223,13 @@
                     "from": {
                         "modifiers": {
                             "mandatory": [
-                                "option"
+                                "left_option"
                             ],
                             "optional": [
                                 "any"
                             ]
                         },
-                        "key_code": "i"
+                        "key_code": "w"
                     },
                     "to": [
                         {
@@ -222,13 +242,13 @@
                     "from": {
                         "modifiers": {
                             "mandatory": [
-                                "option"
+                                "left_option"
                             ],
                             "optional": [
                                 "any"
                             ]
                         },
-                        "key_code": "o"
+                        "key_code": "e"
                     },
                     "to": [
                         {
@@ -241,13 +261,13 @@
                     "from": {
                         "modifiers": {
                             "mandatory": [
-                                "option"
+                                "left_option"
                             ],
                             "optional": [
                                 "any"
                             ]
                         },
-                        "key_code": "j"
+                        "key_code": "a"
                     },
                     "to": [
                         {
@@ -260,13 +280,13 @@
                     "from": {
                         "modifiers": {
                             "mandatory": [
-                                "option"
+                                "left_option"
                             ],
                             "optional": [
                                 "any"
                             ]
                         },
-                        "key_code": "k"
+                        "key_code": "s"
                     },
                     "to": [
                         {
@@ -279,13 +299,13 @@
                     "from": {
                         "modifiers": {
                             "mandatory": [
-                                "option"
+                                "left_option"
                             ],
                             "optional": [
                                 "any"
                             ]
                         },
-                        "key_code": "l"
+                        "key_code": "d"
                     },
                     "to": [
                         {
@@ -298,13 +318,13 @@
                     "from": {
                         "modifiers": {
                             "mandatory": [
-                                "option"
+                                "left_option"
                             ],
                             "optional": [
                                 "any"
                             ]
                         },
-                        "key_code": "m"
+                        "key_code": "z"
                     },
                     "to": [
                         {
@@ -317,13 +337,13 @@
                     "from": {
                         "modifiers": {
                             "mandatory": [
-                                "option"
+                                "left_option"
                             ],
                             "optional": [
                                 "any"
                             ]
                         },
-                        "key_code": "comma"
+                        "key_code": "x"
                     },
                     "to": [
                         {
@@ -336,17 +356,143 @@
                     "from": {
                         "modifiers": {
                             "mandatory": [
-                                "option"
+                                "left_option"
                             ],
                             "optional": [
                                 "any"
                             ]
                         },
-                        "key_code": "period"
+                        "key_code": "c"
                     },
                     "to": [
                         {
                             "key_code": "9"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "modifiers": {
+                            "mandatory": [
+                                "left_option"
+                            ],
+                            "optional": [
+                                "any"
+                            ]
+                        },
+                        "key_code": "left_shift"
+                    },
+                    "to": [
+                        {
+                            "key_code": "0"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "タッチパッド触りながらj/k → 左/右クリック（Karabiner-MultitouchExtentionが必要）",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "j",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "pointing_button": "button1"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "variable_unless",
+                            "name": "multitouch_extension_finger_count_total",
+                            "value": 0
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "k",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "pointing_button": "button2"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "variable_unless",
+                            "name": "multitouch_extension_finger_count_total",
+                            "value": 0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "タッチパッド触りながらl → Command（「Scroll2」を利用して、l+カーソル移動でスクロールできるように）",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "l",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_command"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "variable_unless",
+                            "name": "multitouch_extension_finger_count_total",
+                            "value": 0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "タッチパッド触りながら; → Control（Macの設定「修飾キーを使って拡大縮小」を利用して、; + カーソル移動 → 拡大縮小）",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "semicolon",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_control"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "variable_unless",
+                            "name": "multitouch_extension_finger_count_total",
+                            "value": 0
                         }
                     ]
                 }
