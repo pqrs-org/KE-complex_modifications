@@ -2,22 +2,26 @@
   "title": "Windows style input change Alt + Shift for Mac",
   "rules": [
     {
-      "description": "Alt + Shift to Ctrl + Option + Space",
+      "description": "Alt + Shift to Ctrl + Option + Space (rev 2)",
       "manipulators": [
         {
           "from": {
             "key_code": "left_shift",
             "modifiers": {
-              "mandatory": ["left_alt"]
+              "mandatory": ["left_option"]
             }
           },
+          "to": [
+            {
+              "key_code": "left_shift",
+              "modifiers": ["left_option"],
+              "lazy": true
+            }
+          ],
           "to_if_alone": [
             {
               "key_code": "spacebar",
-              "modifiers": [
-                "left_control",
-                "left_option"
-              ]
+              "modifiers": ["left_control", "left_option"]
             }
           ],
           "type": "basic"
@@ -25,20 +29,73 @@
         {
           "type": "basic",
           "from": {
+            "key_code": "left_option",
             "modifiers": {
               "mandatory": ["left_shift"]
-            },
-            "key_code": "left_alt"
+            }
           },
+          "to": [
+            {
+              "key_code": "left_option",
+              "modifiers": ["left_shift"],
+              "lazy": true
+            }
+          ],
           "to_if_alone": [
             {
               "key_code": "spacebar",
-              "modifiers": [
-                "left_control",
-                "left_alt"
-              ]
+              "modifiers": ["left_control", "left_option"]
             }
           ]
+        }
+      ]
+    },
+    {
+      "description": "Cmd + Shift to Ctrl + Option + Space (rev 2)",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "left_shift",
+            "modifiers": {
+              "mandatory": ["left_command"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_shift",
+              "modifiers": ["left_command"],
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "spacebar",
+              "modifiers": ["left_control", "left_option"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "from": {
+            "key_code": "left_command",
+            "modifiers": {
+              "mandatory": ["left_shift"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_command",
+              "modifiers": ["left_shift"],
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "spacebar",
+              "modifiers": ["left_control", "left_option"]
+            }
+          ],
+          "type": "basic"
         }
       ]
     }
