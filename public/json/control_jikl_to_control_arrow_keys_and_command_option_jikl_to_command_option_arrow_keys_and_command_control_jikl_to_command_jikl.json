@@ -3,7 +3,7 @@
   "maintainers": ["annietma"],
   "rules": [
     {
-      "description": "Change ^(jikl) to ^(←↑↓→) keys, ⌘⌥(jikl) to ⌘⌥(←↑↓→) keys, and ⌘^(jikl) to ⌘(jikl) keys",
+      "description": "Change ^(jikl) to ^(←↑↓→) keys",
       "manipulators": [
         {
           "from": {
@@ -64,7 +64,12 @@
             }
           ],
           "type": "basic"
-        },
+        }
+      ]
+    },
+    {
+      "description": "Change ⌘⌥(jikl) to ⌘⌥(←↑↓→) keys",
+      "manipulators": [
         {
           "from": {
             "key_code": "j",
@@ -124,7 +129,12 @@
             }
           ],
           "type": "basic"
-        },
+        }
+      ]
+    },
+    {
+      "description": "Change ⌘^(jikl) to ⌘(jikl) keys",
+      "manipulators": [
         {
           "from": {
             "key_code": "j",
