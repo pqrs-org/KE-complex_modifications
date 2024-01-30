@@ -1,0 +1,32 @@
+{
+  "title": "Tap Caps Lock for ESC or Hold for Control",
+  "rules": [
+    {
+      "description": "Tap Caps Lock for ESC or Hold for Control",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_control",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "escape"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
