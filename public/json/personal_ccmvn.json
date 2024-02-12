@@ -627,6 +627,31 @@
             ]
         },
         {
+            "description": "Right Option+Non US Backslash => Pipe",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "non_us_backslash",
+                        "modifiers": {
+                            "mandatory": [
+                                "right_option"
+                            ],
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "grave_accent_and_tilde",
+                            "modifiers": "command"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "description": "Ctrl+C, Ctrl+V, Ctrl+X => Command+C (Copy), Command+V (Paste), Command+X (Cut)",
             "manipulators": [
                 {
