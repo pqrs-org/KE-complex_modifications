@@ -33,12 +33,12 @@ function rules() {
       { input_source_id: '^org\\.unknown\\.keylayout\\.DeutschNeo2$' },
       { input_source_id: '^org\\.unknown\\.keylayout\\.DeutschBone$' },
       { input_source_id: '^org\\.unknown\\.keylayout\\.DeutschNeoQwertz$' },
-      { input_source_id: '^org\\.unknown\\.keylayout\\.DeutschADNW$' }
-    ]
+      { input_source_id: '^org\\.unknown\\.keylayout\\.DeutschADNW$' },
+    ],
   }
   const isNotExcludedApp = {
     type: 'frontmost_application_unless',
-    bundle_identifiers: ['com.apple.Terminal', 'org.gnu.Emacs', 'com.googlecode.iterm2', 'dev.warp.Warp-Stable']
+    bundle_identifiers: ['com.apple.Terminal', 'org.gnu.Emacs', 'com.googlecode.iterm2', 'dev.warp.Warp-Stable', 'com.github.wez.wezterm']
   }
 
   const neo2Layer4 = function(condition) {
