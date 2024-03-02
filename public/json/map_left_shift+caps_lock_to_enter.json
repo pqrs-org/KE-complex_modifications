@@ -1,0 +1,30 @@
+{
+  "title": "Map Left Shift + Caps Lock to Enter",
+  "maintainers": [
+    "jordandraper"
+  ],
+  "rules": [
+    {
+      "description": "Map Left Shift + Caps Lock to Enter",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "left_shift"
+              ]
+            },
+            "key_code": "caps_lock"
+          },
+          "to": [
+            {
+              "repeat": true,
+              "key_code": "return_or_enter"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

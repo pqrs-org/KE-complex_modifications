@@ -1,0 +1,41 @@
+{
+    "title": "caps_lock to EN, shift+caps_lock to RU",
+    "rules": [
+        {
+            "description": "caps_lock to EN, shift+caps_lock to RU",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "caps_lock"
+                    },
+                    "to_if_alone": [
+                        {
+                            "select_input_source": {
+                                "language": "en"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "caps_lock",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_shift"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "select_input_source": {
+                                "language": "ru"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

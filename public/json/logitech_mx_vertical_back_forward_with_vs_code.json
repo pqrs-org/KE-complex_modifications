@@ -1,0 +1,104 @@
+{
+  "title": "Back/Forward for Logitech MX Vertical in VS Code & macOS",
+  "rules": [
+    {
+      "description": "Change mouse button 4/5 to navigate back/forward in VSCode",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.VSCode"
+              ],
+              "type": "frontmost_application_if"
+            }
+          ],
+          "from": {
+            "pointing_button": "button4"
+          },
+          "to": [
+            {
+              "key_code": "hyphen",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ]
+        },
+        {
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.VSCode"
+              ],
+              "type": "frontmost_application_if"
+            }
+          ],
+          "from": {
+            "pointing_button": "button5"
+          },
+          "to": [
+            {
+              "key_code": "hyphen",
+              "modifiers": [
+                "left_control",
+                "left_shift"
+              ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "When VS Code is not active, use standard browser back/forward commands",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.VSCode"
+              ],
+              "type": "frontmost_application_unless"
+            }
+          ],
+          "from": {
+            "pointing_button": "button4"
+          },
+          "to": [
+            {
+              "key_code": "open_bracket",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.VSCode"
+              ],
+              "type": "frontmost_application_unless"
+            }
+          ],
+          "from": {
+            "pointing_button": "button5"
+          },
+          "to": [
+            {
+              "key_code": "close_bracket",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}

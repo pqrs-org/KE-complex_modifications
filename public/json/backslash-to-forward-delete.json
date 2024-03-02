@@ -1,0 +1,69 @@
+{
+  "title": "Backslash (\\) to forward delete. (Use Fn + \\ for default behavior)",
+  "rules": [
+    {
+      "description": "Change Backslash (\\) to forward delete",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "backslash"
+          },
+          "to": [
+            {
+              "key_code": "delete_forward"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Change option + \\ to delete next word",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ]
+            },
+            "key_code": "backslash"
+          },
+          "to": [
+            {
+              "key_code": "delete_forward",
+              "modifiers": [
+                "option"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Change command + \\ to delete forward whole line",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ]
+            },
+            "key_code": "backslash"
+          },
+          "to": [
+            {
+              "key_code": "delete_forward",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+<h1 id="spacefn-plus">SpaceFN Plus</h1>
+
+<p>This is an upgraded version of SpaceFN. The existing SpaceFN
+configuration unfavourably activates SpaceFN mode during rapid typing,
+rendering it unusability. The concept is drawn from <a
+href="https://spacelauncherapp.com">SpaceLauncher</a>, with two primary
+revisions:</p>
+<ol type="1">
+<li>Inhibit SpaceFN Mode for a duration of 0.2 seconds post the last
+keystroke: This adjustment allows for the quick insertion of a space
+following the completion of a word.</li>
+<li>Ingore pre-defined keys within 0.2 seconds after space key down:
+This enhancement aims to prevent a letter from being activated before
+releasing the space bar during speedy typing.</li>
+</ol>
+<p>I have been using these two <a
+href="https://gist.github.com/tshu-w/82af1843798edaab9062e44cb261d25a">improvements</a>
+for 4 years, and they work well for me.</p>
+<p>Known limitation: as stated <a
+href="https://karabiner-elements.pqrs.org/docs/json/complex-modifications-manipulator-evaluation-priority/">here</a>
+and reiterated <a
+href="https://github.com/pqrs-org/Karabiner-Elements/issues/808#issuecomment-358390814">here</a>,
+Karabiner currently has a significant limitation - it overlooks rules
+that are outlined following other existing rules, even if those rules
+have unique conditions. For a more comprehensive explanation, refer to
+this <a
+href="https://github.com/pqrs-org/Karabiner-Elements/issues/2774">feature
+request</a>. Consequently, it is recommended to position the initial
+revision, “Disable SpaceFN mode after last typing,” following all other
+rules to prevent it from superseding the remaining rules.</p>

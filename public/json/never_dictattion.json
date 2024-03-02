@@ -1,0 +1,26 @@
+{
+  "title": "Treat Dictation as F5",
+  "rules": [
+    {
+      "description": "Always treat the dictation media key as if it was just F5. Helps to totally disable the dictation popup for keyboards that don't handle the function keys correctly.",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "consumer_key_code": "dictation",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f5"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
