@@ -63,7 +63,8 @@
       ]
     },
     {
-      "description": "Paste Selected Text to Address bar when alt key double clicked",
+      "description": "Paste Selected Text to Address bar when right alt key double clicked",
+      "comment": "https://qiita.com/s-show/items/c991327a5317c3e0cf4b",
       "manipulators": [
         {
           "type": "basic",
@@ -101,7 +102,7 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "left_control",
+            "key_code": "right_option",
             "modifiers": {
               "optional": [
                 "any"
@@ -116,7 +117,7 @@
               }
             },
             {
-              "key_code": "left_control"
+              "key_code": "right_option"
             }
           ],
           "to_delayed_action": {
@@ -141,6 +142,92 @@
             {
               "type": "variable_if",
               "name": "right_option_key",
+              "value": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Paste Selected Text to Address bar when left alt key double clicked",
+      "comment": "https://qiita.com/s-show/items/c991327a5317c3e0cf4b",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_option"
+          },
+          "to": [
+            {
+              "key_code": "c",
+              "modifiers": [
+                "command"
+              ]
+            },
+            {
+              "key_code": "l",
+              "modifiers": [
+                "command"
+              ]
+            },
+            {
+              "key_code": "v",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "left_option_key",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_option",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "left_option_key",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "left_option"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "left_option_key",
+                  "value": 0
+                }
+              }
+            ],
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "left_option_key",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "left_option_key",
               "value": 0
             }
           ]
