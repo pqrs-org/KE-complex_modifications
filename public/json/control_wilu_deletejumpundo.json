@@ -1,0 +1,243 @@
+{
+"title": "control + w,i,l,u,n,p,h,b,f -> delete left word, move cursor one word to left/right etc. 删除左面一个词, 光标左/右移一个词 等等",
+    "rules": [
+        {
+            "description": "control + w: delete the word to the left of the cursor 删除光标左侧一个单词",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "w",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_control"
+                            ],
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "delete_or_backspace",
+                            "modifiers": [
+                                "left_control"
+                            ]
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_unless",
+                            "bundle_identifiers": ["^com.googlecode.iterm2$", "^com.microsoft.VSCode$", "^com.apple.Terminal$"]
+                        }
+                    ]
+
+                }
+            ]
+        },
+        {
+            "description": "control + i: move the cursor one word to the left 将光标左移一个词",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "i",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_control"
+                            ],
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_arrow",
+                            "modifiers": [
+                                "left_option"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "control + l: move the cursor one word to the right 将光标右移一个词",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "l",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_control"
+                            ],
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "right_arrow",
+                            "modifiers": [
+                                "left_option"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "control + u: undo 取消前一次操作",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "u",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_control"
+                            ],
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "z",
+                            "modifiers": [
+                                "left_command"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "control + n: down_arrow 方向键[下]",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "n",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_control"
+                            ],
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "down_arrow"
+                        }
+                    ]
+                }
+            ]
+        },
+
+        {
+            "description": "control + p: up_arrow 方向键[上]",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "p",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_control"
+                            ],
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "up_arrow"
+                        }
+                    ]
+                }
+            ]
+        },
+
+        {
+            "description": "control + h: backspace/delete 删除左侧一个字符",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "h",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_control"
+                            ],
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "delete_or_backspace"
+                        }
+                    ]
+                }
+            ]
+        },
+
+        {
+            "description": "control + b: moves the cursor left one character 光标左移一个字符",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "b",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_control"
+                            ],
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_arrow"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "control + f: moves the cursor right one character 光标右移一个字符",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "f",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_control"
+                            ],
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "right_arrow"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

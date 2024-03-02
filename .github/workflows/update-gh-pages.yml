@@ -8,15 +8,12 @@ on:
 jobs:
   deploy:
     runs-on: macos-12
-
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 1
-      - name: build
-        run: make
-      - uses: webfactory/ssh-agent@v0.4.1
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-      - name: deploy
-        run: bash scripts/update-gh-pages.sh
+          submodules: recursive
+      - name: update
+        env:
+          GH_PAGES_UPDATER_SECRET: ${{ secrets.GH_PAGES_UPDATER_SECRET }}
+        run: bash core/scripts/update-gh-pages.sh

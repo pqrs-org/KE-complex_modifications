@@ -1,0 +1,29 @@
+{
+  "title": "Fn = Option + Space. For better changing input sources if you have Cmd + Space for Spotlight. (Set Globe Key to do nothing and set Option + Space for \"Select the previous input source\" in Keyboard shortcuts)",
+  "rules": [
+    {
+      "description": "Fn = Option + Space",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "fn"
+          },
+          "to": [
+            {
+              "key_code": "fn"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "spacebar",
+              "modifiers": [
+                "option"
+              ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}

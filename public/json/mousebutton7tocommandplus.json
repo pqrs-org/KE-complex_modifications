@@ -1,0 +1,25 @@
+{
+  "title": "MouseButton7 to Command + pluse (don’t forget to enable your mouse under Devices)",
+  "rules": [
+    {
+      "description": "MouseButton7 to Command + pluse",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button7",
+            "modifiers": {
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "equal_sign",
+              "modifiers": ["left_command"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

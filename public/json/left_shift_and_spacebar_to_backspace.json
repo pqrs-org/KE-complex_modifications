@@ -1,0 +1,28 @@
+{
+  "title": "Left Shift + Spacebar => Backspace",
+  "rules": [
+    {
+      "description": "Left Shift + Spacebar => Backspace",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "mandatory": [
+                "left_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_or_backspace",
+              "lazy": true,
+              "repeat": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

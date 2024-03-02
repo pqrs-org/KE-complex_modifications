@@ -1,0 +1,521 @@
+{
+    "title": "KonKen's Setup: Quick App Launchers for Mac",
+    "rules": [
+        {
+            "description": "s & p (simultaneously for 0.25 sec) => Open System Preferences",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "simultaneous": [
+                            {
+                                "key_code": "s"
+                            },
+                            {
+                                "key_code": "p"
+                            }
+                        ]
+                    },
+                    "to_if_held_down": [
+                        {
+                            "shell_command": "open -a 'System Preferences'"
+                        }
+                    ],
+                    "parameters": {
+                        "basic.simultaneous_threshold_milliseconds": 25,
+                        "basic.to_if_held_down_threshold_milliseconds": 250
+                    }
+                }
+            ]
+        },
+        {
+            "description": "a & s (simultaneously for 0.25 sec) => Open App Store",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "simultaneous": [
+                            {
+                                "key_code": "a"
+                            },
+                            {
+                                "key_code": "s"
+                            }
+                        ]
+                    },
+                    "to_if_held_down": [
+                        {
+                            "shell_command": "open -a 'App Store'"
+                        }
+                    ],
+                    "parameters": {
+                        "basic.simultaneous_threshold_milliseconds": 25,
+                        "basic.to_if_held_down_threshold_milliseconds": 250
+                    }
+                }
+            ]
+        },
+        {
+            "description": "f & d (simultaneously for 0.25 sec) => Open Finder > Home Folder",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "simultaneous": [
+                            {
+                                "key_code": "f"
+                            },
+                            {
+                                "key_code": "d"
+                            }
+                        ]
+                    },
+                    "to_if_held_down": [
+                        {
+                            "shell_command": "open ~"
+                        }
+                    ],
+                    "parameters": {
+                        "basic.simultaneous_threshold_milliseconds": 25,
+                        "basic.to_if_held_down_threshold_milliseconds": 250
+                    }
+                }
+            ]
+        },
+        {
+            "description": "d & l (simultaneously for 0.25 sec) => Open Finder > Downloads",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "simultaneous": [
+                            {
+                                "key_code": "d"
+                            },
+                            {
+                                "key_code": "l"
+                            }
+                        ]
+                    },
+                    "to_if_held_down": [
+                        {
+                            "shell_command": "open ~/Downloads"
+                        }
+                    ],
+                    "parameters": {
+                        "basic.simultaneous_threshold_milliseconds": 25,
+                        "basic.to_if_held_down_threshold_milliseconds": 250
+                    }
+                }
+            ]
+        },
+        {
+            "description": "d & s (simultaneously for 0.25 sec) => Open Finder > Desktop",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "simultaneous": [
+                            {
+                                "key_code": "d"
+                            },
+                            {
+                                "key_code": "s"
+                            }
+                        ]
+                    },
+                    "to_if_held_down": [
+                        {
+                            "shell_command": "open ~/Desktop"
+                        }
+                    ],
+                    "parameters": {
+                        "basic.simultaneous_threshold_milliseconds": 25,
+                        "basic.to_if_held_down_threshold_milliseconds": 250
+                    }
+                }
+            ]
+        },
+        {
+            "description": "a & p (simultaneously for 0.25 sec) => Open Finder > Applications",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "simultaneous": [
+                            {
+                                "key_code": "a"
+                            },
+                            {
+                                "key_code": "p"
+                            }
+                        ]
+                    },
+                    "to_if_held_down": [
+                        {
+                            "shell_command": "open /Applications"
+                        }
+                    ],
+                    "parameters": {
+                        "basic.simultaneous_threshold_milliseconds": 25,
+                        "basic.to_if_held_down_threshold_milliseconds": 250
+                    }
+                }
+            ]
+        },
+        {
+            "description": "g & c (simultaneously for 0.25 sec) => Open Google Chrome",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "simultaneous": [
+                            {
+                                "key_code": "g"
+                            },
+                            {
+                                "key_code": "c"
+                            }
+                        ]
+                    },
+                    "to_if_held_down": [
+                        {
+                            "shell_command": "open '/Applications/Google Chrome.app'"
+                        }
+                    ],
+                    "parameters": {
+                        "basic.simultaneous_threshold_milliseconds": 25,
+                        "basic.to_if_held_down_threshold_milliseconds": 250
+                    }
+                }
+            ]
+        },
+        {
+            "description": "v & s (simultaneously for 0.25 sec) => Open VS Code",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "simultaneous": [
+                            {
+                                "key_code": "v"
+                            },
+                            {
+                                "key_code": "s"
+                            }
+                        ]
+                    },
+                    "to_if_held_down": [
+                        {
+                            "shell_command": "open '/Applications/Visual Studio Code.app'"
+                        }
+                    ],
+                    "parameters": {
+                        "basic.simultaneous_threshold_milliseconds": 25,
+                        "basic.to_if_held_down_threshold_milliseconds": 250
+                    }
+                }
+            ]
+        },
+        {
+            "description": "t & m (simultaneously for 0.25 sec) => Open Terminal",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "simultaneous": [
+                            {
+                                "key_code": "t"
+                            },
+                            {
+                                "key_code": "m"
+                            }
+                        ]
+                    },
+                    "to_if_held_down": [
+                        {
+                            "shell_command": "open -a Terminal"
+                        }
+                    ],
+                    "parameters": {
+                        "basic.simultaneous_threshold_milliseconds": 25,
+                        "basic.to_if_held_down_threshold_milliseconds": 250
+                    }
+                }
+            ]
+        },
+        {
+            "description": "f & z (simultaneously for 0.25 sec) => Open FileZilla",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "simultaneous": [
+                            {
+                                "key_code": "f"
+                            },
+                            {
+                                "key_code": "z"
+                            }
+                        ]
+                    },
+                    "to_if_held_down": [
+                        {
+                            "shell_command": "open '/Applications/FileZilla.app'"
+                        }
+                    ],
+                    "parameters": {
+                        "basic.simultaneous_threshold_milliseconds": 25,
+                        "basic.to_if_held_down_threshold_milliseconds": 250
+                    }
+                }
+            ]
+        },
+        {
+            "description": "a & f (simultaneously for 0.25 sec) => Toggle Alfred (Default hotkey Alt + Space is triggered)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "simultaneous": [
+                            {
+                                "key_code": "a"
+                            },
+                            {
+                                "key_code": "f"
+                            }
+                        ]
+                    },
+                    "to_if_held_down": [
+                        {
+                            "key_code": "spacebar",
+                            "modifiers": [
+                                "left_alt"
+                            ]
+                        }
+                    ],
+                    "parameters": {
+                        "basic.simultaneous_threshold_milliseconds": 25,
+                        "basic.to_if_held_down_threshold_milliseconds": 250
+                    }
+                }
+            ]
+        },
+        {
+            "description": "s & l (simultaneously for 0.25 sec) => Open Slack",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "simultaneous": [
+                            {
+                                "key_code": "s"
+                            },
+                            {
+                                "key_code": "l"
+                            }
+                        ]
+                    },
+                    "to_if_held_down": [
+                        {
+                            "shell_command": "open '/Applications/Slack.app'"
+                        }
+                    ],
+                    "parameters": {
+                        "basic.simultaneous_threshold_milliseconds": 25,
+                        "basic.to_if_held_down_threshold_milliseconds": 250
+                    }
+                }
+            ]
+        },
+        {
+            "description": "x & d (simultaneously for 0.25 sec) => Open Adobe XD",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "simultaneous": [
+                            {
+                                "key_code": "x"
+                            },
+                            {
+                                "key_code": "d"
+                            }
+                        ]
+                    },
+                    "to_if_held_down": [
+                        {
+                            "shell_command": "open '/Applications/Adobe XD/Adobe XD.app'"
+                        }
+                    ],
+                    "parameters": {
+                        "basic.simultaneous_threshold_milliseconds": 25,
+                        "basic.to_if_held_down_threshold_milliseconds": 250
+                    }
+                }
+            ]
+        },
+        {
+            "description": "n & t (simultaneously for 0.25 sec) => Open Notion",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "simultaneous": [
+                            {
+                                "key_code": "n"
+                            },
+                            {
+                                "key_code": "t"
+                            }
+                        ]
+                    },
+                    "to_if_held_down": [
+                        {
+                            "shell_command": "open '/Applications/Notion.app'"
+                        }
+                    ],
+                    "parameters": {
+                        "basic.simultaneous_threshold_milliseconds": 25,
+                        "basic.to_if_held_down_threshold_milliseconds": 250
+                    }
+                }
+            ]
+        },
+        {
+            "description": "o & n (simultaneously for 0.25 sec) => Open OneNote",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "simultaneous": [
+                            {
+                                "key_code": "o"
+                            },
+                            {
+                                "key_code": "n"
+                            }
+                        ]
+                    },
+                    "to_if_held_down": [
+                        {
+                            "shell_command": "open '/Applications/Microsoft OneNote.app'"
+                        }
+                    ],
+                    "parameters": {
+                        "basic.simultaneous_threshold_milliseconds": 25,
+                        "basic.to_if_held_down_threshold_milliseconds": 250
+                    }
+                }
+            ]
+        },
+        {
+            "description": "g & n (simultaneously for 0.25 sec) => Open Goodnotes",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "simultaneous": [
+                            {
+                                "key_code": "g"
+                            },
+                            {
+                                "key_code": "n"
+                            }
+                        ]
+                    },
+                    "to_if_held_down": [
+                        {
+                            "shell_command": "open '/Applications/Goodnotes.app'"
+                        }
+                    ],
+                    "parameters": {
+                        "basic.simultaneous_threshold_milliseconds": 25,
+                        "basic.to_if_held_down_threshold_milliseconds": 250
+                    }
+                }
+            ]
+        },
+        {
+            "description": "d & r (simultaneously for 0.25 sec) => Open Drafts",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "simultaneous": [
+                            {
+                                "key_code": "d"
+                            },
+                            {
+                                "key_code": "r"
+                            }
+                        ]
+                    },
+                    "to_if_held_down": [
+                        {
+                            "shell_command": "open '/Applications/Drafts.app'"
+                        }
+                    ],
+                    "parameters": {
+                        "basic.simultaneous_threshold_milliseconds": 25,
+                        "basic.to_if_held_down_threshold_milliseconds": 250
+                    }
+                }
+            ]
+        },
+        {
+            "description": "t & e (simultaneously for 0.25 sec) => Open TextEdit",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "simultaneous": [
+                            {
+                                "key_code": "t"
+                            },
+                            {
+                                "key_code": "e"
+                            }
+                        ]
+                    },
+                    "to_if_held_down": [
+                        {
+                            "shell_command": "open -a 'TextEdit'"
+                        }
+                    ],
+                    "parameters": {
+                        "basic.simultaneous_threshold_milliseconds": 25,
+                        "basic.to_if_held_down_threshold_milliseconds": 250
+                    }
+                }
+            ]
+        },
+        {
+            "description": "i & o (simultaneously for 0.25 sec) => Open ImageOptim",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "simultaneous": [
+                            {
+                                "key_code": "i"
+                            },
+                            {
+                                "key_code": "o"
+                            }
+                        ]
+                    },
+                    "to_if_held_down": [
+                        {
+                            "shell_command": "open '/Applications/ImageOptim.app'"
+                        }
+                    ],
+                    "parameters": {
+                        "basic.simultaneous_threshold_milliseconds": 25,
+                        "basic.to_if_held_down_threshold_milliseconds": 250
+                    }
+                }
+            ]
+        }
+    ]
+}

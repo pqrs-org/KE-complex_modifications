@@ -1,0 +1,34 @@
+
+{
+  "title": "cmd + Shift Switch Languages",
+  "maintainers": [
+    "s4wet"
+  ],
+  "rules": [
+    {
+      "description": "Command + Shift to control + spacebar",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_shift",
+            "modifiers": {
+              "mandatory": [
+                "left_command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "spacebar",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+
+}

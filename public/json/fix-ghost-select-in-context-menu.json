@@ -1,0 +1,29 @@
+{
+  "title": "Fix ghost select in context menu",
+  "rules": [
+    {
+      "description": "Fix ghost select in context menu",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "^cc\\.ffitch\\.shottr$"
+              ],
+              "type": "frontmost_application_unless"
+            }
+          ],
+          "from": {
+            "pointing_button": "button2"
+          },
+          "to_after_key_up": [
+            {
+              "pointing_button": "button2"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}
