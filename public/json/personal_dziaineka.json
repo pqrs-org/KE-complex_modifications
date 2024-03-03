@@ -563,6 +563,36 @@
           "to": [{ "key_code": "delete_or_backspace" }]
         }
       ]
+    },
+    {
+      "description": "Disable Cmd+H Hide",
+      "manipulators": [
+        {
+          "type": "basic",
+          "description": "",
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "mandatory": ["command"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "description": "Disable Cmd+Tab",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "tab",
+            "modifiers": {
+              "mandatory": ["left_command"],
+              "optional": ["left_shift"]
+            }
+          }
+        }
+      ]
     }
   ]
 }
