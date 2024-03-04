@@ -2,6 +2,111 @@
     "title": "KonKen's Setup: Quick App Launchers for Mac",
     "rules": [
         {
+            "description": "Tab & 1 (simultaneously within 0.1 sec) => Cmnd & Tab (Open previous window. Not repeated.)",
+            "manipulators": [
+                {
+                    "from": {
+                        "simultaneous": [
+                            {
+                                "key_code": "tab"
+                            },
+                            {
+                                "key_code": "1"
+                            }
+                        ]
+                    },
+                    "parameters": {
+                        "basic.simultaneous_threshold_milliseconds": 100
+                    },
+                    "to": [
+                        {
+                            "key_code": "tab",
+                            "modifiers": [
+                                "command"
+                            ],
+                            "repeat": false
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "Cmnd + Shift + Esc => Open Activity Monitor",
+            "manipulators": [
+                {
+                    "from": {
+                        "key_code": "escape",
+                        "modifiers": {
+                            "mandatory": [
+                                "command",
+                                "shift"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "shell_command": "open -a 'Activity Monitor.app'"
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "Ctrl + Shift + Esc => Open Activity Monitor",
+            "manipulators": [
+                {
+                    "from": {
+                        "key_code": "escape",
+                        "modifiers": {
+                            "mandatory": [
+                                "control",
+                                "shift"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "shell_command": "open -a 'Activity Monitor.app'"
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "p & r (simultaneously for 0.25 sec) => Cmnd & Tab (Open previous window. Not repeated.)",
+            "manipulators": [
+                {
+                    "from": {
+                        "simultaneous": [
+                            {
+                                "key_code": "p"
+                            },
+                            {
+                                "key_code": "r"
+                            }
+                        ]
+                    },
+                    "parameters": {
+                        "basic.simultaneous_threshold_milliseconds": 25,
+                        "basic.to_if_held_down_threshold_milliseconds": 250
+                    },
+                    "to_if_held_down": [
+                        {
+                            "key_code": "tab",
+                            "modifiers": [
+                                "command"
+                            ],
+                            "repeat": false
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
             "description": "s & p (simultaneously for 0.25 sec) => Open System Preferences",
             "manipulators": [
                 {
@@ -272,7 +377,7 @@
             ]
         },
         {
-            "description": "a & f (simultaneously for 0.25 sec) => Toggle Alfred (Default hotkey Alt + Space is triggered)",
+            "description": "a & f (simultaneously for 0.25 sec) => Toggle Alfred (Default hotkey Alt + Space is triggered.)",
             "manipulators": [
                 {
                     "type": "basic",
