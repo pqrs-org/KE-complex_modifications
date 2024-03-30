@@ -1,0 +1,99 @@
+{
+  "title": "Map left_command to ctrl and left_option to alt in any Citrix Receiver/Viewer",
+  "rules": [
+    {
+      "description": "Citrix: Change option to left_command + left_option (use with related configuration)",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "^com\\.citrix\\.XenAppViewer$",
+                "^com\\.citrix\\.receiver\\.icaviewer\\.mac$"
+              ],
+              "type": "frontmost_application_if"
+            }
+          ],
+          "from": {
+            "key_code": "left_option",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_command",
+              "modifiers": [
+                "left_option"
+              ]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "com.citrix.receiver.icaviewer.mac",
+                "/Library/Application Support/Citrix Receiver/Citrix Viewer.app/Contents/MacOS/Citrix Viewer"
+              ],
+              "type": "frontmost_application_if"
+            }
+          ],
+          "from": {
+            "key_code": "right_option",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_command",
+              "modifiers": [
+                "left_option"
+              ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Citrix: Change left_command to left_control (use with related configuration)",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "^com\\.citrix\\.XenAppViewer$",
+                "^com\\.citrix\\.receiver\\.icaviewer\\.mac$"
+              ],
+              "type": "frontmost_application_if"
+            }
+          ],
+          "from": {
+            "key_code": "left_command",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_control",
+              "modifiers": [
+                "any"
+              ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}
