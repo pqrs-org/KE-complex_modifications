@@ -1,6 +1,69 @@
 {
-  "title": "Map left_command to ctrl and left_option to alt in any Citrix Receiver/Viewer",
+  "title": "Citrix key combinations (use with configuration of mapping ⌥ -> ⌘⌥)",
   "rules": [
+    {
+      "description": "Citrix: Change left_option + left/right arrow to left_command + left_option + left/right arrow for simulation of shift+arrow (use with related configuration and rule)",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "^com\\.citrix\\.XenAppViewer$",
+                "^com\\.citrix\\.receiver\\.icaviewer\\.mac$"
+              ],
+              "type": "frontmost_application_if"
+            }
+          ],
+          "from": {
+            "key_code": "left_arrow",
+            "modifiers": {
+              "mandatory": [
+                "left_option",
+                "left_command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "^com\\.citrix\\.XenAppViewer$",
+                "^com\\.citrix\\.receiver\\.icaviewer\\.mac$"
+              ],
+              "type": "frontmost_application_if"
+            }
+          ],
+          "from": {
+            "key_code": "right_arrow",
+            "modifiers": {
+              "mandatory": [
+                "left_option",
+                "left_command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
     {
       "description": "Citrix: Change option to left_command + left_option (use with related configuration)",
       "manipulators": [
