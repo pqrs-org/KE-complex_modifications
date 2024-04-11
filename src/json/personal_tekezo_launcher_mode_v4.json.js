@@ -13,7 +13,7 @@ function main() {
         maintainers: ['tekezo'],
         rules: [
           {
-            description: 'Launcher Mode v4 (rev 21)',
+            description: 'Launcher Mode v4 (rev 22)',
             available_since: '13.1.4',
             manipulators: [].concat(
               generateLauncherMode('1', { bundleIdentifier: 'com.apple.dt.Xcode' }),
@@ -27,6 +27,7 @@ function main() {
               generateLauncherMode('s', { bundleIdentifier: 'com.apple.Safari' }),
               generateLauncherMode('t', { bundleIdentifier: 'com.apple.Terminal' }),
               generateLauncherMode('v', { bundleIdentifier: 'com.tinyspeck.slackmacgap' }),
+              generateLauncherMode('backslash', { bundleIdentifier: 'com.1password.1password' }),
 
               generateLauncherMode('left_control', { to: [{ key_code: 'mission_control' }] }),
               generateLauncherMode('left_shift', { to: [{ apple_vendor_keyboard_key_code: 'launchpad' }] })
