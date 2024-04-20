@@ -1,0 +1,253 @@
+{
+  "title": "Wooting 60HE UK - Sam McKay",
+  "rules": [
+    {
+      "description": "Windows Alt",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_command",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 4882,
+                  "vendor_id": 12771
+                }
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "left_option"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_option",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 4882,
+                  "vendor_id": 12771
+                }
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "left_command"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "| \\",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "non_us_backslash",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 4882,
+                  "vendor_id": 12771
+                }
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "backslash"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "# ~",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "backslash"
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 4882,
+                  "vendor_id": 12771
+                }
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "3",
+              "modifiers": ["option"]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "backslash",
+            "modifiers": {
+              "mandatory": ["shift"]
+            }
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 4882,
+                  "vendor_id": 12771
+                }
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": ["shift"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "@ '",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "quote",
+            "modifiers": {
+              "mandatory": ["left_shift"]
+            }
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 4882,
+                  "vendor_id": 12771
+                }
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "2",
+              "modifiers": ["left_shift"]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "2",
+            "modifiers": {
+              "mandatory": ["left_shift"]
+            }
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 4882,
+                  "vendor_id": 12771
+                }
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "quote",
+              "modifiers": ["left_shift"]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "quote",
+            "modifiers": {
+              "mandatory": ["right_shift"]
+            }
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 4882,
+                  "vendor_id": 12771
+                }
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "2",
+              "modifiers": ["right_shift"]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "2",
+            "modifiers": {
+              "mandatory": ["right_shift"]
+            }
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 4882,
+                  "vendor_id": 12771
+                }
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "quote",
+              "modifiers": ["right_shift"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
