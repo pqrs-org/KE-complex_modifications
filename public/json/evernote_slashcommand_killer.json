@@ -1,0 +1,78 @@
+{
+  "title": "Evernote slashcommand-killer",
+  "maintainers": ["AoVA"],
+  "rules": [
+    {
+      "How-to-install":"copy this file to ~/.config/karabiner/assets/complex_modifications/ ",
+      "Hint-to-use":"Evernoteのスラッシュコマンド効果を一瞬で消すために、スペースを一瞬追加します。日本語入力時はIMEトグルを伴います。Command-/で元の効果が出ます。これは本来キーボードショートカットを呼び出すコマンドですが、Command-shift-/に移動します。",
+
+      "description": "Disable Evernote's slash command; use Command-/ for standard menu access and Command-Shift-/ for the shortcuts list.",
+        "manipulators": [
+            {
+                "type": "basic",
+                "from": {"key_code": "slash"},
+                "to": [{"key_code": "slash","hold_down_milliseconds":60},{"key_code": "left_arrow"},{"key_code": "right_arrow"}],
+                "conditions":[
+                    {
+                        "type": "frontmost_application_if",
+                        "bundle_identifiers": [
+                          "^com\\.evernote\\.Evernote$"
+                        ]
+                    },
+                        {
+                        "type":"input_source_if",
+                        "input_sources":[
+                            {"language":"en"}
+                        ]
+                    }
+                ]
+            },
+            {
+            "type": "basic",
+            "from": {"key_code": "slash"},
+            "to": [{"key_code": "slash","hold_down_milliseconds":60},{"key_code": "japanese_eisuu"},{"key_code": "spacebar"},{"key_code": "delete_or_backspace"},{"key_code":  "japanese_kana"}],
+            "conditions":[
+                {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.evernote\\.Evernote$"
+                    ]
+                },
+                    {
+                    "type":"input_source_if",
+                    "input_sources":[
+                        {"language":"ja"}
+                    ]
+                }
+            ]
+          },
+              {
+            "type": "basic",
+            "from": {"key_code": "slash","modifiers": { "mandatory": ["command"]}},
+            "to": [{"key_code":  "slash"}],
+            "conditions": [
+              {
+                "type": "frontmost_application_if",
+                "bundle_identifiers": [
+                  "^com\\.evernote\\.Evernote$"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "basic",
+            "from": {"key_code": "slash","modifiers": { "mandatory": ["command","shift"]}},
+            "to": [{"key_code":  "slash","modifiers":["command"]}],
+            "conditions": [
+              {
+                "type": "frontmost_application_if",
+                "bundle_identifiers": [
+                  "^com\\.evernote\\.Evernote$"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+  ]
+}
