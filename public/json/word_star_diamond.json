@@ -1,0 +1,259 @@
+{
+  "title": "Wordstar Diamond inspired keyboard navigation: Fn + ESDX etc.",
+  "rules": [
+    {
+        "description": "Caps Lock to Fn = modifier key for other rules; Caps Lock + Fn to Caps Lock",
+        "manipulators": [
+            {
+                "from": {
+                    "key_code": "caps_lock",
+                    "modifiers": {
+                        "mandatory": [
+                            "fn"
+                        ],
+                        "optional": [
+                            "caps_lock"
+                        ]
+                    }
+                },
+                "to": [
+                    {
+                        "key_code": "caps_lock"
+                    }
+                ],
+                "type": "basic"
+            },
+            {
+                "from": {
+                    "key_code": "caps_lock",
+                    "modifiers": {
+                        "optional": [
+                            "any"
+                        ]
+                    }
+                },
+                "to": [
+                    {
+                        "key_code": "fn"
+                    }
+                ],
+                "type": "basic"
+            }
+        ]
+    },
+    {
+        "description": "Fn + E/S/D/X to Arrow Keys (Wordstar Diamond)",
+        "manipulators": [
+            {
+                "from": {
+                    "key_code": "e",
+                    "modifiers": {
+                        "mandatory": [
+                            "fn"
+                        ],
+                        "optional": [
+                            "any"
+                        ]
+                    }
+                },
+                "to": [
+                    {
+                        "key_code": "up_arrow"
+                    }
+                ],
+                "type": "basic"
+            },
+            {
+                "from": {
+                    "key_code": "s",
+                    "modifiers": {
+                        "mandatory": [
+                            "fn"
+                        ],
+                        "optional": [
+                            "any"
+                        ]
+                    }
+                },
+                "to": [
+                    {
+                        "key_code": "left_arrow"
+                    }
+                ],
+                "type": "basic"
+            },
+            {
+                "from": {
+                    "key_code": "d",
+                    "modifiers": {
+                        "mandatory": [
+                            "fn"
+                        ],
+                        "optional": [
+                            "any"
+                        ]
+                    }
+                },
+                "to": [
+                    {
+                        "key_code": "right_arrow"
+                    }
+                ],
+                "type": "basic"
+            },
+            {
+                "from": {
+                    "key_code": "x",
+                    "modifiers": {
+                        "mandatory": [
+                            "fn"
+                        ],
+                        "optional": [
+                            "any"
+                        ]
+                    }
+                },
+                "to": [
+                    {
+                        "key_code": "down_arrow"
+                    }
+                ],
+                "type": "basic"
+            }
+        ]
+    },
+    {
+        "description": "Fn + R/C to Page-Up/Page-Down Keys (Wordstar Diamond)",
+        "manipulators": [
+            {
+                "from": {
+                    "key_code": "r",
+                    "modifiers": {
+                        "mandatory": [
+                            "fn"
+                        ],
+                        "optional": [
+                            "any"
+                        ]
+                    }
+                },
+                "to": [
+                    {
+                        "key_code": "page_up"
+                    }
+                ],
+                "type": "basic"
+            },
+            {
+                "from": {
+                    "key_code": "c",
+                    "modifiers": {
+                        "mandatory": [
+                            "fn"
+                        ],
+                        "optional": [
+                            "any"
+                        ]
+                    }
+                },
+                "to": [
+                    {
+                        "key_code": "page_down"
+                    }
+                ],
+                "type": "basic"
+            }
+        ]
+    },
+    {
+        "description": "Fn + Q/W to jump to beginning/end of line",
+        "manipulators": [
+            {
+                "from": {
+                    "key_code": "q",
+                    "modifiers": {
+                        "mandatory": [
+                            "fn"
+                        ],
+                        "optional": [
+                            "any"
+                        ]
+                    }
+                },
+                "to": [
+                    {
+                        "key_code": "left_arrow",
+                        "modifiers": "command"
+                    }
+                ],
+                "type": "basic"
+            },
+            {
+                "from": {
+                    "key_code": "w",
+                    "modifiers": {
+                        "mandatory": [
+                            "fn"
+                        ],
+                        "optional": [
+                            "any"
+                        ]
+                    }
+                },
+                "to": [
+                    {
+                        "key_code": "right_arrow",
+                        "modifiers": "command"
+                    }
+                ],
+                "type": "basic"
+            }
+        ]
+    },
+    {
+        "description": "Fn + A/F to jump to beginning/end of word",
+        "manipulators": [
+            {
+                "from": {
+                    "key_code": "a",
+                    "modifiers": {
+                        "mandatory": [
+                            "fn"
+                        ],
+                        "optional": [
+                            "any"
+                        ]
+                    }
+                },
+                "to": [
+                    {
+                        "key_code": "left_arrow",
+                        "modifiers": "option"
+                    }
+                ],
+                "type": "basic"
+            },
+            {
+                "from": {
+                    "key_code": "f",
+                    "modifiers": {
+                        "mandatory": [
+                            "fn"
+                        ],
+                        "optional": [
+                            "any"
+                        ]
+                    }
+                },
+                "to": [
+                    {
+                        "key_code": "right_arrow",
+                        "modifiers": "option"
+                    }
+                ],
+                "type": "basic"
+            }
+        ]
+    }
+  ]
+}
