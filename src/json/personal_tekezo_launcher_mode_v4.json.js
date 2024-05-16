@@ -13,7 +13,7 @@ function main() {
         maintainers: ['tekezo'],
         rules: [
           {
-            description: 'Launcher Mode v4 (rev 22)',
+            description: 'Launcher Mode v4 (rev 23)',
             available_since: '13.1.4',
             manipulators: [].concat(
               generateLauncherMode('1', { bundleIdentifier: 'com.apple.dt.Xcode' }),
@@ -22,6 +22,7 @@ function main() {
               generateLauncherMode('c', { bundleIdentifier: 'com.google.Chrome' }),
               generateLauncherMode('e', { bundleIdentifier: 'com.microsoft.VSCode' }),
               generateLauncherMode('f', { bundleIdentifier: 'com.apple.finder' }),
+              generateLauncherMode('g', { bundleIdentifier: 'com.openai.chat' }),
               generateLauncherMode('m', { bundleIdentifier: 'org.mozilla.thunderbird' }),
               generateLauncherMode('q', { bundleIdentifier: 'com.apple.Dictionary' }),
               generateLauncherMode('s', { bundleIdentifier: 'com.apple.Safari' }),
