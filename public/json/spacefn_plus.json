@@ -14,6 +14,13 @@
           },
           "to_if_alone": [
             {
+              "set_variable": {
+                "name": "spacefn_mode",
+                "value": 0
+              }
+            },
+            {
+              "halt": true,
               "key_code": "spacebar"
             }
           ],
@@ -25,6 +32,19 @@
               }
             }
           ],
+          "to_delayed_action": {
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "spacefn_mode",
+                  "value": 0
+                }
+              },
+              {
+                "key_code": "spacebar"
+              }
+            ]
+          },
           "to_after_key_up": [
             {
               "set_variable": {
@@ -42,7 +62,8 @@
           ],
           "parameters": {
             "basic.to_if_alone_timeout_milliseconds": 300,
-            "basic.to_if_held_down_threshold_milliseconds": 200
+            "basic.to_if_held_down_threshold_milliseconds": 200,
+            "basic.to_delayed_action_delay_milliseconds": 200
           }
         }
       ]
