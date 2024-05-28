@@ -36,6 +36,7 @@ function main() {
     '^co\\.zeit\\.hyper$',
     '^io\\.alacritty$',
     '^net\\.kovidgoyal\\.kitty$',
+    '^com\\.github\\.wez\\.wezterm$'
   ])
 
   console.log(
