@@ -12,7 +12,7 @@
             },
             "to": [
                 {
-                    "key_code": "delete_backspace",
+                    "key_code": "delete_or_backspace",
                     "modifiers": [
                         "left_command"
                     ]
