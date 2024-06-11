@@ -1,0 +1,196 @@
+{
+  "title": "Visual Studio Code Key Bindings",
+  "rules": [
+    {
+      "description": "left shift to cmd + shift + o to search symbols (VS Code)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_shift",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_shift"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "o",
+              "modifiers": ["left_command", "left_shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.microsoft\\.VSCode$", "com\\.microsoft\\.VSCodeInsiders"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ctrl + left option to left cmd + p to search files (VS Code)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_option",
+            "modifiers": {
+              "mandatory": ["left_control"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "p",
+              "modifiers": ["left_command"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.microsoft\\.VSCode$", "com\\.microsoft\\.VSCodeInsiders"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "left ctrl to cmd + b to hide sidebar (VS Code)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_control",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_control"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "b",
+              "modifiers": ["left_command"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.microsoft\\.VSCode$"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "left option to cmd + j to hide terminal (VS Code)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_option",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_option"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "j",
+              "modifiers": ["left_command"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.microsoft\\.VSCode$", "com\\.microsoft\\.VSCodeInsiders"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "right shift to cmd + j, cmd + b to hide panes (VS Code)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_shift",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_shift"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "j",
+              "modifiers": ["left_command"]
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "key_code": "b",
+                "modifiers": ["left_command"]
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.microsoft\\.VSCode$", "com\\.microsoft\\.VSCodeInsiders"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "right cmd to left cmd + k, z for zen mode (VS Code)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_command",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "k",
+              "modifiers": ["left_command"]
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "key_code": "z"
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.microsoft\\.VSCode$", "com\\.microsoft\\.VSCodeInsiders"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
