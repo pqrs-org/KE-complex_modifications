@@ -40,15 +40,42 @@
           "from": {
             "key_code": "left_option",
             "modifiers": {
-              "mandatory": ["left_control"]
+              "mandatory": ["left_control"],
+              "optional": []
             }
           },
           "to": [
+            {
+              "set_variable": {
+                "name": "ctrl_left_option_pressed",
+                "value": 1
+              }
+            }
+          ],
+          "to_if_alone": [
             {
               "key_code": "p",
               "modifiers": ["left_command"]
             }
           ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "ctrl_left_option_pressed",
+                  "value": 0
+                }
+              }
+            ],
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "ctrl_left_option_pressed",
+                  "value": 0
+                }
+              }
+            ]
+          },
           "conditions": [
             {
               "type": "frontmost_application_if",
