@@ -1,0 +1,36 @@
+{
+  "title": "left ctrl → cmd + b (VS Code → hide sidebar)",
+  "rules": [
+    {
+      "description": "left ctrl → cmd + b (VS Code → hide sidebar)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_control",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_control"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "b",
+              "modifiers": ["left_command"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.microsoft\\.VSCode$"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
