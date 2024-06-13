@@ -1,0 +1,69 @@
+{
+  "title": "left cmd + double tap q to close an application (Mac OSX: left cmd + q, q to close an application)",
+  "author": "Carlo van Wyk (https://github.com/thecarlo)",
+  "maintainers": ["thecarlo"],
+  "rules": [
+    {
+      "description": "left cmd + double tap q to close an application (Mac OSX: left cmd + q, q to close an application)",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "name": "command-q",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "mandatory": ["command"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "q",
+              "modifiers": ["left_command"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "mandatory": ["command"]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "command-q",
+                "value": 1
+              }
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "command-q",
+                  "value": 0
+                }
+              }
+            ],
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "command-q",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}
