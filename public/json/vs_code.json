@@ -1,0 +1,416 @@
+{
+  "title": "Visual Studio Code: Productivity Power Pack",
+  "maintainers": ["thecarlo"],
+  "rules": [
+    {
+      "description": "Hyper Key: Caps Lock → left control + left shift + right command (⌃⇧⌘)",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "hyper_caps_lock",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "left_control",
+              "modifiers": ["left_shift", "right_command"]
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "hyper_caps_lock",
+                "value": 0
+              }
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Double-tap right ⇧ key → caps lock on",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "name": "right_shift pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "right_shift",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "caps_lock"
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "from": {
+            "key_code": "right_shift",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "right_shift pressed",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "right_shift"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "right_shift pressed",
+                  "value": 0
+                }
+              }
+            ],
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "right_shift pressed",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "VS Code: Caps Lock Hyper Key + a → quick open (search for a file)",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.microsoft\\.VSCode$", "^com\\.microsoft\\.VSCodeInsiders"]
+            }
+          ],
+          "type": "basic",
+          "from": {
+            "key_code": "a",
+            "modifiers": {
+              "mandatory": ["left_control", "left_shift", "right_command"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "p",
+              "modifiers": ["left_command"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "VS Code: Caps Lock Hyper Key + s → search symbols",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.microsoft\\.VSCode$", "^com\\.microsoft\\.VSCodeInsiders"]
+            }
+          ],
+          "type": "basic",
+          "from": {
+            "key_code": "s",
+            "modifiers": {
+              "mandatory": ["left_control", "left_shift", "right_command"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "o",
+              "modifiers": ["left_shift", "left_command"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "VS Code: double-tap left ctrl → toggle sidebar",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "name": "left_ctrl pressed",
+              "type": "variable_if",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.microsoft\\.VSCode$", "^com\\.microsoft\\.VSCodeInsiders"]
+            }
+          ],
+          "from": {
+            "key_code": "left_control",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "b",
+              "modifiers": ["left_command"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "from": {
+            "key_code": "left_control",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "left_ctrl pressed",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "left_control"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "left_ctrl pressed",
+                  "value": 0
+                }
+              }
+            ],
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "left_ctrl pressed",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "VS Code: double-tap left option → hide terminal",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "name": "left_option pressed",
+              "type": "variable_if",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.microsoft\\.VSCode$", "^com\\.microsoft\\.VSCodeInsiders"]
+            }
+          ],
+          "from": {
+            "key_code": "left_option",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "j",
+              "modifiers": ["left_command"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "from": {
+            "key_code": "left_option",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "left_option pressed",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "left_option"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "left_option pressed",
+                  "value": 0
+                }
+              }
+            ],
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "left_option pressed",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "VS Code: double-tap left cmd → zen mode",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "name": "left_command pressed",
+              "type": "variable_if",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.microsoft\\.VSCode$", "^com\\.microsoft\\.VSCodeInsiders"]
+            }
+          ],
+          "from": {
+            "key_code": "left_command",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f",
+              "modifiers": ["left_control", "left_shift", "left_option"]
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "key_code": "k",
+                "modifiers": ["left_command"]
+              },
+              {
+                "key_code": "z"
+              },
+              {
+                "key_code": "escape"
+              }
+            ]
+          },
+          "type": "basic"
+        },
+        {
+          "from": {
+            "key_code": "left_command",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "left_command pressed",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "left_command"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "left_command pressed",
+                  "value": 0
+                }
+              }
+            ],
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "left_command pressed",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "VS Code: right cmd → zen mode",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_command"
+          },
+          "to": [
+            {
+              "key_code": "f",
+              "modifiers": ["left_control", "left_shift", "left_option"]
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "key_code": "k",
+                "modifiers": ["left_command"]
+              },
+              {
+                "key_code": "z"
+              },
+              {
+                "key_code": "escape"
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.microsoft\\.VSCode$", "^com\\.microsoft\\.VSCodeInsiders"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
