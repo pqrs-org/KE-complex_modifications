@@ -51,7 +51,25 @@
     <td>Toggle terminal</td>
   </tr>
   <tr>
+    <td>Double-tap left cmd</td>
+    <td>Toggle Zen mode</td>
+  </tr>
+  <tr>
     <td>Right cmd</td>
     <td>Toggle Zen mode</td>
   </tr>
 </table>
+
+<p style="margin-top: 20px; font-weight: bold">
+keybindings.json in Visual Studio Code
+</p>
+<p>
+  Add the following to your keybindings.json in Visual Studio Code. This is to ensure that the editor pane is focused when activating the Zen mode shortcuts.
+</p>
+
+<pre><code>
+  {
+      &quot;key&quot;: &quot;ctrl+shift+alt+f&quot;,
+      &quot;command&quot;: &quot;workbench.action.focusActiveEditorGroup&quot;
+  }
+</code></pre>
