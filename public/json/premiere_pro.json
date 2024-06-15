@@ -1,0 +1,90 @@
+{
+  "title": "Adobe Premiere Pro",
+  "maintainers": ["thecarlo"],
+  "rules": [
+    {
+      "description": "Premiere Pro: scroll timeline with mouse button 3",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button3"
+          },
+          "to": [
+            {
+              "key_code": "h"
+            },
+            {
+              "pointing_button": "button1"
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "key_code": "v"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.adobe\\.PremierePro.23$", "^com\\.adobe\\.PremierePro.24$"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Premiere Pro: left shift + mouse button 1 → cut",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button1",
+            "modifiers": {
+              "mandatory": ["left_shift"],
+              "optional": []
+            }
+          },
+          "to": [
+            {
+              "key_code": "k",
+              "modifiers": ["left_command"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.adobe\\.PremierePro.24$"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Premiere Pro: mouse button 2 → ripple trim to previous edit playhead",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button2",
+            "modifiers": {
+              "mandatory": [],
+              "optional": []
+            }
+          },
+          "to": [
+            {
+              "key_code": "q",
+              "modifiers": []
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.adobe\\.PremierePro.23$", "^com\\.adobe\\.PremierePro.24$"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
