@@ -236,6 +236,60 @@
       ]
     },
     {
+      "description": "Google Chrome: Caps lock hyper key + w → Toggle between last used tabs (requires CLUT: Cycle Last Used Tabs extension)",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.google\\.Chrome$"]
+            }
+          ],
+          "type": "basic",
+          "from": {
+            "key_code": "w",
+            "modifiers": {
+              "mandatory": ["left_control", "left_shift", "right_command"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "w",
+              "modifiers": ["left_option"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Google Chrome: Caps lock hyper key + e → Duplicate tab (requires Duplicate Tab Shortcut extension)",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.google\\.Chrome$"]
+            }
+          ],
+          "type": "basic",
+          "from": {
+            "key_code": "e",
+            "modifiers": {
+              "mandatory": ["left_control", "left_shift", "right_command"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d",
+              "modifiers": ["left_shift", "left_option"]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "description": "Google Chrome: Caps lock hyper key + r → Reload page",
       "manipulators": [
         {
@@ -257,6 +311,33 @@
             {
               "key_code": "r",
               "modifiers": ["left_shift", "left_command"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Google Chrome: Caps lock hyper key + t → Move tab to new window (requires Pop out tabs to new window extension)",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.google\\.Chrome$"]
+            }
+          ],
+          "type": "basic",
+          "from": {
+            "key_code": "t",
+            "modifiers": {
+              "mandatory": ["left_control", "left_shift", "right_command"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "p",
+              "modifiers": ["left_option"]
             }
           ]
         }
