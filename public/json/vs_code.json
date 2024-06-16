@@ -155,161 +155,41 @@
       ]
     },
     {
-      "description": "VS Code: double-tap left ctrl → toggle sidebar",
+      "description": "VS Code: Caps Lock Hyper Key + d → command palette",
       "manipulators": [
         {
           "conditions": [
-            {
-              "name": "left_ctrl pressed",
-              "type": "variable_if",
-              "value": 1
-            },
             {
               "type": "frontmost_application_if",
               "bundle_identifiers": ["^com\\.microsoft\\.VSCode$", "^com\\.microsoft\\.VSCodeInsiders"]
             }
           ],
+          "type": "basic",
           "from": {
-            "key_code": "left_control",
+            "key_code": "d",
             "modifiers": {
+              "mandatory": ["left_control", "left_shift", "right_command"],
               "optional": ["any"]
             }
           },
           "to": [
             {
-              "key_code": "b",
-              "modifiers": ["left_command"]
+              "key_code": "p",
+              "modifiers": ["left_shift", "left_command"]
             }
-          ],
-          "type": "basic"
-        },
-        {
-          "from": {
-            "key_code": "left_control",
-            "modifiers": {
-              "optional": ["any"]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "left_ctrl pressed",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "left_control"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_canceled": [
-              {
-                "set_variable": {
-                  "name": "left_ctrl pressed",
-                  "value": 0
-                }
-              }
-            ],
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "left_ctrl pressed",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "type": "basic"
+          ]
         }
       ]
     },
     {
-      "description": "VS Code: double-tap left option → hide terminal",
+      "description": "VS Code: Caps Lock Hyper Key + q → zen mode",
       "manipulators": [
         {
-          "conditions": [
-            {
-              "name": "left_option pressed",
-              "type": "variable_if",
-              "value": 1
-            },
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": ["^com\\.microsoft\\.VSCode$", "^com\\.microsoft\\.VSCodeInsiders"]
-            }
-          ],
+          "type": "basic",
           "from": {
-            "key_code": "left_option",
+            "key_code": "q",
             "modifiers": {
-              "optional": ["any"]
-            }
-          },
-          "to": [
-            {
-              "key_code": "j",
-              "modifiers": ["left_command"]
-            }
-          ],
-          "type": "basic"
-        },
-        {
-          "from": {
-            "key_code": "left_option",
-            "modifiers": {
-              "optional": ["any"]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "left_option pressed",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "left_option"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_canceled": [
-              {
-                "set_variable": {
-                  "name": "left_option pressed",
-                  "value": 0
-                }
-              }
-            ],
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "left_option pressed",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "type": "basic"
-        }
-      ]
-    },
-    {
-      "description": "VS Code: double-tap left cmd → zen mode",
-      "manipulators": [
-        {
-          "conditions": [
-            {
-              "name": "left_command pressed",
-              "type": "variable_if",
-              "value": 1
-            },
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": ["^com\\.microsoft\\.VSCode$", "^com\\.microsoft\\.VSCodeInsiders"]
-            }
-          ],
-          "from": {
-            "key_code": "left_command",
-            "modifiers": {
+              "mandatory": ["left_control", "left_shift", "right_command"],
               "optional": ["any"]
             }
           },
@@ -333,45 +213,66 @@
               }
             ]
           },
-          "type": "basic"
-        },
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.microsoft\\.VSCode$", "^com\\.microsoft\\.VSCodeInsiders"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "VS Code: Caps Lock Hyper Key + w → toggle sidebar",
+      "manipulators": [
         {
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.microsoft\\.VSCode$", "^com\\.microsoft\\.VSCodeInsiders"]
+            }
+          ],
+          "type": "basic",
           "from": {
-            "key_code": "left_command",
+            "key_code": "w",
             "modifiers": {
+              "mandatory": ["left_control", "left_shift", "right_command"],
               "optional": ["any"]
             }
           },
           "to": [
             {
-              "set_variable": {
-                "name": "left_command pressed",
-                "value": 1
-              }
-            },
+              "key_code": "b",
+              "modifiers": ["left_command"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "VS Code: Caps Lock Hyper Key + e → toggle terminal",
+      "manipulators": [
+        {
+          "conditions": [
             {
-              "key_code": "left_command"
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.microsoft\\.VSCode$", "^com\\.microsoft\\.VSCodeInsiders"]
             }
           ],
-          "to_delayed_action": {
-            "to_if_canceled": [
-              {
-                "set_variable": {
-                  "name": "left_command pressed",
-                  "value": 0
-                }
-              }
-            ],
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "left_command pressed",
-                  "value": 0
-                }
-              }
-            ]
+          "type": "basic",
+          "from": {
+            "key_code": "e",
+            "modifiers": {
+              "mandatory": ["left_control", "left_shift", "right_command"],
+              "optional": ["any"]
+            }
           },
-          "type": "basic"
+          "to": [
+            {
+              "key_code": "j",
+              "modifiers": ["left_command"]
+            }
+          ]
         }
       ]
     },
