@@ -182,6 +182,33 @@
       ]
     },
     {
+      "description": "Google Chrome: Caps lock hyper key + 4 → View Source Code",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.google\\.Chrome$"]
+            }
+          ],
+          "type": "basic",
+          "from": {
+            "key_code": "4",
+            "modifiers": {
+              "mandatory": ["left_control", "left_shift", "right_command"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "u",
+              "modifiers": ["left_option", "left_command"]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "description": "Google Chrome: Caps lock hyper key + q → Profile Selector",
       "manipulators": [
         {
@@ -202,6 +229,33 @@
           "to": [
             {
               "key_code": "m",
+              "modifiers": ["left_shift", "left_command"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Google Chrome: Caps lock hyper key + r → Reload page",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.google\\.Chrome$"]
+            }
+          ],
+          "type": "basic",
+          "from": {
+            "key_code": "r",
+            "modifiers": {
+              "mandatory": ["left_control", "left_shift", "right_command"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "r",
               "modifiers": ["left_shift", "left_command"]
             }
           ]
@@ -230,6 +284,114 @@
             {
               "key_code": "a",
               "modifiers": ["left_shift", "left_command"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Google Chrome: Caps lock hyper key + s → Select address",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.google\\.Chrome$"]
+            }
+          ],
+          "type": "basic",
+          "from": {
+            "key_code": "s",
+            "modifiers": {
+              "mandatory": ["left_control", "left_shift", "right_command"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "l",
+              "modifiers": ["left_command"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Google Chrome: Caps lock hyper key + d → Clear browsing data",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.google\\.Chrome$"]
+            }
+          ],
+          "type": "basic",
+          "from": {
+            "key_code": "d",
+            "modifiers": {
+              "mandatory": ["left_control", "left_shift", "right_command"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_or_backspace",
+              "modifiers": ["left_command", "left_shift"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Google Chrome: Caps lock hyper key + f → Search the web",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.google\\.Chrome$"]
+            }
+          ],
+          "type": "basic",
+          "from": {
+            "key_code": "f",
+            "modifiers": {
+              "mandatory": ["left_control", "left_shift", "right_command"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f",
+              "modifiers": ["left_option", "left_command"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Google Chrome: Caps lock hyper key + g → View downloads",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.google\\.Chrome$"]
+            }
+          ],
+          "type": "basic",
+          "from": {
+            "key_code": "g",
+            "modifiers": {
+              "mandatory": ["left_control", "left_shift", "right_command"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "l",
+              "modifiers": ["left_option", "left_command"]
             }
           ]
         }
