@@ -1,0 +1,115 @@
+{
+  "title": "Machenike K500W PT-BR ABNT2 Web Developer Setup",
+  "maintainers": ["filiperochalopes"],
+  "rules": [
+    {
+      "description": "change unused numpad period to non_us_backslash so we can be able to use pipe and backslash keys. Important for developers!",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "keypad_period",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "non_us_backslash"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Change right_shift x2 to mission_control",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_shift",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "mission_control"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "right_shift pressed",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_shift",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "right_shift pressed",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "right_shift"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "right_shift pressed",
+                  "value": 0
+                }
+              }
+            ],
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "right_shift pressed",
+                  "value": 0
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "description": "Change equal+delete to forward_delete if these keys are pressed simultaneously",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "equal_sign"
+              },
+              {
+                "key_code": "delete_or_backspace"
+              }
+            ],
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_forward"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

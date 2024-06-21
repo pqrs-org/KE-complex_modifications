@@ -1,0 +1,72 @@
+{ "title": "英かな/⌘ for Japanese", "rules": [
+
+  { "description": "［ US ］左右のコマンドキー（⌘）を、単独で押したときは 英数・かな キー として扱う（左⌘は 英数、右⌘は かな）", "manipulators": [
+
+    { "description": " LEFT COMMAND → EISUU ",
+      "from": { "key_code": "left_command", "modifiers": { "optional": [ "any" ] } }, "type": "basic",
+        "to_if_alone": [ { "key_code": "japanese_eisuu" } ],
+      "to": [ { "key_code": "left_command" } ]
+    },
+
+    { "description": " RIGHT COMMAND → KANA ",
+      "from": { "key_code": "right_command", "modifiers": { "optional": [ "any" ] } }, "type": "basic",
+        "to_if_alone": [ { "key_code": "japanese_kana" } ],
+      "to": [ { "key_code": "right_command" } ]
+    }
+
+  ] },
+
+  { "description": "［ JIS ］英数・かな キーを、他のキーと組み合わせて押したときは コマンドキー（⌘）として扱う", "manipulators": [
+
+    { "description": " EISUU → LEFT COMMAND ",
+      "from": { "key_code": "japanese_eisuu", "modifiers": { "optional": [ "any" ] } }, "type": "basic",
+        "to_if_alone": [ { "key_code": "japanese_eisuu" } ],
+      "to": [ { "key_code": "left_command" } ]
+    },
+
+    { "description": " KANA → RIGHT COMMAND ",
+      "from": { "key_code": "japanese_kana", "modifiers": { "optional": [ "any" ] } }, "type": "basic",
+        "to_if_alone": [ { "key_code": "japanese_kana" } ],
+      "to": [ { "key_code": "right_command" } ]
+    }
+
+  ] },
+
+  { "description": "⌘Wを2連打したときのみタブまたはウィンドウが閉じるようにする", "manipulators": [
+
+    { "description": " ⌘W ×2 ",
+      "from": { "key_code": "w", "modifiers": { "mandatory": [ "command" ], "optional": [ "caps_lock" ] } }, "type": "basic",
+        "conditions": [ { "type": "variable_if", "name": "⌘W TAPPED", "value": 1 } ],
+      "to": [ { "key_code": "w", "modifiers": [ "command" ] } ]
+    },
+
+    { "description": " ⌘W ×1 ",
+      "from": { "key_code": "w", "modifiers": { "mandatory": [ "command" ], "optional": [ "caps_lock" ] } }, "type": "basic",
+        "to_delayed_action": {
+          "to_if_canceled": [ { "set_variable": { "name": "⌘W TAPPED", "value": 0 } } ],
+          "to_if_invoked": [ { "set_variable": { "name": "⌘W TAPPED", "value": 0 } } ] },
+      "to": [ { "set_variable": { "name": "⌘W TAPPED", "value": 1 } } ]
+    }
+
+  ] },
+
+  { "description": "⌘Qを2連打したときのみアプリが閉じるようにする", "manipulators": [
+
+    { "description": " ⌘Q ×2 ",
+      "from": { "key_code": "q", "modifiers": { "mandatory": [ "command" ], "optional": [ "caps_lock" ] } }, "type": "basic",
+        "conditions": [ { "type": "variable_if", "name": "⌘Q TAPPED", "value": 1 } ],
+      "to": [ { "key_code": "q", "modifiers": [ "command" ] } ]
+    },
+
+    { "description": " ⌘Q ×1 ",
+      "from": { "key_code": "q", "modifiers": { "mandatory": [ "command" ], "optional": [ "caps_lock" ] } }, "type": "basic",
+        "to_delayed_action": {
+          "to_if_canceled": [ { "set_variable": { "name": "⌘Q TAPPED", "value": 0 } } ],
+          "to_if_invoked": [ { "set_variable": { "name": "⌘Q TAPPED", "value": 0 } } ] },
+      "to": [ { "set_variable": { "name": "⌘Q TAPPED", "value": 1 } } ]
+    }
+
+  ] }
+
+] }
+

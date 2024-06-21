@@ -94,7 +94,7 @@ const sections = [
     ],
   },
   {
-    name: 'Typing base (j k l i → arrow keys, h→enter, space→backspace, ;→delete, n→home, m→end, u→pgup, p→pgdn)',
+    name: 'Typing base (j k l i → arrow keys, h→enter, space→backspace, ;→delete, ,→insert, n→home, m→end, u→pgup, p→pgdn)',
     manipulators: [
       getBasicCapsManipulator({ from: 'j', to: 'left_arrow' }),
       getBasicCapsManipulator({ from: 'k', to: 'down_arrow' }),
@@ -103,6 +103,7 @@ const sections = [
       getBasicCapsManipulator({ from: 'h', to: 'return_or_enter' }),
       getBasicCapsManipulator({ from: 'spacebar', to: 'delete_or_backspace' }),
       getBasicCapsManipulator({ from: 'semicolon', to: 'delete_forward' }),
+      getBasicCapsManipulator({ from: 'comma', to: 'insert' }),
       getBasicCapsManipulator({ from: 'u', to: 'page_up' }),
       getBasicCapsManipulator({ from: 'o', to: 'page_down' }),
       getBasicCapsManipulator({ from: 'n', to: 'home' }),

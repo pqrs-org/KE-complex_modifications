@@ -10,7 +10,7 @@ function main() {
         maintainers: ['tekezo'],
         rules: [
           {
-            description: 'Personal rules (@tekezo) (rev 50)',
+            description: 'Personal rules (@tekezo) (rev 51)',
             available_since: '14.12.6',
             manipulators: [].concat(
               coreConfiguration(),
@@ -880,24 +880,6 @@ function appFinder() {
       type: 'basic',
       from: {
         key_code: 'l',
-        modifiers: {
-          mandatory: ['command'],
-          optional: ['caps_lock'],
-        },
-      },
-      conditions: [
-        {
-          type: 'frontmost_application_if',
-          bundle_identifiers: karabiner.bundleIdentifiers.finder,
-        },
-      ],
-    },
-
-    // Disable command+W
-    {
-      type: 'basic',
-      from: {
-        key_code: 'w',
         modifiers: {
           mandatory: ['command'],
           optional: ['caps_lock'],

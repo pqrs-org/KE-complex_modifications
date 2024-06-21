@@ -1,0 +1,25 @@
+{
+  "title": "MouseButton 17 to command + option + control + shift + i (don’t forget to enable your mouse under Devices)",
+  "rules": [
+    {
+      "description": "MouseButton 17 to command + option + control + shift + i",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button17",
+            "modifiers": {
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "i",
+              "modifiers": ["left_command", "left_option", "left_control", "left_shift"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

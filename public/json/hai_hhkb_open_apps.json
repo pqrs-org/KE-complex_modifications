@@ -1,7 +1,26 @@
 {
-	"title": "Hai HHKB Launch apps (Brave, VS Code, Signal, Slack, Postman, Sublime Merge, iTerm, Thunderbird, iMessage, Mail, Draw.IO, Sequel Ace)",
+	"title": "Hai HHKB Launch apps (Gan Jing Auth, Gan Jing Browser/Brave, VS Code, Signal, Slack, Postman, Sublime Merge, iTerm, Thunderbird, iMessage, Mail, Draw.IO, Sequel Ace, TablePlus)",
 	"rules": [
 		{
+			"description": "right_option + A(Auth) -> Gan Jing Auth",
+			"manipulators": [
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "a",
+						"modifiers": {
+							"mandatory": ["right_option"]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "open '/Applications/GanJingAuth.app'"
+						}
+					]
+				}
+			]
+		},
+    {
 			"description": "right_option + D(Database) -> Sequal Ace",
 			"manipulators": [
 				{
@@ -15,6 +34,44 @@
 					"to": [
 						{
 							"shell_command": "open '/Applications/Sequel Ace.app'"
+						}
+					]
+				}
+			]
+		},
+		{
+			"description": "right_option + C(CQL Database) -> TablePlus",
+			"manipulators": [
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "c",
+						"modifiers": {
+							"mandatory": ["right_option"]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "open '/Applications/TablePlus.app'"
+						}
+					]
+				}
+			]
+		},
+		{
+			"description": "right_option + B(Browser) -> Gan Jing Browser",
+			"manipulators": [
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "b",
+						"modifiers": {
+							"mandatory": ["right_option"]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "open '/Applications/Gan Jing Browser.app'"
 						}
 					]
 				}
@@ -141,6 +198,25 @@
 					"type": "basic",
 					"from": {
 						"key_code": "a",
+						"modifiers": {
+							"mandatory": ["right_option"]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "open '/Applications/Postman.app'"
+						}
+					]
+				}
+			]
+		},
+    {
+			"description": "right_option + P -> Postman",
+			"manipulators": [
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "p",
 						"modifiers": {
 							"mandatory": ["right_option"]
 						}

@@ -1,0 +1,123 @@
+{
+  "title": "Fine Brightness Control",
+  "rules": [
+    {
+      "description": "Map brightness controls to fine brightness controls (Option + Shift + Brightness)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f1"
+          },
+          "to": [
+            {
+              "key_code": "display_brightness_decrement",
+              "modifiers": [
+                "left_shift",
+                "left_option"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f1",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f1",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f2"
+          },
+          "to": [
+            {
+              "key_code": "display_brightness_increment",
+              "modifiers": [
+                "left_shift",
+                "left_option"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f2",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f2",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Map fn + brightness controls to fine brightness controls (Option + Shift + Brightness)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f1",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "display_brightness_decrement",
+              "modifiers": [
+                "left_shift",
+                "left_option"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f2",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "display_brightness_increment",
+              "modifiers": [
+                "left_shift",
+                "left_option"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
