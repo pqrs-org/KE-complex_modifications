@@ -10,7 +10,7 @@ function main() {
         maintainers: ['tekezo'],
         rules: [
           {
-            description: 'Personal rules (@tekezo) (rev 52)',
+            description: 'Personal rules (@tekezo) (rev 53)',
             available_since: '14.12.6',
             manipulators: [].concat(
               coreConfiguration(),
@@ -390,7 +390,39 @@ function emacs() {
 
 function mouse() {
   const result = [
+    //
     // simultaneous button1 + button2 => button3
+    //
+
+    {
+      type: 'basic',
+      from: {
+        simultaneous: [
+          {
+            pointing_button: 'button1',
+          },
+          {
+            pointing_button: 'button2',
+          },
+        ],
+        modifiers: {
+          optional: ['any'],
+        },
+      },
+      to: [
+        {
+          pointing_button: 'button1',
+          modifiers: ['left_command'],
+        },
+      ],
+      conditions: [
+        {
+          type: 'frontmost_application_if',
+          bundle_identifiers: karabiner.bundleIdentifiers.visualStudioCode,
+        },
+      ],
+    },
+
     {
       type: 'basic',
       from: {
@@ -416,7 +448,10 @@ function mouse() {
       ],
     },
 
+    //
     // mouse_motion_to_scroll (button5)
+    //
+
     {
       type: 'basic',
       from: {
