@@ -10,7 +10,7 @@ function main() {
         maintainers: ['tekezo'],
         rules: [
           {
-            description: 'Personal rules (@tekezo) (rev 53)',
+            description: 'Personal rules (@tekezo) (rev 54)',
             available_since: '14.12.6',
             manipulators: [].concat(
               coreConfiguration(),
@@ -51,7 +51,7 @@ function coreConfiguration() {
       to: [{ key_code: 'fn' }],
       to_if_alone: [
         {
-          shell_command: 'date "+%s" | tr -d "\\n" | pbcopy',
+          shell_command: "open -b 'com.1password.1password'",
         },
       ],
       parameters: {
