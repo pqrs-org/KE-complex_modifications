@@ -1,0 +1,45 @@
+{
+    "title": "Hungarian: replace ű-return with return",
+    "maintainers": ["balintb"],
+    "rules": [
+        {
+            "description": "Replaces ű+return with return. By doing so, attempts to reduce the number of occurrences where an 'ű' char is emitted before return due to the proximity of these keys in the HU keyboard layout.",
+            "manipulators": [
+                {
+                    "conditions": [
+                        {
+                            "input_sources": [
+                                {
+                                    "input_source_id": "com.apple.keylayout.Hungarian",
+                                    "language": "hu"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        },
+                        "simultaneous": [
+                            {
+                                "key_code": "backslash"
+                            },
+                            {
+                                "key_code": "return_or_enter"
+                            }
+                        ]
+                    },
+                    "to": [
+                        {
+                            "key_code": "return_or_enter"
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        }
+    ]
+}
