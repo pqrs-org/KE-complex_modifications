@@ -14,12 +14,6 @@
           },
           "to_if_alone": [
             {
-              "set_variable": {
-                "name": "spacefn_mode",
-                "value": 0
-              }
-            },
-            {
               "halt": true,
               "key_code": "spacebar"
             }
@@ -28,31 +22,18 @@
             {
               "set_variable": {
                 "name": "spacefn_mode",
-                "value": 1
+                "value": 1,
+                "key_up_value": 0
               }
             }
           ],
           "to_delayed_action": {
             "to_if_canceled": [
               {
-                "set_variable": {
-                  "name": "spacefn_mode",
-                  "value": 0
-                }
-              },
-              {
                 "key_code": "spacebar"
               }
             ]
           },
-          "to_after_key_up": [
-            {
-              "set_variable": {
-                "name": "spacefn_mode",
-                "value": 0
-              }
-            }
-          ],
           "conditions": [
             {
               "type": "variable_if",
@@ -946,6 +927,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "spacebar"
             }
           ],
@@ -956,14 +943,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -984,6 +980,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "caps_lock"
             }
           ],
@@ -994,14 +996,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -1022,6 +1033,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "left_control"
             }
           ],
@@ -1032,14 +1049,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -1060,6 +1086,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "left_shift"
             }
           ],
@@ -1070,14 +1102,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -1098,6 +1139,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "left_option"
             }
           ],
@@ -1108,14 +1155,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -1136,6 +1192,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "left_command"
             }
           ],
@@ -1146,14 +1208,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -1174,6 +1245,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "right_control"
             }
           ],
@@ -1184,14 +1261,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -1212,6 +1298,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "right_shift"
             }
           ],
@@ -1222,14 +1314,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -1250,6 +1351,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "right_option"
             }
           ],
@@ -1260,14 +1367,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -1288,6 +1404,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "right_command"
             }
           ],
@@ -1298,14 +1420,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -1326,6 +1457,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "fn"
             }
           ],
@@ -1336,14 +1473,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -1364,6 +1510,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "return_or_enter"
             }
           ],
@@ -1374,14 +1526,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -1402,6 +1563,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "escape"
             }
           ],
@@ -1412,14 +1579,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -1440,6 +1616,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "delete_or_backspace"
             }
           ],
@@ -1450,14 +1632,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -1478,6 +1669,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "delete_forward"
             }
           ],
@@ -1488,14 +1685,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -1516,6 +1722,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "tab"
             }
           ],
@@ -1526,14 +1738,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -1554,6 +1775,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "spacebar"
             }
           ],
@@ -1564,14 +1791,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -1592,6 +1828,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "hyphen"
             }
           ],
@@ -1602,14 +1844,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -1630,6 +1881,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "equal_sign"
             }
           ],
@@ -1640,14 +1897,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -1668,6 +1934,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "open_bracket"
             }
           ],
@@ -1678,14 +1950,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -1706,6 +1987,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "close_bracket"
             }
           ],
@@ -1716,14 +2003,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -1744,6 +2040,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "backslash"
             }
           ],
@@ -1754,14 +2056,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -1782,6 +2093,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "non_us_pound"
             }
           ],
@@ -1792,14 +2109,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -1820,6 +2146,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "semicolon"
             }
           ],
@@ -1830,14 +2162,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -1858,6 +2199,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "quote"
             }
           ],
@@ -1868,14 +2215,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -1896,6 +2252,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "grave_accent_and_tilde"
             }
           ],
@@ -1906,14 +2268,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -1934,6 +2305,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "comma"
             }
           ],
@@ -1944,14 +2321,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -1972,6 +2358,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "period"
             }
           ],
@@ -1982,14 +2374,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -2010,6 +2411,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "slash"
             }
           ],
@@ -2020,14 +2427,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -2048,6 +2464,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "non_us_backslash"
             }
           ],
@@ -2058,14 +2480,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -2086,6 +2517,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "up_arrow"
             }
           ],
@@ -2096,14 +2533,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -2124,6 +2570,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "down_arrow"
             }
           ],
@@ -2134,14 +2586,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -2162,6 +2623,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "left_arrow"
             }
           ],
@@ -2172,14 +2639,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -2200,6 +2676,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "right_arrow"
             }
           ],
@@ -2210,14 +2692,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -2238,6 +2729,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "a"
             }
           ],
@@ -2248,14 +2745,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -2276,6 +2782,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "b"
             }
           ],
@@ -2286,14 +2798,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -2314,6 +2835,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "c"
             }
           ],
@@ -2324,14 +2851,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -2352,6 +2888,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "d"
             }
           ],
@@ -2362,14 +2904,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -2390,6 +2941,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "e"
             }
           ],
@@ -2400,14 +2957,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -2428,6 +2994,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "f"
             }
           ],
@@ -2438,14 +3010,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -2466,6 +3047,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "g"
             }
           ],
@@ -2476,14 +3063,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -2504,6 +3100,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "h"
             }
           ],
@@ -2514,14 +3116,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -2542,6 +3153,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "i"
             }
           ],
@@ -2552,14 +3169,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -2580,6 +3206,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "j"
             }
           ],
@@ -2590,14 +3222,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -2618,6 +3259,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "k"
             }
           ],
@@ -2628,14 +3275,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -2656,6 +3312,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "l"
             }
           ],
@@ -2666,14 +3328,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -2694,6 +3365,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "m"
             }
           ],
@@ -2704,14 +3381,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -2732,6 +3418,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "n"
             }
           ],
@@ -2742,14 +3434,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -2770,6 +3471,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "o"
             }
           ],
@@ -2780,14 +3487,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -2808,6 +3524,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "p"
             }
           ],
@@ -2818,14 +3540,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -2846,6 +3577,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "q"
             }
           ],
@@ -2856,14 +3593,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -2884,6 +3630,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "r"
             }
           ],
@@ -2894,14 +3646,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -2922,6 +3683,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "s"
             }
           ],
@@ -2932,14 +3699,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -2960,6 +3736,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "t"
             }
           ],
@@ -2970,14 +3752,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -2998,6 +3789,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "u"
             }
           ],
@@ -3008,14 +3805,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -3036,6 +3842,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "v"
             }
           ],
@@ -3046,14 +3858,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -3074,6 +3895,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "w"
             }
           ],
@@ -3084,14 +3911,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -3112,6 +3948,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "x"
             }
           ],
@@ -3122,14 +3964,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -3150,6 +4001,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "y"
             }
           ],
@@ -3160,14 +4017,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -3188,6 +4054,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "z"
             }
           ],
@@ -3198,14 +4070,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -3226,6 +4107,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "1"
             }
           ],
@@ -3236,14 +4123,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -3264,6 +4160,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "2"
             }
           ],
@@ -3274,14 +4176,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -3302,6 +4213,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "3"
             }
           ],
@@ -3312,14 +4229,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -3340,6 +4266,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "4"
             }
           ],
@@ -3350,14 +4282,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -3378,6 +4319,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "5"
             }
           ],
@@ -3388,14 +4335,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -3416,6 +4372,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "6"
             }
           ],
@@ -3426,14 +4388,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -3454,6 +4425,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "7"
             }
           ],
@@ -3464,14 +4441,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -3492,6 +4478,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "8"
             }
           ],
@@ -3502,14 +4494,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -3530,6 +4531,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "9"
             }
           ],
@@ -3540,14 +4547,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -3568,6 +4584,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "0"
             }
           ],
@@ -3578,14 +4600,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -3606,6 +4637,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "f1"
             }
           ],
@@ -3616,14 +4653,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -3644,6 +4690,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "f2"
             }
           ],
@@ -3654,14 +4706,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -3682,6 +4743,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "f3"
             }
           ],
@@ -3692,14 +4759,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -3720,6 +4796,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "f4"
             }
           ],
@@ -3730,14 +4812,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -3758,6 +4849,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "f5"
             }
           ],
@@ -3768,14 +4865,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -3796,6 +4902,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "f6"
             }
           ],
@@ -3806,14 +4918,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -3834,6 +4955,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "f7"
             }
           ],
@@ -3844,14 +4971,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -3872,6 +5008,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "f8"
             }
           ],
@@ -3882,14 +5024,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -3910,6 +5061,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "f9"
             }
           ],
@@ -3920,14 +5077,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -3948,6 +5114,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "f10"
             }
           ],
@@ -3958,14 +5130,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -3986,6 +5167,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "f11"
             }
           ],
@@ -3996,14 +5183,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
@@ -4024,6 +5220,12 @@
               }
             },
             {
+              "set_variable": {
+                "name": "_lock_reset_spacefn_mode",
+                "value": 1
+              }
+            },
+            {
               "key_code": "f12"
             }
           ],
@@ -4034,14 +5236,23 @@
                   "name": "_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "set_variable": {
+                  "name": "_lock_reset_spacefn_mode",
+                  "value": 0
+                }
               }
             ],
             "to_if_canceled": [
               {
                 "set_variable": {
-                  "name": "_spacefn_mode",
+                  "name": "_lock_reset_spacefn_mode",
                   "value": 0
                 }
+              },
+              {
+                "shell_command": "sleep 0.2; [ `awk -F'[:, ]+' '/_lock_reset_spacefn_mode/ {print $3}' '/library/application support/org.pqrs/tmp/karabiner_grabber_manipulator_environment.json'` -eq 0 ] && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{\"_spacefn_mode\": 0}'"
               }
             ]
           },
