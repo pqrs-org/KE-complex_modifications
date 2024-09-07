@@ -7,6 +7,7 @@ function main() {
     JSON.stringify(
       {
         title: 'Neo2',
+        maintainers: ['jgosmann'],
         rules: rules()
       },
       null,
