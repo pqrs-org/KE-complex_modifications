@@ -1,5 +1,8 @@
 {
   "title": "Neo2",
+  "maintainers": [
+    "jgosmann"
+  ],
   "rules": [
     {
       "description": "Neo2 mod 3 and layer 4. Rule applied to all keyboards.",
@@ -707,6 +710,98 @@
           "to": [
             {
               "key_code": "delete_forward"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                  "input_source_id": "^org\\.sil\\.ukelele.keyboardlayout\\.neo.*$"
+                },
+                {
+                  "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschNeo2$"
+                },
+                {
+                  "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschBone$"
+                },
+                {
+                  "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschNeoQwertz$"
+                },
+                {
+                  "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschADNW$"
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "neo2_mod_4",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "b",
+            "modifiers": {
+              "optional": [
+                "shift",
+                "caps_lock",
+                "command",
+                "left_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "undo"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                  "input_source_id": "^org\\.sil\\.ukelele.keyboardlayout\\.neo.*$"
+                },
+                {
+                  "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschNeo2$"
+                },
+                {
+                  "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschBone$"
+                },
+                {
+                  "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschNeoQwertz$"
+                },
+                {
+                  "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschADNW$"
+                }
+              ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "neo2_mod_4",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "c",
+            "modifiers": {
+              "optional": [
+                "shift",
+                "caps_lock",
+                "command",
+                "left_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "insert"
             }
           ],
           "conditions": [
@@ -2184,102 +2279,6 @@
               "key_code": "slash",
               "modifiers": [
                 "right_option"
-              ]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "input_source_id": "^org\\.sil\\.ukelele.keyboardlayout\\.neo.*$"
-                },
-                {
-                  "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschNeo2$"
-                },
-                {
-                  "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschBone$"
-                },
-                {
-                  "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschNeoQwertz$"
-                },
-                {
-                  "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschADNW$"
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "neo2_mod_4",
-              "value": 0
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "b",
-            "modifiers": {
-              "optional": [
-                "shift",
-                "caps_lock",
-                "left_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "b",
-              "modifiers": [
-                "left_command"
-              ]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "input_source_id": "^org\\.sil\\.ukelele.keyboardlayout\\.neo.*$"
-                },
-                {
-                  "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschNeo2$"
-                },
-                {
-                  "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschBone$"
-                },
-                {
-                  "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschNeoQwertz$"
-                },
-                {
-                  "input_source_id": "^org\\.unknown\\.keylayout\\.DeutschADNW$"
-                }
-              ]
-            },
-            {
-              "type": "variable_unless",
-              "name": "neo2_mod_4",
-              "value": 0
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "c",
-            "modifiers": {
-              "optional": [
-                "shift",
-                "caps_lock",
-                "left_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "w",
-              "modifiers": [
-                "left_command"
               ]
             }
           ],
