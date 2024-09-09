@@ -4,8 +4,8 @@ all:
 rebuild:
 	make -C core rebuild
 
-update-public-build:
-	make -C core update-public-build
+update-dist:
+	make -C core update-dist
 
-server:
-	make -C core server
+preview-server:
+	make -C core preview-server

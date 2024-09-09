@@ -83,7 +83,7 @@ Follow the steps below to create a PR and add your settings!
     Run local web server by the following command in Terminal.
 
     ```shell
-    make server
+    make preview-server
     ```
 
     Then open <http://localhost:8000>.
