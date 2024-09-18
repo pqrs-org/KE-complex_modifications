@@ -1,0 +1,120 @@
+{
+  "title": "Personal rules (@dchf12)",
+  "rules": [
+    {
+      "description": "Swap left-ctrl and left-command except in iTerm2",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "left_command",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_control"
+            }
+          ],
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.googlecode\\.iterm2"
+              ]
+            }
+          ]
+        },
+        {
+          "from": {
+            "key_code": "left_control",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_command"
+            }
+          ],
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.googlecode\\.iterm2"
+              ]
+            }
+          ]
+        }
+      ]
+    }, 
+		{
+      "description": "Change left_shift to caps_lock if pressed alone.",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_shift",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to_if_alone": [
+            {
+              "key_code": "caps_lock"
+            }
+          ],
+          "to": [
+            {
+              "key_code": "left_shift",
+              "lazy": true
+            }
+          ]
+        }
+      ]
+    },
+		{
+			"description": "Press the left command twice to activate Finder",
+			"manipulators": [
+				{
+					"type": "basic",
+					"from": { "key_code": "left_command" },
+					"to": [
+						{ "shell_command": "open -a 'finder'" }
+					],
+					"conditions": [
+						{ "type": "variable_if", "name": "left_command_key", "value": 1 }
+					]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "left_command",
+						"modifiers": { "optional": [ "any" ] }
+					},
+					"to": [
+						{ "set_variable": { "name": "left_command_key", "value": 1 } },
+						{ "key_code": "left_command" }
+					],
+					"to_delayed_action": {
+						"to_if_invoked": [
+							{ "set_variable": { "name": "left_command_key", "value": 0 } }
+						],
+						"to_if_canceled": [
+							{ "set_variable": { "name": "left_command_key", "value": 0 } }
+						]
+					},
+					"conditions": [
+						{ "type": "variable_if", "name": "left_command_key", "value": 0 }
+					]
+				}
+			]
+		}
+  ]
+}

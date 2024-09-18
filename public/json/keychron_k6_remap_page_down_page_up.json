@@ -1,0 +1,55 @@
+{
+    "title": "Keychron 6 Remap PageUp & PageDown to CMD + Left Arrow & CMD + Right Arrow",
+    "rules": [
+      {
+        "description": "(Shift +) Page Down to CMD + Right Arrow",
+        "manipulators": [
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "page_down",
+              "modifiers": {
+                "optional": [
+                  "shift",
+                  "caps_lock"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "right_arrow",
+                "modifiers": [
+                  "command"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "description": "(Shift +) Page Up to CMD + Left Arrow",
+        "manipulators": [
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "page_up",
+              "modifiers": {
+                "optional": [
+                  "shift",
+                  "caps_lock"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "left_arrow",
+                "modifiers": [
+                  "command"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }

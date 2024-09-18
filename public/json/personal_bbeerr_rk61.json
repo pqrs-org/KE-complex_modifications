@@ -1,0 +1,80 @@
+{
+  "title": "bbeerr's RK61 Hybrid Tier",
+  "conditions": [
+    {
+      "type": "device_if",
+      "identifiers": [
+        {
+          "is_built_in_keyboard": false,
+          "is_keyboard": true,
+          "is_pointing_device": false,
+          "vendor_id": 1452
+        }
+      ]
+    }
+  ],
+  "maintainers": [
+    "beermindnor"
+  ],
+  "rules": [
+    {
+      "description": "left_control + (left_shift + esc → ~), (esc → `)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "escape",
+            "modifiers": {
+              "mandatory": [
+                "left_control",
+                "left_shift"
+              ]
+            }
+          },
+          "to": {
+            "key_code": "grave_accent_and_tilde",
+            "modifiers": [
+                "left_shift"
+            ]
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "escape",
+            "modifiers": {
+              "mandatory": [
+                "left_control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "up_arrow turn to slash when press with left_command or left_shift",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "up_arrow",
+            "modifiers":{
+              "optional": [
+                "left_command",
+                "left_shift"
+              ]
+            }
+          },
+          "to": {
+            "key_code": "slash"
+          }
+        }
+      ]
+    }
+  ]
+}

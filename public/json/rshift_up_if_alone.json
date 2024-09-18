@@ -1,0 +1,31 @@
+{
+  "title": "Right Shift Up if alone",
+  "rules": [
+    {
+      "description": "Right Shift Up if alone",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_shift",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_shift",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "up_arrow"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+

@@ -1,0 +1,72 @@
+{
+  "title": "Use F12 to show/hide iTerm (Quake-style \"instant terminal\")",
+  "rules": [
+    {
+      "description": "Launch/show iTerm if it is not in foreground",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f12",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open '/Applications/iTerm.app'"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.googlecode\\.iterm2$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Minimize iTerm if it is in foreground",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f12",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "m",
+              "modifiers": [
+                "command"
+              ]
+            },
+            {
+              "key_code": "tab",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.googlecode\\.iterm2$"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

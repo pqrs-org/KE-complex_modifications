@@ -1,0 +1,171 @@
+<link rel="stylesheet" href="../../vendor/css/bootstrap.min.css" />
+
+<h4>Caps Lock W/A/S/D Arrows (rev 2)</h4>
+
+<p>Use <code>CAPS+W</code> or <code>ASD</code> to change WASD to arrow keys, plus a few others
+extras.</p>
+
+<h5>Motivation</h5>
+
+<p>I wanted to simulate a second layer of navigation keys that are similar to
+what you would find in a TKL/full-size board. This modification attempts
+achieves that by mapping keys centered around WASD.</p>
+
+<h5>Key Map</h5>
+
+<p><img alt="Key map"
+src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVgAAADDCAMAAADwZPlGAAACr1BMVE
+X8/PzMzMw0U2EAAAAmRlPu7u5Svq//85a6uroqnY/pxGoiP0vVsl8ICAgljoIAgAD///7GxsZBQU
+GioqL19PW7u7syMjLBwcGcnJzLzMsAgQB1dXUZGRnLy8vn5+gtSlYlJSX49/jQ0NBNTU34/Pvg3+
+D29vYyUV4jQU4sLS1hw7bt7e2hoaGPiFVCQkLw8fHZ2NnX1teurq6QkJCN08kwm44rKyv6+frp7O
+x5eXl0dHT8/v3u4ov88JX6+/viv2thYWE3NCKIh4hvb2/b29zS0dK/v7+rtrv77ZFjeIOAgIBLWm
+Du+PbL6+bm5ebPz8/Ew8SpqKmOjY47Ojs3Nzfj4+S75N5/zsNOuqyenp737JEolIfk2IYlj4Krl2
+vdumM1My4ZGRLp6OmYl5jd4eKkpKSUlJRLWWC9vL24t7h9fH1bW1teWjhXUzTr6uuU1syLiovBuH
+FTU1NKSkry9PTV7+pxyby1tLWbmpvn3YhmZmajnGCZkVl4ckdHR0dLRy30+/ny8fLj9PHt7++24t
+vJyMl5zMCsq6yYpazz54+6sG3i4eKm3NSxu8BpxrlVv7FHYm48WWZZWVlXV1eJg1FvakLQ7ejE6O
+LGysakyaSHmJ82npLg1oPb0IFOg33SyHvNw3jjyHNpaWk3VWNFnUQrMDAlIxgFgwXa8O3P1dimsr
+ddwrSysrKFhYWDg4NTa3fHvnVsa2yqoWSDfU0xLx7U09S6w8eE0MWhrrR0iJG0rGqvqGiel12Si1
+ZmYTyNnaN/kZlugothd4Fbcn1MZnI8OSSw4Nie2dDFzM/Hysd+zsJNg3xNgnx3s3fhv2tBXWo5V2
+SmnmIsSVY5ljgtMjEsMjFEQSne4uRqf4mupWZRTTDIz9LFztCdvZ2dvZycvZybvJyOh1Q3ljY2lj
+bAyczW07usAAASEElEQVR42uzZsWviYBjH8UdKwOUdEvNGwTQkF+JyckYDFjNIaHsdHM568QZXi0
+UNFLGD4lBwKB3c7H/Q+Vro0P/vOL3lhJP+cp5e4H2gQ8FPnrffSlQkScw/GRF2PSJsUkaEXY8Im5
+QRYaHBw2aUI2iUjFBb1a+weS0np4CRc1peqG1qHTajySlwZC0j1Ba1DqvkVr9kefodw7OrB+cUob
+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"/>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Key</th>
+      <th scope="col">Maps To</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Caps lock + W</td>
+      <td>Toggle WASD mode on/off</td>
+    </tr>
+    <tr>
+      <td>ASD</td>
+      <td>Toggle WASD mode on/off</td>
+    </tr>
+    <tr>
+      <td>W</td>
+      <td>Up</td>
+    </tr>
+    <tr>
+      <td>A</td>
+      <td>Left</td>
+    </tr>
+    <tr>
+      <td>S</td>
+      <td>Down</td>
+    </tr>
+    <tr>
+      <td>D</td>
+      <td>Right</td>
+    </tr>
+    <tr>
+      <td>Q</td>
+      <td>Home</td>
+    </tr>
+    <tr>
+      <td>E</td>
+      <td>End</td>
+    </tr>
+    <tr>
+      <td>R</td>
+      <td>Page Up</td>
+    </tr>
+    <tr>
+      <td>F</td>
+      <td>Page Down</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5>Changelog</h5>
+
+<dl>
+  <dt>Revision 1</dt>
+  <dd>Original version.</dd>
+  <dt>Revision 2</dt>
+  <dd>Added ability to toggle mode with "ASD" combo.</dd>
+</dl>

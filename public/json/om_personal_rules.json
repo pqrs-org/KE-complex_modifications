@@ -1,0 +1,757 @@
+{
+  "title": "Personal Rules (@omonomo)",
+  "rules": [
+    {
+      "description": "Fn + Esc -> Clear",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "escape",
+            "modifiers": {
+              "mandatory": ["fn"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "keypad_num_lock"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fn + Caps_Lock -> Caps_Lock, Caps_Lock -> Right_Control",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "optional": [
+                "shift",
+                "option",
+                "control",
+                "command",
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_control"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_control",
+            "modifiers": {
+              "mandatory": ["fn"],
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "caps_lock"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Right_Control + Shift + Space -> Insert Space",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "mandatory": [
+              "right_control",
+              "shift"
+              ],
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "spacebar"
+            },
+            {
+              "key_code": "left_arrow",
+              "repeat": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fn + Space -> Space (repeat), Space alone -> Space, Space hold -> Left_Shift",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "optional": [
+                "shift",
+                "option",
+                "control",
+                "command",
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_shift"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "spacebar"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "mandatory": ["fn"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "spacebar"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fn + Return -> Enter, Return alone -> Return, Return hold -> Left_Control",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "return_or_enter",
+            "modifiers": {
+              "optional": [
+                "shift",
+                "option",
+                "control",
+                "command",
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_control"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "return_or_enter"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "return_or_enter",
+            "modifiers": {
+              "mandatory": ["fn"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "keypad_enter"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Right_Control + Left_Option + E/X/S/D -> Left_Control + Left_Option + Up/Down/Left/Right",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "e",
+            "modifiers": {
+              "mandatory": [
+                "right_control",
+                "left_option"
+              ],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow",
+              "modifiers": [
+                "left_option",
+                "left_control"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "x",
+            "modifiers": {
+              "mandatory": [
+                "right_control",
+                "left_option"
+              ],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "down_arrow",
+              "modifiers": [
+                "left_option",
+                "left_control"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "s",
+            "modifiers": {
+              "mandatory": [
+                "right_control",
+                "left_option"
+              ],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "left_option",
+                "left_control"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "d",
+            "modifiers": {
+              "mandatory": [
+                "right_control",
+                "left_option"
+              ],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "left_option",
+                "left_control"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Right_Control + Up/Down/Left/Right -> Up/Down/Left/Right",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "up_arrow",
+            "modifiers": {
+              "mandatory": ["right_control"],
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [{"key_code": "up_arrow"}]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "down_arrow",
+            "modifiers": {
+              "mandatory": ["right_control"],
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [{"key_code": "down_arrow"}]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_arrow",
+            "modifiers": {
+              "mandatory": ["right_control"],
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [{"key_code": "left_arrow"}]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_arrow",
+            "modifiers": {
+              "mandatory": ["right_control"],
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [{"key_code": "right_arrow"}]
+        }
+      ]
+    },
+    {
+      "description": "Right_Control + E/X/S/D/R/C -> Up/Down/Left/Right/PageUp/PageDown",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "e",
+            "modifiers": {
+              "mandatory": ["right_control"],
+              "optional": ["any"]
+            }
+          },
+          "to": [{"key_code": "up_arrow"}]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "x",
+            "modifiers": {
+              "mandatory": ["right_control"],
+              "optional": ["any"]
+            }
+          },
+          "to": [{"key_code": "down_arrow"}]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "s",
+            "modifiers": {
+              "mandatory": ["right_control"],
+              "optional": ["any"]
+            }
+          },
+          "to": [{"key_code": "left_arrow"}]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "d",
+            "modifiers": {
+              "mandatory": ["right_control"],
+              "optional": ["any"]
+            }
+          },
+          "to": [{"key_code": "right_arrow"}]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "r",
+            "modifiers": {
+              "mandatory": ["right_control"],
+              "optional": ["any"]
+            }
+          },
+          "to": [{"key_code": "page_up"}]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "c",
+            "modifiers": {
+              "mandatory": ["right_control"],
+              "optional": ["any"]
+            }
+          },
+          "to": [{"key_code": "page_down"}]
+        }
+      ]
+    },
+    {
+      "description": "Right_Control + A/F -> Left_Option + Left/Right",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "a",
+            "modifiers": {
+              "mandatory": ["right_control"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": ["left_option"]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f",
+            "modifiers": {
+              "mandatory": ["right_control"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": ["left_option"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Right_Control + U/I/M/V/H/G -> Esc/Tab/Return/Enter/Delete/Forward_Delete",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "u",
+            "modifiers": {
+              "mandatory": ["right_control"],
+              "optional": ["any"]
+            }
+          },
+          "to": [{"key_code": "escape"}]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "mandatory": ["right_control"],
+              "optional": ["any"]
+            }
+          },
+          "to": [{"key_code": "tab"}]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "m",
+            "modifiers": {
+              "mandatory": ["right_control"],
+              "optional": ["any"]
+            }
+          },
+          "to": [{"key_code": "return_or_enter"}]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "v",
+            "modifiers": {
+              "mandatory": ["right_control"],
+              "optional": ["any"]
+            }
+          },
+          "to": [{"key_code": "keypad_enter"}]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "mandatory": ["right_control"],
+              "optional": ["any"]
+            }
+          },
+          "to": [{"key_code": "delete_or_backspace"}]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "g",
+            "modifiers": {
+              "mandatory": ["right_control"],
+              "optional": ["any"]
+            }
+          },
+          "to": [{"key_code": "delete_forward"}]
+        }
+      ]
+    },
+    {
+      "description": "Right_Control + 1/2/3/4/5/6/7/8/9/0/-/= -> F1 ~ F12",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "1",
+            "modifiers": {
+              "mandatory": ["right_control"],
+              "optional": ["any"]
+            }
+          },
+          "to": [{"key_code": "f1"}]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "2",
+            "modifiers": {
+              "mandatory": ["right_control"],
+              "optional": ["any"]
+            }
+          },
+          "to": [{"key_code": "f2"}]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "3",
+            "modifiers": {
+              "mandatory": ["right_control"],
+              "optional": ["any"]
+            }
+          },
+          "to": [{"key_code": "f3"}]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "4",
+            "modifiers": {
+              "mandatory": ["right_control"],
+              "optional": ["any"]
+            }
+          },
+          "to": [{"key_code": "f4"}]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "5",
+            "modifiers": {
+              "mandatory": ["right_control"],
+              "optional": ["any"]
+            }
+          },
+          "to": [{"key_code": "f5"}]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "6",
+            "modifiers": {
+              "mandatory": ["right_control"],
+              "optional": ["any"]
+            }
+          },
+          "to": [{"key_code": "f6"}]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "7",
+            "modifiers": {
+              "mandatory": ["right_control"],
+              "optional": ["any"]
+            }
+          },
+          "to": [{"key_code": "f7"}]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "8",
+            "modifiers": {
+              "mandatory": ["right_control"],
+              "optional": ["any"]
+            }
+          },
+          "to": [{"key_code": "f8"}]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "9",
+            "modifiers": {
+              "mandatory": ["right_control"],
+              "optional": ["any"]
+            }
+          },
+          "to": [{"key_code": "f9"}]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "0",
+            "modifiers": {
+              "mandatory": ["right_control"],
+              "optional": ["any"]
+            }
+          },
+          "to": [{"key_code": "f10"}]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "hyphen",
+            "modifiers": {
+              "mandatory": ["right_control"],
+              "optional": ["any"]
+            }
+          },
+          "to": [{"key_code": "f11"}]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "equal_sign",
+            "modifiers": {
+              "mandatory": ["right_control"],
+              "optional": ["any"]
+            }
+          },
+          "to": [{"key_code": "f12"}]
+        }
+      ]
+    },
+    {
+      "description": "Left_Command alone -> EISUU, Right_Command alone -> KANA",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_command",
+            "modifiers": {
+              "optional": [
+                "shift",
+                "option",
+                "control",
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_command"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "japanese_eisuu"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_command",
+            "modifiers": {
+              "optional": [
+                "shift",
+                "option",
+                "control",
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_command"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "japanese_kana"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Command + Q * 2 -> Command + Q",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "command-q",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "mandatory": ["command"],
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "q",
+              "modifiers": "left_command"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "mandatory": ["command"],
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "command-q",
+                "value": 1
+              }
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "command-q",
+                  "value": 0
+                }
+              }
+            ],
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "command-q",
+                  "value": 0
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

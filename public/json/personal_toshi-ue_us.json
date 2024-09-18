@@ -1,0 +1,37 @@
+{
+  "title": "Personal rules (@toshi-ue) US Keyboard Settings",
+  "rules": [
+    {
+      "description": "Caps Lock to Control When Held in US keyboard",
+      "_comment": "",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 100,
+            "basic.to_if_held_down_threshold_milliseconds": 100
+          },
+          "to_if_alone": [
+            {
+              "key_code": "caps_lock"
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "repeat": true,
+              "key_code": "left_control"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

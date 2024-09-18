@@ -1,0 +1,191 @@
+{
+  "title": "mouse_key_gesture",
+  "rules":
+  [
+    {
+      "description": "button5 to mission_control",
+      "manipulators":
+      [
+        {
+          "type": "basic",
+          "from":
+          {
+            "pointing_button": "button5"
+          },
+          "to":
+          [
+            {
+              "key_code": "mission_control"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "button4 to command + [",
+      "manipulators":
+      [
+        {
+          "type": "basic",
+          "from":
+          {
+              "pointing_button": "button4"
+          },
+          "to":
+          [
+            {
+              "key_code": "open_bracket",
+              "modifiers":
+              [
+                "command" 
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "option & button4 to command + ]",
+      "manipulators":
+      [
+        {
+          "type": "basic",
+          "from":
+          {
+            "pointing_button": "button4",
+            "modifiers":
+            {
+              "mandatory":
+              [
+                "left_option"
+              ]
+            }
+          },
+          "to":
+          [
+            {
+              "key_code": "close_bracket",
+              "modifiers":
+              [
+                "command" 
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "control & button5 to Left Desktop",
+      "manipulators":
+      [
+        {
+          "type": "basic",
+          "from":
+          {
+            "pointing_button": "button5",
+            "modifiers":
+            {
+              "mandatory":
+              [
+                "left_control"
+              ]
+            }
+          },
+          "to":
+          [
+            {
+              "key_code": "left_arrow",
+              "modifiers":
+              [
+                "left_control" 
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "option & button5 to Right Desktop",
+      "manipulators":
+      [
+        {
+          "type": "basic",
+          "from":
+          {
+            "pointing_button": "button5",
+            "modifiers":
+            {
+              "mandatory":
+              [
+                "left_option"
+              ]
+            }
+          },
+          "to":
+          [
+            {
+              "key_code": "right_arrow",
+              "modifiers":
+              [
+                "left_control" 
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "button3 to command + m",
+      "manipulators":
+      [
+        {
+          "type": "basic",
+          "from":
+          {
+              "pointing_button": "button3"
+          },
+          "to":
+          [
+            {
+              "key_code": "m",
+              "modifiers":
+              [
+                "command" 
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "option & button3 to command + h",
+      "manipulators":
+      [
+        {
+          "type": "basic",
+          "from":
+          {
+              "pointing_button": "button3",
+              "modifiers":
+              {
+                "mandatory":
+                [
+                  "left_option"
+                ]
+              }
+          },
+          "to":
+          [
+            {
+              "key_code": "h",
+              "modifiers":
+              [
+                "command" 
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

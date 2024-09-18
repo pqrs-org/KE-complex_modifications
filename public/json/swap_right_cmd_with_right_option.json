@@ -1,0 +1,43 @@
+{
+  "title": "Swap right cmd with right option",
+  "maintainers": [
+    "devnoname120"
+  ],
+  "rules": [{
+    "description": "Swap right cmd with right option",
+    "manipulators": [
+        {
+            "from": {
+                "key_code": "right_option",
+                "modifiers": {
+                    "optional": [
+                        "any"
+                    ]
+                }
+            },
+            "to": [
+                {
+                    "key_code": "right_command"
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "from": {
+                "key_code": "right_command",
+                "modifiers": {
+                    "optional": [
+                        "any"
+                    ]
+                }
+            },
+            "to": [
+                {
+                    "key_code": "right_option"
+                }
+            ],
+            "type": "basic"
+        }
+    ]
+  }]
+}

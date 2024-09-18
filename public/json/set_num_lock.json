@@ -1,0 +1,64 @@
+{
+  "title": "LCtrl-LShift-N to toggle num-lock",
+  "rules": [
+    {
+      "description": "LCtrl-LShift-N to toggle num-lock",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "left_control",
+                "left_shift"
+              ]
+            },
+            "key_code": "n"
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numeric_keypad_mode",
+              "value": 0
+            }
+          ],
+          "to": [
+            {
+              "set_variable": {
+                "name": "numeric_keypad_mode",
+                "value": 1
+              }
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "left_control",
+                "left_shift"
+              ]
+            },
+            "key_code": "n"
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numeric_keypad_mode",
+              "value": 1
+            }
+          ],
+          "to": [
+            {
+              "set_variable": {
+                "name": "numeric_keypad_mode",
+                "value": 0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

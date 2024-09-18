@@ -1,0 +1,35 @@
+{
+  "title": "Russian Keyboard Remapping: Маленькая ю на shift+ю",
+  "maintainers": ["maxdzyubak"],
+  "rules": [
+    {
+      "description": "Russian Keyboard Remapping: Маленькая ю на shift+ю",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "input_sources": [
+                {
+                  "language": "ru"
+                }
+              ],
+              "type": "input_source_if"
+            }
+          ],
+          "from": {
+            "key_code": "period",
+            "modifiers": {
+              "mandatory": ["shift"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "period"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}

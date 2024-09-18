@@ -18,12 +18,57 @@
           "to": [
             {
               "key_code": "right_shift",
-              "modifiers": ["right_command", "right_control", "right_option"]
+              "modifiers": ["right_command", "right_control", "right_option"],
+              "lazy": true
             }
           ],
           "to_if_alone": [
             {
-              "key_code": "escape"
+              "key_code": "escape",
+              "lazy": true
+            }
+          ]
+        },
+        {
+          "description": "ESC equal to CapsLock",
+          "type": "basic",
+          "from": {
+            "key_code": "escape",
+            "modifiers": {
+              "optional": ["caps_lock"],
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "caps_lock",
+              "modifiers": ["left_control"]
+            }
+          ]
+        },
+        {
+          "description": "Language switch",
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "spacebar",
+              "modifiers": ["left_control"]
             }
           ]
         }

@@ -1,0 +1,41 @@
+{
+  "title": "Shapr3d rotation",
+  "rules": [
+    {
+      "description": "mouse button 3 to mouse button 2 + shift",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button3"
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "description": "",
+              "bundle_identifiers": [
+                "com.shapr3d.shapr"
+              ]
+            }
+          ],
+          "to_if_alone": [
+            {
+              "repeat": false,
+              "pointing_button": "button3"
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "repeat": true,
+              "pointing_button": "button2",
+              "modifiers": [
+                "left_shift"
+              ],
+              "halt": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

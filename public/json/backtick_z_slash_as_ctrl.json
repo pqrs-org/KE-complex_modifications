@@ -36,6 +36,23 @@
           "from": {
             "key_code": "z",
             "modifiers": {
+              "mandatory": [
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "z",
+              "modifiers": "shift"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "z",
+            "modifiers": {
               "optional": [
                 "any"
               ]
@@ -51,7 +68,10 @@
             {
               "key_code": "z"
             }
-          ]
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 300
+          }
         }
       ]
     },

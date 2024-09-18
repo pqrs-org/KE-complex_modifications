@@ -1,16 +1,16 @@
 {
-  "title": "Navigation in Terminal Apps",
+  "title": "Keyboard shortcuts for Terminal apps",
   "maintainers": [
     "marlonrichert"
   ],
   "rules": [
     {
-      "description": "⌘ + ← | Move cursor to line begin",
+      "description": "Keyboard shortcuts for Terminal apps",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "left_arrow",
+            "key_code": "z",
             "modifiers": {
               "mandatory": [
                 "command"
@@ -19,7 +19,7 @@
           },
           "to": [
             {
-              "key_code": "a",
+              "key_code": "hyphen",
               "modifiers": [
                 "left_control"
               ]
@@ -34,20 +34,50 @@
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
+                "^org\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$"
               ]
             }
           ]
-        }
-      ]
-    },
-    {
-      "description": "⌘ + → | Move cursor to line end",
-      "manipulators": [
+        },
         {
           "type": "basic",
           "from": {
-            "key_code": "right_arrow",
+            "key_code": "z",
+            "modifiers": {
+              "mandatory": [
+                "command",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "escape"
+            },
+            {
+              "key_code": "e"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^org\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "d",
             "modifiers": {
               "mandatory": [
                 "command"
@@ -56,7 +86,10 @@
           },
           "to": [
             {
-              "key_code": "e",
+              "key_code": "escape"
+            },
+            {
+              "key_code": "hyphen",
               "modifiers": [
                 "left_control"
               ]
@@ -71,16 +104,107 @@
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
+                "^org\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$"
               ]
             }
           ]
-        }
-      ]
-    },
-    {
-      "description": "⌥ + ← | Move cursor one word behind",
-      "manipulators": [
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "d",
+            "modifiers": {
+              "mandatory": [
+                "command",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "escape"
+            },
+            {
+              "key_code": "period"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^org\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "delete_forward"
+          },
+          "to": [
+            {
+              "key_code": "d",
+              "modifiers": [
+                "right_control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^org\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "delete_or_backspace",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d",
+              "modifiers": [
+                "right_control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^org\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            }
+          ]
+        },
         {
           "type": "basic",
           "from": {
@@ -108,16 +232,12 @@
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
+                "^org\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$"
               ]
             }
           ]
-        }
-      ]
-    },
-    {
-      "description": "⌥ + → | Move cursor one word ahead",
-      "manipulators": [
+        },
         {
           "type": "basic",
           "from": {
@@ -145,16 +265,12 @@
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
+                "^org\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$"
               ]
             }
           ]
-        }
-      ]
-    },
-    {
-      "description": "⌥ + ⌫ | Delete one word behind",
-      "manipulators": [
+        },
         {
           "type": "basic",
           "from": {
@@ -162,6 +278,178 @@
             "modifiers": {
               "mandatory": [
                 "option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "escape"
+            },
+            {
+              "key_code": "delete_or_backspace"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^org\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "delete_forward",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "escape"
+            },
+            {
+              "key_code": "d"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^org\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "delete_or_backspace",
+            "modifiers": {
+              "mandatory": [
+                "fn",
+                "option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "escape"
+            },
+            {
+              "key_code": "d"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^org\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_arrow",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "escape"
+            },
+            {
+              "key_code": "b",
+              "modifiers": [
+                "right_control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^org\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_arrow",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "escape"
+            },
+            {
+              "key_code": "f",
+              "modifiers": [
+                "right_control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^org\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "delete_or_backspace",
+            "modifiers": {
+              "mandatory": [
+                "command"
               ]
             }
           },
@@ -169,7 +457,7 @@
             {
               "key_code": "w",
               "modifiers": [
-                "left_control"
+                "right_control"
               ]
             }
           ],
@@ -182,44 +470,7 @@
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "⌥ + ⌦ | Delete one word ahead",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "delete_or_backspace",
-            "modifiers": {
-              "mandatory": [
-                "option",
-                "fn"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "escape"
-            },
-            {
-              "key_code": "d"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^io\\.alacritty$",
+                "^org\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$"
               ]
             }
@@ -229,6 +480,119 @@
           "type": "basic",
           "from": {
             "key_code": "delete_forward",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "escape"
+            },
+            {
+              "key_code": "d",
+              "modifiers": [
+                "right_control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^org\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "delete_or_backspace",
+            "modifiers": {
+              "mandatory": [
+                "fn",
+                "command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "escape"
+            },
+            {
+              "key_code": "d",
+              "modifiers": [
+                "right_control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^org\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "u",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "a",
+              "modifiers": [
+                "right_control",
+                "right_shift"
+              ]
+            },
+            {
+              "key_code": "k",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^org\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "up_arrow",
             "modifiers": {
               "mandatory": [
                 "option"
@@ -240,43 +604,9 @@
               "key_code": "escape"
             },
             {
-              "key_code": "d"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^io\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "⌘ + ⌫ | Delete to line begin",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "delete_or_backspace",
-            "modifiers": {
-              "mandatory": [
-                "command"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "u",
+              "key_code": "comma",
               "modifiers": [
-                "left_control"
+                "left_shift"
               ]
             }
           ],
@@ -289,44 +619,7 @@
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "⌘ + ⌦ | Delete to line end",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "delete_or_backspace",
-            "modifiers": {
-              "mandatory": [
-                "command",
-                "fn"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "k",
-              "modifiers": [
-                "left_control"
-              ]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^io\\.alacritty$",
+                "^org\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$"
               ]
             }
@@ -335,18 +628,21 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "delete_forward",
+            "key_code": "down_arrow",
             "modifiers": {
               "mandatory": [
-                "command"
+                "option"
               ]
             }
           },
           "to": [
             {
-              "key_code": "k",
+              "key_code": "escape"
+            },
+            {
+              "key_code": "period",
               "modifiers": [
-                "left_control"
+                "left_shift"
               ]
             }
           ],
@@ -359,6 +655,7 @@
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
+                "^org\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$"
               ]
             }

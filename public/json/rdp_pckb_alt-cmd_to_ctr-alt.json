@@ -1,0 +1,64 @@
+{
+  "title": "Remap PC-Keyboard Alt/Cmd to Ctrl/Alt in RDP sessions.",
+  "rules": [
+    {
+      "description": "Mac OSX RDP: RAW Key Opt to Ctrl",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_alt"
+          },
+          "to": [
+            {
+              "key_code": "left_control"
+            }
+          ],
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.mac$",
+                "^com\\.microsoft\\.rdc\\.macos$",
+                "^com\\.microsoft\\.rdc\\.osx\\.beta$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.teamviewer\\.TeamViewer$"
+              ],
+              "type": "frontmost_application_if"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Mac OSX RDP: RAW Key Cmd to Alt",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_gui"
+          },
+          "to": [
+            {
+              "repeat": false,
+              "key_code": "left_alt"
+            }
+          ],
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.mac$",
+                "^com\\.microsoft\\.rdc\\.macos$",
+                "^com\\.microsoft\\.rdc\\.osx\\.beta$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.teamviewer\\.TeamViewer$"
+              ],
+              "type": "frontmost_application_if"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -363,7 +363,7 @@
       ]
     },
     {
-      "description": "SpaceFN: Space+p to Print Screen, Space+Open Bracket ([) to Scroll Lock, Space+Close Bracket (]) to Pause, Space+Backspace to Forward Delete, Space+Backslash (\\) to Insert",
+      "description": "SpaceFN: Space+p to Print Screen, Space+Open Bracket ([) to Scroll Lock, Space+Close Bracket (]) to Pause, Space+Backslash (\\) to Insert",
       "manipulators": [
         {
           "type": "basic",
@@ -456,7 +456,12 @@
               "value": 1
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "description": "SpaceFN: Space+Backspace to Forward Delete",
+      "manipulators": [
         {
           "type": "basic",
           "from": {
@@ -483,7 +488,7 @@
       ]
     },
     {
-      "description": "SpaceFN: Backquote (`) to Escape, Space+[1-9] to F[1-9], Space+0 to F10, Space+Hyphen (-) to F11, Space+Equal Sign (=) to F12, Space+e to Escape, Space+m to Backtick (`), Space+Comma to Tilde (~), Space+Slash (/) to Menu",
+      "description": "SpaceFN: Backquote (`) to Escape",
       "manipulators": [
         {
           "type": "basic",
@@ -507,7 +512,12 @@
               "value": 0
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "description": "SpaceFN: Space+e to Escape, Space+m to Backtick (`), Space+Comma to Tilde (~)",
+      "manipulators": [
         {
           "type": "basic",
           "from": {
@@ -534,7 +544,7 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "grave_accent_and_tilde",
+            "key_code": "m",
             "modifiers": {
               "optional": [
                 "any"
@@ -554,6 +564,37 @@
             }
           ]
         },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "comma",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "spacefn_mode",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "SpaceFN: Space+[1234567890-=] to F[1-12]",
+      "manipulators": [
         {
           "type": "basic",
           "from": {
@@ -829,7 +870,12 @@
               "value": 1
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "description": "SpaceFN: Space+Slash (/) to Menu",
+      "manipulators": [
         {
           "type": "basic",
           "from": {

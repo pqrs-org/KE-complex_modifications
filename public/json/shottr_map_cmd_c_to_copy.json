@@ -1,0 +1,60 @@
+{
+    "title": "Shottr — Cmd+c to copy screenshot to clipboard",
+    "rules": [
+      {
+        "description": "Remap Cmd+shift+c to Cmd+c",
+        "manipulators": [
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "c",
+              "modifiers": {
+                "mandatory": [
+                    "left_command"
+                  ]
+              }
+            },
+            "to": [
+                {
+                "key_code": "c",
+                "modifiers": ["left_command", "shift"]
+                }
+            ],
+            "conditions": [
+              {
+                "type": "frontmost_application_if",
+                "bundle_identifiers": [
+                  "^cc.ffitch.shottr"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "c",
+              "modifiers": {
+                "mandatory": [
+                    "right_command"
+                  ]
+              }
+            },
+            "to": [
+                {
+                "key_code": "c",
+                "modifiers": ["right_command", "shift"]
+                }
+            ],
+            "conditions": [
+              {
+                "type": "frontmost_application_if",
+                "bundle_identifiers": [
+                  "^cc.ffitch.shottr"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }

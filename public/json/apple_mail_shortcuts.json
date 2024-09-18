@@ -1,0 +1,39 @@
+{
+  "title": "Apple Mail shortcuts",
+  "rules": [
+    {
+      "description": "⌘-enter to send in Apple Mail",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ]
+            },
+            "key_code": "return_or_enter"
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "description": "Only for Apple Mail",
+              "bundle_identifiers": [
+                "com.apple.mail"
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "d",
+              "modifiers": [
+                "shift",
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

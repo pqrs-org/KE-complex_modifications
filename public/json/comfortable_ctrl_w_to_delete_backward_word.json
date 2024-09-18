@@ -1,0 +1,65 @@
+{
+  "title": "Comfortable CTRL-W to delete-backward-word",
+  "rules": [
+    {
+      "description": "Caps lock to CTRL",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_control"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "CTRL-W to delete-backward-word",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "w",
+            "modifiers": {
+              "mandatory": [
+                "right_control"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_or_backspace",
+              "modifiers": [
+                "left_option"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "com.googlecode.iterm2",
+                "net.kovidgoyal.kitty",
+                "co.zeit.hyper",
+                "com.apple.Terminal",
+                "io.alacritty"
+              ],
+              "type": "frontmost_application_unless"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

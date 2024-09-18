@@ -1,0 +1,86 @@
+{
+    "title": "Typematrix 2030 USB pc style Copy/Cut/Paste",
+    "rules": [
+        {
+            "description": "Function Copy",
+            "manipulators": [
+                {
+                    "from": {
+                        "key_code": "insert",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_control"
+                            ],
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "c",
+                            "modifiers": [
+                                "command"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "Function Cut",
+            "manipulators": [
+                {
+                    "from": {
+                        "key_code": "delete_forward",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_shift"
+                            ],
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "x",
+                            "modifiers": [
+                                "command"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "Function Paste",
+            "manipulators": [
+                {
+                    "from": {
+                        "key_code": "insert",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_shift"
+                            ],
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "v",
+                            "modifiers": [
+                                "command"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        }
+    ]
+}

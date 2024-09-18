@@ -1,0 +1,35 @@
+{
+  "title": "ClickUp shortcuts",
+  "rules": [
+    {
+      "description": "⌘-w to close internal windows in ClickUp",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ]
+            },
+            "key_code": "w"
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "description": "Only for ClickUp",
+              "bundle_identifiers": [
+                "com.clickup.desktop-app"
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "escape"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "title": "MouseButton 20 to command + option + control + shift + 0 (don’t forget to enable your mouse under Devices)",
+  "rules": [
+    {
+      "description": "MouseButton 20 to command + option + control + shift + 0",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button20",
+            "modifiers": {
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "0",
+              "modifiers": ["left_command", "left_option", "left_control", "left_shift"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

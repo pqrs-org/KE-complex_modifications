@@ -1,0 +1,31 @@
+{
+  "title": "Change caps_lock to dual keys, caps_lock and left_command.",
+  "rules": [
+    {
+      "description": "Change caps_lock to left_command if pressed with other keys, keep caps_lock if pressed alone. It's same as LGUI_T(KC_CAPS) in qmk",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_command"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "caps_lock"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

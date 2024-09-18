@@ -1,0 +1,29 @@
+{
+  "title": "MouseButton5 to Control + MouseButton1 (don’t forget to enable your mouse under Devices). Usefull for gaming purposes, escpecially on Macbooks, where Cmd is placed in place of Ctrl.",
+  "rules": [
+    {
+      "description": "MouseButton5 to Control + MouseButton1",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button5",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "pointing_button": "button1",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

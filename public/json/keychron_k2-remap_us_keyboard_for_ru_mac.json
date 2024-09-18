@@ -1,0 +1,67 @@
+{
+  "title": "Remap some Keychrom K2(US) keys to make it less painful to switch from Macbook(RU) keyboard",
+  "rules": [
+    {
+      "description": "Use cmd+~ instead of cmd+section_sign",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 591,
+                  "vendor_id": 1452
+                }
+              ]
+            }
+          ],
+          "from": {
+            "key_code": "grave_accent_and_tilde",
+            "modifiers": {
+              "mandatory": ["command"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "non_us_backslash",
+              "modifiers": ["command"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Remap app window switcher from cmd+~ to option+tab",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 591,
+                  "vendor_id": 1452
+                }
+              ]
+            }
+          ],
+          "from": {
+            "key_code": "tab",
+            "modifiers": {
+              "mandatory": ["option"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": ["command"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

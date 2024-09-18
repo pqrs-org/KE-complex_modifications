@@ -1,0 +1,95 @@
+{
+  "title": "Text Navigation (VIM style)",
+  "rules": [
+    {
+      "description": "Text Navigation Forward/Backward (fn + left_shift + jl to alt + arrow keys)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "mandatory": [
+                "fn",
+                "left_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "left_alt"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "mandatory": [
+                "fn",
+                "left_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "left_alt"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Text Navigation Forward/Backward (left_command + left_shift + jl to alt + arrow keys)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "mandatory": [
+                "left_shift",
+                "left_gui"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "left_alt"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "mandatory": [
+                "left_shift",
+                "left_gui"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "left_alt"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

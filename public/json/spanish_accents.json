@@ -1,0 +1,899 @@
+{
+    "title": "Hold and tap for Spanish accents",
+    "rules": [
+        {
+            "description": "double A to Á",
+            "manipulators": [
+                {
+                    "conditions": [
+                        {
+                            "name": "a pressed",
+                            "type": "variable_if",
+                            "value": 1
+                        }
+                    ],
+                    "from": {
+                        "key_code": "a"
+                    },
+                    "to": [
+                        {
+                            "key_code": "delete_or_backspace"
+                        },
+                        {
+                            "key_code": "e",
+                            "modifiers": [
+                                "right_alt"
+                            ]
+                        },
+                        {
+                            "key_code": "a"
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "name": "a pressed",
+                            "type": "variable_if",
+                            "value": 1
+                        }
+                    ],
+                    "from": {
+                        "key_code": "a",
+                        "modifiers": {
+                            "mandatory": [
+                                "right_shift"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "delete_or_backspace"
+                        },
+                        {
+                            "key_code": "e",
+                            "modifiers": [
+                                "right_alt"
+                            ]
+                        },
+                        {
+                            "key_code": "a",
+                            "modifiers": [
+                                "right_shift"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "name": "a pressed",
+                            "type": "variable_if",
+                            "value": 1
+                        }
+                    ],
+                    "from": {
+                        "key_code": "a",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_shift"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "delete_or_backspace"
+                        },
+                        {
+                            "key_code": "e",
+                            "modifiers": [
+                                "right_alt"
+                            ]
+                        },
+                        {
+                            "key_code": "a",
+                            "modifiers": [
+                                "left_shift"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "from": {
+                        "key_code": "a",
+                        "modifiers": {
+                            "optional": [
+                                "right_shift",
+                                "left_shift"
+                            ]
+                        }
+                    },
+                    "parameters": {
+                        "basic.to_delayed_action_delay_milliseconds": 500,
+                        "basic.to_if_held_down_threshold_milliseconds": 150
+                    },
+                    "to": [
+                        {
+                            "key_code": "a"
+                        }
+                    ],
+                    "to_delayed_action": {
+                        "to_if_canceled": [
+                            {
+                                "set_variable": {
+                                    "name": "a pressed",
+                                    "value": 0
+                                }
+                            }
+                        ],
+                        "to_if_invoked": [
+                            {
+                                "set_variable": {
+                                    "name": "a pressed",
+                                    "value": 0
+                                }
+                            }
+                        ]
+                    },
+                    "to_if_held_down": [
+                        {
+                            "set_variable": {
+                                "name": "a pressed",
+                                "value": 1
+                            }
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "double E to É",
+            "manipulators": [
+                {
+                    "conditions": [
+                        {
+                            "name": "e pressed",
+                            "type": "variable_if",
+                            "value": 1
+                        }
+                    ],
+                    "from": {
+                        "key_code": "e"
+                    },
+                    "to": [
+                        {
+                            "key_code": "delete_or_backspace"
+                        },
+                        {
+                            "key_code": "e",
+                            "modifiers": [
+                                "right_alt"
+                            ]
+                        },
+                        {
+                            "key_code": "e"
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "name": "e pressed",
+                            "type": "variable_if",
+                            "value": 1
+                        }
+                    ],
+                    "from": {
+                        "key_code": "e",
+                        "modifiers": {
+                            "mandatory": [
+                                "right_shift"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "delete_or_backspace"
+                        },
+                        {
+                            "key_code": "e",
+                            "modifiers": [
+                                "right_alt"
+                            ]
+                        },
+                        {
+                            "key_code": "e",
+                            "modifiers": [
+                                "right_shift"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "name": "e pressed",
+                            "type": "variable_if",
+                            "value": 1
+                        }
+                    ],
+                    "from": {
+                        "key_code": "e",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_shift"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "delete_or_backspace"
+                        },
+                        {
+                            "key_code": "e",
+                            "modifiers": [
+                                "right_alt"
+                            ]
+                        },
+                        {
+                            "key_code": "e",
+                            "modifiers": [
+                                "left_shift"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "from": {
+                        "key_code": "e",
+                        "modifiers": {
+                            "optional": [
+                                "right_shift",
+                                "left_shift"
+                            ]
+                        }
+                    },
+                    "parameters": {
+                        "basic.to_delayed_action_delay_milliseconds": 500,
+                        "basic.to_if_held_down_threshold_milliseconds": 150
+                    },
+                    "to": [
+                        {
+                            "key_code": "e"
+                        }
+                    ],
+                    "to_delayed_action": {
+                        "to_if_canceled": [
+                            {
+                                "set_variable": {
+                                    "name": "e pressed",
+                                    "value": 0
+                                }
+                            }
+                        ],
+                        "to_if_invoked": [
+                            {
+                                "set_variable": {
+                                    "name": "e pressed",
+                                    "value": 0
+                                }
+                            }
+                        ]
+                    },
+                    "to_if_held_down": [
+                        {
+                            "set_variable": {
+                                "name": "e pressed",
+                                "value": 1
+                            }
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "double I to Í",
+            "manipulators": [
+                {
+                    "conditions": [
+                        {
+                            "name": "i pressed",
+                            "type": "variable_if",
+                            "value": 1
+                        }
+                    ],
+                    "from": {
+                        "key_code": "i"
+                    },
+                    "to": [
+                        {
+                            "key_code": "delete_or_backspace"
+                        },
+                        {
+                            "key_code": "e",
+                            "modifiers": [
+                                "right_alt"
+                            ]
+                        },
+                        {
+                            "key_code": "i"
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "name": "i pressed",
+                            "type": "variable_if",
+                            "value": 1
+                        }
+                    ],
+                    "from": {
+                        "key_code": "i",
+                        "modifiers": {
+                            "mandatory": [
+                                "right_shift"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "delete_or_backspace"
+                        },
+                        {
+                            "key_code": "e",
+                            "modifiers": [
+                                "right_alt"
+                            ]
+                        },
+                        {
+                            "key_code": "i",
+                            "modifiers": [
+                                "right_shift"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "name": "i pressed",
+                            "type": "variable_if",
+                            "value": 1
+                        }
+                    ],
+                    "from": {
+                        "key_code": "i",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_shift"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "delete_or_backspace"
+                        },
+                        {
+                            "key_code": "e",
+                            "modifiers": [
+                                "right_alt"
+                            ]
+                        },
+                        {
+                            "key_code": "i",
+                            "modifiers": [
+                                "left_shift"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "from": {
+                        "key_code": "i",
+                        "modifiers": {
+                            "optional": [
+                                "right_shift",
+                                "left_shift"
+                            ]
+                        }
+                    },
+                    "parameters": {
+                        "basic.to_delayed_action_delay_milliseconds": 500,
+                        "basic.to_if_held_down_threshold_milliseconds": 150
+                    },
+                    "to": [
+                        {
+                            "key_code": "i"
+                        }
+                    ],
+                    "to_delayed_action": {
+                        "to_if_canceled": [
+                            {
+                                "set_variable": {
+                                    "name": "i pressed",
+                                    "value": 0
+                                }
+                            }
+                        ],
+                        "to_if_invoked": [
+                            {
+                                "set_variable": {
+                                    "name": "i pressed",
+                                    "value": 0
+                                }
+                            }
+                        ]
+                    },
+                    "to_if_held_down": [
+                        {
+                            "set_variable": {
+                                "name": "i pressed",
+                                "value": 1
+                            }
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "double O to Ó",
+            "manipulators": [
+                {
+                    "conditions": [
+                        {
+                            "name": "o pressed",
+                            "type": "variable_if",
+                            "value": 1
+                        }
+                    ],
+                    "from": {
+                        "key_code": "o"
+                    },
+                    "to": [
+                        {
+                            "key_code": "delete_or_backspace"
+                        },
+                        {
+                            "key_code": "e",
+                            "modifiers": [
+                                "right_alt"
+                            ]
+                        },
+                        {
+                            "key_code": "o"
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "name": "o pressed",
+                            "type": "variable_if",
+                            "value": 1
+                        }
+                    ],
+                    "from": {
+                        "key_code": "o",
+                        "modifiers": {
+                            "mandatory": [
+                                "right_shift"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "delete_or_backspace"
+                        },
+                        {
+                            "key_code": "e",
+                            "modifiers": [
+                                "right_alt"
+                            ]
+                        },
+                        {
+                            "key_code": "o",
+                            "modifiers": [
+                                "right_shift"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "name": "o pressed",
+                            "type": "variable_if",
+                            "value": 1
+                        }
+                    ],
+                    "from": {
+                        "key_code": "o",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_shift"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "delete_or_backspace"
+                        },
+                        {
+                            "key_code": "e",
+                            "modifiers": [
+                                "right_alt"
+                            ]
+                        },
+                        {
+                            "key_code": "o",
+                            "modifiers": [
+                                "left_shift"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "from": {
+                        "key_code": "o",
+                        "modifiers": {
+                            "optional": [
+                                "right_shift",
+                                "left_shift"
+                            ]
+                        }
+                    },
+                    "parameters": {
+                        "basic.to_delayed_action_delay_milliseconds": 500,
+                        "basic.to_if_held_down_threshold_milliseconds": 150
+                    },
+                    "to": [
+                        {
+                            "key_code": "o"
+                        }
+                    ],
+                    "to_delayed_action": {
+                        "to_if_canceled": [
+                            {
+                                "set_variable": {
+                                    "name": "o pressed",
+                                    "value": 0
+                                }
+                            }
+                        ],
+                        "to_if_invoked": [
+                            {
+                                "set_variable": {
+                                    "name": "o pressed",
+                                    "value": 0
+                                }
+                            }
+                        ]
+                    },
+                    "to_if_held_down": [
+                        {
+                            "set_variable": {
+                                "name": "o pressed",
+                                "value": 1
+                            }
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "double U to Ú",
+            "manipulators": [
+                {
+                    "conditions": [
+                        {
+                            "name": "u pressed",
+                            "type": "variable_if",
+                            "value": 1
+                        }
+                    ],
+                    "from": {
+                        "key_code": "u"
+                    },
+                    "to": [
+                        {
+                            "key_code": "delete_or_backspace"
+                        },
+                        {
+                            "key_code": "e",
+                            "modifiers": [
+                                "right_alt"
+                            ]
+                        },
+                        {
+                            "key_code": "u"
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "name": "u pressed",
+                            "type": "variable_if",
+                            "value": 1
+                        }
+                    ],
+                    "from": {
+                        "key_code": "u",
+                        "modifiers": {
+                            "mandatory": [
+                                "right_shift"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "delete_or_backspace"
+                        },
+                        {
+                            "key_code": "e",
+                            "modifiers": [
+                                "right_alt"
+                            ]
+                        },
+                        {
+                            "key_code": "u",
+                            "modifiers": [
+                                "right_shift"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "name": "u pressed",
+                            "type": "variable_if",
+                            "value": 1
+                        }
+                    ],
+                    "from": {
+                        "key_code": "u",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_shift"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "delete_or_backspace"
+                        },
+                        {
+                            "key_code": "e",
+                            "modifiers": [
+                                "right_alt"
+                            ]
+                        },
+                        {
+                            "key_code": "u",
+                            "modifiers": [
+                                "left_shift"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "from": {
+                        "key_code": "u",
+                        "modifiers": {
+                            "optional": [
+                                "right_shift",
+                                "left_shift"
+                            ]
+                        }
+                    },
+                    "parameters": {
+                        "basic.to_delayed_action_delay_milliseconds": 500,
+                        "basic.to_if_held_down_threshold_milliseconds": 150
+                    },
+                    "to": [
+                        {
+                            "key_code": "u"
+                        }
+                    ],
+                    "to_delayed_action": {
+                        "to_if_canceled": [
+                            {
+                                "set_variable": {
+                                    "name": "u pressed",
+                                    "value": 0
+                                }
+                            }
+                        ],
+                        "to_if_invoked": [
+                            {
+                                "set_variable": {
+                                    "name": "u pressed",
+                                    "value": 0
+                                }
+                            }
+                        ]
+                    },
+                    "to_if_held_down": [
+                        {
+                            "set_variable": {
+                                "name": "u pressed",
+                                "value": 1
+                            }
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "double N to Ñ",
+            "manipulators": [
+                {
+                    "conditions": [
+                        {
+                            "name": "n pressed",
+                            "type": "variable_if",
+                            "value": 1
+                        }
+                    ],
+                    "from": {
+                        "key_code": "n"
+                    },
+                    "to": [
+                        {
+                            "key_code": "delete_or_backspace"
+                        },
+                        {
+                            "key_code": "n",
+                            "modifiers": [
+                                "right_alt"
+                            ]
+                        },
+                        {
+                            "key_code": "n"
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "name": "n pressed",
+                            "type": "variable_if",
+                            "value": 1
+                        }
+                    ],
+                    "from": {
+                        "key_code": "n",
+                        "modifiers": {
+                            "mandatory": [
+                                "right_shift"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "delete_or_backspace"
+                        },
+                        {
+                            "key_code": "n",
+                            "modifiers": [
+                                "right_alt"
+                            ]
+                        },
+                        {
+                            "key_code": "n",
+                            "modifiers": [
+                                "right_shift"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "name": "n pressed",
+                            "type": "variable_if",
+                            "value": 1
+                        }
+                    ],
+                    "from": {
+                        "key_code": "n",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_shift"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "delete_or_backspace"
+                        },
+                        {
+                            "key_code": "n",
+                            "modifiers": [
+                                "right_alt"
+                            ]
+                        },
+                        {
+                            "key_code": "n",
+                            "modifiers": [
+                                "left_shift"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "from": {
+                        "key_code": "n",
+                        "modifiers": {
+                            "optional": [
+                                "right_shift",
+                                "left_shift"
+                            ]
+                        }
+                    },
+                    "parameters": {
+                        "basic.to_delayed_action_delay_milliseconds": 500,
+                        "basic.to_if_held_down_threshold_milliseconds": 150
+                    },
+                    "to": [
+                        {
+                            "key_code": "n"
+                        }
+                    ],
+                    "to_delayed_action": {
+                        "to_if_canceled": [
+                            {
+                                "set_variable": {
+                                    "name": "n pressed",
+                                    "value": 0
+                                }
+                            }
+                        ],
+                        "to_if_invoked": [
+                            {
+                                "set_variable": {
+                                    "name": "n pressed",
+                                    "value": 0
+                                }
+                            }
+                        ]
+                    },
+                    "to_if_held_down": [
+                        {
+                            "set_variable": {
+                                "name": "n pressed",
+                                "value": 1
+                            }
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        }
+    ]
+}

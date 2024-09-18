@@ -1,14 +1,21 @@
 name: KE-complex_modifications CI
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
 
 jobs:
   build:
-    runs-on: macOS-latest
+    runs-on: macos-14
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 1
+          submodules: recursive
       - name: rebuild
         run: make rebuild
+      - name: check uncommitted changes
+        run: bash core/scripts/check-uncommitted-changes.sh

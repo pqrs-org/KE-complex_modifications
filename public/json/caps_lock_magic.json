@@ -1,0 +1,1300 @@
+{
+  "title": "Capslock Magic",
+  "url": "https://github.com/miozus/CapslockMagic/raw/master/tools/karabiner/caps_lock_magic.yml",
+  "version": "1.0.0",
+  "maintainers": [
+    "miozus"
+  ],
+  "author": "miozus",
+  "json_url": "https://github.com/miozus/CapslockMagic/raw/master/tools/karabiner/caps_lock_magic.json",
+  "import_url": "karabiner://karabiner/assets/complex_modifications/import?url=url=https://github.com/pqrs-org/KE-complex_modifications/raw/main/public/json/caps_lock_magic.json",
+  "gallery_url": "https://ke-complex-modifications.pqrs.org/#emulation-modes",
+  "repo": "https://github.com/miozus/CapslockMagic",
+  "rules": [
+    {
+      "description": "Semicolon Pull Down Symbol",
+      "manipulators": [
+        {
+          "description": "semicolon = ;(click) | hyper(hold)",
+          "type": "basic",
+          "from": {
+            "key_code": "semicolon",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "fn",
+              "modifiers": [
+                "right_command",
+                "right_control",
+                "right_option"
+              ]
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "semicolon"
+            }
+          ]
+        },
+        {
+          "description": "; + space = enter",
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "return_or_enter"
+            }
+          ]
+        },
+        {
+          "description": "; + a = *",
+          "type": "basic",
+          "from": {
+            "key_code": "a",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "8",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "; + i = :",
+          "type": "basic",
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "semicolon",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "; + q = (",
+          "type": "basic",
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "9",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "; + q + shift = )",
+          "type": "basic",
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "mandatory": [
+                "left_shift",
+                "right_command",
+                "right_control",
+                "fn",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "0",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "; + c = .",
+          "type": "basic",
+          "from": {
+            "key_code": "c",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "period"
+            }
+          ]
+        },
+        {
+          "description": "; + u = $",
+          "type": "basic",
+          "from": {
+            "key_code": "u",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "4",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "; + e = ^",
+          "type": "basic",
+          "from": {
+            "key_code": "e",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "6",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "; + d = =",
+          "type": "basic",
+          "from": {
+            "key_code": "d",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "equal_sign"
+            }
+          ]
+        },
+        {
+          "description": "; + s = <",
+          "type": "basic",
+          "from": {
+            "key_code": "s",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "comma",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "; + f = >",
+          "type": "basic",
+          "from": {
+            "key_code": "f",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "period",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "; + r = &",
+          "type": "basic",
+          "from": {
+            "key_code": "r",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "7",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "; + v = |",
+          "type": "basic",
+          "from": {
+            "key_code": "v",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "backslash",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "; + g = {!}",
+          "type": "basic",
+          "from": {
+            "key_code": "g",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "1",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "; + y = @",
+          "type": "basic",
+          "from": {
+            "key_code": "y",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "2",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "; + x = _",
+          "type": "basic",
+          "from": {
+            "key_code": "x",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "hyphen",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "; + h = `%",
+          "type": "basic",
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "5",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "; + b = {",
+          "type": "basic",
+          "from": {
+            "key_code": "b",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "open_bracket",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "; + b + shift = }",
+          "type": "basic",
+          "from": {
+            "key_code": "b",
+            "modifiers": {
+              "mandatory": [
+                "left_shift",
+                "right_command",
+                "right_control",
+                "fn",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "close_bracket",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "; + j = {text}`;",
+          "type": "basic",
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "semicolon"
+            }
+          ]
+        },
+        {
+          "description": "; + k = ``",
+          "type": "basic",
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde"
+            }
+          ]
+        },
+        {
+          "description": "; + l = `\"",
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "quote",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "; + w = {#}",
+          "type": "basic",
+          "from": {
+            "key_code": "w",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "3",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "; + n = {-}",
+          "type": "basic",
+          "from": {
+            "key_code": "n",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "hyphen"
+            }
+          ]
+        },
+        {
+          "description": "; + m = +",
+          "type": "basic",
+          "from": {
+            "key_code": "m",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "equal_sign",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "; + t = ~",
+          "type": "basic",
+          "from": {
+            "key_code": "t",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "; + shift + t = {space 4}",
+          "type": "basic",
+          "from": {
+            "key_code": "t",
+            "modifiers": {
+              "mandatory": [
+                "left_shift",
+                "right_command",
+                "right_control",
+                "fn",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "spacebar"
+            },
+            {
+              "key_code": "spacebar"
+            },
+            {
+              "key_code": "spacebar"
+            },
+            {
+              "key_code": "spacebar"
+            }
+          ]
+        },
+        {
+          "description": "; + z = ⌘ z",
+          "type": "basic",
+          "from": {
+            "key_code": "z",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "z",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "; + o = switch languge ",
+          "type": "basic",
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "spacebar",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "3 Awake Digital Keyboard",
+      "manipulators": [
+        {
+          "description": "digital = 3(click) | hyper(hold) | 3 & number = f1~12 | 3 & word = digital Keyboard",
+          "type": "basic",
+          "from": {
+            "key_code": "3",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "fn",
+              "modifiers": [
+                "right_command",
+                "right_control",
+                "right_shift"
+              ]
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "3"
+            }
+          ]
+        },
+        {
+          "description": "3 + space = 0",
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "0"
+            }
+          ]
+        },
+        {
+          "description": "3 + m = 1",
+          "type": "basic",
+          "from": {
+            "key_code": "m",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "1"
+            }
+          ]
+        },
+        {
+          "description": "3 + , = 2",
+          "type": "basic",
+          "from": {
+            "key_code": "comma",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "2"
+            }
+          ]
+        },
+        {
+          "description": "3 + . = 3",
+          "type": "basic",
+          "from": {
+            "key_code": "period",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "3"
+            }
+          ]
+        },
+        {
+          "description": "3 + j = 4",
+          "type": "basic",
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "4"
+            }
+          ]
+        },
+        {
+          "description": "3 + k = 5",
+          "type": "basic",
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "5"
+            }
+          ]
+        },
+        {
+          "description": "3 + l = 6",
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "6"
+            }
+          ]
+        },
+        {
+          "description": "3 + u = 7",
+          "type": "basic",
+          "from": {
+            "key_code": "u",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "7"
+            }
+          ]
+        },
+        {
+          "description": "3 + i = 8",
+          "type": "basic",
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "8"
+            }
+          ]
+        },
+        {
+          "description": "3 + o = 9",
+          "type": "basic",
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "9"
+            }
+          ]
+        },
+        {
+          "description": "3 + n = space",
+          "type": "basic",
+          "from": {
+            "key_code": "n",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "spacebar"
+            }
+          ]
+        },
+        {
+          "description": "3 + h = ,",
+          "type": "basic",
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "comma"
+            }
+          ]
+        },
+        {
+          "description": "3 + g = G",
+          "type": "basic",
+          "from": {
+            "key_code": "g",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "g",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "3 + y = .",
+          "type": "basic",
+          "from": {
+            "key_code": "y",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "period"
+            }
+          ]
+        },
+        {
+          "description": "3 + enter = enter",
+          "type": "basic",
+          "from": {
+            "key_code": "return_or_enter",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "return_or_enter"
+            }
+          ]
+        },
+        {
+          "description": "3 + ; = enter",
+          "type": "basic",
+          "from": {
+            "key_code": "semicolon",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "return_or_enter"
+            }
+          ]
+        },
+        {
+          "description": "3 + ' = delete_or_backspace",
+          "type": "basic",
+          "from": {
+            "key_code": "quote",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_or_backspace"
+            }
+          ]
+        },
+        {
+          "description": "3 + 1 = f1",
+          "type": "basic",
+          "from": {
+            "key_code": "1",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f1"
+            }
+          ]
+        },
+        {
+          "description": "3 + 2 = f2",
+          "type": "basic",
+          "from": {
+            "key_code": "2",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f2"
+            }
+          ]
+        },
+        {
+          "description": "3 + 4 = f4",
+          "type": "basic",
+          "from": {
+            "key_code": "4",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f4"
+            }
+          ]
+        },
+        {
+          "description": "3 + 5 = f5",
+          "type": "basic",
+          "from": {
+            "key_code": "5",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f5"
+            }
+          ]
+        },
+        {
+          "description": "3 + 6 = f6",
+          "type": "basic",
+          "from": {
+            "key_code": "6",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f6"
+            }
+          ]
+        },
+        {
+          "description": "3 + 7 = f7",
+          "type": "basic",
+          "from": {
+            "key_code": "7",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "quote"
+            }
+          ]
+        },
+        {
+          "description": "3 + 8 = f8",
+          "type": "basic",
+          "from": {
+            "key_code": "8",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f8"
+            }
+          ]
+        },
+        {
+          "description": "3 + 9 = f9",
+          "type": "basic",
+          "from": {
+            "key_code": "9",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f9"
+            }
+          ]
+        },
+        {
+          "description": "3 + 0 = f10",
+          "type": "basic",
+          "from": {
+            "key_code": "0",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f10"
+            }
+          ]
+        },
+        {
+          "description": "3 + - = f11",
+          "type": "basic",
+          "from": {
+            "key_code": "hyphen",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f11"
+            }
+          ]
+        },
+        {
+          "description": "3 + = = f12",
+          "type": "basic",
+          "from": {
+            "key_code": "equal_sign",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "fn",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f12"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

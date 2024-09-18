@@ -1,0 +1,69 @@
+{
+  "title": "ABC Extended Schwa",
+  "rules": [
+    {
+      "description": "schwa small",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "left_gui"
+              ]
+            },
+            "key_code": "e"
+          },
+          "to": [
+            {
+              "repeat": true,
+              "key_code": "semicolon",
+              "modifiers": [
+                "left_shift",
+                "left_alt"
+              ]
+            },
+            {
+              "repeat": true,
+              "key_code": "e"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "schwa capital",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "left_shift",
+                "left_gui"
+              ]
+            },
+            "key_code": "e"
+          },
+          "to": [
+            {
+              "repeat": true,
+              "key_code": "semicolon",
+              "modifiers": [
+                "left_alt",
+                "left_shift"
+              ]
+            },
+            {
+              "repeat": true,
+              "key_code": "e",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

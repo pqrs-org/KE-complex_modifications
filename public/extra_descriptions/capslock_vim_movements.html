@@ -1,0 +1,81 @@
+<link rel="stylesheet" href="../../vendor/css/bootstrap.min.css" />
+
+<h4>Caps Lock Vim Movements (rev 2)</h4>
+
+<p>Simulate Vim movements with caps lock as the main modifier.</p>
+
+<h5>Motivation</h5>
+
+<p>After trying a few different rules, they were too complicated and the feature
+set ended up not combining well with native MacOS modifiers.</p>
+
+<p>The objectives of this rule set are:</p>
+
+<ul>
+  <li>Home-row caps lock engagement.</li>
+  <li>No modifier overrides so OS defaults continue to work.</li>
+  <li>Do not map keys that OS (MacOS) already support; i.e. Home can be achieved with Command + Caps + K.</li>
+</ul>
+
+<h5>Key Map</h5>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Key</th>
+      <th scope="col">Maps To</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Caps lock</td>
+      <td>Escape</td>
+    </tr>
+    <tr>
+      <td>Caps lock + Return (if enable "CAPS+↩︎ › CAPS" rule)</td>
+      <td>Caps lock</td>
+    </tr>
+    <tr>
+      <td>Caps lock + A (if enable "CAPS+A › CAPS" rule)</td>
+      <td>Caps lock</td>
+    </tr>
+    <tr>
+      <td>Caps lock + H</td>
+      <td>Left arrow</td>
+    </tr>
+    <tr>
+      <td>Caps lock + J</td>
+      <td>Down arrow</td>
+    </tr>
+    <tr>
+      <td>Caps lock + K</td>
+      <td>Up arrow</td>
+    </tr>
+    <tr>
+      <td>Caps lock + L</td>
+      <td>Right arrow</td>
+    </tr>
+    <tr>
+      <td>Caps lock + D</td>
+      <td>Page Down</td>
+    </tr>
+    <tr>
+      <td>Caps lock + U</td>
+      <td>Page Up</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5>Change Log</h5>
+
+<dl>
+  <dt>Revision 1</dt>
+  <dd>Original version.</dd>
+  <dt>Revision 2</dt>
+  <dd>Split "CAPS+↩︎ › CAPS" from main rule and added "CAPS+A › CAPS".</dd>
+</dl>
+
+<h5>Credits</h5>
+
+<p>This rule was largely based on work done by "CAPS LOCK: Converts 'jkl;' to
+arrow keys, and 'spacebar' to a shift+opt modifier for easy text selection".</p>

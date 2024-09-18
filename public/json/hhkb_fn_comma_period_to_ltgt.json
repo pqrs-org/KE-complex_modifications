@@ -1,0 +1,52 @@
+{
+  "title": "HHKB mapping for programming (Fn+comma → <, Fn+period → >)",
+  "rules": [
+    {
+      "description": "Fn+comma (End) => less than (>)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "end",
+            "modifiers": {
+              "mandatory": [
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "comma",
+              "modifiers": [
+                  "left_shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "description": "Fn+period (PgDn) => greater than (>)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "page_down",
+            "modifiers": {
+              "mandatory": [
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "period",
+              "modifiers": [
+                  "left_shift"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

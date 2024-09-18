@@ -1,0 +1,55 @@
+{
+  "title": "Open a Terminal window with Ctrl-Alt-T",
+  "rules": [
+    {
+        "description": "Open a terminal window with Ctrl-RAlt-T",
+        "manipulators": [
+            {
+                "from": {
+                    "key_code": "t",
+                    "modifiers": {
+                        "mandatory": [
+                            "left_control",
+                            "right_option"
+                        ],
+                        "optional": [
+                            "caps_lock"
+                        ]
+                    }
+                },
+                "to": [
+                    {
+                        "shell_command": "open -a Terminal ~"
+                    }
+                ],
+                "type": "basic"
+            }
+        ]
+    },
+    {
+        "description": "Open a terminal window with Ctrl-LAlt-T",
+        "manipulators": [
+            {
+                "from": {
+                    "key_code": "t",
+                    "modifiers": {
+                        "mandatory": [
+                            "left_control",
+                            "left_option"
+                        ],
+                        "optional": [
+                            "caps_lock"
+                        ]
+                    }
+                },
+                "to": [
+                    {
+                        "shell_command": "open -a Terminal ~"
+                    }
+                ],
+                "type": "basic"
+            }
+        ]
+    }
+  ]
+}

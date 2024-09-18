@@ -1,0 +1,13 @@
+<link rel="stylesheet" href="../../vendor/css/bootstrap.min.css" />
+
+<br>
+<p>Tired of Safari or other apps stealing the focus of your shiny multimedia keys. Are you playing or pausing the youtube video when you actually want to pause the Music app in the background? Use these shortcuts instead to control the Music app explicitly to avoid mistakes!</p>
+<p>The keyboard shortcuts are based on old defaults from <a href="http://yellowmug.com/sk4it/">SizzlingKeys</a> which is not maintained any more and was only for iTunes rather than the new Apple Music app abomination. These shortcuts are most likely going to clash with something else you have, unless you have kept upgrading your mac from those times and never updated the shortcuts. So just copy the JSON and change the bindings to your liking.</p>
+<p>The three default keyboard bindings:</p>
+<ul>
+	<li>Ctrl+Space: pauses or plays back the current Music tune. If the Music app is closed the app will be launched, but for whatever reason it won't start playing until you focus it and play something manually or repeat the keyboard shortcut. &#127822; peak software quality.</li>
+	<li>Command+option+cursor right: Skips to the next song.</li>
+	<li>Command+option+cursor left: Skips to the previous song.</li>
+</ul>
+
+<p>All the <i>magic</i> is done through shell calls to <tt>osascript</tt>. You can find more information about available iTunes/Music commands to use in <tt>osascript</tt> at websites like <a href="https://dougscripts.com/itunes/itinfo/info03.php">Doug's AppleScripts</a>.</p>

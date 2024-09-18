@@ -1,0 +1,918 @@
+{
+  "title": "Mu Mouse Mode (rev 0.3.1)",
+  "rules": [
+    {
+      "description": "Mu Mouse Mode Semicolon(;)+D to enter Mu Mouse Mode(default Mouse Move Mode); V to Mouse Left Click; N to Mouse Right Click; Q to quit Mu Mouse Mode; D: Mouse Move Mode, J/K/L/I/U/M/O/. to Mouse Left/Down/Right/Up/Up-Left/Down-Left/Up-Right/Down-Right; F: Mouse Fast Move Mode, like Mouse Move Mode but faster; S: Mouse Scroll Mode, J/K/L/I to Mouse Scroll Left/Down/Right/Up",
+      "manipulators": [
+        {
+          "description": "D -> mu_mouse_mode in mu_mode(holding ;)",
+          "type": "basic",
+          "from": {
+            "key_code": "d",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mu_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "mu_mouse_mode",
+              "value": 0
+            }
+          ],
+          "to": [
+            {
+              "set_variable": {
+                "name": "mu_mouse_mode",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "mu_mouse_move_mode",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "mu_mouse_fast_move_mode",
+                "value": 0
+              }
+            },
+            {
+              "set_variable": {
+                "name": "mu_mouse_scroll_mode",
+                "value": 0
+              }
+            },
+            {
+              "shell_command": "osascript -e 'display notification \"J/K/L/I/U/M/O/. move mouse, V/N click mouse, S enter scroll mode, Q quit\" with title \"Enter MuMouseMode\"'"
+            }
+          ]          
+        },
+        {
+          "description": "D -> mu_mouse_mode in mu_mouse_mode",
+          "type": "basic",
+          "from": {
+            "key_code": "d",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mu_mouse_mode",
+              "value": 1
+            }
+          ],
+          "to": [
+            {
+              "set_variable": {
+                "name": "mu_mouse_mode",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "mu_mouse_move_mode",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "mu_mouse_fast_move_mode",
+                "value": 0
+              }
+            },
+            {
+              "set_variable": {
+                "name": "mu_mouse_scroll_mode",
+                "value": 0
+              }
+            },
+            {
+              "shell_command": "osascript -e 'display notification \"J/K/L/I/U/M/O/. move mouse, V/N click mouse, S enter scroll mode, Q quit\" with title \"Enter MuMouseMode\"'"
+            }
+          ]          
+        },
+        {
+          "description": "Q -> exit mu_mouse_mode",
+          "type": "basic",
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mu_mouse_mode",
+              "value": 1
+            }
+          ],
+          "to": [
+            {
+              "set_variable": {
+                "name": "mu_mouse_mode",
+                "value": 0
+              }
+            },
+            {
+              "set_variable": {
+                "name": "mu_mouse_move_mode",
+                "value": 0
+              }
+            },
+            {
+              "set_variable": {
+                "name": "mu_mouse_move_fast_mode",
+                "value": 0
+              }
+            },
+            {
+              "set_variable": {
+                "name": "mu_mouse_scroll_mode",
+                "value": 0
+              }
+            },
+            {
+              "shell_command": "osascript -e 'display notification with title \"Quit MuMouseMode\"'"
+            }
+          ]
+        },
+        {
+          "description": "V -> left click in mu_mouse_mode",
+          "type": "basic",
+          "from": {
+            "key_code": "v",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mu_mouse_mode",
+              "value": 1
+            }
+          ],
+          "to": [
+            {
+              "pointing_button": "button1"
+            }
+          ]
+        },
+        {
+          "description": "N -> right click in mu_mouse_mode",
+          "type": "basic",
+          "from": {
+            "key_code": "n",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mu_mouse_mode",
+              "value": 1
+            }
+          ],
+          "to": [
+            {
+              "pointing_button": "button2"
+            }
+          ]
+        },
+        {
+          "description": "J -> move mouse left in mu_mouse_mode",
+          "type": "basic",
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mu_mouse_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "mu_mouse_move_fast_mode",
+              "value": 0
+            },
+            {
+              "type": "variable_if",
+              "name": "mu_mouse_scroll_mode",
+              "value": 0
+            }
+          ],
+          "to": [
+            {
+              "mouse_key": {
+                "x": -700
+              }
+            }
+          ]
+        },
+        {
+          "description": "K -> move mouse down in mu_mouse_mode",
+          "type": "basic",
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mu_mouse_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "mu_mouse_move_fast_mode",
+              "value": 0
+            },
+            {
+              "type": "variable_if",
+              "name": "mu_mouse_scroll_mode",
+              "value": 0
+            }
+          ],
+          "to": [
+            {
+              "mouse_key": {
+                "y": 700
+              }
+            }
+          ]
+        },
+        {
+          "description": "I -> move mouse up in mu_mouse_mode",
+          "type": "basic",
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mu_mouse_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "mu_mouse_move_fast_mode",
+              "value": 0
+            },
+            {
+              "type": "variable_if",
+              "name": "mu_mouse_scroll_mode",
+              "value": 0
+            }
+          ],
+          "to": [
+            {
+              "mouse_key": {
+                "y": -700
+              }
+            }
+          ]
+        },
+        {
+          "description": "L -> move mouse right in mu_mouse_mode",
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mu_mouse_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "mu_mouse_move_fast_mode",
+              "value": 0
+            },
+            {
+              "type": "variable_if",
+              "name": "mu_mouse_scroll_mode",
+              "value": 0
+            }
+          ],
+          "to": [
+            {
+              "mouse_key": {
+                "x": 700
+              }
+            }
+          ]
+        },
+        {
+          "description": "U -> move mouse left-up in mu_mouse_mode",
+          "type": "basic",
+          "from": {
+            "key_code": "u",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mu_mouse_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "mu_mouse_move_fast_mode",
+              "value": 0
+            }
+          ],
+          "to": [
+            {
+              "mouse_key": {
+                "x": -700,
+                "y": -700
+              }
+            }
+          ]
+        },
+        {
+          "description": "M -> move mouse left-down in mu_mouse_mode",
+          "type": "basic",
+          "from": {
+            "key_code": "m",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mu_mouse_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "mu_mouse_move_fast_mode",
+              "value": 0
+            }
+          ],
+          "to": [
+            {
+              "mouse_key": {
+                "x": -700,
+                "y": 700
+              }
+            }
+          ]
+        },
+        {
+          "description": "O -> move mouse right-down in mu_mouse_mode",
+          "type": "basic",
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mu_mouse_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "mu_mouse_move_fast_mode",
+              "value": 0
+            }
+          ],
+          "to": [
+            {
+              "mouse_key": {
+                "x": 700,
+                "y": -700
+              }
+            }
+          ]
+        },
+        {
+          "description": ". -> move mouse right-down in mu_mouse_mode",
+          "type": "basic",
+          "from": {
+            "key_code": "period",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mu_mouse_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "mu_mouse_move_fast_mode",
+              "value": 0
+            }
+          ],
+          "to": [
+            {
+              "mouse_key": {
+                "x": 700,
+                "y": 700
+              }
+            }
+          ]
+        },
+        {
+          "description": "F -> mu_mouse_move_fast_mode in mu_mouse_mode",
+          "type": "basic",
+          "from": {
+            "key_code": "f",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mu_mouse_mode",
+              "value": 1
+            }
+          ],
+          "to": [
+            {
+              "set_variable": {
+                "name": "mu_mouse_move_mode",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "mu_mouse_move_fast_mode",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "mu_mouse_scroll_mode",
+                "value": 0
+              }
+            },
+            {
+              "shell_command": "osascript -e 'display notification \"J/K/L/I/U/M/O/. move mouse, V/N click mouse, S enter scroll mode, D return default move\" with title \"Enter MuMouseMode fast move\"'"
+            }
+          ]
+        },
+        {
+          "description": "D -> mu_mouse_move_mode in mu_mouse_mode",
+          "type": "basic",
+          "from": {
+            "key_code": "d",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mu_mouse_mode",
+              "value": 1
+            }
+          ],
+          "to": [
+            {
+              "set_variable": {
+                "name": "mu_mouse_move_mode",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "mu_mouse_move_fast_mode",
+                "value": 0
+              }
+            },
+            {
+              "set_variable": {
+                "name": "mu_mouse_scroll_mode",
+                "value": 0
+              }
+            }
+          ]
+        },
+        {
+          "description": "J -> move mouse left fast in mu_mouse_fast_mode",
+          "type": "basic",
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mu_mouse_move_fast_mode",
+              "value": 1
+            }
+          ],
+          "to": [
+            {
+              "mouse_key": {
+                "x": -3072
+              }
+            }
+          ]
+        },
+        {
+          "description": "K -> move mouse down fast in mu_mouse_fast_mode",
+          "type": "basic",
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mu_mouse_move_fast_mode",
+              "value": 1
+            }
+          ],
+          "to": [
+            {
+              "mouse_key": {
+                "y": 3072
+              }
+            }
+          ]
+        },
+        {
+          "description": "I -> move mouse up fast in mu_mouse_fast_mode",
+          "type": "basic",
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mu_mouse_move_fast_mode",
+              "value": 1
+            }
+          ],
+          "to": [
+            {
+              "mouse_key": {
+                "y": -3072
+              }
+            }
+          ]
+        },
+        {
+          "description": "L -> move mouse right fast in mu_mouse_fast_mode",
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mu_mouse_move_fast_mode",
+              "value": 1
+            }
+          ],
+          "to": [
+            {
+              "mouse_key": {
+                "x": 3072
+              }
+            }
+          ]
+        },
+        {
+          "description": "U -> move mouse left-up fast in mu_mouse_fast_mode",
+          "type": "basic",
+          "from": {
+            "key_code": "u",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mu_mouse_move_fast_mode",
+              "value": 1
+            }
+          ],
+          "to": [
+            {
+              "mouse_key": {
+                "x": -3072,
+                "y": -3072
+              }
+            }
+          ]
+        },
+        {
+          "description": "M -> move mouse left-down fast in mu_mouse_fast_mode",
+          "type": "basic",
+          "from": {
+            "key_code": "m",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mu_mouse_move_fast_mode",
+              "value": 1
+            }
+          ],
+          "to": [
+            {
+              "mouse_key": {
+                "x": -3072,
+                "y": 3072
+              }
+            }
+          ]
+        },
+        {
+          "description": "O -> move mouse right-up fast in mu_mouse_fast_mode",
+          "type": "basic",
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mu_mouse_move_fast_mode",
+              "value": 1
+            }
+          ],
+          "to": [
+            {
+              "mouse_key": {
+                "x": 3072,
+                "y": -3072
+              }
+            }
+          ]
+        },
+        {
+          "description": ". -> move mouse right-down fast in mu_mouse_fast_mode",
+          "type": "basic",
+          "from": {
+            "key_code": "period",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mu_mouse_move_fast_mode",
+              "value": 1
+            }
+          ],
+          "to": [
+            {
+              "mouse_key": {
+                "x": 3072,
+                "y": 3072
+              }
+            }
+          ]
+        },
+        {
+          "description": "switch to mu_mouse_scroll_mode in mu_mouse_mode",
+          "type": "basic",
+          "from": {
+            "key_code": "s",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mu_mouse_mode",
+              "value": 1
+            }
+          ],
+          "to": [
+            {
+              "set_variable": {
+                "name": "mu_mouse_move_mode",
+                "value": 0
+              }
+            },
+            {
+              "set_variable": {
+                "name": "mu_mouse_move_fast_mode",
+                "value": 0
+              }
+            },
+            {
+              "set_variable": {
+                "name": "mu_mouse_scroll_mode",
+                "value": 1
+              }
+            },
+            {
+              "shell_command": "osascript -e 'display notification \"J/K/L/I/U/M/O/. scroll mouse, V/N click mouse, D/F enter move mode, Q quit\" with title \"Enter MuMouseMode scroll\"'"
+            }
+          ]
+        },
+        {
+          "description": "J -> scoll left in mu_mouse_scroll_mode",
+          "type": "basic",
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mu_mouse_scroll_mode",
+              "value": 1
+            }
+          ],
+          "to": [
+            {
+              "mouse_key": {
+                "horizontal_wheel": 300
+              }
+            }
+          ]
+        },
+        {
+          "description": "K -> scoll down in mu_mouse_scroll_mode",
+          "type": "basic",
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mu_mouse_scroll_mode",
+              "value": 1
+            }
+          ],
+          "to": [
+            {
+              "mouse_key": {
+                "vertical_wheel": 300
+              }
+            }
+          ]
+        },
+        {
+          "description": "I -> scoll up in mu_mouse_scroll_mode",
+          "type": "basic",
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mu_mouse_scroll_mode",
+              "value": 1
+            }
+          ],
+          "to": [
+            {
+              "mouse_key": {
+                "vertical_wheel": -300
+              }
+            }
+          ]
+        },
+        {
+          "description": "L -> scoll right in mu_mouse_scroll_mode",
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mu_mouse_scroll_mode",
+              "value": 1
+            }
+          ],
+          "to": [
+            {
+              "mouse_key": {
+                "horizontal_wheel": -300
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

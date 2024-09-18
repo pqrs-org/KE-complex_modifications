@@ -1,0 +1,166 @@
+{
+  "title": "Personal rules (@iwaltgen)",
+  "maintainers": ["iwaltgen"],
+  "rules": [
+    {
+      "description": "Change command+space to ctrl+shift+space (switch IME)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "mandatory": ["left_command"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "spacebar",
+              "modifiers": ["control", "shift"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Change Korean Won symbol(₩) to backtick",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "grave_accent_and_tilde",
+            "modifiers": {
+              "optional": ["caps_lock", "option"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": ["control", "option"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                  "input_source_id": "com.apple.inputmethod.Korean.2SetKorean"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Esc to Vim Mode",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "escape"
+          },
+          "to_if_alone": [
+            {
+              "key_code": "escape"
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "select_input_source": {
+                "input_source_id": "com.apple.keylayout.ABC",
+                "language": "en"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Vim Mode control+[hjkl]",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "mandatory": ["control"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "mandatory": ["control"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "down_arrow"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "mandatory": ["control"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "mandatory": ["control"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Change shift+delete to forward delete",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "delete_or_backspace",
+            "modifiers": {
+              "mandatory": ["shift"],
+              "optional": ["caps_lock", "option"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_forward"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
