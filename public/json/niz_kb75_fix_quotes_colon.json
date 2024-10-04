@@ -1,0 +1,121 @@
+{
+  "title": "Plum Nano 75 Bluetooth NiZ KB75 75EC-XRGB (fix quotes and semicolon)",
+  "maintainers": [
+    "orkoden"
+  ],
+  "rules": [
+    {
+      "description": " KB75 75EC-XRGB CATEX TECH. (fix quotes and semicolon)",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "product_id": 20518,
+                  "vendor_id": 1155
+                }
+              ],
+              "type": "device_if"
+            }
+          ],
+          "from": {
+            "key_code": "semicolon",
+            "modifiers": {
+              "mandatory": [
+                "left_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "semicolon",
+              "modifiers": []
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "product_id": 20518,
+                  "vendor_id": 1155
+                }
+              ],
+              "type": "device_if"
+            }
+          ],
+          "from": {
+            "key_code": "semicolon",
+            "modifiers": {}
+          },
+          "to": [
+            {
+              "key_code": "semicolon",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "product_id": 20518,
+                  "vendor_id": 1155
+                }
+              ],
+              "type": "device_if"
+            }
+          ],
+          "from": {
+            "key_code": "quote",
+            "modifiers": {
+              "mandatory": [
+                "left_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "quote",
+              "modifiers": []
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "product_id": 20518,
+                  "vendor_id": 1155
+                }
+              ],
+              "type": "device_if"
+            }
+          ],
+          "from": {
+            "key_code": "quote",
+            "modifiers": {}
+          },
+          "to": [
+            {
+              "key_code": "quote",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}
