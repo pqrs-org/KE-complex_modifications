@@ -48,13 +48,14 @@ Follow the steps below to create a PR and add your settings!
     },
     ```
 
+    You can use the tag `<button>⇧Shift</button>` to make a nice <button>⇧Shift</button> in your html.
     </details>
 
 6.  Run `make` command in Terminal to validate your files.<br/>
     If you placed a generator file into `src/json`, json file will be generated in the `public/json` by this command.
 
     ```shell
-    make
+    make all
     ```
 
     If there is a problem, an error message is displayed. Fix your files until no errors are shown.
