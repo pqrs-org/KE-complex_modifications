@@ -10,8 +10,8 @@ function main() {
         maintainers: ['tekezo'],
         rules: [
           {
-            description: 'Personal rules (@tekezo) (rev 55)',
-            available_since: '14.12.6',
+            description: 'Personal rules (@tekezo) (rev 56)',
+            available_since: '15.1.0',
             manipulators: [].concat(
               coreConfiguration(),
               emacs(),
@@ -51,7 +51,11 @@ function coreConfiguration() {
       to: [{ key_code: 'fn' }],
       to_if_alone: [
         {
-          shell_command: "open -b 'com.1password.1password'",
+          software_function: {
+            open_application: {
+              bundle_identifier: 'com.1password.1password',
+            },
+          },
         },
       ],
       parameters: {
