@@ -41,7 +41,7 @@ function coreConfiguration() {
     // fn
     //
 
-    // Copy Unix time when fn is pressed alone
+    // Launch 1Password when fn is pressed alone
     {
       type: 'basic',
       from: {
