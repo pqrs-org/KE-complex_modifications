@@ -230,15 +230,8 @@ function rules() {
       manipulators: [
         {
           type: 'basic',
-          from: { key_code: 'left_shift', modifiers: { mandatory: ['right_shift'], optional: ['caps_lock'] } },
-          to: [{ key_code: 'caps_lock' }],
-          to_if_alone: [{ key_code: 'left_shift' }]
-        },
-        {
-          type: 'basic',
-          from: { key_code: 'right_shift', modifiers: { mandatory: ['left_shift'], optional: ['caps_lock'] } },
-          to: [{ key_code: 'caps_lock' }],
-          to_if_alone: [{ key_code: 'right_shift' }]
+          from: { simultaneous: [{ key_code: 'left_shift' }, { key_code: 'right_shift' }], modifiers: { optional: ['caps_lock'] } },
+          to: [{ key_code: 'caps_lock', hold_down_milliseconds: 200 }, { key_code: 'vk_none' }]
         }
       ]
     },
