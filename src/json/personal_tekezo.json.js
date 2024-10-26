@@ -10,7 +10,7 @@ function main() {
         maintainers: ['tekezo'],
         rules: [
           {
-            description: 'Personal rules (@tekezo) (rev 56)',
+            description: 'Personal rules (@tekezo) (rev 57)',
             available_since: '15.1.0',
             manipulators: [].concat(
               coreConfiguration(),
@@ -229,6 +229,27 @@ function coreConfiguration() {
       parameters: {
         'basic.to_if_alone_timeout_milliseconds': 250,
       },
+    },
+
+    //
+    // command + button2
+    //
+
+    {
+      type: 'basic',
+      from: {
+        pointing_button: 'button2',
+        modifiers: {
+          mandatory: ['command'],
+          optional: ['any'],
+        },
+      },
+      to: [
+        {
+          key_code: 'tab',
+          modifiers: ['command'],
+        },
+      ],
     },
 
     //
