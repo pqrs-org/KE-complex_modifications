@@ -10,8 +10,8 @@ function main() {
         maintainers: ['tekezo'],
         rules: [
           {
-            description: 'Personal rules (@tekezo) (rev 57)',
-            available_since: '15.1.0',
+            description: 'Personal rules (@tekezo) (rev 58)',
+            available_since: '15.2.3',
             manipulators: [].concat(
               coreConfiguration(),
               emacs(),
@@ -1151,9 +1151,20 @@ function appBrowser() {
 }
 
 function appMicrosoftOffice() {
-  return [
-    // Edit cell by command+e in Excel
+  const rules = []
+
+  // Edit cell by command+e in Excel
+  ;[
     {
+      use_fkeys_as_standard_function_keys: true,
+      to: [{ key_code: 'f2' }],
+    },
+    {
+      use_fkeys_as_standard_function_keys: false,
+      to: [{ key_code: 'f2', modifiers: ['fn'] }],
+    },
+  ].forEach(function (def) {
+    rules.push({
       type: 'basic',
       from: {
         key_code: 'e',
@@ -1162,17 +1173,22 @@ function appMicrosoftOffice() {
           optional: ['caps_lock'],
         },
       },
-      to: {
-        key_code: 'f2',
-      },
+      to: def.to,
       conditions: [
         {
           type: 'frontmost_application_if',
           bundle_identifiers: ['^com\\.microsoft\\.Excel$'],
         },
+        {
+          type: 'variable_if',
+          name: 'system.use_fkeys_as_standard_function_keys',
+          value: def.use_fkeys_as_standard_function_keys,
+        },
       ],
-    },
-  ]
+    })
+  })
+
+  return rules
 }
 
 function appVisualStudioCode() {

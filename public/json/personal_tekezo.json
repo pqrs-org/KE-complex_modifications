@@ -5,8 +5,8 @@
   ],
   "rules": [
     {
-      "description": "Personal rules (@tekezo) (rev 57)",
-      "available_since": "15.1.0",
+      "description": "Personal rules (@tekezo) (rev 58)",
+      "available_since": "15.2.3",
       "manipulators": [
         {
           "type": "basic",
@@ -2606,15 +2606,57 @@
               ]
             }
           },
-          "to": {
-            "key_code": "f2"
-          },
+          "to": [
+            {
+              "key_code": "f2"
+            }
+          ],
           "conditions": [
             {
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^com\\.microsoft\\.Excel$"
               ]
+            },
+            {
+              "type": "variable_if",
+              "name": "system.use_fkeys_as_standard_function_keys",
+              "value": true
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "e",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f2",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "system.use_fkeys_as_standard_function_keys",
+              "value": false
             }
           ]
         },
