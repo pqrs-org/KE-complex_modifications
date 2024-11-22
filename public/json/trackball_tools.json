@@ -1,0 +1,35 @@
+{
+  "title": "Trackball tools",
+  "rules": [
+    {
+      "description": "The wheel click is fired by pressing the left and right buttons simultaneously.",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              { "pointing_button": "button1" },
+              { "pointing_button": "button2" }
+            ],
+            "simultaneous_options": {
+              "key_up_when": "all"
+            },
+            "modifiers": {
+              "mandatory": [
+              ],
+              "optional": [
+              ]
+            }
+          },
+          "to": [
+            {
+              "pointing_button": "button3",
+              "modifiers": [
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
