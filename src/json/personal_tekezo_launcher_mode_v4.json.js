@@ -14,7 +14,7 @@ function main() {
         rules: [
           {
             description: 'Launcher Mode v4 (rev 25)',
-            available_since: '15.1.0',
+            available_since: '15.3.4',
             manipulators: [].concat(
               generateLauncherMode('1', { historyIndex: 1 }),
               generateLauncherMode('2', { historyIndex: 2 }),
