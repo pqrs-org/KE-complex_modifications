@@ -5,8 +5,8 @@
   ],
   "rules": [
     {
-      "description": "Launcher Mode v4 (rev 24)",
-      "available_since": "15.1.0",
+      "description": "Launcher Mode v4 (rev 25)",
+      "available_since": "15.3.4",
       "manipulators": [
         {
           "type": "basic",
@@ -18,18 +18,20 @@
               ]
             }
           },
-          "to": [],
+          "to": [
+            {
+              "software_function": {
+                "open_application": {
+                  "history_index": 1
+                }
+              }
+            }
+          ],
           "conditions": [
             {
               "type": "variable_if",
               "name": "launcher_mode_v4",
               "value": 1
-            },
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.apple\\.dt\\.Xcode$"
-              ]
             }
           ]
         },
@@ -68,16 +70,16 @@
                 "name": "launcher_mode_v4",
                 "value": 1
               }
-            }
-          ],
-          "conditions": [
+            },
             {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.apple\\.dt\\.Xcode$"
-              ]
+              "software_function": {
+                "open_application": {
+                  "history_index": 1
+                }
+              }
             }
           ],
+          "conditions": [],
           "parameters": {
             "basic.simultaneous_threshold_milliseconds": 500
           }
@@ -85,7 +87,7 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "1",
+            "key_code": "2",
             "modifiers": {
               "optional": [
                 "any"
@@ -96,7 +98,7 @@
             {
               "software_function": {
                 "open_application": {
-                  "bundle_identifier": "com.apple.dt.Xcode"
+                  "history_index": 2
                 }
               }
             }
@@ -117,7 +119,7 @@
                 "key_code": "o"
               },
               {
-                "key_code": "1"
+                "key_code": "2"
               }
             ],
             "simultaneous_options": {
@@ -148,7 +150,7 @@
             {
               "software_function": {
                 "open_application": {
-                  "bundle_identifier": "com.apple.dt.Xcode"
+                  "history_index": 2
                 }
               }
             }
@@ -168,18 +170,20 @@
               ]
             }
           },
-          "to": [],
+          "to": [
+            {
+              "software_function": {
+                "open_application": {
+                  "history_index": 3
+                }
+              }
+            }
+          ],
           "conditions": [
             {
               "type": "variable_if",
               "name": "launcher_mode_v4",
               "value": 1
-            },
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^org\\.mozilla\\.firefox$"
-              ]
             }
           ]
         },
@@ -218,16 +222,16 @@
                 "name": "launcher_mode_v4",
                 "value": 1
               }
-            }
-          ],
-          "conditions": [
+            },
             {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^org\\.mozilla\\.firefox$"
-              ]
+              "software_function": {
+                "open_application": {
+                  "history_index": 3
+                }
+              }
             }
           ],
+          "conditions": [],
           "parameters": {
             "basic.simultaneous_threshold_milliseconds": 500
           }
@@ -235,7 +239,7 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "3",
+            "key_code": "4",
             "modifiers": {
               "optional": [
                 "any"
@@ -246,7 +250,7 @@
             {
               "software_function": {
                 "open_application": {
-                  "bundle_identifier": "org.mozilla.firefox"
+                  "history_index": 4
                 }
               }
             }
@@ -267,7 +271,7 @@
                 "key_code": "o"
               },
               {
-                "key_code": "3"
+                "key_code": "4"
               }
             ],
             "simultaneous_options": {
@@ -298,7 +302,83 @@
             {
               "software_function": {
                 "open_application": {
-                  "bundle_identifier": "org.mozilla.firefox"
+                  "history_index": 4
+                }
+              }
+            }
+          ],
+          "conditions": [],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 500
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "5",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "software_function": {
+                "open_application": {
+                  "history_index": 5
+                }
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "launcher_mode_v4",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "o"
+              },
+              {
+                "key_code": "5"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "launcher_mode_v4",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "launcher_mode_v4",
+                "value": 1
+              }
+            },
+            {
+              "software_function": {
+                "open_application": {
+                  "history_index": 5
                 }
               }
             }

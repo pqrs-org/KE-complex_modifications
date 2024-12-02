@@ -13,11 +13,14 @@ function main() {
         maintainers: ['tekezo'],
         rules: [
           {
-            description: 'Launcher Mode v4 (rev 24)',
-            available_since: '15.1.0',
+            description: 'Launcher Mode v4 (rev 25)',
+            available_since: '15.3.4',
             manipulators: [].concat(
-              generateLauncherMode('1', { bundleIdentifier: 'com.apple.dt.Xcode' }),
-              generateLauncherMode('3', { bundleIdentifier: 'org.mozilla.firefox' }),
+              generateLauncherMode('1', { historyIndex: 1 }),
+              generateLauncherMode('2', { historyIndex: 2 }),
+              generateLauncherMode('3', { historyIndex: 3 }),
+              generateLauncherMode('4', { historyIndex: 4 }),
+              generateLauncherMode('5', { historyIndex: 5 }),
               generateLauncherMode('a', { bundleIdentifier: 'com.apple.ActivityMonitor' }),
               generateLauncherMode('c', { bundleIdentifier: 'com.google.Chrome' }),
               generateLauncherMode('e', { bundleIdentifier: 'com.microsoft.VSCode' }),
@@ -46,6 +49,7 @@ function generateLauncherMode(
   /**
    * @type {{
    *   bundleIdentifier?: string,
+   *   historyIndex?: number,
    *   to?: any[],
    * }} */
   options
@@ -58,6 +62,15 @@ function generateLauncherMode(
       software_function: {
         open_application: {
           bundle_identifier: options.bundleIdentifier,
+        },
+      },
+    })
+  }
+  if (options.historyIndex !== undefined) {
+    to.push({
+      software_function: {
+        open_application: {
+          history_index: options.historyIndex,
         },
       },
     })
