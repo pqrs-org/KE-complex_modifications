@@ -13,14 +13,14 @@ function main() {
         maintainers: ['tekezo'],
         rules: [
           {
-            description: 'Launcher Mode v4 (rev 25)',
+            description: 'Launcher Mode v4 (rev 26)',
             available_since: '15.3.4',
             manipulators: [].concat(
-              generateLauncherMode('1', { historyIndex: 1 }),
-              generateLauncherMode('2', { historyIndex: 2 }),
-              generateLauncherMode('3', { historyIndex: 3 }),
-              generateLauncherMode('4', { historyIndex: 4 }),
-              generateLauncherMode('5', { historyIndex: 5 }),
+              generateLauncherMode('1', { frontmostApplicationHistoryIndex: 1 }),
+              generateLauncherMode('2', { frontmostApplicationHistoryIndex: 2 }),
+              generateLauncherMode('3', { frontmostApplicationHistoryIndex: 3 }),
+              generateLauncherMode('4', { frontmostApplicationHistoryIndex: 4 }),
+              generateLauncherMode('5', { frontmostApplicationHistoryIndex: 5 }),
               generateLauncherMode('a', { bundleIdentifier: 'com.apple.ActivityMonitor' }),
               generateLauncherMode('c', { bundleIdentifier: 'com.google.Chrome' }),
               generateLauncherMode('e', { bundleIdentifier: 'com.microsoft.VSCode' }),
@@ -49,7 +49,7 @@ function generateLauncherMode(
   /**
    * @type {{
    *   bundleIdentifier?: string,
-   *   historyIndex?: number,
+   *   frontmostApplicationHistoryIndex?: number,
    *   to?: any[],
    * }} */
   options
@@ -66,11 +66,11 @@ function generateLauncherMode(
       },
     })
   }
-  if (options.historyIndex !== undefined) {
+  if (options.frontmostApplicationHistoryIndex !== undefined) {
     to.push({
       software_function: {
         open_application: {
-          history_index: options.historyIndex,
+          frontmost_application_history_index: options.frontmostApplicationHistoryIndex,
         },
       },
     })
