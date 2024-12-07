@@ -34,7 +34,7 @@ function main() {
     '^com\\.googlecode\\.iterm2$',
     '^co\\.zeit\\.hyperterm$',
     '^co\\.zeit\\.hyper$',
-    '^io\\.alacritty$',
+    "^org\\.alacritty$",
     '^net\\.kovidgoyal\\.kitty$',
     '^com\\.github\\.wez\\.wezterm$'
   ])
