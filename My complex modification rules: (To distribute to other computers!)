@@ -1,0 +1,60 @@
+My complex modification rules: (To distribute to other computers!)
+
+
+
+
+
+
+
+
+
+{
+    "description": "Press fn + Shift + \\ to make Mac go to sleep",
+    "manipulators": [
+        {
+            "from": {
+                "key_code": "backslash",
+                "modifiers": { "mandatory": ["fn", "shift"] }
+            },
+            "to": [{ "shell_command": "pmset sleepnow" }],
+            "type": "basic"
+        }
+    ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+    "description": "Press fn + \\ to open Terminal",
+    "manipulators": [
+        {
+            "from": {
+                "key_code": "backslash",
+                "modifiers": { "mandatory": ["fn"] }
+            },
+            "to": [{ "shell_command": "open -a Terminal" }],
+            "type": "basic"
+        }
+    ]
+}
+
+
+
+
+
+
+
+
+
