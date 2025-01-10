@@ -1,0 +1,35 @@
+{
+  "title": "Swap Right Command and Right Option globally",
+  "maintainers": [
+    "mircobabini"
+  ],
+  "rules": [
+    {
+      "description": "Swap Right Command and Right Option for all keyboards.",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_command"
+          },
+          "to": [
+            {
+              "key_code": "right_option"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_option"
+          },
+          "to": [
+            {
+              "key_code": "right_command"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
