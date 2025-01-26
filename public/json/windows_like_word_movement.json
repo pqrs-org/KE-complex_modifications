@@ -1,91 +1,114 @@
 {
-    "description": "Option+Left/Right/Delete/Shift to fn+Left/Right/Delete/Shift (modify for ctrl)",
+    "description": "Option+Left/Right/Delete/Shift to fn+Left/Right/Delete/Shift (modify for ctrl) - Forward Delete becomes Shift + Delete",
     "title": "Option+Left/Right/Delete/Shift to fn+Left/Right/Delete/Shift (modify for ctrl)",
     "maintainers": ["EamesTrinh"],
-    "manipulators": [
-        {
-            "description": "Option+Left Arrow to Command+Left Arrow (Home/Beginning of Line)",
+    "rules": [
+      {
+        "description": "Option+Left Arrow to Fn+Left Arrow (Home/Beginning of Word)",
+        "manipulators": [
+          {
             "from": {
+              "key_code": "left_arrow",
+              "modifiers": { "mandatory": ["fn"], "optional": ["caps_lock"] }
+            },
+            "to": [
+              {
                 "key_code": "left_arrow",
-                "modifiers": { "mandatory": ["fn"] }
-            },
-            "to": [
-                {
-                    "key_code": "left_arrow",
-                    "modifiers": ["option"]
-                }
+                "modifiers": ["option"]
+              }
             ],
             "type": "basic"
-        },
-        {
-            "description": "Option+Right Arrow to Command+Right Arrow (End of Line)",
+          }
+        ]
+      },
+      {
+        "description": "Option+Right Arrow to Fn+Right Arrow (End of Word)",
+        "manipulators": [
+          {
             "from": {
+              "key_code": "right_arrow",
+              "modifiers": { "mandatory": ["fn"], "optional": ["caps_lock"] }
+            },
+            "to": [
+              {
                 "key_code": "right_arrow",
-                "modifiers": { "mandatory": ["fn"] }
-            },
-            "to": [
-                {
-                    "key_code": "right_arrow",
-                    "modifiers": ["option"]
-                }
+                "modifiers": ["option"]
+              }
             ],
             "type": "basic"
-        },
-        {
-            "description": "Option+Backspace to Command+Backspace (Delete to Beginning of Line)",
+          }
+        ]
+      },
+      {
+        "description": "Option+Backspace to Fn+Backspace (Delete to Beginning of Word)",
+        "manipulators": [
+          {
             "from": {
+              "key_code": "delete_or_backspace",
+              "modifiers": { "mandatory": ["fn"], "optional": ["caps_lock"] }
+            },
+            "to": [
+              {
                 "key_code": "delete_or_backspace",
-                "modifiers": { "mandatory": ["fn"] }
-            },
-            "to": [
-                {
-                    "key_code": "delete_or_backspace",
-                    "modifiers": ["option"]
-                }
+                "modifiers": ["option"]
+              }
             ],
             "type": "basic"
-        },
-        {
-            "description": "Option+Delete to Command+Delete (Delete to End of Line)",
+          }
+        ]
+      },
+      {
+        "description": "Shift+Delete becomes Forward Delete",
+        "manipulators": [
+          {
             "from": {
-                "key_code": "delete_forward",
-                "modifiers": { "mandatory": ["fn"] }
+              "key_code": "delete_or_backspace",
+              "modifiers": {"mandatory": ["shift"], "optional": ["caps_lock"]}
             },
             "to": [
-                {
-                    "key_code": "delete_forward",
-                    "modifiers": ["option"]
-                }
+              {
+                  "key_code": "delete_forward"
+              }
             ],
             "type": "basic"
-        },
-        {
-            "description": "Shift+Option+Left Arrow to Shift+Command+Left Arrow (Select to Beginning of Line)",
+          }
+        ]
+      },
+      {
+        "description": "Shift+Option+Left Arrow to Shift+Fn+Left Arrow (Select to Beginning of Word)",
+        "manipulators": [
+          {
             "from": {
+              "key_code": "left_arrow",
+              "modifiers": { "mandatory": ["fn", "shift"], "optional": ["caps_lock"] }
+            },
+            "to": [
+              {
                 "key_code": "left_arrow",
-                "modifiers": { "mandatory": ["fn", "shift"] }
-            },
-            "to": [
-                {
-                    "key_code": "left_arrow",
-                    "modifiers": ["option", "shift"]
-                }
+                "modifiers": ["option", "shift"]
+              }
             ],
             "type": "basic"
-        },
-        {
-            "description": "Shift+Option+Right Arrow to Shift+Command+Right Arrow (Select to End of Line)",
+          }
+        ]
+      },
+      {
+        "description": "Shift+Option+Right Arrow to Shift+Fn+Right Arrow (Select to End of Word)",
+        "manipulators": [
+          {
             "from": {
-                "key_code": "right_arrow",
-                "modifiers": { "mandatory": ["fn", "shift"] }
+              "key_code": "right_arrow",
+              "modifiers": { "mandatory": ["fn", "shift"], "optional": ["caps_lock"] }
             },
             "to": [
-                {
-                    "key_code": "right_arrow",
-                    "modifiers": ["option", "shift"]
-                }
+              {
+                "key_code": "right_arrow",
+                "modifiers": ["option", "shift"]
+              }
             ],
             "type": "basic"
-        }
+          }
+        ]
+      }
     ]
-}
+  }
