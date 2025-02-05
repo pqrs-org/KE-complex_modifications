@@ -1,0 +1,559 @@
+{
+  "title": "Maps by Torma",
+  "maintainer": "torma",
+  "rules": [
+    {
+      "description": "Better Keyboard Map: Shift + Esc -> Caps; Caps -> Esc (alone), L_CTRL (chorded); CTRL + i/j/k/l for arrows",
+      "manipulators": [
+        {
+          "description": "Map Left Shift + Esc -> Caps Lock",
+          "from": {
+            "key_code": "escape",
+            "modifiers": {
+              "mandatory": [
+                "left_shift"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "caps_lock"
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "description": "Map Caps -> Esc (when alone), L_Ctrl (when chorded)",
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "mandatory": [],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_control",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "escape"
+            }
+          ],
+          "type": "basic",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "product_id": 61029,
+                  "vendor_id": 1240
+                }
+              ],
+              "type": "device_unless"
+            }
+          ]
+        },
+        {
+          "description": "Ctrl + i to Up Arrow",
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow"
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "description": "Ctrl + j to Left Arrow",
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow"
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "description": "Ctrl + k to Down Arrow",
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "down_arrow"
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "description": "Ctrl + l to Up Arrow",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Better Trackball Map: Button 6 -> Show Desktop (F18), Button7 -> Double Click =  Launchpad, Click & Hold + Move Cursor = Scroll, Button 8 -> Mission Control",
+      "manipulators": [
+        {
+          "description": "CTRL + Back to move left a space",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "product_id": 306,
+                  "vendor_id": 1390
+                },
+                {
+                  "product_id": 307,
+                  "vendor_id": 1390
+                }
+              ],
+              "type": "device_if"
+            }
+          ],
+          "from": {
+            "pointing_button": "button4",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "description": "CTRL + Forward to move right a space",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "product_id": 306,
+                  "vendor_id": 1390
+                },
+                {
+                  "product_id": 307,
+                  "vendor_id": 1390
+                }
+              ],
+              "type": "device_if"
+            }
+          ],
+          "from": {
+            "pointing_button": "button5",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "description": "Button 6 -> f18 (Show Desktop, on my system)",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "product_id": 306,
+                  "vendor_id": 1390
+                },
+                {
+                  "product_id": 307,
+                  "vendor_id": 1390
+                }
+              ],
+              "type": "device_if"
+            }
+          ],
+          "from": {
+            "pointing_button": "button6",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f18"
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "description": "Button 7 -> Double Click = Launchpad",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "product_id": 306,
+                  "vendor_id": 1390
+                },
+                {
+                  "product_id": 307,
+                  "vendor_id": 1390
+                }
+              ],
+              "type": "device_if"
+            },
+            {
+              "name": "button7_pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "pointing_button": "button7",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "launchpad"
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "button7_pressed",
+                "value": 0
+              }
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "description": "Button 7 -> Hold + Move Cursor = Scroll (1/2)",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "product_id": 306,
+                  "vendor_id": 1390
+                },
+                {
+                  "product_id": 307,
+                  "vendor_id": 1390
+                }
+              ],
+              "type": "device_if"
+            },
+            {
+              "name": "enable_mouse_motion_to_scroll",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "type": "mouse_motion_to_scroll"
+        },
+        {
+          "description": "Button 7 -> Hold + Move Cursor = Scroll (2/2)",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "product_id": 306,
+                  "vendor_id": 1390
+                },
+                {
+                  "product_id": 307,
+                  "vendor_id": 1390
+                }
+              ],
+              "type": "device_if"
+            }
+          ],
+          "from": {
+            "pointing_button": "button7",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "enable_mouse_motion_to_scroll",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "button7_pressed",
+                "value": 1
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "enable_mouse_motion_to_scroll",
+                "value": 0
+              }
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "button7_pressed",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "type": "basic"
+        },
+        {
+          "description": "Button 8 -> Mission Control",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "product_id": 306,
+                  "vendor_id": 1390
+                },
+                {
+                  "product_id": 307,
+                  "vendor_id": 1390
+                }
+              ],
+              "type": "device_if"
+            }
+          ],
+          "from": {
+            "pointing_button": "button8",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "mission_control"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Map Left Shift + Esc -> Caps Lock",
+      "manipulators": [
+        {
+          "description": "Map Left Shift + Esc -> Caps Lock",
+          "from": {
+            "key_code": "escape",
+            "modifiers": {
+              "mandatory": [
+                "left_shift"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "caps_lock"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Map Caps -> Esc (when alone), L_Ctrl (when chorded)",
+      "manipulators": [
+        {
+          "description": "Map Caps -> Esc (when alone), L_Ctrl (when chorded)",
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "mandatory": [],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_control",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "escape"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Map Ctrl+I/J/K/L -> Arrow Keys",
+      "manipulators": [
+        {
+          "description": "Ctrl + i to Up Arrow",
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow"
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "description": "Ctrl + j to Left Arrow",
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow"
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "description": "Ctrl + k to Down Arrow",
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "down_arrow"
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "description": "Ctrl + l to Up Arrow",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Map Ctrl+Shift+Option+m -> Toggle the Menubar",
+      "manipulators": [
+        {
+          "description": "Map Ctrl+Shift+Option+m -> Toggle the Menubar",
+          "from": {
+            "key_code": "m",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "option",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "osascript -e 'on run' -e 'if running of application \"System Settings\" then -- Close System Settings if its running' -e 'try' -e 'tell application \"System Settings\" to quit' -e 'on error' -e 'do shell script \"killall \\\"System Preferences\\\"\"' -e 'end try' -e 'delay 0.5' -e 'end if' -e 'repeat while running of application \"System Settings\" is true -- Ensure System Settings is not running' -e 'delay 0.5' -e 'end repeat' -e 'do shell script \"open -j x-apple.systempreferences:com.apple.ControlCenter-Settings.extension\" -- Open to Control Center settings' -e 'delay 1 -- Allow time for the window to open' -e 'tell application \"System Events\"' -e 'tell application process \"System Settings\"' -e 'repeat until exists (pop up button 1 of group 9 of scroll area 1 of group 1 of group 2 of splitter group 1 of group 1 of window \"Control Center\") -- Wait until the Control Center settings are loaded' -e 'delay 0.2' -e 'end repeat' -e 'tell pop up button 1 of group 9 of scroll area 1 of group 1 of group 2 of splitter group 1 of group 1 of window \"Control Center\" -- Access the pop-up button' -e 'click' -e 'delay 0.2 -- Allow the menu to appear' -e 'if value is \"In Full Screen Only\" then -- Determine the current selection and toggle' -e 'click menu item \"Never\" of menu 1' -e 'else if value is \"Never\" then' -e 'click menu item \"In Full Screen Only\" of menu 1' -e 'else' -e 'display alert \"Unexpected value detected. Please check the UI structure.\"' -e 'end if' -e 'end tell' -e 'end tell' -e 'end tell' -e 'delay 1' -e 'tell application \"System Settings\" to quit' -e 'end run'"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}
