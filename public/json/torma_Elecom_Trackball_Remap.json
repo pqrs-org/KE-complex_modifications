@@ -1,0 +1,280 @@
+{
+  "title": "Better Trackball Map: Button 6 -> Show Desktop (F18), Button7 -> Double Click =  Launchpad, Click & Hold + Move Cursor = Scroll, Button 8 -> Mission Control",
+  "maintainer": "torma",
+  "rules": [
+    {
+      "description": "Better Trackball Map: Button 6 -> Show Desktop (F18), Button7 -> Double Click =  Launchpad, Click & Hold + Move Cursor = Scroll, Button 8 -> Mission Control",
+      "manipulators": [
+        {
+          "description": "CTRL + Back to move left a space",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "product_id": 306,
+                  "vendor_id": 1390
+                },
+                {
+                  "product_id": 307,
+                  "vendor_id": 1390
+                }
+              ],
+              "type": "device_if"
+            }
+          ],
+          "from": {
+            "pointing_button": "button4",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "description": "CTRL + Forward to move right a space",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "product_id": 306,
+                  "vendor_id": 1390
+                },
+                {
+                  "product_id": 307,
+                  "vendor_id": 1390
+                }
+              ],
+              "type": "device_if"
+            }
+          ],
+          "from": {
+            "pointing_button": "button5",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "description": "Button 6 -> f18 (Show Desktop, on my system)",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "product_id": 306,
+                  "vendor_id": 1390
+                },
+                {
+                  "product_id": 307,
+                  "vendor_id": 1390
+                }
+              ],
+              "type": "device_if"
+            }
+          ],
+          "from": {
+            "pointing_button": "button6",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f18"
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "description": "Button 7 -> Double Click = Launchpad",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "product_id": 306,
+                  "vendor_id": 1390
+                },
+                {
+                  "product_id": 307,
+                  "vendor_id": 1390
+                }
+              ],
+              "type": "device_if"
+            },
+            {
+              "name": "button7_pressed",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "pointing_button": "button7",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "launchpad"
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "button7_pressed",
+                "value": 0
+              }
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "description": "Button 7 -> Hold + Move Cursor = Scroll (1/2)",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "product_id": 306,
+                  "vendor_id": 1390
+                },
+                {
+                  "product_id": 307,
+                  "vendor_id": 1390
+                }
+              ],
+              "type": "device_if"
+            },
+            {
+              "name": "enable_mouse_motion_to_scroll",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "type": "mouse_motion_to_scroll"
+        },
+        {
+          "description": "Button 7 -> Hold + Move Cursor = Scroll (2/2)",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "product_id": 306,
+                  "vendor_id": 1390
+                },
+                {
+                  "product_id": 307,
+                  "vendor_id": 1390
+                }
+              ],
+              "type": "device_if"
+            }
+          ],
+          "from": {
+            "pointing_button": "button7",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "enable_mouse_motion_to_scroll",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "button7_pressed",
+                "value": 1
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "enable_mouse_motion_to_scroll",
+                "value": 0
+              }
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "button7_pressed",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "type": "basic"
+        },
+        {
+          "description": "Button 8 -> Mission Control",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "product_id": 306,
+                  "vendor_id": 1390
+                },
+                {
+                  "product_id": 307,
+                  "vendor_id": 1390
+                }
+              ],
+              "type": "device_if"
+            }
+          ],
+          "from": {
+            "pointing_button": "button8",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "mission_control"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}
