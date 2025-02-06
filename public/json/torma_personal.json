@@ -3,7 +3,7 @@
   "maintainer": "torma",
   "rules": [
     {
-      "description": "Better Keyboard Map: Shift + Esc -> Caps; Caps -> Esc (alone), L_CTRL (chorded); CTRL + i/j/k/l for arrows",
+      "description": "Better Keyboard Map: Shift+Esc -> Caps; Caps -> Esc (alone),L_CTRL (chorded); CTRL+i/j/k/l -> arrows; L_SHIFT -> ( (alone),L_SHIFT (chorded) & R_SHIFT -> ) (alone), R_SHIFT (chorded)",
       "manipulators": [
         {
           "description": "Map Left Shift + Esc -> Caps Lock",
@@ -45,6 +45,78 @@
           "to_if_alone": [
             {
               "key_code": "escape"
+            }
+          ],
+          "type": "basic",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "product_id": 61029,
+                  "vendor_id": 1240
+                }
+              ],
+              "type": "device_unless"
+            }
+          ]
+        },
+        {
+          "description": "QMK LS( => L_SHIFT -> ( (alone), L_SHIFT (chorded)",
+          "from": {
+            "key_code": "left_shift",
+            "modifiers": {
+              "mandatory": [],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_shift",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "9",
+              "modifiers": "shift"
+            }
+          ],
+          "type": "basic",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "product_id": 61029,
+                  "vendor_id": 1240
+                }
+              ],
+              "type": "device_unless"
+            }
+          ]
+        },
+        {
+          "description": "QMK RS) => R_SHIFT -> ) (alone), R_SHIFT(chorded)",
+          "from": {
+            "key_code": "right_shift",
+            "modifiers": {
+              "mandatory": [],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_shift",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "0",
+              "modifiers": "shift"
             }
           ],
           "type": "basic",
@@ -405,6 +477,30 @@
       ]
     },
     {
+      "description": "Map Ctrl+Shift+Option+m -> Toggle the Menubar",
+      "manipulators": [
+        {
+          "description": "Map Ctrl+Shift+Option+m -> Toggle the Menubar",
+          "from": {
+            "key_code": "m",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "option",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "osascript -e 'on run' -e 'if running of application \"System Settings\" then -- Close System Settings if its running' -e 'try' -e 'tell application \"System Settings\" to quit' -e 'on error' -e 'do shell script \"killall \\\"System Preferences\\\"\"' -e 'end try' -e 'delay 0.5' -e 'end if' -e 'repeat while running of application \"System Settings\" is true -- Ensure System Settings is not running' -e 'delay 0.5' -e 'end repeat' -e 'do shell script \"open -j x-apple.systempreferences:com.apple.ControlCenter-Settings.extension\" -- Open to Control Center settings' -e 'delay 1 -- Allow time for the window to open' -e 'tell application \"System Events\"' -e 'tell application process \"System Settings\"' -e 'repeat until exists (pop up button 1 of group 9 of scroll area 1 of group 1 of group 2 of splitter group 1 of group 1 of window \"Control Center\") -- Wait until the Control Center settings are loaded' -e 'delay 0.2' -e 'end repeat' -e 'tell pop up button 1 of group 9 of scroll area 1 of group 1 of group 2 of splitter group 1 of group 1 of window \"Control Center\" -- Access the pop-up button' -e 'click' -e 'delay 0.2 -- Allow the menu to appear' -e 'if value is \"In Full Screen Only\" then -- Determine the current selection and toggle' -e 'click menu item \"Never\" of menu 1' -e 'else if value is \"Never\" then' -e 'click menu item \"In Full Screen Only\" of menu 1' -e 'else' -e 'display alert \"Unexpected value detected. Please check the UI structure.\"' -e 'end if' -e 'end tell' -e 'end tell' -e 'end tell' -e 'delay 1' -e 'tell application \"System Settings\" to quit' -e 'end run'"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
       "description": "Map Left Shift + Esc -> Caps Lock",
       "manipulators": [
         {
@@ -532,23 +628,54 @@
       ]
     },
     {
-      "description": "Map Ctrl+Shift+Option+m -> Toggle the Menubar",
+      "description": "Map L_SHIFT to ( (alone), L_SHIFT (chorded). Map R_SHIFT to ) (alone), R_SHIFT (chorded)",
       "manipulators": [
         {
-          "description": "Map Ctrl+Shift+Option+m -> Toggle the Menubar",
+          "description": "QMK LS( => L_SHIFT -> ( (alone), L_SHIFT (chorded)",
           "from": {
-            "key_code": "m",
+            "key_code": "left_shift",
             "modifiers": {
-              "mandatory": [
-                "control",
-                "option",
-                "shift"
+              "mandatory": [],
+              "optional": [
+                "any"
               ]
             }
           },
           "to": [
             {
-              "shell_command": "osascript -e 'on run' -e 'if running of application \"System Settings\" then -- Close System Settings if its running' -e 'try' -e 'tell application \"System Settings\" to quit' -e 'on error' -e 'do shell script \"killall \\\"System Preferences\\\"\"' -e 'end try' -e 'delay 0.5' -e 'end if' -e 'repeat while running of application \"System Settings\" is true -- Ensure System Settings is not running' -e 'delay 0.5' -e 'end repeat' -e 'do shell script \"open -j x-apple.systempreferences:com.apple.ControlCenter-Settings.extension\" -- Open to Control Center settings' -e 'delay 1 -- Allow time for the window to open' -e 'tell application \"System Events\"' -e 'tell application process \"System Settings\"' -e 'repeat until exists (pop up button 1 of group 9 of scroll area 1 of group 1 of group 2 of splitter group 1 of group 1 of window \"Control Center\") -- Wait until the Control Center settings are loaded' -e 'delay 0.2' -e 'end repeat' -e 'tell pop up button 1 of group 9 of scroll area 1 of group 1 of group 2 of splitter group 1 of group 1 of window \"Control Center\" -- Access the pop-up button' -e 'click' -e 'delay 0.2 -- Allow the menu to appear' -e 'if value is \"In Full Screen Only\" then -- Determine the current selection and toggle' -e 'click menu item \"Never\" of menu 1' -e 'else if value is \"Never\" then' -e 'click menu item \"In Full Screen Only\" of menu 1' -e 'else' -e 'display alert \"Unexpected value detected. Please check the UI structure.\"' -e 'end if' -e 'end tell' -e 'end tell' -e 'end tell' -e 'delay 1' -e 'tell application \"System Settings\" to quit' -e 'end run'"
+              "key_code": "left_shift",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "9",
+              "modifiers": "shift"
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "description": "QMK RS) => R_SHIFT -> ) (alone), R_SHIFT(chorded)",
+          "from": {
+            "key_code": "right_shift",
+            "modifiers": {
+              "mandatory": [],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_shift",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "0",
+              "modifiers": "shift"
             }
           ],
           "type": "basic"

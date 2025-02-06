@@ -1,0 +1,61 @@
+{
+  "title": "Map L_SHIFT to ( (alone), L_SHIFT (chorded). Map R_SHIFT to ) (alone), R_SHIFT (chorded)",
+  "maintainer": "torma",
+  "rules": [
+    {
+      "description": "Map L_SHIFT to ( (alone), L_SHIFT (chorded). Map R_SHIFT to ) (alone), R_SHIFT (chorded)",
+      "manipulators": [
+        {
+          "description": "QMK LS( => L_SHIFT -> ( (alone), L_SHIFT (chorded)",
+          "from": {
+            "key_code": "left_shift",
+            "modifiers": {
+              "mandatory": [],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_shift",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "9",
+              "modifiers": "shift"
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "description": "QMK RS) => R_SHIFT -> ) (alone), R_SHIFT(chorded)",
+          "from": {
+            "key_code": "right_shift",
+            "modifiers": {
+              "mandatory": [],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_shift",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "0",
+              "modifiers": "shift"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}

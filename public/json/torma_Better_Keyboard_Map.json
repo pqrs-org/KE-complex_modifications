@@ -1,9 +1,9 @@
 {
-  "title": "Better Keyboard Map: Shift + Esc -> Caps; Caps -> Esc (alone), L_CTRL (chorded); CTRL + i/j/k/l for arrows",
+  "title": "Better Keyboard Map: Shift+Esc -> Caps; Caps -> Esc (alone),L_CTRL (chorded); CTRL+i/j/k/l -> arrows; L_SHIFT -> ( (alone),L_SHIFT (chorded) & R_SHIFT -> ) (alone), R_SHIFT (chorded)",
   "maintainer": "torma",
   "rules": [
     {
-      "description": "Better Keyboard Map: Shift + Esc -> Caps; Caps -> Esc (alone), L_CTRL (chorded); CTRL + i/j/k/l for arrows",
+      "description": "Better Keyboard Map: Shift+Esc -> Caps; Caps -> Esc (alone),L_CTRL (chorded); CTRL+i/j/k/l -> arrows; L_SHIFT -> ( (alone),L_SHIFT (chorded) & R_SHIFT -> ) (alone), R_SHIFT (chorded)",
       "manipulators": [
         {
           "description": "Map Left Shift + Esc -> Caps Lock",
@@ -45,6 +45,78 @@
           "to_if_alone": [
             {
               "key_code": "escape"
+            }
+          ],
+          "type": "basic",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "product_id": 61029,
+                  "vendor_id": 1240
+                }
+              ],
+              "type": "device_unless"
+            }
+          ]
+        },
+        {
+          "description": "QMK LS( => L_SHIFT -> ( (alone), L_SHIFT (chorded)",
+          "from": {
+            "key_code": "left_shift",
+            "modifiers": {
+              "mandatory": [],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_shift",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "9",
+              "modifiers": "shift"
+            }
+          ],
+          "type": "basic",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "product_id": 61029,
+                  "vendor_id": 1240
+                }
+              ],
+              "type": "device_unless"
+            }
+          ]
+        },
+        {
+          "description": "QMK RS) => R_SHIFT -> ) (alone), R_SHIFT(chorded)",
+          "from": {
+            "key_code": "right_shift",
+            "modifiers": {
+              "mandatory": [],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_shift",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "0",
+              "modifiers": "shift"
             }
           ],
           "type": "basic",
