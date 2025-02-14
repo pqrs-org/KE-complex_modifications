@@ -1,0 +1,52 @@
+{
+    "title": "Swap \"command + tab\" with \"option + tab\" (Compatibility for AltTab app)",
+    "maintainers": [
+        "SergioInToronto"
+    ],
+    "rules": [
+        {
+            "description": "Swap \"command + tab\" with \"option + tab\"",
+            "_todo": "Would be nice to swap command+shift with option+shift as well, but didn't seem to work since shift is a modifier",
+            "manipulators": [
+                {
+                    "from": {
+                        "key_code": "tab",
+                        "modifiers": {
+                            "mandatory": [
+                                "command"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "tab",
+                            "modifiers": [
+                                "option"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "from": {
+                        "key_code": "tab",
+                        "modifiers": {
+                            "mandatory": [
+                                "option"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "tab",
+                            "modifiers": [
+                                "command"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        }
+    ]
+}
