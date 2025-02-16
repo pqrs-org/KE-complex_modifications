@@ -1,0 +1,26 @@
+{
+  "title": "Map Right Command Key to Underscore",
+  "maintainers": [
+    "duleorlovic"
+  ],
+  "rules": [
+    {
+      "description": "Map Right Command Key to Underscore",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "right_command",
+            "modifiers": { "optional": ["any"] }
+          },
+          "to": [
+            {
+              "key_code": "hyphen",
+              "modifiers": ["left_shift"]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}
