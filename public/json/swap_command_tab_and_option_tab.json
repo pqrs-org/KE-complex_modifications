@@ -5,8 +5,7 @@
     ],
     "rules": [
         {
-            "description": "Swap \"command + tab\" with \"option + tab\"",
-            "_todo": "Would be nice to swap command+shift with option+shift as well, but didn't seem to work since shift is a modifier",
+            "description": "Swap \"command + tab\" with \"option + tab\" (Compatibility for AltTab app)",
             "manipulators": [
                 {
                     "from": {
@@ -41,6 +40,46 @@
                             "key_code": "tab",
                             "modifiers": [
                                 "command"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "from": {
+                        "key_code": "left_shift",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_command"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_shift",
+                            "modifiers": [
+                                "left_option"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "from": {
+                        "key_code": "tab",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_option",
+                                "left_shift"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "tab",
+                            "modifiers": [
+                                "left_command",
+                                "left_shift"
                             ]
                         }
                     ],
