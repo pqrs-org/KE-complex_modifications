@@ -1,0 +1,281 @@
+{
+    "title": "Caps Lock to Debug in Various IDEs",
+    "description": "Map Caps Lock to Debugger Commands for IDEs such as Xcode, Intellij, and Visual Studio Code (VSCode). Current support: Step Over, Step In, Step Out, Continue",
+    "author": "Aung David Moe",
+    "maintainers": ["logicxd"],
+    "rules": [
+        {
+            "description": "Caps Lock + Down Arrow -> Step Over",
+            "manipulators": [
+                {
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "^com\\.apple\\.dt\\.Xcode$"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "down_arrow",
+                        "modifiers": { "mandatory": ["caps_lock"] }
+                    },
+                    "to": [
+                        {
+                            "key_code": "f6",
+                            "modifiers": ["fn"]
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "^com\\.jetbrains\\.intellij$"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "down_arrow",
+                        "modifiers": { "mandatory": ["caps_lock"] }
+                    },
+                    "to": [
+                        {
+                            "key_code": "f8",
+                            "modifiers": ["fn"]
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "^com\\.microsoft\\.VSCode$"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "down_arrow",
+                        "modifiers": { "mandatory": ["caps_lock"] }
+                    },
+                    "to": [
+                        {
+                            "key_code": "f10",
+                            "modifiers": ["fn"]
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "Caps Lock + Right Arrow -> Step In",
+            "manipulators": [
+                {
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "^com\\.apple\\.dt\\.Xcode$"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "right_arrow",
+                        "modifiers": { "mandatory": ["caps_lock"] }
+                    },
+                    "to": [
+                        {
+                            "key_code": "f7",
+                            "modifiers": ["fn"]
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "^com\\.jetbrains\\.intellij$"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "right_arrow",
+                        "modifiers": { "mandatory": ["caps_lock"] }
+                    },
+                    "to": [
+                        {
+                            "key_code": "f7",
+                            "modifiers": ["fn"]
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "^com\\.microsoft\\.VSCode$"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "right_arrow",
+                        "modifiers": { "mandatory": ["caps_lock"] }
+                    },
+                    "to": [
+                        {
+                            "key_code": "f11",
+                            "modifiers": ["fn"]
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "Caps Lock + Left Arrow -> Step Out",
+            "manipulators": [
+                {
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "^com\\.apple\\.dt\\.Xcode$"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "left_arrow",
+                        "modifiers": { "mandatory": ["caps_lock"] }
+                    },
+                    "to": [
+                        {
+                            "key_code": "f8",
+                            "modifiers": ["fn"]
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "^com\\.jetbrains\\.intellij$"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "left_arrow",
+                        "modifiers": { "mandatory": ["caps_lock"] }
+                    },
+                    "to": [
+                        {
+                            "key_code": "f8",
+                            "modifiers": ["fn", "shift"]
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "^com\\.microsoft\\.VSCode$"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "left_arrow",
+                        "modifiers": { "mandatory": ["caps_lock"] }
+                    },
+                    "to": [
+                        {
+                            "key_code": "f11",
+                            "modifiers": ["fn", "shift"]
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "Caps Lock + Enter -> Continue",
+            "manipulators": [
+                {
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "^com\\.apple\\.dt\\.Xcode$"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "return_or_enter",
+                        "modifiers": { "mandatory": ["caps_lock"] }
+                    },
+                    "to": [
+                        {
+                            "key_code": "y",
+                            "modifiers": ["left_command", "left_control"]
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "^com\\.jetbrains\\.intellij$"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "return_or_enter",
+                        "modifiers": { "mandatory": ["caps_lock"] }
+                    },
+                    "to": [
+                        {
+                            "key_code": "f9",
+                            "modifiers": ["fn"]
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "^com\\.microsoft\\.VSCode$"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "return_or_enter",
+                        "modifiers": { "mandatory": ["caps_lock"] }
+                    },
+                    "to": [
+                        {
+                            "key_code": "f5",
+                            "modifiers": ["fn"]
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        }
+    ]
+    
+}
