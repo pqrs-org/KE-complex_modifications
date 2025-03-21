@@ -152,7 +152,7 @@ const sections = [
       getDockApplicationManipulator(6, 'Spotify'),
       getDockApplicationManipulator(7, 'iTerm'),
       getDockApplicationManipulator(8, 'Notion'),
-      getDockApplicationManipulator(9, 'System Settings'),
+      getDockApplicationManipulator(9, 'ChatGPT'),
       getDockApplicationManipulator(0, 'Calendar'),
     ],
   },
