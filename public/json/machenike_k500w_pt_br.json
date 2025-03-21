@@ -3,7 +3,7 @@
   "maintainers": ["filiperochalopes"],
   "rules": [
     {
-      "description": "change unused numpad period to non_us_backslash so we can be able to use pipe and backslash keys. Important for developers!",
+      "description": "change backlash to non_us_backslash so we can be able to use pipe and backslash keys but on Blender.",
       "manipulators": [
         {
           "type": "basic",
@@ -16,6 +16,12 @@
           "to": [
             {
               "key_code": "non_us_backslash"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": ["^org.blenderfoundation.blender$", "^com.apple.calculator$"]
             }
           ]
         }

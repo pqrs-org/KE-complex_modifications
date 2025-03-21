@@ -13,15 +13,19 @@ function main() {
         maintainers: ['tekezo'],
         rules: [
           {
-            description: 'Launcher Mode v4 (rev 21)',
-            available_since: '13.1.4',
+            description: 'Launcher Mode v4 (rev 26)',
+            available_since: '15.3.4',
             manipulators: [].concat(
-              generateLauncherMode('1', { bundleIdentifier: 'com.apple.dt.Xcode' }),
-              generateLauncherMode('3', { bundleIdentifier: 'org.mozilla.firefox' }),
+              generateLauncherMode('1', { frontmostApplicationHistoryIndex: 1 }),
+              generateLauncherMode('2', { frontmostApplicationHistoryIndex: 2 }),
+              generateLauncherMode('3', { frontmostApplicationHistoryIndex: 3 }),
+              generateLauncherMode('4', { frontmostApplicationHistoryIndex: 4 }),
+              generateLauncherMode('5', { frontmostApplicationHistoryIndex: 5 }),
               generateLauncherMode('a', { bundleIdentifier: 'com.apple.ActivityMonitor' }),
               generateLauncherMode('c', { bundleIdentifier: 'com.google.Chrome' }),
               generateLauncherMode('e', { bundleIdentifier: 'com.microsoft.VSCode' }),
               generateLauncherMode('f', { bundleIdentifier: 'com.apple.finder' }),
+              generateLauncherMode('g', { bundleIdentifier: 'com.openai.chat' }),
               generateLauncherMode('m', { bundleIdentifier: 'org.mozilla.thunderbird' }),
               generateLauncherMode('q', { bundleIdentifier: 'com.apple.Dictionary' }),
               generateLauncherMode('s', { bundleIdentifier: 'com.apple.Safari' }),
@@ -45,6 +49,7 @@ function generateLauncherMode(
   /**
    * @type {{
    *   bundleIdentifier?: string,
+   *   frontmostApplicationHistoryIndex?: number,
    *   to?: any[],
    * }} */
   options
@@ -54,7 +59,20 @@ function generateLauncherMode(
   var to = []
   if (options.bundleIdentifier !== undefined) {
     to.push({
-      shell_command: "open -b '" + options.bundleIdentifier + "'",
+      software_function: {
+        open_application: {
+          bundle_identifier: options.bundleIdentifier,
+        },
+      },
+    })
+  }
+  if (options.frontmostApplicationHistoryIndex !== undefined) {
+    to.push({
+      software_function: {
+        open_application: {
+          frontmost_application_history_index: options.frontmostApplicationHistoryIndex,
+        },
+      },
     })
   }
   if (options.to !== undefined) {

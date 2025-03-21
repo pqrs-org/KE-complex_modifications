@@ -5,8 +5,8 @@
   ],
   "rules": [
     {
-      "description": "Personal rules (@tekezo) (rev 51)",
-      "available_since": "14.12.6",
+      "description": "Personal rules (@tekezo) (rev 58)",
+      "available_since": "15.2.3",
       "manipulators": [
         {
           "type": "basic",
@@ -25,7 +25,11 @@
           ],
           "to_if_alone": [
             {
-              "shell_command": "date \"+%s\" | tr -d \"\\n\" | pbcopy"
+              "software_function": {
+                "open_application": {
+                  "bundle_identifier": "com.1password.1password"
+                }
+              }
             }
           ],
           "parameters": {
@@ -208,6 +212,28 @@
           "parameters": {
             "basic.to_if_alone_timeout_milliseconds": 250
           }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button2",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "tab",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
         },
         {
           "type": "basic",
@@ -2279,7 +2305,8 @@
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
                 "^org\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$"
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
               ]
             }
           ]
@@ -2307,7 +2334,8 @@
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
                 "^org\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$"
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
               ]
             }
           ]
@@ -2335,7 +2363,8 @@
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
                 "^org\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$"
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
               ]
             }
           ]
@@ -2363,7 +2392,8 @@
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
                 "^org\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$"
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
               ]
             }
           ]
@@ -2397,7 +2427,8 @@
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
                 "^org\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$"
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
               ]
             }
           ]
@@ -2580,15 +2611,57 @@
               ]
             }
           },
-          "to": {
-            "key_code": "f2"
-          },
+          "to": [
+            {
+              "key_code": "f2"
+            }
+          ],
           "conditions": [
             {
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^com\\.microsoft\\.Excel$"
               ]
+            },
+            {
+              "type": "variable_if",
+              "name": "system.use_fkeys_as_standard_function_keys",
+              "value": true
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "e",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f2",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "system.use_fkeys_as_standard_function_keys",
+              "value": false
             }
           ]
         },

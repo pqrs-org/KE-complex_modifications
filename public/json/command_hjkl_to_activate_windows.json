@@ -1,0 +1,134 @@
+{
+    "title": "Command + hjkl to activate windows",
+    "maintainers": [
+        "duleorlovic"
+    ],
+    "rules": [
+        {
+            "description": "Left command + hjkl as keyboard shortcuts to activate_window.scpt",
+            "manipulators": [
+                {
+                    "from": {
+                        "key_code": "m",
+                        "modifiers": {
+                            "mandatory": ["left_command"],
+                            "optional": ["any"]
+                        }
+                    },
+                    "to": [{ "shell_command": "osascript ~/trk.tools/sh/keyboard-shortcuts-to-switch-windows-on-macos/activate_window.scpt m" }],
+                    "type": "basic"
+                },
+                {
+                    "from": {
+                        "key_code": "comma",
+                        "modifiers": {
+                            "mandatory": ["left_command"],
+                            "optional": ["any"]
+                        }
+                    },
+                    "to": [{ "shell_command": "osascript ~/trk.tools/sh/keyboard-shortcuts-to-switch-windows-on-macos/activate_window.scpt comma" }],
+                    "type": "basic"
+                },
+                {
+                    "from": {
+                        "key_code": "period",
+                        "modifiers": {
+                            "mandatory": ["left_command"],
+                            "optional": ["any"]
+                        }
+                    },
+                    "to": [{ "shell_command": "osascript ~/trk.tools/sh/keyboard-shortcuts-to-switch-windows-on-macos/activate_window.scpt dot" }],
+                    "type": "basic"
+                },
+                {
+                    "from": {
+                        "key_code": "slash",
+                        "modifiers": {
+                            "mandatory": ["left_command"],
+                            "optional": ["any"]
+                        }
+                    },
+                    "to": [{ "shell_command": "osascript ~/trk.tools/sh/keyboard-shortcuts-to-switch-windows-on-macos/activate_window.scpt slash" }],
+                    "type": "basic"
+                },
+                {
+                    "from": {
+                        "key_code": "h",
+                        "modifiers": {
+                            "mandatory": ["left_command"],
+                            "optional": ["any"]
+                        }
+                    },
+                    "to": [{ "shell_command": "osascript ~/trk.tools/sh/keyboard-shortcuts-to-switch-windows-on-macos/activate_window.scpt h" }],
+                    "type": "basic"
+                },
+                {
+                    "from": {
+                        "key_code": "j",
+                        "modifiers": {
+                            "mandatory": ["left_command"],
+                            "optional": ["any"]
+                        }
+                    },
+                    "to": [{ "shell_command": "osascript ~/trk.tools/sh/keyboard-shortcuts-to-switch-windows-on-macos/activate_window.scpt j" }],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "^org\\.mozilla\\.firefox$",
+                                "^com\\.google\\.Chrome$",
+                                "^com\\.brave\\.Browser$",
+                                "^com\\.apple\\.Safari$"
+                            ],
+                            "type": "frontmost_application_unless"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "l",
+                        "modifiers": {
+                            "mandatory": ["left_command"],
+                            "optional": ["any"]
+                        }
+                    },
+                    "to": [{ "shell_command": "osascript ~/trk.tools/sh/keyboard-shortcuts-to-switch-windows-on-macos/activate_window.scpt l" }],
+                    "type": "basic"
+                },
+                {
+                    "from": {
+                        "key_code": "k",
+                        "modifiers": {
+                            "mandatory": ["left_command"],
+                            "optional": ["any"]
+                        }
+                    },
+                    "to": [{ "shell_command": "osascript ~/trk.tools/sh/keyboard-shortcuts-to-switch-windows-on-macos/activate_window.scpt k" }],
+                    "type": "basic"
+                },
+                {
+                    "from": {
+                        "key_code": "semicolon",
+                        "modifiers": {
+                            "mandatory": ["left_command"],
+                            "optional": ["any"]
+                        }
+                    },
+                    "to": [{ "shell_command": "osascript ~/trk.tools/sh/keyboard-shortcuts-to-switch-windows-on-macos/activate_window.scpt colon" }],
+                    "type": "basic"
+                },
+                {
+                    "from": {
+                        "key_code": "quote",
+                        "modifiers": {
+                            "mandatory": ["left_command"],
+                            "optional": ["any"]
+                        }
+                    },
+                    "to": [{ "shell_command": "osascript ~/trk.tools/sh/keyboard-shortcuts-to-switch-windows-on-macos/activate_window.scpt quote" }],
+                    "type": "basic"
+                }
+            ]
+        }
+    ]
+}

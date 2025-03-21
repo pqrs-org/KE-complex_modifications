@@ -1,0 +1,21 @@
+{
+    "title": "SIGKILL frontmost application",
+
+    "rules": [
+	{
+	    "description": "Saves you from having to reset the computer if e.g. a program has captured the screen and hangs. It does so by sending the SIGKILL signal to the frontmost application. Note: Macos already has a similar keybinding: Press Shift+Option+Cmd+Esc for three seconds. However the built-in keybinding only sends SIGTERM, which doesn't always work, for instance if the program has a signal handler or runs in a debugger.",
+	    
+	    "manipulators": [
+		{
+		    "from": {
+			"key_code": "f12",
+			"modifiers": { "mandatory": ["left_shift", "left_option", "left_command"] }
+		    },
+		    "to": [{ "shell_command": "killall -9 \"$(osascript -e 'tell application \"System Events\" to (name of (first process whose frontmost is true))')\"" }],
+		    "type": "basic"
+		}
+	    ]
+	}
+    ]
+}
+

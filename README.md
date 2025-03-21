@@ -48,13 +48,14 @@ Follow the steps below to create a PR and add your settings!
     },
     ```
 
+    You can use the tag `<kbd>⇧Shift</kbd>` to make a nice <kbd>⇧Shift</kbd> in your html.
     </details>
 
 6.  Run `make` command in Terminal to validate your files.<br/>
     If you placed a generator file into `src/json`, json file will be generated in the `public/json` by this command.
 
     ```shell
-    make
+    make all
     ```
 
     If there is a problem, an error message is displayed. Fix your files until no errors are shown.
@@ -83,7 +84,7 @@ Follow the steps below to create a PR and add your settings!
     Run local web server by the following command in Terminal.
 
     ```shell
-    make server
+    make preview-server
     ```
 
     Then open <http://localhost:8000>.

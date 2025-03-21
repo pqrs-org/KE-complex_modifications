@@ -1,0 +1,99 @@
+{
+  "title": "Ctrl + comma/period to lesser/greater-than signs",
+  "rules": [{
+    "description": "Enables greater-than and lesser-than signs with Ctrl+",
+    "manipulators": [{
+        "from": {
+          "key_code": "comma",
+          "modifiers": {
+            "mandatory": [
+              "right_control"
+            ],
+            "optional": [
+              "any"
+            ]
+          }
+        },
+        "to": [{
+          "shell_command": "printf '<' | pbcopy"
+        }],
+        "to_after_key_up": {
+          "key_code": "v",
+          "modifiers": [
+            "left_command"
+          ]
+        },
+        "type": "basic"
+      },
+      {
+        "from": {
+          "key_code": "period",
+          "modifiers": {
+            "mandatory": [
+              "right_control"
+            ],
+            "optional": [
+              "any"
+            ]
+          }
+        },
+        "to": [{
+          "shell_command": "printf '>' | pbcopy"
+        }],
+        "to_after_key_up": {
+          "key_code": "v",
+          "modifiers": [
+            "left_command"
+          ]
+        },
+        "type": "basic"
+      },
+      {
+        "from": {
+          "key_code": "comma",
+          "modifiers": {
+            "mandatory": [
+              "left_control"
+            ],
+            "optional": [
+              "any"
+            ]
+          }
+        },
+        "to": [{
+          "shell_command": "printf '<' | pbcopy"
+        }],
+        "to_after_key_up": {
+          "key_code": "v",
+          "modifiers": [
+            "left_command"
+          ]
+        },
+        "type": "basic"
+      },
+      {
+        "from": {
+          "key_code": "period",
+          "modifiers": {
+            "mandatory": [
+              "left_control"
+            ],
+            "optional": [
+              "any"
+            ]
+          }
+        },
+        "to": [{
+          "shell_command": "printf '>' | pbcopy"
+        }],
+        "to_after_key_up": {
+          "key_code": "v",
+          "modifiers": [
+            "left_command"
+          ]
+        },
+        "type": "basic"
+      }
+    ]
+  }]
+}
