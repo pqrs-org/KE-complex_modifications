@@ -4,6 +4,7 @@ function main() {
       title: 'HHKB arrows using Right Shift',
       rules: [
         {
+          description: 'Implementation of arrow key like HHKB arrow using right shift option',
           manipulators: [
             {
               type: 'basic',
