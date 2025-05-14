@@ -66,6 +66,29 @@
       "to": [ { "set_variable": { "name": "⌘Q TAPPED", "value": 1 } } ]
     }
 
+  ] },
+
+  { "description": "Google Chromeで⌘⇧Wを2連打したときのみウィンドウを閉じるようにする", "manipulators": [      
+
+    { "description": " ⌘⇧W ×2 ",
+      "from": { "key_code": "w", "modifiers": { "mandatory": ["command", "shift"], "optional": ["caps_lock"] } }, "type": "basic",
+        "conditions": [
+          { "type": "variable_if", "name": "CMD_SHIFT_W_TAPPED", "value": 1 },
+          { "type": "frontmost_application_if", "bundle_identifiers": [ "^com\\.google\\.Chrome$" ] }
+        ],
+      "to": [ { "key_code": "w", "modifiers": ["command", "shift"] } ]
+    },
+
+    { "description": " ⌘⇧W ×1 ",
+      "from": { "key_code": "w", "modifiers": { "mandatory": ["command", "shift"], "optional": ["caps_lock"] } }, "type": "basic",
+        "conditions": [ { "type": "frontmost_application_if", "bundle_identifiers": [ "^com\\.google\\.Chrome$" ] } ],
+        "to_delayed_action": {
+          "to_if_invoked": [ { "set_variable": { "name": "CMD_SHIFT_W_TAPPED", "value": 0 } } ],
+          "to_if_canceled": [ { "set_variable": { "name": "CMD_SHIFT_W_TAPPED", "value": 0 } } ]
+        },
+      "to": [ { "set_variable": { "name": "CMD_SHIFT_W_TAPPED", "value": 1 } } ]      
+    }
+    
   ] }
 
 ] }
