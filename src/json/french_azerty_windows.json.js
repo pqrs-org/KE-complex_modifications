@@ -344,6 +344,36 @@ function main() {
                 "key_code": "6"
               }
             ]
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "keypad_period",
+              "modifiers": {
+                "mandatory": [
+                  "left_shift"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "keypad_period"
+              }
+            ]
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "keypad_period"
+            },
+            "to": [
+              {
+                "key_code": "keypad_period",
+                "modifiers": [
+                  "left_shift"
+                ]
+              }
+            ]
           }
         ]
       }
