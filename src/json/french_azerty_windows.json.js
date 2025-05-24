@@ -1,0 +1,567 @@
+// JavaScript should be written in ECMAScript 5.1.
+
+function main() {
+  const jsonData = {
+    "title": "Windows french keyboard",
+    "rules": [
+      {
+        "description": "Windows french keyboard",
+        "manipulators": [
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "2",
+              "modifiers": {
+                "mandatory": [
+                  "right_option"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "n",
+                "modifiers": [
+                  "right_option"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "3",
+              "modifiers": {
+                "mandatory": [
+                  "right_option"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "grave_accent_and_tilde",
+                "modifiers": [
+                  "left_shift"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "4",
+              "modifiers": {
+                "mandatory": [
+                  "right_option"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "5",
+                "modifiers": [
+                  "right_option"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "5",
+              "modifiers": {
+                "mandatory": [
+                  "right_option"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "5",
+                "modifiers": [
+                  "left_option",
+                  "shift"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "6"
+            },
+            "to": [
+              {
+                "key_code": "equal_sign"
+              }
+            ]
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "6",
+              "modifiers": {
+                "mandatory": [
+                  "right_option"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "l",
+                "modifiers": [
+                  "option",
+                  "shift"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "7",
+              "modifiers": {
+                "mandatory": [
+                  "right_option"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "backslash"
+              }
+            ]
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "8",
+              "modifiers": {
+                "mandatory": [
+                  "right_option"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "period",
+                "modifiers": [
+                  "option",
+                  "shift"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "8"
+            },
+            "to": [
+              {
+                "key_code": "equal_sign",
+                "modifiers": [
+                  "left_shift"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "9",
+              "modifiers": {
+                "mandatory": [
+                  "right_option"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "open_bracket"
+              }
+            ]
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "0",
+              "modifiers": {
+                "mandatory": [
+                  "right_option"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "grave_accent_and_tilde"
+              }
+            ]
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "hyphen",
+              "modifiers": {
+                "mandatory": [
+                  "right_option"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "hyphen",
+                "modifiers": [
+                  "option",
+                  "left_shift"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "equal_sign"
+            },
+            "to": [
+              {
+                "key_code": "slash"
+              }
+            ]
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "equal_sign",
+              "modifiers": {
+                "mandatory": [
+                  "left_shift"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "slash",
+                "modifiers": [
+                  "shift"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "equal_sign",
+              "modifiers": {
+                "mandatory": [
+                  "right_option"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "hyphen",
+                "modifiers": [
+                  "right_option"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "close_bracket",
+              "modifiers": {
+                "mandatory": [
+                  "left_shift"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "backslash",
+                "modifiers": [
+                  "left_shift"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "non_us_pound"
+            },
+            "to": [
+              {
+                "key_code": "close_bracket",
+                "modifiers": [
+                  "left_shift"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "non_us_pound",
+              "modifiers": {
+                "mandatory": [
+                  "left_shift"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "semicolon",
+                "modifiers": [
+                  "left_option"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "slash"
+            },
+            "to": [
+              {
+                "key_code": "8"
+              }
+            ]
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "slash",
+              "modifiers": {
+                "mandatory": [
+                  "left_shift"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "6"
+              }
+            ]
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "q",
+              "modifiers": {
+                "mandatory": [
+                  "left_control"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "q",
+                "modifiers": [
+                  "left_command"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "s",
+              "modifiers": {
+                "mandatory": [
+                  "left_control"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "s",
+                "modifiers": [
+                  "left_command"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "x",
+              "modifiers": {
+                "mandatory": [
+                  "left_control"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "x",
+                "modifiers": [
+                  "left_command"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "w",
+              "modifiers": {
+                "mandatory": [
+                  "left_control"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "w",
+                "modifiers": [
+                  "left_command"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "w",
+              "modifiers": {
+                "mandatory": [
+                  "left_control",
+                  "left_shift"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "w",
+                "modifiers": [
+                  "left_command",
+                  "left_shift"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "e",
+              "modifiers": {
+                "mandatory": [
+                  "left_control"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "e",
+                "modifiers": [
+                  "left_command"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "y",
+              "modifiers": {
+                "mandatory": [
+                  "left_control"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "y",
+                "modifiers": [
+                  "left_command"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "f",
+              "modifiers": {
+                "mandatory": [
+                  "left_control"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "f",
+                "modifiers": [
+                  "left_command"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "h",
+              "modifiers": {
+                "mandatory": [
+                  "left_control"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "h",
+                "modifiers": [
+                  "left_command"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "c",
+              "modifiers": {
+                "mandatory": [
+                  "left_control"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "c",
+                "modifiers": [
+                  "left_command"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "v",
+              "modifiers": {
+                "mandatory": [
+                  "left_control"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "v",
+                "modifiers": [
+                  "left_command"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  };
+
+  console.log(JSON.stringify(jsonData, null, '  '));
+}
+
+main(); 
