@@ -1,5 +1,16 @@
 // JavaScript should be written in ECMAScript 5.1.
 
+const japanese_input = [
+  {
+    "input_sources": [{"language": "ja"}],
+    "type": "input_source_if"
+  },
+  {
+    "input_sources": [{"input_mode_id": "Roman$"}],
+    "type":"input_source_unless"
+  }
+]
+
 function main() {
   console.log(
     JSON.stringify(
@@ -31,12 +42,12 @@ function main() {
     )
   )
 }
-
+//
+// Main definition of rules starts from here
 function manipulatorsA1() {
   return [
     {"description":"(シンクロ) Sp, ぬ","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "parameters":{"basic.simultaneous_threshold_milliseconds":60},
       "from":{"simultaneous":[
         {"key_code":"spacebar"},
@@ -49,8 +60,7 @@ function manipulatorsA1() {
       ]
     },
     {"description":"(シンクロ) Sp, り","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "parameters":{"basic.simultaneous_threshold_milliseconds":60},
       "from":{"simultaneous":[
         {"key_code":"spacebar"},
@@ -63,8 +73,7 @@ function manipulatorsA1() {
       ]
     },
     {"description":"(シンクロ) Sp, ね","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "parameters":{"basic.simultaneous_threshold_milliseconds":60},
       "from":{"simultaneous":[
         {"key_code":"spacebar"},
@@ -77,8 +86,7 @@ function manipulatorsA1() {
       ]
     },
     {"description":"(シンクロ) Sp, 左","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "parameters":{"basic.simultaneous_threshold_milliseconds":60},
       "from":{"simultaneous":[
         {"key_code":"spacebar"},
@@ -91,8 +99,7 @@ function manipulatorsA1() {
       ]
     },
     {"description":"(シンクロ) Sp, 右","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "parameters":{"basic.simultaneous_threshold_milliseconds":60},
       "from":{"simultaneous":[
         {"key_code":"spacebar"},
@@ -105,8 +112,7 @@ function manipulatorsA1() {
       ]
     },
     {"description":"(シンクロ) Sp, さ","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "parameters":{"basic.simultaneous_threshold_milliseconds":60},
       "from":{"simultaneous":[
         {"key_code":"spacebar"},
@@ -119,8 +125,7 @@ function manipulatorsA1() {
       ]
     },
     {"description":"(シンクロ) Sp, よ","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "parameters":{"basic.simultaneous_threshold_milliseconds":60},
       "from":{"simultaneous":[
         {"key_code":"spacebar"},
@@ -133,8 +138,7 @@ function manipulatorsA1() {
       ]
     },
     {"description":"(シンクロ) Sp, え","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "parameters":{"basic.simultaneous_threshold_milliseconds":60},
       "from":{"simultaneous":[
         {"key_code":"spacebar"},
@@ -147,8 +151,7 @@ function manipulatorsA1() {
       ]
     },
     {"description":"(シンクロ) Sp, ゆ","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "parameters":{"basic.simultaneous_threshold_milliseconds":60},
       "from":{"simultaneous":[
         {"key_code":"spacebar"},
@@ -161,8 +164,7 @@ function manipulatorsA1() {
       ]
     },
     {"description":"(シンクロ) Sp, せ","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "parameters":{"basic.simultaneous_threshold_milliseconds":60},
       "from":{"simultaneous":[
         {"key_code":"spacebar"},
@@ -175,8 +177,7 @@ function manipulatorsA1() {
       ]
     },
     {"description":"(シンクロ) Sp, め","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "parameters":{"basic.simultaneous_threshold_milliseconds":60},
       "from":{"simultaneous":[
         {"key_code":"spacebar"},
@@ -189,8 +190,7 @@ function manipulatorsA1() {
       ]
     },
     {"description":"(シンクロ) Sp, に","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "parameters":{"basic.simultaneous_threshold_milliseconds":60},
       "from":{"simultaneous":[
         {"key_code":"spacebar"},
@@ -203,8 +203,7 @@ function manipulatorsA1() {
       ]
     },
     {"description":"(シンクロ) Sp, ま","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "parameters":{"basic.simultaneous_threshold_milliseconds":60},
       "from":{"simultaneous":[
         {"key_code":"spacebar"},
@@ -217,8 +216,7 @@ function manipulatorsA1() {
       ]
     },
     {"description":"(シンクロ) Sp, ち","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "parameters":{"basic.simultaneous_threshold_milliseconds":60},
       "from":{"simultaneous":[
         {"key_code":"spacebar"},
@@ -231,8 +229,7 @@ function manipulatorsA1() {
       ]
     },
     {"description":"(シンクロ) Sp, や","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "parameters":{"basic.simultaneous_threshold_milliseconds":60},
       "from":{"simultaneous":[
         {"key_code":"spacebar"},
@@ -245,8 +242,7 @@ function manipulatorsA1() {
       ]
     },
     {"description":"(シンクロ) Sp, の","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "parameters":{"basic.simultaneous_threshold_milliseconds":60},
       "from":{"simultaneous":[
         {"key_code":"spacebar"},
@@ -259,8 +255,7 @@ function manipulatorsA1() {
       ]
     },
     {"description":"(シンクロ) Sp, も","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "parameters":{"basic.simultaneous_threshold_milliseconds":60},
       "from":{"simultaneous":[
         {"key_code":"spacebar"},
@@ -273,8 +268,7 @@ function manipulatorsA1() {
       ]
     },
     {"description":"(シンクロ) Sp, つ","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "parameters":{"basic.simultaneous_threshold_milliseconds":60},
       "from":{"simultaneous":[
         {"key_code":"spacebar"},
@@ -287,8 +281,7 @@ function manipulatorsA1() {
       ]
     },
     {"description":"(シンクロ) Sp, ふ","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "parameters":{"basic.simultaneous_threshold_milliseconds":60},
       "from":{"simultaneous":[
         {"key_code":"spacebar"},
@@ -301,8 +294,7 @@ function manipulatorsA1() {
       ]
     },
     {"description":"(シンクロ) Sp, ほ","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "parameters":{"basic.simultaneous_threshold_milliseconds":60},
       "from":{"simultaneous":[
         {"key_code":"spacebar"},
@@ -315,8 +307,7 @@ function manipulatorsA1() {
       ]
     },
     {"description":"(シンクロ) Sp, ひ","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "parameters":{"basic.simultaneous_threshold_milliseconds":60},
       "from":{"simultaneous":[
         {"key_code":"spacebar"},
@@ -329,8 +320,7 @@ function manipulatorsA1() {
       ]
     },
     {"description":"(シンクロ) Sp, を","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "parameters":{"basic.simultaneous_threshold_milliseconds":60},
       "from":{"simultaneous":[
         {"key_code":"spacebar"},
@@ -343,8 +333,7 @@ function manipulatorsA1() {
       ]
     },
     {"description":"(シンクロ) Sp, 、","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "parameters":{"basic.simultaneous_threshold_milliseconds":60},
       "from":{"simultaneous":[
         {"key_code":"spacebar"},
@@ -357,8 +346,7 @@ function manipulatorsA1() {
       ]
     },
     {"description":"(シンクロ) Sp, み","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "parameters":{"basic.simultaneous_threshold_milliseconds":60},
       "from":{"simultaneous":[
         {"key_code":"spacebar"},
@@ -371,8 +359,7 @@ function manipulatorsA1() {
       ]
     },
     {"description":"(シンクロ) Sp, お","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "parameters":{"basic.simultaneous_threshold_milliseconds":60},
       "from":{"simultaneous":[
         {"key_code":"spacebar"},
@@ -385,8 +372,7 @@ function manipulatorsA1() {
       ]
     },
     {"description":"(シンクロ) Sp, 。","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "parameters":{"basic.simultaneous_threshold_milliseconds":60},
       "from":{"simultaneous":[
         {"key_code":"spacebar"},
@@ -399,8 +385,7 @@ function manipulatorsA1() {
       ]
     },
     {"description":"(シンクロ) Sp, む","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "parameters":{"basic.simultaneous_threshold_milliseconds":60},
       "from":{"simultaneous":[
         {"key_code":"spacebar"},
@@ -413,8 +398,7 @@ function manipulatorsA1() {
       ]
     },
     {"description":"(シンクロ) Sp, わ","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "parameters":{"basic.simultaneous_threshold_milliseconds":60},
       "from":{"simultaneous":[
         {"key_code":"spacebar"},
@@ -427,8 +411,7 @@ function manipulatorsA1() {
       ]
     },
     {"description":"(シンクロ) Sp, れ","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "parameters":{"basic.simultaneous_threshold_milliseconds":60},
       "from":{"simultaneous":[
         {"key_code":"spacebar"},
@@ -3623,8 +3606,7 @@ function manipulatorsB() {
     },
     
     {"description":"(シンクロ) 小, や → (ゃ)","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "from":{"simultaneous":[
         {"key_code":"q"},
         {"key_code":"h"}
@@ -3635,8 +3617,7 @@ function manipulatorsB() {
       ]
     },
     {"description":"(シンクロ) 小, ゆ → (ゅ)","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "from":{"simultaneous":[
         {"key_code":"q"},
         {"key_code":"p"}
@@ -3647,8 +3628,7 @@ function manipulatorsB() {
       ]
     },
     {"description":"(シンクロ) 小, よ → (ょ)","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "from":{"simultaneous":[
         {"key_code":"q"},
         {"key_code":"i"}
@@ -3659,8 +3639,7 @@ function manipulatorsB() {
       ]
     },
     {"description":"(シンクロ) 小, あ → (ぁ)","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "from":{"simultaneous":[
         {"key_code":"q"},
         {"key_code":"j"}
@@ -3671,8 +3650,7 @@ function manipulatorsB() {
       ]
     },
     {"description":"(シンクロ) 小, い → (ぃ)","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "from":{"simultaneous":[
         {"key_code":"q"},
         {"key_code":"k"}
@@ -3696,8 +3674,7 @@ function manipulatorsB() {
       ]
     },
     {"description":"(シンクロ) 小, う → (ぅ)","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "from":{"simultaneous":[
         {"key_code":"q"},
         {"key_code":"l"}
@@ -3708,8 +3685,7 @@ function manipulatorsB() {
       ]
     },
     {"description":"(シンクロ) 小, え → (ぇ)","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "from":{"simultaneous":[
         {"key_code":"q"},
         {"key_code":"o"}
@@ -3720,8 +3696,7 @@ function manipulatorsB() {
       ]
     },
     {"description":"(シンクロ) 小, お → (ぉ)","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "from":{"simultaneous":[
         {"key_code":"q"},
         {"key_code":"n"}
@@ -3750,8 +3725,7 @@ function manipulatorsB() {
       ]
     },
     {"description":"(シンクロ) こ, な → 行送り","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "from":{"simultaneous":[
         {"key_code":"v"},
         {"key_code":"m"}
@@ -3771,8 +3745,7 @@ function manipulatorsB() {
       ]
     },
     {"description":"スペースキー","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "from":{"key_code":"spacebar"},
       "to":[{"set_variable":{"name":"shifted","value":1}}],
       "to_if_alone":[{"key_code":"spacebar"}],
@@ -4915,204 +4888,175 @@ function manipulatorsB() {
       ]
     },
     {"description":"き","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "from":{"key_code":"w"},
       "to":[{"key_code":"k"},{"key_code":"i","repeat":false}
       ]
     },
     {"description":"て","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "from":{"key_code":"e"},
       "to":[{"key_code":"t"},{"key_code":"e","repeat":false}
       ]
     },
     {"description":"し","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "from":{"key_code":"r"},
       "to":[{"key_code":"s"},{"key_code":"i","repeat":false}
       ]
     },
     {"description":"左","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "from":{"key_code":"t"},
       "to":[{"key_code":"n","modifiers":["control"]}
       ]
     },
     {"description":"右","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "from":{"key_code":"y"},
       "to":[{"key_code":"p","modifiers":["control"]}
       ]
     },
     {"description":"BS","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "from":{"key_code":"u"},
       "to":[{"key_code":"delete_or_backspace"}
       ]
     },
     {"description":"る","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "from":{"key_code":"i"},
       "to":[{"key_code":"r"},{"key_code":"u","repeat":false}
       ]
     },
     {"description":"す","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "from":{"key_code":"o"},
       "to":[{"key_code":"s"},{"key_code":"u","repeat":false}
       ]
     },
     {"description":"へ","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "from":{"key_code":"p"},
       "to":[{"key_code":"h"},{"key_code":"e","repeat":false}
       ]
     },
     {"description":"ろ","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "from":{"key_code":"a"},
       "to":[{"key_code":"r"},{"key_code":"o","repeat":false}
       ]
     },
     {"description":"け","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "from":{"key_code":"s"},
       "to":[{"key_code":"k"},{"key_code":"e","repeat":false}
       ]
     },
     {"description":"と","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "from":{"key_code":"d"},
       "to":[{"key_code":"t"},{"key_code":"o","repeat":false}
       ]
     },
     {"description":"か","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "from":{"key_code":"f"},
       "to":[{"key_code":"k"},{"key_code":"a","repeat":false}
       ]
     },
     {"description":"(っ)","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "from":{"key_code":"g"},
       "to":[{"key_code":"x"},{"key_code":"t"},{"key_code":"u","repeat":false}
       ]
     },
     {"description":"く","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "from":{"key_code":"h"},
       "to":[{"key_code":"k"},{"key_code":"u","repeat":false}
       ]
     },
     {"description":"あ","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "from":{"key_code":"j"},
       "to":[{"key_code":"a","repeat":false}
       ]
     },
     {"description":"い","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "from":{"key_code":"k"},
       "to":[{"key_code":"i","repeat":false}
       ]
     },
     {"description":"う","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "from":{"key_code":"l"},
       "to":[{"key_code":"u","repeat":false}
       ]
     },
     {"description":"ー","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "from":{"key_code":"semicolon"},
       "to":[{"key_code":"hyphen","repeat":false}
       ]
     },
     {"description":"ほ","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "from":{"key_code":"z"},
       "to":[{"key_code":"h"},{"key_code":"o","repeat":false}
       ]
     },
     {"description":"ひ","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "from":{"key_code":"x"},
       "to":[{"key_code":"h"},{"key_code":"i","repeat":false}
       ]
     },
     {"description":"は","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "from":{"key_code":"c"},
       "to":[{"key_code":"h"},{"key_code":"a","repeat":false}
       ]
     },
     {"description":"こ","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "from":{"key_code":"v"},
       "to":[{"key_code":"k"},{"key_code":"o","repeat":false}
       ]
     },
     {"description":"そ","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "from":{"key_code":"b"},
       "to":[{"key_code":"s"},{"key_code":"o","repeat":false}
       ]
     },
     {"description":"た","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "from":{"key_code":"n"},
       "to":[{"key_code":"t"},{"key_code":"a","repeat":false}
       ]
     },
     {"description":"な","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "from":{"key_code":"m"},
       "to":[{"key_code":"n"},{"key_code":"a","repeat":false}
       ]
     },
     {"description":"ん","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "from":{"key_code":"comma"},
       "to":[{"key_code":"n"},{"key_code":"n","repeat":false}
       ]
     },
     {"description":"ら","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "from":{"key_code":"period"},
       "to":[{"key_code":"r"},{"key_code":"a","repeat":false}
       ]
     },
     {"description":"れ","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "from":{"key_code":"slash"},
       "to":[{"key_code":"r"},{"key_code":"e","repeat":false}
       ]
@@ -5123,8 +5067,7 @@ function manipulatorsB() {
 function manipulatorsC1() {
   return [
   {"description":"左シフトキー","type":"basic",
-    "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-    {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+    "conditions": japanese_input,
     "from":{"key_code":"left_shift"},
     "to":[{"set_variable":{"name":"shifted","value":1}},
       {"key_code":"left_shift"}
@@ -5132,8 +5075,7 @@ function manipulatorsC1() {
     "to_after_key_up":[{"set_variable":{"name":"shifted","value":0}}]
   },
   {"description":"右シフトキー","type":"basic",
-    "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-    {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+    "conditions": japanese_input,
     "from":{"key_code":"right_shift"},
     "to":[{"set_variable":{"name":"shifted","value":1}},
       {"key_code":"right_shift"}
@@ -5141,8 +5083,7 @@ function manipulatorsC1() {
     "to_after_key_up":[{"set_variable":{"name":"shifted","value":0}}]
   },
   {"description":"[Sp] (シンクロ) 小, わ → (ゎ)","type":"basic",
-    "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-    {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+    "conditions": japanese_input,
     "from":{"simultaneous":[
       {"key_code":"q"},
       {"key_code":"l"}
@@ -5154,92 +5095,79 @@ function manipulatorsC1() {
     ]
   },
   {"description":"[Sp] ぬ","type":"basic",
-    "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-    {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+    "conditions": japanese_input,
     "from":{"key_code":"w","modifiers":{"mandatory":["shift"]}},
     "to":[{"key_code":"n"},{"key_code":"u","repeat":false}
     ]
   },
   {"description":"[Sp] り","type":"basic",
-    "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-    {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+    "conditions": japanese_input,
     "from":{"key_code":"e","modifiers":{"mandatory":["shift"]}},
     "to":[{"key_code":"r"},{"key_code":"i","repeat":false}
     ]
   },
   {"description":"[Sp] ね","type":"basic",
-    "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-    {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+    "conditions": japanese_input,
     "from":{"key_code":"r","modifiers":{"mandatory":["shift"]}},
     "to":[{"key_code":"n"},{"key_code":"e","repeat":false}
     ]
   },
   {"description":"[Sp] 左","type":"basic",
-    "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-    {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+    "conditions": japanese_input,
     "from":{"key_code":"t","modifiers":{"mandatory":["shift"]}},
     "to":[{"key_code":"n","modifiers":["control","shift"]}
     ]
   },
   {"description":"[Sp] 右","type":"basic",
-    "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-    {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+    "conditions": japanese_input,
     "from":{"key_code":"y","modifiers":{"mandatory":["shift"]}},
     "to":[{"key_code":"p","modifiers":["control","shift"]}
     ]
   },
   {"description":"[Sp] さ","type":"basic",
-    "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-    {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+    "conditions": japanese_input,
     "from":{"key_code":"u","modifiers":{"mandatory":["shift"]}},
     "to":[{"key_code":"s"},{"key_code":"a","repeat":false}
     ]
   },
   {"description":"[Sp] よ","type":"basic",
-    "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-    {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+    "conditions": japanese_input,
     "from":{"key_code":"i","modifiers":{"mandatory":["shift"]}},
     "to":[{"key_code":"y"},{"key_code":"o","repeat":false}
     ]
   },
   {"description":"[Sp] え","type":"basic",
-    "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-    {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+    "conditions": japanese_input,
     "from":{"key_code":"o","modifiers":{"mandatory":["shift"]}},
     "to":[{"key_code":"e","repeat":false}
     ]
   },
   {"description":"[Sp] ゆ","type":"basic",
-    "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-    {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+    "conditions": japanese_input,
     "from":{"key_code":"p","modifiers":{"mandatory":["shift"]}},
     "to":[{"key_code":"y"},{"key_code":"u","repeat":false}
     ]
   },
   {"description":"[Sp] せ","type":"basic",
-    "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-    {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+    "conditions": japanese_input,
     "from":{"key_code":"a","modifiers":{"mandatory":["shift"]}},
     "to":[{"key_code":"s"},{"key_code":"e","repeat":false}
     ]
   },
   {"description":"[Sp] め","type":"basic",
-    "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-    {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+    "conditions": japanese_input,
     "from":{"key_code":"s","modifiers":{"mandatory":["shift"]}},
     "to":[{"key_code":"m"},{"key_code":"e","repeat":false}
     ]
   },
   {"description":"[Sp] に","type":"basic",
-    "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-    {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+    "conditions": japanese_input,
     "from":{"key_code":"d","modifiers":{"mandatory":["shift"]}},
     "to":[{"key_code":"n"},{"key_code":"i","repeat":false}
     ]
   },
   {"description":"[Sp] ま","type":"basic",
-    "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-    {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+    "conditions": japanese_input,
     "from":{"key_code":"f","modifiers":{"mandatory":["shift"]}},
     "to":[{"set_variable":{"name":"DR","value":1}},
       {"key_code":"m"},{"key_code":"a","repeat":false}
@@ -5247,22 +5175,19 @@ function manipulatorsC1() {
     "to_after_key_up":[{"set_variable":{"name":"DR","value":0}}]
   },
   {"description":"[Sp] ち","type":"basic",
-    "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-    {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+    "conditions": japanese_input,
     "from":{"key_code":"g","modifiers":{"mandatory":["shift"]}},
     "to":[{"key_code":"t"},{"key_code":"i","repeat":false}
     ]
   },
   {"description":"[Sp] や","type":"basic",
-    "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-    {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+    "conditions": japanese_input,
     "from":{"key_code":"h","modifiers":{"mandatory":["shift"]}},
     "to":[{"key_code":"y"},{"key_code":"a","repeat":false}
     ]
   },
   {"description":"[Sp] の","type":"basic",
-    "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-    {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+    "conditions": japanese_input,
     "from":{"key_code":"j","modifiers":{"mandatory":["shift"]}},
     "to":[{"set_variable":{"name":"DL","value":1}},
       {"key_code":"n"},{"key_code":"o","repeat":false}
@@ -5270,71 +5195,61 @@ function manipulatorsC1() {
     "to_after_key_up":[{"set_variable":{"name":"DL","value":0}}]
   },
   {"description":"[Sp] も","type":"basic",
-    "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-    {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+    "conditions": japanese_input,
     "from":{"key_code":"k","modifiers":{"mandatory":["shift"]}},
     "to":[{"key_code":"m"},{"key_code":"o","repeat":false}
     ]
   },
   {"description":"[Sp] つ","type":"basic",
-    "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-    {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+    "conditions": japanese_input,
     "from":{"key_code":"l","modifiers":{"mandatory":["shift"]}},
     "to":[{"key_code":"t"},{"key_code":"u","repeat":false}
     ]
   },
   {"description":"[Sp] ふ","type":"basic",
-    "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-    {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+    "conditions": japanese_input,
     "from":{"key_code":"semicolon","modifiers":{"mandatory":["shift"]}},
     "to":[{"key_code":"f"},{"key_code":"u","repeat":false}
     ]
   },
   {"description":"[Sp] を","type":"basic",
-    "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-    {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+    "conditions": japanese_input,
     "from":{"key_code":"c","modifiers":{"mandatory":["shift"]}},
     "to":[{"key_code":"w"},{"key_code":"o","repeat":false}
     ]
   },
   {"description":"[Sp] 、","type":"basic",
-    "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-    {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+    "conditions": japanese_input,
     "from":{"key_code":"v","modifiers":{"mandatory":["shift"]}},
     "to":[{"key_code":"comma","repeat":false}
     ]
   },
   {"description":"[Sp] み","type":"basic",
-    "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-    {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+    "conditions": japanese_input,
     "from":{"key_code":"b","modifiers":{"mandatory":["shift"]}},
     "to":[{"key_code":"m"},{"key_code":"i","repeat":false}
     ]
   },
   {"description":"[Sp] お","type":"basic",
-    "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-    {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+    "conditions": japanese_input,
     "from":{"key_code":"n","modifiers":{"mandatory":["shift"]}},
     "to":[{"key_code":"o","repeat":false}
     ]
   },
   {"description":"[Sp] 。","type":"basic",
-    "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-    {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+    "conditions": japanese_input,
     "from":{"key_code":"m","modifiers":{"mandatory":["shift"]}},
     "to":[{"key_code":"period"},{"key_code":"return_or_enter","repeat":false}
     ]
   },
   {"description":"[Sp] む","type":"basic",
-    "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-    {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+    "conditions": japanese_input,
     "from":{"key_code":"comma","modifiers":{"mandatory":["shift"]}},
     "to":[{"key_code":"m"},{"key_code":"u","repeat":false}
     ]
   },
   {"description":"[Sp] わ","type":"basic",
-    "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-    {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+    "conditions": japanese_input,
     "from":{"key_code":"period","modifiers":{"mandatory":["shift"]}},
     "to":[{"key_code":"w"},{"key_code":"left_arrow","repeat":false}
     ]
@@ -5345,8 +5260,7 @@ function manipulatorsC1() {
 function manipulatorsC2() {
   return [
     {"description":"エンターキー","type":"basic",
-      "conditions":[{"input_sources":[{"language":"ja"}],"type":"input_source_if"},
-      {"input_sources":[{"input_mode_id":"Roman$"}],"type":"input_source_unless"}],
+      "conditions": japanese_input,
       "from":{"key_code":"return_or_enter"},
       "to":[{"set_variable":{"name":"shifted","value":1}}],
       "to_if_alone":[{"key_code":"return_or_enter"}],
