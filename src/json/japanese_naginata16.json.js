@@ -4,13 +4,13 @@
 // is an array
 // if you want to specify repeat == false for the last array element (typically key
 // inputs with modifiers), specify arg will_repeat = false explicitly
-function keydef(description, from_key, to_key_list, conditions, will_repeat) {
+function keydef(description, from_key, to_key_list, conditions, will_repeat, transmit_var_list) {
   return {
     "type":"basic",
     "description":description,
     "conditions": conditions,
-    "from": process_from(from_key),
-    "to": key_code_list(to_key_list, will_repeat)
+    "from": process_from(from_key, transmit_var_list),
+    "to": key_code_list(to_key_list, will_repeat, transmit_var_list)
   }
 }
 
@@ -101,21 +101,34 @@ function non_shifted(var_name, is_jis_keyboard, is_im) {
   return non_shifted_body;
 }
 
-function process_from(from_key) {
+function process_from(from_key, transmit_var_list) {
   if (!Array.isArray(from_key)) {
     return {"key_code": from_key};
   }
-  var output = [];
+  var simul_keys = [];
   for (var i=0; i<from_key.length; i++) {
-    output.push({"key_code": from_key[i]});
+    simul_keys.push({"key_code": from_key[i]});
   }
-  return {"simultaneous": output};
+  var output = {"simultaneous": simul_keys};
+  if (transmit_var_list != "undefined" && transmit_var_list != null) {
+    var opt_var = [];
+    for (var i=0; i<transmit_var_list.length; i++) {
+      opt_var.push({"set_variable": {"name": transmit_var_list[i], "value": false}});
+    }
+    output.simultaneous_options = {"to_after_key_up": opt_var};
+  }
+  return output;
 }
 
 // turn a list of chars to that of {"key_code": char}
 // if the last arg is defined, the last entry is {"key_code": char, "repeat": last_arg}
-function key_code_list(input_list, will_repeat) {
+function key_code_list(input_list, will_repeat, transmit_var_list) {
   var output = [];
+  if (transmit_var_list != "undefined" && transmit_var_list != null) {
+    for (var i=0; i<transmit_var_list.length; i++) {
+      output.push({"set_variable": {"name": transmit_var_list[i], "value": true}})
+    }
+  }
   var append = (will_repeat != "undefined" && will_repeat != null) ? true : false;
   var rep_number = (append ? input_list.length-1 : input_list.length);
   for (var i=0; i<rep_number; i++) {
@@ -859,42 +872,9 @@ function manipulatorsB() {
         {"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"1","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"1","modifiers":["option"]},{"key_code":"1","modifiers":["option"]},{"key_code":"b","modifiers":["control"]},{"key_code":"lang1","modifiers":["shift"]},{"key_code":"lang1"}
       ]}
     },
-    {"description":"(シンクロ) あ, い, と → ？","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"k"},
-        {"key_code":"d"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM1L","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM1L","value":1}},
-        {"key_code":"slash","modifiers":["shift"]},{"key_code":"return_or_enter","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) あ, い, は → ！","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"k"},
-        {"key_code":"c"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM1L","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM1L","value":1}},
-        {"key_code":"1","modifiers":["shift"]},{"key_code":"return_or_enter","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) あ, い, し → 保","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"k"},
-        {"key_code":"r"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM1L","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM1L","value":1}},
-        {"key_code":"s","modifiers":["command"],"repeat":false}
-      ]
-    },
+    keydef("(シンクロ) あ, い, と → ？", ["j", "k", "d"], [["slash", ["shift"]], "return_or_enter"], non_shifted(), false, ["EM1L"]),
+    keydef("(シンクロ) あ, い, は → ！", ["j", "k", "c"], [["1", ["shift"]], "return_or_enter"], non_shifted(), false, ["EM1L"]),
+    keydef("(シンクロ) あ, い, し → 保", ["j", "k", "r"], [["s", ["command"]]], non_shifted(), false, ["EM1L"]),
     {"description":"(JIS/US)(シンクロ) あ, い, か → 「」","type":"basic",
       "conditions":non_shifted(null, true, false),
       "from":{"simultaneous":[
@@ -987,18 +967,7 @@ function manipulatorsB() {
         {"key_code":"lang1"},{"key_code":"e","modifiers":["control"]},{"key_code":"return_or_enter"},{"key_code":"spacebar"}
       ]}
     },
-    {"description":"(シンクロ) と, か, 右 → Home","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"d"},
-        {"key_code":"f"},
-        {"key_code":"y"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM1R","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM1R","value":1}},
-        {"key_code":"a","modifiers":["control"],"repeat":false}
-      ]
-    },
+    keydef("(シンクロ) と, か, 右 → Home", ["d", "f", "y"], [["a", ["control"]]], non_shifted(), false, ["EM1R"]),
     {"description":"(U.S.使用)(シンクロ) と, か, く → 確定End","type":"basic",
       "conditions": non_shifted(),
       "parameters":{"basic.to_delayed_action_delay_milliseconds":30},
@@ -1013,90 +982,13 @@ function manipulatorsB() {
         {"key_code":"e","modifiers":["control"]},{"key_code":"lang1","modifiers":["shift"]},{"key_code":"lang1"}
       ]}
     },
-    {"description":"(シンクロ) と, か, た → End","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"d"},
-        {"key_code":"f"},
-        {"key_code":"n"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM1R","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM1R","value":1}},
-        {"key_code":"e","modifiers":["control"],"repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) と, か, BS → 文末消去","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"d"},
-        {"key_code":"f"},
-        {"key_code":"u"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM1R","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM1R","value":1}},
-        {"key_code":"k","modifiers":["control"],"repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) と, か, あ → ↑","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"d"},
-        {"key_code":"f"},
-        {"key_code":"j"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM1R","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM1R","value":1}},
-        {"key_code":"b","modifiers":["control"]}
-      ]
-    },
-    {"description":"(シンクロ) と, か, な → ↓","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"d"},
-        {"key_code":"f"},
-        {"key_code":"m"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM1R","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM1R","value":1}},
-        {"key_code":"f","modifiers":["control"]}
-      ]
-    },
-    {"description":"(シンクロ) と, か, る → 再","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"d"},
-        {"key_code":"f"},
-        {"key_code":"i"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM1R","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM1R","value":1}},
-        {"key_code":"lang1"},{"key_code":"lang1","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) と, か, い → +↑","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"d"},
-        {"key_code":"f"},
-        {"key_code":"k"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM1R","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM1R","value":1}},
-        {"key_code":"b","modifiers":["shift","control"]}
-      ]
-    },
-    {"description":"(シンクロ) と, か, ん → +↓","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"d"},
-        {"key_code":"f"},
-        {"key_code":"comma"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM1R","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM1R","value":1}},
-        {"key_code":"f","modifiers":["shift","control"]}
-      ]
-    },
+    keydef("(シンクロ) と, か, た → End", ["d", "f", "n"], [["e", ["control"]]], non_shifted(), false, ["EM1R"]),
+    keydef("(シンクロ) と, か, BS → 文末消去", ["d", "f", "u"], [["k", ["control"]]], non_shifted(), false, ["EM1R"]),
+    keydef("(シンクロ) と, か, あ → ↑", ["d", "f", "j"], [["b", ["control"]]], non_shifted(), null, ["EM1R"]),
+    keydef("(シンクロ) と, か, な → ↓", ["d", "f", "m"], [["f", ["control"]]], non_shifted(), null, ["EM1R"]),
+    keydef("(シンクロ) と, か, る → 再", ["d", "f", "i"], ["lang1", "lang1"], non_shifted(), false, ["EM1R"]),
+    keydef("(シンクロ) と, か, い → +↑", ["d", "f", "k"], [["b", ["shift","control"]]], non_shifted(), null, ["EM1R"]),
+    keydef("(シンクロ) と, か, ん → +↓", ["d", "f", "comma"], [["f", ["shift","control"]]], non_shifted(), null, ["EM1R"]),
     {"description":"(シンクロ) と, か, す → Del","type":"basic",
       "conditions": non_shifted(),
       "from":{"simultaneous":[
@@ -1133,18 +1025,7 @@ function manipulatorsB() {
         {"key_code":"f","modifiers":["shift","control"]},{"key_code":"f","modifiers":["shift","control"]},{"key_code":"f","modifiers":["shift","control"]},{"key_code":"f","modifiers":["shift","control"]},{"key_code":"f","modifiers":["shift","control"]},{"key_code":"f","modifiers":["shift","control"]},{"key_code":"f","modifiers":["shift","control"]}
       ]
     },
-    {"description":"(シンクロ) と, か, へ → 入力キャンセル","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"d"},
-        {"key_code":"f"},
-        {"key_code":"p"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM1R","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM1R","value":1}},
-        {"key_code":"escape"},{"key_code":"escape"},{"key_code":"escape","repeat":false}
-      ]
-    },
+    keydef("(シンクロ) と, か, へ → 入力キャンセル", ["d", "f", "p"], ["escape", "escape", "escape"], non_shifted(), false, ["EM1R"]),
     {"description":"(シンクロ) と, か, ー → カタカナ変換","type":"basic",
       "conditions": non_shifted(),
       "from":{"simultaneous":[
@@ -1169,18 +1050,7 @@ function manipulatorsB() {
         {"key_code":"f6","repeat":false}
       ]
     },
-    {"description":"(シンクロ) な, ん, 小 → カッコ外し","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"m"},
-        {"key_code":"comma"},
-        {"key_code":"q"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM2L","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM2L","value":1}},
-        {"key_code":"x","modifiers":["command"]},{"key_code":"delete_or_backspace"},{"key_code":"delete_forward"},{"key_code":"v","modifiers":["command"],"repeat":false}
-      ]
-    },
+    keydef("(シンクロ) な, ん, 小 → カッコ外し", ["m", "comma", "q"], [["x", ["command"]], "delete_or_backspace", "delete_forward", ["v", ["command"]]], non_shifted(), false, ["EM2L"]),
     {"description":"(UNICODE使用)(シンクロ) な, ん, ろ → 《》","type":"basic",
       "conditions": non_shifted(),
       "parameters":{"basic.to_delayed_action_delay_milliseconds":30},
@@ -1214,30 +1084,8 @@ function manipulatorsB() {
         {"key_code":"f","modifiers":["option"]},{"key_code":"f","modifiers":["option"]},{"key_code":"5","modifiers":["option"]},{"key_code":"c","modifiers":["option"]},{"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"a","modifiers":["option"]},{"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"b","modifiers":["option"]},{"key_code":"b","modifiers":["control"]},{"key_code":"b","modifiers":["control"]},{"key_code":"v","modifiers":["command"]},{"key_code":"f","modifiers":["control"]},{"key_code":"spacebar"},{"key_code":"b","modifiers":["shift","control"]},{"key_code":"x","modifiers":["command"]},{"key_code":"lang1","modifiers":["shift"]},{"key_code":"lang1"}
       ]}
     },
-    {"description":"(日本語IM時)(JIS/US)(シンクロ) な, ん, き → +『』","type":"basic",
-      "conditions":non_shifted(null, true, true),
-      "from":{"simultaneous":[
-        {"key_code":"m"},
-        {"key_code":"comma"},
-        {"key_code":"w"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM2L","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM2L","value":1}},
-        {"key_code":"x","modifiers":["command"]},{"key_code":"close_bracket","modifiers":["shift"]},{"key_code":"v","modifiers":["command"]},{"key_code":"non_us_pound","modifiers":["shift"]},{"key_code":"return_or_enter"},{"key_code":"spacebar"},{"key_code":"b","modifiers":["shift","control"]},{"key_code":"x","modifiers":["command"],"repeat":false}
-      ]
-    },
-    {"type":"basic",
-      "conditions":non_shifted(null, false, true),
-      "from":{"simultaneous":[
-        {"key_code":"m"},
-        {"key_code":"comma"},
-        {"key_code":"w"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM2L","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM2L","value":1}},
-        {"key_code":"x","modifiers":["command"]},{"key_code":"open_bracket","modifiers":["shift"]},{"key_code":"v","modifiers":["command"]},{"key_code":"close_bracket","modifiers":["shift"]},{"key_code":"return_or_enter"},{"key_code":"spacebar"},{"key_code":"b","modifiers":["shift","control"]},{"key_code":"x","modifiers":["command"],"repeat":false}
-      ]
-    },
+    keydef("(日本語IM時)(JIS/US)(シンクロ) な, ん, き → +『』", ["m", "comma", "w"], [["x", ["command"]], ["close_bracket", ["shift"]], ["v", ["command"]], ["non_us_pound", ["shift"]], "return_or_enter", "spacebar", ["b", ["shift","control"]], ["x", ["command"]]], non_shifted(null, true, true), false, ["EM2L"]),
+    keydef("", ["m", "comma", "w"], [["x", ["command"]], ["open_bracket", ["shift"]], ["v", ["command"]], ["close_bracket", ["shift"]], "return_or_enter", "spacebar", ["b", ["shift","control"]], ["x", ["command"]]], non_shifted(null, false, true), false, ["EM2L"]),
     {"description":"(UNICODE使用)(シンクロ) な, ん, き → +『』","type":"basic",
       "conditions": non_shifted(),
       "parameters":{"basic.to_delayed_action_delay_milliseconds":30},
@@ -1255,54 +1103,10 @@ function manipulatorsB() {
         {"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"e","modifiers":["option"]},{"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"f","modifiers":["option"]},{"key_code":"b","modifiers":["control"]},{"key_code":"v","modifiers":["command"]},{"key_code":"f","modifiers":["control"]},{"key_code":"spacebar"},{"key_code":"b","modifiers":["shift","control"]},{"key_code":"x","modifiers":["command"]},{"key_code":"lang1","modifiers":["shift"]},{"key_code":"lang1"}
       ]}
     },
-    {"description":"(JIS/US)(シンクロ) な, ん, け → +（）","type":"basic",
-      "conditions":non_shifted(null, true, false),
-      "from":{"simultaneous":[
-        {"key_code":"m"},
-        {"key_code":"comma"},
-        {"key_code":"s"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM2L","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM2L","value":1}},
-        {"key_code":"x","modifiers":["command"]},{"key_code":"8","modifiers":["shift"]},{"key_code":"v","modifiers":["command"]},{"key_code":"9","modifiers":["shift"]},{"key_code":"return_or_enter"},{"key_code":"spacebar"},{"key_code":"b","modifiers":["shift","control"]},{"key_code":"x","modifiers":["command"],"repeat":false}
-      ]
-    },
-    {"type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"m"},
-        {"key_code":"comma"},
-        {"key_code":"s"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM2L","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM2L","value":1}},
-        {"key_code":"x","modifiers":["command"]},{"key_code":"9","modifiers":["shift"]},{"key_code":"v","modifiers":["command"]},{"key_code":"0","modifiers":["shift"]},{"key_code":"return_or_enter"},{"key_code":"spacebar"},{"key_code":"b","modifiers":["shift","control"]},{"key_code":"x","modifiers":["command"],"repeat":false}
-      ]
-    },
-    {"description":"(日本語IM時)(JIS/US)(シンクロ) な, ん, ひ → +【】","type":"basic",
-      "conditions":non_shifted(null, true, true),
-      "from":{"simultaneous":[
-        {"key_code":"m"},
-        {"key_code":"comma"},
-        {"key_code":"x"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM2L","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM2L","value":1}},
-        {"key_code":"x","modifiers":["command"]},{"key_code":"8","modifiers":["option"]},{"key_code":"v","modifiers":["command"]},{"key_code":"9","modifiers":["option"]},{"key_code":"return_or_enter"},{"key_code":"spacebar"},{"key_code":"b","modifiers":["shift","control"]},{"key_code":"x","modifiers":["command"],"repeat":false}
-      ]
-    },
-    {"type":"basic",
-      "conditions":non_shifted(null, false, true),
-      "from":{"simultaneous":[
-        {"key_code":"m"},
-        {"key_code":"comma"},
-        {"key_code":"x"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM2L","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM2L","value":1}},
-        {"key_code":"x","modifiers":["command"]},{"key_code":"9","modifiers":["option"]},{"key_code":"v","modifiers":["command"]},{"key_code":"0","modifiers":["option"]},{"key_code":"return_or_enter"},{"key_code":"spacebar"},{"key_code":"b","modifiers":["shift","control"]},{"key_code":"x","modifiers":["command"],"repeat":false}
-      ]
-    },
+    keydef("(JIS/US)(シンクロ) な, ん, け → +（）", ["m", "comma", "s"], [["x", ["command"]], ["8", ["shift"]], ["v", ["command"]], ["9", ["shift"]], "return_or_enter", "spacebar", ["b", ["shift","control"]], ["x", ["command"]]], non_shifted(null, true, false), false, ["EM2L"]),
+    keydef("", ["m", "comma", "s"], [["x", ["command"]], ["9", ["shift"]], ["v", ["command"]], ["0", ["shift"]], "return_or_enter", "spacebar", ["b", ["shift","control"]], ["x", ["command"]]], non_shifted(), false, ["EM2L"]),
+    keydef("(日本語IM時)(JIS/US)(シンクロ) な, ん, ひ → +【】", ["m", "comma", "x"], [["x", ["command"]], ["8", ["option"]], ["v", ["command"]], ["9", ["option"]], "return_or_enter", "spacebar", ["b", ["shift","control"]], ["x", ["command"]]], non_shifted(null, true, true), false, ["EM2L"]),
+    keydef("", ["m", "comma", "x"], [["x", ["command"]], ["9", ["option"]], ["v", ["command"]], ["0", ["option"]], "return_or_enter", "spacebar", ["b", ["shift","control"]], ["x", ["command"]]], non_shifted(null, false, true), false, ["EM2L"]),
     {"description":"(UNICODE使用)(シンクロ) な, ん, ひ → +【】","type":"basic",
       "conditions": non_shifted(),
       "parameters":{"basic.to_delayed_action_delay_milliseconds":30},
@@ -1320,90 +1124,13 @@ function manipulatorsB() {
         {"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"1","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"1","modifiers":["option"]},{"key_code":"1","modifiers":["option"]},{"key_code":"b","modifiers":["control"]},{"key_code":"v","modifiers":["command"]},{"key_code":"f","modifiers":["control"]},{"key_code":"spacebar"},{"key_code":"b","modifiers":["shift","control"]},{"key_code":"x","modifiers":["command"]},{"key_code":"lang1","modifiers":["shift"]},{"key_code":"lang1"}
       ]}
     },
-    {"description":"(シンクロ) な, ん, て → 行頭□□□挿入","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"m"},
-        {"key_code":"comma"},
-        {"key_code":"e"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM2L","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM2L","value":1}},
-        {"key_code":"a","modifiers":["control"]},{"key_code":"return_or_enter"},{"key_code":"spacebar"},{"key_code":"spacebar"},{"key_code":"spacebar"},{"key_code":"e","modifiers":["control"],"repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) な, ん, と → □□□","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"m"},
-        {"key_code":"comma"},
-        {"key_code":"d"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM2L","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM2L","value":1}},
-        {"key_code":"spacebar"},{"key_code":"spacebar"},{"key_code":"spacebar","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) な, ん, は → 行頭□□□戻し","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"m"},
-        {"key_code":"comma"},
-        {"key_code":"c"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM2L","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM2L","value":1}},
-        {"key_code":"a","modifiers":["control"]},{"key_code":"delete_or_backspace"},{"key_code":"delete_forward"},{"key_code":"delete_forward"},{"key_code":"delete_forward"},{"key_code":"e","modifiers":["control"],"repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) な, ん, し → 行頭□挿入","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"m"},
-        {"key_code":"comma"},
-        {"key_code":"r"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM2L","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM2L","value":1}},
-        {"key_code":"a","modifiers":["control"]},{"key_code":"return_or_enter"},{"key_code":"spacebar"},{"key_code":"e","modifiers":["control"],"repeat":false}
-      ]
-    },
-    {"description":"(JIS/US)(シンクロ) な, ん, か → +「」","type":"basic",
-      "conditions":non_shifted(null, true, false),
-      "from":{"simultaneous":[
-        {"key_code":"m"},
-        {"key_code":"comma"},
-        {"key_code":"f"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM2L","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM2L","value":1}},
-        {"key_code":"x","modifiers":["command"]},{"key_code":"close_bracket"},{"key_code":"v","modifiers":["command"]},{"key_code":"non_us_pound"},{"key_code":"return_or_enter"},{"key_code":"spacebar"},{"key_code":"b","modifiers":["shift","control"]},{"key_code":"x","modifiers":["command"],"repeat":false}
-      ]
-    },
-    {"type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"m"},
-        {"key_code":"comma"},
-        {"key_code":"f"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM2L","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM2L","value":1}},
-        {"key_code":"x","modifiers":["command"]},{"key_code":"open_bracket"},{"key_code":"v","modifiers":["command"]},{"key_code":"close_bracket"},{"key_code":"return_or_enter"},{"key_code":"spacebar"},{"key_code":"b","modifiers":["shift","control"]},{"key_code":"x","modifiers":["command"],"repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) な, ん, こ → 行頭□戻し","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"m"},
-        {"key_code":"comma"},
-        {"key_code":"v"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM2L","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM2L","value":1}},
-        {"key_code":"a","modifiers":["control"]},{"key_code":"delete_or_backspace"},{"key_code":"delete_forward"},{"key_code":"e","modifiers":["control"],"repeat":false}
-      ]
-    },
+    keydef("(シンクロ) な, ん, て → 行頭□□□挿入", ["m", "comma", "e"], [["a", ["control"]], "return_or_enter", "spacebar", "spacebar", "spacebar", ["e", ["control"]]], non_shifted(), false, ["EM2L"]),
+    keydef("(シンクロ) な, ん, と → □□□", ["m", "comma", "d"], ["spacebar", "spacebar", "spacebar"], non_shifted(), false, ["EM2L"]),
+    keydef("(シンクロ) な, ん, は → 行頭□□□戻し", ["m", "comma", "c"], [["a", ["control"]], "delete_or_backspace", "delete_forward", "delete_forward", "delete_forward", ["e", ["control"]]], non_shifted(), false, ["EM2L"]),
+    keydef("(シンクロ) な, ん, し → 行頭□挿入", ["m", "comma", "r"], [["a", ["control"]], "return_or_enter", "spacebar", ["e", ["control"]]], non_shifted(), false, ["EM2L"]),
+    keydef("(JIS/US)(シンクロ) な, ん, か → +「」", ["m", "comma", "f"], [["x", ["command"]], "close_bracket", ["v", ["command"]], "non_us_pound", "return_or_enter", "spacebar", ["b", ["shift","control"]], ["x", ["command"]]], non_shifted(null, true, false), false, ["EM2L"]),
+    keydef("", ["m", "comma", "f"], [["x", ["command"]], "open_bracket", ["v", ["command"]], "close_bracket", "return_or_enter", "spacebar", ["b", ["shift","control"]], ["x", ["command"]]], non_shifted(), false, ["EM2L"]),
+    keydef("(シンクロ) な, ん, こ → 行頭□戻し", ["m", "comma", "v"], [["a", ["control"]], "delete_or_backspace", "delete_forward", ["e", ["control"]]], non_shifted(), false, ["EM2L"]),
     {"description":"(UNICODE使用)(シンクロ) な, ん, 左 → ○","type":"basic",
       "conditions": non_shifted(),
       "parameters":{"basic.to_delayed_action_delay_milliseconds":30},
@@ -1420,18 +1147,7 @@ function manipulatorsB() {
         {"key_code":"2","modifiers":["option"]},{"key_code":"5","modifiers":["option"]},{"key_code":"c","modifiers":["option"]},{"key_code":"b","modifiers":["option"]},{"key_code":"lang1","modifiers":["shift"]},{"key_code":"lang1"}
       ]}
     },
-    {"description":"(シンクロ) な, ん, (っ) → ／","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"m"},
-        {"key_code":"comma"},
-        {"key_code":"g"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM2L","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM2L","value":1}},
-        {"key_code":"slash","modifiers":["option"]},{"key_code":"return_or_enter","repeat":false}
-      ]
-    },
+    keydef("(シンクロ) な, ん, (っ) → ／", ["m", "comma", "g"], [["slash", ["option"]], "return_or_enter"], non_shifted(), false, ["EM2L"]),
     {"description":"(UNICODE使用)(シンクロ) な, ん, そ → x   x   x","type":"basic",
       "conditions": non_shifted(),
       "parameters":{"basic.to_delayed_action_delay_milliseconds":30},
@@ -1448,1803 +1164,181 @@ function manipulatorsB() {
         {"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"d","modifiers":["option"]},{"key_code":"7","modifiers":["option"]},{"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"d","modifiers":["option"]},{"key_code":"7","modifiers":["option"]},{"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"d","modifiers":["option"]},{"key_code":"7","modifiers":["option"]},{"key_code":"lang1","modifiers":["shift"]},{"key_code":"lang1"},{"key_code":"return_or_enter"}
       ]}
     },
-    {"description":"(シンクロ) は, こ, 右 → +Home","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"c"},
-        {"key_code":"v"},
-        {"key_code":"y"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM2R","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM2R","value":1}},
-        {"key_code":"a","modifiers":["shift","control"],"repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) は, こ, く → Copy","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"c"},
-        {"key_code":"v"},
-        {"key_code":"h"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM2R","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM2R","value":1}},
-        {"key_code":"c","modifiers":["command"],"repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) は, こ, た → +End","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"c"},
-        {"key_code":"v"},
-        {"key_code":"n"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM2R","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM2R","value":1}},
-        {"key_code":"e","modifiers":["shift","control"],"repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) は, こ, BS → Cut","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"c"},
-        {"key_code":"v"},
-        {"key_code":"u"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM2R","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM2R","value":1}},
-        {"key_code":"x","modifiers":["command"],"repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) は, こ, あ → →5","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"c"},
-        {"key_code":"v"},
-        {"key_code":"j"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM2R","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM2R","value":1}},
-        {"key_code":"p","modifiers":["control"]},{"key_code":"p","modifiers":["control"]},{"key_code":"p","modifiers":["control"]},{"key_code":"p","modifiers":["control"]},{"key_code":"p","modifiers":["control"]}
-      ]
-    },
-    {"description":"(シンクロ) は, こ, な → ←5","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"c"},
-        {"key_code":"v"},
-        {"key_code":"m"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM2R","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM2R","value":1}},
-        {"key_code":"n","modifiers":["control"]},{"key_code":"n","modifiers":["control"]},{"key_code":"n","modifiers":["control"]},{"key_code":"n","modifiers":["control"]},{"key_code":"n","modifiers":["control"]}
-      ]
-    },
-    {"description":"(シンクロ) は, こ, る → Paste","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"c"},
-        {"key_code":"v"},
-        {"key_code":"i"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM2R","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM2R","value":1}},
-        {"key_code":"v","modifiers":["command"],"repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) は, こ, い → +→5","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"c"},
-        {"key_code":"v"},
-        {"key_code":"k"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM2R","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM2R","value":1}},
-        {"key_code":"p","modifiers":["shift","control"]},{"key_code":"p","modifiers":["shift","control"]},{"key_code":"p","modifiers":["shift","control"]},{"key_code":"p","modifiers":["shift","control"]},{"key_code":"p","modifiers":["shift","control"]}
-      ]
-    },
-    {"description":"(シンクロ) は, こ, ん → +←5","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"c"},
-        {"key_code":"v"},
-        {"key_code":"comma"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM2R","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM2R","value":1}},
-        {"key_code":"n","modifiers":["shift","control"]},{"key_code":"n","modifiers":["shift","control"]},{"key_code":"n","modifiers":["shift","control"]},{"key_code":"n","modifiers":["shift","control"]},{"key_code":"n","modifiers":["shift","control"]}
-      ]
-    },
-    {"description":"(シンクロ) は, こ, す → Redo","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"c"},
-        {"key_code":"v"},
-        {"key_code":"o"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM2R","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM2R","value":1}},
-        {"key_code":"z","modifiers":["shift","command"],"repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) は, こ, う → +→20","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"c"},
-        {"key_code":"v"},
-        {"key_code":"l"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM2R","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM2R","value":1}},
-        {"key_code":"p","modifiers":["shift","control"]},{"key_code":"p","modifiers":["shift","control"]},{"key_code":"p","modifiers":["shift","control"]},{"key_code":"p","modifiers":["shift","control"]},{"key_code":"p","modifiers":["shift","control"]},{"key_code":"p","modifiers":["shift","control"]},{"key_code":"p","modifiers":["shift","control"]},{"key_code":"p","modifiers":["shift","control"]},{"key_code":"p","modifiers":["shift","control"]},{"key_code":"p","modifiers":["shift","control"]},{"key_code":"p","modifiers":["shift","control"]},{"key_code":"p","modifiers":["shift","control"]},{"key_code":"p","modifiers":["shift","control"]},{"key_code":"p","modifiers":["shift","control"]},{"key_code":"p","modifiers":["shift","control"]},{"key_code":"p","modifiers":["shift","control"]},{"key_code":"p","modifiers":["shift","control"]},{"key_code":"p","modifiers":["shift","control"]},{"key_code":"p","modifiers":["shift","control"]},{"key_code":"p","modifiers":["shift","control"]}
-      ]
-    },
-    {"description":"(シンクロ) は, こ, ら → +←20","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"c"},
-        {"key_code":"v"},
-        {"key_code":"period"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM2R","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM2R","value":1}},
-        {"key_code":"n","modifiers":["shift","control"]},{"key_code":"n","modifiers":["shift","control"]},{"key_code":"n","modifiers":["shift","control"]},{"key_code":"n","modifiers":["shift","control"]},{"key_code":"n","modifiers":["shift","control"]},{"key_code":"n","modifiers":["shift","control"]},{"key_code":"n","modifiers":["shift","control"]},{"key_code":"n","modifiers":["shift","control"]},{"key_code":"n","modifiers":["shift","control"]},{"key_code":"n","modifiers":["shift","control"]},{"key_code":"n","modifiers":["shift","control"]},{"key_code":"n","modifiers":["shift","control"]},{"key_code":"n","modifiers":["shift","control"]},{"key_code":"n","modifiers":["shift","control"]},{"key_code":"n","modifiers":["shift","control"]},{"key_code":"n","modifiers":["shift","control"]},{"key_code":"n","modifiers":["shift","control"]},{"key_code":"n","modifiers":["shift","control"]},{"key_code":"n","modifiers":["shift","control"]},{"key_code":"n","modifiers":["shift","control"]}
-      ]
-    },
-    {"description":"(シンクロ) は, こ, へ → Undo","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"c"},
-        {"key_code":"v"},
-        {"key_code":"p"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM2R","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM2R","value":1}},
-        {"key_code":"z","modifiers":["command"],"repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) は, こ, ー → 一行前選択","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"c"},
-        {"key_code":"v"},
-        {"key_code":"semicolon"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM2R","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM2R","value":1}},
-        {"key_code":"p","modifiers":["control","shift"]}
-      ]
-    },
-    {"description":"(シンクロ) は, こ, れ → 一行後選択","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"c"},
-        {"key_code":"v"},
-        {"key_code":"slash"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM2R","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM2R","value":1}},
-        {"key_code":"n","modifiers":["control","shift"]}
-      ]
-    },
+    keydef("(シンクロ) は, こ, 右 → +Home", ["c", "v", "y"], [["a", ["shift","control"]]], non_shifted(), false, ["EM2R"]),
+    keydef("(シンクロ) は, こ, く → Copy", ["c", "v", "h"], [["c", ["command"]]], non_shifted(), false, ["EM2R"]),
+    keydef("(シンクロ) は, こ, た → +End", ["c", "v", "n"], [["e", ["shift","control"]]], non_shifted(), false, ["EM2R"]),
+    keydef("(シンクロ) は, こ, BS → Cut", ["c", "v", "u"], [["x", ["command"]]], non_shifted(), false, ["EM2R"]),
+    keydef("(シンクロ) は, こ, あ → →5", ["c", "v", "j"], [["p", ["control"]], ["p", ["control"]], ["p", ["control"]], ["p", ["control"]], ["p", ["control"]]], non_shifted(), null, ["EM2R"]),
+    keydef("(シンクロ) は, こ, な → ←5", ["c", "v", "m"], [["n", ["control"]], ["n", ["control"]], ["n", ["control"]], ["n", ["control"]], ["n", ["control"]]], non_shifted(), null, ["EM2R"]),
+    keydef("(シンクロ) は, こ, る → Paste", ["c", "v", "i"], [["v", ["command"]]], non_shifted(), false, ["EM2R"]),
+    keydef("(シンクロ) は, こ, い → +→5", ["c", "v", "k"], [["p", ["shift","control"]], ["p", ["shift","control"]], ["p", ["shift","control"]], ["p", ["shift","control"]], ["p", ["shift","control"]]], non_shifted(), null, ["EM2R"]),
+    keydef("(シンクロ) は, こ, ん → +←5", ["c", "v", "comma"], [["n", ["shift","control"]], ["n", ["shift","control"]], ["n", ["shift","control"]], ["n", ["shift","control"]], ["n", ["shift","control"]]], non_shifted(), null, ["EM2R"]),
+    keydef("(シンクロ) は, こ, す → Redo", ["c", "v", "o"], [["z", ["shift","command"]]], non_shifted(), false, ["EM2R"]),
+    keydef("(シンクロ) は, こ, う → +→20", ["c", "v", "l"], [["p", ["shift","control"]], ["p", ["shift","control"]], ["p", ["shift","control"]], ["p", ["shift","control"]], ["p", ["shift","control"]], ["p", ["shift","control"]], ["p", ["shift","control"]], ["p", ["shift","control"]], ["p", ["shift","control"]], ["p", ["shift","control"]], ["p", ["shift","control"]], ["p", ["shift","control"]], ["p", ["shift","control"]], ["p", ["shift","control"]], ["p", ["shift","control"]], ["p", ["shift","control"]], ["p", ["shift","control"]], ["p", ["shift","control"]], ["p", ["shift","control"]], ["p", ["shift","control"]]], non_shifted(), null, ["EM2R"]),
+    keydef("(シンクロ) は, こ, ら → +←20", ["c", "v", "period"], [["n", ["shift","control"]], ["n", ["shift","control"]], ["n", ["shift","control"]], ["n", ["shift","control"]], ["n", ["shift","control"]], ["n", ["shift","control"]], ["n", ["shift","control"]], ["n", ["shift","control"]], ["n", ["shift","control"]], ["n", ["shift","control"]], ["n", ["shift","control"]], ["n", ["shift","control"]], ["n", ["shift","control"]], ["n", ["shift","control"]], ["n", ["shift","control"]], ["n", ["shift","control"]], ["n", ["shift","control"]], ["n", ["shift","control"]], ["n", ["shift","control"]], ["n", ["shift","control"]]], non_shifted(), null, ["EM2R"]),
+    keydef("(シンクロ) は, こ, へ → Undo", ["c", "v", "p"], [["z", ["command"]]], non_shifted(), false, ["EM2R"]),
+    keydef("(シンクロ) は, こ, ー → 一行前選択", ["c", "v", "semicolon"], [["p", ["control","shift"]]], non_shifted(), null, ["EM2R"]),
+    keydef("(シンクロ) は, こ, れ → 一行後選択", ["c", "v", "slash"], [["n", ["control","shift"]]], non_shifted(), null, ["EM2R"]),
     
-    {"description":"(シンクロ) 右濁, し, や → じゃ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"r"},
-        {"key_code":"h"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DL","value":1}},
-        {"key_code":"j"},{"key_code":"a","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 右濁, し, ゆ → じゅ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"r"},
-        {"key_code":"p"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DL","value":1}},
-        {"key_code":"j"},{"key_code":"u","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 右濁, し, よ → じょ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"r"},
-        {"key_code":"i"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DL","value":1}},
-        {"key_code":"j"},{"key_code":"o","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 右濁, き, や → ぎゃ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"w"},
-        {"key_code":"h"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DL","value":1}},
-        {"key_code":"g"},{"key_code":"y"},{"key_code":"a","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 右濁, き, ゆ → ぎゅ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"w"},
-        {"key_code":"p"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DL","value":1}},
-        {"key_code":"g"},{"key_code":"y"},{"key_code":"u","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 右濁, き, よ → ぎょ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"w"},
-        {"key_code":"i"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DL","value":1}},
-        {"key_code":"g"},{"key_code":"y"},{"key_code":"o","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 右濁, ち, や → ぢゃ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"g"},
-        {"key_code":"h"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DL","value":1}},
-        {"key_code":"d"},{"key_code":"y"},{"key_code":"a","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 右濁, ち, ゆ → ぢゅ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"g"},
-        {"key_code":"p"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DL","value":1}},
-        {"key_code":"d"},{"key_code":"y"},{"key_code":"u","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 右濁, ち, よ → ぢょ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"g"},
-        {"key_code":"i"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DL","value":1}},
-        {"key_code":"d"},{"key_code":"y"},{"key_code":"o","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 右濁, ひ, や → びゃ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"x"},
-        {"key_code":"h"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DL","value":1}},
-        {"key_code":"b"},{"key_code":"y"},{"key_code":"a","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 右濁, ひ, ゆ → びゅ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"x"},
-        {"key_code":"p"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DL","value":1}},
-        {"key_code":"b"},{"key_code":"y"},{"key_code":"u","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 右濁, ひ, よ → びょ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"x"},
-        {"key_code":"i"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DL","value":1}},
-        {"key_code":"b"},{"key_code":"y"},{"key_code":"o","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 右半, ひ, や → ぴゃ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"m"},
-        {"key_code":"x"},
-        {"key_code":"h"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"HL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"HL","value":1}},
-        {"key_code":"p"},{"key_code":"y"},{"key_code":"a","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 右半, ひ, ゆ → ぴゅ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"m"},
-        {"key_code":"x"},
-        {"key_code":"p"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"HL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"HL","value":1}},
-        {"key_code":"p"},{"key_code":"y"},{"key_code":"u","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 右半, ひ, よ → ぴょ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"m"},
-        {"key_code":"x"},
-        {"key_code":"i"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"HL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"HL","value":1}},
-        {"key_code":"p"},{"key_code":"y"},{"key_code":"o","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 右半, て, い → てぃ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"m"},
-        {"key_code":"e"},
-        {"key_code":"k"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"HL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"HL","value":1}},
-        {"key_code":"t"},{"key_code":"h"},{"key_code":"i","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 右半, て, ゆ → てゅ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"m"},
-        {"key_code":"e"},
-        {"key_code":"p"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"HL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"HL","value":1}},
-        {"key_code":"t"},{"key_code":"h"},{"key_code":"u","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 右濁, て, い → でぃ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"e"},
-        {"key_code":"k"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DL","value":1}},
-        {"key_code":"d"},{"key_code":"h"},{"key_code":"i","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 右濁, て, ゆ → でゅ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"e"},
-        {"key_code":"p"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DL","value":1}},
-        {"key_code":"d"},{"key_code":"h"},{"key_code":"u","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 右半, と, う → とぅ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"m"},
-        {"key_code":"d"},
-        {"key_code":"l"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"HL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"HL","value":1}},
-        {"key_code":"t"},{"key_code":"w"},{"key_code":"u","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 右濁, と, う → どぅ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"d"},
-        {"key_code":"l"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DL","value":1}},
-        {"key_code":"d"},{"key_code":"w"},{"key_code":"u","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 右半, し, え → しぇ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"m"},
-        {"key_code":"r"},
-        {"key_code":"o"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"HL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"HL","value":1}},
-        {"key_code":"s"},{"key_code":"y"},{"key_code":"e","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 右半, ち, え → ちぇ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"m"},
-        {"key_code":"g"},
-        {"key_code":"o"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"HL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"HL","value":1}},
-        {"key_code":"t"},{"key_code":"y"},{"key_code":"e","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 右濁, し, え → じぇ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"r"},
-        {"key_code":"o"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DL","value":1}},
-        {"key_code":"j"},{"key_code":"e","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 右濁, ち, え → ぢぇ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"g"},
-        {"key_code":"o"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DL","value":1}},
-        {"key_code":"d"},{"key_code":"y"},{"key_code":"e","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 左濁, う, あ → ヴぁ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"f"},
-        {"key_code":"l"},
-        {"key_code":"j"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DR","value":0}},{"set_variable":{"name":"DL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DR","value":1}},{"set_variable":{"name":"DL","value":1}},
-        {"key_code":"v"},{"key_code":"a","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 左濁, う, い → ヴぃ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"f"},
-        {"key_code":"l"},
-        {"key_code":"k"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DR","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DR","value":1}},
-        {"key_code":"v"},{"key_code":"i","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 左濁, う, え → ヴぇ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"f"},
-        {"key_code":"l"},
-        {"key_code":"o"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DR","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DR","value":1}},
-        {"key_code":"v"},{"key_code":"e","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 左濁, う, お → ヴぉ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"f"},
-        {"key_code":"l"},
-        {"key_code":"n"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DR","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DR","value":1}},
-        {"key_code":"v"},{"key_code":"o","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 左濁, う, ゆ → ヴゅ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"f"},
-        {"key_code":"l"},
-        {"key_code":"p"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DR","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DR","value":1}},
-        {"key_code":"v"},{"key_code":"y"},{"key_code":"u","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 左半, う, い → うぃ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"v"},
-        {"key_code":"l"},
-        {"key_code":"k"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"HR","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"HR","value":1}},
-        {"key_code":"w"},{"key_code":"i","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 左半, う, え → うぇ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"v"},
-        {"key_code":"l"},
-        {"key_code":"o"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"HR","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"HR","value":1}},
-        {"key_code":"w"},{"key_code":"e","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 左半, う, お → うぉ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"v"},
-        {"key_code":"l"},
-        {"key_code":"n"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"HR","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"HR","value":1}},
-        {"key_code":"w"},{"key_code":"h"},{"key_code":"o","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 左半, い, え → いぇ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"v"},
-        {"key_code":"k"},
-        {"key_code":"o"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"HR","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"HR","value":1}},
-        {"key_code":"y"},{"key_code":"e","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 左半, く, あ → くぁ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"v"},
-        {"key_code":"h"},
-        {"key_code":"j"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"HR","value":0}},{"set_variable":{"name":"DL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"HR","value":1}},{"set_variable":{"name":"DL","value":1}},
-        {"key_code":"q"},{"key_code":"a","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 左半, く, い → くぃ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"v"},
-        {"key_code":"h"},
-        {"key_code":"k"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"HR","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"HR","value":1}},
-        {"key_code":"q"},{"key_code":"i","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 左半, く, え → くぇ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"v"},
-        {"key_code":"h"},
-        {"key_code":"o"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"HR","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"HR","value":1}},
-        {"key_code":"q"},{"key_code":"e","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 左半, く, お → くぉ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"v"},
-        {"key_code":"h"},
-        {"key_code":"n"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"HR","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"HR","value":1}},
-        {"key_code":"q"},{"key_code":"o","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 左半, く, わ → くゎ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"v"},
-        {"key_code":"h"},
-        {"key_code":"l"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"HR","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"HR","value":1}},
-        {"key_code":"k"},{"key_code":"u"},{"key_code":"x"},{"key_code":"w"},{"key_code":"a","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 左濁, く, あ → ぐぁ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"f"},
-        {"key_code":"h"},
-        {"key_code":"j"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DR","value":0}},{"set_variable":{"name":"DL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DR","value":1}},{"set_variable":{"name":"DL","value":1}},
-        {"key_code":"g"},{"key_code":"w"},{"key_code":"a","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 左濁, く, い → ぐぃ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"f"},
-        {"key_code":"h"},
-        {"key_code":"k"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DR","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DR","value":1}},
-        {"key_code":"g"},{"key_code":"w"},{"key_code":"i","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 左濁, く, え → ぐぇ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"f"},
-        {"key_code":"h"},
-        {"key_code":"o"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DR","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DR","value":1}},
-        {"key_code":"g"},{"key_code":"w"},{"key_code":"e","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 左濁, く, お → ぐぉ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"f"},
-        {"key_code":"h"},
-        {"key_code":"n"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DR","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DR","value":1}},
-        {"key_code":"g"},{"key_code":"w"},{"key_code":"o","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 左濁, く, わ → ぐゎ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"f"},
-        {"key_code":"h"},
-        {"key_code":"l"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DR","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DR","value":1}},
-        {"key_code":"g"},{"key_code":"u"},{"key_code":"x"},{"key_code":"w"},{"key_code":"a","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 左半, ふ, あ → ふぁ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"v"},
-        {"key_code":"semicolon"},
-        {"key_code":"j"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"HR","value":0}},{"set_variable":{"name":"DL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"HR","value":1}},{"set_variable":{"name":"DL","value":1}},
-        {"key_code":"f"},{"key_code":"a","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 左半, ふ, い → ふぃ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"v"},
-        {"key_code":"semicolon"},
-        {"key_code":"k"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"HR","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"HR","value":1}},
-        {"key_code":"f"},{"key_code":"i","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 左半, ふ, え → ふぇ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"v"},
-        {"key_code":"semicolon"},
-        {"key_code":"o"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"HR","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"HR","value":1}},
-        {"key_code":"f"},{"key_code":"e","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 左半, ふ, お → ふぉ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"v"},
-        {"key_code":"semicolon"},
-        {"key_code":"n"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"HR","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"HR","value":1}},
-        {"key_code":"f"},{"key_code":"o","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 左半, ふ, ゆ → ふゅ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"v"},
-        {"key_code":"semicolon"},
-        {"key_code":"p"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"HR","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"HR","value":1}},
-        {"key_code":"f"},{"key_code":"u"},{"key_code":"x"},{"key_code":"y"},{"key_code":"u","repeat":false}
-      ]
-    },
+    keydef("(シンクロ) 右濁, し, や → じゃ", ["j", "r", "h"], ["j", "a"], non_shifted(), false, ["DL"]),
+    keydef("(シンクロ) 右濁, し, ゆ → じゅ", ["j", "r", "p"], ["j", "u"], non_shifted(), false, ["DL"]),
+    keydef("(シンクロ) 右濁, し, よ → じょ", ["j", "r", "i"], ["j", "o"], non_shifted(), false, ["DL"]),
+    keydef("(シンクロ) 右濁, き, や → ぎゃ", ["j", "w", "h"], ["g", "y", "a"], non_shifted(), false, ["DL"]),
+    keydef("(シンクロ) 右濁, き, ゆ → ぎゅ", ["j", "w", "p"], ["g", "y", "u"], non_shifted(), false, ["DL"]),
+    keydef("(シンクロ) 右濁, き, よ → ぎょ", ["j", "w", "i"], ["g", "y", "o"], non_shifted(), false, ["DL"]),
+    keydef("(シンクロ) 右濁, ち, や → ぢゃ", ["j", "g", "h"], ["d", "y", "a"], non_shifted(), false, ["DL"]),
+    keydef("(シンクロ) 右濁, ち, ゆ → ぢゅ", ["j", "g", "p"], ["d", "y", "u"], non_shifted(), false, ["DL"]),
+    keydef("(シンクロ) 右濁, ち, よ → ぢょ", ["j", "g", "i"], ["d", "y", "o"], non_shifted(), false, ["DL"]),
+    keydef("(シンクロ) 右濁, ひ, や → びゃ", ["j", "x", "h"], ["b", "y", "a"], non_shifted(), false, ["DL"]),
+    keydef("(シンクロ) 右濁, ひ, ゆ → びゅ", ["j", "x", "p"], ["b", "y", "u"], non_shifted(), false, ["DL"]),
+    keydef("(シンクロ) 右濁, ひ, よ → びょ", ["j", "x", "i"], ["b", "y", "o"], non_shifted(), false, ["DL"]),
+    keydef("(シンクロ) 右半, ひ, や → ぴゃ", ["m", "x", "h"], ["p", "y", "a"], non_shifted(), false, ["HL"]),
+    keydef("(シンクロ) 右半, ひ, ゆ → ぴゅ", ["m", "x", "p"], ["p", "y", "u"], non_shifted(), false, ["HL"]),
+    keydef("(シンクロ) 右半, ひ, よ → ぴょ", ["m", "x", "i"], ["p", "y", "o"], non_shifted(), false, ["HL"]),
+    keydef("(シンクロ) 右半, て, い → てぃ", ["m", "e", "k"], ["t", "h", "i"], non_shifted(), false, ["HL"]),
+    keydef("(シンクロ) 右半, て, ゆ → てゅ", ["m", "e", "p"], ["t", "h", "u"], non_shifted(), false, ["HL"]),
+    keydef("(シンクロ) 右濁, て, い → でぃ", ["j", "e", "k"], ["d", "h", "i"], non_shifted(), false, ["DL"]),
+    keydef("(シンクロ) 右濁, て, ゆ → でゅ", ["j", "e", "p"], ["d", "h", "u"], non_shifted(), false, ["DL"]),
+    keydef("(シンクロ) 右半, と, う → とぅ", ["m", "d", "l"], ["t", "w", "u"], non_shifted(), false, ["HL"]),
+    keydef("(シンクロ) 右濁, と, う → どぅ", ["j", "d", "l"], ["d", "w", "u"], non_shifted(), false, ["DL"]),
+    keydef("(シンクロ) 右半, し, え → しぇ", ["m", "r", "o"], ["s", "y", "e"], non_shifted(), false, ["HL"]),
+    keydef("(シンクロ) 右半, ち, え → ちぇ", ["m", "g", "o"], ["t", "y", "e"], non_shifted(), false, ["HL"]),
+    keydef("(シンクロ) 右濁, し, え → じぇ", ["j", "r", "o"], ["j", "e"], non_shifted(), false, ["DL"]),
+    keydef("(シンクロ) 右濁, ち, え → ぢぇ", ["j", "g", "o"], ["d", "y", "e"], non_shifted(), false, ["DL"]),
+    keydef("(シンクロ) 左濁, う, あ → ヴぁ", ["f", "l", "j"], ["v", "a"], non_shifted(), false, ["DR", "DL"]),
+    keydef("(シンクロ) 左濁, う, い → ヴぃ", ["f", "l", "k"], ["v", "i"], non_shifted(), false, ["DR"]),
+    keydef("(シンクロ) 左濁, う, え → ヴぇ", ["f", "l", "o"], ["v", "e"], non_shifted(), false, ["DR"]),
+    keydef("(シンクロ) 左濁, う, お → ヴぉ", ["f", "l", "n"], ["v", "o"], non_shifted(), false, ["DR"]),
+    keydef("(シンクロ) 左濁, う, ゆ → ヴゅ", ["f", "l", "p"], ["v", "y", "u"], non_shifted(), false, ["DR"]),
+    keydef("(シンクロ) 左半, う, い → うぃ", ["v", "l", "k"], ["w", "i"], non_shifted(), false, ["HR"]),
+    keydef("(シンクロ) 左半, う, え → うぇ", ["v", "l", "o"], ["w", "e"], non_shifted(), false, ["HR"]),
+    keydef("(シンクロ) 左半, う, お → うぉ", ["v", "l", "n"], ["w", "h", "o"], non_shifted(), false, ["HR"]),
+    keydef("(シンクロ) 左半, い, え → いぇ", ["v", "k", "o"], ["y", "e"], non_shifted(), false, ["HR"]),
+    keydef("(シンクロ) 左半, く, あ → くぁ", ["v", "h", "j"], ["q", "a"], non_shifted(), false, ["HR", "DL"]),
+    keydef("(シンクロ) 左半, く, い → くぃ", ["v", "h", "k"], ["q", "i"], non_shifted(), false, ["HR"]),
+    keydef("(シンクロ) 左半, く, え → くぇ", ["v", "h", "o"], ["q", "e"], non_shifted(), false, ["HR"]),
+    keydef("(シンクロ) 左半, く, お → くぉ", ["v", "h", "n"], ["q", "o"], non_shifted(), false, ["HR"]),
+    keydef("(シンクロ) 左半, く, わ → くゎ", ["v", "h", "l"], ["k", "u", "x", "w", "a"], non_shifted(), false, ["HR"]),
+    keydef("(シンクロ) 左濁, く, あ → ぐぁ", ["f", "h", "j"], ["g", "w", "a"], non_shifted(), false, ["DR", "DL"]),
+    keydef("(シンクロ) 左濁, く, い → ぐぃ", ["f", "h", "k"], ["g", "w", "i"], non_shifted(), false, ["DR"]),
+    keydef("(シンクロ) 左濁, く, え → ぐぇ", ["f", "h", "o"], ["g", "w", "e"], non_shifted(), false, ["DR"]),
+    keydef("(シンクロ) 左濁, く, お → ぐぉ", ["f", "h", "n"], ["g", "w", "o"], non_shifted(), false, ["DR"]),
+    keydef("(シンクロ) 左濁, く, わ → ぐゎ", ["f", "h", "l"], ["g", "u", "x", "w", "a"], non_shifted(), false, ["DR"]),
+    keydef("(シンクロ) 左半, ふ, あ → ふぁ", ["v", "semicolon", "j"], ["f", "a"], non_shifted(), false, ["HR", "DL"]),
+    keydef("(シンクロ) 左半, ふ, い → ふぃ", ["v", "semicolon", "k"], ["f", "i"], non_shifted(), false, ["HR"]),
+    keydef("(シンクロ) 左半, ふ, え → ふぇ", ["v", "semicolon", "o"], ["f", "e"], non_shifted(), false, ["HR"]),
+    keydef("(シンクロ) 左半, ふ, お → ふぉ", ["v", "semicolon", "n"], ["f", "o"], non_shifted(), false, ["HR"]),
+    keydef("(シンクロ) 左半, ふ, ゆ → ふゅ", ["v", "semicolon", "p"], ["f", "u", "x", "y", "u"], non_shifted(), false, ["HR"]),
     
-    {"description":"[右濁] (シンクロ) し, や → じゃ","type":"basic",
-      "conditions": non_shifted("DL"),
-      "from":{"simultaneous":[
-        {"key_code":"r"},
-        {"key_code":"h"}
-      ]},
-      "to":[{"key_code":"j"},{"key_code":"a","repeat":false}
-      ]
-    },
-    {"description":"[右濁] (シンクロ) し, ゆ → じゅ","type":"basic",
-      "conditions": non_shifted("DL"),
-      "from":{"simultaneous":[
-        {"key_code":"r"},
-        {"key_code":"p"}
-      ]},
-      "to":[{"key_code":"j"},{"key_code":"u","repeat":false}
-      ]
-    },
-    {"description":"[右濁] (シンクロ) し, よ → じょ","type":"basic",
-      "conditions": non_shifted("DL"),
-      "from":{"simultaneous":[
-        {"key_code":"r"},
-        {"key_code":"i"}
-      ]},
-      "to":[{"key_code":"j"},{"key_code":"o","repeat":false}
-      ]
-    },
-    {"description":"[右濁] (シンクロ) き, や → ぎゃ","type":"basic",
-      "conditions": non_shifted("DL"),
-      "from":{"simultaneous":[
-        {"key_code":"w"},
-        {"key_code":"h"}
-      ]},
-      "to":[{"key_code":"g"},{"key_code":"y"},{"key_code":"a","repeat":false}
-      ]
-    },
-    {"description":"[右濁] (シンクロ) き, ゆ → ぎゅ","type":"basic",
-      "conditions": non_shifted("DL"),
-      "from":{"simultaneous":[
-        {"key_code":"w"},
-        {"key_code":"p"}
-      ]},
-      "to":[{"key_code":"g"},{"key_code":"y"},{"key_code":"u","repeat":false}
-      ]
-    },
-    {"description":"[右濁] (シンクロ) き, よ → ぎょ","type":"basic",
-      "conditions": non_shifted("DL"),
-      "from":{"simultaneous":[
-        {"key_code":"w"},
-        {"key_code":"i"}
-      ]},
-      "to":[{"key_code":"g"},{"key_code":"y"},{"key_code":"o","repeat":false}
-      ]
-    },
-    {"description":"[右濁] (シンクロ) ち, や → ぢゃ","type":"basic",
-      "conditions": non_shifted("DL"),
-      "from":{"simultaneous":[
-        {"key_code":"g"},
-        {"key_code":"h"}
-      ]},
-      "to":[{"key_code":"d"},{"key_code":"y"},{"key_code":"a","repeat":false}
-      ]
-    },
-    {"description":"[右濁] (シンクロ) ち, ゆ → ぢゅ","type":"basic",
-      "conditions": non_shifted("DL"),
-      "from":{"simultaneous":[
-        {"key_code":"g"},
-        {"key_code":"p"}
-      ]},
-      "to":[{"key_code":"d"},{"key_code":"y"},{"key_code":"u","repeat":false}
-      ]
-    },
-    {"description":"[右濁] (シンクロ) ち, よ → ぢょ","type":"basic",
-      "conditions": non_shifted("DL"),
-      "from":{"simultaneous":[
-        {"key_code":"g"},
-        {"key_code":"i"}
-      ]},
-      "to":[{"key_code":"d"},{"key_code":"y"},{"key_code":"o","repeat":false}
-      ]
-    },
-    {"description":"[右濁] (シンクロ) ひ, や → びゃ","type":"basic",
-      "conditions": non_shifted("DL"),
-      "from":{"simultaneous":[
-        {"key_code":"x"},
-        {"key_code":"h"}
-      ]},
-      "to":[{"key_code":"b"},{"key_code":"y"},{"key_code":"a","repeat":false}
-      ]
-    },
-    {"description":"[右濁] (シンクロ) ひ, ゆ → びゅ","type":"basic",
-      "conditions": non_shifted("DL"),
-      "from":{"simultaneous":[
-        {"key_code":"x"},
-        {"key_code":"p"}
-      ]},
-      "to":[{"key_code":"b"},{"key_code":"y"},{"key_code":"u","repeat":false}
-      ]
-    },
-    {"description":"[右濁] (シンクロ) ひ, よ → びょ","type":"basic",
-      "conditions": non_shifted("DL"),
-      "from":{"simultaneous":[
-        {"key_code":"x"},
-        {"key_code":"i"}
-      ]},
-      "to":[{"key_code":"b"},{"key_code":"y"},{"key_code":"o","repeat":false}
-      ]
-    },
-    {"description":"[右半] (シンクロ) ひ, や → ぴゃ","type":"basic",
-      "conditions": non_shifted("HL"),
-      "from":{"simultaneous":[
-        {"key_code":"x"},
-        {"key_code":"h"}
-      ]},
-      "to":[{"key_code":"p"},{"key_code":"y"},{"key_code":"a","repeat":false}
-      ]
-    },
-    {"description":"[右半] (シンクロ) ひ, ゆ → ぴゅ","type":"basic",
-      "conditions": non_shifted("HL"),
-      "from":{"simultaneous":[
-        {"key_code":"x"},
-        {"key_code":"p"}
-      ]},
-      "to":[{"key_code":"p"},{"key_code":"y"},{"key_code":"u","repeat":false}
-      ]
-    },
-    {"description":"[右半] (シンクロ) ひ, よ → ぴょ","type":"basic",
-      "conditions": non_shifted("HL"),
-      "from":{"simultaneous":[
-        {"key_code":"x"},
-        {"key_code":"i"}
-      ]},
-      "to":[{"key_code":"p"},{"key_code":"y"},{"key_code":"o","repeat":false}
-      ]
-    },
-    {"description":"[右半] (シンクロ) て, い → てぃ","type":"basic",
-      "conditions": non_shifted("HL"),
-      "from":{"simultaneous":[
-        {"key_code":"e"},
-        {"key_code":"k"}
-      ]},
-      "to":[{"key_code":"t"},{"key_code":"h"},{"key_code":"i","repeat":false}
-      ]
-    },
-    {"description":"[右半] (シンクロ) て, ゆ → てゅ","type":"basic",
-      "conditions": non_shifted("HL"),
-      "from":{"simultaneous":[
-        {"key_code":"e"},
-        {"key_code":"p"}
-      ]},
-      "to":[{"key_code":"t"},{"key_code":"h"},{"key_code":"u","repeat":false}
-      ]
-    },
-    {"description":"[右濁] (シンクロ) て, い → でぃ","type":"basic",
-      "conditions": non_shifted("DL"),
-      "from":{"simultaneous":[
-        {"key_code":"e"},
-        {"key_code":"k"}
-      ]},
-      "to":[{"key_code":"d"},{"key_code":"h"},{"key_code":"i","repeat":false}
-      ]
-    },
-    {"description":"[右濁] (シンクロ) て, ゆ → でゅ","type":"basic",
-      "conditions": non_shifted("DL"),
-      "from":{"simultaneous":[
-        {"key_code":"e"},
-        {"key_code":"p"}
-      ]},
-      "to":[{"key_code":"d"},{"key_code":"h"},{"key_code":"u","repeat":false}
-      ]
-    },
-    {"description":"[右半] (シンクロ) と, う → とぅ","type":"basic",
-      "conditions": non_shifted("HL"),
-      "from":{"simultaneous":[
-        {"key_code":"d"},
-        {"key_code":"l"}
-      ]},
-      "to":[{"key_code":"t"},{"key_code":"w"},{"key_code":"u","repeat":false}
-      ]
-    },
-    {"description":"[右濁] (シンクロ) と, う → どぅ","type":"basic",
-      "conditions": non_shifted("DL"),
-      "from":{"simultaneous":[
-        {"key_code":"d"},
-        {"key_code":"l"}
-      ]},
-      "to":[{"key_code":"d"},{"key_code":"w"},{"key_code":"u","repeat":false}
-      ]
-    },
-    {"description":"[右半] (シンクロ) し, え → しぇ","type":"basic",
-      "conditions": non_shifted("HL"),
-      "from":{"simultaneous":[
-        {"key_code":"r"},
-        {"key_code":"o"}
-      ]},
-      "to":[{"key_code":"s"},{"key_code":"y"},{"key_code":"e","repeat":false}
-      ]
-    },
-    {"description":"[右半] (シンクロ) ち, え → ちぇ","type":"basic",
-      "conditions": non_shifted("HL"),
-      "from":{"simultaneous":[
-        {"key_code":"g"},
-        {"key_code":"o"}
-      ]},
-      "to":[{"key_code":"t"},{"key_code":"y"},{"key_code":"e","repeat":false}
-      ]
-    },
-    {"description":"[右濁] (シンクロ) し, え → じぇ","type":"basic",
-      "conditions": non_shifted("DL"),
-      "from":{"simultaneous":[
-        {"key_code":"r"},
-        {"key_code":"o"}
-      ]},
-      "to":[{"key_code":"j"},{"key_code":"e","repeat":false}
-      ]
-    },
-    {"description":"[右濁] (シンクロ) ち, え → ぢぇ","type":"basic",
-      "conditions": non_shifted("DL"),
-      "from":{"simultaneous":[
-        {"key_code":"g"},
-        {"key_code":"o"}
-      ]},
-      "to":[{"key_code":"d"},{"key_code":"y"},{"key_code":"e","repeat":false}
-      ]
-    },
-    {"description":"[左濁] (シンクロ) う, あ → ヴぁ","type":"basic",
-      "conditions": non_shifted("DR"),
-      "from":{"simultaneous":[
-        {"key_code":"l"},
-        {"key_code":"j"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DL","value":1}},
-        {"key_code":"v"},{"key_code":"a","repeat":false}
-      ]
-    },
-    {"description":"[左濁] (シンクロ) う, い → ヴぃ","type":"basic",
-      "conditions": non_shifted("DR"),
-      "from":{"simultaneous":[
-        {"key_code":"l"},
-        {"key_code":"k"}
-      ]},
-      "to":[{"key_code":"v"},{"key_code":"i","repeat":false}
-      ]
-    },
-    {"description":"[左濁] (シンクロ) う, え → ヴぇ","type":"basic",
-      "conditions": non_shifted("DR"),
-      "from":{"simultaneous":[
-        {"key_code":"l"},
-        {"key_code":"o"}
-      ]},
-      "to":[{"key_code":"v"},{"key_code":"e","repeat":false}
-      ]
-    },
-    {"description":"[左濁] (シンクロ) う, お → ヴぉ","type":"basic",
-      "conditions": non_shifted("DR"),
-      "from":{"simultaneous":[
-        {"key_code":"l"},
-        {"key_code":"n"}
-      ]},
-      "to":[{"key_code":"v"},{"key_code":"o","repeat":false}
-      ]
-    },
-    {"description":"[左濁] (シンクロ) う, ゆ → ヴゅ","type":"basic",
-      "conditions": non_shifted("DR"),
-      "from":{"simultaneous":[
-        {"key_code":"l"},
-        {"key_code":"p"}
-      ]},
-      "to":[{"key_code":"v"},{"key_code":"y"},{"key_code":"u","repeat":false}
-      ]
-    },
-    {"description":"[左半] (シンクロ) う, い → うぃ","type":"basic",
-      "conditions": non_shifted("HR"),
-      "from":{"simultaneous":[
-        {"key_code":"l"},
-        {"key_code":"k"}
-      ]},
-      "to":[{"key_code":"w"},{"key_code":"i","repeat":false}
-      ]
-    },
-    {"description":"[左半] (シンクロ) う, え → うぇ","type":"basic",
-      "conditions": non_shifted("HR"),
-      "from":{"simultaneous":[
-        {"key_code":"l"},
-        {"key_code":"o"}
-      ]},
-      "to":[{"key_code":"w"},{"key_code":"e","repeat":false}
-      ]
-    },
-    {"description":"[左半] (シンクロ) う, お → うぉ","type":"basic",
-      "conditions": non_shifted("HR"),
-      "from":{"simultaneous":[
-        {"key_code":"l"},
-        {"key_code":"n"}
-      ]},
-      "to":[{"key_code":"w"},{"key_code":"h"},{"key_code":"o","repeat":false}
-      ]
-    },
-    {"description":"[左半] (シンクロ) い, え → いぇ","type":"basic",
-      "conditions": non_shifted("HR"),
-      "from":{"simultaneous":[
-        {"key_code":"k"},
-        {"key_code":"o"}
-      ]},
-      "to":[{"key_code":"y"},{"key_code":"e","repeat":false}
-      ]
-    },
-    {"description":"[左半] (シンクロ) く, あ → くぁ","type":"basic",
-      "conditions": non_shifted("HR"),
-      "from":{"simultaneous":[
-        {"key_code":"h"},
-        {"key_code":"j"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DL","value":1}},
-        {"key_code":"q"},{"key_code":"a","repeat":false}
-      ]
-    },
-    {"description":"[左半] (シンクロ) く, い → くぃ","type":"basic",
-      "conditions": non_shifted("HR"),
-      "from":{"simultaneous":[
-        {"key_code":"h"},
-        {"key_code":"k"}
-      ]},
-      "to":[{"key_code":"q"},{"key_code":"i","repeat":false}
-      ]
-    },
-    {"description":"[左半] (シンクロ) く, え → くぇ","type":"basic",
-      "conditions": non_shifted("HR"),
-      "from":{"simultaneous":[
-        {"key_code":"h"},
-        {"key_code":"o"}
-      ]},
-      "to":[{"key_code":"q"},{"key_code":"e","repeat":false}
-      ]
-    },
-    {"description":"[左半] (シンクロ) く, お → くぉ","type":"basic",
-      "conditions": non_shifted("HR"),
-      "from":{"simultaneous":[
-        {"key_code":"h"},
-        {"key_code":"n"}
-      ]},
-      "to":[{"key_code":"q"},{"key_code":"o","repeat":false}
-      ]
-    },
-    {"description":"[左半] (シンクロ) く, わ → くゎ","type":"basic",
-      "conditions": non_shifted("HR"),
-      "from":{"simultaneous":[
-        {"key_code":"h"},
-        {"key_code":"l"}
-      ]},
-      "to":[{"key_code":"k"},{"key_code":"u"},{"key_code":"x"},{"key_code":"w"},{"key_code":"a","repeat":false}
-      ]
-    },
-    {"description":"[左濁] (シンクロ) く, あ → ぐぁ","type":"basic",
-      "conditions": non_shifted("DR"),
-      "from":{"simultaneous":[
-        {"key_code":"h"},
-        {"key_code":"j"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DL","value":1}},
-        {"key_code":"g"},{"key_code":"w"},{"key_code":"a","repeat":false}
-      ]
-    },
-    {"description":"[左濁] (シンクロ) く, い → ぐぃ","type":"basic",
-      "conditions": non_shifted("DR"),
-      "from":{"simultaneous":[
-        {"key_code":"h"},
-        {"key_code":"k"}
-      ]},
-      "to":[{"key_code":"g"},{"key_code":"w"},{"key_code":"i","repeat":false}
-      ]
-    },
-    {"description":"[左濁] (シンクロ) く, え → ぐぇ","type":"basic",
-      "conditions": non_shifted("DR"),
-      "from":{"simultaneous":[
-        {"key_code":"h"},
-        {"key_code":"o"}
-      ]},
-      "to":[{"key_code":"g"},{"key_code":"w"},{"key_code":"e","repeat":false}
-      ]
-    },
-    {"description":"[左濁] (シンクロ) く, お → ぐぉ","type":"basic",
-      "conditions": non_shifted("DR"),
-      "from":{"simultaneous":[
-        {"key_code":"h"},
-        {"key_code":"n"}
-      ]},
-      "to":[{"key_code":"g"},{"key_code":"w"},{"key_code":"o","repeat":false}
-      ]
-    },
-    {"description":"[左濁] (シンクロ) く, わ → ぐゎ","type":"basic",
-      "conditions": non_shifted("DR"),
-      "from":{"simultaneous":[
-        {"key_code":"h"},
-        {"key_code":"l"}
-      ]},
-      "to":[{"key_code":"g"},{"key_code":"u"},{"key_code":"x"},{"key_code":"w"},{"key_code":"a","repeat":false}
-      ]
-    },
-    {"description":"[左半] (シンクロ) ー, あ → ふぁ","type":"basic",
-      "conditions": non_shifted("HR"),
-      "from":{"simultaneous":[
-        {"key_code":"semicolon"},
-        {"key_code":"j"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DL","value":1}},
-        {"key_code":"f"},{"key_code":"a","repeat":false}
-      ]
-    },
-    {"description":"[左半] (シンクロ) ー, い → ふぃ","type":"basic",
-      "conditions": non_shifted("HR"),
-      "from":{"simultaneous":[
-        {"key_code":"semicolon"},
-        {"key_code":"k"}
-      ]},
-      "to":[{"key_code":"f"},{"key_code":"i","repeat":false}
-      ]
-    },
-    {"description":"[左半] (シンクロ) ー, え → ふぇ","type":"basic",
-      "conditions": non_shifted("HR"),
-      "from":{"simultaneous":[
-        {"key_code":"semicolon"},
-        {"key_code":"o"}
-      ]},
-      "to":[{"key_code":"f"},{"key_code":"e","repeat":false}
-      ]
-    },
-    {"description":"[左半] (シンクロ) ー, お → ふぉ","type":"basic",
-      "conditions": non_shifted("HR"),
-      "from":{"simultaneous":[
-        {"key_code":"semicolon"},
-        {"key_code":"n"}
-      ]},
-      "to":[{"key_code":"f"},{"key_code":"o","repeat":false}
-      ]
-    },
-    {"description":"[左半] (シンクロ) ー, ゆ → ふゅ","type":"basic",
-      "conditions": non_shifted("HR"),
-      "from":{"simultaneous":[
-        {"key_code":"semicolon"},
-        {"key_code":"p"}
-      ]},
-      "to":[{"key_code":"f"},{"key_code":"u"},{"key_code":"x"},{"key_code":"y"},{"key_code":"u","repeat":false}
-      ]
-    },
+    keydef("[右濁] (シンクロ) し, や → じゃ", ["r", "h"], ["j", "a"], non_shifted("DL"), false),
+    keydef("[右濁] (シンクロ) し, ゆ → じゅ", ["r", "p"], ["j", "u"], non_shifted("DL"), false),
+    keydef("[右濁] (シンクロ) し, よ → じょ", ["r", "i"], ["j", "o"], non_shifted("DL"), false),
+    keydef("[右濁] (シンクロ) き, や → ぎゃ", ["w", "h"], ["g", "y", "a"], non_shifted("DL"), false),
+    keydef("[右濁] (シンクロ) き, ゆ → ぎゅ", ["w", "p"], ["g", "y", "u"], non_shifted("DL"), false),
+    keydef("[右濁] (シンクロ) き, よ → ぎょ", ["w", "i"], ["g", "y", "o"], non_shifted("DL"), false),
+    keydef("[右濁] (シンクロ) ち, や → ぢゃ", ["g", "h"], ["d", "y", "a"], non_shifted("DL"), false),
+    keydef("[右濁] (シンクロ) ち, ゆ → ぢゅ", ["g", "p"], ["d", "y", "u"], non_shifted("DL"), false),
+    keydef("[右濁] (シンクロ) ち, よ → ぢょ", ["g", "i"], ["d", "y", "o"], non_shifted("DL"), false),
+    keydef("[右濁] (シンクロ) ひ, や → びゃ", ["x", "h"], ["b", "y", "a"], non_shifted("DL"), false),
+    keydef("[右濁] (シンクロ) ひ, ゆ → びゅ", ["x", "p"], ["b", "y", "u"], non_shifted("DL"), false),
+    keydef("[右濁] (シンクロ) ひ, よ → びょ", ["x", "i"], ["b", "y", "o"], non_shifted("DL"), false),
+    keydef("[右半] (シンクロ) ひ, や → ぴゃ", ["x", "h"], ["p", "y", "a"], non_shifted("HL"), false),
+    keydef("[右半] (シンクロ) ひ, ゆ → ぴゅ", ["x", "p"], ["p", "y", "u"], non_shifted("HL"), false),
+    keydef("[右半] (シンクロ) ひ, よ → ぴょ", ["x", "i"], ["p", "y", "o"], non_shifted("HL"), false),
+    keydef("[右半] (シンクロ) て, い → てぃ", ["e", "k"], ["t", "h", "i"], non_shifted("HL"), false),
+    keydef("[右半] (シンクロ) て, ゆ → てゅ", ["e", "p"], ["t", "h", "u"], non_shifted("HL"), false),
+    keydef("[右濁] (シンクロ) て, い → でぃ", ["e", "k"], ["d", "h", "i"], non_shifted("DL"), false),
+    keydef("[右濁] (シンクロ) て, ゆ → でゅ", ["e", "p"], ["d", "h", "u"], non_shifted("DL"), false),
+    keydef("[右半] (シンクロ) と, う → とぅ", ["d", "l"], ["t", "w", "u"], non_shifted("HL"), false),
+    keydef("[右濁] (シンクロ) と, う → どぅ", ["d", "l"], ["d", "w", "u"], non_shifted("DL"), false),
+    keydef("[右半] (シンクロ) し, え → しぇ", ["r", "o"], ["s", "y", "e"], non_shifted("HL"), false),
+    keydef("[右半] (シンクロ) ち, え → ちぇ", ["g", "o"], ["t", "y", "e"], non_shifted("HL"), false),
+    keydef("[右濁] (シンクロ) し, え → じぇ", ["r", "o"], ["j", "e"], non_shifted("DL"), false),
+    keydef("[右濁] (シンクロ) ち, え → ぢぇ", ["g", "o"], ["d", "y", "e"], non_shifted("DL"), false),
+    keydef("[左濁] (シンクロ) う, あ → ヴぁ", ["l", "j"], ["v", "a"], non_shifted("DR"), false, ["DL"]),
+    keydef("[左濁] (シンクロ) う, い → ヴぃ", ["l", "k"], ["v", "i"], non_shifted("DR"), false),
+    keydef("[左濁] (シンクロ) う, え → ヴぇ", ["l", "o"], ["v", "e"], non_shifted("DR"), false),
+    keydef("[左濁] (シンクロ) う, お → ヴぉ", ["l", "n"], ["v", "o"], non_shifted("DR"), false),
+    keydef("[左濁] (シンクロ) う, ゆ → ヴゅ", ["l", "p"], ["v", "y", "u"], non_shifted("DR"), false),
+    keydef("[左半] (シンクロ) う, い → うぃ", ["l", "k"], ["w", "i"], non_shifted("HR"), false),
+    keydef("[左半] (シンクロ) う, え → うぇ", ["l", "o"], ["w", "e"], non_shifted("HR"), false),
+    keydef("[左半] (シンクロ) う, お → うぉ", ["l", "n"], ["w", "h", "o"], non_shifted("HR"), false),
+    keydef("[左半] (シンクロ) い, え → いぇ", ["k", "o"], ["y", "e"], non_shifted("HR"), false),
+    keydef("[左半] (シンクロ) く, あ → くぁ", ["h", "j"], ["q", "a"], non_shifted("HR"), false, ["DL"]),
+    keydef("[左半] (シンクロ) く, い → くぃ", ["h", "k"], ["q", "i"], non_shifted("HR"), false),
+    keydef("[左半] (シンクロ) く, え → くぇ", ["h", "o"], ["q", "e"], non_shifted("HR"), false),
+    keydef("[左半] (シンクロ) く, お → くぉ", ["h", "n"], ["q", "o"], non_shifted("HR"), false),
+    keydef("[左半] (シンクロ) く, わ → くゎ", ["h", "l"], ["k", "u", "x", "w", "a"], non_shifted("HR"), false),
+    keydef("[左濁] (シンクロ) く, あ → ぐぁ", ["h", "j"], ["g", "w", "a"], non_shifted("DR"), false, ["DL"]),
+    keydef("[左濁] (シンクロ) く, い → ぐぃ", ["h", "k"], ["g", "w", "i"], non_shifted("DR"), false),
+    keydef("[左濁] (シンクロ) く, え → ぐぇ", ["h", "o"], ["g", "w", "e"], non_shifted("DR"), false),
+    keydef("[左濁] (シンクロ) く, お → ぐぉ", ["h", "n"], ["g", "w", "o"], non_shifted("DR"), false),
+    keydef("[左濁] (シンクロ) く, わ → ぐゎ", ["h", "l"], ["g", "u", "x", "w", "a"], non_shifted("DR"), false),
+    keydef("[左半] (シンクロ) ー, あ → ふぁ", ["semicolon", "j"], ["f", "a"], non_shifted("HR"), false, ["DL"]),
+    keydef("[左半] (シンクロ) ー, い → ふぃ", ["semicolon", "k"], ["f", "i"], non_shifted("HR"), false),
+    keydef("[左半] (シンクロ) ー, え → ふぇ", ["semicolon", "o"], ["f", "e"], non_shifted("HR"), false),
+    keydef("[左半] (シンクロ) ー, お → ふぉ", ["semicolon", "n"], ["f", "o"], non_shifted("HR"), false),
+    keydef("[左半] (シンクロ) ー, ゆ → ふゅ", ["semicolon", "p"], ["f", "u", "x", "y", "u"], non_shifted("HR"), false),
     
-    {"description":"(シンクロ) 左濁, さ → ざ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"f"},
-        {"key_code":"u"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DR","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DR","value":1}},
-        {"key_code":"z"},{"key_code":"a","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 左濁, す → ず","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"f"},
-        {"key_code":"o"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DR","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DR","value":1}},
-        {"key_code":"z"},{"key_code":"u","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 左濁, く → ぐ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"f"},
-        {"key_code":"h"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DR","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DR","value":1}},
-        {"key_code":"g"},{"key_code":"u","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 左濁, つ → づ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"f"},
-        {"key_code":"l"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DR","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DR","value":1}},
-        {"key_code":"d"},{"key_code":"u","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 左濁, ふ → ぶ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"f"},
-        {"key_code":"semicolon"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DR","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DR","value":1}},
-        {"key_code":"b"},{"key_code":"u","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 左半濁, ふ → ぷ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"v"},
-        {"key_code":"semicolon"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DR","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DR","value":1}},
-        {"key_code":"p"},{"key_code":"u","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 左濁, た → だ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"f"},
-        {"key_code":"n"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DR","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DR","value":1}},
-        {"key_code":"d"},{"key_code":"a","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 左濁, へ → べ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"f"},
-        {"key_code":"p"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DR","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DR","value":1}},
-        {"key_code":"b"},{"key_code":"e","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 右濁, け → げ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"s"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DL","value":1}},
-        {"key_code":"g"},{"key_code":"e","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 右濁, て → で","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"e"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DL","value":1}},
-        {"key_code":"d"},{"key_code":"e","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 右濁, し → じ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"r"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DL","value":1}},
-        {"key_code":"z"},{"key_code":"i","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 右濁, せ → ぜ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"a"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DL","value":1}},
-        {"key_code":"z"},{"key_code":"e","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 右濁, き → ぎ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"w"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DL","value":1}},
-        {"key_code":"g"},{"key_code":"i","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 右濁, と → ど","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"d"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DL","value":1}},
-        {"key_code":"d"},{"key_code":"o","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 右濁, か → が","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"f"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DL","value":0}},{"set_variable":{"name":"DR","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DL","value":1}},{"set_variable":{"name":"DR","value":1}},
-        {"key_code":"g"},{"key_code":"a","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 右濁, ち → ぢ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"g"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DL","value":1}},
-        {"key_code":"d"},{"key_code":"i","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 右濁, ほ → ぼ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"z"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DL","value":1}},
-        {"key_code":"b"},{"key_code":"o","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 右濁, ひ → び","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"x"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DL","value":1}},
-        {"key_code":"b"},{"key_code":"i","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 右濁, は → ば","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"c"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DL","value":1}},
-        {"key_code":"b"},{"key_code":"a","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 右濁, こ → ご","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"v"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DL","value":1}},
-        {"key_code":"g"},{"key_code":"o","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 右濁, そ → ぞ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"b"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"DL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"DL","value":1}},
-        {"key_code":"z"},{"key_code":"o","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 左半, へ → ぺ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"v"},
-        {"key_code":"p"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"HR","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"HR","value":1}},
-        {"key_code":"p"},{"key_code":"e","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 右半, ほ → ぽ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"m"},
-        {"key_code":"z"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"HL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"HL","value":1}},
-        {"key_code":"p"},{"key_code":"o","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 右半, ひ → ぴ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"m"},
-        {"key_code":"x"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"HL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"HL","value":1}},
-        {"key_code":"p"},{"key_code":"i","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 右半, は → ぱ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"m"},
-        {"key_code":"c"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"HL","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"HL","value":1}},
-        {"key_code":"p"},{"key_code":"a","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) み, や → みゃ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"b"},
-        {"key_code":"h"}
-      ]},
-      "to":[{"key_code":"m"},{"key_code":"y"},{"key_code":"a","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) み, ゆ → みゅ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"b"},
-        {"key_code":"p"}
-      ]},
-      "to":[{"key_code":"m"},{"key_code":"y"},{"key_code":"u","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) み, よ → みょ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"b"},
-        {"key_code":"i"}
-      ]},
-      "to":[{"key_code":"m"},{"key_code":"y"},{"key_code":"o","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) り, や → りゃ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"e"},
-        {"key_code":"h"}
-      ]},
-      "to":[{"key_code":"r"},{"key_code":"y"},{"key_code":"a","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) り, ゆ → りゅ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"e"},
-        {"key_code":"p"}
-      ]},
-      "to":[{"key_code":"r"},{"key_code":"y"},{"key_code":"u","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) り, よ → りょ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"e"},
-        {"key_code":"i"}
-      ]},
-      "to":[{"key_code":"r"},{"key_code":"y"},{"key_code":"o","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) し, や → しゃ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"r"},
-        {"key_code":"h"}
-      ]},
-      "to":[{"key_code":"s"},{"key_code":"y"},{"key_code":"a","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) し, ゆ → しゅ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"r"},
-        {"key_code":"p"}
-      ]},
-      "to":[{"key_code":"s"},{"key_code":"y"},{"key_code":"u","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) し, よ → しょ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"r"},
-        {"key_code":"i"}
-      ]},
-      "to":[{"key_code":"s"},{"key_code":"y"},{"key_code":"o","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) き, や → きゃ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"w"},
-        {"key_code":"h"}
-      ]},
-      "to":[{"key_code":"k"},{"key_code":"y"},{"key_code":"a","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) き, ゆ → きゅ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"w"},
-        {"key_code":"p"}
-      ]},
-      "to":[{"key_code":"k"},{"key_code":"y"},{"key_code":"u","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) き, よ → きょ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"w"},
-        {"key_code":"i"}
-      ]},
-      "to":[{"key_code":"k"},{"key_code":"y"},{"key_code":"o","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) に, や → にゃ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"d"},
-        {"key_code":"h"}
-      ]},
-      "to":[{"key_code":"n"},{"key_code":"y"},{"key_code":"a","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) に, ゆ → にゅ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"d"},
-        {"key_code":"p"}
-      ]},
-      "to":[{"key_code":"n"},{"key_code":"y"},{"key_code":"u","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) に, よ → にょ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"d"},
-        {"key_code":"i"}
-      ]},
-      "to":[{"key_code":"n"},{"key_code":"y"},{"key_code":"o","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) ち, や → ちゃ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"g"},
-        {"key_code":"h"}
-      ]},
-      "to":[{"key_code":"t"},{"key_code":"y"},{"key_code":"a","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) ち, ゆ → ちゅ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"g"},
-        {"key_code":"p"}
-      ]},
-      "to":[{"key_code":"t"},{"key_code":"y"},{"key_code":"u","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) ち, よ → ちょ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"g"},
-        {"key_code":"i"}
-      ]},
-      "to":[{"key_code":"t"},{"key_code":"y"},{"key_code":"o","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) ひ, や → ひゃ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"x"},
-        {"key_code":"h"}
-      ]},
-      "to":[{"key_code":"h"},{"key_code":"y"},{"key_code":"a","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) ひ, ゆ → ひゅ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"x"},
-        {"key_code":"p"}
-      ]},
-      "to":[{"key_code":"h"},{"key_code":"y"},{"key_code":"u","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) ひ, よ → ひょ","type":"basic",
-      "conditions": non_shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"x"},
-        {"key_code":"i"}
-      ]},
-      "to":[{"key_code":"h"},{"key_code":"y"},{"key_code":"o","repeat":false}
-      ]
-    },
+    keydef("(シンクロ) 左濁, さ → ざ", ["f", "u"], ["z", "a"], non_shifted(), false, ["DR"]),
+    keydef("(シンクロ) 左濁, す → ず", ["f", "o"], ["z", "u"], non_shifted(), false, ["DR"]),
+    keydef("(シンクロ) 左濁, く → ぐ", ["f", "h"], ["g", "u"], non_shifted(), false, ["DR"]),
+    keydef("(シンクロ) 左濁, つ → づ", ["f", "l"], ["d", "u"], non_shifted(), false, ["DR"]),
+    keydef("(シンクロ) 左濁, ふ → ぶ", ["f", "semicolon"], ["b", "u"], non_shifted(), false, ["DR"]),
+    keydef("(シンクロ) 左半濁, ふ → ぷ", ["v", "semicolon"], ["p", "u"], non_shifted(), false, ["DR"]),
+    keydef("(シンクロ) 左濁, た → だ", ["f", "n"], ["d", "a"], non_shifted(), false, ["DR"]),
+    keydef("(シンクロ) 左濁, へ → べ", ["f", "p"], ["b", "e"], non_shifted(), false, ["DR"]),
+    keydef("(シンクロ) 右濁, け → げ", ["j", "s"], ["g", "e"], non_shifted(), false, ["DL"]),
+    keydef("(シンクロ) 右濁, て → で", ["j", "e"], ["d", "e"], non_shifted(), false, ["DL"]),
+    keydef("(シンクロ) 右濁, し → じ", ["j", "r"], ["z", "i"], non_shifted(), false, ["DL"]),
+    keydef("(シンクロ) 右濁, せ → ぜ", ["j", "a"], ["z", "e"], non_shifted(), false, ["DL"]),
+    keydef("(シンクロ) 右濁, き → ぎ", ["j", "w"], ["g", "i"], non_shifted(), false, ["DL"]),
+    keydef("(シンクロ) 右濁, と → ど", ["j", "d"], ["d", "o"], non_shifted(), false, ["DL"]),
+    keydef("(シンクロ) 右濁, か → が", ["j", "f"], ["g", "a"], non_shifted(), false, ["DL", "DR"]),
+    keydef("(シンクロ) 右濁, ち → ぢ", ["j", "g"], ["d", "i"], non_shifted(), false, ["DL"]),
+    keydef("(シンクロ) 右濁, ほ → ぼ", ["j", "z"], ["b", "o"], non_shifted(), false, ["DL"]),
+    keydef("(シンクロ) 右濁, ひ → び", ["j", "x"], ["b", "i"], non_shifted(), false, ["DL"]),
+    keydef("(シンクロ) 右濁, は → ば", ["j", "c"], ["b", "a"], non_shifted(), false, ["DL"]),
+    keydef("(シンクロ) 右濁, こ → ご", ["j", "v"], ["g", "o"], non_shifted(), false, ["DL"]),
+    keydef("(シンクロ) 右濁, そ → ぞ", ["j", "b"], ["z", "o"], non_shifted(), false, ["DL"]),
+    keydef("(シンクロ) 左半, へ → ぺ", ["v", "p"], ["p", "e"], non_shifted(), false, ["HR"]),
+    keydef("(シンクロ) 右半, ほ → ぽ", ["m", "z"], ["p", "o"], non_shifted(), false, ["HL"]),
+    keydef("(シンクロ) 右半, ひ → ぴ", ["m", "x"], ["p", "i"], non_shifted(), false, ["HL"]),
+    keydef("(シンクロ) 右半, は → ぱ", ["m", "c"], ["p", "a"], non_shifted(), false, ["HL"]),
+    keydef("(シンクロ) み, や → みゃ", ["b", "h"], ["m", "y", "a"], non_shifted(), false),
+    keydef("(シンクロ) み, ゆ → みゅ", ["b", "p"], ["m", "y", "u"], non_shifted(), false),
+    keydef("(シンクロ) み, よ → みょ", ["b", "i"], ["m", "y", "o"], non_shifted(), false),
+    keydef("(シンクロ) り, や → りゃ", ["e", "h"], ["r", "y", "a"], non_shifted(), false),
+    keydef("(シンクロ) り, ゆ → りゅ", ["e", "p"], ["r", "y", "u"], non_shifted(), false),
+    keydef("(シンクロ) り, よ → りょ", ["e", "i"], ["r", "y", "o"], non_shifted(), false),
+    keydef("(シンクロ) し, や → しゃ", ["r", "h"], ["s", "y", "a"], non_shifted(), false),
+    keydef("(シンクロ) し, ゆ → しゅ", ["r", "p"], ["s", "y", "u"], non_shifted(), false),
+    keydef("(シンクロ) し, よ → しょ", ["r", "i"], ["s", "y", "o"], non_shifted(), false),
+    keydef("(シンクロ) き, や → きゃ", ["w", "h"], ["k", "y", "a"], non_shifted(), false),
+    keydef("(シンクロ) き, ゆ → きゅ", ["w", "p"], ["k", "y", "u"], non_shifted(), false),
+    keydef("(シンクロ) き, よ → きょ", ["w", "i"], ["k", "y", "o"], non_shifted(), false),
+    keydef("(シンクロ) に, や → にゃ", ["d", "h"], ["n", "y", "a"], non_shifted(), false),
+    keydef("(シンクロ) に, ゆ → にゅ", ["d", "p"], ["n", "y", "u"], non_shifted(), false),
+    keydef("(シンクロ) に, よ → にょ", ["d", "i"], ["n", "y", "o"], non_shifted(), false),
+    keydef("(シンクロ) ち, や → ちゃ", ["g", "h"], ["t", "y", "a"], non_shifted(), false),
+    keydef("(シンクロ) ち, ゆ → ちゅ", ["g", "p"], ["t", "y", "u"], non_shifted(), false),
+    keydef("(シンクロ) ち, よ → ちょ", ["g", "i"], ["t", "y", "o"], non_shifted(), false),
+    keydef("(シンクロ) ひ, や → ひゃ", ["x", "h"], ["h", "y", "a"], non_shifted(), false),
+    keydef("(シンクロ) ひ, ゆ → ひゅ", ["x", "p"], ["h", "y", "u"], non_shifted(), false),
+    keydef("(シンクロ) ひ, よ → ひょ", ["x", "i"], ["h", "y", "o"], non_shifted(), false),
     
-    {"description":"(シンクロ) 小, や → (ゃ)","type":"basic",
-      "conditions": japanese_input(),
-      "from":{"simultaneous":[
-        {"key_code":"q"},
-        {"key_code":"h"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"KO","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"KO","value":1}},
-        {"key_code":"x"},{"key_code":"y"},{"key_code":"a","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 小, ゆ → (ゅ)","type":"basic",
-      "conditions": japanese_input(),
-      "from":{"simultaneous":[
-        {"key_code":"q"},
-        {"key_code":"p"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"KO","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"KO","value":1}},
-        {"key_code":"x"},{"key_code":"y"},{"key_code":"u","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 小, よ → (ょ)","type":"basic",
-      "conditions": japanese_input(),
-      "from":{"simultaneous":[
-        {"key_code":"q"},
-        {"key_code":"i"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"KO","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"KO","value":1}},
-        {"key_code":"x"},{"key_code":"y"},{"key_code":"o","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 小, あ → (ぁ)","type":"basic",
-      "conditions": japanese_input(),
-      "from":{"simultaneous":[
-        {"key_code":"q"},
-        {"key_code":"j"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"KO","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"KO","value":1}},
-        {"key_code":"x"},{"key_code":"a","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 小, い → (ぃ)","type":"basic",
-      "conditions": japanese_input(),
-      "from":{"simultaneous":[
-        {"key_code":"q"},
-        {"key_code":"k"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"KO","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"KO","value":1}},
-        {"key_code":"x"},{"key_code":"i","repeat":false}
-      ]
-    },
-    {"description":"[Sp] (シンクロ) 小, わ → (ゎ)","type":"basic",
-      "conditions": shifted(),
-      "from":{"simultaneous":[
-        {"key_code":"q"},
-        {"key_code":"l"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"KO","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"KO","value":1}},
-        {"key_code":"x"},{"key_code":"w"},{"key_code":"a","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 小, う → (ぅ)","type":"basic",
-      "conditions": japanese_input(),
-      "from":{"simultaneous":[
-        {"key_code":"q"},
-        {"key_code":"l"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"KO","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"KO","value":1}},
-        {"key_code":"x"},{"key_code":"u","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 小, え → (ぇ)","type":"basic",
-      "conditions": japanese_input(),
-      "from":{"simultaneous":[
-        {"key_code":"q"},
-        {"key_code":"o"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"KO","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"KO","value":1}},
-        {"key_code":"x"},{"key_code":"e","repeat":false}
-      ]
-    },
-    {"description":"(シンクロ) 小, お → (ぉ)","type":"basic",
-      "conditions": japanese_input(),
-      "from":{"simultaneous":[
-        {"key_code":"q"},
-        {"key_code":"n"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"KO","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"KO","value":1}},
-        {"key_code":"x"},{"key_code":"o","repeat":false}
-      ]
-    },
+    keydef("(シンクロ) 小, や → (ゃ)", ["q", "h"], ["x", "y", "a"], japanese_input(), false, ["KO"]),
+    keydef("(シンクロ) 小, ゆ → (ゅ)", ["q", "p"], ["x", "y", "u"], japanese_input(), false, ["KO"]),
+    keydef("(シンクロ) 小, よ → (ょ)", ["q", "i"], ["x", "y", "o"], japanese_input(), false, ["KO"]),
+    keydef("(シンクロ) 小, あ → (ぁ)", ["q", "j"], ["x", "a"], japanese_input(), false, ["KO"]),
+    keydef("(シンクロ) 小, い → (ぃ)", ["q", "k"], ["x", "i"], japanese_input(), false, ["KO"]),
+    keydef("[Sp] (シンクロ) 小, わ → (ゎ)", ["q", "l"], ["x", "w", "a"], shifted(), false, ["KO"]),
+    keydef("(シンクロ) 小, う → (ぅ)", ["q", "l"], ["x", "u"], japanese_input(), false, ["KO"]),
+    keydef("(シンクロ) 小, え → (ぇ)", ["q", "o"], ["x", "e"], japanese_input(), false, ["KO"]),
+    keydef("(シンクロ) 小, お → (ぉ)", ["q", "n"], ["x", "o"], japanese_input(), false, ["KO"]),
     keydef("(シンクロ) く, あ → IME ON", ["h", "j"], ["lang1"], [{"type": "variable_unless", "name": "shifted", "value": true}], false),
     keydef("(シンクロ) か, (っ) → IME OFF", ["f", "g"], ["lang2"], [{"type": "variable_unless", "name": "shifted", "value": true}], false),
-    {"description":"(シンクロ) こ, な → 行送り","type":"basic",
-      "conditions": japanese_input(),
-      "from":{"simultaneous":[
-        {"key_code":"v"},
-        {"key_code":"m"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"HL","value":0}},{"set_variable":{"name":"HR","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"HL","value":1}},{"set_variable":{"name":"HR","value":1}},
-        {"key_code":"return_or_enter","repeat":false}
-      ]
-    },
+    keydef("(シンクロ) こ, な → 行送り", ["v", "m"], ["return_or_enter"], japanese_input(), false, ["HL", "HR"]),
     
     {"description":"[Sp] スペースキー","type":"basic",
       "conditions": shifted(),
