@@ -1,8 +1,8 @@
 {
-  "title": "Japanese NAGINATA STYLE (v16) ※A群、B群、C群の順に登録してください。同じ群の順序は自由です。",
+  "title": "Japanese key layout \"薙刀式\" 16",
   "rules": [
     {
-      "description": "A1: 薙刀式v16アルファ版《同時連続シフト拡張》",
+      "description": "A1: 薙刀式v16アルファ版《同時連続シフト拡張》：未動作",
       "manipulators": [
         {
           "description": "(シンクロ) Sp, ぬ",
@@ -127,7 +127,7 @@
           ]
         },
         {
-          "description": "(シンクロ) Sp, ね",
+          "description": "(シンクロ) Sp, め",
           "type": "basic",
           "conditions": [
             {
@@ -179,7 +179,7 @@
               }
             },
             {
-              "key_code": "n"
+              "key_code": "m"
             },
             {
               "key_code": "e",
@@ -612,7 +612,7 @@
           ]
         },
         {
-          "description": "(シンクロ) Sp, め",
+          "description": "(シンクロ) Sp, み",
           "type": "basic",
           "conditions": [
             {
@@ -667,7 +667,7 @@
               "key_code": "m"
             },
             {
-              "key_code": "e",
+              "key_code": "i",
               "repeat": false
             }
           ]
@@ -1426,7 +1426,7 @@
           ]
         },
         {
-          "description": "(シンクロ) Sp, み",
+          "description": "(シンクロ) Sp, む",
           "type": "basic",
           "conditions": [
             {
@@ -1481,7 +1481,7 @@
               "key_code": "m"
             },
             {
-              "key_code": "i",
+              "key_code": "u",
               "repeat": false
             }
           ]
@@ -1606,7 +1606,7 @@
           ]
         },
         {
-          "description": "(シンクロ) Sp, む",
+          "description": "(シンクロ) Sp, ね",
           "type": "basic",
           "conditions": [
             {
@@ -1658,10 +1658,10 @@
               }
             },
             {
-              "key_code": "m"
+              "key_code": "n"
             },
             {
-              "key_code": "u",
+              "key_code": "e",
               "repeat": false
             }
           ]
@@ -1791,7 +1791,7 @@
       ]
     },
     {
-      "description": "A2: 薙刀式v16以降《編集モード簡便化》",
+      "description": "A2: 薙刀式v16以降《編集モード簡便化》:未動作",
       "manipulators": [
         {
           "description": "(シンクロ) 編集モード1左",
@@ -3702,7 +3702,7 @@
       ]
     },
     {
-      "description": "B: 薙刀式v16アルファ版 0.1",
+      "description": "B: 薙刀式v16アルファ版",
       "manipulators": [
         {
           "type": "basic",
@@ -18127,7 +18127,7 @@
         },
         {
           "type": "basic",
-          "description": "(シンクロ) み, や → みゃ",
+          "description": "(シンクロ) む, や → みゃ",
           "conditions": [
             {
               "input_sources": [
@@ -18176,7 +18176,7 @@
         },
         {
           "type": "basic",
-          "description": "(シンクロ) み, ゆ → みゅ",
+          "description": "(シンクロ) む, ゆ → みゅ",
           "conditions": [
             {
               "input_sources": [
@@ -18225,7 +18225,7 @@
         },
         {
           "type": "basic",
-          "description": "(シンクロ) み, よ → みょ",
+          "description": "(シンクロ) む, よ → みょ",
           "conditions": [
             {
               "input_sources": [
@@ -20182,6 +20182,76 @@
             },
             {
               "key_code": "non_us_pound",
+              "modifiers": [
+                "shift"
+              ]
+            },
+            {
+              "key_code": "return_or_enter"
+            },
+            {
+              "key_code": "b",
+              "modifiers": [
+                "control"
+              ],
+              "repeat": false
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "description": "",
+          "conditions": [
+            {
+              "input_sources": [
+                {
+                  "input_source_id": "Kotoeri"
+                },
+                {
+                  "input_source_id": "atok"
+                }
+              ],
+              "type": "input_source_if"
+            },
+            {
+              "type": "variable_if",
+              "name": "EM1L",
+              "value": true
+            },
+            {
+              "input_sources": [
+                {
+                  "language": "ja"
+                }
+              ],
+              "type": "input_source_if"
+            },
+            {
+              "input_sources": [
+                {
+                  "input_mode_id": "Roman$"
+                }
+              ],
+              "type": "input_source_unless"
+            },
+            {
+              "type": "variable_unless",
+              "name": "shifted",
+              "value": true
+            }
+          ],
+          "from": {
+            "key_code": "w"
+          },
+          "to": [
+            {
+              "key_code": "open_bracket",
+              "modifiers": [
+                "shift"
+              ]
+            },
+            {
+              "key_code": "close_bracket",
               "modifiers": [
                 "shift"
               ]
@@ -25550,7 +25620,7 @@
         },
         {
           "type": "basic",
-          "description": "[Sp] ね",
+          "description": "[Sp] め",
           "conditions": [
             {
               "input_sources": [
@@ -25579,7 +25649,7 @@
           },
           "to": [
             {
-              "key_code": "n"
+              "key_code": "m"
             },
             {
               "key_code": "e"
@@ -25853,7 +25923,7 @@
         },
         {
           "type": "basic",
-          "description": "[Sp] め",
+          "description": "[Sp] み",
           "conditions": [
             {
               "input_sources": [
@@ -25885,7 +25955,7 @@
               "key_code": "m"
             },
             {
-              "key_code": "e"
+              "key_code": "i"
             }
           ]
         },
@@ -26298,7 +26368,7 @@
         },
         {
           "type": "basic",
-          "description": "[Sp] み",
+          "description": "[Sp] む",
           "conditions": [
             {
               "input_sources": [
@@ -26330,7 +26400,7 @@
               "key_code": "m"
             },
             {
-              "key_code": "i"
+              "key_code": "u"
             }
           ]
         },
@@ -26409,7 +26479,7 @@
         },
         {
           "type": "basic",
-          "description": "[Sp] む",
+          "description": "[Sp] ね",
           "conditions": [
             {
               "input_sources": [
@@ -26438,10 +26508,10 @@
           },
           "to": [
             {
-              "key_code": "m"
+              "key_code": "n"
             },
             {
-              "key_code": "u"
+              "key_code": "e"
             }
           ]
         },
@@ -27464,7 +27534,7 @@
       ]
     },
     {
-      "description": "C1: 薙刀式《左右シフトかな拡張》",
+      "description": "C1: 薙刀式《左右シフトかな拡張》：未動作",
       "manipulators": [
         {
           "description": "左シフトキー",
@@ -27698,7 +27768,7 @@
           ]
         },
         {
-          "description": "[Sp] ね",
+          "description": "[Sp] め",
           "type": "basic",
           "conditions": [
             {
@@ -27728,7 +27798,7 @@
           },
           "to": [
             {
-              "key_code": "n"
+              "key_code": "m"
             },
             {
               "key_code": "e",
@@ -28007,7 +28077,7 @@
           ]
         },
         {
-          "description": "[Sp] め",
+          "description": "[Sp] み",
           "type": "basic",
           "conditions": [
             {
@@ -28040,7 +28110,7 @@
               "key_code": "m"
             },
             {
-              "key_code": "e",
+              "key_code": "i",
               "repeat": false
             }
           ]
@@ -28461,7 +28531,7 @@
           ]
         },
         {
-          "description": "[Sp] み",
+          "description": "[Sp] む",
           "type": "basic",
           "conditions": [
             {
@@ -28494,7 +28564,7 @@
               "key_code": "m"
             },
             {
-              "key_code": "i",
+              "key_code": "u",
               "repeat": false
             }
           ]
@@ -28575,7 +28645,7 @@
           ]
         },
         {
-          "description": "[Sp] む",
+          "description": "[Sp] ね",
           "type": "basic",
           "conditions": [
             {
@@ -28605,10 +28675,10 @@
           },
           "to": [
             {
-              "key_code": "m"
+              "key_code": "n"
             },
             {
-              "key_code": "u",
+              "key_code": "e",
               "repeat": false
             }
           ]
@@ -28655,7 +28725,7 @@
       ]
     },
     {
-      "description": "C2: 薙刀式《エンター同時押しシフト拡張》",
+      "description": "C2: 薙刀式《エンター同時押しシフト拡張》：未動作",
       "manipulators": [
         {
           "description": "エンターキー",

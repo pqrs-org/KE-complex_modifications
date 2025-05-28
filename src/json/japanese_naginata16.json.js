@@ -208,7 +208,7 @@ function manipulatorsA1() {
         {"key_code":"r"},{"key_code":"i","repeat":false}
       ]
     },
-    {"description":"(シンクロ) Sp, ね","type":"basic",
+    {"description":"(シンクロ) Sp, め","type":"basic",
       "conditions": japanese_input(),
       "parameters":{"basic.simultaneous_threshold_milliseconds":60},
       "from":{"simultaneous":[
@@ -218,7 +218,7 @@ function manipulatorsA1() {
       "to_after_key_up":[{"set_variable":{"name":"shifted","value":0}}]}
       },
       "to":[{"set_variable":{"name":"shifted","value":1}},
-        {"key_code":"n"},{"key_code":"e","repeat":false}
+        {"key_code":"m"},{"key_code":"e","repeat":false}
       ]
     },
     {"description":"(シンクロ) Sp, 左","type":"basic",
@@ -312,7 +312,7 @@ function manipulatorsA1() {
         {"key_code":"s"},{"key_code":"e","repeat":false}
       ]
     },
-    {"description":"(シンクロ) Sp, め","type":"basic",
+    {"description":"(シンクロ) Sp, み","type":"basic",
       "conditions": japanese_input(),
       "parameters":{"basic.simultaneous_threshold_milliseconds":60},
       "from":{"simultaneous":[
@@ -322,7 +322,7 @@ function manipulatorsA1() {
       "to_after_key_up":[{"set_variable":{"name":"shifted","value":0}}]}
       },
       "to":[{"set_variable":{"name":"shifted","value":1}},
-        {"key_code":"m"},{"key_code":"e","repeat":false}
+        {"key_code":"m"},{"key_code":"i","repeat":false}
       ]
     },
     {"description":"(シンクロ) Sp, に","type":"basic",
@@ -481,7 +481,7 @@ function manipulatorsA1() {
         {"key_code":"comma","repeat":false}
       ]
     },
-    {"description":"(シンクロ) Sp, み","type":"basic",
+    {"description":"(シンクロ) Sp, む","type":"basic",
       "conditions": japanese_input(),
       "parameters":{"basic.simultaneous_threshold_milliseconds":60},
       "from":{"simultaneous":[
@@ -491,7 +491,7 @@ function manipulatorsA1() {
       "to_after_key_up":[{"set_variable":{"name":"shifted","value":0}}]}
       },
       "to":[{"set_variable":{"name":"shifted","value":1}},
-        {"key_code":"m"},{"key_code":"i","repeat":false}
+        {"key_code":"m"},{"key_code":"u","repeat":false}
       ]
     },
     {"description":"(シンクロ) Sp, お","type":"basic",
@@ -520,7 +520,7 @@ function manipulatorsA1() {
         {"key_code":"period"},{"key_code":"return_or_enter","repeat":false}
       ]
     },
-    {"description":"(シンクロ) Sp, む","type":"basic",
+    {"description":"(シンクロ) Sp, ね","type":"basic",
       "conditions": japanese_input(),
       "parameters":{"basic.simultaneous_threshold_milliseconds":60},
       "from":{"simultaneous":[
@@ -530,7 +530,7 @@ function manipulatorsA1() {
       "to_after_key_up":[{"set_variable":{"name":"shifted","value":0}}]}
       },
       "to":[{"set_variable":{"name":"shifted","value":1}},
-        {"key_code":"m"},{"key_code":"u","repeat":false}
+        {"key_code":"n"},{"key_code":"e","repeat":false}
       ]
     },
     {"description":"(シンクロ) Sp, わ","type":"basic",
@@ -1072,9 +1072,9 @@ function manipulatorsB() {
     keydef("(シンクロ) 右半, ほ → ぽ", ["m", "z"], ["p", "o"], non_shifted(), false, ["HL"]),
     keydef("(シンクロ) 右半, ひ → ぴ", ["m", "x"], ["p", "i"], non_shifted(), false, ["HL"]),
     keydef("(シンクロ) 右半, は → ぱ", ["m", "c"], ["p", "a"], non_shifted(), false, ["HL"]),
-    keydef("(シンクロ) み, や → みゃ", ["b", "h"], ["m", "y", "a"], non_shifted(), false),
-    keydef("(シンクロ) み, ゆ → みゅ", ["b", "p"], ["m", "y", "u"], non_shifted(), false),
-    keydef("(シンクロ) み, よ → みょ", ["b", "i"], ["m", "y", "o"], non_shifted(), false),
+    keydef("(シンクロ) む, や → みゃ", ["b", "h"], ["m", "y", "a"], non_shifted(), false),
+    keydef("(シンクロ) む, ゆ → みゅ", ["b", "p"], ["m", "y", "u"], non_shifted(), false),
+    keydef("(シンクロ) む, よ → みょ", ["b", "i"], ["m", "y", "o"], non_shifted(), false),
     keydef("(シンクロ) り, や → りゃ", ["e", "h"], ["r", "y", "a"], non_shifted(), false),
     keydef("(シンクロ) り, ゆ → りゅ", ["e", "p"], ["r", "y", "u"], non_shifted(), false),
     keydef("(シンクロ) り, よ → りょ", ["e", "i"], ["r", "y", "o"], non_shifted(), false),
@@ -1242,7 +1242,7 @@ function manipulatorsB() {
     
     keydef("[Sp] ぬ", "w", ["n", "u"], shifted()),
     keydef("[Sp] り", "e", ["r", "i"], shifted()),
-    keydef("[Sp] ね", "r", ["n", "e"], shifted()),
+    keydef("[Sp] め", "r", ["m", "e"], shifted()),
     keydef("[Sp] 左", "t", [["n", ["control","shift"]]], shifted()),
     keydef("[Sp] 右", "y", [["p", ["control","shift"]]], shifted()),
     keydef("[Sp] さ", "u", ["s", "a"], shifted()),
@@ -1250,7 +1250,7 @@ function manipulatorsB() {
     keydef("[Sp] え", "o", ["e"], shifted()),
     keydef("[Sp] ゆ", "p", ["y", "u"], shifted()),
     keydef("[Sp] せ", "a", ["s", "e"], shifted()),
-    keydef("[Sp] め", "s", ["m", "e"], shifted()),
+    keydef("[Sp] み", "s", ["m", "i"], shifted()),
     keydef("[Sp] に", "d", ["n", "i"], shifted()),
     {
       "description": "[Sp] ま",
@@ -1286,10 +1286,10 @@ function manipulatorsB() {
     keydef("[Sp] ふ", "semicolon", ["f", "u"], shifted()),
     keydef("[Sp] を", "c", ["w", "o"], shifted()),
     keydef("[Sp] 、", "v", ["comma"], shifted()),
-    keydef("[Sp] み", "b", ["m", "i"], shifted()),
+    keydef("[Sp] む", "b", ["m", "u"], shifted()),
     keydef("[Sp] お", "n", ["o"], shifted()),
     keydef("[Sp] 。", "m", ["period", "return_or_enter"], shifted()),
-    keydef("[Sp] む", "comma", ["m", "u"], shifted()),
+    keydef("[Sp] ね", "comma", ["n", "e"], shifted()),
     keydef("[Sp] わ", "period", ["w", "a"], shifted()),
     
     keydef("ヴ", "q", ["v", "u"], japanese_input()),
@@ -1367,10 +1367,10 @@ function manipulatorsC1() {
     "to":[{"key_code":"r"},{"key_code":"i","repeat":false}
     ]
   },
-  {"description":"[Sp] ね","type":"basic",
+  {"description":"[Sp] め","type":"basic",
     "conditions": japanese_input(),
     "from":{"key_code":"r","modifiers":{"mandatory":["shift"]}},
-    "to":[{"key_code":"n"},{"key_code":"e","repeat":false}
+    "to":[{"key_code":"m"},{"key_code":"e","repeat":false}
     ]
   },
   {"description":"[Sp] 左","type":"basic",
@@ -1415,10 +1415,10 @@ function manipulatorsC1() {
     "to":[{"key_code":"s"},{"key_code":"e","repeat":false}
     ]
   },
-  {"description":"[Sp] め","type":"basic",
+  {"description":"[Sp] み","type":"basic",
     "conditions": japanese_input(),
     "from":{"key_code":"s","modifiers":{"mandatory":["shift"]}},
-    "to":[{"key_code":"m"},{"key_code":"e","repeat":false}
+    "to":[{"key_code":"m"},{"key_code":"i","repeat":false}
     ]
   },
   {"description":"[Sp] に","type":"basic",
@@ -1485,10 +1485,10 @@ function manipulatorsC1() {
     "to":[{"key_code":"comma","repeat":false}
     ]
   },
-  {"description":"[Sp] み","type":"basic",
+  {"description":"[Sp] む","type":"basic",
     "conditions": japanese_input(),
     "from":{"key_code":"b","modifiers":{"mandatory":["shift"]}},
-    "to":[{"key_code":"m"},{"key_code":"i","repeat":false}
+    "to":[{"key_code":"m"},{"key_code":"u","repeat":false}
     ]
   },
   {"description":"[Sp] お","type":"basic",
@@ -1503,10 +1503,10 @@ function manipulatorsC1() {
     "to":[{"key_code":"period"},{"key_code":"return_or_enter","repeat":false}
     ]
   },
-  {"description":"[Sp] む","type":"basic",
+  {"description":"[Sp] ね","type":"basic",
     "conditions": japanese_input(),
     "from":{"key_code":"comma","modifiers":{"mandatory":["shift"]}},
-    "to":[{"key_code":"m"},{"key_code":"u","repeat":false}
+    "to":[{"key_code":"n"},{"key_code":"e","repeat":false}
     ]
   },
   {"description":"[Sp] わ","type":"basic",
@@ -1537,23 +1537,23 @@ function main() {
         "title":"Japanese key layout \"薙刀式\" 16",
         "rules":[
           {
-            "description":"A1: 薙刀式v16アルファ版《同時連続シフト拡張》",
+            "description":"A1: 薙刀式v16アルファ版《同時連続シフト拡張》：未動作",
             "manipulators": manipulatorsA1()
           },
           {
-            "description":"A2: 薙刀式v16以降《編集モード簡便化》",
+            "description":"A2: 薙刀式v16以降《編集モード簡便化》:未動作",
             "manipulators": manipulatorsA2()
           },
           {
-            "description":"B: 薙刀式v16アルファ版 0.1",
+            "description":"B: 薙刀式v16アルファ版",
             "manipulators": manipulatorsB()
           },
           {
-            "description":"C1: 薙刀式《左右シフトかな拡張》",
+            "description":"C1: 薙刀式《左右シフトかな拡張》：未動作",
             "manipulators": manipulatorsC1()
           },
           {
-            "description":"C2: 薙刀式《エンター同時押しシフト拡張》",
+            "description":"C2: 薙刀式《エンター同時押しシフト拡張》：未動作",
             "manipulators": manipulatorsC2()
           }
         ]
