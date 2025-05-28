@@ -1,37 +1,42 @@
 {
-  "description": "Disable print shortcut on Finder",
-  "manipulators": [
+  "title": "Disable print shortcut on Finder",
+  "rules": [
     {
-      "conditions": [
+      "description": "Disable print shortcut on Finder",
+      "manipulators": [
         {
-          "bundle_identifiers": ["^com.apple.finder"],
-          "type": "frontmost_application_if"
-        }
-      ],
-      "from": {
-        "key_code": "p",
-        "modifiers": {
-          "mandatory": ["left_command"],
-          "optional": []
-        }
-      },
-      "type": "basic"
-    },
-    {
-      "conditions": [
+          "conditions": [
+            {
+              "bundle_identifiers": ["^com.apple.finder"],
+              "type": "frontmost_application_if"
+            }
+          ],
+          "from": {
+            "key_code": "p",
+            "modifiers": {
+              "mandatory": ["left_command"],
+              "optional": []
+            }
+          },
+          "type": "basic"
+        },
         {
-          "bundle_identifiers": ["^com.apple.finder"],
-          "type": "frontmost_application_if"
+          "conditions": [
+            {
+              "bundle_identifiers": ["^com.apple.finder"],
+              "type": "frontmost_application_if"
+            }
+          ],
+          "from": {
+            "key_code": "p",
+            "modifiers": {
+              "mandatory": ["right_command"],
+              "optional": []
+            }
+          },
+          "type": "basic"
         }
-      ],
-      "from": {
-        "key_code": "p",
-        "modifiers": {
-          "mandatory": ["right_command"],
-          "optional": []
-        }
-      },
-      "type": "basic"
+      ]
     }
   ]
 }
