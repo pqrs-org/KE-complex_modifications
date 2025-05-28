@@ -2657,10 +2657,42 @@
                   "input_source_id": "Kotoeri"
                 },
                 {
-                  "input_source_id": "Kotoeri"
+                  "input_source_id": "atok"
                 }
               ],
               "type": "input_source_if"
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": [
+                "jis"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "EM2L",
+              "value": true
+            },
+            {
+              "input_sources": [
+                {
+                  "language": "ja"
+                }
+              ],
+              "type": "input_source_if"
+            },
+            {
+              "input_sources": [
+                {
+                  "input_mode_id": "Roman$"
+                }
+              ],
+              "type": "input_source_unless"
+            },
+            {
+              "type": "variable_unless",
+              "name": "shifted",
+              "value": true
             }
           ],
           "from": {
@@ -2728,10 +2760,36 @@
                   "input_source_id": "Kotoeri"
                 },
                 {
-                  "input_source_id": "Kotoeri"
+                  "input_source_id": "atok"
                 }
               ],
               "type": "input_source_if"
+            },
+            {
+              "type": "variable_if",
+              "name": "EM2L",
+              "value": true
+            },
+            {
+              "input_sources": [
+                {
+                  "language": "ja"
+                }
+              ],
+              "type": "input_source_if"
+            },
+            {
+              "input_sources": [
+                {
+                  "input_mode_id": "Roman$"
+                }
+              ],
+              "type": "input_source_unless"
+            },
+            {
+              "type": "variable_unless",
+              "name": "shifted",
+              "value": true
             }
           ],
           "from": {
@@ -3131,10 +3189,42 @@
                   "input_source_id": "Kotoeri"
                 },
                 {
-                  "input_source_id": "Kotoeri"
+                  "input_source_id": "atok"
                 }
               ],
               "type": "input_source_if"
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": [
+                "jis"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "EM2L",
+              "value": true
+            },
+            {
+              "input_sources": [
+                {
+                  "language": "ja"
+                }
+              ],
+              "type": "input_source_if"
+            },
+            {
+              "input_sources": [
+                {
+                  "input_mode_id": "Roman$"
+                }
+              ],
+              "type": "input_source_unless"
+            },
+            {
+              "type": "variable_unless",
+              "name": "shifted",
+              "value": true
             }
           ],
           "from": {
@@ -3202,10 +3292,36 @@
                   "input_source_id": "Kotoeri"
                 },
                 {
-                  "input_source_id": "Kotoeri"
+                  "input_source_id": "atok"
                 }
               ],
               "type": "input_source_if"
+            },
+            {
+              "type": "variable_if",
+              "name": "EM2L",
+              "value": true
+            },
+            {
+              "input_sources": [
+                {
+                  "language": "ja"
+                }
+              ],
+              "type": "input_source_if"
+            },
+            {
+              "input_sources": [
+                {
+                  "input_mode_id": "Roman$"
+                }
+              ],
+              "type": "input_source_unless"
+            },
+            {
+              "type": "variable_unless",
+              "name": "shifted",
+              "value": true
             }
           ],
           "from": {
@@ -3586,11 +3702,11 @@
       ]
     },
     {
-      "description": "B: 薙刀式v16アルファ版",
+      "description": "B: 薙刀式v16アルファ版 0.1",
       "manipulators": [
         {
-          "description": "(U.S.使用)(シンクロ) あ, い, 小 → 新",
           "type": "basic",
+          "description": "(U.S.使用)(シンクロ) あ, い, 小 → 新",
           "conditions": [
             {
               "input_sources": [
@@ -3634,7 +3750,7 @@
                 {
                   "set_variable": {
                     "name": "EM1L",
-                    "value": 0
+                    "value": false
                   }
                 }
               ]
@@ -3644,7 +3760,7 @@
             {
               "set_variable": {
                 "name": "EM1L",
-                "value": 1
+                "value": true
               }
             },
             {
@@ -3754,8 +3870,8 @@
           ]
         },
         {
-          "description": "(UNICODE使用)(シンクロ) あ, い, ほ → ──",
           "type": "basic",
+          "description": "(UNICODE使用)(シンクロ) あ, い, ほ → ──",
           "conditions": [
             {
               "input_sources": [
@@ -3799,7 +3915,7 @@
                 {
                   "set_variable": {
                     "name": "EM1L",
-                    "value": 0
+                    "value": false
                   }
                 }
               ]
@@ -3809,7 +3925,7 @@
             {
               "set_variable": {
                 "name": "EM1L",
-                "value": 1
+                "value": true
               }
             },
             {
@@ -3890,10 +4006,37 @@
                   "input_source_id": "Kotoeri"
                 },
                 {
-                  "input_source_id": "Kotoeri"
+                  "input_source_id": "atok"
                 }
               ],
               "type": "input_source_if"
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": [
+                "jis"
+              ]
+            },
+            {
+              "input_sources": [
+                {
+                  "language": "ja"
+                }
+              ],
+              "type": "input_source_if"
+            },
+            {
+              "input_sources": [
+                {
+                  "input_mode_id": "Roman$"
+                }
+              ],
+              "type": "input_source_unless"
+            },
+            {
+              "type": "variable_unless",
+              "name": "shifted",
+              "value": true
             }
           ],
           "from": {
@@ -3960,10 +4103,31 @@
                   "input_source_id": "Kotoeri"
                 },
                 {
-                  "input_source_id": "Kotoeri"
+                  "input_source_id": "atok"
                 }
               ],
               "type": "input_source_if"
+            },
+            {
+              "input_sources": [
+                {
+                  "language": "ja"
+                }
+              ],
+              "type": "input_source_if"
+            },
+            {
+              "input_sources": [
+                {
+                  "input_mode_id": "Roman$"
+                }
+              ],
+              "type": "input_source_unless"
+            },
+            {
+              "type": "variable_unless",
+              "name": "shifted",
+              "value": true
             }
           ],
           "from": {
@@ -4021,8 +4185,8 @@
           ]
         },
         {
-          "description": "(UNICODE使用)(シンクロ) あ, い, き → 『』",
           "type": "basic",
+          "description": "(UNICODE使用)(シンクロ) あ, い, き → 『』",
           "conditions": [
             {
               "input_sources": [
@@ -4066,7 +4230,7 @@
                 {
                   "set_variable": {
                     "name": "EM1L",
-                    "value": 0
+                    "value": false
                   }
                 }
               ]
@@ -4076,7 +4240,7 @@
             {
               "set_variable": {
                 "name": "EM1L",
-                "value": 1
+                "value": true
               }
             },
             {
@@ -4329,10 +4493,37 @@
                   "input_source_id": "Kotoeri"
                 },
                 {
-                  "input_source_id": "Kotoeri"
+                  "input_source_id": "atok"
                 }
               ],
               "type": "input_source_if"
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": [
+                "jis"
+              ]
+            },
+            {
+              "input_sources": [
+                {
+                  "language": "ja"
+                }
+              ],
+              "type": "input_source_if"
+            },
+            {
+              "input_sources": [
+                {
+                  "input_mode_id": "Roman$"
+                }
+              ],
+              "type": "input_source_unless"
+            },
+            {
+              "type": "variable_unless",
+              "name": "shifted",
+              "value": true
             }
           ],
           "from": {
@@ -4399,10 +4590,31 @@
                   "input_source_id": "Kotoeri"
                 },
                 {
-                  "input_source_id": "Kotoeri"
+                  "input_source_id": "atok"
                 }
               ],
               "type": "input_source_if"
+            },
+            {
+              "input_sources": [
+                {
+                  "language": "ja"
+                }
+              ],
+              "type": "input_source_if"
+            },
+            {
+              "input_sources": [
+                {
+                  "input_mode_id": "Roman$"
+                }
+              ],
+              "type": "input_source_unless"
+            },
+            {
+              "type": "variable_unless",
+              "name": "shifted",
+              "value": true
             }
           ],
           "from": {
@@ -4460,8 +4672,8 @@
           ]
         },
         {
-          "description": "(UNICODE使用)(シンクロ) あ, い, ひ → 【】",
           "type": "basic",
+          "description": "(UNICODE使用)(シンクロ) あ, い, ひ → 【】",
           "conditions": [
             {
               "input_sources": [
@@ -4505,7 +4717,7 @@
                 {
                   "set_variable": {
                     "name": "EM1L",
-                    "value": 0
+                    "value": false
                   }
                 }
               ]
@@ -4515,7 +4727,7 @@
             {
               "set_variable": {
                 "name": "EM1L",
-                "value": 1
+                "value": true
               }
             },
             {
@@ -4948,8 +5160,8 @@
           ]
         },
         {
-          "description": "(U.S.使用)(シンクロ) あ, い, こ → 確定↓",
           "type": "basic",
+          "description": "(U.S.使用)(シンクロ) あ, い, こ → 確定↓",
           "conditions": [
             {
               "input_sources": [
@@ -4993,7 +5205,7 @@
                 {
                   "set_variable": {
                     "name": "EM1L",
-                    "value": 0
+                    "value": false
                   }
                 }
               ]
@@ -5003,7 +5215,7 @@
             {
               "set_variable": {
                 "name": "EM1L",
-                "value": 1
+                "value": true
               }
             },
             {
@@ -5095,8 +5307,8 @@
           ]
         },
         {
-          "description": "(U.S.使用)(JIS/US)(シンクロ) あ, い, (っ) → ↲「」",
           "type": "basic",
+          "description": "(U.S.使用)(JIS/US)(シンクロ) あ, い, (っ) → ↲「」",
           "conditions": [
             {
               "type": "keyboard_type_if",
@@ -5146,7 +5358,7 @@
                 {
                   "set_variable": {
                     "name": "EM1L",
-                    "value": 0
+                    "value": false
                   }
                 }
               ]
@@ -5156,7 +5368,7 @@
             {
               "set_variable": {
                 "name": "EM1L",
-                "value": 1
+                "value": true
               }
             },
             {
@@ -5200,6 +5412,7 @@
         },
         {
           "type": "basic",
+          "description": "",
           "conditions": [
             {
               "input_sources": [
@@ -5243,7 +5456,7 @@
                 {
                   "set_variable": {
                     "name": "EM1L",
-                    "value": 0
+                    "value": false
                   }
                 }
               ]
@@ -5253,7 +5466,7 @@
             {
               "set_variable": {
                 "name": "EM1L",
-                "value": 1
+                "value": true
               }
             },
             {
@@ -5296,8 +5509,8 @@
           }
         },
         {
-          "description": "(U.S.使用)(シンクロ) あ, い, そ → ↲□",
           "type": "basic",
+          "description": "(U.S.使用)(シンクロ) あ, い, そ → ↲□",
           "conditions": [
             {
               "input_sources": [
@@ -5341,7 +5554,7 @@
                 {
                   "set_variable": {
                     "name": "EM1L",
-                    "value": 0
+                    "value": false
                   }
                 }
               ]
@@ -5351,7 +5564,7 @@
             {
               "set_variable": {
                 "name": "EM1L",
-                "value": 1
+                "value": true
               }
             },
             {
@@ -5446,8 +5659,8 @@
           ]
         },
         {
-          "description": "(U.S.使用)(シンクロ) と, か, く → 確定End",
           "type": "basic",
+          "description": "(U.S.使用)(シンクロ) と, か, く → 確定End",
           "conditions": [
             {
               "input_sources": [
@@ -5491,7 +5704,7 @@
                 {
                   "set_variable": {
                     "name": "EM1R",
-                    "value": 0
+                    "value": false
                   }
                 }
               ]
@@ -5501,7 +5714,7 @@
             {
               "set_variable": {
                 "name": "EM1R",
-                "value": 1
+                "value": true
               }
             },
             {
@@ -6528,8 +6741,8 @@
           ]
         },
         {
-          "description": "(UNICODE使用)(シンクロ) な, ん, ろ → 《》",
           "type": "basic",
+          "description": "(UNICODE使用)(シンクロ) な, ん, ろ → 《》",
           "conditions": [
             {
               "input_sources": [
@@ -6573,7 +6786,7 @@
                 {
                   "set_variable": {
                     "name": "EM2L",
-                    "value": 0
+                    "value": false
                   }
                 }
               ]
@@ -6583,7 +6796,7 @@
             {
               "set_variable": {
                 "name": "EM2L",
-                "value": 1
+                "value": true
               }
             },
             {
@@ -6706,7 +6919,7 @@
                 {
                   "set_variable": {
                     "name": "EM2L",
-                    "value": 0
+                    "value": false
                   }
                 }
               ]
@@ -6716,7 +6929,7 @@
             {
               "set_variable": {
                 "name": "EM2L",
-                "value": 1
+                "value": true
               }
             },
             {
@@ -6867,10 +7080,37 @@
                   "input_source_id": "Kotoeri"
                 },
                 {
-                  "input_source_id": "Kotoeri"
+                  "input_source_id": "atok"
                 }
               ],
               "type": "input_source_if"
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": [
+                "jis"
+              ]
+            },
+            {
+              "input_sources": [
+                {
+                  "language": "ja"
+                }
+              ],
+              "type": "input_source_if"
+            },
+            {
+              "input_sources": [
+                {
+                  "input_mode_id": "Roman$"
+                }
+              ],
+              "type": "input_source_unless"
+            },
+            {
+              "type": "variable_unless",
+              "name": "shifted",
+              "value": true
             }
           ],
           "from": {
@@ -6959,10 +7199,31 @@
                   "input_source_id": "Kotoeri"
                 },
                 {
-                  "input_source_id": "Kotoeri"
+                  "input_source_id": "atok"
                 }
               ],
               "type": "input_source_if"
+            },
+            {
+              "input_sources": [
+                {
+                  "language": "ja"
+                }
+              ],
+              "type": "input_source_if"
+            },
+            {
+              "input_sources": [
+                {
+                  "input_mode_id": "Roman$"
+                }
+              ],
+              "type": "input_source_unless"
+            },
+            {
+              "type": "variable_unless",
+              "name": "shifted",
+              "value": true
             }
           ],
           "from": {
@@ -7087,7 +7348,7 @@
                 {
                   "set_variable": {
                     "name": "EM2L",
-                    "value": 0
+                    "value": false
                   }
                 }
               ]
@@ -7097,7 +7358,7 @@
             {
               "set_variable": {
                 "name": "EM2L",
-                "value": 1
+                "value": true
               }
             },
             {
@@ -7428,10 +7689,37 @@
                   "input_source_id": "Kotoeri"
                 },
                 {
-                  "input_source_id": "Kotoeri"
+                  "input_source_id": "atok"
                 }
               ],
               "type": "input_source_if"
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": [
+                "jis"
+              ]
+            },
+            {
+              "input_sources": [
+                {
+                  "language": "ja"
+                }
+              ],
+              "type": "input_source_if"
+            },
+            {
+              "input_sources": [
+                {
+                  "input_mode_id": "Roman$"
+                }
+              ],
+              "type": "input_source_unless"
+            },
+            {
+              "type": "variable_unless",
+              "name": "shifted",
+              "value": true
             }
           ],
           "from": {
@@ -7520,10 +7808,31 @@
                   "input_source_id": "Kotoeri"
                 },
                 {
-                  "input_source_id": "Kotoeri"
+                  "input_source_id": "atok"
                 }
               ],
               "type": "input_source_if"
+            },
+            {
+              "input_sources": [
+                {
+                  "language": "ja"
+                }
+              ],
+              "type": "input_source_if"
+            },
+            {
+              "input_sources": [
+                {
+                  "input_mode_id": "Roman$"
+                }
+              ],
+              "type": "input_source_unless"
+            },
+            {
+              "type": "variable_unless",
+              "name": "shifted",
+              "value": true
             }
           ],
           "from": {
@@ -7648,7 +7957,7 @@
                 {
                   "set_variable": {
                     "name": "EM2L",
-                    "value": 0
+                    "value": false
                   }
                 }
               ]
@@ -7658,7 +7967,7 @@
             {
               "set_variable": {
                 "name": "EM2L",
-                "value": 1
+                "value": true
               }
             },
             {
@@ -8356,8 +8665,8 @@
           ]
         },
         {
-          "description": "(UNICODE使用)(シンクロ) な, ん, 左 → ○",
           "type": "basic",
+          "description": "(UNICODE使用)(シンクロ) な, ん, 左 → ○",
           "conditions": [
             {
               "input_sources": [
@@ -8401,7 +8710,7 @@
                 {
                   "set_variable": {
                     "name": "EM2L",
-                    "value": 0
+                    "value": false
                   }
                 }
               ]
@@ -8411,7 +8720,7 @@
             {
               "set_variable": {
                 "name": "EM2L",
-                "value": 1
+                "value": true
               }
             },
             {
@@ -8527,8 +8836,8 @@
           ]
         },
         {
-          "description": "(UNICODE使用)(シンクロ) な, ん, そ → x   x   x",
           "type": "basic",
+          "description": "(UNICODE使用)(シンクロ) な, ん, そ → x   x   x",
           "conditions": [
             {
               "input_sources": [
@@ -8572,7 +8881,7 @@
                 {
                   "set_variable": {
                     "name": "EM2L",
-                    "value": 0
+                    "value": false
                   }
                 }
               ]
@@ -8582,7 +8891,7 @@
             {
               "set_variable": {
                 "name": "EM2L",
-                "value": 1
+                "value": true
               }
             },
             {
@@ -19585,8 +19894,8 @@
           ]
         },
         {
-          "description": "[あ, い] 小 → 新",
           "type": "basic",
+          "description": "[あ, い] 小 → 新",
           "conditions": [
             {
               "type": "variable_if",
@@ -19622,12 +19931,6 @@
             "key_code": "q"
           },
           "to": [
-            {
-              "set_variable": {
-                "name": "EM1L",
-                "value": 1
-              }
-            },
             {
               "select_input_source": {
                 "input_source_id": "com.apple.keylayout.US"
@@ -19714,8 +20017,8 @@
           ]
         },
         {
-          "description": "(UNICODE使用)[あ, い] ほ → ──",
           "type": "basic",
+          "description": "(UNICODE使用)[あ, い] ほ → ──",
           "conditions": [
             {
               "type": "variable_if",
@@ -19829,10 +20132,42 @@
                   "input_source_id": "Kotoeri"
                 },
                 {
-                  "input_source_id": "Kotoeri"
+                  "input_source_id": "atok"
                 }
               ],
               "type": "input_source_if"
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": [
+                "jis"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "EM1L",
+              "value": true
+            },
+            {
+              "input_sources": [
+                {
+                  "language": "ja"
+                }
+              ],
+              "type": "input_source_if"
+            },
+            {
+              "input_sources": [
+                {
+                  "input_mode_id": "Roman$"
+                }
+              ],
+              "type": "input_source_unless"
+            },
+            {
+              "type": "variable_unless",
+              "name": "shifted",
+              "value": true
             }
           ],
           "from": {
@@ -19865,51 +20200,7 @@
         },
         {
           "type": "basic",
-          "description": "",
-          "conditions": [
-            {
-              "input_sources": [
-                {
-                  "input_source_id": "Kotoeri"
-                },
-                {
-                  "input_source_id": "Kotoeri"
-                }
-              ],
-              "type": "input_source_if"
-            }
-          ],
-          "from": {
-            "key_code": "w"
-          },
-          "to": [
-            {
-              "key_code": "open_bracket",
-              "modifiers": [
-                "shift"
-              ]
-            },
-            {
-              "key_code": "close_bracket",
-              "modifiers": [
-                "shift"
-              ]
-            },
-            {
-              "key_code": "return_or_enter"
-            },
-            {
-              "key_code": "b",
-              "modifiers": [
-                "control"
-              ],
-              "repeat": false
-            }
-          ]
-        },
-        {
           "description": "(UNICODE使用)[あ, い] き → 『』",
-          "type": "basic",
           "conditions": [
             {
               "type": "variable_if",
@@ -20152,10 +20443,42 @@
                   "input_source_id": "Kotoeri"
                 },
                 {
-                  "input_source_id": "Kotoeri"
+                  "input_source_id": "atok"
                 }
               ],
               "type": "input_source_if"
+            },
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": [
+                "jis"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "EM1L",
+              "value": true
+            },
+            {
+              "input_sources": [
+                {
+                  "language": "ja"
+                }
+              ],
+              "type": "input_source_if"
+            },
+            {
+              "input_sources": [
+                {
+                  "input_mode_id": "Roman$"
+                }
+              ],
+              "type": "input_source_unless"
+            },
+            {
+              "type": "variable_unless",
+              "name": "shifted",
+              "value": true
             }
           ],
           "from": {
@@ -20196,10 +20519,36 @@
                   "input_source_id": "Kotoeri"
                 },
                 {
-                  "input_source_id": "Kotoeri"
+                  "input_source_id": "atok"
                 }
               ],
               "type": "input_source_if"
+            },
+            {
+              "type": "variable_if",
+              "name": "EM1L",
+              "value": true
+            },
+            {
+              "input_sources": [
+                {
+                  "language": "ja"
+                }
+              ],
+              "type": "input_source_if"
+            },
+            {
+              "input_sources": [
+                {
+                  "input_mode_id": "Roman$"
+                }
+              ],
+              "type": "input_source_unless"
+            },
+            {
+              "type": "variable_unless",
+              "name": "shifted",
+              "value": true
             }
           ],
           "from": {
@@ -20231,8 +20580,8 @@
           ]
         },
         {
-          "description": "(UNICODE使用)[あ, い] ひ → 【】",
           "type": "basic",
+          "description": "(UNICODE使用)[あ, い] ひ → 【】",
           "conditions": [
             {
               "type": "variable_if",
@@ -20593,8 +20942,8 @@
           ]
         },
         {
-          "description": "(U.S.使用)[あ, い] こ → 確定↓",
           "type": "basic",
+          "description": "(U.S.使用)[あ, い] こ → 確定↓",
           "conditions": [
             {
               "type": "variable_if",
@@ -20697,8 +21046,8 @@
           ]
         },
         {
-          "description": "(U.S.使用)(JIS/US)[あ, い] (っ) → ↲「」",
           "type": "basic",
+          "description": "(U.S.使用)(JIS/US)[あ, い] (っ) → ↲「」",
           "conditions": [
             {
               "type": "keyboard_type_if",
@@ -20780,6 +21129,7 @@
         },
         {
           "type": "basic",
+          "description": "",
           "conditions": [
             {
               "type": "variable_if",
@@ -20854,8 +21204,8 @@
           }
         },
         {
-          "description": "(U.S.使用)[あ, い] そ → ↲□",
           "type": "basic",
+          "description": "(U.S.使用)[あ, い] そ → ↲□",
           "conditions": [
             {
               "type": "variable_if",
@@ -20962,8 +21312,8 @@
           ]
         },
         {
-          "description": "(U.S.使用)[と, か] く → 確定End",
           "type": "basic",
+          "description": "(U.S.使用)[と, か] く → 確定End",
           "conditions": [
             {
               "type": "variable_if",
@@ -21371,8 +21721,8 @@
           ]
         },
         {
-          "description": "[と, か] う → +7↑",
           "type": "basic",
+          "description": "[と, か] う → +7↑",
           "conditions": [
             {
               "type": "variable_if",
@@ -21457,8 +21807,8 @@
           ]
         },
         {
-          "description": "[と, か] ら → +27↓",
           "type": "basic",
+          "description": "[と, か] ら → +7↓",
           "conditions": [
             {
               "type": "variable_if",
@@ -21669,8 +22019,8 @@
           ]
         },
         {
-          "description": "(UNICODE使用)[な, ん] ろ → 《》",
           "type": "basic",
+          "description": "(UNICODE使用)[な, ん] ろ → 《》",
           "conditions": [
             {
               "type": "variable_if",
@@ -22063,8 +22413,8 @@
           ]
         },
         {
-          "description": "(UNICODE使用)[な, ん] 左 → ○",
           "type": "basic",
+          "description": "(UNICODE使用)[な, ん] 左 → ○",
           "conditions": [
             {
               "type": "variable_if",
@@ -22192,8 +22542,8 @@
           ]
         },
         {
-          "description": "(UNICODE使用)[な, ん] そ → x   x   x",
           "type": "basic",
+          "description": "(UNICODE使用)[な, ん] そ → x   x   x",
           "conditions": [
             {
               "type": "variable_if",
@@ -25610,7 +25960,7 @@
             {
               "set_variable": {
                 "name": "DR",
-                "value": 1
+                "value": true
               }
             },
             {
@@ -25625,7 +25975,7 @@
             {
               "set_variable": {
                 "name": "DR",
-                "value": 0
+                "value": false
               }
             }
           ]
@@ -25739,7 +26089,7 @@
             {
               "set_variable": {
                 "name": "DL",
-                "value": 1
+                "value": true
               }
             },
             {
@@ -25754,7 +26104,7 @@
             {
               "set_variable": {
                 "name": "DL",
-                "value": 0
+                "value": false
               }
             }
           ]

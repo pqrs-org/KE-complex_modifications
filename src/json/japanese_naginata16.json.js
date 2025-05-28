@@ -18,7 +18,7 @@ function keydef(description, from_key, to_key_list, conditions, will_repeat, tra
   return output;
 }
 
-function delayed(description, from_key, to_key_list, conditions, will_repeat, transmit_var_list) {
+function delayed(description, from_key, to_delayed_list, input_source_id, conditions, will_repeat, transmit_var_list) {
   return {
     "type":"basic",
     "description": description,
@@ -26,7 +26,7 @@ function delayed(description, from_key, to_key_list, conditions, will_repeat, tr
     "parameters": {"basic.to_delayed_action_delay_milliseconds": 30},
     "from": process_from(from_key, transmit_var_list),
     "to": input_source(input_source_id, transmit_var_list),
-    "to_delayed_action":{"to_if_invoked": key_code_list(to_key_list, will_repeat)}
+    "to_delayed_action":{"to_if_invoked": key_code_list(to_delayed_list, will_repeat)}
   }
 }
 
@@ -80,14 +80,14 @@ function shifted(var_name) {
 
 function non_shifted(var_name, is_jis_keyboard, is_im) {
   var non_shifted_body = [].concat(
-  japanese_input(),
-  {
-    "type": "variable_unless",
-    "name": "shifted",
-    "value": true
-  }
+    japanese_input(),
+    {
+      "type": "variable_unless",
+      "name": "shifted",
+      "value": true
+    }
   );
-  if (var_name != null) {
+  if (var_name != null && var_name != "undefined") {
     non_shifted_body = [].concat(
       {
         "type": "variable_if",
@@ -95,7 +95,7 @@ function non_shifted(var_name, is_jis_keyboard, is_im) {
         "value": true
       },
       non_shifted_body
-    )
+    );
   }
   if (is_jis_keyboard) {
     non_shifted_body = [].concat(
@@ -104,15 +104,16 @@ function non_shifted(var_name, is_jis_keyboard, is_im) {
         "keyboard_types": ["jis"]
       },
       non_shifted_body
-    )
+    );
   }
   if (is_im) {
     non_shifted_body = [].concat(
       {
-        "input_sources":[{"input_source_id": "Kotoeri"}, {"input_source_id": "Kotoeri"}],
+        "input_sources":[{"input_source_id": "Kotoeri"}, {"input_source_id": "atok"}],
         "type":"input_source_if"
-      }
-    )
+      },
+      non_shifted_body
+    );
   }
   return non_shifted_body;
 }
@@ -754,152 +755,29 @@ function manipulatorsA2() {
 
 function manipulatorsB() {
   return [
-    {"description":"(U.S.使用)(シンクロ) あ, い, 小 → 新","type":"basic",
-      "conditions": non_shifted(),
-      "parameters":{"basic.to_delayed_action_delay_milliseconds":30},
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"k"},
-        {"key_code":"q"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM1L","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM1L","value":1}},
-        {"select_input_source":{"input_source_id":"com.apple.keylayout.US"}}
-      ],
-      "to_delayed_action":{"to_if_invoked":[
-        {"key_code":"left_arrow","modifiers":["command"]},{"key_code":"down_arrow","modifiers":["command"]},{"key_code":"lang1","modifiers":["shift"]},{"key_code":"lang1"}
-      ]}
-    },
+    delayed("(U.S.使用)(シンクロ) あ, い, 小 → 新", ["j", "k", "q"], [["left_arrow", ["command"]], ["down_arrow", ["command"]], ["lang1", ["shift"]], "lang1"], "com.apple.keylayout.US", non_shifted(), null, ["EM1L"]),
     keydef("(シンクロ) あ, い, ろ → ……", ["j", "k", "a"], [["semicolon", ["option"]], ["semicolon", ["option"]], "return_or_enter"], non_shifted(), false, ["EM1L"]),
-    {"description":"(UNICODE使用)(シンクロ) あ, い, ほ → ──","type":"basic",
-      "conditions": non_shifted(),
-      "parameters":{"basic.to_delayed_action_delay_milliseconds":30},
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"k"},
-        {"key_code":"z"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM1L","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM1L","value":1}},
-        {"select_input_source":{"input_source_id":"com.apple.keylayout.UnicodeHexInput"}}
-      ],
-      "to_delayed_action":{"to_if_invoked":[
-        {"key_code":"2","modifiers":["option"]},{"key_code":"5","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"2","modifiers":["option"]},{"key_code":"2","modifiers":["option"]},{"key_code":"5","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"2","modifiers":["option"]},{"key_code":"lang1","modifiers":["shift"]},{"key_code":"lang1"}
-      ]}
-    },
+    delayed("(UNICODE使用)(シンクロ) あ, い, ほ → ──", ["j", "k", "z"], [["2", ["option"]], ["5", ["option"]], ["0", ["option"]], ["2", ["option"]], ["2", ["option"]], ["5", ["option"]], ["0", ["option"]], ["2", ["option"]], ["lang1", ["shift"]], "lang1"], "com.apple.keylayout.UnicodeHexInput", non_shifted(), null, ["EM1L"]),
     keydef("(日本語IM時)(JIS/US)(シンクロ) あ, い, き → 『』", ["j", "k", "w"], [["close_bracket", ["shift"]], ["non_us_pound", ["shift"]], "return_or_enter", ["b", ["control"]]], non_shifted(null, true, true), false, ["EM1L"]),
     keydef("", ["j", "k", "w"], [["open_bracket", ["shift"]], ["close_bracket", ["shift"]], "return_or_enter", ["b", ["control"]]], non_shifted(null, false, true), false, ["EM1L"]),
-    {"description":"(UNICODE使用)(シンクロ) あ, い, き → 『』","type":"basic",
-      "conditions": non_shifted(),
-      "parameters":{"basic.to_delayed_action_delay_milliseconds":30},
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"k"},
-        {"key_code":"w"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM1L","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM1L","value":1}},
-        {"select_input_source":{"input_source_id":"com.apple.keylayout.UnicodeHexInput"}}
-      ],
-      "to_delayed_action":{"to_if_invoked":[
-        {"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"e","modifiers":["option"]},{"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"f","modifiers":["option"]},{"key_code":"b","modifiers":["control"]},{"key_code":"lang1","modifiers":["shift"]},{"key_code":"lang1"}
-      ]}
-    },
+    delayed("(UNICODE使用)(シンクロ) あ, い, き → 『』", ["j", "k", "w"], [["3", ["option"]], ["0", ["option"]], ["0", ["option"]], ["e", ["option"]], ["3", ["option"]], ["0", ["option"]], ["0", ["option"]], ["f", ["option"]], ["b", ["control"]], ["lang1", ["shift"]], "lang1"], "com.apple.keylayout.UnicodeHexInput", non_shifted(), null, ["EM1L"]),
     keydef("(JIS/US)(シンクロ) あ, い, け → （）", ["j", "k", "s"], [["8", ["shift"]], ["9", ["shift"]], "return_or_enter", ["b", ["control"]]], non_shifted(null, true, false), false, ["EM1L"]),
     keydef("", ["j", "k", "s"], [["9", ["shift"]], ["0", ["shift"]], "return_or_enter", ["b", ["control"]]], non_shifted(), false, ["EM1L"]),
     keydef("(日本語IM時)(JIS/US)(シンクロ) あ, い, ひ → 【】", ["j", "k", "x"], [["8", ["option"]], ["9", ["option"]], "return_or_enter", ["b", ["control"]]], non_shifted(null, true, true), false, ["EM1L"]),
     keydef("", ["j", "k", "x"], [["9", ["option"]], ["0", ["option"]], "return_or_enter", ["b", ["control"]]], non_shifted(null, false, true), false, ["EM1L"]),
-    {"description":"(UNICODE使用)(シンクロ) あ, い, ひ → 【】","type":"basic",
-      "conditions": non_shifted(),
-      "parameters":{"basic.to_delayed_action_delay_milliseconds":30},
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"k"},
-        {"key_code":"x"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM1L","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM1L","value":1}},{"select_input_source":{"input_source_id":"com.apple.keylayout.UnicodeHexInput"}}],
-      "to_delayed_action":{"to_if_invoked":[
-        {"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"1","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"1","modifiers":["option"]},{"key_code":"1","modifiers":["option"]},{"key_code":"b","modifiers":["control"]},{"key_code":"lang1","modifiers":["shift"]},{"key_code":"lang1"}
-      ]}
-    },
+    delayed("(UNICODE使用)(シンクロ) あ, い, ひ → 【】", ["j", "k", "x"], [["3", ["option"]], ["0", ["option"]], ["1", ["option"]], ["0", ["option"]], ["3", ["option"]], ["0", ["option"]], ["1", ["option"]], ["1", ["option"]], ["b", ["control"]], ["lang1", ["shift"]], "lang1"], "com.apple.keylayout.UnicodeHexInput", non_shifted(), null, ["EM1L"]),
     keydef("(シンクロ) あ, い, と → ？", ["j", "k", "d"], [["slash", ["shift"]], "return_or_enter"], non_shifted(), false, ["EM1L"]),
     keydef("(シンクロ) あ, い, は → ！", ["j", "k", "c"], [["1", ["shift"]], "return_or_enter"], non_shifted(), false, ["EM1L"]),
     keydef("(シンクロ) あ, い, し → 保", ["j", "k", "r"], [["s", ["command"]]], non_shifted(), false, ["EM1L"]),
     keydef("(JIS/US)(シンクロ) あ, い, か → 「」", ["j", "k", "f"], ["close_bracket", "non_us_pound", "return_or_enter", ["b", ["control"]]], non_shifted(null, true, false), false, ["EM1L"]),
     keydef("", ["j", "k", "f"], ["open_bracket", "close_bracket", "return_or_enter", ["b", ["control"]]], non_shifted(), false, ["EM1L"]),
-    {"description":"(U.S.使用)(シンクロ) あ, い, こ → 確定↓","type":"basic",
-      "conditions": non_shifted(),
-      "parameters":{"basic.to_delayed_action_delay_milliseconds":30},
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"k"},
-        {"key_code":"v"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM1L","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM1L","value":1}},{"select_input_source":{"input_source_id":"com.apple.keylayout.US"}}],
-      "to_delayed_action":{"to_if_invoked":[
-        {"key_code":"f","modifiers":["control"]},{"key_code":"lang1","modifiers":["shift"]},{"key_code":"lang1"}
-      ]}
-    },
+    delayed("(U.S.使用)(シンクロ) あ, い, こ → 確定↓", ["j", "k", "v"], [["f", ["control"]], ["lang1", ["shift"]], "lang1"], "com.apple.keylayout.US", non_shifted(), null, ["EM1L"]),
     keydef("(シンクロ) あ, い, 左 → ・未確定", ["j", "k", "t"], ["slash"], non_shifted(), false, ["EM1L"]),
-    {"description":"(U.S.使用)(JIS/US)(シンクロ) あ, い, (っ) → ↲「」","type":"basic",
-      "conditions":non_shifted(null, true, false),
-      "parameters":{"basic.to_delayed_action_delay_milliseconds":30},
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"k"},
-        {"key_code":"g"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM1L","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM1L","value":1}},{"select_input_source":{"input_source_id":"com.apple.keylayout.US"}}],
-      "to_delayed_action":{"to_if_invoked":[
-        {"key_code":"lang1"},{"key_code":"e","modifiers":["control"]},{"key_code":"return_or_enter"},{"key_code":"close_bracket"},{"key_code":"non_us_pound"},{"key_code":"return_or_enter"},{"key_code":"b","modifiers":["control"],"repeat":false}
-      ]}
-    },
-    {"type":"basic",
-      "conditions": non_shifted(),
-      "parameters":{"basic.to_delayed_action_delay_milliseconds":30},
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"k"},
-        {"key_code":"g"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM1L","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM1L","value":1}},{"select_input_source":{"input_source_id":"com.apple.keylayout.US"}}],
-      "to_delayed_action":{"to_if_invoked":[
-        {"key_code":"lang1"},{"key_code":"e","modifiers":["control"]},{"key_code":"return_or_enter"},{"key_code":"open_bracket"},{"key_code":"close_bracket"},{"key_code":"return_or_enter"},{"key_code":"b","modifiers":["control"],"repeat":false}
-      ]}
-    },
-    {"description":"(U.S.使用)(シンクロ) あ, い, そ → ↲□","type":"basic",
-      "conditions": non_shifted(),
-      "parameters":{"basic.to_delayed_action_delay_milliseconds":30},
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"k"},
-        {"key_code":"b"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM1L","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM1L","value":1}},{"select_input_source":{"input_source_id":"com.apple.keylayout.US"}}],
-      "to_delayed_action":{"to_if_invoked":[
-        {"key_code":"lang1"},{"key_code":"e","modifiers":["control"]},{"key_code":"return_or_enter"},{"key_code":"spacebar"}
-      ]}
-    },
+    delayed("(U.S.使用)(JIS/US)(シンクロ) あ, い, (っ) → ↲「」", ["j", "k", "g"], ["lang1", ["e", ["control"]], "return_or_enter", "close_bracket", "non_us_pound", "return_or_enter", ["b", ["control"]]], "com.apple.keylayout.US", non_shifted(null, true, false), false, ["EM1L"]),
+    delayed("", ["j", "k", "g"], ["lang1", ["e", ["control"]], "return_or_enter", "open_bracket", "close_bracket", "return_or_enter", ["b", ["control"]]], "com.apple.keylayout.US", non_shifted(), false, ["EM1L"]),
+    delayed("(U.S.使用)(シンクロ) あ, い, そ → ↲□", ["j", "k", "b"], ["lang1", ["e", ["control"]], "return_or_enter", "spacebar"], "com.apple.keylayout.US", non_shifted(), null, ["EM1L"]),
     keydef("(シンクロ) と, か, 右 → Home", ["d", "f", "y"], [["a", ["control"]]], non_shifted(), false, ["EM1R"]),
-    {"description":"(U.S.使用)(シンクロ) と, か, く → 確定End","type":"basic",
-      "conditions": non_shifted(),
-      "parameters":{"basic.to_delayed_action_delay_milliseconds":30},
-      "from":{"simultaneous":[
-        {"key_code":"d"},
-        {"key_code":"f"},
-        {"key_code":"h"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM1R","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM1R","value":1}},{"select_input_source":{"input_source_id":"com.apple.keylayout.US"}}],
-      "to_delayed_action":{"to_if_invoked":[
-        {"key_code":"e","modifiers":["control"]},{"key_code":"lang1","modifiers":["shift"]},{"key_code":"lang1"}
-      ]}
-    },
+    delayed("(U.S.使用)(シンクロ) と, か, く → 確定End", ["d", "f", "h"], [["e", ["control"]], ["lang1", ["shift"]], "lang1"], "com.apple.keylayout.US", non_shifted(), null, ["EM1R"]),
     keydef("(シンクロ) と, か, た → End", ["d", "f", "n"], [["e", ["control"]]], non_shifted(), false, ["EM1R"]),
     keydef("(シンクロ) と, か, BS → 文末消去", ["d", "f", "u"], [["k", ["control"]]], non_shifted(), false, ["EM1R"]),
     keydef("(シンクロ) と, か, あ → ↑", ["d", "f", "j"], [["b", ["control"]]], non_shifted(), null, ["EM1R"]),
@@ -914,77 +792,119 @@ function manipulatorsB() {
     keydef("(シンクロ) と, か, ー → カタカナ変換", ["d", "f", "semicolon"], ["f7"], non_shifted(), false, ["EM1R"]),
     keydef("(シンクロ) と, か, れ → ひらがな変換", ["d", "f", "slash"], ["f6"], non_shifted(), false, ["EM1R"]),
     keydef("(シンクロ) な, ん, 小 → カッコ外し", ["m", "comma", "q"], [["x", ["command"]], "delete_or_backspace", "delete_forward", ["v", ["command"]]], non_shifted(), false, ["EM2L"]),
-    {"description":"(UNICODE使用)(シンクロ) な, ん, ろ → 《》","type":"basic",
+    delayed("(UNICODE使用)(シンクロ) な, ん, ろ → 《》", ["m", "comma", "a"], [["3", ["option"]], ["0", ["option"]], ["0", ["option"]], ["a", ["option"]], ["3", ["option"]], ["0", ["option"]], ["0", ["option"]], ["b", ["option"]], ["b", ["control"]], ["lang1", ["shift"]], "lang1"], "com.apple.keylayout.UnicodeHexInput", non_shifted(), null, ["EM2L"]),
+    {
+      "description": "(UNICODE使用)(シンクロ) な, ん, ほ → ｜《》",
+      "type": "basic",
       "conditions": non_shifted(),
-      "parameters":{"basic.to_delayed_action_delay_milliseconds":30},
-      "from":{"simultaneous":[
-        {"key_code":"m"},
-        {"key_code":"comma"},
-        {"key_code":"a"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM2L","value":0}}]}
+      "parameters": {"basic.to_delayed_action_delay_milliseconds": 30},
+      "from": 
+      {
+        "simultaneous": [
+          {"key_code": "m"},
+          {"key_code": "comma"},
+          {"key_code": "z"}
+        ],
+        "simultaneous_options": {
+          "to_after_key_up": [{"set_variable": {"name": "EM2L", "value": false}}]
+        }
       },
-      "to":[{"set_variable":{"name":"EM2L","value":1}},
-        {"select_input_source":{"input_source_id":"com.apple.keylayout.UnicodeHexInput"}}
+      "to": [
+        {"set_variable": {"name": "EM2L","value": true}},
+        {"key_code": "x", "modifiers": ["command"]},
+        {"select_input_source": {"input_source_id": "com.apple.keylayout.UnicodeHexInput"}}
       ],
-      "to_delayed_action":{"to_if_invoked":[
-        {"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"a","modifiers":["option"]},{"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"b","modifiers":["option"]},{"key_code":"b","modifiers":["control"]},{"key_code":"lang1","modifiers":["shift"]},{"key_code":"lang1"}
-      ]}
-    },
-    {"description":"(UNICODE使用)(シンクロ) な, ん, ほ → ｜《》","type":"basic",
-      "conditions": non_shifted(),
-      "parameters":{"basic.to_delayed_action_delay_milliseconds":30},
-      "from":{"simultaneous":[
-        {"key_code":"m"},
-        {"key_code":"comma"},
-        {"key_code":"z"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM2L","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM2L","value":1}},
-        {"key_code":"x","modifiers":["command"]},
-        {"select_input_source":{"input_source_id":"com.apple.keylayout.UnicodeHexInput"}}
-      ],
-      "to_delayed_action":{"to_if_invoked":[
-        {"key_code":"f","modifiers":["option"]},{"key_code":"f","modifiers":["option"]},{"key_code":"5","modifiers":["option"]},{"key_code":"c","modifiers":["option"]},{"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"a","modifiers":["option"]},{"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"b","modifiers":["option"]},{"key_code":"b","modifiers":["control"]},{"key_code":"b","modifiers":["control"]},{"key_code":"v","modifiers":["command"]},{"key_code":"f","modifiers":["control"]},{"key_code":"spacebar"},{"key_code":"b","modifiers":["shift","control"]},{"key_code":"x","modifiers":["command"]},{"key_code":"lang1","modifiers":["shift"]},{"key_code":"lang1"}
+      "to_delayed_action": {"to_if_invoked": [
+        {"key_code": "f","modifiers": ["option"]},
+        {"key_code": "f","modifiers": ["option"]},
+        {"key_code": "5","modifiers": ["option"]},
+        {"key_code": "c","modifiers": ["option"]},
+        {"key_code": "3","modifiers": ["option"]},
+        {"key_code": "0","modifiers": ["option"]},
+        {"key_code": "0","modifiers": ["option"]},
+        {"key_code": "a","modifiers": ["option"]},
+        {"key_code": "3","modifiers": ["option"]},
+        {"key_code": "0","modifiers": ["option"]},
+        {"key_code": "0","modifiers": ["option"]},
+        {"key_code": "b","modifiers": ["option"]},
+        {"key_code": "b","modifiers": ["control"]},
+        {"key_code": "b","modifiers": ["control"]},
+        {"key_code": "v","modifiers": ["command"]},
+        {"key_code": "f","modifiers": ["control"]},
+        {"key_code": "spacebar"},
+        {"key_code": "b","modifiers": ["shift","control"]},
+        {"key_code": "x","modifiers": ["command"]},
+        {"key_code": "lang1","modifiers": ["shift"]},
+        {"key_code": "lang1"}
       ]}
     },
     keydef("(日本語IM時)(JIS/US)(シンクロ) な, ん, き → +『』", ["m", "comma", "w"], [["x", ["command"]], ["close_bracket", ["shift"]], ["v", ["command"]], ["non_us_pound", ["shift"]], "return_or_enter", "spacebar", ["b", ["shift","control"]], ["x", ["command"]]], non_shifted(null, true, true), false, ["EM2L"]),
     keydef("", ["m", "comma", "w"], [["x", ["command"]], ["open_bracket", ["shift"]], ["v", ["command"]], ["close_bracket", ["shift"]], "return_or_enter", "spacebar", ["b", ["shift","control"]], ["x", ["command"]]], non_shifted(null, false, true), false, ["EM2L"]),
-    {"description":"(UNICODE使用)(シンクロ) な, ん, き → +『』","type":"basic",
-      "conditions": non_shifted(),
-      "parameters":{"basic.to_delayed_action_delay_milliseconds":30},
-      "from":{"simultaneous":[
-        {"key_code":"m"},
-        {"key_code":"comma"},
-        {"key_code":"w"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM2L","value":0}}]}
+    {
+      "description": "(UNICODE使用)(シンクロ) な, ん, き → +『』",
+      "type": "basic",
+      "conditions":  non_shifted(),
+      "parameters": {"basic.to_delayed_action_delay_milliseconds": 30},
+      "from": {
+        "simultaneous": [
+          {"key_code": "m"},
+          {"key_code": "comma"},
+          {"key_code": "w"}
+        ],
+        "simultaneous_options": {
+          "to_after_key_up": [{"set_variable": {"name": "EM2L","value": false}}]
+        }
       },
-      "to":[{"set_variable":{"name":"EM2L","value":1}},
-        {"key_code":"x","modifiers":["command"]},
-        {"select_input_source":{"input_source_id":"com.apple.keylayout.UnicodeHexInput"}}
+      "to": [
+        {"set_variable": {"name": "EM2L","value": true}},
+        {"key_code": "x", "modifiers": ["command"]},
+        {"select_input_source": {"input_source_id": "com.apple.keylayout.UnicodeHexInput"}}
       ],
-      "to_delayed_action":{"to_if_invoked":[
-        {"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"e","modifiers":["option"]},{"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"f","modifiers":["option"]},{"key_code":"b","modifiers":["control"]},{"key_code":"v","modifiers":["command"]},{"key_code":"f","modifiers":["control"]},{"key_code":"spacebar"},{"key_code":"b","modifiers":["shift","control"]},{"key_code":"x","modifiers":["command"]},{"key_code":"lang1","modifiers":["shift"]},{"key_code":"lang1"}
+      "to_delayed_action": {"to_if_invoked": [
+        {"key_code": "3", "modifiers": ["option"]},
+        {"key_code": "0", "modifiers": ["option"]},
+        {"key_code": "0", "modifiers": ["option"]},
+        {"key_code": "e", "modifiers": ["option"]},
+        {"key_code": "3", "modifiers": ["option"]},
+        {"key_code": "0", "modifiers": ["option"]},
+        {"key_code": "0", "modifiers": ["option"]},
+        {"key_code": "f", "modifiers": ["option"]},
+        {"key_code": "b", "modifiers": ["control"]},
+        {"key_code": "v", "modifiers": ["command"]},
+        {"key_code": "f", "modifiers": ["control"]},
+        {"key_code": "spacebar"},
+        {"key_code": "b", "modifiers": ["shift", "control"]},
+        {"key_code": "x", "modifiers": ["command"]},
+        {"key_code": "lang1", "modifiers": ["shift"]},
+        {"key_code": "lang1"}
       ]}
     },
     keydef("(JIS/US)(シンクロ) な, ん, け → +（）", ["m", "comma", "s"], [["x", ["command"]], ["8", ["shift"]], ["v", ["command"]], ["9", ["shift"]], "return_or_enter", "spacebar", ["b", ["shift","control"]], ["x", ["command"]]], non_shifted(null, true, false), false, ["EM2L"]),
     keydef("", ["m", "comma", "s"], [["x", ["command"]], ["9", ["shift"]], ["v", ["command"]], ["0", ["shift"]], "return_or_enter", "spacebar", ["b", ["shift","control"]], ["x", ["command"]]], non_shifted(), false, ["EM2L"]),
     keydef("(日本語IM時)(JIS/US)(シンクロ) な, ん, ひ → +【】", ["m", "comma", "x"], [["x", ["command"]], ["8", ["option"]], ["v", ["command"]], ["9", ["option"]], "return_or_enter", "spacebar", ["b", ["shift","control"]], ["x", ["command"]]], non_shifted(null, true, true), false, ["EM2L"]),
     keydef("", ["m", "comma", "x"], [["x", ["command"]], ["9", ["option"]], ["v", ["command"]], ["0", ["option"]], "return_or_enter", "spacebar", ["b", ["shift","control"]], ["x", ["command"]]], non_shifted(null, false, true), false, ["EM2L"]),
-    {"description":"(UNICODE使用)(シンクロ) な, ん, ひ → +【】","type":"basic",
+    {
+      "description": "(UNICODE使用)(シンクロ) な, ん, ひ → +【】",
+      "type": "basic",
       "conditions": non_shifted(),
-      "parameters":{"basic.to_delayed_action_delay_milliseconds":30},
-      "from":{"simultaneous":[
-        {"key_code":"m"},
-        {"key_code":"comma"},
-        {"key_code":"x"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM2L","value":0}}]}
+      "parameters": {"basic.to_delayed_action_delay_milliseconds": 30},
+      "from": {
+        "simultaneous": [
+          {"key_code": "m"},
+          {"key_code": "comma"},
+          {"key_code": "x"}
+        ],
+        "simultaneous_options": {
+          "to_after_key_up": [{"set_variable": {"name": "EM2L", "value": false}}]
+        }
       },
-      "to":[{"set_variable":{"name":"EM2L","value":1}},
-        {"key_code":"x","modifiers":["command"]},
-        {"select_input_source":{"input_source_id":"com.apple.keylayout.UnicodeHexInput"}}
+      "to": [
+        {"set_variable": {"name": "EM2L", "value": true}},
+        {"key_code": "x", "modifiers": ["command"]},
+        {"select_input_source": {"input_source_id": "com.apple.keylayout.UnicodeHexInput"}}
       ],
-      "to_delayed_action":{"to_if_invoked":[
-        {"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"1","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"1","modifiers":["option"]},{"key_code":"1","modifiers":["option"]},{"key_code":"b","modifiers":["control"]},{"key_code":"v","modifiers":["command"]},{"key_code":"f","modifiers":["control"]},{"key_code":"spacebar"},{"key_code":"b","modifiers":["shift","control"]},{"key_code":"x","modifiers":["command"]},{"key_code":"lang1","modifiers":["shift"]},{"key_code":"lang1"}
+      "to_delayed_action": {"to_if_invoked": [
+        {"key_code": "3","modifiers": ["option"]},{"key_code": "0","modifiers": ["option"]},{"key_code": "1","modifiers": ["option"]},{"key_code": "0","modifiers": ["option"]},{"key_code": "3","modifiers": ["option"]},{"key_code": "0","modifiers": ["option"]},{"key_code": "1","modifiers": ["option"]},{"key_code": "1","modifiers": ["option"]},{"key_code": "b","modifiers": ["control"]},{"key_code": "v","modifiers": ["command"]},{"key_code": "f","modifiers": ["control"]},{"key_code": "spacebar"},{"key_code": "b","modifiers": ["shift","control"]},{"key_code": "x","modifiers": ["command"]},{"key_code": "lang1","modifiers": ["shift"]},{"key_code": "lang1"}
       ]}
     },
     keydef("(シンクロ) な, ん, て → 行頭□□□挿入", ["m", "comma", "e"], [["a", ["control"]], "return_or_enter", "spacebar", "spacebar", "spacebar", ["e", ["control"]]], non_shifted(), false, ["EM2L"]),
@@ -994,39 +914,23 @@ function manipulatorsB() {
     keydef("(JIS/US)(シンクロ) な, ん, か → +「」", ["m", "comma", "f"], [["x", ["command"]], "close_bracket", ["v", ["command"]], "non_us_pound", "return_or_enter", "spacebar", ["b", ["shift","control"]], ["x", ["command"]]], non_shifted(null, true, false), false, ["EM2L"]),
     keydef("", ["m", "comma", "f"], [["x", ["command"]], "open_bracket", ["v", ["command"]], "close_bracket", "return_or_enter", "spacebar", ["b", ["shift","control"]], ["x", ["command"]]], non_shifted(), false, ["EM2L"]),
     keydef("(シンクロ) な, ん, こ → 行頭□戻し", ["m", "comma", "v"], [["a", ["control"]], "delete_or_backspace", "delete_forward", ["e", ["control"]]], non_shifted(), false, ["EM2L"]),
-    {"description":"(UNICODE使用)(シンクロ) な, ん, 左 → ○","type":"basic",
-      "conditions": non_shifted(),
-      "parameters":{"basic.to_delayed_action_delay_milliseconds":30},
-      "from":{"simultaneous":[
-        {"key_code":"m"},
-        {"key_code":"comma"},
-        {"key_code":"t"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM2L","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM2L","value":1}},
-        {"select_input_source":{"input_source_id":"com.apple.keylayout.UnicodeHexInput"}}
-      ],
-      "to_delayed_action":{"to_if_invoked":[
-        {"key_code":"2","modifiers":["option"]},{"key_code":"5","modifiers":["option"]},{"key_code":"c","modifiers":["option"]},{"key_code":"b","modifiers":["option"]},{"key_code":"lang1","modifiers":["shift"]},{"key_code":"lang1"}
-      ]}
-    },
+    delayed("(UNICODE使用)(シンクロ) な, ん, 左 → ○", ["m", "comma", "t"], [["2", ["option"]], ["5", ["option"]], ["c", ["option"]], ["b", ["option"]], ["lang1", ["shift"]], "lang1"], "com.apple.keylayout.UnicodeHexInput", non_shifted(), null, ["EM2L"]),
     keydef("(シンクロ) な, ん, (っ) → ／", ["m", "comma", "g"], [["slash", ["option"]], "return_or_enter"], non_shifted(), false, ["EM2L"]),
-    {"description":"(UNICODE使用)(シンクロ) な, ん, そ → x   x   x","type":"basic",
-      "conditions": non_shifted(),
-      "parameters":{"basic.to_delayed_action_delay_milliseconds":30},
-      "from":{"simultaneous":[
-        {"key_code":"m"},
-        {"key_code":"comma"},
-        {"key_code":"b"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM2L","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM2L","value":1}},
-        {"select_input_source":{"input_source_id":"com.apple.keylayout.UnicodeHexInput"}}
-      ],
-      "to_delayed_action":{"to_if_invoked":[
-        {"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"d","modifiers":["option"]},{"key_code":"7","modifiers":["option"]},{"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"d","modifiers":["option"]},{"key_code":"7","modifiers":["option"]},{"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"d","modifiers":["option"]},{"key_code":"7","modifiers":["option"]},{"key_code":"lang1","modifiers":["shift"]},{"key_code":"lang1"},{"key_code":"return_or_enter"}
-      ]}
-    },
+    delayed("(UNICODE使用)(シンクロ) な, ん, そ → x   x   x", ["m", "comma", "b"], 
+      [["3", ["option"]], ["0", ["option"]], ["0", ["option"]], ["0", ["option"]],
+        ["3", ["option"]], ["0", ["option"]], ["0", ["option"]], ["0", ["option"]],
+        ["3", ["option"]], ["0", ["option"]], ["0", ["option"]], ["0", ["option"]],
+        ["0", ["option"]], ["0", ["option"]], ["d", ["option"]], ["7", ["option"]],
+        ["3", ["option"]], ["0", ["option"]], ["0", ["option"]], ["0", ["option"]],
+        ["3", ["option"]], ["0", ["option"]], ["0", ["option"]], ["0", ["option"]],
+        ["3", ["option"]], ["0", ["option"]], ["0", ["option"]], ["0", ["option"]],
+        ["0", ["option"]], ["0", ["option"]], ["d", ["option"]], ["7", ["option"]],
+        ["3", ["option"]], ["0", ["option"]], ["0", ["option"]], ["0", ["option"]],
+        ["3", ["option"]], ["0", ["option"]], ["0", ["option"]], ["0", ["option"]],
+        ["3", ["option"]], ["0", ["option"]], ["0", ["option"]], ["0", ["option"]],
+        ["0", ["option"]], ["0", ["option"]], ["d", ["option"]], ["7", ["option"]],
+        ["lang1", ["shift"]], "lang1", "return_or_enter"],
+        "com.apple.keylayout.UnicodeHexInput", non_shifted(), null, ["EM2L"]),
     keydef("(シンクロ) は, こ, 右 → +Home", ["c", "v", "y"], [["a", ["shift","control"]]], non_shifted(), false, ["EM2R"]),
     keydef("(シンクロ) は, こ, く → Copy", ["c", "v", "h"], [["c", ["command"]]], non_shifted(), false, ["EM2R"]),
     keydef("(シンクロ) は, こ, た → +End", ["c", "v", "n"], [["e", ["shift","control"]]], non_shifted(), false, ["EM2R"]),
@@ -1203,117 +1107,47 @@ function manipulatorsB() {
     keydef("(シンクロ) か, (っ) → IME OFF", ["f", "g"], ["lang2"], [{"type": "variable_unless", "name": "shifted", "value": true}], false),
     keydef("(シンクロ) こ, な → 行送り", ["v", "m"], ["return_or_enter"], japanese_input(), false, ["HL", "HR"]),
     
-    {"description":"[Sp] スペースキー","type":"basic",
+    {
+      "description": "[Sp] スペースキー",
+      "type": "basic",
       "conditions": shifted(),
-      "from":{"key_code":"spacebar","modifiers":{"mandatory":["shift"]}},
-      "to":[{"key_code":"spacebar","modifiers":["shift"]}
+      "from": {"key_code": "spacebar", "modifiers": {"mandatory": ["shift"]}},
+      "to": [{"key_code": "spacebar", "modifiers": ["shift"]}
       ]
     },
-    {"description":"スペースキー","type":"basic",
+    {
+      "description": "スペースキー",
+      "type": "basic",
       "conditions": japanese_input(),
-      "from":{"key_code":"spacebar"},
-      "to":[{"set_variable":{"name":"shifted","value":true}}],
-      "to_if_alone":[{"key_code":"spacebar"}],
-      "to_after_key_up":[{"set_variable":{"name":"shifted","value":false}}]
+      "from": {"key_code": "spacebar"},
+      "to": [{"set_variable": {"name": "shifted", "value":true}}],
+      "to_if_alone": [{"key_code": "spacebar"}],
+      "to_after_key_up": [{"set_variable": {"name": "shifted", "value": false}}]
     },
     
-    {"description":"[あ, い] 小 → 新","type":"basic",
-      "conditions": non_shifted("EM1L"),
-      "parameters":{"basic.to_delayed_action_delay_milliseconds":30},
-      "from":{"key_code":"q"},
-      "to":[{"set_variable":{"name":"EM1L","value":1}},
-        {"select_input_source":{"input_source_id":"com.apple.keylayout.US"}}
-      ],
-      "to_delayed_action":{"to_if_invoked":[
-        {"key_code":"left_arrow","modifiers":["command"]},{"key_code":"down_arrow","modifiers":["command"]},{"key_code":"lang1","modifiers":["shift"]},{"key_code":"lang1"}
-      ]}
-    },
+    delayed("[あ, い] 小 → 新", "q", [["left_arrow", ["command"]], ["down_arrow", ["command"]], ["lang1", ["shift"]], "lang1"], "com.apple.keylayout.US", non_shifted("EM1L"), null),
     keydef("[あ, い] ろ → ……", "a", [["semicolon", ["option"]], ["semicolon", ["option"]], "return_or_enter"], non_shifted("EM1L"), false),
-    {"description":"(UNICODE使用)[あ, い] ほ → ──","type":"basic",
-      "conditions": non_shifted("EM1L"),
-      "parameters":{"basic.to_delayed_action_delay_milliseconds":30},
-      "from":{"key_code":"z"},
-      "to":[{"select_input_source":{"input_source_id":"com.apple.keylayout.UnicodeHexInput"}}],
-      "to_delayed_action":{"to_if_invoked":[
-        {"key_code":"2","modifiers":["option"]},{"key_code":"5","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"2","modifiers":["option"]},{"key_code":"2","modifiers":["option"]},{"key_code":"5","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"2","modifiers":["option"]},{"key_code":"lang1","modifiers":["shift"]},{"key_code":"lang1"}
-      ]}
-    },
+    delayed("(UNICODE使用)[あ, い] ほ → ──", "z", [["2", ["option"]], ["5", ["option"]], ["0", ["option"]], ["2", ["option"]], ["2", ["option"]], ["5", ["option"]], ["0", ["option"]], ["2", ["option"]], ["lang1", ["shift"]], "lang1"], "com.apple.keylayout.UnicodeHexInput", non_shifted("EM1L"), null),
     keydef("(日本語IM時)(JIS/US)[あ, い] き → 『』", "w", [["close_bracket", ["shift"]], ["non_us_pound", ["shift"]], "return_or_enter", ["b", ["control"]]], non_shifted("EM1L", true, true), false),
     keydef("", "w", [["open_bracket", ["shift"]], ["close_bracket", ["shift"]], "return_or_enter", ["b", ["control"]]], non_shifted("EM1L", false, true), false),
-    {"description":"(UNICODE使用)[あ, い] き → 『』","type":"basic",
-      "conditions": non_shifted("EM1L"),
-      "parameters":{"basic.to_delayed_action_delay_milliseconds":30},
-      "from":{"key_code":"w"},
-      "to":[{"select_input_source":{"input_source_id":"com.apple.keylayout.UnicodeHexInput"}}],
-      "to_delayed_action":{"to_if_invoked":[
-        {"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"e","modifiers":["option"]},{"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"f","modifiers":["option"]},{"key_code":"b","modifiers":["control"]},{"key_code":"lang1","modifiers":["shift"]},{"key_code":"lang1"}
-      ]}
-    },
+    delayed("(UNICODE使用)[あ, い] き → 『』", "w", [["3", ["option"]], ["0", ["option"]], ["0", ["option"]], ["e", ["option"]], ["3", ["option"]], ["0", ["option"]], ["0", ["option"]], ["f", ["option"]], ["b", ["control"]], ["lang1", ["shift"]], "lang1"], "com.apple.keylayout.UnicodeHexInput", non_shifted("EM1L"), null),
     keydef("(JIS/US)[あ, い] け → （）", "s", [["8", ["shift"]], ["9", ["shift"]], "return_or_enter", ["b", ["control"]]], non_shifted("EM1L", true)),
     keydef("", "s", [["9", ["shift"]], ["0", ["shift"]], "return_or_enter", ["b", ["control"]]],  non_shifted("EM1L"), false),
     keydef("(日本語IM時)(JIS/US)[あ, い] ひ → 【】", "x", [["8", ["option"]], ["9", ["option"]], "return_or_enter", ["b", ["control"]]], non_shifted("EM1L", true, true), false),
     keydef("", "x", [["9", ["option"]], ["0", ["option"]], "return_or_enter", ["b", ["control"]]], non_shifted("EM1L", false, true), false),
-    {"description":"(UNICODE使用)[あ, い] ひ → 【】","type":"basic",
-      "conditions": non_shifted("EM1L"),
-      "parameters":{"basic.to_delayed_action_delay_milliseconds":30},
-      "from":{"key_code":"x"},
-      "to":[{"select_input_source":{"input_source_id":"com.apple.keylayout.UnicodeHexInput"}}],
-      "to_delayed_action":{"to_if_invoked":[
-        {"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"1","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"1","modifiers":["option"]},{"key_code":"1","modifiers":["option"]},{"key_code":"b","modifiers":["control"]},{"key_code":"lang1","modifiers":["shift"]},{"key_code":"lang1"}
-      ]}
-    },
+    delayed("(UNICODE使用)[あ, い] ひ → 【】", "x", [["3", ["option"]], ["0", ["option"]], ["1", ["option"]], ["0", ["option"]], ["3", ["option"]], ["0", ["option"]], ["1", ["option"]], ["1", ["option"]], ["b", ["control"]], ["lang1", ["shift"]], "lang1"], "com.apple.keylayout.UnicodeHexInput", non_shifted("EM1L"), null),
     keydef("[あ, い] と → ？", "d", [["slash", ["shift"]], "return_or_enter"], non_shifted("EM1L"), false),
     keydef("[あ, い] は → ！", "c", [["1", ["shift"]], "return_or_enter"], non_shifted("EM1L"), false),
     keydef("[あ, い] し → 保", "r", [["s", ["command"]]], non_shifted("EM1L"), false),
     keydef("(JIS/US)[あ, い] か → 「」", "f", ["close_bracket", "non_us_pound", "return_or_enter", ["b", ["control"]]], non_shifted("EM1L", true), false),
     keydef("", "f", ["open_bracket", "close_bracket", "return_or_enter", ["b", ["control"]]], non_shifted("EM1L"), false),
-    {"description":"(U.S.使用)[あ, い] こ → 確定↓","type":"basic",
-      "conditions": non_shifted("EM1L"),
-      "parameters":{"basic.to_delayed_action_delay_milliseconds":30},
-      "from":{"key_code":"v"},
-      "to":[{"select_input_source":{"input_source_id":"com.apple.keylayout.US"}}],
-      "to_delayed_action":{"to_if_invoked":[
-        {"key_code":"f","modifiers":["control"]},{"key_code":"lang1","modifiers":["shift"]},{"key_code":"lang1"}
-      ]}
-    },
+    delayed("(U.S.使用)[あ, い] こ → 確定↓", "v", [["f", ["control"]], ["lang1", ["shift"]], "lang1",], "com.apple.keylayout.US", non_shifted("EM1L"), null),
     keydef("[あ, い] 左 → ・未確定", "t", ["slash"], non_shifted("EM1L")),
-    {"description":"(U.S.使用)(JIS/US)[あ, い] (っ) → ↲「」","type":"basic",
-      "conditions": non_shifted("EM1L", true),
-      "parameters":{"basic.to_delayed_action_delay_milliseconds":30},
-      "from":{"key_code":"g"},
-      "to":[{"select_input_source":{"input_source_id":"com.apple.keylayout.US"}}],
-      "to_delayed_action":{"to_if_invoked":[
-        {"key_code":"lang1"},{"key_code":"e","modifiers":["control"]},{"key_code":"return_or_enter"},{"key_code":"close_bracket"},{"key_code":"non_us_pound"},{"key_code":"return_or_enter"},{"key_code":"b","modifiers":["control"]}
-      ]}
-    },
-    {"type":"basic",
-      "conditions": non_shifted("EM1L"),
-      "parameters":{"basic.to_delayed_action_delay_milliseconds":30},
-      "from":{"key_code":"g"},
-      "to":[{"select_input_source":{"input_source_id":"com.apple.keylayout.US"}}],
-      "to_delayed_action":{"to_if_invoked":[
-        {"key_code":"lang1"},{"key_code":"e","modifiers":["control"]},{"key_code":"return_or_enter"},{"key_code":"open_bracket"},{"key_code":"close_bracket"},{"key_code":"return_or_enter"},{"key_code":"b","modifiers":["control"]}
-      ]}
-    },
-    {"description":"(U.S.使用)[あ, い] そ → ↲□","type":"basic",
-      "conditions": non_shifted("EM1L"),
-      "parameters":{"basic.to_delayed_action_delay_milliseconds":30},
-      "from":{"key_code":"b"},
-      "to":[{"select_input_source":{"input_source_id":"com.apple.keylayout.US"}}],
-      "to_delayed_action":{"to_if_invoked":[
-        {"key_code":"lang1"},{"key_code":"e","modifiers":["control"]},{"key_code":"return_or_enter"},{"key_code":"spacebar"}
-      ]}
-    },
+    delayed("(U.S.使用)(JIS/US)[あ, い] (っ) → ↲「」", "g", ["lang1", ["e", ["control"]], "return_or_enter", "close_bracket", "non_us_pound", "return_or_enter", ["b", ["control"]]], "com.apple.keylayout.US", non_shifted("EM1L", true), null),
+    delayed("", "g", ["lang1", ["e", ["control"]], "return_or_enter", "open_bracket", "close_bracket", "return_or_enter", ["b", ["control"]]], "com.apple.keylayout.US", non_shifted("EM1L"), null),
+    delayed("(U.S.使用)[あ, い] そ → ↲□", "b", ["lang1", ["e", ["control"]], "return_or_enter", "spacebar"], "com.apple.keylayout.US", non_shifted("EM1L"), null),
     keydef("[と, か] 右 → Home", "y", [["a", ["control"]]], non_shifted("EM1R"), false),
-    {"description":"(U.S.使用)[と, か] く → 確定End","type":"basic",
-      "conditions": non_shifted("EM1R"),
-      "parameters":{"basic.to_delayed_action_delay_milliseconds":30},
-      "from":{"key_code":"h"},
-      "to":[{"select_input_source":{"input_source_id":"com.apple.keylayout.US"}}],
-      "to_delayed_action":{"to_if_invoked":[
-        {"key_code":"e","modifiers":["control"]},{"key_code":"lang1","modifiers":["shift"]},{"key_code":"lang1"}
-      ]}
-    },
+    delayed("(U.S.使用)[と, か] く → 確定End", "h", [["e", ["control"]], ["lang1", ["shift"]], "lang1",], "com.apple.keylayout.US", non_shifted("EM1R"), null),
     keydef("[と, か] た → End", "n", [["e", ["control"]]], non_shifted("EM1R"), false),
     keydef("[と, か] BS → 文末消去", "u", [["k", ["control"]]], non_shifted("EM1R"), false),
     keydef("[と, か] あ → ↑", "j", [["b", ["control"]]], non_shifted("EM1R")),
@@ -1322,54 +1156,36 @@ function manipulatorsB() {
     keydef("[と, か] い → +↑", "k", [["b", ["shift","control"]]], non_shifted("EM1R")),
     keydef("[と, か] ん → +↓", "comma", [["f", ["shift","control"]]], non_shifted("EM1R")),
     keydef("[と, か] す → Del", "o", ["delete_forward"], non_shifted("EM1R")),
-    {"description":"[と, か] う → +7↑","type":"basic",
-      "conditions": non_shifted("EM1R"),
-      "from":{"key_code":"l"},
-      "to":[{"key_code":"b","modifiers":["shift","control"]},{"key_code":"b","modifiers":["shift","control"]},{"key_code":"b","modifiers":["shift","control"]},{"key_code":"b","modifiers":["shift","control"]},{"key_code":"b","modifiers":["shift","control"]},{"key_code":"b","modifiers":["shift","control"]},{"key_code":"b","modifiers":["shift","control"]}
-      ]
-    },
-    {"description":"[と, か] ら → +27↓","type":"basic",
-      "conditions": non_shifted("EM1R"),
-      "from":{"key_code":"period"},
-      "to":[{"key_code":"f","modifiers":["shift","control"]},{"key_code":"f","modifiers":["shift","control"]},{"key_code":"f","modifiers":["shift","control"]},{"key_code":"f","modifiers":["shift","control"]},{"key_code":"f","modifiers":["shift","control"]},{"key_code":"f","modifiers":["shift","control"]},{"key_code":"f","modifiers":["shift","control"]}
-      ]
-    },
+    keydef("[と, か] う → +7↑", "l", [["b", ["shift","control"]], ["b", ["shift","control"]], ["b", ["shift","control"]], ["b", ["shift","control"]], ["b", ["shift","control"]], ["b", ["shift","control"]], ["b", ["shift","control"]]], non_shifted("EM1R")),
+    keydef("[と, か] ら → +7↓", "period", [["f", ["shift","control"]], ["f", ["shift","control"]], ["f", ["shift","control"]], ["f", ["shift","control"]], ["f", ["shift","control"]], ["f", ["shift","control"]], ["f", ["shift","control"]]], non_shifted("EM1R")),
     keydef("[と, か] へ → 入力キャンセル", "p", ["escape", "escape", "escape"], non_shifted("EM1R")),
     keydef("[と, か] ー → カタカナ変換", "semicolon", ["f7"], non_shifted("EM1R")),
     keydef("[と, か] れ → ひらがな変換", "slash", ["f6"], non_shifted("EM1R")),
-    {"description":"(UNICODE使用)[な, ん] ろ → 《》","type":"basic",
-      "conditions": non_shifted("EM2L"),
-      "parameters":{"basic.to_delayed_action_delay_milliseconds":30},
-      "from":{"key_code":"a"},
-      "to":[{"select_input_source":{"input_source_id":"com.apple.keylayout.UnicodeHexInput"}}],
-      "to_delayed_action":{"to_if_invoked":[
-        {"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"a","modifiers":["option"]},{"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"b","modifiers":["option"]},{"key_code":"b","modifiers":["control"]},{"key_code":"lang1","modifiers":["shift"]},{"key_code":"lang1"}
-      ]}
-    },
+    delayed("(UNICODE使用)[な, ん] ろ → 《》", "a", [["3", ["option"]], ["0", ["option"]], ["0", ["option"]], ["a", ["option"]], ["3", ["option"]], ["0", ["option"]], ["0", ["option"]], ["b", ["option"]], ["b", ["control"]], ["lang1", ["shift"]], "lang1"], "com.apple.keylayout.UnicodeHexInput", non_shifted("EM2L"), null),
     keydef("[な, ん] て → 行頭□□□挿入", "e", [["a", ["control"]], "return_or_enter", "spacebar", "spacebar", "spacebar", ["e", ["control"]]], non_shifted("EM2L"), false),
     keydef("[な, ん] と → □□□", "d", ["spacebar", "spacebar", "spacebar"], non_shifted("EM2L")),
     keydef("[な, ん] は → 行頭□□□戻し", "c", [["a", ["control"]], "delete_or_backspace", "delete_forward", "delete_forward", "delete_forward", ["e", ["control"]]], non_shifted("EM2L"), false),
     keydef("[な, ん] し → 行頭□挿入", "r", [["a", ["control"]], "return_or_enter", "spacebar", ["e", ["control"]]], non_shifted("EM2L"), false),
     keydef("[な, ん] こ → 行頭□戻し", "v", [["a", ["control"]], "delete_or_backspace", "delete_forward", ["e", ["control"]]], non_shifted("EM2L"), false),
-    {"description":"(UNICODE使用)[な, ん] 左 → ○","type":"basic",
-      "conditions": non_shifted("EM2L"),
-      "parameters":{"basic.to_delayed_action_delay_milliseconds":30},
-      "from":{"key_code":"t"},
-      "to":[{"select_input_source":{"input_source_id":"com.apple.keylayout.UnicodeHexInput"}}],
-      "to_delayed_action":{"to_if_invoked":[
-        {"key_code":"2","modifiers":["option"]},{"key_code":"5","modifiers":["option"]},{"key_code":"c","modifiers":["option"]},{"key_code":"b","modifiers":["option"]},{"key_code":"lang1","modifiers":["shift"]},{"key_code":"lang1"}
-      ]}
-    },
+    delayed("(UNICODE使用)[な, ん] 左 → ○", "t", [["2", ["option"]], ["5", ["option"]], ["c", ["option"]], ["b", ["option"]], ["lang1", ["shift"]], "lang1"], "com.apple.keylayout.UnicodeHexInput", non_shifted("EM2L"), null),
     keydef("[な, ん] (っ) → ／", "g", [["slash", ["option"]], "return_or_enter"], non_shifted("EM2L"), false),
-    {"description":"(UNICODE使用)[な, ん] そ → x   x   x","type":"basic",
-      "conditions": non_shifted("EM2L"),
-      "parameters":{"basic.to_delayed_action_delay_milliseconds":30},
-      "from":{"key_code":"b"},
-      "to":[{"select_input_source":{"input_source_id":"com.apple.keylayout.UnicodeHexInput"}}],
-      "to_delayed_action":{"to_if_invoked":[
-        {"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"d","modifiers":["option"]},{"key_code":"7","modifiers":["option"]},{"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"d","modifiers":["option"]},{"key_code":"7","modifiers":["option"]},{"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"3","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"0","modifiers":["option"]},{"key_code":"d","modifiers":["option"]},{"key_code":"7","modifiers":["option"]},{"key_code":"lang1","modifiers":["shift"]},{"key_code":"lang1"},{"key_code":"return_or_enter"}
-      ]}
-    },
+    delayed("(UNICODE使用)[な, ん] そ → x   x   x", "b", 
+      [
+        ["3", ["option"]], ["0", ["option"]], ["0", ["option"]], ["0", ["option"]],
+        ["3", ["option"]], ["0", ["option"]], ["0", ["option"]], ["0", ["option"]],
+        ["3", ["option"]], ["0", ["option"]], ["0", ["option"]], ["0", ["option"]],
+        ["0", ["option"]], ["0", ["option"]], ["d", ["option"]], ["7", ["option"]],
+        ["3", ["option"]], ["0", ["option"]], ["0", ["option"]], ["0", ["option"]],
+        ["3", ["option"]], ["0", ["option"]], ["0", ["option"]], ["0", ["option"]],
+        ["3", ["option"]], ["0", ["option"]], ["0", ["option"]], ["0", ["option"]],
+        ["0", ["option"]], ["0", ["option"]], ["d", ["option"]], ["7", ["option"]],
+        ["3", ["option"]], ["0", ["option"]], ["0", ["option"]], ["0", ["option"]],
+        ["3", ["option"]], ["0", ["option"]], ["0", ["option"]], ["0", ["option"]],
+        ["3", ["option"]], ["0", ["option"]], ["0", ["option"]], ["0", ["option"]],
+        ["0", ["option"]], ["0", ["option"]], ["d", ["option"]], ["7", ["option"]],
+        ["lang1", ["shift"]], "lang1", "return_or_enter"
+      ],
+      "com.apple.keylayout.UnicodeHexInput", non_shifted("EM2L"), null),
     keydef("[は, こ] 右 → +Home", "y", [["a", ["shift","control"]]], non_shifted("EM2R"), false),
     keydef("[は, こ] く → Copy", "h", [["c", ["command"]]], non_shifted("EM2R"), false),
     keydef("[は, こ] た → +End", "n", [["e", ["shift","control"]]], non_shifted("EM2R"), false),
@@ -1436,23 +1252,34 @@ function manipulatorsB() {
     keydef("[Sp] せ", "a", ["s", "e"], shifted()),
     keydef("[Sp] め", "s", ["m", "e"], shifted()),
     keydef("[Sp] に", "d", ["n", "i"], shifted()),
-    {"description":"[Sp] ま","type":"basic",
+    {
+      "description": "[Sp] ま",
+      "type":"basic",
       "conditions": shifted(),
-      "from":{"key_code":"f"},
-      "to":[{"set_variable":{"name":"DR","value":1}},
-        {"key_code":"m"},{"key_code":"a","repeat":false}
+      "from": {"key_code": "f"},
+      "to": [
+        {"set_variable": {"name": "DR", "value": true}},
+        {"key_code":"m"},
+        {"key_code":"a", "repeat": false}
       ],
-      "to_after_key_up":[{"set_variable":{"name":"DR","value":0}}]
+      "to_after_key_up": [
+        {"set_variable": {"name": "DR", "value": false}}]
     },
     keydef("[Sp] ち", "g", ["t", "i"], shifted()),
     keydef("[Sp] や", "h", ["y", "a"], shifted()),
-    {"description":"[Sp] の","type":"basic",
+    {
+      "description": "[Sp] の",
+      "type": "basic",
       "conditions": shifted(),
-      "from":{"key_code":"j"},
-      "to":[{"set_variable":{"name":"DL","value":1}},
-        {"key_code":"n"},{"key_code":"o","repeat":false}
+      "from": {"key_code":"j"},
+      "to": [
+        {"set_variable": {"name": "DL", "value": true}},
+        {"key_code":"n"},
+        {"key_code":"o", "repeat": false}
       ],
-      "to_after_key_up":[{"set_variable":{"name":"DL","value":0}}]
+      "to_after_key_up": [
+        {"set_variable": {"name": "DL", "value": false}}
+      ]
     },
     keydef("[Sp] も", "k", ["m", "o"], shifted()),
     keydef("[Sp] つ", "l", ["t", "u"], shifted()),
@@ -1707,7 +1534,7 @@ function main() {
   console.log(
     JSON.stringify(
       {
-        "title":"Japanese NAGINATA STYLE (v16) ※A群、B群、C群の順に登録してください。同じ群の順序は自由です。",
+        "title":"Japanese key layout \"薙刀式\" 16",
         "rules":[
           {
             "description":"A1: 薙刀式v16アルファ版《同時連続シフト拡張》",
@@ -1718,7 +1545,7 @@ function main() {
             "manipulators": manipulatorsA2()
           },
           {
-            "description":"B: 薙刀式v16アルファ版",
+            "description":"B: 薙刀式v16アルファ版 0.1",
             "manipulators": manipulatorsB()
           },
           {
