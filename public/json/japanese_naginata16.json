@@ -1,8 +1,8 @@
 {
-  "title": "Japanese key layout \"薙刀式\" 16",
+  "title": "Key layout for Japanese \"薙刀式\" 16",
   "rules": [
     {
-      "description": "A1: 薙刀式v16アルファ版《同時連続シフト拡張》：未動作",
+      "description": "A1: 薙刀式v16アルファ版《同時連続シフト拡張》",
       "manipulators": [
         {
           "type": "basic",
@@ -188,8 +188,8 @@
           ]
         },
         {
-          "description": "(シンクロ) Sp, 左",
           "type": "basic",
+          "description": "(シンクロ) Sp, 左",
           "conditions": [
             {
               "input_sources": [
@@ -221,22 +221,22 @@
               }
             ],
             "simultaneous_options": {
-              "key_down_order": "strict_inverse",
               "to_after_key_up": [
                 {
                   "set_variable": {
                     "name": "shifted",
-                    "value": 0
+                    "value": false
                   }
                 }
-              ]
+              ],
+              "key_down_order": "strict_inverse"
             }
           },
           "to": [
             {
               "set_variable": {
                 "name": "shifted",
-                "value": 1
+                "value": true
               }
             },
             {
@@ -249,8 +249,8 @@
           ]
         },
         {
-          "description": "(シンクロ) Sp, 右",
           "type": "basic",
+          "description": "(シンクロ) Sp, 右",
           "conditions": [
             {
               "input_sources": [
@@ -282,22 +282,22 @@
               }
             ],
             "simultaneous_options": {
-              "key_down_order": "strict_inverse",
               "to_after_key_up": [
                 {
                   "set_variable": {
                     "name": "shifted",
-                    "value": 0
+                    "value": false
                   }
                 }
-              ]
+              ],
+              "key_down_order": "strict_inverse"
             }
           },
           "to": [
             {
               "set_variable": {
                 "name": "shifted",
-                "value": 1
+                "value": true
               }
             },
             {
@@ -432,8 +432,8 @@
           ]
         },
         {
-          "description": "(シンクロ) Sp, え",
           "type": "basic",
+          "description": "(シンクロ) Sp, え",
           "conditions": [
             {
               "input_sources": [
@@ -465,22 +465,22 @@
               }
             ],
             "simultaneous_options": {
-              "key_down_order": "strict_inverse",
               "to_after_key_up": [
                 {
                   "set_variable": {
                     "name": "shifted",
-                    "value": 0
+                    "value": false
                   }
                 }
-              ]
+              ],
+              "key_down_order": "strict_inverse"
             }
           },
           "to": [
             {
               "set_variable": {
                 "name": "shifted",
-                "value": 1
+                "value": true
               }
             },
             {
@@ -1344,8 +1344,8 @@
           ]
         },
         {
-          "description": "(シンクロ) Sp, 、",
           "type": "basic",
+          "description": "(シンクロ) Sp, 、",
           "conditions": [
             {
               "input_sources": [
@@ -1377,22 +1377,22 @@
               }
             ],
             "simultaneous_options": {
-              "key_down_order": "strict_inverse",
               "to_after_key_up": [
                 {
                   "set_variable": {
                     "name": "shifted",
-                    "value": 0
+                    "value": false
                   }
                 }
-              ]
+              ],
+              "key_down_order": "strict_inverse"
             }
           },
           "to": [
             {
               "set_variable": {
                 "name": "shifted",
-                "value": 1
+                "value": true
               }
             },
             {
@@ -1463,8 +1463,8 @@
           ]
         },
         {
-          "description": "(シンクロ) Sp, お",
           "type": "basic",
+          "description": "(シンクロ) Sp, お",
           "conditions": [
             {
               "input_sources": [
@@ -1496,22 +1496,22 @@
               }
             ],
             "simultaneous_options": {
-              "key_down_order": "strict_inverse",
               "to_after_key_up": [
                 {
                   "set_variable": {
                     "name": "shifted",
-                    "value": 0
+                    "value": false
                   }
                 }
-              ]
+              ],
+              "key_down_order": "strict_inverse"
             }
           },
           "to": [
             {
               "set_variable": {
                 "name": "shifted",
-                "value": 1
+                "value": true
               }
             },
             {
@@ -6857,8 +6857,8 @@
           }
         },
         {
-          "description": "(UNICODE使用)(シンクロ) な, ん, ほ → ｜《》",
           "type": "basic",
+          "description": "(UNICODE使用)(シンクロ) な, ん, ほ → ｜《》",
           "conditions": [
             {
               "input_sources": [
@@ -7286,8 +7286,8 @@
           ]
         },
         {
-          "description": "(UNICODE使用)(シンクロ) な, ん, き → +『』",
           "type": "basic",
+          "description": "(UNICODE使用)(シンクロ) な, ん, き → +『』",
           "conditions": [
             {
               "input_sources": [
@@ -7895,8 +7895,8 @@
           ]
         },
         {
-          "description": "(UNICODE使用)(シンクロ) な, ん, ひ → +【】",
           "type": "basic",
+          "description": "(UNICODE使用)(シンクロ) な, ん, ひ → +【】",
           "conditions": [
             {
               "input_sources": [
@@ -25981,8 +25981,8 @@
           ]
         },
         {
-          "description": "[Sp] ま",
           "type": "basic",
+          "description": "[Sp] ま",
           "conditions": [
             {
               "input_sources": [
@@ -26024,14 +26024,12 @@
               "repeat": false
             }
           ],
-          "to_after_key_up": [
-            {
-              "set_variable": {
-                "name": "DR",
-                "value": false
-              }
+          "to_after_key_up": {
+            "set_variable": {
+              "name": "DR",
+              "value": false
             }
-          ]
+          }
         },
         {
           "type": "basic",
@@ -26110,8 +26108,8 @@
           ]
         },
         {
-          "description": "[Sp] の",
           "type": "basic",
+          "description": "[Sp] の",
           "conditions": [
             {
               "input_sources": [
@@ -26153,14 +26151,12 @@
               "repeat": false
             }
           ],
-          "to_after_key_up": [
-            {
-              "set_variable": {
-                "name": "DL",
-                "value": false
-              }
+          "to_after_key_up": {
+            "set_variable": {
+              "name": "DL",
+              "value": false
             }
-          ]
+          }
         },
         {
           "type": "basic",
