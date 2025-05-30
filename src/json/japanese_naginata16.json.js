@@ -3,6 +3,7 @@
 //
 // transmit_varの取り得る値は以下の通り
 // DL: 右濁音キーモード　DR: 左濁音キーモード HL: 右半濁音キーモード HR: 左半濁音キーモード KO: 小文字キーモード
+// EM1L: 編集モード左1面 EM1R: 編集モード右1面 EM2L: 編集モード左2面 EM2R: 編集モード右2面
 //
 
 // keydef(): 基本となるキー定義
@@ -218,6 +219,23 @@ function input_source(source, transmit_var_list, does_precut) {
   return output;
 }
 
+// unicodeを上記関数群に渡せる形に変換。
+//  code_list:      unicodeの配列
+//  postkeys_list:  unicodeを出力した後に出力するキー群の配列
+// ex. unicode(["f00e", "f00f"], [["b", ["control"]]])
+function unicode(code_list, postkeys_list) {
+  output = [];
+  for (var j=0; j<code_list.length; j++) {
+    for (var i=0; i<code_list[j].length; i++) {
+      output.push([code_list[j][i], ["option"]]);
+    }
+  }
+  if (postkeys_list != "undefined" && postkeys_list != null) {
+    output.concat(postkeys_list);
+  }
+  return output;
+}
+
 //
 // Main definition of rules starts from here
 //
@@ -367,9 +385,12 @@ function manipulatorsB() {
     delayed("(U.S.使用)(シンクロ) あ, い, 小 → 新", ["j", "k", "q"], [["left_arrow", ["command"]], ["down_arrow", ["command"]], ["lang1", ["shift"]], "lang1"], "com.apple.keylayout.US", non_shifted(), null, ["EM1L"]),
     keydef("(シンクロ) あ, い, ろ → ……", ["j", "k", "a"], [["semicolon", ["option"]], ["semicolon", ["option"]], "return_or_enter"], non_shifted(), false, ["EM1L"]),
     delayed("(UNICODE使用)(シンクロ) あ, い, ほ → ──", ["j", "k", "z"], [["2", ["option"]], ["5", ["option"]], ["0", ["option"]], ["2", ["option"]], ["2", ["option"]], ["5", ["option"]], ["0", ["option"]], ["2", ["option"]], ["lang1", ["shift"]], "lang1"], "com.apple.keylayout.UnicodeHexInput", non_shifted(), null, ["EM1L"]),
-    keydef("(日本語IM時)(JIS/US)(シンクロ) あ, い, き → 『』", ["j", "k", "w"], [["close_bracket", ["shift"]], ["non_us_pound", ["shift"]], "return_or_enter", ["b", ["control"]]], non_shifted(null, true, true), false, ["EM1L"]),
-    keydef("", ["j", "k", "w"], [["open_bracket", ["shift"]], ["close_bracket", ["shift"]], "return_or_enter", ["b", ["control"]]], non_shifted(null, false, true), false, ["EM1L"]),
-    delayed("(UNICODE使用)(シンクロ) あ, い, き → 『』", ["j", "k", "w"], [["3", ["option"]], ["0", ["option"]], ["0", ["option"]], ["e", ["option"]], ["3", ["option"]], ["0", ["option"]], ["0", ["option"]], ["f", ["option"]], ["b", ["control"]], ["lang1", ["shift"]], "lang1"], "com.apple.keylayout.UnicodeHexInput", non_shifted(), null, ["EM1L"]),
+    // keydef("(日本語IM時)(JIS/US)(シンクロ) あ, い, き → 『』", ["j", "k", "w"], [["close_bracket", ["shift"]], ["non_us_pound", ["shift"]], "return_or_enter", ["b", ["control"]]], non_shifted(null, true, true), false, ["EM1L"]),
+    keydef("(日本語IM時)(JIS)(シンクロ) あ, い, き → ／", ["j", "k", "w"], [["slash", ["option"]], "return_or_enter"], non_shifted(null, true, true), false, ["EM1L"]),
+    // keydef("", ["j", "k", "w"], [["open_bracket", ["shift"]], ["close_bracket", ["shift"]], "return_or_enter", ["b", ["control"]]], non_shifted(null, false, true), false, ["EM1L"]),
+    keydef("(日本語IM時)(US)(シンクロ) あ, い, き → ／", ["j", "k", "w"], [["slash", ["option"]], "return_or_enter"], non_shifted(null, false, true), false, ["EM1L"]),
+    // delayed("(UNICODE使用)(シンクロ) あ, い, き → 『』", ["j", "k", "w"], [["3", ["option"]], ["0", ["option"]], ["0", ["option"]], ["e", ["option"]], ["3", ["option"]], ["0", ["option"]], ["0", ["option"]], ["f", ["option"]], ["b", ["control"]], ["lang1", ["shift"]], "lang1"], "com.apple.keylayout.UnicodeHexInput", non_shifted(), null, ["EM1L"]),
+    delayed("(UNICODE使用)(シンクロ) あ, い, き → ／", ["j", "k", "w"], unicode(["ff0f"], [["lang1", ["shift"]], "lang1"]), "com.apple.keylayout.UnicodeHexInput", non_shifted(), null, ["EM1L"]),
     keydef("(JIS/US)(シンクロ) あ, い, け → （）", ["j", "k", "s"], [["8", ["shift"]], ["9", ["shift"]], "return_or_enter", ["b", ["control"]]], non_shifted(null, true, false), false, ["EM1L"]),
     keydef("", ["j", "k", "s"], [["9", ["shift"]], ["0", ["shift"]], "return_or_enter", ["b", ["control"]]], non_shifted(), false, ["EM1L"]),
     keydef("(日本語IM時)(JIS/US)(シンクロ) あ, い, ひ → 【】", ["j", "k", "x"], [["8", ["option"]], ["9", ["option"]], "return_or_enter", ["b", ["control"]]], non_shifted(null, true, true), false, ["EM1L"]),
