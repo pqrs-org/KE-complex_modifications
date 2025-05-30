@@ -2,7 +2,7 @@
   "title": "Key layout for Japanese \"薙刀式\" 16",
   "rules": [
     {
-      "description": "A1: 薙刀式v16アルファ版《同時連続シフト拡張》",
+      "description": "A1: 同時連続シフト拡張",
       "manipulators": [
         {
           "type": "basic",
@@ -1767,7 +1767,7 @@
       ]
     },
     {
-      "description": "A2: 薙刀式v16以降《編集モード簡便化》:未動作",
+      "description": "A2: 編集モード簡便化: 未動作",
       "manipulators": [
         {
           "description": "(シンクロ) 編集モード1左",
@@ -3685,7 +3685,7 @@
       ]
     },
     {
-      "description": "B: 薙刀式v16アルファ版",
+      "description": "B: 本体",
       "manipulators": [
         {
           "type": "basic",
@@ -19433,7 +19433,7 @@
         },
         {
           "type": "basic",
-          "description": "[Sp] (シンクロ) 小, わ → (ゎ)",
+          "description": "(シンクロ) 小, わ → (ゎ)",
           "conditions": [
             {
               "input_sources": [
@@ -19450,11 +19450,6 @@
                 }
               ],
               "type": "input_source_unless"
-            },
-            {
-              "type": "variable_if",
-              "name": "shifted",
-              "value": true
             }
           ],
           "from": {
@@ -19463,7 +19458,7 @@
                 "key_code": "q"
               },
               {
-                "key_code": "l"
+                "key_code": "period"
               }
             ],
             "simultaneous_options": {
@@ -25297,7 +25292,7 @@
         },
         {
           "type": "basic",
-          "description": "[Sp, 小] う → (ゎ)",
+          "description": "[小] う → (ゎ)",
           "conditions": [
             {
               "type": "variable_if",
@@ -25319,15 +25314,10 @@
                 }
               ],
               "type": "input_source_unless"
-            },
-            {
-              "type": "variable_if",
-              "name": "shifted",
-              "value": true
             }
           ],
           "from": {
-            "key_code": "l"
+            "key_code": "period"
           },
           "to": [
             {
@@ -27480,7 +27470,7 @@
       ]
     },
     {
-      "description": "C1: 薙刀式《左右シフトかな拡張》：未動作",
+      "description": "C1: 左右シフトかな拡張",
       "manipulators": [
         {
           "type": "basic",
@@ -27565,71 +27555,6 @@
               "value": false
             }
           }
-        },
-        {
-          "type": "basic",
-          "description": "[Sp] (シンクロ) 小, わ → (ゎ)",
-          "conditions": [
-            {
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ],
-              "type": "input_source_if"
-            },
-            {
-              "input_sources": [
-                {
-                  "input_mode_id": "Roman$"
-                }
-              ],
-              "type": "input_source_unless"
-            }
-          ],
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "q"
-              },
-              {
-                "key_code": "l"
-              }
-            ],
-            "simultaneous_options": {
-              "to_after_key_up": [
-                {
-                  "set_variable": {
-                    "name": "KO",
-                    "value": false
-                  }
-                }
-              ]
-            },
-            "modifiers": {
-              "mandatory": [
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "KO",
-                "value": true
-              }
-            },
-            {
-              "key_code": "x"
-            },
-            {
-              "key_code": "w"
-            },
-            {
-              "key_code": "a",
-              "repeat": false
-            }
-          ]
         },
         {
           "type": "basic",
@@ -28657,7 +28582,7 @@
               "key_code": "w"
             },
             {
-              "key_code": "left_arrow",
+              "key_code": "a",
               "repeat": false
             }
           ]
@@ -28665,7 +28590,7 @@
       ]
     },
     {
-      "description": "C2: 薙刀式《エンター同時押しシフト拡張》：未動作",
+      "description": "C2: エンター同時押しシフト拡張",
       "manipulators": [
         {
           "description": "エンターキー",
@@ -28695,7 +28620,7 @@
             {
               "set_variable": {
                 "name": "shifted",
-                "value": 1
+                "value": true
               }
             }
           ],
@@ -28708,7 +28633,7 @@
             {
               "set_variable": {
                 "name": "shifted",
-                "value": 0
+                "value": false
               }
             }
           ]

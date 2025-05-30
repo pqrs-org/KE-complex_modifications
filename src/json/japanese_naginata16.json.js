@@ -615,7 +615,7 @@ function manipulatorsB() {
     keydef("(シンクロ) 小, よ → (ょ)", ["q", "i"], ["x", "y", "o"], japanese_input(), false, ["KO"]),
     keydef("(シンクロ) 小, あ → (ぁ)", ["q", "j"], ["x", "a"], japanese_input(), false, ["KO"]),
     keydef("(シンクロ) 小, い → (ぃ)", ["q", "k"], ["x", "i"], japanese_input(), false, ["KO"]),
-    keydef("[Sp] (シンクロ) 小, わ → (ゎ)", ["q", "l"], ["x", "w", "a"], shifted(), false, ["KO"]),
+    keydef("(シンクロ) 小, わ → (ゎ)", ["q", "period"], ["x", "w", "a"], japanese_input(), false, ["KO"]),
     keydef("(シンクロ) 小, う → (ぅ)", ["q", "l"], ["x", "u"], japanese_input(), false, ["KO"]),
     keydef("(シンクロ) 小, え → (ぇ)", ["q", "o"], ["x", "e"], japanese_input(), false, ["KO"]),
     keydef("(シンクロ) 小, お → (ぉ)", ["q", "n"], ["x", "o"], japanese_input(), false, ["KO"]),
@@ -748,7 +748,7 @@ function manipulatorsB() {
     keydef("[小] よ → (ょ)", "i", ["x", "y", "o"], japanese_input("KO")),
     keydef("[小] あ → (ぁ)", "j", ["x", "a"], japanese_input("KO")),
     keydef("[小] い → (ぃ)", "k", ["x", "i"], japanese_input("KO")),
-    keydef("[Sp, 小] う → (ゎ)", "l", ["x", "w", "a"], shifted("KO")),
+    keydef("[小] う → (ゎ)", "period", ["x", "w", "a"], japanese_input("KO")),
     keydef("[小] う → (ぅ)", "l", ["x", "u"], japanese_input("KO")),
     keydef("[小] え → (ぇ)", "o", ["x", "e"], japanese_input("KO")),
     keydef("[小] お → (ぉ)", "n", ["x", "o"], japanese_input("KO")),
@@ -818,7 +818,6 @@ function manipulatorsC1() {
   return [
     keydef("左シフトキー", "left_shift", ["left_shift"], japanese_input(), null, ["shifted"], null, true),
     keydef("右シフトキー", "right_shift", ["right_shift"], japanese_input(), null, ["shifted"], null, true),
-    keydef("[Sp] (シンクロ) 小, わ → (ゎ)", ["q", "l"], ["x", "w", "a"], japanese_input(), false, ["KO"], null, null, ["shift"]),
     keydef("[Sp] ぬ", "w", ["n", "u"], japanese_input(), false, null, null, null, ["shift"]),
     keydef("[Sp] り", "e", ["r", "i"], japanese_input(), false, null, null, null, ["shift"]),
     keydef("[Sp] め", "r", ["m", "e"], japanese_input(), false, null, null, null, ["shift"]),
@@ -844,18 +843,20 @@ function manipulatorsC1() {
     keydef("[Sp] お", "n", ["o"], japanese_input(), false, null, null, null, ["shift"]),
     keydef("[Sp] 。", "m", ["period", "return_or_enter"], japanese_input(), false, null, null, null, ["shift"]),
     keydef("[Sp] ね", "comma", ["n", "e"], japanese_input(), false, null, null, null, ["shift"]),
-    keydef("[Sp] わ", "period", ["w", "left_arrow"], japanese_input(), false, null, null, null, ["shift"])
+    keydef("[Sp] わ", "period", ["w", "a"], japanese_input(), false, null, null, null, ["shift"])
   ]
 }
 
 function manipulatorsC2() {
   return [
-    {"description":"エンターキー","type":"basic",
+    {
+      "description": "エンターキー",
+      "type": "basic",
       "conditions": japanese_input(),
-      "from":{"key_code":"return_or_enter"},
-      "to":[{"set_variable":{"name":"shifted","value":true}}],
-      "to_if_alone":[{"key_code":"return_or_enter"}],
-      "to_after_key_up":[{"set_variable":{"name":"shifted","value":false}}]
+      "from": {"key_code": "return_or_enter"},
+      "to": [{"set_variable": {"name": "shifted", "value": true}}],
+      "to_if_alone": [{"key_code": "return_or_enter"}],
+      "to_after_key_up": [{"set_variable": {"name": "shifted", "value": false}}]
     }
   ]
 }
