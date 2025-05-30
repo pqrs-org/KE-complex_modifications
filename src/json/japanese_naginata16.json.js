@@ -493,6 +493,7 @@ function manipulatorsB() {
     keydef("(シンクロ) 左濁, う, え → ヴぇ", ["f", "l", "o"], ["v", "e"], non_shifted(), false, ["DR"]),
     keydef("(シンクロ) 左濁, う, お → ヴぉ", ["f", "l", "n"], ["v", "o"], non_shifted(), false, ["DR"]),
     keydef("(シンクロ) 左濁, う, ゆ → ヴゅ", ["f", "l", "p"], ["v", "y", "u"], non_shifted(), false, ["DR"]),
+    keydef("(シンクロ) 左濁, う, ー → ヴ",   ["f", "l", "semicolon"], ["v", "u"], non_shifted(), false, ["DR"]),
     keydef("(シンクロ) 左半, う, い → うぃ", ["v", "l", "k"], ["w", "i"], non_shifted(), false, ["HR"]),
     keydef("(シンクロ) 左半, う, え → うぇ", ["v", "l", "o"], ["w", "e"], non_shifted(), false, ["HR"]),
     keydef("(シンクロ) 左半, う, お → うぉ", ["v", "l", "n"], ["w", "h", "o"], non_shifted(), false, ["HR"]),

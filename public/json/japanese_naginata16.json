@@ -12564,6 +12564,71 @@
         },
         {
           "type": "basic",
+          "description": "(シンクロ) 左濁, う, ー → ヴ",
+          "conditions": [
+            {
+              "input_sources": [
+                {
+                  "language": "ja"
+                }
+              ],
+              "type": "input_source_if"
+            },
+            {
+              "input_sources": [
+                {
+                  "input_mode_id": "Roman$"
+                }
+              ],
+              "type": "input_source_unless"
+            },
+            {
+              "type": "variable_unless",
+              "name": "shifted",
+              "value": true
+            }
+          ],
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "f"
+              },
+              {
+                "key_code": "l"
+              },
+              {
+                "key_code": "semicolon"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "DR",
+                    "value": false
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "DR",
+                "value": true
+              }
+            },
+            {
+              "key_code": "v"
+            },
+            {
+              "key_code": "u",
+              "repeat": false
+            }
+          ]
+        },
+        {
+          "type": "basic",
           "description": "(シンクロ) 左半, う, い → うぃ",
           "conditions": [
             {
