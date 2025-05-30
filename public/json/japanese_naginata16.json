@@ -27483,8 +27483,8 @@
       "description": "C1: 薙刀式《左右シフトかな拡張》：未動作",
       "manipulators": [
         {
-          "description": "左シフトキー",
           "type": "basic",
+          "description": "左シフトキー",
           "conditions": [
             {
               "input_sources": [
@@ -27510,25 +27510,23 @@
             {
               "set_variable": {
                 "name": "shifted",
-                "value": 1
+                "value": true
               }
             },
             {
               "key_code": "left_shift"
             }
           ],
-          "to_after_key_up": [
-            {
-              "set_variable": {
-                "name": "shifted",
-                "value": 0
-              }
+          "to_after_key_up": {
+            "set_variable": {
+              "name": "shifted",
+              "value": false
             }
-          ]
+          }
         },
         {
-          "description": "右シフトキー",
           "type": "basic",
+          "description": "右シフトキー",
           "conditions": [
             {
               "input_sources": [
@@ -27554,25 +27552,23 @@
             {
               "set_variable": {
                 "name": "shifted",
-                "value": 1
+                "value": true
               }
             },
             {
               "key_code": "right_shift"
             }
           ],
-          "to_after_key_up": [
-            {
-              "set_variable": {
-                "name": "shifted",
-                "value": 0
-              }
+          "to_after_key_up": {
+            "set_variable": {
+              "name": "shifted",
+              "value": false
             }
-          ]
+          }
         },
         {
-          "description": "[Sp] (シンクロ) 小, わ → (ゎ)",
           "type": "basic",
+          "description": "[Sp] (シンクロ) 小, わ → (ゎ)",
           "conditions": [
             {
               "input_sources": [
@@ -27600,19 +27596,19 @@
                 "key_code": "l"
               }
             ],
-            "modifiers": {
-              "mandatory": [
-                "shift"
-              ]
-            },
             "simultaneous_options": {
               "to_after_key_up": [
                 {
                   "set_variable": {
                     "name": "KO",
-                    "value": 0
+                    "value": false
                   }
                 }
+              ]
+            },
+            "modifiers": {
+              "mandatory": [
+                "shift"
               ]
             }
           },
@@ -27620,7 +27616,7 @@
             {
               "set_variable": {
                 "name": "KO",
-                "value": 1
+                "value": true
               }
             },
             {
@@ -27636,8 +27632,8 @@
           ]
         },
         {
-          "description": "[Sp] ぬ",
           "type": "basic",
+          "description": "[Sp] ぬ",
           "conditions": [
             {
               "input_sources": [
@@ -27675,8 +27671,8 @@
           ]
         },
         {
-          "description": "[Sp] り",
           "type": "basic",
+          "description": "[Sp] り",
           "conditions": [
             {
               "input_sources": [
@@ -27714,8 +27710,8 @@
           ]
         },
         {
-          "description": "[Sp] め",
           "type": "basic",
+          "description": "[Sp] め",
           "conditions": [
             {
               "input_sources": [
@@ -27753,8 +27749,8 @@
           ]
         },
         {
-          "description": "[Sp] 左",
           "type": "basic",
+          "description": "[Sp] 左",
           "conditions": [
             {
               "input_sources": [
@@ -27787,13 +27783,14 @@
               "modifiers": [
                 "control",
                 "shift"
-              ]
+              ],
+              "repeat": false
             }
           ]
         },
         {
-          "description": "[Sp] 右",
           "type": "basic",
+          "description": "[Sp] 右",
           "conditions": [
             {
               "input_sources": [
@@ -27826,13 +27823,14 @@
               "modifiers": [
                 "control",
                 "shift"
-              ]
+              ],
+              "repeat": false
             }
           ]
         },
         {
-          "description": "[Sp] さ",
           "type": "basic",
+          "description": "[Sp] さ",
           "conditions": [
             {
               "input_sources": [
@@ -27870,8 +27868,8 @@
           ]
         },
         {
-          "description": "[Sp] よ",
           "type": "basic",
+          "description": "[Sp] よ",
           "conditions": [
             {
               "input_sources": [
@@ -27909,8 +27907,8 @@
           ]
         },
         {
-          "description": "[Sp] え",
           "type": "basic",
+          "description": "[Sp] え",
           "conditions": [
             {
               "input_sources": [
@@ -27945,8 +27943,8 @@
           ]
         },
         {
-          "description": "[Sp] ゆ",
           "type": "basic",
+          "description": "[Sp] ゆ",
           "conditions": [
             {
               "input_sources": [
@@ -27984,8 +27982,8 @@
           ]
         },
         {
-          "description": "[Sp] せ",
           "type": "basic",
+          "description": "[Sp] せ",
           "conditions": [
             {
               "input_sources": [
@@ -28023,8 +28021,8 @@
           ]
         },
         {
-          "description": "[Sp] み",
           "type": "basic",
+          "description": "[Sp] み",
           "conditions": [
             {
               "input_sources": [
@@ -28062,8 +28060,8 @@
           ]
         },
         {
-          "description": "[Sp] に",
           "type": "basic",
+          "description": "[Sp] に",
           "conditions": [
             {
               "input_sources": [
@@ -28101,8 +28099,8 @@
           ]
         },
         {
-          "description": "[Sp] ま",
           "type": "basic",
+          "description": "[Sp] ま",
           "conditions": [
             {
               "input_sources": [
@@ -28133,7 +28131,7 @@
             {
               "set_variable": {
                 "name": "DR",
-                "value": 1
+                "value": true
               }
             },
             {
@@ -28144,18 +28142,16 @@
               "repeat": false
             }
           ],
-          "to_after_key_up": [
-            {
-              "set_variable": {
-                "name": "DR",
-                "value": 0
-              }
+          "to_after_key_up": {
+            "set_variable": {
+              "name": "DR",
+              "value": false
             }
-          ]
+          }
         },
         {
-          "description": "[Sp] ち",
           "type": "basic",
+          "description": "[Sp] ち",
           "conditions": [
             {
               "input_sources": [
@@ -28193,8 +28189,8 @@
           ]
         },
         {
-          "description": "[Sp] や",
           "type": "basic",
+          "description": "[Sp] や",
           "conditions": [
             {
               "input_sources": [
@@ -28232,8 +28228,8 @@
           ]
         },
         {
-          "description": "[Sp] の",
           "type": "basic",
+          "description": "[Sp] の",
           "conditions": [
             {
               "input_sources": [
@@ -28264,7 +28260,7 @@
             {
               "set_variable": {
                 "name": "DL",
-                "value": 1
+                "value": true
               }
             },
             {
@@ -28275,18 +28271,16 @@
               "repeat": false
             }
           ],
-          "to_after_key_up": [
-            {
-              "set_variable": {
-                "name": "DL",
-                "value": 0
-              }
+          "to_after_key_up": {
+            "set_variable": {
+              "name": "DL",
+              "value": false
             }
-          ]
+          }
         },
         {
-          "description": "[Sp] も",
           "type": "basic",
+          "description": "[Sp] も",
           "conditions": [
             {
               "input_sources": [
@@ -28324,8 +28318,8 @@
           ]
         },
         {
-          "description": "[Sp] つ",
           "type": "basic",
+          "description": "[Sp] つ",
           "conditions": [
             {
               "input_sources": [
@@ -28363,8 +28357,8 @@
           ]
         },
         {
-          "description": "[Sp] ふ",
           "type": "basic",
+          "description": "[Sp] ふ",
           "conditions": [
             {
               "input_sources": [
@@ -28402,8 +28396,8 @@
           ]
         },
         {
-          "description": "[Sp] を",
           "type": "basic",
+          "description": "[Sp] を",
           "conditions": [
             {
               "input_sources": [
@@ -28441,8 +28435,8 @@
           ]
         },
         {
-          "description": "[Sp] 、",
           "type": "basic",
+          "description": "[Sp] 、",
           "conditions": [
             {
               "input_sources": [
@@ -28477,8 +28471,8 @@
           ]
         },
         {
-          "description": "[Sp] む",
           "type": "basic",
+          "description": "[Sp] む",
           "conditions": [
             {
               "input_sources": [
@@ -28516,8 +28510,8 @@
           ]
         },
         {
-          "description": "[Sp] お",
           "type": "basic",
+          "description": "[Sp] お",
           "conditions": [
             {
               "input_sources": [
@@ -28552,8 +28546,8 @@
           ]
         },
         {
-          "description": "[Sp] 。",
           "type": "basic",
+          "description": "[Sp] 。",
           "conditions": [
             {
               "input_sources": [
@@ -28591,8 +28585,8 @@
           ]
         },
         {
-          "description": "[Sp] ね",
           "type": "basic",
+          "description": "[Sp] ね",
           "conditions": [
             {
               "input_sources": [
@@ -28630,8 +28624,8 @@
           ]
         },
         {
-          "description": "[Sp] わ",
           "type": "basic",
+          "description": "[Sp] わ",
           "conditions": [
             {
               "input_sources": [
