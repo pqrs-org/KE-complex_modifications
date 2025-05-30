@@ -1,9 +1,20 @@
 // JavaScript should be written in ECMAScript 5.1.
 
-// returns with repeat == false if will_repeat is not specified and the last element
-// is an array
-// if you want to specify repeat == false for the last array element (typically key
-// inputs with modifiers), specify arg will_repeat = false explicitly
+//
+// transmit_varの取り得る値は以下の通り
+// DL: 右濁音キーモード　DR: 左濁音キーモード HL: 右半濁音キーモード HR: 左半濁音キーモード KO: 小文字キーモード
+//
+
+// keydef(): 基本となるキー定義
+//    description:  定義の説明
+//    from_key:     押下したキー。同時押下の場合は配列で渡す。
+//    to_key_list:  解釈されるべきキーの組み合わせの配列。特定のキーが修飾キーを伴う場合は、配列[key, [modfiers]]で渡す。
+//    conditions:   定義が発動される条件
+//    will_repeat:  to_key_listの最後のキーが繰り返されるか否か
+//    transmit_var_list:  受け渡される変数の配列
+//    threshold:          basic.simultaneous_threshold_millisecondsのミリ秒での値
+//    to_after_key_up_var:  to_after_key_upにtransmit_var_listを渡すか否か
+//    mondatory_modifiers_list: from_keyのmondatory_modifiersに渡すキー配列
 function keydef(description, from_key, to_key_list, conditions, will_repeat, transmit_var_list, threshold, to_after_key_up_var, mondatory_modifiers_list) {
   output = {
     "type":"basic",
