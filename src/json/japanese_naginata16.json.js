@@ -382,6 +382,7 @@ function manipulatorsA2() {
 
 function manipulatorsB() {
   return [
+    // EM1L
     delayed("(U.S.使用)(シンクロ) あ, い, 小 → 新", ["j", "k", "q"], [["left_arrow", ["command"]], ["down_arrow", ["command"]], ["lang1", ["shift"]], "lang1"], "com.apple.keylayout.US", non_shifted(), null, ["EM1L"]),
     keydef("(シンクロ) あ, い, ろ → ……", ["j", "k", "a"], [["semicolon", ["option"]], ["semicolon", ["option"]], "return_or_enter"], non_shifted(), false, ["EM1L"]),
     delayed("(UNICODE使用)(シンクロ) あ, い, ほ → ──", ["j", "k", "z"], [["2", ["option"]], ["5", ["option"]], ["0", ["option"]], ["2", ["option"]], ["2", ["option"]], ["5", ["option"]], ["0", ["option"]], ["2", ["option"]], ["lang1", ["shift"]], "lang1"], "com.apple.keylayout.UnicodeHexInput", non_shifted(), null, ["EM1L"]),
@@ -405,9 +406,16 @@ function manipulatorsB() {
     // delayed("(U.S.使用)(シンクロ) あ, い, こ → 確定↓", ["j", "k", "v"], [["f", ["control"]], ["lang1", ["shift"]], "lang1"], "com.apple.keylayout.US", non_shifted(), null, ["EM1L"]),
     keydef("(JIS/US)(シンクロ) あ, い, こ → 」", ["j", "k", "v"], ["close_bracket", "return_or_enter"], non_shifted(), false, ["EM1L"]),
     keydef("(シンクロ) あ, い, 左 → ・未確定", ["j", "k", "t"], ["slash"], non_shifted(), false, ["EM1L"]),
-    delayed("(U.S.使用)(JIS/US)(シンクロ) あ, い, (っ) → ↲「」", ["j", "k", "g"], ["lang1", ["e", ["control"]], "return_or_enter", "close_bracket", "non_us_pound", "return_or_enter", ["b", ["control"]]], "com.apple.keylayout.US", non_shifted(null, true, false), false, ["EM1L"]),
-    delayed("", ["j", "k", "g"], ["lang1", ["e", ["control"]], "return_or_enter", "open_bracket", "close_bracket", "return_or_enter", ["b", ["control"]]], "com.apple.keylayout.US", non_shifted(), false, ["EM1L"]),
-    delayed("(U.S.使用)(シンクロ) あ, い, そ → ↲□", ["j", "k", "b"], ["lang1", ["e", ["control"]], "return_or_enter", "spacebar"], "com.apple.keylayout.US", non_shifted(), null, ["EM1L"]),
+    // delayed("(U.S.使用)(JIS/US)(シンクロ) あ, い, (っ) → ↲「」", ["j", "k", "g"], ["lang1", ["e", ["control"]], "return_or_enter", "close_bracket", "non_us_pound", "return_or_enter", ["b", ["control"]]], "com.apple.keylayout.US", non_shifted(null, true, false), false, ["EM1L"]),
+    // delayed("", ["j", "k", "g"], ["lang1", ["e", ["control"]], "return_or_enter", "open_bracket", "close_bracket", "return_or_enter", ["b", ["control"]]], "com.apple.keylayout.US", non_shifted(), false, ["EM1L"]),
+    // JISキーボード設定は常にUSキーボード設定よりも先に設定しなくてはなりません
+    keydef("(JIS)(シンクロ) あ, い, (っ) → （", ["j", "k", "g"], [["8", ["shift"]], "return_or_enter"], non_shifted(null, true, false), false, ["EM1L"]),
+    keydef("(US)(シンクロ) あ, い, (っ) → （", ["j", "k", "g"], [["9", ["shift"]], "return_or_enter"], non_shifted(null, false, false), false, ["EM1L"]),
+    // delayed("(U.S.使用)(シンクロ) あ, い, そ → ↲□", ["j", "k", "b"], ["lang1", ["e", ["control"]], "return_or_enter", "spacebar"], "com.apple.keylayout.US", non_shifted(), null, ["EM1L"]),
+    keydef("(JIS)(シンクロ) あ, い, そ → ）", ["j", "k", "b"], [["9", ["shift"]], "return_or_enter"], non_shifted(null, true, false), false, ["EM1L"]),
+    keydef("(US)(シンクロ) あ, い, そ → ）", ["j", "k", "b"], [["0", ["shift"]], "return_or_enter"], non_shifted(null, false, false), false, ["EM1L"]),
+
+    // EM1R
     keydef("(シンクロ) と, か, 右 → Home", ["d", "f", "y"], [["a", ["control"]]], non_shifted(), false, ["EM1R"]),
     delayed("(U.S.使用)(シンクロ) と, か, く → 確定End", ["d", "f", "h"], [["e", ["control"]], ["lang1", ["shift"]], "lang1"], "com.apple.keylayout.US", non_shifted(), null, ["EM1R"]),
     keydef("(シンクロ) と, か, た → End", ["d", "f", "n"], [["e", ["control"]]], non_shifted(), false, ["EM1R"]),
@@ -423,6 +431,8 @@ function manipulatorsB() {
     keydef("(シンクロ) と, か, へ → 入力キャンセル", ["d", "f", "p"], ["escape", "escape", "escape"], non_shifted(), false, ["EM1R"]),
     keydef("(シンクロ) と, か, ー → カタカナ変換", ["d", "f", "semicolon"], ["f7"], non_shifted(), false, ["EM1R"]),
     keydef("(シンクロ) と, か, れ → ひらがな変換", ["d", "f", "slash"], ["f6"], non_shifted(), false, ["EM1R"]),
+
+    // EM2L
     keydef("(シンクロ) な, ん, 小 → カッコ外し", ["m", "comma", "q"], [["x", ["command"]], "delete_or_backspace", "delete_forward", ["v", ["command"]]], non_shifted(), false, ["EM2L"]),
     delayed("(UNICODE使用)(シンクロ) な, ん, ろ → 《》", ["m", "comma", "a"], [["3", ["option"]], ["0", ["option"]], ["0", ["option"]], ["a", ["option"]], ["3", ["option"]], ["0", ["option"]], ["0", ["option"]], ["b", ["option"]], ["b", ["control"]], ["lang1", ["shift"]], "lang1"], "com.apple.keylayout.UnicodeHexInput", non_shifted(), null, ["EM2L"]),
     delayed("(UNICODE使用)(シンクロ) な, ん, ほ → ｜《》", ["m", "comma", "z"], 
@@ -481,6 +491,8 @@ function manipulatorsB() {
         ["0", ["option"]], ["0", ["option"]], ["d", ["option"]], ["7", ["option"]],
         ["lang1", ["shift"]], "lang1", "return_or_enter"],
         "com.apple.keylayout.UnicodeHexInput", non_shifted(), null, ["EM2L"]),
+
+    // EM2R
     keydef("(シンクロ) は, こ, 右 → +Home", ["c", "v", "y"], [["a", ["shift","control"]]], non_shifted(), false, ["EM2R"]),
     keydef("(シンクロ) は, こ, く → Copy", ["c", "v", "h"], [["c", ["command"]]], non_shifted(), false, ["EM2R"]),
     keydef("(シンクロ) は, こ, た → +End", ["c", "v", "n"], [["e", ["shift","control"]]], non_shifted(), false, ["EM2R"]),

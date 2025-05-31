@@ -4717,87 +4717,7 @@
         },
         {
           "type": "basic",
-          "description": "(JIS/US)(シンクロ) あ, い, か → 「」",
-          "conditions": [
-            {
-              "type": "keyboard_type_if",
-              "keyboard_types": [
-                "jis"
-              ]
-            },
-            {
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ],
-              "type": "input_source_if"
-            },
-            {
-              "input_sources": [
-                {
-                  "input_mode_id": "Roman$"
-                }
-              ],
-              "type": "input_source_unless"
-            },
-            {
-              "type": "variable_unless",
-              "name": "shifted",
-              "value": true
-            }
-          ],
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "j"
-              },
-              {
-                "key_code": "k"
-              },
-              {
-                "key_code": "f"
-              }
-            ],
-            "simultaneous_options": {
-              "to_after_key_up": [
-                {
-                  "set_variable": {
-                    "name": "EM1L",
-                    "value": false
-                  }
-                }
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "EM1L",
-                "value": true
-              }
-            },
-            {
-              "key_code": "close_bracket"
-            },
-            {
-              "key_code": "non_us_pound"
-            },
-            {
-              "key_code": "return_or_enter"
-            },
-            {
-              "key_code": "b",
-              "modifiers": [
-                "control"
-              ],
-              "repeat": false
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "description": "",
+          "description": "(JIS/US)(シンクロ) あ, い, か → 「",
           "conditions": [
             {
               "input_sources": [
@@ -4855,23 +4775,14 @@
               "key_code": "open_bracket"
             },
             {
-              "key_code": "close_bracket"
-            },
-            {
-              "key_code": "return_or_enter"
-            },
-            {
-              "key_code": "b",
-              "modifiers": [
-                "control"
-              ],
+              "key_code": "return_or_enter",
               "repeat": false
             }
           ]
         },
         {
           "type": "basic",
-          "description": "(U.S.使用)(シンクロ) あ, い, こ → 確定↓",
+          "description": "(JIS/US)(シンクロ) あ, い, こ → 」",
           "conditions": [
             {
               "input_sources": [
@@ -4895,9 +4806,6 @@
               "value": true
             }
           ],
-          "parameters": {
-            "basic.to_delayed_action_delay_milliseconds": 30
-          },
           "from": {
             "simultaneous": [
               {
@@ -4929,30 +4837,13 @@
               }
             },
             {
-              "select_input_source": {
-                "input_source_id": "com.apple.keylayout.US"
-              }
+              "key_code": "close_bracket"
+            },
+            {
+              "key_code": "return_or_enter",
+              "repeat": false
             }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "key_code": "f",
-                "modifiers": [
-                  "control"
-                ]
-              },
-              {
-                "key_code": "lang1",
-                "modifiers": [
-                  "shift"
-                ]
-              },
-              {
-                "key_code": "lang1"
-              }
-            ]
-          }
+          ]
         },
         {
           "type": "basic",
@@ -5018,7 +4909,7 @@
         },
         {
           "type": "basic",
-          "description": "(U.S.使用)(JIS/US)(シンクロ) あ, い, (っ) → ↲「」",
+          "description": "(JIS)(シンクロ) あ, い, (っ) → （",
           "conditions": [
             {
               "type": "keyboard_type_if",
@@ -5048,9 +4939,6 @@
               "value": true
             }
           ],
-          "parameters": {
-            "basic.to_delayed_action_delay_milliseconds": 30
-          },
           "from": {
             "simultaneous": [
               {
@@ -5082,47 +4970,20 @@
               }
             },
             {
-              "select_input_source": {
-                "input_source_id": "com.apple.keylayout.US"
-              }
+              "key_code": "8",
+              "modifiers": [
+                "shift"
+              ]
+            },
+            {
+              "key_code": "return_or_enter",
+              "repeat": false
             }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "key_code": "lang1"
-              },
-              {
-                "key_code": "e",
-                "modifiers": [
-                  "control"
-                ]
-              },
-              {
-                "key_code": "return_or_enter"
-              },
-              {
-                "key_code": "close_bracket"
-              },
-              {
-                "key_code": "non_us_pound"
-              },
-              {
-                "key_code": "return_or_enter"
-              },
-              {
-                "key_code": "b",
-                "modifiers": [
-                  "control"
-                ],
-                "repeat": false
-              }
-            ]
-          }
+          ]
         },
         {
           "type": "basic",
-          "description": "",
+          "description": "(US)(シンクロ) あ, い, (っ) → （",
           "conditions": [
             {
               "input_sources": [
@@ -5146,9 +5007,6 @@
               "value": true
             }
           ],
-          "parameters": {
-            "basic.to_delayed_action_delay_milliseconds": 30
-          },
           "from": {
             "simultaneous": [
               {
@@ -5180,48 +5038,27 @@
               }
             },
             {
-              "select_input_source": {
-                "input_source_id": "com.apple.keylayout.US"
-              }
+              "key_code": "9",
+              "modifiers": [
+                "shift"
+              ]
+            },
+            {
+              "key_code": "return_or_enter",
+              "repeat": false
             }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "key_code": "lang1"
-              },
-              {
-                "key_code": "e",
-                "modifiers": [
-                  "control"
-                ]
-              },
-              {
-                "key_code": "return_or_enter"
-              },
-              {
-                "key_code": "open_bracket"
-              },
-              {
-                "key_code": "close_bracket"
-              },
-              {
-                "key_code": "return_or_enter"
-              },
-              {
-                "key_code": "b",
-                "modifiers": [
-                  "control"
-                ],
-                "repeat": false
-              }
-            ]
-          }
+          ]
         },
         {
           "type": "basic",
-          "description": "(U.S.使用)(シンクロ) あ, い, そ → ↲□",
+          "description": "(JIS)(シンクロ) あ, い, そ → ）",
           "conditions": [
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": [
+                "jis"
+              ]
+            },
             {
               "input_sources": [
                 {
@@ -5244,9 +5081,6 @@
               "value": true
             }
           ],
-          "parameters": {
-            "basic.to_delayed_action_delay_milliseconds": 30
-          },
           "from": {
             "simultaneous": [
               {
@@ -5278,30 +5112,84 @@
               }
             },
             {
-              "select_input_source": {
-                "input_source_id": "com.apple.keylayout.US"
-              }
+              "key_code": "9",
+              "modifiers": [
+                "shift"
+              ]
+            },
+            {
+              "key_code": "return_or_enter",
+              "repeat": false
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "description": "(US)(シンクロ) あ, い, そ → ）",
+          "conditions": [
+            {
+              "input_sources": [
+                {
+                  "language": "ja"
+                }
+              ],
+              "type": "input_source_if"
+            },
+            {
+              "input_sources": [
+                {
+                  "input_mode_id": "Roman$"
+                }
+              ],
+              "type": "input_source_unless"
+            },
+            {
+              "type": "variable_unless",
+              "name": "shifted",
+              "value": true
             }
           ],
-          "to_delayed_action": {
-            "to_if_invoked": [
+          "from": {
+            "simultaneous": [
               {
-                "key_code": "lang1"
+                "key_code": "j"
               },
               {
-                "key_code": "e",
-                "modifiers": [
-                  "control"
-                ]
+                "key_code": "k"
               },
               {
-                "key_code": "return_or_enter"
-              },
-              {
-                "key_code": "spacebar"
+                "key_code": "b"
               }
-            ]
-          }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "EM1L",
+                    "value": false
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "EM1L",
+                "value": true
+              }
+            },
+            {
+              "key_code": "0",
+              "modifiers": [
+                "shift"
+              ]
+            },
+            {
+              "key_code": "return_or_enter",
+              "repeat": false
+            }
+          ]
         },
         {
           "type": "basic",
