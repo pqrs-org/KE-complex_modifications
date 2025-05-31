@@ -385,7 +385,7 @@ function manipulatorsB() {
     // EM1L
     delayed("(U.S.使用)(シンクロ) あ, い, 小 → 新", ["j", "k", "q"], [["left_arrow", ["command"]], ["down_arrow", ["command"]], ["lang1", ["shift"]], "lang1"], "com.apple.keylayout.US", non_shifted(), null, ["EM1L"]),
     keydef("(シンクロ) あ, い, ろ → ……", ["j", "k", "a"], [["semicolon", ["option"]], ["semicolon", ["option"]], "return_or_enter"], non_shifted(), false, ["EM1L"]),
-    delayed("(UNICODE使用)(シンクロ) あ, い, ほ → ──", ["j", "k", "z"], [["2", ["option"]], ["5", ["option"]], ["0", ["option"]], ["2", ["option"]], ["2", ["option"]], ["5", ["option"]], ["0", ["option"]], ["2", ["option"]], ["lang1", ["shift"]], "lang1"], "com.apple.keylayout.UnicodeHexInput", non_shifted(), null, ["EM1L"]),
+    delayed("(UNICODE使用)(シンクロ) あ, い, ほ → ──", ["j", "k", "z"], unicode(["2015", "2015"], [["lang1", ["shift"]], "lang1"]), "com.apple.keylayout.UnicodeHexInput", non_shifted(), null, ["EM1L"]),
     // keydef("(日本語IM時)(JIS/US)(シンクロ) あ, い, き → 『』", ["j", "k", "w"], [["close_bracket", ["shift"]], ["non_us_pound", ["shift"]], "return_or_enter", ["b", ["control"]]], non_shifted(null, true, true), false, ["EM1L"]),
     keydef("(日本語IM時)(JIS/US)(シンクロ) あ, い, き → ／", ["j", "k", "w"], [["slash", ["option"]], "return_or_enter"], non_shifted(null, null, true), false, ["EM1L"]),
     delayed("(UNICODE使用)(JIS/US)(シンクロ) あ, い, き → ／", ["j", "k", "w"], unicode(["ff0f"], [["lang1", ["shift"]], "lang1"]), "com.apple.keylayout.UnicodeHexInput", non_shifted(), null, ["EM1L"]),
