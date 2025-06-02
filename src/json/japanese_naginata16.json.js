@@ -27,11 +27,13 @@ function keydef(description, from_key, to_key_list, conditions, will_repeat, tra
   if (threshold != "undefined" && threshold != null) {
     output.paramters = {"basic.simultaneous_threshold_milliseconds": threshold}
   }
+  var afterKU = [{"set_variable": {"name": "command", "type": "unset"}}];
   if (to_after_key_up_var) {
     for (var i=0; i<transmit_var_list.length; i++) {
-      output.to_after_key_up = {"set_variable": {"name": transmit_var_list[i], "value": false}}
+      afterKU.push({"set_variable": {"name": transmit_var_list[i], "value": false}});
     }
   }
+  output.to_after_key_up = afterKU;
   return output;
 }
 
@@ -72,6 +74,11 @@ function japanese_input(var_name) {
     {
       "input_sources": [{"input_mode_id": "Roman$"}],
       "type":"input_source_unless"
+    },
+    {
+      "type": "variable_unless",
+      "name": "command",
+      "value": true
     }
   ];
   if (var_name == null) {
@@ -242,6 +249,40 @@ function unicode(code_list, postkeys_list) {
   }
   if (postkeys_list != "undefined" && postkeys_list != null) {
     output = output.concat(postkeys_list);
+  }
+  return output;
+}
+
+function LyX() {
+  var command_keys = [["p", ["command"]], ["c", ["command"]], ["x", ["control"]]];
+  var output = [];
+  for (var i=0; i<command_keys.length; i++) {
+    output.push(
+      {
+        "type":"basic",
+        "description": "LyX emacsキーバインディング",
+        "conditions": japanese_input(),
+        "from": {
+          "key_code": command_keys[i][0],
+          "modifiers": {"mandatory": command_keys[i][1]}
+        },
+        "to": {"key_code": command_keys[i][0], "modifiers": command_keys[i][1]},
+        "to_after_key_up": [{"set_variable": {"name": "command", "value": true}}]
+      }
+    );
+  }
+  // keys that can come after command igniter
+  for (var code=65; code<91; code++) {
+    output.push(
+      {
+        "type":"basic",
+        "description": "Commandモード解除",
+        "conditions": [{"type": "variable_if", "name": "command", "value": true}],
+        "from": {"key_code": code},
+        "to": {"key_code": code},
+        "to_after_key_up": [{"set_variable": {"name": "command", "type": "unset"}}]
+      }
+    )
   }
   return output;
 }
@@ -939,7 +980,11 @@ function main() {
         "title":"Key layout for Japanese \"薙刀式\" 16",
         "rules":[
           {
-            "description":"A1: 同時連続シフト拡張",
+            "description": "LyX emacsバインディング対応",
+            "manipulators": LyX()
+          },
+          {
+            "description": "A1: 同時連続シフト拡張",
             "manipulators": manipulatorsA1()
           },
           {
@@ -947,15 +992,15 @@ function main() {
             "manipulators": manipulatorsA2()
           },
           {
-            "description":"B: 本体",
+            "description": "B: 本体",
             "manipulators": manipulatorsB()
           },
           {
-            "description":"C1: 左右シフトかな拡張",
+            "description": "C1: 左右シフトかな拡張",
             "manipulators": manipulatorsC1()
           },
           {
-            "description":"C2: エンター同時押しシフト拡張",
+            "description": "C2: エンター同時押しシフト拡張",
             "manipulators": manipulatorsC2()
           }
         ]
