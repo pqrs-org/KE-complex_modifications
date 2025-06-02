@@ -6269,7 +6269,7 @@
         },
         {
           "type": "basic",
-          "description": "(シンクロ) な, ん, 小 → カッコ外し",
+          "description": "(UNICODE使用)(シンクロ) な, ん, 小 → ｜",
           "conditions": [
             {
               "input_sources": [
@@ -6293,6 +6293,9 @@
               "value": true
             }
           ],
+          "parameters": {
+            "basic.to_delayed_action_delay_milliseconds": 30
+          },
           "from": {
             "simultaneous": [
               {
@@ -6324,29 +6327,52 @@
               }
             },
             {
-              "key_code": "x",
-              "modifiers": [
-                "command"
-              ]
-            },
-            {
-              "key_code": "delete_or_backspace"
-            },
-            {
-              "key_code": "delete_forward"
-            },
-            {
-              "key_code": "v",
-              "modifiers": [
-                "command"
-              ],
-              "repeat": false
+              "select_input_source": {
+                "input_source_id": "com.apple.keylayout.UnicodeHexInput"
+              }
             }
-          ]
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "key_code": "f",
+                "modifiers": [
+                  "option"
+                ]
+              },
+              {
+                "key_code": "f",
+                "modifiers": [
+                  "option"
+                ]
+              },
+              {
+                "key_code": "5",
+                "modifiers": [
+                  "option"
+                ]
+              },
+              {
+                "key_code": "c",
+                "modifiers": [
+                  "option"
+                ]
+              },
+              {
+                "key_code": "lang1",
+                "modifiers": [
+                  "shift"
+                ]
+              },
+              {
+                "key_code": "lang1"
+              }
+            ]
+          }
         },
         {
           "type": "basic",
-          "description": "(UNICODE使用)(シンクロ) な, ん, ろ → 《》",
+          "description": "(UNICODE使用)(シンクロ) な, ん, ろ → 《",
           "conditions": [
             {
               "input_sources": [
@@ -6436,36 +6462,6 @@
                 ]
               },
               {
-                "key_code": "3",
-                "modifiers": [
-                  "option"
-                ]
-              },
-              {
-                "key_code": "0",
-                "modifiers": [
-                  "option"
-                ]
-              },
-              {
-                "key_code": "0",
-                "modifiers": [
-                  "option"
-                ]
-              },
-              {
-                "key_code": "b",
-                "modifiers": [
-                  "option"
-                ]
-              },
-              {
-                "key_code": "b",
-                "modifiers": [
-                  "control"
-                ]
-              },
-              {
                 "key_code": "lang1",
                 "modifiers": [
                   "shift"
@@ -6479,7 +6475,7 @@
         },
         {
           "type": "basic",
-          "description": "(UNICODE使用)(シンクロ) な, ん, ほ → ｜《》",
+          "description": "(UNICODE使用)(シンクロ) な, ん, ほ → 》",
           "conditions": [
             {
               "input_sources": [
@@ -6551,54 +6547,6 @@
           "to_delayed_action": {
             "to_if_invoked": [
               {
-                "key_code": "f",
-                "modifiers": [
-                  "option"
-                ]
-              },
-              {
-                "key_code": "f",
-                "modifiers": [
-                  "option"
-                ]
-              },
-              {
-                "key_code": "5",
-                "modifiers": [
-                  "option"
-                ]
-              },
-              {
-                "key_code": "c",
-                "modifiers": [
-                  "option"
-                ]
-              },
-              {
-                "key_code": "3",
-                "modifiers": [
-                  "option"
-                ]
-              },
-              {
-                "key_code": "0",
-                "modifiers": [
-                  "option"
-                ]
-              },
-              {
-                "key_code": "0",
-                "modifiers": [
-                  "option"
-                ]
-              },
-              {
-                "key_code": "a",
-                "modifiers": [
-                  "option"
-                ]
-              },
-              {
                 "key_code": "3",
                 "modifiers": [
                   "option"
@@ -6620,46 +6568,6 @@
                 "key_code": "b",
                 "modifiers": [
                   "option"
-                ]
-              },
-              {
-                "key_code": "b",
-                "modifiers": [
-                  "control"
-                ]
-              },
-              {
-                "key_code": "b",
-                "modifiers": [
-                  "control"
-                ]
-              },
-              {
-                "key_code": "v",
-                "modifiers": [
-                  "command"
-                ]
-              },
-              {
-                "key_code": "f",
-                "modifiers": [
-                  "control"
-                ]
-              },
-              {
-                "key_code": "spacebar"
-              },
-              {
-                "key_code": "b",
-                "modifiers": [
-                  "shift",
-                  "control"
-                ]
-              },
-              {
-                "key_code": "x",
-                "modifiers": [
-                  "command"
                 ]
               },
               {
@@ -7075,8 +6983,16 @@
         },
         {
           "type": "basic",
-          "description": "(JIS/US)(シンクロ) な, ん, け → +（）",
+          "description": "(JIS)(シンクロ) な, ん, け → 【",
           "conditions": [
+            {
+              "input_sources": [
+                {
+                  "input_source_id": "Kotoeri"
+                }
+              ],
+              "type": "input_source_if"
+            },
             {
               "type": "keyboard_type_if",
               "keyboard_types": [
@@ -7136,55 +7052,29 @@
               }
             },
             {
-              "key_code": "x",
-              "modifiers": [
-                "command"
-              ]
-            },
-            {
-              "key_code": "8",
-              "modifiers": [
-                "shift"
-              ]
-            },
-            {
-              "key_code": "v",
-              "modifiers": [
-                "command"
-              ]
-            },
-            {
               "key_code": "9",
               "modifiers": [
-                "shift"
+                "option"
               ]
             },
             {
-              "key_code": "return_or_enter"
-            },
-            {
-              "key_code": "spacebar"
-            },
-            {
-              "key_code": "b",
-              "modifiers": [
-                "shift",
-                "control"
-              ]
-            },
-            {
-              "key_code": "x",
-              "modifiers": [
-                "command"
-              ],
+              "key_code": "return_or_enter",
               "repeat": false
             }
           ]
         },
         {
           "type": "basic",
-          "description": "",
+          "description": "(US)(シンクロ) な, ん, け → 【",
           "conditions": [
+            {
+              "input_sources": [
+                {
+                  "input_source_id": "Kotoeri"
+                }
+              ],
+              "type": "input_source_if"
+            },
             {
               "input_sources": [
                 {
@@ -7238,62 +7128,134 @@
               }
             },
             {
-              "key_code": "x",
-              "modifiers": [
-                "command"
-              ]
-            },
-            {
               "key_code": "9",
               "modifiers": [
-                "shift"
+                "option"
               ]
             },
             {
-              "key_code": "v",
-              "modifiers": [
-                "command"
-              ]
-            },
-            {
-              "key_code": "0",
-              "modifiers": [
-                "shift"
-              ]
-            },
-            {
-              "key_code": "return_or_enter"
-            },
-            {
-              "key_code": "spacebar"
-            },
-            {
-              "key_code": "b",
-              "modifiers": [
-                "shift",
-                "control"
-              ]
-            },
-            {
-              "key_code": "x",
-              "modifiers": [
-                "command"
-              ],
+              "key_code": "return_or_enter",
               "repeat": false
             }
           ]
         },
         {
           "type": "basic",
-          "description": "(日本語IM時)(JIS/US)(シンクロ) な, ん, ひ → +【】",
+          "description": "(UNICODE使用)(シンクロ) な, ん, け → 【",
+          "conditions": [
+            {
+              "input_sources": [
+                {
+                  "language": "ja"
+                }
+              ],
+              "type": "input_source_if"
+            },
+            {
+              "input_sources": [
+                {
+                  "input_mode_id": "Roman$"
+                }
+              ],
+              "type": "input_source_unless"
+            },
+            {
+              "type": "variable_unless",
+              "name": "shifted",
+              "value": true
+            }
+          ],
+          "parameters": {
+            "basic.to_delayed_action_delay_milliseconds": 30
+          },
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "m"
+              },
+              {
+                "key_code": "comma"
+              },
+              {
+                "key_code": "s"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "EM2L",
+                    "value": false
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "EM2L",
+                "value": true
+              }
+            },
+            {
+              "key_code": "x",
+              "modifiers": [
+                "command"
+              ]
+            },
+            {
+              "select_input_source": {
+                "input_source_id": "com.apple.keylayout.UnicodeHexInput"
+              }
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "key_code": "3",
+                "modifiers": [
+                  "option"
+                ]
+              },
+              {
+                "key_code": "0",
+                "modifiers": [
+                  "option"
+                ]
+              },
+              {
+                "key_code": "1",
+                "modifiers": [
+                  "option"
+                ]
+              },
+              {
+                "key_code": "0",
+                "modifiers": [
+                  "option"
+                ]
+              },
+              {
+                "key_code": "lang1",
+                "modifiers": [
+                  "shift"
+                ]
+              },
+              {
+                "key_code": "lang1"
+              }
+            ]
+          }
+        },
+        {
+          "type": "basic",
+          "description": "(JIS)(シンクロ) な, ん, ひ → 】",
           "conditions": [
             {
               "input_sources": [
                 {
                   "input_source_id": "Kotoeri"
-                },
-                {
-                  "input_source_id": "atok"
                 }
               ],
               "type": "input_source_if"
@@ -7357,62 +7319,25 @@
               }
             },
             {
-              "key_code": "x",
-              "modifiers": [
-                "command"
-              ]
-            },
-            {
-              "key_code": "8",
+              "key_code": "0",
               "modifiers": [
                 "option"
               ]
             },
             {
-              "key_code": "v",
-              "modifiers": [
-                "command"
-              ]
-            },
-            {
-              "key_code": "9",
-              "modifiers": [
-                "option"
-              ]
-            },
-            {
-              "key_code": "return_or_enter"
-            },
-            {
-              "key_code": "spacebar"
-            },
-            {
-              "key_code": "b",
-              "modifiers": [
-                "shift",
-                "control"
-              ]
-            },
-            {
-              "key_code": "x",
-              "modifiers": [
-                "command"
-              ],
+              "key_code": "return_or_enter",
               "repeat": false
             }
           ]
         },
         {
           "type": "basic",
-          "description": "",
+          "description": "(US)(シンクロ) な, ん, ひ → 】",
           "conditions": [
             {
               "input_sources": [
                 {
                   "input_source_id": "Kotoeri"
-                },
-                {
-                  "input_source_id": "atok"
                 }
               ],
               "type": "input_source_if"
@@ -7470,54 +7395,20 @@
               }
             },
             {
-              "key_code": "x",
-              "modifiers": [
-                "command"
-              ]
-            },
-            {
-              "key_code": "9",
-              "modifiers": [
-                "option"
-              ]
-            },
-            {
-              "key_code": "v",
-              "modifiers": [
-                "command"
-              ]
-            },
-            {
               "key_code": "0",
               "modifiers": [
                 "option"
               ]
             },
             {
-              "key_code": "return_or_enter"
-            },
-            {
-              "key_code": "spacebar"
-            },
-            {
-              "key_code": "b",
-              "modifiers": [
-                "shift",
-                "control"
-              ]
-            },
-            {
-              "key_code": "x",
-              "modifiers": [
-                "command"
-              ],
+              "key_code": "return_or_enter",
               "repeat": false
             }
           ]
         },
         {
           "type": "basic",
-          "description": "(UNICODE使用)(シンクロ) な, ん, ひ → +【】",
+          "description": "(UNICODE使用)(シンクロ) な, ん, ひ → 】",
           "conditions": [
             {
               "input_sources": [
@@ -7607,67 +7498,9 @@
                 ]
               },
               {
-                "key_code": "0",
-                "modifiers": [
-                  "option"
-                ]
-              },
-              {
-                "key_code": "3",
-                "modifiers": [
-                  "option"
-                ]
-              },
-              {
-                "key_code": "0",
-                "modifiers": [
-                  "option"
-                ]
-              },
-              {
                 "key_code": "1",
                 "modifiers": [
                   "option"
-                ]
-              },
-              {
-                "key_code": "1",
-                "modifiers": [
-                  "option"
-                ]
-              },
-              {
-                "key_code": "b",
-                "modifiers": [
-                  "control"
-                ]
-              },
-              {
-                "key_code": "v",
-                "modifiers": [
-                  "command"
-                ]
-              },
-              {
-                "key_code": "f",
-                "modifiers": [
-                  "control"
-                ]
-              },
-              {
-                "key_code": "spacebar"
-              },
-              {
-                "key_code": "b",
-                "modifiers": [
-                  "shift",
-                  "control"
-                ]
-              },
-              {
-                "key_code": "x",
-                "modifiers": [
-                  "command"
                 ]
               },
               {
@@ -9198,7 +9031,7 @@
         },
         {
           "type": "basic",
-          "description": "(シンクロ) は, こ, ー → 再",
+          "description": "(シンクロ) は, こ, る → 再",
           "conditions": [
             {
               "input_sources": [
@@ -9452,7 +9285,7 @@
         },
         {
           "type": "basic",
-          "description": "(シンクロ) は, こ, れ → コピークリア",
+          "description": "(シンクロ) は, こ, う → コピークリア",
           "conditions": [
             {
               "input_sources": [
@@ -9510,9 +9343,8 @@
               "key_code": "spacebar"
             },
             {
-              "key_code": "b",
+              "key_code": "left_arrow",
               "modifiers": [
-                "control",
                 "shift"
               ]
             },
@@ -9757,7 +9589,7 @@
         },
         {
           "type": "basic",
-          "description": "(シンクロ) は, こ, う → +→7",
+          "description": "(シンクロ) は, こ, れ → +→7",
           "conditions": [
             {
               "input_sources": [
