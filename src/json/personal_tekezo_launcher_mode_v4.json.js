@@ -13,7 +13,7 @@ function main() {
         maintainers: ['tekezo'],
         rules: [
           {
-            description: 'Launcher Mode v4 (rev 26)',
+            description: 'Launcher Mode v4 (rev 27)',
             available_since: '15.3.4',
             manipulators: [].concat(
               generateLauncherMode('1', { frontmostApplicationHistoryIndex: 1 }),
@@ -22,6 +22,7 @@ function main() {
               generateLauncherMode('4', { frontmostApplicationHistoryIndex: 4 }),
               generateLauncherMode('5', { frontmostApplicationHistoryIndex: 5 }),
               generateLauncherMode('a', { bundleIdentifier: 'com.apple.ActivityMonitor' }),
+              generateLauncherMode('b', { bundleIdentifier: 'com.microsoft.teams2' }),
               generateLauncherMode('c', { bundleIdentifier: 'com.google.Chrome' }),
               generateLauncherMode('e', { bundleIdentifier: 'com.microsoft.VSCode' }),
               generateLauncherMode('f', { bundleIdentifier: 'com.apple.finder' }),
