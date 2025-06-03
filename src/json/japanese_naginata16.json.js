@@ -254,7 +254,8 @@ function unicode(code_list, postkeys_list) {
 }
 
 function LyX() {
-  var command_keys = [["p", ["command"]], ["c", ["command"]], ["x", ["control"]]];
+  var command_keys = [["a", ["command"]], ["c", ["command"]], ["c", ["control"]], ["m", ["command"]],
+    ["p", ["command"]], ["x", ["control"]]];
   var output = [];
   for (var i=0; i<command_keys.length; i++) {
     output.push(
