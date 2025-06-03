@@ -31,7 +31,7 @@
             }
           ],
           "from": {
-            "key_code": "p",
+            "key_code": "a",
             "modifiers": {
               "mandatory": [
                 "command"
@@ -39,7 +39,7 @@
             }
           },
           "to": {
-            "key_code": "p",
+            "key_code": "a",
             "modifiers": [
               "command"
             ]
@@ -89,6 +89,153 @@
           },
           "to": {
             "key_code": "c",
+            "modifiers": [
+              "command"
+            ]
+          },
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "command",
+                "value": true
+              }
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "description": "LyX emacsキーバインディング",
+          "conditions": [
+            {
+              "input_sources": [
+                {
+                  "language": "ja"
+                }
+              ],
+              "type": "input_source_if"
+            },
+            {
+              "input_sources": [
+                {
+                  "input_mode_id": "Roman$"
+                }
+              ],
+              "type": "input_source_unless"
+            },
+            {
+              "type": "variable_unless",
+              "name": "command",
+              "value": true
+            }
+          ],
+          "from": {
+            "key_code": "c",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": {
+            "key_code": "c",
+            "modifiers": [
+              "control"
+            ]
+          },
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "command",
+                "value": true
+              }
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "description": "LyX emacsキーバインディング",
+          "conditions": [
+            {
+              "input_sources": [
+                {
+                  "language": "ja"
+                }
+              ],
+              "type": "input_source_if"
+            },
+            {
+              "input_sources": [
+                {
+                  "input_mode_id": "Roman$"
+                }
+              ],
+              "type": "input_source_unless"
+            },
+            {
+              "type": "variable_unless",
+              "name": "command",
+              "value": true
+            }
+          ],
+          "from": {
+            "key_code": "m",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ]
+            }
+          },
+          "to": {
+            "key_code": "m",
+            "modifiers": [
+              "command"
+            ]
+          },
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "command",
+                "value": true
+              }
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "description": "LyX emacsキーバインディング",
+          "conditions": [
+            {
+              "input_sources": [
+                {
+                  "language": "ja"
+                }
+              ],
+              "type": "input_source_if"
+            },
+            {
+              "input_sources": [
+                {
+                  "input_mode_id": "Roman$"
+                }
+              ],
+              "type": "input_source_unless"
+            },
+            {
+              "type": "variable_unless",
+              "name": "command",
+              "value": true
+            }
+          ],
+          "from": {
+            "key_code": "p",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ]
+            }
+          },
+          "to": {
+            "key_code": "p",
             "modifiers": [
               "command"
             ]
