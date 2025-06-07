@@ -1,0 +1,37 @@
+{
+    "title": "Capslock for Chinese",
+    "maintainers": [
+        "RickWang000"
+    ],
+    "rules": [
+        {
+            "description": "CapsLock Fix with Chinese Input Source",
+            "manipulators": [
+                {
+                    "from": {
+                        "key_code": "caps_lock"
+                    },
+                    "parameters": {
+                        "basic.to_if_alone_timeout_milliseconds": 200,
+                        "basic.to_if_held_down_threshold_milliseconds": 200
+                    },
+                    "to_if_alone": [
+                        {
+                            "key_code": "spacebar",
+                            "modifiers": [
+                                "left_control",
+                                "left_option"
+                            ]
+                        }
+                    ],
+                    "to_if_held_down": [
+                        {
+                            "key_code": "caps_lock"
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        }
+    ]
+}
