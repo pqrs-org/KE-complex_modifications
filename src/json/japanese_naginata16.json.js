@@ -16,7 +16,9 @@
 //    threshold:          basic.simultaneous_threshold_millisecondsのミリ秒での値
 //    to_after_key_up_var:  to_after_key_upにtransmit_var_listを渡すか否か
 //    mondatory_modifiers_list: from_keyのmondatory_modifiersに渡すキー配列
-function keydef(description, from_key, to_key_list, conditions, will_repeat, transmit_var_list, threshold, to_after_key_up_var, mondatory_modifiers_list) {
+function keydef(description, from_key, to_key_list, conditions, will_repeat, transmit_var_list, threshold,
+                to_after_key_up_var, mondatory_modifiers_list)
+{
   output = {
     "type":"basic",
     "description": description,
@@ -65,6 +67,9 @@ function inverse(description, from_key, to_key_list, conditions, will_repeat, tr
   }
 }
 
+//
+// CONDITIONS
+//
 function japanese_input(var_name) {
   var jpn_body = [
     {
@@ -168,6 +173,9 @@ function non_shifted(var_name, is_jis_keyboard, im) {
   return non_shifted_body;
 }
 
+//
+// OTHER HELPER FUNCTIONS
+//
 function process_from(from_key, transmit_var_list, key_down_order, mondatory_modifiers_list) {
   if (!Array.isArray(from_key)) {
     output = {"key_code": from_key};
@@ -231,7 +239,8 @@ function input_source(source, transmit_var_list, does_precut) {
   }
   if (does_precut)
     output.push({"key_code":"x", "modifiers":["command"]})
-  output.push({"select_input_source": {"input_source_id": source}});
+  if (source != null)
+    output.push({"select_input_source": {"input_source_id": source}});
 
   return output;
 }
@@ -330,91 +339,55 @@ function manipulatorsA2() {
     {"description":"(シンクロ) 編集モード1左","type":"basic",
       "conditions": non_shifted(),
       "parameters":{"basic.simultaneous_threshold_milliseconds":20},
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"k"}
-      ],"simultaneous_options":{"key_down_order":"strict",
-      "to_after_key_up":[{"set_variable":{"name":"EM1L","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM1L","value":1}}],
-      "to_if_alone":[{"key_code":"a"},{"key_code":"i"}]
+      "from": process_from(["j", "k"], ["EM1L"], "strict"),
+      "to": input_source(null, ["EM1L"]),
+      "to_if_alone": key_code_list(["a", "i"])
     },
     {"type":"basic",
       "conditions": non_shifted(),
       "parameters":{"basic.simultaneous_threshold_milliseconds":20},
-      "from":{"simultaneous":[
-        {"key_code":"j"},
-        {"key_code":"k"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM1L","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM1L","value":1}}],
-    "to_if_alone":[{"key_code":"i"},{"key_code":"a"}]},
+      "from": process_from(["j", "k"], ["EM1L"]),
+      "to": input_source(null, ["EM1L"]),
+    "to_if_alone": key_code_list(["i", "a"])},
     {"description":"(シンクロ) 編集モード1右","type":"basic",
       "conditions": non_shifted(),
       "parameters":{"basic.simultaneous_threshold_milliseconds":20},
-      "from":{"simultaneous":[
-        {"key_code":"d"},
-        {"key_code":"f"}
-      ],"simultaneous_options":{"key_down_order":"strict",
-      "to_after_key_up":[{"set_variable":{"name":"EM1R","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM1R","value":1}}],
-      "to_if_alone":[{"key_code":"t"},{"key_code":"o"},{"key_code":"k"},{"key_code":"a"}]
+      "from": process_from(["d", "f"], ["EM1R"], "strict"),
+      "to": input_source(null, ["EM1R"]),
+      "to_if_alone": key_code_list(["t", "o", "k", "a"])
     },
     {"type":"basic",
       "conditions": non_shifted(),
       "parameters":{"basic.simultaneous_threshold_milliseconds":20},
-      "from":{"simultaneous":[
-        {"key_code":"d"},
-        {"key_code":"f"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM1R","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM1R","value":1}}],
-    "to_if_alone":[{"key_code":"k"},{"key_code":"a"},{"key_code":"t"},{"key_code":"o"}]},
+      "from": process_from(["d", "f"], ["EM1R"]),
+      "to": input_source(null, ["EM1R"]),
+    "to_if_alone": key_code_list(["k", "a", "t", "o"])},
     {"description":"(シンクロ) 編集モード2左","type":"basic",
       "conditions": non_shifted(),
       "parameters":{"basic.simultaneous_threshold_milliseconds":20},
-      "from":{"simultaneous":[
-        {"key_code":"m"},
-        {"key_code":"comma"}
-      ],"simultaneous_options":{"key_down_order":"strict",
-      "to_after_key_up":[{"set_variable":{"name":"EM2L","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM2L","value":1}}],
-      "to_if_alone":[{"key_code":"n"},{"key_code":"a"},{"key_code":"n"},{"key_code":"n"}]
+      "from": process_from(["m", "comma"], ["EM2L"], "strict"),
+      "to": input_source(null, ["EM2L"]),
+      "to_if_alone": key_code_list(["n", "a", "n", "n"])
     },
     {"type":"basic",
       "conditions": non_shifted(),
       "parameters":{"basic.simultaneous_threshold_milliseconds":20},
-      "from":{"simultaneous":[
-        {"key_code":"m"},
-        {"key_code":"comma"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM2L","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM2L","value":1}}],
-    "to_if_alone":[{"key_code":"n"},{"key_code":"n"},{"key_code":"n"},{"key_code":"a"}]},
+      "from": process_from(["m", "comma"], ["EM2L"]),
+      "to": input_source(null, ["EM2L"]),
+    "to_if_alone": key_code_list(["n", "n", "n", "a"])},
     {"description":"(シンクロ) 編集モード2右","type":"basic",
       "conditions": non_shifted(),
       "parameters":{"basic.simultaneous_threshold_milliseconds":20},
-      "from":{"simultaneous":[
-        {"key_code":"c"},
-        {"key_code":"v"}
-      ],"simultaneous_options":{"key_down_order":"strict",
-      "to_after_key_up":[{"set_variable":{"name":"EM2R","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM2R","value":1}}],
-      "to_if_alone":[{"key_code":"h"},{"key_code":"a"},{"key_code":"k"},{"key_code":"o"}]
+      "from": process_from(["c", "v"], ["EM2R"], "strict"),
+      "to": input_source(null, ["EM2R"]),
+      "to_if_alone": key_code_list(["h", "a", "k", "o"])
     },
     {"type":"basic",
       "conditions": non_shifted(),
       "parameters":{"basic.simultaneous_threshold_milliseconds":20},
-      "from":{"simultaneous":[
-        {"key_code":"c"},
-        {"key_code":"v"}
-      ],"simultaneous_options":{"to_after_key_up":[{"set_variable":{"name":"EM2R","value":0}}]}
-      },
-      "to":[{"set_variable":{"name":"EM2R","value":1}}],
-    "to_if_alone":[{"key_code":"k"},{"key_code":"o"},{"key_code":"h"},{"key_code":"a"}]},
+      "from": process_from(["c", "v"], ["EM2R"]),
+      "to": input_source(null, ["EM2R"]),
+    "to_if_alone": key_code_list(["k", "o", "h", "a"])},
     
     keydef("[あ, い] て → でぃ", "e", ["d", "h", "i"], non_shifted("EM1L")),
     keydef("[な, ん] 小 → カッコ外し", "q", [["x", ["command"]], "delete_or_backspace", "delete_forward", ["v", ["command"]]], non_shifted("EM2L"), false, ["EM2L"]),
@@ -989,7 +962,7 @@ function main() {
             "manipulators": manipulatorsA1()
           },
           {
-            "description":"A2: 編集モード簡便化: 未動作",
+            "description":"A2: 編集モード簡便化",
             "manipulators": manipulatorsA2()
           },
           {
