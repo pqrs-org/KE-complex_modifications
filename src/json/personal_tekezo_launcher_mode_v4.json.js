@@ -13,27 +13,25 @@ function main() {
         maintainers: ['tekezo'],
         rules: [
           {
-            description: 'Launcher Mode v4 (rev 26)',
+            description: 'Launcher Mode v4 (rev 27)',
             available_since: '15.3.4',
             manipulators: [].concat(
-              generateLauncherMode('1', { frontmostApplicationHistoryIndex: 1 }),
-              generateLauncherMode('2', { frontmostApplicationHistoryIndex: 2 }),
-              generateLauncherMode('3', { frontmostApplicationHistoryIndex: 3 }),
-              generateLauncherMode('4', { frontmostApplicationHistoryIndex: 4 }),
-              generateLauncherMode('5', { frontmostApplicationHistoryIndex: 5 }),
               generateLauncherMode('a', { bundleIdentifier: 'com.apple.ActivityMonitor' }),
+              generateLauncherMode('b', { bundleIdentifier: 'com.microsoft.teams2' }),
               generateLauncherMode('c', { bundleIdentifier: 'com.google.Chrome' }),
               generateLauncherMode('e', { bundleIdentifier: 'com.microsoft.VSCode' }),
               generateLauncherMode('f', { bundleIdentifier: 'com.apple.finder' }),
               generateLauncherMode('g', { bundleIdentifier: 'com.openai.chat' }),
               generateLauncherMode('m', { bundleIdentifier: 'org.mozilla.thunderbird' }),
               generateLauncherMode('q', { bundleIdentifier: 'com.apple.Dictionary' }),
+              generateLauncherMode('r', { frontmostApplicationHistoryIndex: 1 }),
               generateLauncherMode('s', { bundleIdentifier: 'com.apple.Safari' }),
               generateLauncherMode('t', { bundleIdentifier: 'com.apple.Terminal' }),
               generateLauncherMode('v', { bundleIdentifier: 'com.tinyspeck.slackmacgap' }),
+              generateLauncherMode('x', { bundleIdentifier: 'com.apple.dt.Xcode' }),
 
               generateLauncherMode('left_control', { to: [{ key_code: 'mission_control' }] }),
-              generateLauncherMode('left_shift', { to: [{ apple_vendor_keyboard_key_code: 'launchpad' }] })
+              generateLauncherMode('left_shift', { to: [{ apple_vendor_keyboard_key_code: 'spotlight' }] })
             ),
           },
         ],
