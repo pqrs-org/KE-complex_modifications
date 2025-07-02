@@ -5,392 +5,12 @@
   ],
   "rules": [
     {
-      "description": "Launcher Mode v4 (rev 26)",
+      "description": "Launcher Mode v4 (rev 27)",
       "available_since": "15.3.4",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "1",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "software_function": {
-                "open_application": {
-                  "frontmost_application_history_index": 1
-                }
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "launcher_mode_v4",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "o"
-              },
-              {
-                "key_code": "1"
-              }
-            ],
-            "simultaneous_options": {
-              "key_down_order": "strict",
-              "key_up_order": "strict_inverse",
-              "to_after_key_up": [
-                {
-                  "set_variable": {
-                    "name": "launcher_mode_v4",
-                    "value": 0
-                  }
-                }
-              ]
-            },
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "launcher_mode_v4",
-                "value": 1
-              }
-            },
-            {
-              "software_function": {
-                "open_application": {
-                  "frontmost_application_history_index": 1
-                }
-              }
-            }
-          ],
-          "conditions": [],
-          "parameters": {
-            "basic.simultaneous_threshold_milliseconds": 500
-          }
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "2",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "software_function": {
-                "open_application": {
-                  "frontmost_application_history_index": 2
-                }
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "launcher_mode_v4",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "o"
-              },
-              {
-                "key_code": "2"
-              }
-            ],
-            "simultaneous_options": {
-              "key_down_order": "strict",
-              "key_up_order": "strict_inverse",
-              "to_after_key_up": [
-                {
-                  "set_variable": {
-                    "name": "launcher_mode_v4",
-                    "value": 0
-                  }
-                }
-              ]
-            },
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "launcher_mode_v4",
-                "value": 1
-              }
-            },
-            {
-              "software_function": {
-                "open_application": {
-                  "frontmost_application_history_index": 2
-                }
-              }
-            }
-          ],
-          "conditions": [],
-          "parameters": {
-            "basic.simultaneous_threshold_milliseconds": 500
-          }
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "3",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "software_function": {
-                "open_application": {
-                  "frontmost_application_history_index": 3
-                }
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "launcher_mode_v4",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "o"
-              },
-              {
-                "key_code": "3"
-              }
-            ],
-            "simultaneous_options": {
-              "key_down_order": "strict",
-              "key_up_order": "strict_inverse",
-              "to_after_key_up": [
-                {
-                  "set_variable": {
-                    "name": "launcher_mode_v4",
-                    "value": 0
-                  }
-                }
-              ]
-            },
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "launcher_mode_v4",
-                "value": 1
-              }
-            },
-            {
-              "software_function": {
-                "open_application": {
-                  "frontmost_application_history_index": 3
-                }
-              }
-            }
-          ],
-          "conditions": [],
-          "parameters": {
-            "basic.simultaneous_threshold_milliseconds": 500
-          }
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "4",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "software_function": {
-                "open_application": {
-                  "frontmost_application_history_index": 4
-                }
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "launcher_mode_v4",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "o"
-              },
-              {
-                "key_code": "4"
-              }
-            ],
-            "simultaneous_options": {
-              "key_down_order": "strict",
-              "key_up_order": "strict_inverse",
-              "to_after_key_up": [
-                {
-                  "set_variable": {
-                    "name": "launcher_mode_v4",
-                    "value": 0
-                  }
-                }
-              ]
-            },
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "launcher_mode_v4",
-                "value": 1
-              }
-            },
-            {
-              "software_function": {
-                "open_application": {
-                  "frontmost_application_history_index": 4
-                }
-              }
-            }
-          ],
-          "conditions": [],
-          "parameters": {
-            "basic.simultaneous_threshold_milliseconds": 500
-          }
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "5",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "software_function": {
-                "open_application": {
-                  "frontmost_application_history_index": 5
-                }
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "launcher_mode_v4",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "o"
-              },
-              {
-                "key_code": "5"
-              }
-            ],
-            "simultaneous_options": {
-              "key_down_order": "strict",
-              "key_up_order": "strict_inverse",
-              "to_after_key_up": [
-                {
-                  "set_variable": {
-                    "name": "launcher_mode_v4",
-                    "value": 0
-                  }
-                }
-              ]
-            },
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "launcher_mode_v4",
-                "value": 1
-              }
-            },
-            {
-              "software_function": {
-                "open_application": {
-                  "frontmost_application_history_index": 5
-                }
-              }
-            }
-          ],
-          "conditions": [],
-          "parameters": {
-            "basic.simultaneous_threshold_milliseconds": 500
-          }
-        },
-        {
-          "type": "basic",
-          "from": {
             "key_code": "a",
             "modifiers": {
               "optional": [
@@ -529,6 +149,156 @@
               "software_function": {
                 "open_application": {
                   "bundle_identifier": "com.apple.ActivityMonitor"
+                }
+              }
+            }
+          ],
+          "conditions": [],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 500
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "b",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "launcher_mode_v4",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.teams2$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "o"
+              },
+              {
+                "key_code": "b"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "launcher_mode_v4",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "launcher_mode_v4",
+                "value": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.teams2$"
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 500
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "b",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "software_function": {
+                "open_application": {
+                  "bundle_identifier": "com.microsoft.teams2"
+                }
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "launcher_mode_v4",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "o"
+              },
+              {
+                "key_code": "b"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "launcher_mode_v4",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "launcher_mode_v4",
+                "value": 1
+              }
+            },
+            {
+              "software_function": {
+                "open_application": {
+                  "bundle_identifier": "com.microsoft.teams2"
                 }
               }
             }
@@ -1441,6 +1211,82 @@
         {
           "type": "basic",
           "from": {
+            "key_code": "r",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "software_function": {
+                "open_application": {
+                  "frontmost_application_history_index": 1
+                }
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "launcher_mode_v4",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "o"
+              },
+              {
+                "key_code": "r"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "launcher_mode_v4",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "launcher_mode_v4",
+                "value": 1
+              }
+            },
+            {
+              "software_function": {
+                "open_application": {
+                  "frontmost_application_history_index": 1
+                }
+              }
+            }
+          ],
+          "conditions": [],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 500
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
             "key_code": "s",
             "modifiers": {
               "optional": [
@@ -1879,6 +1725,156 @@
               "software_function": {
                 "open_application": {
                   "bundle_identifier": "com.tinyspeck.slackmacgap"
+                }
+              }
+            }
+          ],
+          "conditions": [],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 500
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "x",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "launcher_mode_v4",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.dt\\.Xcode$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "o"
+              },
+              {
+                "key_code": "x"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "launcher_mode_v4",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "launcher_mode_v4",
+                "value": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.dt\\.Xcode$"
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 500
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "x",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "software_function": {
+                "open_application": {
+                  "bundle_identifier": "com.apple.dt.Xcode"
+                }
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "launcher_mode_v4",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "o"
+              },
+              {
+                "key_code": "x"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "launcher_mode_v4",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "launcher_mode_v4",
+                "value": 1
+              }
+            },
+            {
+              "software_function": {
+                "open_application": {
+                  "bundle_identifier": "com.apple.dt.Xcode"
                 }
               }
             }
@@ -1968,7 +1964,7 @@
           },
           "to": [
             {
-              "apple_vendor_keyboard_key_code": "launchpad"
+              "apple_vendor_keyboard_key_code": "spotlight"
             }
           ],
           "conditions": [
@@ -2016,7 +2012,7 @@
               }
             },
             {
-              "apple_vendor_keyboard_key_code": "launchpad"
+              "apple_vendor_keyboard_key_code": "spotlight"
             }
           ],
           "conditions": [],
