@@ -5,6 +5,65 @@
     ],
     "rules": [
         {
+            "description": "Use capslock to enter mouse keys mode for Mouse Keys Mode v4",
+            "manipulators": [
+                {
+                    "conditions": [
+                        {
+                            "name": "mouse_keys_mode_v4",
+                            "type": "variable_if",
+                            "value": 0
+                        }
+                    ],
+                    "from": {
+                        "key_code": "caps_lock"
+                    },
+                    "to": [
+                        {
+                            "set_variable": {
+                                "name": "mouse_keys_mode_v4",
+                                "value": 1
+                            }
+                        },
+                        {
+                            "set_notification_message": {
+                                "id": "mouse_keys",
+                                "text": "Mouse Keys Mode"
+                            }
+                        }
+                    ],
+                    "type": "basic"
+                },
+{
+                    "conditions": [
+                        {
+                            "name": "mouse_keys_mode_v4",
+                            "type": "variable_if",
+                            "value": 1
+                        }
+                    ],
+                    "from": {
+                        "key_code": "caps_lock"
+                    },
+                    "to": [
+                        {
+                            "set_variable": {
+                                "name": "mouse_keys_mode_v4",
+                                "value": 0
+                            }
+                        },
+                        {
+                            "set_notification_message": {
+                                "id": "mouse_keys",
+                                "text": ""
+                            }
+                        }
+                    ],
+                    "type": "basic"
+                }                
+            ]
+        },
+        {
             "description": "Mouse Keys Mode v4 (tweaked from @tekezo rev 3)",
             "manipulators": [
                 {
