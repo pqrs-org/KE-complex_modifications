@@ -2,7 +2,7 @@
     "title": "Swiss Keyboard Layout for macOS",
     "rules": [
         {
-            "description": "ctrl + c --> copy OR alt-gr + 2 --> @",
+            "description": "Basic Swiss keyboard layout adjustments. For example [ctrl+c = copy] and [ctrl+v = paste].",
             "manipulators": [
                 {
                     "from": {
@@ -247,6 +247,149 @@
                         }
                     ],
                     "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "For devs who want their fingers to stay spry even in their golden years! Affects IDEs only.",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com\\.microsoft\\.VSCode",
+                                "^com\\.microsoft\\.VSCodeInsiders"
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "non_us_backslash"
+                    },
+                    "to": [
+                        {
+                            "key_code": "period",
+                            "modifiers": [
+                                "right_shift"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com\\.microsoft\\.VSCode",
+                                "^com\\.microsoft\\.VSCodeInsiders"
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "5"
+                    },
+                    "to": [
+                        {
+                            "key_code": "5",
+                            "modifiers": [
+                                "left_option"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com\\.microsoft\\.VSCode",
+                                "^com\\.microsoft\\.VSCodeInsiders"
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "6"
+                    },
+                    "to": [
+                        {
+                            "key_code": "6",
+                            "modifiers": [
+                                "left_option"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com\\.microsoft\\.VSCode",
+                                "^com\\.microsoft\\.VSCodeInsiders"
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "7"
+                    },
+                    "to": [
+                        {
+                            "key_code": "7",
+                            "modifiers": [
+                                "left_option"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com\\.microsoft\\.VSCode",
+                                "^com\\.microsoft\\.VSCodeInsiders"
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "8"
+                    },
+                    "to": [
+                        {
+                            "key_code": "8",
+                            "modifiers": [
+                                "left_option"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com\\.microsoft\\.VSCode",
+                                "^com\\.microsoft\\.VSCodeInsiders"
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "9"
+                    },
+                    "to": [
+                        {
+                            "key_code": "9",
+                            "modifiers": [
+                                "left_option"
+                            ]
+                        }
+                    ]
                 }
             ]
         }
