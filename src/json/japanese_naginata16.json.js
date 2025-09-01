@@ -955,7 +955,7 @@ function main() {
   console.log(
     JSON.stringify(
       {
-        "title":"Key layout for Japanese \"薙刀式\" 16",
+        "title":"Key layout for Japanese: Naginata (薙刀式) v16",
         "rules":[
           {
             "description": "O1: 小説・脚本マクロ（縦書き:O2と排他的）",
