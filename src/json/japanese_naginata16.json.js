@@ -1,6 +1,51 @@
 // JavaScript should be written in ECMAScript 5.1.
 
+// 
+// japanese_naginata16.json.js
 //
+// This is a key layout for Japanese, Naginata method (薙刀式) version 16
+// authored by Toshihiko O'oka
+//
+// This JavaScript code is based on reverse-engineering of json files for
+// previous versions provided by following authors:
+//
+//       sorshi        for version 11
+//       tor-nky       for version 14
+//       funatsufumiya for version 15
+//
+// Names above are user names at GitHub (https://github.com/) as of
+// September 1, 2025.
+//
+// The following license applies to this file, resulting json file
+// japanese_naginata16.json and related documentation if any.
+
+// ------------ (license clause starts from here) ------------
+//
+// MIT License
+// 
+// Copyright 2025 Koji Yokota
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the “Software”),
+// to deal in the Software without restriction, including without limitation
+// the rights to use, copy, modify, merge, publish, distribute, sublicense,
+// and/or sell copies of the Software, and to permit persons to whom the
+// Software is furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+// THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+// OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+// ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+// OTHER DEALINGS IN THE SOFTWARE.
+//
+// ------------ (license clause ends here) ------------
+
+
 // transmit_varの取り得る値は以下の通り
 // DL: 右濁音キーモード　DR: 左濁音キーモード HL: 右半濁音キーモード HR: 左半濁音キーモード KO: 小文字キーモード
 // EM1L: 編集モード左1面 EM1R: 編集モード右1面 EM2L: 編集モード左2面 EM2R: 編集モード右2面
