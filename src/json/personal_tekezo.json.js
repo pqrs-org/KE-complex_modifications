@@ -10,14 +10,13 @@ function main() {
         maintainers: ['tekezo'],
         rules: [
           {
-            description: 'Personal rules (@tekezo) (rev 58)',
+            description: 'Personal rules (@tekezo) (rev 59)',
             available_since: '15.2.3',
             manipulators: [].concat(
               coreConfiguration(),
               emacs(),
               mouse(),
               extraCursor(),
-              deviceSpecific(),
               holdingHyphen(),
               appVirtualMachine(),
               appFinder(),
@@ -383,6 +382,18 @@ function coreConfiguration() {
         },
       ],
     },
+
+    // f13 -> command+shift+4
+    {
+      type: 'basic',
+      from: { key_code: 'f13' },
+      to: [
+        {
+          key_code: '4',
+          modifiers: ['left_command', 'left_shift'],
+        },
+      ],
+    },
   ]
 }
 
@@ -668,79 +679,6 @@ function holdingHyphen() {
       },
     },
   ]
-}
-
-function deviceSpecific() {
-  const result = []
-
-  const defs = {
-    0: 'keypad_0',
-    1: 'keypad_1',
-    2: 'keypad_2',
-    3: 'keypad_3',
-    4: 'keypad_4',
-    5: 'keypad_5',
-    6: 'keypad_6',
-    7: 'keypad_7',
-    8: 'keypad_8',
-    9: 'keypad_9',
-    hyphen: 'keypad_hyphen',
-    equal_sign: 'keypad_equal_sign',
-    f1: 'f1',
-    f2: 'f2',
-    f3: 'f3',
-    f4: 'f4',
-    f5: 'f5',
-    f6: 'f6',
-    f7: 'f7',
-    f8: 'f8',
-    f9: 'f9',
-    f10: 'f10',
-    f11: 'f11',
-    f12: 'f12',
-  }
-
-  Object.keys(defs).forEach(function (from) {
-    to = defs[from]
-
-    result.push({
-      type: 'basic',
-      from: {
-        key_code: from,
-      },
-      to: [{ key_code: to }],
-      conditions: [
-        {
-          // The sub keyboard
-          type: 'device_if',
-          identifiers: [
-            {
-              vendor_id: 3141,
-              product_id: 29699,
-            },
-          ],
-        },
-        {
-          // The main keyboard
-          type: 'device_exists_if',
-          identifiers: [
-            {
-              // X-Bows Optical Switches
-              vendor_id: 7847,
-              product_id: 2311,
-            },
-            {
-              // X-Bows QMK/VIA
-              vendor_id: 22594,
-              product_id: 20065,
-            },
-          ],
-        },
-      ],
-    })
-  })
-
-  return result
 }
 
 function appVirtualMachine() {
