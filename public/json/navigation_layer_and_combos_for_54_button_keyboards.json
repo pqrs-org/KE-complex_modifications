@@ -157,7 +157,7 @@
       ]
     },
     {
-      "description": "Two button combos for pgup/home/(/{/[/]/}/)/end/pgdn/`/~",
+      "description": "Two button combos for pgup/home/(/{/[/]/}/)/end/pgdn/`/~/\\/|/bksp",
       "manipulators": [
         {
           "from": {
@@ -416,30 +416,6 @@
             },
             "simultaneous": [
               {
-                "key_code": "l"
-              },
-              {
-                "key_code": "semicolon"
-              }
-            ]
-          },
-          "to": [
-            {
-              "key_code": "delete_or_backspace",
-              "modifiers": []
-            }
-          ],
-          "type": "basic"
-        },
-        {
-          "from": {
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            },
-            "simultaneous": [
-              {
                 "key_code": "q"
               },
               {
@@ -476,6 +452,56 @@
           "to": [
             {
               "key_code": "grave_accent_and_tilde",
+              "modifiers": []
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "o"
+              },
+              {
+                "key_code": "p"
+              }
+            ]
+          },
+          "to": [
+            {
+              "key_code": "backslash",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "simultaneous": [
+              {
+                "key_code": "comma"
+              },
+              {
+                "key_code": "period"
+              }
+            ]
+          },
+          "to": [
+            {
+              "key_code": "delete_or_backspace",
               "modifiers": []
             }
           ],
