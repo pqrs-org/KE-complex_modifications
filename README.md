@@ -23,7 +23,6 @@ For example, the "Emacs key bindings" package includes several rule sets for dif
 | ![distributed-json-file](./files/distributed-json-file@2x.png) | ![complex-modifications](./files/complex-modifications@2x.png) |
 
 To package them this way, the JSON has the following structure.
-
 Each element under rules is a single rule as defined in Complex Modifications.
 
 If you list GitHub usernames in the "maintainers" field, the distribution site will automatically link to those accounts:
