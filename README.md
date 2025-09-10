@@ -13,6 +13,50 @@ complex_modifications for Karabiner-Elements.
     -   [Typical complex_modifications examples](https://karabiner-elements.pqrs.org/docs/json/typical-complex-modifications-examples/)
     -   [complex_modifications manipulator definition](https://karabiner-elements.pqrs.org/docs/json/complex-modifications-manipulator-definition/)
 
+## JSON file format in this repository
+
+The JSON files in this repository bundle multiple rules into a single file so users can pick and enable what they need.
+For example, the "Emacs key bindings" package includes several rule sets for different use cases.
+
+| The distributed JSON file                                      | Complex Modifications                                          |
+| -------------------------------------------------------------- | -------------------------------------------------------------- |
+| ![distributed-json-file](./files/distributed-json-file@2x.png) | ![complex-modifications](./files/complex-modifications@2x.png) |
+
+To package them this way, the JSON has the following structure.
+Each element under rules is a single rule as defined in Complex Modifications.
+
+If you list GitHub usernames in the "maintainers" field, the distribution site will automatically link to those accounts:
+<https://ke-complex-modifications.pqrs.org/>
+
+```json
+{
+    "title": "Emacs key bindings (rev XXX)",
+    "maintainers": ["tekezo"],
+    "rules": [
+        {
+            "description": "Emacs key bindings [control+keys] (rev XXX)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {},
+                    "to": []
+                }
+            ]
+        },
+        {
+            "description": "Emacs key bindings [option+keys] (rev XXX)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {},
+                    "to": []
+                }
+            ]
+        }
+    ]
+}
+```
+
 ## How to add your rules
 
 Follow the steps below to create a PR and add your settings!
