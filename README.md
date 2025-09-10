@@ -24,31 +24,33 @@ For example, the "Emacs key bindings" package includes several rule sets for dif
 
 To package them this way, the JSON has the following structure.
 
+Each element under rules is a single rule as defined in Complex Modifications.
+
 If you list GitHub usernames in the "maintainers" field, the distribution site will automatically link to those accounts:
 <https://ke-complex-modifications.pqrs.org/>
 
 ```json
 {
-    "title": "Emacs key bindings",
+    "title": "Emacs key bindings (rev XXX)",
     "maintainers": ["tekezo"],
     "rules": [
         {
-            "description": "Emacs key bindings [control+keys]",
+            "description": "Emacs key bindings [control+keys] (rev XXX)",
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": { ... },
-                    "to": [ ... ]
+                    "from": {},
+                    "to": []
                 }
             ]
         },
         {
-            "description": "Emacs key bindings [option+keys]",
+            "description": "Emacs key bindings [option+keys] (rev XXX)",
             "manipulators": [
                 {
                     "type": "basic",
-                    "from": { ... },
-                    "to": [ ... ]
+                    "from": {},
+                    "to": []
                 }
             ]
         }
