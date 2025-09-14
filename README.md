@@ -143,6 +143,44 @@ Follow the steps below to create a PR and add your settings!
 
 10. Create a PR on GitHub.
 
+## How to add additional description for your rules
+
+Use the `description` field to explain how each distributed JSON rule works.
+If a one-line description is not enough (e.g., for complex rules), you can add supplementary text on the site:
+
+1.  Place an HTML file under `public/extra_descriptions/`.
+2.  Reference that HTML file from `public/groups.json`.
+
+The additional description will then appear on the site as shown in the screenshot.
+
+| JSON only                               | With extra description                                |
+| --------------------------------------- | ----------------------------------------------------- |
+| ![json-only](./files/site-rules@2x.png) | ![extra description](./files/site-description@2x.png) |
+
+-   Example of extra description:
+    -   <https://ke-complex-modifications.pqrs.org/?q=diamond#multitouch_diamond_cursor>
+-   Example of HTML file:
+    -   <https://github.com/pqrs-org/KE-complex_modifications/blob/main/public/extra_descriptions/multitouch_diamond_cursor.json.html>
+-   Example entry in groups.json:
+
+```json
+{
+    "path": "json/multitouch_diamond_cursor.json",
+    "extra_description_path": "extra_descriptions/multitouch_diamond_cursor.json.html"
+}
+```
+
+### Tips for writing extra description HTML file
+
+-   Bootstrap's CSS are applied automatically, so you can adjust spacing with utility classes like mt-4, etc.
+-   Do not include `<html>` and `<body>` tags. Write only the HTML for the description section.
+-   You can include images with tags like `<img src="multitouch-extension/enable-multitouch-extension.png" class="img-fluid border" />`.
+    Be sure to add the images to the repository you want to use them.
+-   As described above, you can preview your HTML by `make preview-server` command and open `http://localhost:8000/` in your browser.
+    The HTML file will not be loaded unless you specify `extra_description_path` in `public/groups.json`, so be sure to update `groups.json`.
+-   After modifying an HTML file, reload the page in your browser to reflect the changes on the preview server.
+    Automatic hot reload is not supported.
+
 ## Sync your fork
 
 To update your previously forked repositories, run the following command in Terminal.
