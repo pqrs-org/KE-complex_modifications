@@ -175,7 +175,7 @@ The additional description will then appear on the site as shown in the screensh
 -   Bootstrap's CSS are applied automatically, so you can adjust spacing with utility classes like mt-4, etc.
 -   Do not include `<html>` and `<body>` tags. Write only the HTML for the description section.
 -   You can include images with tags like `<img src="multitouch-extension/enable-multitouch-extension.png" class="img-fluid border" />`.
-    Be sure to add the images to the repository you want to use them.
+    Be sure to add the images to the repository.
 -   As described above, you can preview your HTML by `make preview-server` command and open `http://localhost:8000/` in your browser.
     The HTML file will not be loaded unless you specify `extra_description_path` in `public/groups.json`, so be sure to update `groups.json`.
 -   After modifying an HTML file, reload the page in your browser to reflect the changes on the preview server.
