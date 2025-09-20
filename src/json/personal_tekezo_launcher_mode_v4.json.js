@@ -13,12 +13,13 @@ function main() {
         maintainers: ['tekezo'],
         rules: [
           {
-            description: 'Launcher Mode v4 (rev 27)',
+            description: 'Launcher Mode v4 (rev 28)',
             available_since: '15.3.4',
             manipulators: [].concat(
               generateLauncherMode('a', { bundleIdentifier: 'com.apple.ActivityMonitor' }),
               generateLauncherMode('b', { bundleIdentifier: 'com.microsoft.teams2' }),
               generateLauncherMode('c', { bundleIdentifier: 'com.google.Chrome' }),
+              generateLauncherMode('d', { bundleIdentifier: 'org.mozilla.firefox' }),
               generateLauncherMode('e', { bundleIdentifier: 'com.microsoft.VSCode' }),
               generateLauncherMode('f', { bundleIdentifier: 'com.apple.finder' }),
               generateLauncherMode('g', { bundleIdentifier: 'com.openai.chat' }),
