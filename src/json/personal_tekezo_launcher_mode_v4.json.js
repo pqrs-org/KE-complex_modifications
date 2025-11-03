@@ -13,7 +13,7 @@ function main() {
         maintainers: ['tekezo'],
         rules: [
           {
-            description: 'Launcher Mode v4 (rev 28)',
+            description: 'Launcher Mode v4 (rev 29)',
             available_since: '15.3.4',
             manipulators: [].concat(
               generateLauncherMode('a', { bundleIdentifier: 'com.apple.ActivityMonitor' }),
@@ -32,7 +32,8 @@ function main() {
               generateLauncherMode('x', { bundleIdentifier: 'com.apple.dt.Xcode' }),
 
               generateLauncherMode('left_control', { to: [{ key_code: 'mission_control' }] }),
-              generateLauncherMode('left_shift', { to: [{ apple_vendor_keyboard_key_code: 'spotlight' }] })
+              // Show Apps shortcut
+              generateLauncherMode('left_shift', { to: [{ key_code: 'spacebar', modifiers: ['left_command'] }] })
             ),
           },
         ],
