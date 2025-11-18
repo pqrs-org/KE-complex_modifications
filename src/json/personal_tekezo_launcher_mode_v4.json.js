@@ -13,7 +13,7 @@ function main() {
         maintainers: ['tekezo'],
         rules: [
           {
-            description: 'Launcher Mode v4 (rev 30)',
+            description: 'Launcher Mode v4 (rev 31)',
             available_since: '15.7.3',
             manipulators: [].concat(
               generateLauncherMode('a', { bundleIdentifier: 'com.apple.ActivityMonitor' }),
@@ -28,6 +28,7 @@ function main() {
               generateLauncherMode('r', {
                 frontmostApplicationHistoryIndex: 1,
                 frontmostApplicationHistoryExclusionBundleIdentifiers: [
+                  '^com\\.1password\\.1password$',
                   '^com\\.apple\\.ActivityMonitor$',
                   '^com\\.apple\\.Dictionary$',
                   '^com\\.apple\\.dt\\.Xcode$',
