@@ -4,7 +4,7 @@ function main() {
 
     const rules = [
         {
-            description: "⌘ + ⌥ + T opens Terminal",
+            description: "⌘ + ⌥ + T opens a new Terminal window",
             manipulators: [
                 {
                     type: "basic",
@@ -28,7 +28,7 @@ function main() {
     ]
 
     const json = {
-        title: "Open Terminal with ⌘ + ⌥ + T",
+        title: "Open a new Terminal window with ⌘ + ⌥ + T",
         maintainers: ["SHi-ON"],
         rules: rules.map(function (rule) {
             return {
