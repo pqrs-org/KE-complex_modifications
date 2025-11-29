@@ -1,23 +1,27 @@
 {
     "title": "Capital Ñ for English Keyboard",
-    "description": "Add N with sign (Ñ) using Control + Shift + N",
-    "manipulators": [
+    "rules": [
         {
-            "from": {
-                "key_code": "n",
-                "modifiers": { "mandatory": ["control", "shift"] }
-            },
-            "to": [
+            "description": "Add N with sign (Ñ) using Control + Shift + N",
+            "manipulators": [
                 {
-                    "key_code": "n",
-                    "modifiers": ["option"]
-                },
-                {
-                    "key_code": "n",
-                    "modifiers": ["shift"]
+                    "from": {
+                        "key_code": "n",
+                        "modifiers": { "mandatory": ["control", "shift"] }
+                    },
+                    "to": [
+                        {
+                            "key_code": "n",
+                            "modifiers": ["option"]
+                        },
+                        {
+                            "key_code": "n",
+                            "modifiers": ["shift"]
+                        }
+                    ],
+                    "type": "basic"
                 }
-            ],
-            "type": "basic"
+            ]
         }
     ]
 }
