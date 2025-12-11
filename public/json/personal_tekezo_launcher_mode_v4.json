@@ -5,8 +5,8 @@
   ],
   "rules": [
     {
-      "description": "Launcher Mode v4 (rev 28)",
-      "available_since": "15.3.4",
+      "description": "Launcher Mode v4 (rev 31)",
+      "available_since": "15.7.3",
       "manipulators": [
         {
           "type": "basic",
@@ -1372,7 +1372,23 @@
             {
               "software_function": {
                 "open_application": {
-                  "frontmost_application_history_index": 1
+                  "frontmost_application_history_index": 1,
+                  "frontmost_application_history_exclusion_bundle_identifiers": [
+                    "^com\\.1password\\.1password$",
+                    "^com\\.apple\\.ActivityMonitor$",
+                    "^com\\.apple\\.Dictionary$",
+                    "^com\\.apple\\.dt\\.Xcode$",
+                    "^com\\.apple\\.finder$",
+                    "^com\\.apple\\.Safari$",
+                    "^com\\.apple\\.Terminal$",
+                    "^com\\.google\\.Chrome$",
+                    "^com\\.microsoft\\.teams2$",
+                    "^com\\.microsoft\\.VSCode$",
+                    "^com\\.openai\\.chat$",
+                    "^com\\.tinyspeck\\.slackmacgap$",
+                    "^org\\.mozilla\\.firefox$",
+                    "^org\\.mozilla\\.thunderbird$"
+                  ]
                 }
               }
             }
@@ -1424,7 +1440,23 @@
             {
               "software_function": {
                 "open_application": {
-                  "frontmost_application_history_index": 1
+                  "frontmost_application_history_index": 1,
+                  "frontmost_application_history_exclusion_bundle_identifiers": [
+                    "^com\\.1password\\.1password$",
+                    "^com\\.apple\\.ActivityMonitor$",
+                    "^com\\.apple\\.Dictionary$",
+                    "^com\\.apple\\.dt\\.Xcode$",
+                    "^com\\.apple\\.finder$",
+                    "^com\\.apple\\.Safari$",
+                    "^com\\.apple\\.Terminal$",
+                    "^com\\.google\\.Chrome$",
+                    "^com\\.microsoft\\.teams2$",
+                    "^com\\.microsoft\\.VSCode$",
+                    "^com\\.openai\\.chat$",
+                    "^com\\.tinyspeck\\.slackmacgap$",
+                    "^org\\.mozilla\\.firefox$",
+                    "^org\\.mozilla\\.thunderbird$"
+                  ]
                 }
               }
             }
@@ -2114,7 +2146,10 @@
           },
           "to": [
             {
-              "apple_vendor_keyboard_key_code": "spotlight"
+              "key_code": "spacebar",
+              "modifiers": [
+                "left_command"
+              ]
             }
           ],
           "conditions": [
@@ -2162,7 +2197,10 @@
               }
             },
             {
-              "apple_vendor_keyboard_key_code": "spotlight"
+              "key_code": "spacebar",
+              "modifiers": [
+                "left_command"
+              ]
             }
           ],
           "conditions": [],

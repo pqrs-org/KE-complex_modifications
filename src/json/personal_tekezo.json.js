@@ -10,7 +10,7 @@ function main() {
         maintainers: ['tekezo'],
         rules: [
           {
-            description: 'Personal rules (@tekezo) (rev 59)',
+            description: 'Personal rules (@tekezo) (rev 60)',
             available_since: '15.2.3',
             manipulators: [].concat(
               coreConfiguration(),
@@ -932,46 +932,6 @@ function appTerminal() {
           mandatory: ['command'],
           optional: ['any'],
         },
-      },
-      conditions: [
-        {
-          type: 'frontmost_application_if',
-          bundle_identifiers: karabiner.bundleIdentifiers.terminal,
-        },
-      ],
-    },
-
-    // Disable command+w
-    {
-      type: 'basic',
-      from: {
-        key_code: 'w',
-        modifiers: {
-          mandatory: ['command'],
-          optional: ['any'],
-        },
-      },
-      conditions: [
-        {
-          type: 'frontmost_application_if',
-          bundle_identifiers: karabiner.bundleIdentifiers.terminal,
-        },
-      ],
-    },
-
-    // Change command+t to option+t
-    {
-      type: 'basic',
-      from: {
-        key_code: 't',
-        modifiers: {
-          mandatory: ['command'],
-          optional: ['any'],
-        },
-      },
-      to: {
-        key_code: 't',
-        modifiers: ['left_option'],
       },
       conditions: [
         {

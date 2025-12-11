@@ -13,8 +13,8 @@ function main() {
         maintainers: ['tekezo'],
         rules: [
           {
-            description: 'Launcher Mode v4 (rev 28)',
-            available_since: '15.3.4',
+            description: 'Launcher Mode v4 (rev 31)',
+            available_since: '15.7.3',
             manipulators: [].concat(
               generateLauncherMode('a', { bundleIdentifier: 'com.apple.ActivityMonitor' }),
               generateLauncherMode('b', { bundleIdentifier: 'com.microsoft.teams2' }),
@@ -25,14 +25,33 @@ function main() {
               generateLauncherMode('g', { bundleIdentifier: 'com.openai.chat' }),
               generateLauncherMode('m', { bundleIdentifier: 'org.mozilla.thunderbird' }),
               generateLauncherMode('q', { bundleIdentifier: 'com.apple.Dictionary' }),
-              generateLauncherMode('r', { frontmostApplicationHistoryIndex: 1 }),
+              generateLauncherMode('r', {
+                frontmostApplicationHistoryIndex: 1,
+                frontmostApplicationHistoryExclusionBundleIdentifiers: [
+                  '^com\\.1password\\.1password$',
+                  '^com\\.apple\\.ActivityMonitor$',
+                  '^com\\.apple\\.Dictionary$',
+                  '^com\\.apple\\.dt\\.Xcode$',
+                  '^com\\.apple\\.finder$',
+                  '^com\\.apple\\.Safari$',
+                  '^com\\.apple\\.Terminal$',
+                  '^com\\.google\\.Chrome$',
+                  '^com\\.microsoft\\.teams2$',
+                  '^com\\.microsoft\\.VSCode$',
+                  '^com\\.openai\\.chat$',
+                  '^com\\.tinyspeck\\.slackmacgap$',
+                  '^org\\.mozilla\\.firefox$',
+                  '^org\\.mozilla\\.thunderbird$',
+                ],
+              }),
               generateLauncherMode('s', { bundleIdentifier: 'com.apple.Safari' }),
               generateLauncherMode('t', { bundleIdentifier: 'com.apple.Terminal' }),
               generateLauncherMode('v', { bundleIdentifier: 'com.tinyspeck.slackmacgap' }),
               generateLauncherMode('x', { bundleIdentifier: 'com.apple.dt.Xcode' }),
 
               generateLauncherMode('left_control', { to: [{ key_code: 'mission_control' }] }),
-              generateLauncherMode('left_shift', { to: [{ apple_vendor_keyboard_key_code: 'spotlight' }] })
+              // Show Apps shortcut
+              generateLauncherMode('left_shift', { to: [{ key_code: 'spacebar', modifiers: ['left_command'] }] })
             ),
           },
         ],
@@ -49,6 +68,7 @@ function generateLauncherMode(
    * @type {{
    *   bundleIdentifier?: string,
    *   frontmostApplicationHistoryIndex?: number,
+   *   frontmostApplicationHistoryExclusionBundleIdentifiers?: string[],
    *   to?: any[],
    * }} */
   options
@@ -70,6 +90,7 @@ function generateLauncherMode(
       software_function: {
         open_application: {
           frontmost_application_history_index: options.frontmostApplicationHistoryIndex,
+          frontmost_application_history_exclusion_bundle_identifiers: options.frontmostApplicationHistoryExclusionBundleIdentifiers,
         },
       },
     })
