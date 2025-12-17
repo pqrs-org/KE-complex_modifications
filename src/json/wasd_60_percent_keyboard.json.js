@@ -84,7 +84,12 @@ function main() {
                                     "key_code": "h",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "key_code": "home" }],
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow",
+                                        "modifiers": ["right_command"]
+                                    }
+                                ],
                                 "type": "basic"
                             },
                             {
@@ -99,7 +104,12 @@ function main() {
                                     "key_code": "n",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "key_code": "end" }],
+                                "to": [
+                                    {
+                                        "key_code": "right_arrow",
+                                        "modifiers": ["right_command"]
+                                    }
+                                ],
                                 "type": "basic"
                             },
                             {
