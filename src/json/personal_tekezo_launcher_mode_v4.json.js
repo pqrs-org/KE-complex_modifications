@@ -13,7 +13,7 @@ function main() {
         maintainers: ['tekezo'],
         rules: [
           {
-            description: 'Launcher Mode v4 (rev 31)',
+            description: 'Launcher Mode v4 (rev 32)',
             available_since: '15.7.3',
             manipulators: [].concat(
               generateLauncherMode('a', { bundleIdentifier: 'com.apple.ActivityMonitor' }),
@@ -34,6 +34,7 @@ function main() {
                   '^com\\.apple\\.dt\\.Xcode$',
                   '^com\\.apple\\.finder$',
                   '^com\\.apple\\.Safari$',
+                  '^com\\.apple\\.loginwindow$',
                   '^com\\.apple\\.Terminal$',
                   '^com\\.google\\.Chrome$',
                   '^com\\.microsoft\\.teams2$',
