@@ -1,0 +1,41 @@
+<div class="home-row-mods">
+  <p style="margin-top: 20px; font-weight: bold">HRM: Home Row Mods ⌃⌥⌘⇧</p>
+
+  <p>
+    Use home row keys as modifiers<br />
+    This mod is generated using https://github.com/gregorias/karabiner.ts-greg-mods
+  </p>
+
+  <b>Key bindings:</b>
+  <ul>
+
+    <li><kbd>a</kbd> or <kbd>;</kbd> for <kbd>⌃</kbd></li>
+    <li><kbd>s</kbd> or <kbd>l</kbd> for <kbd>⌥</kbd></li>
+    <li><kbd>d</kbd> or <kbd>k</kbd> for <kbd>⌘</kbd></li>
+    <li><kbd>f</kbd> or <kbd>j</kbd> for <kbd>⇧</kbd></li>
+  </ul>
+
+  <code>
+    import { rule, writeToProfile } from "karabiner.ts";
+    import { hrm } from "karabiner.ts-greg-mods";
+
+    writeToProfile("Default profile", [
+      rule("Home row mods").manipulators(
+        hrm(
+          new Map([
+            ["a", "l⌃"],
+            ["s", "l⌥"],
+            ["d", "l⌘"],
+            ["f", "l⇧"],
+
+            ["j", "r⇧"],
+            ["k", "r⌘"],
+            ["l", "r⌥"],
+            [";", "r⌃"]
+          ])
+        ).build()
+      )
+    ]);
+  </code>
+
+</div>

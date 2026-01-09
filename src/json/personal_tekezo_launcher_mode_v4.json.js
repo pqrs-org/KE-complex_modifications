@@ -13,27 +13,47 @@ function main() {
         maintainers: ['tekezo'],
         rules: [
           {
-            description: 'Launcher Mode v4 (rev 26)',
-            available_since: '15.3.4',
+            description: 'Launcher Mode v4 (rev 33)',
+            available_since: '15.7.3',
             manipulators: [].concat(
-              generateLauncherMode('1', { frontmostApplicationHistoryIndex: 1 }),
-              generateLauncherMode('2', { frontmostApplicationHistoryIndex: 2 }),
-              generateLauncherMode('3', { frontmostApplicationHistoryIndex: 3 }),
-              generateLauncherMode('4', { frontmostApplicationHistoryIndex: 4 }),
-              generateLauncherMode('5', { frontmostApplicationHistoryIndex: 5 }),
               generateLauncherMode('a', { bundleIdentifier: 'com.apple.ActivityMonitor' }),
+              generateLauncherMode('b', { bundleIdentifier: 'com.microsoft.teams2' }),
               generateLauncherMode('c', { bundleIdentifier: 'com.google.Chrome' }),
+              generateLauncherMode('d', { bundleIdentifier: 'org.mozilla.firefox' }),
               generateLauncherMode('e', { bundleIdentifier: 'com.microsoft.VSCode' }),
               generateLauncherMode('f', { bundleIdentifier: 'com.apple.finder' }),
               generateLauncherMode('g', { bundleIdentifier: 'com.openai.chat' }),
               generateLauncherMode('m', { bundleIdentifier: 'org.mozilla.thunderbird' }),
               generateLauncherMode('q', { bundleIdentifier: 'com.apple.Dictionary' }),
+              generateLauncherMode('r', {
+                frontmostApplicationHistoryIndex: 1,
+                frontmostApplicationHistoryExclusionBundleIdentifiers: [
+                  '^com\\.1password\\.1password$',
+                  '^com\\.apple\\.ActivityMonitor$',
+                  '^com\\.apple\\.Dictionary$',
+                  '^com\\.apple\\.dock$',
+                  '^com\\.apple\\.dt\\.Xcode$',
+                  '^com\\.apple\\.finder$',
+                  '^com\\.apple\\.loginwindow$',
+                  '^com\\.apple\\.Safari$',
+                  '^com\\.apple\\.Terminal$',
+                  '^com\\.google\\.Chrome$',
+                  '^com\\.microsoft\\.teams2$',
+                  '^com\\.microsoft\\.VSCode$',
+                  '^com\\.openai\\.chat$',
+                  '^com\\.tinyspeck\\.slackmacgap$',
+                  '^org\\.mozilla\\.firefox$',
+                  '^org\\.mozilla\\.thunderbird$',
+                ],
+              }),
               generateLauncherMode('s', { bundleIdentifier: 'com.apple.Safari' }),
               generateLauncherMode('t', { bundleIdentifier: 'com.apple.Terminal' }),
               generateLauncherMode('v', { bundleIdentifier: 'com.tinyspeck.slackmacgap' }),
+              generateLauncherMode('x', { bundleIdentifier: 'com.apple.dt.Xcode' }),
 
               generateLauncherMode('left_control', { to: [{ key_code: 'mission_control' }] }),
-              generateLauncherMode('left_shift', { to: [{ apple_vendor_keyboard_key_code: 'launchpad' }] })
+              // Show Apps shortcut
+              generateLauncherMode('left_shift', { to: [{ key_code: 'spacebar', modifiers: ['left_command'] }] })
             ),
           },
         ],
@@ -50,6 +70,7 @@ function generateLauncherMode(
    * @type {{
    *   bundleIdentifier?: string,
    *   frontmostApplicationHistoryIndex?: number,
+   *   frontmostApplicationHistoryExclusionBundleIdentifiers?: string[],
    *   to?: any[],
    * }} */
   options
@@ -71,6 +92,7 @@ function generateLauncherMode(
       software_function: {
         open_application: {
           frontmost_application_history_index: options.frontmostApplicationHistoryIndex,
+          frontmost_application_history_exclusion_bundle_identifiers: options.frontmostApplicationHistoryExclusionBundleIdentifiers,
         },
       },
     })

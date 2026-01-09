@@ -1,0 +1,32 @@
+{
+  "title": "Disable ⌘Q for selected apps",
+  "rules": [
+    {
+      "description": "Disable ⌘Q in Firefox, LM Studio, iTerm, and Foxit Reader. Find another app's identifier with: osascript -e 'id of app \"NameOfTheApp\"'",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "mandatory": ["command"],
+              "optional": ["any"]
+            }
+          },
+          "to": [],
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^org\\.mozilla\\.firefox$",
+                "^ai\\.elementlabs\\.lmstudio$",
+                "^com\\.googlecode\\.iterm2$",
+                "^com\\.foxit\\-software\\.Foxit\\.PDF\\.Reader$"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

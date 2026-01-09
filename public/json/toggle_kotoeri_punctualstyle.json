@@ -1,0 +1,29 @@
+{
+    "title": "Toggle Kotoeri punctuation style",
+    "rules": [
+        {
+            "description": "Toggle Kotoeri's punctuation style with control + period",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "period",
+                        "modifiers": {
+                            "mandatory": [
+                                "control"
+                            ],
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "shell_command": "osascript -e 'try' -e '  set current to do shell script \"defaults read com.apple.inputmethod.Kotoeri JIMPrefPunctuationTypeKey\"' -e 'on error' -e '  set current to \"0\"' -e 'end try' -e 'if current = \"3\" then' -e '  do shell script \"defaults write com.apple.inputmethod.Kotoeri JIMPrefPunctuationTypeKey -int 0\"' -e 'else' -e '  do shell script \"defaults write com.apple.inputmethod.Kotoeri JIMPrefPunctuationTypeKey -int 3\"' -e 'end if' -e 'do shell script \"killall -HUP JapaneseIM-RomajiTyping\"' -e 'tell application \"System Events\" to key code 56'"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
