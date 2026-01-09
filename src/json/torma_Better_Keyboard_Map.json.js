@@ -5,7 +5,12 @@ const mapLShiftEscapToCapsLock = require('torma_L_Shift_Escape_to_Caps_Lock.json
 const mapCapsLocktoEscapeOrLCtrlChorded = require('torma_Caps_Lock_to_Escape_or_L_Ctrl_when_Chorded.json');
 const mapShiftsToParensOrShifts = require('torma_QMK_LS(_RS).json');
 const mapCtrlIJKLtoArrowKeys = require('torma_CTRL_I_J_K_L_to_Arrows.json');
-const excludeDropShift = [{ "identifiers": [{ "product_id": 61029, "vendor_id": 1240 }], "type": "device_unless" }];
+const exclusions = [{
+    "identifiers": [
+      { "product_id": 61029, "vendor_id": 1240 },
+      { "product_id": 2400, "vendor_id": 13364 }
+    ], "type": "device_unless"
+  }];
 
 function main() {
   console.log(JSON.stringify({
@@ -40,8 +45,8 @@ function rules() {
   var allManipulators = [];
   var modules = [
     mapLShiftEscapToCapsLock,
-    applyExclusions(mapCapsLocktoEscapeOrLCtrlChorded, excludeDropShift),
-    applyExclusions(mapShiftsToParensOrShifts, excludeDropShift),
+    applyExclusions(mapCapsLocktoEscapeOrLCtrlChorded, exclusions),
+    applyExclusions(mapShiftsToParensOrShifts, exclusions),
     mapCtrlIJKLtoArrowKeys
   ];
 

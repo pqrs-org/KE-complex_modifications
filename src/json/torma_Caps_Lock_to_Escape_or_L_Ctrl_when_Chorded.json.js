@@ -26,8 +26,7 @@ function rules() {
           from: {
             key_code: 'caps_lock',
             modifiers: {
-              mandatory: [],
-              optional: ['any'],
+              optional: ['any']
             },
           },
           to: [{ key_code: 'left_control', lazy: true }],

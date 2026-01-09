@@ -31,7 +31,7 @@ function rules() {
             },
           },
           to: [{ key_code: 'left_shift', lazy: true }],
-          to_if_alone: [{ key_code: '9', modifiers: 'shift' }],
+          to_if_alone: [{ key_code: '9', modifiers: 'left_shift' }],
           type: 'basic',
         },
         {
@@ -44,7 +44,7 @@ function rules() {
             },
           },
           to: [{ key_code: 'right_shift', lazy: true }],
-          to_if_alone: [{ key_code: '0', modifiers: 'shift' }],
+          to_if_alone: [{ key_code: '0', modifiers: 'right_shift' }],
           type: 'basic',
         }
       ],
