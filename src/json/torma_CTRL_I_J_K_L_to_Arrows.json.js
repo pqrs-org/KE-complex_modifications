@@ -26,7 +26,8 @@ function rules() {
           from: {
             key_code: 'i',
             modifiers: {
-              mandatory: ['control'],
+              mandatory: ['left_control'],
+              optional: ['any']
             },
           },
           to: [{ key_code: 'up_arrow' }],
@@ -37,7 +38,8 @@ function rules() {
           from: {
             key_code: 'j',
             modifiers: {
-              mandatory: ['control'],
+              mandatory: ['left_control'],
+              optional: ['any']
             },
           },
           to: [{ key_code: 'left_arrow' }],
@@ -48,7 +50,8 @@ function rules() {
           from: {
             key_code: 'k',
             modifiers: {
-              mandatory: ['control'],
+              mandatory: ['left_control'],
+              optional: ['any']
             },
           },
           to: [{ key_code: 'down_arrow' }],
@@ -59,7 +62,8 @@ function rules() {
           from: {
             key_code: 'l',
             modifiers: {
-              mandatory: ['control'],
+              mandatory: ['left_control'],
+              optional: ['any']
             },
           },
           to: [{ key_code: 'right_arrow' }],

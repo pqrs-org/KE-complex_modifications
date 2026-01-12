@@ -3,7 +3,7 @@
   "maintainer": "torma",
   "rules": [
     {
-      "description": "Better Keyboard Map: Shift + Esc -> Caps; Caps -> Esc (alone), L_CTRL (chorded); CTRL + i/j/k/l for arrows",
+      "description": "Better Keyboard Map: Shift+Esc -> Caps; Caps -> Esc (alone),L_CTRL (chorded); CTRL+i/j/k/l -> arrows; L_SHIFT -> ( (alone),L_SHIFT (chorded) & R_SHIFT -> ) (alone), R_SHIFT (chorded)",
       "manipulators": [
         {
           "description": "Map Left Shift + Esc -> Caps Lock",
@@ -30,7 +30,6 @@
           "from": {
             "key_code": "caps_lock",
             "modifiers": {
-              "mandatory": [],
               "optional": [
                 "any"
               ]
@@ -54,6 +53,90 @@
                 {
                   "product_id": 61029,
                   "vendor_id": 1240
+                },
+                {
+                  "product_id": 2400,
+                  "vendor_id": 13364
+                }
+              ],
+              "type": "device_unless"
+            }
+          ]
+        },
+        {
+          "description": "QMK LS( => L_SHIFT -> ( (alone), L_SHIFT (chorded)",
+          "from": {
+            "key_code": "left_shift",
+            "modifiers": {
+              "mandatory": [],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_shift",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "9",
+              "modifiers": "left_shift"
+            }
+          ],
+          "type": "basic",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "product_id": 61029,
+                  "vendor_id": 1240
+                },
+                {
+                  "product_id": 2400,
+                  "vendor_id": 13364
+                }
+              ],
+              "type": "device_unless"
+            }
+          ]
+        },
+        {
+          "description": "QMK RS) => R_SHIFT -> ) (alone), R_SHIFT(chorded)",
+          "from": {
+            "key_code": "right_shift",
+            "modifiers": {
+              "mandatory": [],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_shift",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "0",
+              "modifiers": "right_shift"
+            }
+          ],
+          "type": "basic",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "product_id": 61029,
+                  "vendor_id": 1240
+                },
+                {
+                  "product_id": 2400,
+                  "vendor_id": 13364
                 }
               ],
               "type": "device_unless"
@@ -66,7 +149,10 @@
             "key_code": "i",
             "modifiers": {
               "mandatory": [
-                "control"
+                "left_control"
+              ],
+              "optional": [
+                "any"
               ]
             }
           },
@@ -75,7 +161,16 @@
               "key_code": "up_arrow"
             }
           ],
-          "type": "basic"
+          "type": "basic",
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "^com\\.googlecode\\.iterm2$",
+                "^com\\.apple\\.Terminal$"
+              ],
+              "type": "frontmost_application_unless"
+            }
+          ]
         },
         {
           "description": "Ctrl + j to Left Arrow",
@@ -83,7 +178,10 @@
             "key_code": "j",
             "modifiers": {
               "mandatory": [
-                "control"
+                "left_control"
+              ],
+              "optional": [
+                "any"
               ]
             }
           },
@@ -92,7 +190,16 @@
               "key_code": "left_arrow"
             }
           ],
-          "type": "basic"
+          "type": "basic",
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "^com\\.googlecode\\.iterm2$",
+                "^com\\.apple\\.Terminal$"
+              ],
+              "type": "frontmost_application_unless"
+            }
+          ]
         },
         {
           "description": "Ctrl + k to Down Arrow",
@@ -100,7 +207,10 @@
             "key_code": "k",
             "modifiers": {
               "mandatory": [
-                "control"
+                "left_control"
+              ],
+              "optional": [
+                "any"
               ]
             }
           },
@@ -109,7 +219,16 @@
               "key_code": "down_arrow"
             }
           ],
-          "type": "basic"
+          "type": "basic",
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "^com\\.googlecode\\.iterm2$",
+                "^com\\.apple\\.Terminal$"
+              ],
+              "type": "frontmost_application_unless"
+            }
+          ]
         },
         {
           "description": "Ctrl + l to Up Arrow",
@@ -117,7 +236,10 @@
             "key_code": "l",
             "modifiers": {
               "mandatory": [
-                "control"
+                "left_control"
+              ],
+              "optional": [
+                "any"
               ]
             }
           },
@@ -126,7 +248,16 @@
               "key_code": "right_arrow"
             }
           ],
-          "type": "basic"
+          "type": "basic",
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "^com\\.googlecode\\.iterm2$",
+                "^com\\.apple\\.Terminal$"
+              ],
+              "type": "frontmost_application_unless"
+            }
+          ]
         }
       ]
     },
@@ -405,6 +536,30 @@
       ]
     },
     {
+      "description": "Map Ctrl+Shift+Option+m -> Toggle the Menubar",
+      "manipulators": [
+        {
+          "description": "Map Ctrl+Shift+Option+m -> Toggle the Menubar",
+          "from": {
+            "key_code": "m",
+            "modifiers": {
+              "mandatory": [
+                "left_control",
+                "left_option",
+                "left_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "osascript -e 'on run' -e 'if running of application \"System Settings\" then -- Close System Settings if its running' -e 'try' -e 'tell application \"System Settings\" to quit' -e 'on error' -e 'do shell script \"killall \\\"System Preferences\\\"\"' -e 'end try' -e 'delay 0.5' -e 'end if' -e 'repeat while running of application \"System Settings\" is true -- Ensure System Settings is not running' -e 'delay 0.5' -e 'end repeat' -e 'do shell script \"open -j x-apple.systempreferences:com.apple.ControlCenter-Settings.extension\" -- Open to Control Center settings' -e 'delay 1 -- Allow time for the window to open' -e 'tell application \"System Events\"' -e 'tell application process \"System Settings\"' -e 'repeat until exists (pop up button 1 of group 9 of scroll area 1 of group 1 of group 2 of splitter group 1 of group 1 of window \"Control Center\") -- Wait until the Control Center settings are loaded' -e 'delay 0.2' -e 'end repeat' -e 'tell pop up button 1 of group 9 of scroll area 1 of group 1 of group 2 of splitter group 1 of group 1 of window \"Control Center\" -- Access the pop-up button' -e 'click' -e 'delay 0.2 -- Allow the menu to appear' -e 'if value is \"In Full Screen Only\" then -- Determine the current selection and toggle' -e 'click menu item \"Never\" of menu 1' -e 'else if value is \"Never\" then' -e 'click menu item \"In Full Screen Only\" of menu 1' -e 'else' -e 'display alert \"Unexpected value detected. Please check the UI structure.\"' -e 'end if' -e 'end tell' -e 'end tell' -e 'end tell' -e 'delay 1' -e 'tell application \"System Settings\" to quit' -e 'end run'"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
       "description": "Map Left Shift + Esc -> Caps Lock",
       "manipulators": [
         {
@@ -437,7 +592,6 @@
           "from": {
             "key_code": "caps_lock",
             "modifiers": {
-              "mandatory": [],
               "optional": [
                 "any"
               ]
@@ -467,7 +621,10 @@
             "key_code": "i",
             "modifiers": {
               "mandatory": [
-                "control"
+                "left_control"
+              ],
+              "optional": [
+                "any"
               ]
             }
           },
@@ -484,7 +641,10 @@
             "key_code": "j",
             "modifiers": {
               "mandatory": [
-                "control"
+                "left_control"
+              ],
+              "optional": [
+                "any"
               ]
             }
           },
@@ -501,7 +661,10 @@
             "key_code": "k",
             "modifiers": {
               "mandatory": [
-                "control"
+                "left_control"
+              ],
+              "optional": [
+                "any"
               ]
             }
           },
@@ -518,7 +681,10 @@
             "key_code": "l",
             "modifiers": {
               "mandatory": [
-                "control"
+                "left_control"
+              ],
+              "optional": [
+                "any"
               ]
             }
           },
@@ -532,26 +698,276 @@
       ]
     },
     {
-      "description": "Map Ctrl+Shift+Option+m -> Toggle the Menubar",
+      "description": "Map L_SHIFT to ( (alone), L_SHIFT (chorded). Map R_SHIFT to ) (alone), R_SHIFT (chorded)",
       "manipulators": [
         {
-          "description": "Map Ctrl+Shift+Option+m -> Toggle the Menubar",
+          "description": "QMK LS( => L_SHIFT -> ( (alone), L_SHIFT (chorded)",
           "from": {
-            "key_code": "m",
+            "key_code": "left_shift",
             "modifiers": {
-              "mandatory": [
-                "control",
-                "option",
-                "shift"
+              "mandatory": [],
+              "optional": [
+                "any"
               ]
             }
           },
           "to": [
             {
-              "shell_command": "osascript -e 'on run' -e 'if running of application \"System Settings\" then -- Close System Settings if its running' -e 'try' -e 'tell application \"System Settings\" to quit' -e 'on error' -e 'do shell script \"killall \\\"System Preferences\\\"\"' -e 'end try' -e 'delay 0.5' -e 'end if' -e 'repeat while running of application \"System Settings\" is true -- Ensure System Settings is not running' -e 'delay 0.5' -e 'end repeat' -e 'do shell script \"open -j x-apple.systempreferences:com.apple.ControlCenter-Settings.extension\" -- Open to Control Center settings' -e 'delay 1 -- Allow time for the window to open' -e 'tell application \"System Events\"' -e 'tell application process \"System Settings\"' -e 'repeat until exists (pop up button 1 of group 9 of scroll area 1 of group 1 of group 2 of splitter group 1 of group 1 of window \"Control Center\") -- Wait until the Control Center settings are loaded' -e 'delay 0.2' -e 'end repeat' -e 'tell pop up button 1 of group 9 of scroll area 1 of group 1 of group 2 of splitter group 1 of group 1 of window \"Control Center\" -- Access the pop-up button' -e 'click' -e 'delay 0.2 -- Allow the menu to appear' -e 'if value is \"In Full Screen Only\" then -- Determine the current selection and toggle' -e 'click menu item \"Never\" of menu 1' -e 'else if value is \"Never\" then' -e 'click menu item \"In Full Screen Only\" of menu 1' -e 'else' -e 'display alert \"Unexpected value detected. Please check the UI structure.\"' -e 'end if' -e 'end tell' -e 'end tell' -e 'end tell' -e 'delay 1' -e 'tell application \"System Settings\" to quit' -e 'end run'"
+              "key_code": "left_shift",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "9",
+              "modifiers": "left_shift"
             }
           ],
           "type": "basic"
+        },
+        {
+          "description": "QMK RS) => R_SHIFT -> ) (alone), R_SHIFT(chorded)",
+          "from": {
+            "key_code": "right_shift",
+            "modifiers": {
+              "mandatory": [],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_shift",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "0",
+              "modifiers": "right_shift"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Touchbar Fix: Right Option Volume & Brightness (Internal Keyboard",
+      "manipulators": [
+        {
+          "description": "Right Option + 0 to Mute",
+          "from": {
+            "key_code": "0",
+            "modifiers": {
+              "mandatory": [
+                "right_option"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "mute"
+            }
+          ],
+          "type": "basic",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "is_keyboard": true,
+                  "product_id": 0,
+                  "vendor_id": 0
+                }
+              ],
+              "type": "device_unless"
+            }
+          ]
+        },
+        {
+          "description": "Right Option + - to Volume Down",
+          "from": {
+            "key_code": "hyphen",
+            "modifiers": {
+              "mandatory": [
+                "right_option"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "volume_down"
+            }
+          ],
+          "type": "basic",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "is_keyboard": true,
+                  "product_id": 0,
+                  "vendor_id": 0
+                }
+              ],
+              "type": "device_unless"
+            }
+          ]
+        },
+        {
+          "description": "Right Option + = to Volume Up",
+          "from": {
+            "key_code": "equal_sign",
+            "modifiers": {
+              "mandatory": [
+                "right_option"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "volume_up"
+            }
+          ],
+          "type": "basic",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "is_keyboard": true,
+                  "product_id": 0,
+                  "vendor_id": 0
+                }
+              ],
+              "type": "device_unless"
+            }
+          ]
+        },
+        {
+          "description": "Right Option + [ to Brightness Down",
+          "from": {
+            "key_code": "open_bracket",
+            "modifiers": {
+              "mandatory": [
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "apple_vendor_top_case_key_code": "brightness_down"
+            }
+          ],
+          "type": "basic",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "is_keyboard": true,
+                  "product_id": 0,
+                  "vendor_id": 0
+                }
+              ],
+              "type": "device_unless"
+            }
+          ]
+        },
+        {
+          "description": "Right Option + ] to Brightness Up",
+          "from": {
+            "key_code": "close_bracket",
+            "modifiers": {
+              "mandatory": [
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "apple_vendor_top_case_key_code": "brightness_up"
+            }
+          ],
+          "type": "basic",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "is_keyboard": true,
+                  "product_id": 0,
+                  "vendor_id": 0
+                }
+              ],
+              "type": "device_unless"
+            }
+          ]
+        },
+        {
+          "description": "Right Option + Right Shift + [ to Illumination Down",
+          "from": {
+            "key_code": "open_bracket",
+            "modifiers": {
+              "mandatory": [
+                "right_option",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "apple_vendor_top_case_key_code": "illumination_down"
+            }
+          ],
+          "type": "basic",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "is_keyboard": true,
+                  "product_id": 0,
+                  "vendor_id": 0
+                }
+              ],
+              "type": "device_unless"
+            }
+          ]
+        },
+        {
+          "description": "Right Option + Right Shift + ] to Illumination Up",
+          "from": {
+            "key_code": "close_bracket",
+            "modifiers": {
+              "mandatory": [
+                "right_option",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "apple_vendor_top_case_key_code": "illumination_up"
+            }
+          ],
+          "type": "basic",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "is_keyboard": true,
+                  "product_id": 0,
+                  "vendor_id": 0
+                }
+              ],
+              "type": "device_unless"
+            }
+          ]
         }
       ]
     }
