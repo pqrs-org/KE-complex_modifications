@@ -1,0 +1,225 @@
+{
+  "title": "Touchbar Fix: Right Option Volume & Brightness (Internal Keyboard",
+  "maintainer": "torma",
+  "rules": [
+    {
+      "description": "Touchbar Fix: Right Option Volume & Brightness (Internal Keyboard",
+      "manipulators": [
+        {
+          "description": "Right Option + 0 to Mute",
+          "from": {
+            "key_code": "0",
+            "modifiers": {
+              "mandatory": [
+                "right_option"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "mute"
+            }
+          ],
+          "type": "basic",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "is_keyboard": true,
+                  "product_id": 0,
+                  "vendor_id": 0
+                }
+              ],
+              "type": "device_unless"
+            }
+          ]
+        },
+        {
+          "description": "Right Option + - to Volume Down",
+          "from": {
+            "key_code": "hyphen",
+            "modifiers": {
+              "mandatory": [
+                "right_option"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "volume_down"
+            }
+          ],
+          "type": "basic",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "is_keyboard": true,
+                  "product_id": 0,
+                  "vendor_id": 0
+                }
+              ],
+              "type": "device_unless"
+            }
+          ]
+        },
+        {
+          "description": "Right Option + = to Volume Up",
+          "from": {
+            "key_code": "equal_sign",
+            "modifiers": {
+              "mandatory": [
+                "right_option"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "volume_up"
+            }
+          ],
+          "type": "basic",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "is_keyboard": true,
+                  "product_id": 0,
+                  "vendor_id": 0
+                }
+              ],
+              "type": "device_unless"
+            }
+          ]
+        },
+        {
+          "description": "Right Option + [ to Brightness Down",
+          "from": {
+            "key_code": "open_bracket",
+            "modifiers": {
+              "mandatory": [
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "apple_vendor_top_case_key_code": "brightness_down"
+            }
+          ],
+          "type": "basic",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "is_keyboard": true,
+                  "product_id": 0,
+                  "vendor_id": 0
+                }
+              ],
+              "type": "device_unless"
+            }
+          ]
+        },
+        {
+          "description": "Right Option + ] to Brightness Up",
+          "from": {
+            "key_code": "close_bracket",
+            "modifiers": {
+              "mandatory": [
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "apple_vendor_top_case_key_code": "brightness_up"
+            }
+          ],
+          "type": "basic",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "is_keyboard": true,
+                  "product_id": 0,
+                  "vendor_id": 0
+                }
+              ],
+              "type": "device_unless"
+            }
+          ]
+        },
+        {
+          "description": "Right Option + Right Shift + [ to Illumination Down",
+          "from": {
+            "key_code": "open_bracket",
+            "modifiers": {
+              "mandatory": [
+                "right_option",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "apple_vendor_top_case_key_code": "illumination_down"
+            }
+          ],
+          "type": "basic",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "is_keyboard": true,
+                  "product_id": 0,
+                  "vendor_id": 0
+                }
+              ],
+              "type": "device_unless"
+            }
+          ]
+        },
+        {
+          "description": "Right Option + Right Shift + ] to Illumination Up",
+          "from": {
+            "key_code": "close_bracket",
+            "modifiers": {
+              "mandatory": [
+                "right_option",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "apple_vendor_top_case_key_code": "illumination_up"
+            }
+          ],
+          "type": "basic",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "is_keyboard": true,
+                  "product_id": 0,
+                  "vendor_id": 0
+                }
+              ],
+              "type": "device_unless"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

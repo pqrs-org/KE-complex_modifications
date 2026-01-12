@@ -1,9 +1,9 @@
 {
-  "title": "Better Keyboard Map: Shift + Esc -> Caps; Caps -> Esc (alone), L_CTRL (chorded); CTRL + i/j/k/l for arrows",
+  "title": "Better Keyboard Map: Shift+Esc -> Caps; Caps -> Esc (alone),L_CTRL (chorded); CTRL+i/j/k/l -> arrows; L_SHIFT -> ( (alone),L_SHIFT (chorded) & R_SHIFT -> ) (alone), R_SHIFT (chorded)",
   "maintainer": "torma",
   "rules": [
     {
-      "description": "Better Keyboard Map: Shift + Esc -> Caps; Caps -> Esc (alone), L_CTRL (chorded); CTRL + i/j/k/l for arrows",
+      "description": "Better Keyboard Map: Shift+Esc -> Caps; Caps -> Esc (alone),L_CTRL (chorded); CTRL+i/j/k/l -> arrows; L_SHIFT -> ( (alone),L_SHIFT (chorded) & R_SHIFT -> ) (alone), R_SHIFT (chorded)",
       "manipulators": [
         {
           "description": "Map Left Shift + Esc -> Caps Lock",
@@ -30,7 +30,6 @@
           "from": {
             "key_code": "caps_lock",
             "modifiers": {
-              "mandatory": [],
               "optional": [
                 "any"
               ]
@@ -54,6 +53,90 @@
                 {
                   "product_id": 61029,
                   "vendor_id": 1240
+                },
+                {
+                  "product_id": 2400,
+                  "vendor_id": 13364
+                }
+              ],
+              "type": "device_unless"
+            }
+          ]
+        },
+        {
+          "description": "QMK LS( => L_SHIFT -> ( (alone), L_SHIFT (chorded)",
+          "from": {
+            "key_code": "left_shift",
+            "modifiers": {
+              "mandatory": [],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_shift",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "9",
+              "modifiers": "left_shift"
+            }
+          ],
+          "type": "basic",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "product_id": 61029,
+                  "vendor_id": 1240
+                },
+                {
+                  "product_id": 2400,
+                  "vendor_id": 13364
+                }
+              ],
+              "type": "device_unless"
+            }
+          ]
+        },
+        {
+          "description": "QMK RS) => R_SHIFT -> ) (alone), R_SHIFT(chorded)",
+          "from": {
+            "key_code": "right_shift",
+            "modifiers": {
+              "mandatory": [],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_shift",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "0",
+              "modifiers": "right_shift"
+            }
+          ],
+          "type": "basic",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "product_id": 61029,
+                  "vendor_id": 1240
+                },
+                {
+                  "product_id": 2400,
+                  "vendor_id": 13364
                 }
               ],
               "type": "device_unless"
@@ -66,7 +149,10 @@
             "key_code": "i",
             "modifiers": {
               "mandatory": [
-                "control"
+                "left_control"
+              ],
+              "optional": [
+                "any"
               ]
             }
           },
@@ -75,7 +161,16 @@
               "key_code": "up_arrow"
             }
           ],
-          "type": "basic"
+          "type": "basic",
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "^com\\.googlecode\\.iterm2$",
+                "^com\\.apple\\.Terminal$"
+              ],
+              "type": "frontmost_application_unless"
+            }
+          ]
         },
         {
           "description": "Ctrl + j to Left Arrow",
@@ -83,7 +178,10 @@
             "key_code": "j",
             "modifiers": {
               "mandatory": [
-                "control"
+                "left_control"
+              ],
+              "optional": [
+                "any"
               ]
             }
           },
@@ -92,7 +190,16 @@
               "key_code": "left_arrow"
             }
           ],
-          "type": "basic"
+          "type": "basic",
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "^com\\.googlecode\\.iterm2$",
+                "^com\\.apple\\.Terminal$"
+              ],
+              "type": "frontmost_application_unless"
+            }
+          ]
         },
         {
           "description": "Ctrl + k to Down Arrow",
@@ -100,7 +207,10 @@
             "key_code": "k",
             "modifiers": {
               "mandatory": [
-                "control"
+                "left_control"
+              ],
+              "optional": [
+                "any"
               ]
             }
           },
@@ -109,7 +219,16 @@
               "key_code": "down_arrow"
             }
           ],
-          "type": "basic"
+          "type": "basic",
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "^com\\.googlecode\\.iterm2$",
+                "^com\\.apple\\.Terminal$"
+              ],
+              "type": "frontmost_application_unless"
+            }
+          ]
         },
         {
           "description": "Ctrl + l to Up Arrow",
@@ -117,7 +236,10 @@
             "key_code": "l",
             "modifiers": {
               "mandatory": [
-                "control"
+                "left_control"
+              ],
+              "optional": [
+                "any"
               ]
             }
           },
@@ -126,7 +248,16 @@
               "key_code": "right_arrow"
             }
           ],
-          "type": "basic"
+          "type": "basic",
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "^com\\.googlecode\\.iterm2$",
+                "^com\\.apple\\.Terminal$"
+              ],
+              "type": "frontmost_application_unless"
+            }
+          ]
         }
       ]
     }
