@@ -30,7 +30,6 @@
           "from": {
             "key_code": "caps_lock",
             "modifiers": {
-              "mandatory": [],
               "optional": [
                 "any"
               ]
@@ -54,6 +53,10 @@
                 {
                   "product_id": 61029,
                   "vendor_id": 1240
+                },
+                {
+                  "product_id": 2400,
+                  "vendor_id": 13364
                 }
               ],
               "type": "device_unless"
@@ -90,6 +93,10 @@
                 {
                   "product_id": 61029,
                   "vendor_id": 1240
+                },
+                {
+                  "product_id": 2400,
+                  "vendor_id": 13364
                 }
               ],
               "type": "device_unless"
@@ -126,6 +133,10 @@
                 {
                   "product_id": 61029,
                   "vendor_id": 1240
+                },
+                {
+                  "product_id": 2400,
+                  "vendor_id": 13364
                 }
               ],
               "type": "device_unless"
@@ -150,7 +161,16 @@
               "key_code": "up_arrow"
             }
           ],
-          "type": "basic"
+          "type": "basic",
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "^com\\.googlecode\\.iterm2$",
+                "^com\\.apple\\.Terminal$"
+              ],
+              "type": "frontmost_application_unless"
+            }
+          ]
         },
         {
           "description": "Ctrl + j to Left Arrow",
@@ -170,7 +190,16 @@
               "key_code": "left_arrow"
             }
           ],
-          "type": "basic"
+          "type": "basic",
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "^com\\.googlecode\\.iterm2$",
+                "^com\\.apple\\.Terminal$"
+              ],
+              "type": "frontmost_application_unless"
+            }
+          ]
         },
         {
           "description": "Ctrl + k to Down Arrow",
@@ -190,7 +219,16 @@
               "key_code": "down_arrow"
             }
           ],
-          "type": "basic"
+          "type": "basic",
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "^com\\.googlecode\\.iterm2$",
+                "^com\\.apple\\.Terminal$"
+              ],
+              "type": "frontmost_application_unless"
+            }
+          ]
         },
         {
           "description": "Ctrl + l to Up Arrow",
@@ -210,7 +248,16 @@
               "key_code": "right_arrow"
             }
           ],
-          "type": "basic"
+          "type": "basic",
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "^com\\.googlecode\\.iterm2$",
+                "^com\\.apple\\.Terminal$"
+              ],
+              "type": "frontmost_application_unless"
+            }
+          ]
         }
       ]
     },
@@ -545,7 +592,6 @@
           "from": {
             "key_code": "caps_lock",
             "modifiers": {
-              "mandatory": [],
               "optional": [
                 "any"
               ]
@@ -703,6 +749,225 @@
             }
           ],
           "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Touchbar Fix: Right Option Volume & Brightness (Internal Keyboard",
+      "manipulators": [
+        {
+          "description": "Right Option + 0 to Mute",
+          "from": {
+            "key_code": "0",
+            "modifiers": {
+              "mandatory": [
+                "right_option"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "mute"
+            }
+          ],
+          "type": "basic",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "is_keyboard": true,
+                  "product_id": 0,
+                  "vendor_id": 0
+                }
+              ],
+              "type": "device_unless"
+            }
+          ]
+        },
+        {
+          "description": "Right Option + - to Volume Down",
+          "from": {
+            "key_code": "hyphen",
+            "modifiers": {
+              "mandatory": [
+                "right_option"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "volume_down"
+            }
+          ],
+          "type": "basic",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "is_keyboard": true,
+                  "product_id": 0,
+                  "vendor_id": 0
+                }
+              ],
+              "type": "device_unless"
+            }
+          ]
+        },
+        {
+          "description": "Right Option + = to Volume Up",
+          "from": {
+            "key_code": "equal_sign",
+            "modifiers": {
+              "mandatory": [
+                "right_option"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "volume_up"
+            }
+          ],
+          "type": "basic",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "is_keyboard": true,
+                  "product_id": 0,
+                  "vendor_id": 0
+                }
+              ],
+              "type": "device_unless"
+            }
+          ]
+        },
+        {
+          "description": "Right Option + [ to Brightness Down",
+          "from": {
+            "key_code": "open_bracket",
+            "modifiers": {
+              "mandatory": [
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "apple_vendor_top_case_key_code": "brightness_down"
+            }
+          ],
+          "type": "basic",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "is_keyboard": true,
+                  "product_id": 0,
+                  "vendor_id": 0
+                }
+              ],
+              "type": "device_unless"
+            }
+          ]
+        },
+        {
+          "description": "Right Option + ] to Brightness Up",
+          "from": {
+            "key_code": "close_bracket",
+            "modifiers": {
+              "mandatory": [
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "apple_vendor_top_case_key_code": "brightness_up"
+            }
+          ],
+          "type": "basic",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "is_keyboard": true,
+                  "product_id": 0,
+                  "vendor_id": 0
+                }
+              ],
+              "type": "device_unless"
+            }
+          ]
+        },
+        {
+          "description": "Right Option + Right Shift + [ to Illumination Down",
+          "from": {
+            "key_code": "open_bracket",
+            "modifiers": {
+              "mandatory": [
+                "right_option",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "apple_vendor_top_case_key_code": "illumination_down"
+            }
+          ],
+          "type": "basic",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "is_keyboard": true,
+                  "product_id": 0,
+                  "vendor_id": 0
+                }
+              ],
+              "type": "device_unless"
+            }
+          ]
+        },
+        {
+          "description": "Right Option + Right Shift + ] to Illumination Up",
+          "from": {
+            "key_code": "close_bracket",
+            "modifiers": {
+              "mandatory": [
+                "right_option",
+                "right_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "apple_vendor_top_case_key_code": "illumination_up"
+            }
+          ],
+          "type": "basic",
+          "conditions": [
+            {
+              "identifiers": [
+                {
+                  "is_keyboard": true,
+                  "product_id": 0,
+                  "vendor_id": 0
+                }
+              ],
+              "type": "device_unless"
+            }
+          ]
         }
       ]
     }
