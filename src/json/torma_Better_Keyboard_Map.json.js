@@ -1,6 +1,6 @@
 // JavaScript should be written in ECMAScript 5.1.
 const title = 'Better Keyboard Map: Shift+Esc -> Caps; Caps -> Esc (alone),L_CTRL (chorded); CTRL+i/j/k/l -> arrows; L_SHIFT -> ( (alone),L_SHIFT (chorded) & R_SHIFT -> ) (alone), R_SHIFT (chorded)';
-const maintainer = 'torma';
+const maintainers = ['alextorma'];
 const mapLShiftEscapToCapsLock = require('torma_L_Shift_Escape_to_Caps_Lock.json');
 const mapCapsLocktoEscapeOrLCtrlChorded = require('torma_Caps_Lock_to_Escape_or_L_Ctrl_when_Chorded.json');
 const mapShiftsToParensOrShifts = require('torma_QMK_LS(_RS).json');
@@ -22,7 +22,7 @@ const excludeApps = [{
 function main() {
   console.log(JSON.stringify({
     title,
-    maintainer,
+    maintainers,
     rules: rules()
   }, null, '  '));
 }

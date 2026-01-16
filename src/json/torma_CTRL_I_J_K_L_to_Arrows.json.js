@@ -1,13 +1,13 @@
 // JavaScript should be written in ECMAScript 5.1.
 const title = 'Map Ctrl+I/J/K/L -> Arrow Keys';
-const maintainer = 'torma';
+const maintainers = ['alextorma'];
 
 function main() {
   console.log(
     JSON.stringify(
       {
         title,
-        maintainer,
+        maintainers,
         rules: rules(),
       },
       null,
