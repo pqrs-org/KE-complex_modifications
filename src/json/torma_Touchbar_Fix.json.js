@@ -1,6 +1,6 @@
 // JavaScript should be written in ECMAScript 5.1.
-const title = 'Touchbar Fix: Right Option Volume & Brightness (Internal Keyboard';
-const maintainer = 'torma';
+const title = 'Touchbar Fix: Right Option Volume & Brightness (Internal Keyboard Only)';
+const maintainers = ['alextorma'];
 const exclusions = [{
   "identifiers": [
     { "is_keyboard": true, "product_id": 0, "vendor_id": 0 }
@@ -12,7 +12,7 @@ function main() {
     JSON.stringify(
       {
         title,
-        maintainer,
+        maintainers,
         rules: rules(),
       },
       null,

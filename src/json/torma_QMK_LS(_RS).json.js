@@ -1,13 +1,13 @@
 // JavaScript should be written in ECMAScript 5.1.
 const title = 'Map L_SHIFT to ( (alone), L_SHIFT (chorded). Map R_SHIFT to ) (alone), R_SHIFT (chorded)';
-const maintainer = 'torma';
+const maintainers = ['alextorma'];
 
 function main() {
   console.log(
     JSON.stringify(
       {
         title,
-        maintainer,
+        maintainers,
         rules: rules(),
       },
       null,

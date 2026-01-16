@@ -1,13 +1,13 @@
 // JavaScript should be written in ECMAScript 5.1.
 const title = 'Map Caps -> Esc (when alone), L_Ctrl (when chorded)';
-const maintainer = 'torma';
+const maintainers = ['alextorma'];
 
 function main() {
   console.log(
     JSON.stringify(
       {
         title,
-        maintainer,
+        maintainers,
         rules: rules(),
       },
       null,

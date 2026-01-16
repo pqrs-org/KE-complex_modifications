@@ -1,5 +1,5 @@
 // JavaScript should be written in ECMAScript 5.1.
-const maintainer = 'torma';
+const maintainers = ['alextorma'];
 const betterKeyboardMap = require('torma_Better_Keyboard_Map.json')
 const mapLShiftEscapToCapsLock = require('torma_L_Shift_Escape_to_Caps_Lock.json')
 const mapCapsLocktoEscapeOrLCtrlChorded = require('torma_Caps_Lock_to_Escape_or_L_Ctrl_when_Chorded.json')
@@ -14,7 +14,7 @@ function main() {
     JSON.stringify(
       {
         title: 'Maps by Torma',
-        maintainer,
+        maintainers,
         rules: [].concat(
           betterKeyboardMap.rules,
           elecomTrackballRemap.rules,
