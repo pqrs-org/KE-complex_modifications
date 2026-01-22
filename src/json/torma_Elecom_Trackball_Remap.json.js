@@ -1,6 +1,6 @@
 // JavaScript should be written in ECMAScript 5.1.
 const title = 'Better Trackball Map: Button 6 -> Show Desktop (F18), Button7 -> Double Click =  Launchpad, Click & Hold + Move Cursor = Scroll, Button 8 -> Mission Control';
-const maintainer = 'torma';
+const maintainers = ['alextorma'];
 const elecomTrackball = { identifiers: [{ product_id: 306, vendor_id: 1390 }, { product_id: 307, vendor_id: 1390 }], type: "device_if" };
 const button7Pressed = { name: 'button7_pressed', type: 'variable_if', value: 1 };
 const mouseMotionToScroll = { name: 'enable_mouse_motion_to_scroll', type: 'variable_if', value: 1 };
@@ -10,7 +10,7 @@ function main() {
     JSON.stringify(
       {
         title,
-        maintainer,
+        maintainers,
         rules: rules(),
       },
       null,
