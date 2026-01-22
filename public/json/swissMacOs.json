@@ -2,6 +2,227 @@
     "title": "Swiss Keyboard Layout for macOS",
     "rules": [
         {
+            "description": "BASIC MODE",
+            "manipulators": [
+                {
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "^com\\.microsoft\\.rdc$",
+                                "^com\\.microsoft\\.rdc\\.",
+                                "^net\\.sf\\.cord$",
+                                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                                "^com\\.itap-mobile\\.qmote$",
+                                "^com\\.nulana\\.remotixmac$",
+                                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.",
+                                "^com\\.teamviewer\\.TeamViewer$",
+                                "^com\\.vmware\\.horizon$",
+                                "^com\\.2X\\.Client\\.Mac$",
+                                "^com\\.OpenText\\.Exceed-TurboX-Client$",
+                                "^com\\.realvnc\\.vncviewer$",
+                                "^com\\.citrix\\.receiver\\.icaviewer",
+                                "^com\\.vmware\\.fusion$",
+                                "^com\\.vmware\\.horizon$",
+                                "^com\\.vmware\\.view$",
+                                "^com\\.parallels\\.desktop$",
+                                "^com\\.parallels\\.vm$",
+                                "^com\\.parallels\\.desktop\\.console$",
+                                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                "^com\\.citrix\\.XenAppViewer$",
+                                "^com\\.vmware\\.proxyApp\\.",
+                                "^com\\.parallels\\.winapp\\.",
+                                "^com\\.utmapp\\.UTM$",
+                                "^com\\.bomgar\\.bomgar-acc-.*",
+                                "^com\\.carriez\\.rustdesk",
+                                "org.alacritty"
+                            ],
+                            "type": "frontmost_application_unless"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "left_control"
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_command"
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "^com\\.microsoft\\.rdc$",
+                                "^com\\.microsoft\\.rdc\\.",
+                                "^net\\.sf\\.cord$",
+                                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                                "^com\\.itap-mobile\\.qmote$",
+                                "^com\\.nulana\\.remotixmac$",
+                                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.",
+                                "^com\\.teamviewer\\.TeamViewer$",
+                                "^com\\.vmware\\.horizon$",
+                                "^com\\.2X\\.Client\\.Mac$",
+                                "^com\\.OpenText\\.Exceed-TurboX-Client$",
+                                "^com\\.realvnc\\.vncviewer$",
+                                "^com\\.citrix\\.receiver\\.icaviewer",
+                                "^com\\.vmware\\.fusion$",
+                                "^com\\.vmware\\.horizon$",
+                                "^com\\.vmware\\.view$",
+                                "^com\\.parallels\\.desktop$",
+                                "^com\\.parallels\\.vm$",
+                                "^com\\.parallels\\.desktop\\.console$",
+                                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                "^com\\.citrix\\.XenAppViewer$",
+                                "^com\\.vmware\\.proxyApp\\.",
+                                "^com\\.parallels\\.winapp\\.",
+                                "^com\\.utmapp\\.UTM$",
+                                "^com\\.bomgar\\.bomgar-acc-.*",
+                                "^com\\.carriez\\.rustdesk",
+                                "org.alacritty"
+                            ],
+                            "type": "frontmost_application_unless"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "right_control"
+                    },
+                    "to": [
+                        {
+                            "key_code": "right_command"
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "from": {
+                        "key_code": "quote",
+                        "modifiers": {
+                            "mandatory": [
+                                "shift"
+                            ],
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "8",
+                            "modifiers": [
+                                "right_option"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "from": {
+                        "key_code": "non_us_pound",
+                        "modifiers": {
+                            "mandatory": [
+                                "shift"
+                            ],
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "9",
+                            "modifiers": [
+                                "right_option"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "from": {
+                        "key_code": "backslash",
+                        "modifiers": {
+                            "mandatory": [
+                                "shift"
+                            ],
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "9",
+                            "modifiers": [
+                                "right_option"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "from": {
+                        "key_code": "open_bracket",
+                        "modifiers": {
+                            "mandatory": [
+                                "shift"
+                            ],
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "5",
+                            "modifiers": [
+                                "right_option"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "from": {
+                        "key_code": "close_bracket",
+                        "modifiers": {
+                            "mandatory": [
+                                "shift"
+                            ],
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "6",
+                            "modifiers": [
+                                "right_option"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "from": {
+                        "key_code": "close_bracket"
+                    },
+                    "to": [
+                        {
+                            "key_code": "close_bracket",
+                            "modifiers": [
+                                "left_shift"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
             "description": "NORMAL MODE",
             "manipulators": [
                 {
@@ -45,7 +266,7 @@
                                 "^com\\.utmapp\\.UTM$",
                                 "^com\\.bomgar\\.bomgar-acc-.*",
                                 "^com\\.carriez\\.rustdesk",
-                        "org.alacritty"
+                                "org.alacritty"
                             ]
                         }
                     ]
@@ -91,7 +312,7 @@
                                 "^com\\.utmapp\\.UTM$",
                                 "^com\\.bomgar\\.bomgar-acc-.*",
                                 "^com\\.carriez\\.rustdesk",
-                        "org.alacritty"
+                                "org.alacritty"
                             ]
                         }
                     ]
@@ -148,7 +369,7 @@
                                 "^com\\.utmapp\\.UTM$",
                                 "^com\\.bomgar\\.bomgar-acc-.*",
                                 "^com\\.carriez\\.rustdesk",
-                        "org.alacritty"
+                                "org.alacritty"
                             ]
                         }
                     ]
@@ -205,7 +426,7 @@
                                 "^com\\.utmapp\\.UTM$",
                                 "^com\\.bomgar\\.bomgar-acc-.*",
                                 "^com\\.carriez\\.rustdesk",
-                        "org.alacritty"
+                                "org.alacritty"
                             ]
                         }
                     ]
@@ -262,7 +483,7 @@
                                 "^com\\.utmapp\\.UTM$",
                                 "^com\\.bomgar\\.bomgar-acc-.*",
                                 "^com\\.carriez\\.rustdesk",
-                        "org.alacritty"
+                                "org.alacritty"
                             ]
                         }
                     ]
@@ -319,7 +540,7 @@
                                 "^com\\.utmapp\\.UTM$",
                                 "^com\\.bomgar\\.bomgar-acc-.*",
                                 "^com\\.carriez\\.rustdesk",
-                        "org.alacritty"
+                                "org.alacritty"
                             ]
                         }
                     ]
@@ -376,7 +597,7 @@
                                 "^com\\.utmapp\\.UTM$",
                                 "^com\\.bomgar\\.bomgar-acc-.*",
                                 "^com\\.carriez\\.rustdesk",
-                        "org.alacritty"
+                                "org.alacritty"
                             ]
                         }
                     ]
@@ -433,7 +654,7 @@
                                 "^com\\.utmapp\\.UTM$",
                                 "^com\\.bomgar\\.bomgar-acc-.*",
                                 "^com\\.carriez\\.rustdesk",
-                        "org.alacritty"
+                                "org.alacritty"
                             ]
                         }
                     ]
@@ -490,7 +711,7 @@
                                 "^com\\.utmapp\\.UTM$",
                                 "^com\\.bomgar\\.bomgar-acc-.*",
                                 "^com\\.carriez\\.rustdesk",
-                        "org.alacritty"
+                                "org.alacritty"
                             ]
                         }
                     ]
@@ -547,7 +768,7 @@
                                 "^com\\.utmapp\\.UTM$",
                                 "^com\\.bomgar\\.bomgar-acc-.*",
                                 "^com\\.carriez\\.rustdesk",
-                        "org.alacritty"
+                                "org.alacritty"
                             ]
                         }
                     ]
@@ -605,7 +826,7 @@
                                 "^com\\.utmapp\\.UTM$",
                                 "^com\\.bomgar\\.bomgar-acc-.*",
                                 "^com\\.carriez\\.rustdesk",
-                        "org.alacritty"
+                                "org.alacritty"
                             ]
                         }
                     ]
@@ -663,7 +884,7 @@
                                 "^com\\.utmapp\\.UTM$",
                                 "^com\\.bomgar\\.bomgar-acc-.*",
                                 "^com\\.carriez\\.rustdesk",
-                        "org.alacritty"
+                                "org.alacritty"
                             ]
                         }
                     ]
