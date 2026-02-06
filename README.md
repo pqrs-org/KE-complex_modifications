@@ -9,9 +9,9 @@ complex_modifications for Karabiner-Elements.
 
 ## complex_modifications documents
 
--   [karabiner.json Reference Manual](https://karabiner-elements.pqrs.org/docs/json/)
-    -   [Typical complex_modifications examples](https://karabiner-elements.pqrs.org/docs/json/typical-complex-modifications-examples/)
-    -   [complex_modifications manipulator definition](https://karabiner-elements.pqrs.org/docs/json/complex-modifications-manipulator-definition/)
+- [karabiner.json Reference Manual](https://karabiner-elements.pqrs.org/docs/json/)
+    - [Typical complex_modifications examples](https://karabiner-elements.pqrs.org/docs/json/typical-complex-modifications-examples/)
+    - [complex_modifications manipulator definition](https://karabiner-elements.pqrs.org/docs/json/complex-modifications-manipulator-definition/)
 
 ## JSON file format in this repository
 
@@ -157,11 +157,11 @@ The additional description will then appear on the site as shown in the screensh
 | --------------------------------------- | ----------------------------------------------------- |
 | ![json-only](./files/site-rules@2x.png) | ![extra description](./files/site-description@2x.png) |
 
--   Example of extra description:
-    -   <https://ke-complex-modifications.pqrs.org/?q=diamond#multitouch_diamond_cursor>
--   Example of HTML file:
-    -   <https://github.com/pqrs-org/KE-complex_modifications/blob/main/public/extra_descriptions/multitouch_diamond_cursor.json.html>
--   Example entry in groups.json:
+- Example of extra description:
+    - <https://ke-complex-modifications.pqrs.org/?q=diamond#multitouch_diamond_cursor>
+- Example of HTML file:
+    - <https://github.com/pqrs-org/KE-complex_modifications/blob/main/public/extra_descriptions/multitouch_diamond_cursor.json.html>
+- Example entry in groups.json:
 
 ```json
 {
@@ -172,14 +172,14 @@ The additional description will then appear on the site as shown in the screensh
 
 ### Tips for writing extra description HTML file
 
--   Bootstrap's CSS are applied automatically, so you can adjust spacing with utility classes like mt-4, etc.
--   Do not include `<html>` and `<body>` tags. Write only the HTML for the description section.
--   You can include images with tags like `<img src="multitouch-extension/enable-multitouch-extension.png" class="img-fluid border" />`.
-    Be sure to add the images to the repository.
--   As described above, you can preview your HTML by `make preview-server` command and open `http://localhost:8000/` in your browser.
-    The HTML file will not be loaded unless you specify `extra_description_path` in `public/groups.json`, so be sure to update `groups.json`.
--   After modifying an HTML file, reload the page in your browser to reflect the changes on the preview server.
-    Automatic hot reload is not supported.
+- Bootstrap's CSS are applied automatically, so you can adjust spacing with utility classes like mt-4, etc.
+- Do not include `<html>` and `<body>` tags. Write only the HTML for the description section.
+- You can include images with tags like `<img src="multitouch-extension/enable-multitouch-extension.png" class="img-fluid border" />`.
+  Be sure to add the images to the repository.
+- As described above, you can preview your HTML by `make preview-server` command and open `http://localhost:8000/` in your browser.
+  The HTML file will not be loaded unless you specify `extra_description_path` in `public/groups.json`, so be sure to update `groups.json`.
+- After modifying an HTML file, reload the page in your browser to reflect the changes on the preview server.
+  Automatic hot reload is not supported.
 
 ## Sync your fork
 
@@ -219,22 +219,22 @@ The code in `src/json/*.js` is executed by [Duktape](https://duktape.org/), whic
 
 Unlike the latest Node.js, the basic language specification is ES5.1, so the following features cannot be used.
 
--   `let` (`const` is specially supported)
--   Arrow functions
--   Default parameters
--   Spread (...) syntax
--   Template literals
+- `let` (`const` is specially supported)
+- Arrow functions
+- Default parameters
+- Spread (...) syntax
+- Template literals
 
 ### Examples
 
 There are many existing codes. Here are some of the more distinctive ones among them.
 
--   Use the predefined list of bundle identifiers in `frontmost_application_if`.
-    -   [capslock_shift_copy_paste.json.js](https://github.com/pqrs-org/KE-complex_modifications/blob/main/src/json/capslock_shift_copy_paste.json.js)
--   Generate remappings from a list of characters
-    -   [colemak_layout.json.js](https://github.com/pqrs-org/KE-complex_modifications/blob/main/src/json/colemak_layout.json.js)
--   Include file from another file
-    -   [personal_thooams.json.js](https://github.com/pqrs-org/KE-complex_modifications/blob/main/src/json/personal_thooams.json.js)
-    -   [control_backspace_to_function_backspace.json.js](https://github.com/pqrs-org/KE-complex_modifications/blob/main/src/json/control_backspace_to_function_backspace.json.js)
--   Generate rules from key combinations
-    -   [matias_ergo_pro.json.js](https://github.com/pqrs-org/KE-complex_modifications/blob/main/src/json/matias_ergo_pro.json.js)
+- Use the predefined list of bundle identifiers in `frontmost_application_if`.
+    - [capslock_shift_copy_paste.json.js](https://github.com/pqrs-org/KE-complex_modifications/blob/main/src/json/capslock_shift_copy_paste.json.js)
+- Generate remappings from a list of characters
+    - [colemak_layout.json.js](https://github.com/pqrs-org/KE-complex_modifications/blob/main/src/json/colemak_layout.json.js)
+- Include file from another file
+    - [personal_thooams.json.js](https://github.com/pqrs-org/KE-complex_modifications/blob/main/src/json/personal_thooams.json.js)
+    - [control_backspace_to_function_backspace.json.js](https://github.com/pqrs-org/KE-complex_modifications/blob/main/src/json/control_backspace_to_function_backspace.json.js)
+- Generate rules from key combinations
+    - [matias_ergo_pro.json.js](https://github.com/pqrs-org/KE-complex_modifications/blob/main/src/json/matias_ergo_pro.json.js)
