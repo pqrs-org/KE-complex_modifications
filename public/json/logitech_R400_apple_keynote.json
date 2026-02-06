@@ -1,0 +1,48 @@
+{
+    "description": "Logitech R400 for Keynote presentation",
+    "manipulators": [
+        {
+            "conditions": [
+                {
+                    "identifiers": [
+                        {
+                            "product_id": 50488,
+                            "vendor_id": 1133
+                        }
+                    ],
+                    "type": "device_if"
+                },
+                {
+                    "bundle_identifiers": [
+                        "^com\\.apple\\.Keynote"
+                    ],
+                    "type": "frontmost_application_if"
+                }
+            ],
+            "from": { "key_code": "f5" },
+            "to": [
+                {
+                    "key_code": "p",
+                    "modifiers": ["left_option", "left_command"]
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "identifiers": [
+                        {
+                            "product_id": 50488,
+                            "vendor_id": 1133
+                        }
+                    ],
+                    "type": "device_if"
+                }
+            ],
+            "from": { "key_code": "period" },
+            "to": [{ "key_code": "b" }],
+            "type": "basic"
+        }
+    ]
+}
