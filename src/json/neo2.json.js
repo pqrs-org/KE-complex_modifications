@@ -39,7 +39,7 @@ function rules() {
   }
   const isNotExcludedApp = {
     type: 'frontmost_application_unless',
-    bundle_identifiers: ['com.apple.Terminal', 'org.gnu.Emacs', 'com.googlecode.iterm2', 'dev.warp.Warp-Stable', 'com.github.wez.wezterm']
+    bundle_identifiers: ['com.apple.Terminal', 'org.gnu.Emacs', 'com.googlecode.iterm2', 'dev.warp.Warp-Stable', 'com.github.wez.wezterm', 'com.mitchellh.ghostty', 'com.cmuxterm.app']
   }
 
   const neo2Layer4 = function(condition) {
