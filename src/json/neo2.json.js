@@ -35,7 +35,24 @@ function rules() {
       { input_source_id: '^org\\.unknown\\.keylayout\\.DeutschBone$' },
       { input_source_id: '^org\\.unknown\\.keylayout\\.DeutschNeoQwertz$' },
       { input_source_id: '^org\\.unknown\\.keylayout\\.DeutschADNW$' },
+      { input_source_id: '^org\\.unknown\\.keylayout\\.DeutschNoted$' },
     ],
+  }
+  const isRightMod3Backslash = {
+    // All layouts except Noted use backslash as the right M3 key
+    type: 'input_source_if',
+    input_sources: [
+      { input_source_id: '^org\\.sil\\.ukelele.keyboardlayout\\.neo.*$' },
+      { input_source_id: '^org\\.unknown\\.keylayout\\.DeutschNeo2$' },
+      { input_source_id: '^org\\.unknown\\.keylayout\\.DeutschBone$' },
+      { input_source_id: '^org\\.unknown\\.keylayout\\.DeutschNeoQwertz$' },
+      { input_source_id: '^org\\.unknown\\.keylayout\\.DeutschADNW$' },
+    ],
+  }
+  const isRightMod3Quote = {
+    // Noted places the right M3 key further inward
+    type: 'input_source_if',
+    input_sources: [{ input_source_id: '^org\\.unknown\\.keylayout\\.DeutschNoted$' }],
   }
   const isNotExcludedApp = {
     type: 'frontmost_application_unless',
@@ -157,14 +174,17 @@ function rules() {
     )
   }
 
-  const neo2Modifiers = function (mod3Key, mod4Key, condition) {
+  const neo2Mod3Key = function (mod3Key, condition) {
+    return eachKey({
+      fromKeys: [mod3Key, 'caps_lock', 'right_option'],
+      fromModifiers: { optional: ['any'] },
+      toKeys: ['right_option', 'right_option', 'right_command'],
+      conditions: condition === undefined ? [isLayoutActive] : [condition],
+    })
+  }
+
+  const neo2Mod4 = function (mod4Key, condition) {
     return [].concat(
-      eachKey({
-        fromKeys: [mod3Key, 'caps_lock', 'right_option'],
-        fromModifiers: { optional: ['any'] },
-        toKeys: ['right_option', 'right_option', 'right_command'],
-        conditions: [isLayoutActive],
-      }),
       {
         type: 'basic',
         from: { simultaneous: [{ key_code: mod4Key }, { key_code: 'right_command' }] },
@@ -210,7 +230,9 @@ function rules() {
       description: 'Neo2 mod 3 and layer 4. Rule applied to all keyboards.',
       manipulators: [].concat(
         // --- Comment to prevent line combination by Prettier ---
-        neo2Modifiers('backslash', 'grave_accent_and_tilde'),
+        neo2Mod3Key('backslash', isRightMod3Backslash),
+        neo2Mod3Key('quote', isRightMod3Quote),
+        neo2Mod4('grave_accent_and_tilde'),
         neo2Layer4()
       ),
     },
