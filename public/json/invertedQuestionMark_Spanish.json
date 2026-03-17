@@ -1,0 +1,31 @@
+{
+  "title": "Spanish punctuation: [¿] (inverted question mark)",
+  "maintainers": ["ticodb"],
+  "rules": [
+    {
+      "description": "Add inverted question mark (¿) with Control + /",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "slash",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "slash",
+              "modifiers": [
+                "option",
+                "shift"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

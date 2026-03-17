@@ -1,0 +1,35 @@
+{
+    "title": "left_control+open_bracket/close_bracket to page up/page down",
+    "maintainers": [
+        "duleorlovic"
+    ],
+    "rules": [
+        {
+            "description": "left_control+open_bracket/close_bracket to page up/page down",
+            "manipulators": [
+                {
+                    "from": {
+                        "key_code": "open_bracket",
+                        "modifiers": {
+                            "mandatory": ["left_control"],
+                            "optional": ["any"]
+                        }
+                    },
+                    "to": [{ "key_code": "page_down" }],
+                    "type": "basic"
+                },
+                {
+                    "from": {
+                        "key_code": "close_bracket",
+                        "modifiers": {
+                            "mandatory": ["left_control"],
+                            "optional": ["any"]
+                        }
+                    },
+                    "to": [{ "key_code": "page_up" }],
+                    "type": "basic"
+                }
+            ]
+        }
+    ]
+}

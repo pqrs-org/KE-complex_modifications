@@ -1,0 +1,88 @@
+<h1>
+  Disable External Keyboards when your MacBook is opened
+</h1>
+<p>
+  This is a rule for disabling any external keyboard when your MacBook is opened. This feature is particularly useful when you use your MacBook in clamshell mode, i.e., connected to an external display and keyboard/mouse, and wish to prevent the external keyboard from responding once the MacBook is opened, without the need to physically disconnect it.
+</p>
+<h2>
+  How It Works
+</h2>
+<p>
+  The rule operates on a simple principle: it instructs your Mac to ignore any keystrokes from external keyboards when the internal variable
+  <code>
+    macbook_clamshell_status
+  </code>
+  in Karabiner is set to
+  <code>
+    opened
+  </code>
+  . Conversely, it disregards this rule when the variable is set to
+  <code>
+    closed
+  </code>
+  .
+</p>
+<h3>
+  Integration and Operation
+</h3>
+<p>
+  The functionality hinges on the
+  <code>
+    macbook_clamshell_status
+  </code>
+  variable within Karabiner, which depends on the MacBook's state.
+</p>
+<p>
+  A specialized shell script, available on
+  <a href="https://github.com/Otter-man/karabiner-clamshell-monitor">
+    GitHub
+  </a>
+  , is required for this rule to work.
+  <br/>
+  This script, once installed, will run in the background of your system after every startup and will monitor clamshell status of your Mac via macOS event stream.
+</p>
+<p>
+  On changes detected in the stream it will change the value of the variable, which in turn activates or deactiates the rule.
+</p>
+<p>
+  The script is installed in the
+  <code>
+    /usr/local/bin
+  </code>
+  .
+</p>
+<p>
+  Script outputs errors in
+  <code>
+    /tmp/karabiner_clamshell_monitor.err
+  </code>
+  and logs changes in clamshell status in
+  <code>
+    /tmp/karabiner_clamshell_monitor.out
+  </code>
+  .
+</p>
+<h3>
+  Installation Process
+</h3>
+<p>
+  Go to
+  <a href="https://github.com/Otter-man/karabiner-clamshell-monitor">
+    GitHub repository
+  </a>
+  and follow installation instructions.
+</p>
+<h3>
+  System Requirements
+</h3>
+<ul>
+  <li>
+    Root access is required during installation, to add the script to the background and startup.
+  </li>
+  <li>
+    MacBook with Apple Silicon.
+  </li>
+  <li>
+    MacOS Sonoma.
+  </li>
+</ul>

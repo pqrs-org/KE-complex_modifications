@@ -1,0 +1,94 @@
+{
+  "title": "Corsair MARK 75 → Apple UK (VID 6940, PID 11012)",
+  "rules": [
+    {
+      "description": "Corsair UK behave like Apple UK; fixes Shift+2, Shift+3, #/~, dead accents; swap Cmd/Ctrl",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": { "key_code": "grave_accent_and_tilde", "modifiers": { "optional": ["any"] } },
+          "to": [ { "key_code": "non_us_backslash" } ],
+          "conditions": [ { "type": "device_if", "identifiers": [ { "vendor_id": 6940, "product_id": 11012 } ] } ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "grave_accent_and_tilde", "modifiers": { "mandatory": ["shift"], "optional": ["any"] } },
+          "to": [ { "key_code": "non_us_backslash", "modifiers": ["shift"] } ],
+          "conditions": [ { "type": "device_if", "identifiers": [ { "vendor_id": 6940, "product_id": 11012 } ] } ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "non_us_backslash", "modifiers": { "optional": ["any"] } },
+          "to": [ { "key_code": "backslash" } ],
+          "conditions": [ { "type": "device_if", "identifiers": [ { "vendor_id": 6940, "product_id": 11012 } ] } ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "non_us_backslash", "modifiers": { "mandatory": ["shift"], "optional": ["any"] } },
+          "to": [ { "key_code": "backslash", "modifiers": ["shift"] } ],
+          "conditions": [ { "type": "device_if", "identifiers": [ { "vendor_id": 6940, "product_id": 11012 } ] } ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "non_us_pound" },
+          "to": [ { "key_code": "3", "modifiers": ["option"] } ],
+          "conditions": [ { "type": "device_if", "identifiers": [ { "vendor_id": 6940, "product_id": 11012 } ] } ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "non_us_pound", "modifiers": { "mandatory": ["shift"], "optional": ["any"] } },
+          "to": [
+            { "set_variable": { "name": "tilde_passthrough", "value": 1 } },
+            { "key_code": "non_us_backslash", "modifiers": ["shift"] }
+          ],
+          "to_after_key_up": [
+            { "set_variable": { "name": "tilde_passthrough", "value": 0 } }
+          ],
+          "conditions": [ { "type": "device_if", "identifiers": [ { "vendor_id": 6940, "product_id": 11012 } ] } ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "2", "modifiers": { "mandatory": ["shift"], "optional": ["any"] } },
+          "to": [ { "key_code": "quote", "modifiers": ["shift"] } ],
+          "conditions": [ { "type": "device_if", "identifiers": [ { "vendor_id": 6940, "product_id": 11012 } ] } ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "quote", "modifiers": { "mandatory": ["shift"], "optional": ["any"] } },
+          "to": [ { "key_code": "2", "modifiers": ["shift"] } ],
+          "conditions": [ { "type": "device_if", "identifiers": [ { "vendor_id": 6940, "product_id": 11012 } ] } ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "4", "modifiers": { "mandatory": ["option"], "optional": ["any"] } },
+          "to": [ { "key_code": "2", "modifiers": ["option"] } ],
+          "conditions": [ { "type": "device_if", "identifiers": [ { "vendor_id": 6940, "product_id": 11012 } ] } ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "left_command", "modifiers": { "optional": ["any"] } },
+          "to": [ { "key_code": "left_control" } ],
+          "conditions": [ { "type": "device_if", "identifiers": [ { "vendor_id": 6940, "product_id": 11012 } ] } ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "right_command", "modifiers": { "optional": ["any"] } },
+          "to": [ { "key_code": "right_control" } ],
+          "conditions": [ { "type": "device_if", "identifiers": [ { "vendor_id": 6940, "product_id": 11012 } ] } ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "left_control", "modifiers": { "optional": ["any"] } },
+          "to": [ { "key_code": "left_command" } ],
+          "conditions": [ { "type": "device_if", "identifiers": [ { "vendor_id": 6940, "product_id": 11012 } ] } ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "right_control", "modifiers": { "optional": ["any"] } },
+          "to": [ { "key_code": "right_command" } ],
+          "conditions": [ { "type": "device_if", "identifiers": [ { "vendor_id": 6940, "product_id": 11012 } ] } ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "title": "Page down / home to switch Application on Mac",
+  "rules": [
+    {
+      "description": "Page down",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "page_down"
+          },
+          "to": [
+            {
+              "repeat": false,
+              "key_code": "tab",
+              "modifiers": [
+                "left_gui",
+                "left_shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Home",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "home"
+          },
+          "to": [
+            {
+              "repeat": false,
+              "key_code": "tab",
+              "modifiers": [
+                "left_gui"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

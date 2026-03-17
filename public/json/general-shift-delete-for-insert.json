@@ -1,0 +1,29 @@
+{
+  "title": "General - Shift + Delete to Insert Copy Buffer",
+  "rules": [
+    {
+      "description": "General - Shift + Delete to Insert Copy Buffer",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "delete_or_backspace",
+            "modifiers": {
+              "mandatory": [
+                "left_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "v",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

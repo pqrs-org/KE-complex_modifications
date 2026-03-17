@@ -1,0 +1,35 @@
+{
+  "title":"Caps Lock to Chromebook Search Key",
+  "rules": [
+    {
+      "description": "Caps Lock to Chromebook Search Key",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "optional": [ "any" ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "spacebar",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "to_if_held_down": [
+            {
+            "key_code": "spacebar",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

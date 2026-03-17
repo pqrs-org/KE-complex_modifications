@@ -1,0 +1,60 @@
+{
+  "title": "Russian Keyboard Remapping: Маленькая б на мягкий знак(ь). Мягкий знак(ь) на shift + б (в классическом исполнении мягкий знак(ь))",
+  "maintainers": [
+    "maxdzyubak"
+  ],
+  "rules": [
+    {
+      "description": "Russian Keyboard Remapping: Маленькая б на мягкий знак(ь). Мягкий знак(ь) на shift + б (в классическом исполнении мягкий знак(ь))",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "input_sources": [
+                {
+                  "language": "ru"
+                }
+              ],
+              "type": "input_source_if"
+            }
+          ],
+          "from": {
+            "key_code": "m"
+          },
+          "to": [
+            {
+              "key_code": "comma"
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "input_sources": [
+                {
+                  "language": "ru"
+                }
+              ],
+              "type": "input_source_if"
+            }
+          ],
+          "from": {
+            "key_code": "m",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "m"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}

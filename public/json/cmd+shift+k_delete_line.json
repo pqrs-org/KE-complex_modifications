@@ -1,0 +1,24 @@
+{
+  "title": "cmd+shift+k delete line",
+  "rules": [
+    {
+      "description": "cmd+shift+k delete line",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": { "mandatory": ["left_command", "left_shift"] },
+            "key_code": "k"
+          },
+          "to": [
+            { "repeat": false, "key_code": "a", "modifiers": ["left_control"] },
+            { "repeat": false, "key_code": "k", "modifiers": ["left_control"] },
+            { "repeat": false, "key_code": "delete_or_backspace" }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+

@@ -1,0 +1,58 @@
+<h3>Plum Nano 75 Bluetooth NiZ KB75 75EC-XRGB (fix quotes and semicolon)</h3>
+
+<p>
+This keyboard was first available under the brand name <a href="https://drop.com/buy/plum-nano-75-bluetooth-electro-capacitive-mechanical-keyboard">Plum Nano 75</a> and later changed to <a href="hbuttonps://www.NiZkeyboard.com">NiZ</a> KB75 75EC-XRGB. It identifies its vendor as CATEX TECH.
+</p>
+
+<p>
+The firmware has a bug with switched keys. Pressing the <button>;</button>  results in a <tt>:</tt> on screen. The keyboard actually sends <button>⇧ Shift left</button>+<button>;</button> to the computer. Consequently you have to press <button>⇧ Shift</button>+<button>;</button> to get a <tt>;</tt>. The same applies for <button>'</button> and <button>"</button>.
+</p>
+
+<p>
+This modification fixes this to work like most normal keyboards.
+</p>
+
+<style>
+  table.NiZ_kb75_keymap_table {
+    border-collapse: collapse;
+    margin: 10px;
+  }
+
+  table.NiZ_kb75_keymap_table th,
+  table.NiZ_kb75_keymap_table td {
+    border: 1px solid gray;
+    padding: 5px;
+  }
+
+  table.NiZ_kb75_keymap_table th {
+    background-color: #ddd;
+  }
+
+  table.NiZ_kb75_keymap_table {
+    text-align: center;
+  }
+</style>
+
+<table class="NiZ_kb75_keymap_table">
+  <tr>
+    <th>Key Press</th>
+    <th>Character</th>
+  </tr>
+  <tr>
+    <td><button>;</button></td>
+    <td><tt>;</tt></td>
+  </tr>
+  <tr>
+    <td><button>⇧ Shift</button>+<button>;</button></td>
+    <td><tt>:</tt></td>
+  </tr>
+  <tr>
+    <td><button>'</button></td>
+    <td><tt>'</tt></td>
+  </tr>
+  <tr>
+    <td><button>⇧ Shift</button>+<button>'</button></td>
+    <td><tt>"</tt></td>
+  </tr>
+
+</table>

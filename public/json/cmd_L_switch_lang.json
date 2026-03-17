@@ -1,0 +1,29 @@
+{
+    "title": "Single left command key press to switch input source",
+    "rules": [
+    {
+        "description": "L_CMD to switch input languages",
+        "manipulators": [
+            {
+                "from": { "key_code": "left_gui" },
+                "parameters": { "basic.to_if_alone_timeout_milliseconds": 200 },
+                "to": [
+                    {
+                        "key_code": "left_command",
+                        "lazy": true
+                    }
+                ],
+                "to_if_alone": [
+                    {
+                        "key_code": "spacebar",
+                        "lazy": true,
+                        "modifiers": ["left_control", "left_alt"],
+                        "repeat": false
+                    }
+                ],
+                "type": "basic"
+            }
+        ]
+}
+]
+}

@@ -1,0 +1,36 @@
+{
+  "title": "Map Caps -> Esc (when alone), L_Ctrl (when chorded)",
+  "maintainers": [
+    "alextorma"
+  ],
+  "rules": [
+    {
+      "description": "Map Caps -> Esc (when alone), L_Ctrl (when chorded)",
+      "manipulators": [
+        {
+          "description": "Map Caps -> Esc (when alone), L_Ctrl (when chorded)",
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_control",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "escape"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}

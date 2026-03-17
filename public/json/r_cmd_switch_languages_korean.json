@@ -1,0 +1,28 @@
+{
+  "title": "R_CMD to switch input languages, especially Korean",
+  "maintainers": ["predict-woo"],
+  "rules": [
+    {
+      "description": "R_CMD to switch input languages, Fixes the issue where R_CMD does not switch input languages when caps lock is on",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_gui",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "repeat": false,
+              "key_code": "spacebar",
+              "modifiers": ["left_control", "left_alt"],
+              "lazy": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

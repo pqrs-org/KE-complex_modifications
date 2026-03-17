@@ -1,0 +1,30 @@
+{
+  "title": "R_ALT to switch input languages as it is in Windows (especially Korean)",
+  "maintainers": [
+    "pydemia"
+  ],
+  "rules": [
+    {
+      "description": "R_ALT to switch input languages as it is in Windows (especially Korean)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_alt"
+          },
+          "to": [
+            {
+              "repeat": false,
+              "key_code": "spacebar",
+              "modifiers": [
+                "left_control",
+                "left_alt"
+              ],
+              "lazy": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "title": "MouseButton 15 to command + option + control + shift + u (don’t forget to enable your mouse under Devices)",
+  "rules": [
+    {
+      "description": "MouseButton 15 to command + option + control + shift + u",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button15",
+            "modifiers": {
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "u",
+              "modifiers": ["left_command", "left_option", "left_control", "left_shift"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

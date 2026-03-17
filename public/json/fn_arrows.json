@@ -14,7 +14,8 @@
               ],
               "optional": [
                 "caps_lock",
-                "option"
+                "option",
+                "shift"
               ]
             }
           },
@@ -39,7 +40,8 @@
               ],
               "optional": [
                 "caps_lock",
-                "option"
+                "option",
+                "shift"
               ]
             }
           },
@@ -64,7 +66,8 @@
               ],
               "optional": [
                 "caps_lock",
-                "option"
+                "option",
+                "shift"
               ]
             }
           },
@@ -89,13 +92,68 @@
               ],
               "optional": [
                 "caps_lock",
-                "option"
+                "option",
+                "shift"
               ]
             }
           },
           "to": [
             {
               "key_code": "end"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "FN + Left to Cmd + Left",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_arrow",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ],
+              "optional": [
+                "caps_lock",
+                "option",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+                "key_code": "left_arrow",
+                "modifiers": "command"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "FN + Right to Cmd + Right",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_arrow",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ],
+              "optional": [
+                "caps_lock",
+                "option",
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+                "key_code": "right_arrow",
+                "modifiers": "command"
             }
           ]
         }

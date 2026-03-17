@@ -1,0 +1,308 @@
+{
+    "title": "Toggle to vim hjkl in specified apps",
+    "author": "Ramiro Garcia (https://github.com/ranemirusG)",
+    "rules": [
+        {
+            "description": "left_option twice toggle to get into vim-like hjkl arrows in specified apps",
+            "manipulators": [
+                {
+                    "conditions": [
+                        {
+                            "name": "hjkl_arrow_keys_mode",
+                            "type": "variable_unless",
+                            "value": 1
+                        },
+                        {
+                            "name": "left_option pressed",
+                            "type": "variable_if",
+                            "value": 1
+                        },
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com.apple.Safari",
+                                "^org.mozilla.firefox",
+                                "^com.google.Chrome",
+                                "^com.apple.Preview",
+                                "^com.apple.finder"
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "left_option"
+                    },
+                    "to": [
+                        {
+                            "set_variable": {
+                                "name": "hjkl_arrow_keys_mode",
+                                "value": 1
+                            }
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "name": "hjkl_arrow_keys_mode",
+                            "type": "variable_if",
+                            "value": 1
+                        },
+                        {
+                            "name": "left_option pressed",
+                            "type": "variable_if",
+                            "value": 1
+                        },
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com.apple.Safari",
+                                "^org.mozilla.firefox",
+                                "^com.google.Chrome",
+                                "^com.apple.Preview",
+                                "^com.apple.finder"
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "left_option"
+                    },
+                    "to": [
+                        {
+                            "set_variable": {
+                                "name": "hjkl_arrow_keys_mode",
+                                "value": 0
+                            }
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com.apple.Safari",
+                                "^org.mozilla.firefox",
+                                "^com.google.Chrome",
+                                "^com.apple.Preview",
+                                "^com.apple.finder"
+                            ]
+                        }
+                    ],
+                    "type": "basic",
+                    "from": {
+                        "key_code": "left_option",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "set_variable": {
+                                "name": "left_option pressed",
+                                "value": 1
+                            }
+                        },
+                        {
+                            "key_code": "left_option"
+                        }
+                    ],
+                    "to_delayed_action": {
+                        "to_if_invoked": [
+                            {
+                                "set_variable": {
+                                    "name": "left_option pressed",
+                                    "value": 0
+                                }
+                            }
+                        ],
+                        "to_if_canceled": [
+                            {
+                                "set_variable": {
+                                    "name": "left_option pressed",
+                                    "value": 0
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "conditions": [
+                        {
+                            "name": "hjkl_arrow_keys_mode",
+                            "type": "variable_if",
+                            "value": 1
+                        },
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com.apple.Safari",
+                                "^org.mozilla.firefox",
+                                "^com.google.Chrome",
+                                "^com.apple.Preview",
+                                "^com.apple.finder"
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "h"
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_arrow"
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "name": "hjkl_arrow_keys_mode",
+                            "type": "variable_if",
+                            "value": 1
+                        },
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com.apple.Safari",
+                                "^org.mozilla.firefox",
+                                "^com.google.Chrome",
+                                "^com.apple.Preview",
+                                "^com.apple.finder"
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "j"
+                    },
+                    "to": [
+                        {
+                            "key_code": "down_arrow"
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "name": "hjkl_arrow_keys_mode",
+                            "type": "variable_if",
+                            "value": 1
+                        },
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com.apple.Safari",
+                                "^org.mozilla.firefox",
+                                "^com.google.Chrome",
+                                "^com.apple.Preview",
+                                "^com.apple.finder"
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "k"
+                    },
+                    "to": [
+                        {
+                            "key_code": "up_arrow"
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "name": "hjkl_arrow_keys_mode",
+                            "type": "variable_if",
+                            "value": 1
+                        },
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com.apple.Safari",
+                                "^org.mozilla.firefox",
+                                "^com.google.Chrome",
+                                "^com.apple.Preview",
+                                "^com.apple.finder"
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "l"
+                    },
+                    "to": [
+                        {
+                            "key_code": "right_arrow"
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "name": "hjkl_arrow_keys_mode",
+                            "type": "variable_if",
+                            "value": 1
+                        },
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com.apple.Safari",
+                                "^org.mozilla.firefox",
+                                "^com.google.Chrome",
+                                "^com.apple.Preview",
+                                "^com.apple.finder"
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "g"
+                    },
+                    "to": [
+                        {
+                            "key_code": "home"
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "name": "hjkl_arrow_keys_mode",
+                            "type": "variable_if",
+                            "value": 1
+                        },
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com.apple.Safari",
+                                "^org.mozilla.firefox",
+                                "^com.google.Chrome",
+                                "^com.apple.Preview",
+                                "^com.apple.finder"
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "g",
+                        "modifiers": {
+                            "mandatory": [
+                                "shift"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "end"
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        }
+    ]
+}

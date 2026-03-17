@@ -1,0 +1,220 @@
+{
+    "title": "CIDOO V75 Pro — Escape & Tilde Swap Mod w/ Hyper Key",
+    "maintainers": [
+        "gsinti"
+    ],
+    "rules":
+    [
+        {
+            "description": "Left Shift + Esc: ~ (tilde)",
+            "manipulators":
+            [
+                {
+                    "from":
+                    {
+                        "key_code": "escape",
+                        "modifiers":
+                        {
+                            "mandatory":
+                            [
+                                "left_shift"
+                            ],
+                            "optional":
+                            [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to":
+                    [
+                        {
+                            "key_code": "grave_accent_and_tilde",
+                            "modifiers":
+                            [
+                                "shift"
+                            ],
+                            "repeat": false
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "Right Shift + Esc: ` (grave)",
+            "manipulators":
+            [
+                {
+                    "from":
+                    {
+                        "key_code": "escape",
+                        "modifiers":
+                        {
+                            "mandatory":
+                            [
+                                "right_shift"
+                            ],
+                            "optional":
+                            [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to":
+                    [
+                        {
+                            "key_code": "grave_accent_and_tilde",
+                            "repeat": false
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "Control + Esc: Control + `",
+            "manipulators":
+            [
+                {
+                    "from":
+                    {
+                        "key_code": "escape",
+                        "modifiers":
+                        {
+                            "mandatory":
+                            [
+                                "control"
+                            ],
+                            "optional":
+                            [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to":
+                    [
+                        {
+                            "key_code": "grave_accent_and_tilde",
+                            "modifiers":
+                            [
+                                "control"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "Command + Esc: ⌘ + ` (app window cycle)",
+            "manipulators":
+            [
+                {
+                    "from":
+                    {
+                        "key_code": "escape",
+                        "modifiers":
+                        {
+                            "mandatory":
+                            [
+                                "command"
+                            ],
+                            "optional":
+                            [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to":
+                    [
+                        {
+                            "key_code": "grave_accent_and_tilde",
+                            "modifiers":
+                            [
+                                "command"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "Caps Lock (held): ⌃⌥⇧⌘ (Hyper Key)",
+            "manipulators":
+            [
+                {
+                    "from":
+                    {
+                        "key_code": "caps_lock",
+                        "modifiers":
+                        {
+                            "optional":
+                            [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to":
+                    [
+                        {
+                            "key_code": "left_shift",
+                            "modifiers":
+                            [
+                                "left_command",
+                                "left_control",
+                                "left_option"
+                            ],
+                            "lazy": true
+                        }
+                    ],
+                    "to_if_alone":
+                    [
+                        {
+                            "key_code": "caps_lock",
+                            "repeat": false
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "Hyper Key + Esc: Shift + Escape",
+            "manipulators":
+            [
+                {
+                    "from":
+                    {
+                        "key_code": "escape",
+                        "modifiers":
+                        {
+                            "mandatory":
+                            [
+                                "left_shift",
+                                "left_command",
+                                "left_control",
+                                "left_option"
+                            ],
+                            "optional":
+                            [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to":
+                    [
+                        {
+                            "key_code": "escape",
+                            "modifiers":
+                            [
+                                "shift"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        }
+    ]
+}

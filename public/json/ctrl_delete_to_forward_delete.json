@@ -1,0 +1,29 @@
+{
+  "title": "Map Ctrl-Backspace to forward Delete (forward delete one character at a time).",
+  "rules": [
+    {
+      "description": "Map Ctrl-Backspace to forward Delete (forward delete one character at a time).",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "delete_or_backspace",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_forward"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "title": "Caps Lock to Hyper (Hold) or Backspace (Tap)",
+  "maintainers": ["astukaturov"],
+  "rules": [
+    {
+      "description": "Caps Lock (Hold) -> Hyper Key (⌘⌥^⇧), Caps Lock (Tap) -> Backspace",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": { "optional": ["any"] }
+          },
+          "to": [
+            {
+              "key_code": "left_control",
+              "modifiers": ["left_shift", "left_option", "left_command"]
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "delete_or_backspace"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

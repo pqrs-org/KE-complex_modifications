@@ -1,0 +1,33 @@
+{
+    "title": "Disable external keyboard input when macbook is opened",
+    "maintainer": "Otter-man",
+    "rules": [
+      {
+        "description": "Disable external keyboard input when macbook is opened.\nRequires installation of monitoring script available at https://github.com/Otter-man/karabiner-clamshell-monitor",
+        "manipulators": [
+          {
+            "type": "basic",
+            "from": {
+              "any": "key_code"
+            },
+            "to": [],
+            "conditions": [
+              {
+                "type": "variable_if",
+                "name": "macbook_clamshell_status",
+                "value": "opened"
+              },
+              {
+                "type": "device_unless",
+                "identifiers": [
+                  {
+                    "is_built_in_keyboard": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }

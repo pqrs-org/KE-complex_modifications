@@ -1,0 +1,25 @@
+{
+  "title": "MouseButton 10 to command + option + control + shift + 5 (don’t forget to enable your mouse under Devices)",
+  "rules": [
+    {
+      "description": "MouseButton 10 to command + option + control + shift + 5",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button10",
+            "modifiers": {
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "5",
+              "modifiers": ["left_command", "left_option", "left_control", "left_shift"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

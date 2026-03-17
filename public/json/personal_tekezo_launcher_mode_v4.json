@@ -5,32 +5,31 @@
   ],
   "rules": [
     {
-      "description": "Launcher Mode v4 (rev 18)",
-      "available_since": "13.1.4",
+      "description": "Launcher Mode v4 (rev 33)",
+      "available_since": "15.7.3",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "1",
+            "key_code": "a",
             "modifiers": {
-              "mandatory": [
-
-              ],
               "optional": [
                 "any"
               ]
             }
           },
-          "to": [
-            {
-              "shell_command": "open \"$(dirname $(dirname $(xcode-select -p)))\""
-            }
-          ],
+          "to": [],
           "conditions": [
             {
               "type": "variable_if",
               "name": "launcher_mode_v4",
               "value": 1
+            },
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.ActivityMonitor$"
+              ]
             }
           ]
         },
@@ -42,7 +41,7 @@
                 "key_code": "o"
               },
               {
-                "key_code": "1"
+                "key_code": "a"
               }
             ],
             "simultaneous_options": {
@@ -58,9 +57,6 @@
               ]
             },
             "modifiers": {
-              "mandatory": [
-
-              ],
               "optional": [
                 "any"
               ]
@@ -72,228 +68,14 @@
                 "name": "launcher_mode_v4",
                 "value": 1
               }
-            },
-            {
-              "shell_command": "open \"$(dirname $(dirname $(xcode-select -p)))\""
-            }
-          ],
-          "parameters": {
-            "basic.simultaneous_threshold_milliseconds": 500
-          }
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "3",
-            "modifiers": {
-              "mandatory": [
-
-              ],
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "shell_command": "open -a 'Firefox.app'"
             }
           ],
           "conditions": [
             {
-              "type": "variable_if",
-              "name": "launcher_mode_v4",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "o"
-              },
-              {
-                "key_code": "3"
-              }
-            ],
-            "simultaneous_options": {
-              "key_down_order": "strict",
-              "key_up_order": "strict_inverse",
-              "to_after_key_up": [
-                {
-                  "set_variable": {
-                    "name": "launcher_mode_v4",
-                    "value": 0
-                  }
-                }
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.ActivityMonitor$"
               ]
-            },
-            "modifiers": {
-              "mandatory": [
-
-              ],
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "launcher_mode_v4",
-                "value": 1
-              }
-            },
-            {
-              "shell_command": "open -a 'Firefox.app'"
-            }
-          ],
-          "parameters": {
-            "basic.simultaneous_threshold_milliseconds": 500
-          }
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "5",
-            "modifiers": {
-              "mandatory": [
-
-              ],
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "shell_command": "open -a 'Microsoft Word.app'"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "launcher_mode_v4",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "o"
-              },
-              {
-                "key_code": "5"
-              }
-            ],
-            "simultaneous_options": {
-              "key_down_order": "strict",
-              "key_up_order": "strict_inverse",
-              "to_after_key_up": [
-                {
-                  "set_variable": {
-                    "name": "launcher_mode_v4",
-                    "value": 0
-                  }
-                }
-              ]
-            },
-            "modifiers": {
-              "mandatory": [
-
-              ],
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "launcher_mode_v4",
-                "value": 1
-              }
-            },
-            {
-              "shell_command": "open -a 'Microsoft Word.app'"
-            }
-          ],
-          "parameters": {
-            "basic.simultaneous_threshold_milliseconds": 500
-          }
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "6",
-            "modifiers": {
-              "mandatory": [
-
-              ],
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "shell_command": "open -a 'Microsoft Excel.app'"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "launcher_mode_v4",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "o"
-              },
-              {
-                "key_code": "6"
-              }
-            ],
-            "simultaneous_options": {
-              "key_down_order": "strict",
-              "key_up_order": "strict_inverse",
-              "to_after_key_up": [
-                {
-                  "set_variable": {
-                    "name": "launcher_mode_v4",
-                    "value": 0
-                  }
-                }
-              ]
-            },
-            "modifiers": {
-              "mandatory": [
-
-              ],
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "launcher_mode_v4",
-                "value": 1
-              }
-            },
-            {
-              "shell_command": "open -a 'Microsoft Excel.app'"
             }
           ],
           "parameters": {
@@ -305,9 +87,6 @@
           "from": {
             "key_code": "a",
             "modifiers": {
-              "mandatory": [
-
-              ],
               "optional": [
                 "any"
               ]
@@ -315,7 +94,11 @@
           },
           "to": [
             {
-              "shell_command": "open -a 'Activity Monitor.app'"
+              "software_function": {
+                "open_application": {
+                  "bundle_identifier": "com.apple.ActivityMonitor"
+                }
+              }
             }
           ],
           "conditions": [
@@ -350,9 +133,6 @@
               ]
             },
             "modifiers": {
-              "mandatory": [
-
-              ],
               "optional": [
                 "any"
               ]
@@ -366,7 +146,236 @@
               }
             },
             {
-              "shell_command": "open -a 'Activity Monitor.app'"
+              "software_function": {
+                "open_application": {
+                  "bundle_identifier": "com.apple.ActivityMonitor"
+                }
+              }
+            }
+          ],
+          "conditions": [],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 500
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "b",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "launcher_mode_v4",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.teams2$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "o"
+              },
+              {
+                "key_code": "b"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "launcher_mode_v4",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "launcher_mode_v4",
+                "value": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.teams2$"
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 500
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "b",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "software_function": {
+                "open_application": {
+                  "bundle_identifier": "com.microsoft.teams2"
+                }
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "launcher_mode_v4",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "o"
+              },
+              {
+                "key_code": "b"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "launcher_mode_v4",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "launcher_mode_v4",
+                "value": 1
+              }
+            },
+            {
+              "software_function": {
+                "open_application": {
+                  "bundle_identifier": "com.microsoft.teams2"
+                }
+              }
+            }
+          ],
+          "conditions": [],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 500
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "c",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "launcher_mode_v4",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.google\\.Chrome$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "o"
+              },
+              {
+                "key_code": "c"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "launcher_mode_v4",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "launcher_mode_v4",
+                "value": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.google\\.Chrome$"
+              ]
             }
           ],
           "parameters": {
@@ -378,9 +387,6 @@
           "from": {
             "key_code": "c",
             "modifiers": {
-              "mandatory": [
-
-              ],
               "optional": [
                 "any"
               ]
@@ -388,7 +394,11 @@
           },
           "to": [
             {
-              "shell_command": "open -a 'Google Chrome.app'"
+              "software_function": {
+                "open_application": {
+                  "bundle_identifier": "com.google.Chrome"
+                }
+              }
             }
           ],
           "conditions": [
@@ -423,9 +433,6 @@
               ]
             },
             "modifiers": {
-              "mandatory": [
-
-              ],
               "optional": [
                 "any"
               ]
@@ -439,7 +446,236 @@
               }
             },
             {
-              "shell_command": "open -a 'Google Chrome.app'"
+              "software_function": {
+                "open_application": {
+                  "bundle_identifier": "com.google.Chrome"
+                }
+              }
+            }
+          ],
+          "conditions": [],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 500
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "d",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "launcher_mode_v4",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^org\\.mozilla\\.firefox$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "o"
+              },
+              {
+                "key_code": "d"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "launcher_mode_v4",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "launcher_mode_v4",
+                "value": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^org\\.mozilla\\.firefox$"
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 500
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "d",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "software_function": {
+                "open_application": {
+                  "bundle_identifier": "org.mozilla.firefox"
+                }
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "launcher_mode_v4",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "o"
+              },
+              {
+                "key_code": "d"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "launcher_mode_v4",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "launcher_mode_v4",
+                "value": 1
+              }
+            },
+            {
+              "software_function": {
+                "open_application": {
+                  "bundle_identifier": "org.mozilla.firefox"
+                }
+              }
+            }
+          ],
+          "conditions": [],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 500
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "e",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "launcher_mode_v4",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.VSCode$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "o"
+              },
+              {
+                "key_code": "e"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "launcher_mode_v4",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "launcher_mode_v4",
+                "value": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.VSCode$"
+              ]
             }
           ],
           "parameters": {
@@ -451,9 +687,6 @@
           "from": {
             "key_code": "e",
             "modifiers": {
-              "mandatory": [
-
-              ],
               "optional": [
                 "any"
               ]
@@ -461,7 +694,11 @@
           },
           "to": [
             {
-              "shell_command": "open -a 'Visual Studio Code.app'"
+              "software_function": {
+                "open_application": {
+                  "bundle_identifier": "com.microsoft.VSCode"
+                }
+              }
             }
           ],
           "conditions": [
@@ -496,9 +733,6 @@
               ]
             },
             "modifiers": {
-              "mandatory": [
-
-              ],
               "optional": [
                 "any"
               ]
@@ -512,7 +746,86 @@
               }
             },
             {
-              "shell_command": "open -a 'Visual Studio Code.app'"
+              "software_function": {
+                "open_application": {
+                  "bundle_identifier": "com.microsoft.VSCode"
+                }
+              }
+            }
+          ],
+          "conditions": [],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 500
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "launcher_mode_v4",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.finder$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "o"
+              },
+              {
+                "key_code": "f"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "launcher_mode_v4",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "launcher_mode_v4",
+                "value": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.finder$"
+              ]
             }
           ],
           "parameters": {
@@ -524,9 +837,6 @@
           "from": {
             "key_code": "f",
             "modifiers": {
-              "mandatory": [
-
-              ],
               "optional": [
                 "any"
               ]
@@ -534,7 +844,11 @@
           },
           "to": [
             {
-              "shell_command": "open -a 'Finder.app'"
+              "software_function": {
+                "open_application": {
+                  "bundle_identifier": "com.apple.finder"
+                }
+              }
             }
           ],
           "conditions": [
@@ -569,9 +883,6 @@
               ]
             },
             "modifiers": {
-              "mandatory": [
-
-              ],
               "optional": [
                 "any"
               ]
@@ -585,7 +896,236 @@
               }
             },
             {
-              "shell_command": "open -a 'Finder.app'"
+              "software_function": {
+                "open_application": {
+                  "bundle_identifier": "com.apple.finder"
+                }
+              }
+            }
+          ],
+          "conditions": [],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 500
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "g",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "launcher_mode_v4",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.openai\\.chat$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "o"
+              },
+              {
+                "key_code": "g"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "launcher_mode_v4",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "launcher_mode_v4",
+                "value": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.openai\\.chat$"
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 500
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "g",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "software_function": {
+                "open_application": {
+                  "bundle_identifier": "com.openai.chat"
+                }
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "launcher_mode_v4",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "o"
+              },
+              {
+                "key_code": "g"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "launcher_mode_v4",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "launcher_mode_v4",
+                "value": 1
+              }
+            },
+            {
+              "software_function": {
+                "open_application": {
+                  "bundle_identifier": "com.openai.chat"
+                }
+              }
+            }
+          ],
+          "conditions": [],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 500
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "m",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "launcher_mode_v4",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^org\\.mozilla\\.thunderbird$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "o"
+              },
+              {
+                "key_code": "m"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "launcher_mode_v4",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "launcher_mode_v4",
+                "value": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^org\\.mozilla\\.thunderbird$"
+              ]
             }
           ],
           "parameters": {
@@ -597,9 +1137,6 @@
           "from": {
             "key_code": "m",
             "modifiers": {
-              "mandatory": [
-
-              ],
               "optional": [
                 "any"
               ]
@@ -607,7 +1144,11 @@
           },
           "to": [
             {
-              "shell_command": "open -a 'Thunderbird.app'"
+              "software_function": {
+                "open_application": {
+                  "bundle_identifier": "org.mozilla.thunderbird"
+                }
+              }
             }
           ],
           "conditions": [
@@ -642,9 +1183,6 @@
               ]
             },
             "modifiers": {
-              "mandatory": [
-
-              ],
               "optional": [
                 "any"
               ]
@@ -658,7 +1196,86 @@
               }
             },
             {
-              "shell_command": "open -a 'Thunderbird.app'"
+              "software_function": {
+                "open_application": {
+                  "bundle_identifier": "org.mozilla.thunderbird"
+                }
+              }
+            }
+          ],
+          "conditions": [],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 500
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "launcher_mode_v4",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Dictionary$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "o"
+              },
+              {
+                "key_code": "q"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "launcher_mode_v4",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "launcher_mode_v4",
+                "value": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Dictionary$"
+              ]
             }
           ],
           "parameters": {
@@ -670,9 +1287,6 @@
           "from": {
             "key_code": "q",
             "modifiers": {
-              "mandatory": [
-
-              ],
               "optional": [
                 "any"
               ]
@@ -680,7 +1294,11 @@
           },
           "to": [
             {
-              "shell_command": "open -a 'Dictionary.app'"
+              "software_function": {
+                "open_application": {
+                  "bundle_identifier": "com.apple.Dictionary"
+                }
+              }
             }
           ],
           "conditions": [
@@ -715,9 +1333,6 @@
               ]
             },
             "modifiers": {
-              "mandatory": [
-
-              ],
               "optional": [
                 "any"
               ]
@@ -731,7 +1346,198 @@
               }
             },
             {
-              "shell_command": "open -a 'Dictionary.app'"
+              "software_function": {
+                "open_application": {
+                  "bundle_identifier": "com.apple.Dictionary"
+                }
+              }
+            }
+          ],
+          "conditions": [],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 500
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "r",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "software_function": {
+                "open_application": {
+                  "frontmost_application_history_index": 1,
+                  "frontmost_application_history_exclusion_bundle_identifiers": [
+                    "^com\\.1password\\.1password$",
+                    "^com\\.apple\\.ActivityMonitor$",
+                    "^com\\.apple\\.Dictionary$",
+                    "^com\\.apple\\.dock$",
+                    "^com\\.apple\\.dt\\.Xcode$",
+                    "^com\\.apple\\.finder$",
+                    "^com\\.apple\\.loginwindow$",
+                    "^com\\.apple\\.Safari$",
+                    "^com\\.apple\\.Terminal$",
+                    "^com\\.google\\.Chrome$",
+                    "^com\\.microsoft\\.teams2$",
+                    "^com\\.microsoft\\.VSCode$",
+                    "^com\\.openai\\.chat$",
+                    "^com\\.tinyspeck\\.slackmacgap$",
+                    "^org\\.mozilla\\.firefox$",
+                    "^org\\.mozilla\\.thunderbird$"
+                  ]
+                }
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "launcher_mode_v4",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "o"
+              },
+              {
+                "key_code": "r"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "launcher_mode_v4",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "launcher_mode_v4",
+                "value": 1
+              }
+            },
+            {
+              "software_function": {
+                "open_application": {
+                  "frontmost_application_history_index": 1,
+                  "frontmost_application_history_exclusion_bundle_identifiers": [
+                    "^com\\.1password\\.1password$",
+                    "^com\\.apple\\.ActivityMonitor$",
+                    "^com\\.apple\\.Dictionary$",
+                    "^com\\.apple\\.dock$",
+                    "^com\\.apple\\.dt\\.Xcode$",
+                    "^com\\.apple\\.finder$",
+                    "^com\\.apple\\.loginwindow$",
+                    "^com\\.apple\\.Safari$",
+                    "^com\\.apple\\.Terminal$",
+                    "^com\\.google\\.Chrome$",
+                    "^com\\.microsoft\\.teams2$",
+                    "^com\\.microsoft\\.VSCode$",
+                    "^com\\.openai\\.chat$",
+                    "^com\\.tinyspeck\\.slackmacgap$",
+                    "^org\\.mozilla\\.firefox$",
+                    "^org\\.mozilla\\.thunderbird$"
+                  ]
+                }
+              }
+            }
+          ],
+          "conditions": [],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 500
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "s",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "launcher_mode_v4",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Safari$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "o"
+              },
+              {
+                "key_code": "s"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "launcher_mode_v4",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "launcher_mode_v4",
+                "value": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Safari$"
+              ]
             }
           ],
           "parameters": {
@@ -743,9 +1549,6 @@
           "from": {
             "key_code": "s",
             "modifiers": {
-              "mandatory": [
-
-              ],
               "optional": [
                 "any"
               ]
@@ -753,7 +1556,11 @@
           },
           "to": [
             {
-              "shell_command": "open -a 'Safari.app'"
+              "software_function": {
+                "open_application": {
+                  "bundle_identifier": "com.apple.Safari"
+                }
+              }
             }
           ],
           "conditions": [
@@ -788,9 +1595,6 @@
               ]
             },
             "modifiers": {
-              "mandatory": [
-
-              ],
               "optional": [
                 "any"
               ]
@@ -804,7 +1608,86 @@
               }
             },
             {
-              "shell_command": "open -a 'Safari.app'"
+              "software_function": {
+                "open_application": {
+                  "bundle_identifier": "com.apple.Safari"
+                }
+              }
+            }
+          ],
+          "conditions": [],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 500
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "t",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "launcher_mode_v4",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "o"
+              },
+              {
+                "key_code": "t"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "launcher_mode_v4",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "launcher_mode_v4",
+                "value": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$"
+              ]
             }
           ],
           "parameters": {
@@ -816,9 +1699,6 @@
           "from": {
             "key_code": "t",
             "modifiers": {
-              "mandatory": [
-
-              ],
               "optional": [
                 "any"
               ]
@@ -826,7 +1706,11 @@
           },
           "to": [
             {
-              "shell_command": "open -a 'Terminal.app'"
+              "software_function": {
+                "open_application": {
+                  "bundle_identifier": "com.apple.Terminal"
+                }
+              }
             }
           ],
           "conditions": [
@@ -861,9 +1745,6 @@
               ]
             },
             "modifiers": {
-              "mandatory": [
-
-              ],
               "optional": [
                 "any"
               ]
@@ -877,7 +1758,86 @@
               }
             },
             {
-              "shell_command": "open -a 'Terminal.app'"
+              "software_function": {
+                "open_application": {
+                  "bundle_identifier": "com.apple.Terminal"
+                }
+              }
+            }
+          ],
+          "conditions": [],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 500
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "v",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "launcher_mode_v4",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.tinyspeck\\.slackmacgap$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "o"
+              },
+              {
+                "key_code": "v"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "launcher_mode_v4",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "launcher_mode_v4",
+                "value": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.tinyspeck\\.slackmacgap$"
+              ]
             }
           ],
           "parameters": {
@@ -889,9 +1849,6 @@
           "from": {
             "key_code": "v",
             "modifiers": {
-              "mandatory": [
-
-              ],
               "optional": [
                 "any"
               ]
@@ -899,7 +1856,11 @@
           },
           "to": [
             {
-              "shell_command": "open -a 'Slack.app'"
+              "software_function": {
+                "open_application": {
+                  "bundle_identifier": "com.tinyspeck.slackmacgap"
+                }
+              }
             }
           ],
           "conditions": [
@@ -934,9 +1895,6 @@
               ]
             },
             "modifiers": {
-              "mandatory": [
-
-              ],
               "optional": [
                 "any"
               ]
@@ -950,7 +1908,86 @@
               }
             },
             {
-              "shell_command": "open -a 'Slack.app'"
+              "software_function": {
+                "open_application": {
+                  "bundle_identifier": "com.tinyspeck.slackmacgap"
+                }
+              }
+            }
+          ],
+          "conditions": [],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 500
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "x",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "launcher_mode_v4",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.dt\\.Xcode$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "o"
+              },
+              {
+                "key_code": "x"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "launcher_mode_v4",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "launcher_mode_v4",
+                "value": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.dt\\.Xcode$"
+              ]
             }
           ],
           "parameters": {
@@ -960,11 +1997,84 @@
         {
           "type": "basic",
           "from": {
+            "key_code": "x",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "software_function": {
+                "open_application": {
+                  "bundle_identifier": "com.apple.dt.Xcode"
+                }
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "launcher_mode_v4",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "o"
+              },
+              {
+                "key_code": "x"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict",
+              "key_up_order": "strict_inverse",
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "launcher_mode_v4",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "launcher_mode_v4",
+                "value": 1
+              }
+            },
+            {
+              "software_function": {
+                "open_application": {
+                  "bundle_identifier": "com.apple.dt.Xcode"
+                }
+              }
+            }
+          ],
+          "conditions": [],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 500
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
             "key_code": "left_control",
             "modifiers": {
-              "mandatory": [
-
-              ],
               "optional": [
                 "any"
               ]
@@ -1007,9 +2117,6 @@
               ]
             },
             "modifiers": {
-              "mandatory": [
-
-              ],
               "optional": [
                 "any"
               ]
@@ -1026,6 +2133,7 @@
               "key_code": "mission_control"
             }
           ],
+          "conditions": [],
           "parameters": {
             "basic.simultaneous_threshold_milliseconds": 500
           }
@@ -1035,9 +2143,6 @@
           "from": {
             "key_code": "left_shift",
             "modifiers": {
-              "mandatory": [
-
-              ],
               "optional": [
                 "any"
               ]
@@ -1045,7 +2150,10 @@
           },
           "to": [
             {
-              "apple_vendor_keyboard_key_code": "spotlight"
+              "key_code": "spacebar",
+              "modifiers": [
+                "left_command"
+              ]
             }
           ],
           "conditions": [
@@ -1080,9 +2188,6 @@
               ]
             },
             "modifiers": {
-              "mandatory": [
-
-              ],
               "optional": [
                 "any"
               ]
@@ -1096,9 +2201,13 @@
               }
             },
             {
-              "apple_vendor_keyboard_key_code": "spotlight"
+              "key_code": "spacebar",
+              "modifiers": [
+                "left_command"
+              ]
             }
           ],
+          "conditions": [],
           "parameters": {
             "basic.simultaneous_threshold_milliseconds": 500
           }

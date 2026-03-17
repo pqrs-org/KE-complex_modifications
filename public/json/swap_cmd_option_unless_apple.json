@@ -1,0 +1,100 @@
+{
+    "title": "Swap Command and Option Keys",
+    "maintainers": [
+        "FelixDuo"
+    ],
+    "rules": [
+        {
+            "description": "Swap Command and Option for all non-Apple keyboards",
+            "manipulators": [
+                {
+                    "conditions": [
+                        {
+                            "identifiers": [
+                                {
+                                    "is_built_in_keyboard": true
+                                },
+                                {
+                                    "vendor_id": 76
+                                }
+                            ],
+                            "type": "device_unless"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "left_command",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_option"
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "identifiers": [
+                                {
+                                    "is_built_in_keyboard": true
+                                },
+                                {
+                                    "vendor_id": 76
+                                }
+                            ],
+                            "type": "device_unless"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "left_option",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_command"
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "identifiers": [
+                                {
+                                    "is_built_in_keyboard": true
+                                },
+                                {
+                                    "vendor_id": 76
+                                }
+                            ],
+                            "type": "device_unless"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "right_option",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "right_command"
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        }
+    ]
+}

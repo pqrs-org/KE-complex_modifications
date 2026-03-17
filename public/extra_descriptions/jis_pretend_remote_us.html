@@ -1,0 +1,29 @@
+<style>
+code { font-family: "Courier New", Consolas, monospace; }
+</style>
+<p>
+  <code>from.modifiers.optional = ["any"]</code> にしてあるので、
+  <code>from.modifiers</code> の詳細度が高い順に記述すること。
+</p>
+
+<p>
+  例えば、
+  
+  <ol>
+    <li><b><code>"@"</code></b> (<i> from = open_bracket </i>)</li>
+    <li><b><code>"`"</code></b> (<i> from = <mark>shift</mark> + open_bracket </i>)</li>
+  </ol>
+  
+  の順で書いてしまうと、どちらも <b><code>"@"</code></b> にマッチしてしまうので、
+  
+  <ol>
+    <li><b><code>"`"</code></b> (<i> from = <mark>shift</mark> + open_bracket </i>)</li>
+    <li><b><code>"@"</code></b> (<i> from = open_bracket </i>)</li>
+  </ol>
+  
+  の順に書くこと。
+</p>
+
+<p>
+  ※ <code>from.modifiers.optional = ["any"]</code> にしてあるのは、私がモディファイアを複数同時に使うため ( emacs で C-@ , C-M-% , ... )
+</p>

@@ -1,0 +1,404 @@
+{
+    "title": "CapsWord",
+    "author": "Pedro Fernandes (https://github.com/PurnaDeva)",
+    "maintainers": [
+        "PurnaDeva"
+    ],
+    "rules": [
+        {
+            "description": "CapsLock turned off automagically by space, enter, down arrow, tab, quote and =.,/",
+            "manipulators": [
+                {
+                    "conditions": [
+                        {
+                            "name": "caps_lock_state",
+                            "type": "variable_if",
+                            "value": 1
+                        }
+                    ],
+                    "from": {
+                        "key_code": "spacebar",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "caps_lock",
+                            "lazy": false
+                        },
+                        {
+                            "set_variable": {
+                                "name": "caps_lock_state",
+                                "value": 0
+                            }
+                        },
+                        {
+                            "key_code": "spacebar"
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "name": "caps_lock_state",
+                            "type": "variable_if",
+                            "value": 1
+                        }
+                    ],
+                    "from": {
+                        "key_code": "equal_sign",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "caps_lock",
+                            "lazy": false
+                        },
+                        {
+                            "set_variable": {
+                                "name": "caps_lock_state",
+                                "value": 0
+                            }
+                        },
+                        {
+                            "key_code": "equal_sign"
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "name": "caps_lock_state",
+                            "type": "variable_if",
+                            "value": 1
+                        }
+                    ],
+                    "from": {
+                        "key_code": "right_shift",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "caps_lock",
+                            "lazy": false
+                        },
+                        {
+                            "set_variable": {
+                                "name": "caps_lock_state",
+                                "value": 0
+                            }
+                        },
+                        {
+                            "key_code": "right_shift"
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "name": "caps_lock_state",
+                            "type": "variable_if",
+                            "value": 1
+                        }
+                    ],
+                    "from": {
+                        "key_code": "period",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "caps_lock",
+                            "lazy": false
+                        },
+                        {
+                            "set_variable": {
+                                "name": "caps_lock_state",
+                                "value": 0
+                            }
+                        },
+                        {
+                            "key_code": "period"
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "name": "caps_lock_state",
+                            "type": "variable_if",
+                            "value": 1
+                        }
+                    ],
+                    "from": {
+                        "key_code": "comma",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "caps_lock",
+                            "lazy": false
+                        },
+                        {
+                            "set_variable": {
+                                "name": "caps_lock_state",
+                                "value": 0
+                            }
+                        },
+                        {
+                            "key_code": "comma"
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "name": "caps_lock_state",
+                            "type": "variable_if",
+                            "value": 1
+                        }
+                    ],
+                    "from": {
+                        "key_code": "slash",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_shift"
+                            ],
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "caps_lock",
+                            "lazy": false
+                        },
+                        {
+                            "set_variable": {
+                                "name": "caps_lock_state",
+                                "value": 0
+                            }
+                        },
+                        {
+                            "key_code": "slash",
+                            "modifiers": "left_shift"
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "name": "caps_lock_state",
+                            "type": "variable_if",
+                            "value": 1
+                        }
+                    ],
+                    "from": {
+                        "key_code": "return_or_enter",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "caps_lock",
+                            "lazy": false
+                        },
+                        {
+                            "set_variable": {
+                                "name": "caps_lock_state",
+                                "value": 0
+                            }
+                        },
+                        {
+                            "key_code": "return_or_enter"
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "name": "caps_lock_state",
+                            "type": "variable_if",
+                            "value": 1
+                        }
+                    ],
+                    "from": {
+                        "key_code": "down_arrow",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "caps_lock",
+                            "lazy": false
+                        },
+                        {
+                            "set_variable": {
+                                "name": "caps_lock_state",
+                                "value": 0
+                            }
+                        },
+                        {
+                            "key_code": "down_arrow"
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "name": "caps_lock_state",
+                            "type": "variable_if",
+                            "value": 1
+                        }
+                    ],
+                    "from": {
+                        "key_code": "tab",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "caps_lock",
+                            "lazy": false
+                        },
+                        {
+                            "set_variable": {
+                                "name": "caps_lock_state",
+                                "value": 0
+                            }
+                        },
+                        {
+                            "key_code": "tab"
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "name": "caps_lock_state",
+                            "type": "variable_if",
+                            "value": 1
+                        }
+                    ],
+                    "from": {
+                        "key_code": "quote",
+                        "modifiers": {
+                            "optional": [
+                                "caps_lock",
+                                "left_shift"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "caps_lock",
+                            "lazy": false
+                        },
+                        {
+                            "set_variable": {
+                                "name": "caps_lock_state",
+                                "value": 0
+                            }
+                        },
+                        {
+                            "key_code": "quote"
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "name": "caps_lock_state",
+                            "type": "variable_if",
+                            "value": 0
+                        }
+                    ],
+                    "from": {
+                        "key_code": "caps_lock"
+                    },
+                    "to": [
+                        {
+                            "set_variable": {
+                                "name": "caps_lock_state",
+                                "value": 1
+                            }
+                        },
+                        {
+                            "key_code": "caps_lock",
+                            "lazy": false
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "name": "caps_lock_state",
+                            "type": "variable_if",
+                            "value": 1
+                        }
+                    ],
+                    "from": {
+                        "key_code": "caps_lock",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "set_variable": {
+                                "name": "caps_lock_state",
+                                "value": 0
+                            }
+                        },
+                        {
+                            "key_code": "caps_lock",
+                            "lazy": false
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        }
+    ]
+}

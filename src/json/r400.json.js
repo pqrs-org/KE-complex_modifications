@@ -1,0 +1,34 @@
+// JavaScript should be written in ECMAScript 5.1.
+
+function main() {
+  console.log(
+    JSON.stringify(
+      {
+        title: 'Logitech R400',
+        rules: [
+          {
+            description: 'Map presenter keys for use with Skim',
+            manipulators: [
+              {
+                conditions: [{ type: 'device_if', identifiers: [{ product_id: 50488, vendor_id: 1133 }] }],
+                type: 'basic',
+                from: { key_code: 'f5' },
+                to: [{ key_code: 'p', modifiers: ['left_control', 'left_command'] }],
+              },
+              {
+                conditions: [{ type: 'device_if', identifiers: [{ product_id: 50488, vendor_id: 1133 }] }],
+                type: 'basic',
+                from: { key_code: 'period' },
+                to: [{ key_code: 'b' }],
+              },
+            ],
+          },
+        ],
+      },
+      null,
+      '  '
+    )
+  )
+}
+
+main()

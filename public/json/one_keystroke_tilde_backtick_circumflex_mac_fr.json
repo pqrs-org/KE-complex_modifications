@@ -1,0 +1,77 @@
+{
+    "title": "Make tilde (~), backtick (`) and accent circumflex ^ work with one keystroke Mac FR.",
+    "rules": [
+      {
+        "description": "Tilde one keystroke.",
+        "manipulators": [
+          {
+            "type": "basic",
+            "from": {
+              "modifiers": {
+                "mandatory": [
+                  "left_alt"
+                ]
+              },
+              "key_code": "n"
+            },
+            "to": [
+              {
+                "repeat": false,
+                "key_code": "n",
+                "modifiers": [
+                  "left_alt"
+                ]
+              },
+              {
+                "repeat": false,
+                "key_code": "right_arrow"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "description": "Backtick one keystroke.",
+        "manipulators": [
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "backslash"
+            },
+            "to": [
+              {
+                "repeat": false,
+                "key_code": "backslash"
+              },
+              {
+                "repeat": false,
+                "key_code": "right_arrow"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "description": "Accent circumflex one keystroke.",
+        "manipulators": [
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "open_bracket"
+            },
+            "to": [
+              {
+                "repeat": false,
+                "key_code": "open_bracket"
+              },
+              {
+                "repeat": false,
+                "key_code": "right_arrow"
+              }
+            ]
+          }
+        ]
+      }
+  
+    ]
+  }

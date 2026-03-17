@@ -1,0 +1,25 @@
+{
+  "title": "akimbo cmd to F12",
+  "rules": [
+    {
+      "description": "akimbo cmd to F12",
+      "manipulators": [
+        {
+          "from": {
+            "simultaneous": [{ "key_code": "left_command" }, { "key_code": "right_command" }],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "key_code": "f12",
+                  "modifiers": ["fn"]
+                }
+              ]
+            }
+          },
+          "to": [{ "key_code": "vk_none" }],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}

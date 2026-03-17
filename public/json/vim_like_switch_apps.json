@@ -1,0 +1,106 @@
+{
+  "title": "After command+tab, use h/l to choose applications, rather than the annoying arrow keys",
+  "author": "https://github.com/shenyfg",
+  "rules": [
+    {
+      "description": "After command+tab, use h/l to choose applications, rather than the annoying arrow keys",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "during mission control",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "during mission control",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "tab",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "during mission control",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "tab",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_command"
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "during mission control",
+                "value": 1,
+                "key_up_value": 0
+              }
+            },
+            {
+              "key_code": "left_command"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

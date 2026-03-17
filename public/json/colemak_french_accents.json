@@ -1,0 +1,177 @@
+{
+  "title": "Colemak accents for French Language (Colemak layout set on MacOS)",
+  "rules": [
+    {
+      "description": "general: grave accent / right command + r [physical command + s] =>> [right option + `]",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "right_gui"
+              ]
+            },
+            "key_code": "s"
+          },
+          "to": [
+            {
+              "repeat": false,
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": [
+                "right_alt"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "general: circumflex (circonflexe) accent / right command + x [physical command + x] =>> [right option + l]",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "right_gui"
+              ]
+            },
+            "key_code": "x"
+          },
+          "to": [
+            {
+              "repeat": false,
+              "key_code": "l",
+              "modifiers": [
+                "right_alt"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "general: dieresis (trema) accent / right command + t [physical command + f] =>> [right option + l]",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "right_gui"
+              ]
+            },
+            "key_code": "f"
+          },
+          "to": [
+            {
+              "repeat": false,
+              "key_code": "i",
+              "modifiers": [
+                "right_alt"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "specific: e acute / right command + e [physical command + k] =>> e acute accent [right option + k, k]  ",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "right_gui"
+              ]
+            },
+            "key_code": "k"
+          },
+          "to": [
+            {
+              "repeat": false,
+              "key_code": "k",
+              "modifiers": [
+                "right_alt"
+              ],
+              "hold_down_milliseconds": 1
+            },
+            {
+              "repeat": false,
+              "key_code": "k",
+              "lazy": true,
+              "halt": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "specific: a grave / right command + a [physical command + a] =>> a grave accent [right option + `, a]  ",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "right_gui"
+              ]
+            },
+            "key_code": "a"
+          },
+          "to": [
+            {
+              "repeat": false,
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": [
+                "right_alt"
+              ],
+              "hold_down_milliseconds": 1
+            },
+            {
+              "repeat": false,
+              "key_code": "a",
+              "lazy": true,
+              "halt": false
+            }
+          ]
+        }
+      ]
+    },
+        {
+          "description": "specific: u grave / right command + u [physical command + i] =>> u grave [right option + `, i]  ",
+          "manipulators": [
+            {
+              "type": "basic",
+              "from": {
+                "modifiers": {
+                  "mandatory": [
+                    "right_gui"
+                  ]
+                },
+                "key_code": "i"
+              },
+              "to": [
+                {
+                  "repeat": false,
+                  "key_code": "grave_accent_and_tilde",
+                  "modifiers": [
+                    "right_alt"
+                  ],
+                  "hold_down_milliseconds": 1
+                },
+                {
+                  "repeat": false,
+                  "key_code": "i",
+                  "lazy": true,
+                  "halt": false
+                }
+              ]
+            }
+          ]
+    }
+
+  ]
+}

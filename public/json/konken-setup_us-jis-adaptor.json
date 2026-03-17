@@ -1,0 +1,63 @@
+{
+    "title": "KonKen's Setup: US/JIS Adaptor",
+    "rules": [
+        {
+            "description": "F14 => 英数 (when pressed alone) / Left Cmnd (when used in combination)",
+            "manipulators": [
+                {
+                    "from": {
+                        "key_code": "f14",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_command"
+                        }
+                    ],
+                    "parameters": {
+                        "basic.to_if_alone_timeout_milliseconds": 3000
+                    },
+                    "to_if_alone": [
+                        {
+                            "key_code": "japanese_eisuu"
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "F15 => かな (when pressed alone) / Right Cmnd (when used in combination)",
+            "manipulators": [
+                {
+                    "from": {
+                        "key_code": "f15",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "right_command"
+                        }
+                    ],
+                    "parameters": {
+                        "basic.to_if_alone_timeout_milliseconds": 3000
+                    },
+                    "to_if_alone": [
+                        {
+                            "key_code": "japanese_kana"
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        }
+    ]
+}

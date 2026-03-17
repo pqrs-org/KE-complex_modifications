@@ -1,0 +1,25 @@
+{
+  "title": "Disable the accidental keystroke prevention of Caps Lock",
+  "maintainers": ["tekezo"],
+  "rules": [
+    {
+      "description": "Disable the accidental keystroke prevention of Caps Lock",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": { "optional": ["any"] }
+          },
+          "to": [
+            {
+              "hold_down_milliseconds": 100,
+              "key_code": "caps_lock"
+            },
+            { "key_code": "vk_none" }
+          ]
+        }
+      ]
+    }
+  ]
+}

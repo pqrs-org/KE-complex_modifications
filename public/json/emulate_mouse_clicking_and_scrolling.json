@@ -1,0 +1,150 @@
+{
+    "title": "Emulate mouse clicking and scrolling",
+    "rules": [
+        {
+            "description": "left-command + j to left-click",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "j",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_command"
+                            ],
+                            "optional": []
+                        }
+                    },
+                    "to": [
+                        {
+                            "pointing_button": "button1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "left-command + k to right-click",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "k",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_command"
+                            ],
+                            "optional": []
+                        }
+                    },
+                    "to": [
+                        {
+                            "pointing_button": "button2"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "left-command + left-shift + j to scroll-down",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "j",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_command","left_shift"
+                            ],
+                            "optional": []
+                        }
+                    },
+                    "to": [
+                        {
+                            "mouse_key": {
+                                "vertical_wheel": 64
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "left-command + left-shift + k to scroll-up",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "k",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_command","left_shift"
+                            ],
+                            "optional": []
+                        }
+                    },
+                    "to": [
+                        {
+                            "mouse_key": {
+                                "vertical_wheel": -64
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "left-command + left-control + j to command + left-click",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "j",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_command",
+                                "left_control"
+                            ],
+                            "optional": []
+                        }
+                    },
+                    "to": [
+                        {
+                            "pointing_button": "button1",
+                            "modifiers": [
+                                "command"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "left-command + left-control + left-shift + j to shift + left-click",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "j",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_command",
+                                "left_control",
+                                "left_shift"
+                            ],
+                            "optional": []
+                        }
+                    },
+                    "to": [
+                        {
+                            "pointing_button": "button1",
+                            "modifiers": [
+                                "shift"
+                            ]
+                        }
+                    ]
+                }
+            ]
+       }
+    ]
+}

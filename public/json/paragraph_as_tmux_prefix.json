@@ -1,0 +1,338 @@
+{
+  "title": "Cange § to Ctrl-a",
+  "rules": [
+    {
+      "description": "Remap section sign (§) to Ctrl-a. Plus it allows to use !@#$%^&*( as numbers for tmux to switch between panes",
+        "manipulators": [
+          {
+            "from": {
+              "key_code": "non_us_backslash"
+            },
+            "to": [
+              {
+                "key_code": "a",
+                "modifiers": [
+                  "control"
+                ]
+              },
+              {
+                "set_variable": {
+                  "name": "tmux-prefix",
+                  "value": true
+                }
+              }
+            ],
+            "type": "basic"
+          },
+
+
+
+          {
+            "from": {
+              "key_code": "1",
+              "modifiers": {
+                "optional": [
+                  "left_shift"
+                ]
+              }
+            },
+            "conditions": [
+              {
+                "type": "variable_if",
+                "name": "tmux-prefix",
+                "value": true
+              }
+            ],
+            "to": [
+              {
+                "key_code": "1"
+              },
+              {
+                "set_variable": {
+                  "name": "tmux-prefix",
+                  "value": false
+                }
+              }
+            ],
+            "type": "basic"
+          },
+
+
+
+          {
+            "from": {
+              "key_code": "2",
+              "modifiers": {
+                "optional": [
+                  "left_shift"
+                ]
+              }
+            },
+            "conditions": [
+              {
+                "type": "variable_if",
+                "name": "tmux-prefix",
+                "value": true
+              }
+            ],
+            "to": [
+              {
+                "key_code": "2"
+              },
+              {
+                "set_variable": {
+                  "name": "tmux-prefix",
+                  "value": false
+                }
+              }
+            ],
+            "type": "basic"
+          },
+
+
+
+          {
+            "from": {
+              "key_code": "3",
+              "modifiers": {
+                "optional": [
+                  "left_shift"
+                ]
+              }
+            },
+            "conditions": [
+              {
+                "type": "variable_if",
+                "name": "tmux-prefix",
+                "value": true
+              }
+            ],
+            "to": [
+              {
+                "key_code": "3"
+              },
+              {
+                "set_variable": {
+                  "name": "tmux-prefix",
+                  "value": false
+                }
+              }
+            ],
+            "type": "basic"
+          },
+
+
+
+          {
+            "from": {
+              "key_code": "4",
+              "modifiers": {
+                "optional": [
+                  "left_shift"
+                ]
+              }
+            },
+            "conditions": [
+              {
+                "type": "variable_if",
+                "name": "tmux-prefix",
+                "value": true
+              }
+            ],
+            "to": [
+              {
+                "key_code": "4"
+              },
+              {
+                "set_variable": {
+                  "name": "tmux-prefix",
+                  "value": false
+                }
+              }
+            ],
+            "type": "basic"
+          },
+
+
+
+          {
+            "from": {
+              "key_code": "5",
+              "modifiers": {
+                "optional": [
+                  "left_shift"
+                ]
+              }
+            },
+            "conditions": [
+              {
+                "type": "variable_if",
+                "name": "tmux-prefix",
+                "value": true
+              }
+            ],
+            "to": [
+              {
+                "key_code": "5"
+              },
+              {
+                "set_variable": {
+                  "name": "tmux-prefix",
+                  "value": false
+                }
+              }
+            ],
+            "type": "basic"
+          },
+
+
+
+          {
+            "from": {
+              "key_code": "6",
+              "modifiers": {
+                "optional": [
+                  "left_shift"
+                ]
+              }
+            },
+            "conditions": [
+              {
+                "type": "variable_if",
+                "name": "tmux-prefix",
+                "value": true
+              }
+            ],
+            "to": [
+              {
+                "key_code": "6"
+              },
+              {
+                "set_variable": {
+                  "name": "tmux-prefix",
+                  "value": false
+                }
+              }
+            ],
+            "type": "basic"
+          },
+
+
+
+          {
+            "from": {
+              "key_code": "7",
+              "modifiers": {
+                "optional": [
+                  "left_shift"
+                ]
+              }
+            },
+            "conditions": [
+              {
+                "type": "variable_if",
+                "name": "tmux-prefix",
+                "value": true
+              }
+            ],
+            "to": [
+              {
+                "key_code": "7"
+              },
+              {
+                "set_variable": {
+                  "name": "tmux-prefix",
+                  "value": false
+                }
+              }
+            ],
+            "type": "basic"
+          },
+
+
+
+          {
+            "from": {
+              "key_code": "8",
+              "modifiers": {
+                "optional": [
+                  "left_shift"
+                ]
+              }
+            },
+            "conditions": [
+              {
+                "type": "variable_if",
+                "name": "tmux-prefix",
+                "value": true
+              }
+            ],
+            "to": [
+              {
+                "key_code": "8"
+              },
+              {
+                "set_variable": {
+                  "name": "tmux-prefix",
+                  "value": false
+                }
+              }
+            ],
+            "type": "basic"
+          },
+
+
+
+          {
+            "from": {
+              "key_code": "9",
+              "modifiers": {
+                "optional": [
+                  "left_shift"
+                ]
+              }
+            },
+            "conditions": [
+              {
+                "type": "variable_if",
+                "name": "tmux-prefix",
+                "value": true
+              }
+            ],
+            "to": [
+              {
+                "key_code": "9"
+              },
+              {
+                "set_variable": {
+                  "name": "tmux-prefix",
+                  "value": false
+                }
+              }
+            ],
+            "type": "basic"
+          },
+
+
+
+          {
+            "from": {
+              "key_code": "non_us_backslash",
+              "modifiers": {
+                "mandatory": [
+                  "fn"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "non_us_backslash"
+              }
+            ],
+            "type": "basic"
+          }
+        ]
+    }
+  ]
+}
+

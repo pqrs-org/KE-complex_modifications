@@ -1,0 +1,52 @@
+{
+  "title": "Tab only in Roblox (Full Lock)",
+  "rules": [
+    {
+      "description": "Enable Tab in Roblox",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": { "key_code": "tab" },
+          "to": [ { "key_code": "tab" } ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [ "^com\\.roblox\\.RobloxPlayer$" ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Disable Tab elsewhere",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": { "key_code": "tab" },
+          "to": [ { "key_code": "vk_none" } ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [ "^com\\.roblox\\.RobloxPlayer$" ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Block Cmd+Tab globally",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "tab",
+            "modifiers": {
+              "mandatory": ["command"]
+            }
+          },
+          "to": [ { "key_code": "vk_none" } ]
+        }
+      ]
+    }
+  ]
+}

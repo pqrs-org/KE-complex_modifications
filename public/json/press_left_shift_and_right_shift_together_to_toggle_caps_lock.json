@@ -1,0 +1,45 @@
+{
+  "title": "Press Left Shift ⇧ and Right Shift ⇧ together to toggle Caps Lock",
+  "maintainers": [
+    "devnoname120"
+  ],
+  "rules": [{
+    "description": "Press Left Shift ⇧ and Right Shift ⇧ together to toggle Caps Lock",
+    "manipulators": [
+        {
+            "from": {
+                "key_code": "right_shift",
+                "modifiers": {
+                    "mandatory": ["left_shift"],
+                    "optional": ["caps_lock"]
+                }
+            },
+            "to": [
+                {
+                    "hold_down_milliseconds": 200,
+                    "key_code": "caps_lock"
+                },
+                { "key_code": "vk_none" }
+            ],
+            "type": "basic"
+        },
+        {
+            "from": {
+                "key_code": "left_shift",
+                "modifiers": {
+                    "mandatory": ["right_shift"],
+                    "optional": ["caps_lock"]
+                }
+            },
+            "to": [
+                {
+                    "hold_down_milliseconds": 200,
+                    "key_code": "caps_lock"
+                },
+                { "key_code": "vk_none" }
+            ],
+            "type": "basic"
+        }
+    ]
+  }]
+}

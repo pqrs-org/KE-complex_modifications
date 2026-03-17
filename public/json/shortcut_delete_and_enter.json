@@ -1,0 +1,72 @@
+{
+    "title": "Shortcut Delete and Enter",
+    "rules": [
+        {
+            "description": "left-command + semicolon to delete_or_backspace",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "modifiers": {
+                            "mandatory": [
+                                "left_command"
+                            ],
+                            "optional": []
+                        },
+                        "key_code": "semicolon"
+                    },
+                    "to": [
+                        {
+                            "key_code": "delete_or_backspace"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "left-command + shift + semicolon to delete_forward",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "modifiers": {
+                            "mandatory": [
+                                "left_command",
+                                "left_shift"
+                            ],
+                            "optional": []
+                        },
+                        "key_code": "semicolon"
+                    },
+                    "to": [
+                        {
+                            "key_code": "delete_forward"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "left-command + quote to enter",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "modifiers": {
+                            "mandatory": [
+                                "left_command"
+                            ],
+                            "optional": []
+                        },
+                        "key_code": "quote"
+                    },
+                    "to": [
+                        {
+                            "key_code": "return_or_enter"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

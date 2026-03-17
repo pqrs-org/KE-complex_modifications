@@ -1,0 +1,494 @@
+{
+	"title": "MapleStory",
+	"maintainers": ["mjgj96"],
+	"rules": [
+		{
+			"description": "When MapleStory focused, map fn + return to Insert",
+			"manipulators": [
+				{
+					"conditions": [
+						{
+							"bundle_identifiers": [
+								"^com\\.nexon\\.maplestoryna_exe$"
+							],
+							"type": "frontmost_application_if"
+						}
+					],
+					"from": {
+						"key_code": "return_or_enter",
+						"modifiers": { "mandatory": ["fn"] }
+					},
+					"to": [{ "key_code": "insert" }],
+					"type": "basic"
+				}
+			]
+		},
+		{
+			"description": "When MapleStory focused, use F1, F2, etc. keys as standard function keys",
+			"manipulators": [
+				{
+					"conditions": [
+						{
+							"bundle_identifiers": [
+								"^com\\.nexon\\.maplestoryna_exe$"
+							],
+							"type": "frontmost_application_if"
+						}
+					],
+					"from": {
+						"key_code": "f1",
+						"modifiers": { "optional": ["caps_lock", "command", "control", "option", "shift"] }
+					},
+					"to": [
+						{
+							"key_code": "f1",
+							"modifiers": ["fn"]
+						}
+					],
+					"type": "basic"
+				},
+				{
+					"conditions": [
+						{
+							"bundle_identifiers": [
+								"^com\\.nexon\\.maplestoryna_exe$"
+							],
+							"type": "frontmost_application_if"
+						}
+					],
+					"from": {
+						"key_code": "f1",
+						"modifiers": { "mandatory": ["fn"] }
+					},
+					"to": [{ "key_code": "f1" }],
+					"type": "basic"
+				},
+				{
+					"conditions": [
+						{
+							"bundle_identifiers": [
+								"^com\\.nexon\\.maplestoryna_exe$"
+							],
+							"type": "frontmost_application_if"
+						}
+					],
+					"from": {
+						"key_code": "f2",
+						"modifiers": { "optional": ["caps_lock", "command", "control", "option", "shift"] }
+					},
+					"to": [
+						{
+							"key_code": "f2",
+							"modifiers": ["fn"]
+						}
+					],
+					"type": "basic"
+				},
+				{
+					"conditions": [
+						{
+							"bundle_identifiers": [
+								"^com\\.nexon\\.maplestoryna_exe$"
+							],
+							"type": "frontmost_application_if"
+						}
+					],
+					"from": {
+						"key_code": "f2",
+						"modifiers": { "mandatory": ["fn"] }
+					},
+					"to": [{ "key_code": "f2" }],
+					"type": "basic"
+				},
+				{
+					"conditions": [
+						{
+							"bundle_identifiers": [
+								"^com\\.nexon\\.maplestoryna_exe$"
+							],
+							"type": "frontmost_application_if"
+						}
+					],
+					"from": {
+						"key_code": "f3",
+						"modifiers": { "optional": ["caps_lock", "command", "control", "option", "shift"] }
+					},
+					"to": [
+						{
+							"key_code": "f3",
+							"modifiers": ["fn"]
+						}
+					],
+					"type": "basic"
+				},
+				{
+					"conditions": [
+						{
+							"bundle_identifiers": [
+								"^com\\.nexon\\.maplestoryna_exe$"
+							],
+							"type": "frontmost_application_if"
+						}
+					],
+					"from": {
+						"key_code": "f3",
+						"modifiers": { "mandatory": ["fn"] }
+					},
+					"to": [{ "key_code": "f3" }],
+					"type": "basic"
+				},
+				{
+					"conditions": [
+						{
+							"bundle_identifiers": [
+								"^com\\.nexon\\.maplestoryna_exe$"
+							],
+							"type": "frontmost_application_if"
+						}
+					],
+					"from": {
+						"key_code": "f4",
+						"modifiers": { "optional": ["caps_lock", "command", "control", "option", "shift"] }
+					},
+					"to": [
+						{
+							"key_code": "f4",
+							"modifiers": ["fn"]
+						}
+					],
+					"type": "basic"
+				},
+				{
+					"conditions": [
+						{
+							"bundle_identifiers": [
+								"^com\\.nexon\\.maplestoryna_exe$"
+							],
+							"type": "frontmost_application_if"
+						}
+					],
+					"from": {
+						"key_code": "f4",
+						"modifiers": { "mandatory": ["fn"] }
+					},
+					"to": [{ "key_code": "f4" }],
+					"type": "basic"
+				},
+				{
+					"conditions": [
+						{
+							"bundle_identifiers": [
+								"^com\\.nexon\\.maplestoryna_exe$"
+							],
+							"type": "frontmost_application_if"
+						}
+					],
+					"from": {
+						"key_code": "f5",
+						"modifiers": { "optional": ["caps_lock", "command", "control", "option", "shift"] }
+					},
+					"to": [
+						{
+							"key_code": "f5",
+							"modifiers": ["fn"]
+						}
+					],
+					"type": "basic"
+				},
+				{
+					"conditions": [
+						{
+							"bundle_identifiers": [
+								"^com\\.nexon\\.maplestoryna_exe$"
+							],
+							"type": "frontmost_application_if"
+						}
+					],
+					"from": {
+						"key_code": "f5",
+						"modifiers": { "mandatory": ["fn"] }
+					},
+					"to": [{ "key_code": "f5" }],
+					"type": "basic"
+				},
+				{
+					"conditions": [
+						{
+							"bundle_identifiers": [
+								"^com\\.nexon\\.maplestoryna_exe$"
+							],
+							"type": "frontmost_application_if"
+						}
+					],
+					"from": {
+						"key_code": "f6",
+						"modifiers": { "optional": ["caps_lock", "command", "control", "option", "shift"] }
+					},
+					"to": [
+						{
+							"key_code": "f6",
+							"modifiers": ["fn"]
+						}
+					],
+					"type": "basic"
+				},
+				{
+					"conditions": [
+						{
+							"bundle_identifiers": [
+								"^com\\.nexon\\.maplestoryna_exe$"
+							],
+							"type": "frontmost_application_if"
+						}
+					],
+					"from": {
+						"key_code": "f6",
+						"modifiers": { "mandatory": ["fn"] }
+					},
+					"to": [{ "key_code": "f6" }],
+					"type": "basic"
+				},
+				{
+					"conditions": [
+						{
+							"bundle_identifiers": [
+								"^com\\.nexon\\.maplestoryna_exe$"
+							],
+							"type": "frontmost_application_if"
+						}
+					],
+					"from": {
+						"key_code": "f7",
+						"modifiers": { "optional": ["caps_lock", "command", "control", "option", "shift"] }
+					},
+					"to": [
+						{
+							"key_code": "f7",
+							"modifiers": ["fn"]
+						}
+					],
+					"type": "basic"
+				},
+				{
+					"conditions": [
+						{
+							"bundle_identifiers": [
+								"^com\\.nexon\\.maplestoryna_exe$"
+							],
+							"type": "frontmost_application_if"
+						}
+					],
+					"from": {
+						"key_code": "f7",
+						"modifiers": { "mandatory": ["fn"] }
+					},
+					"to": [{ "key_code": "f7" }],
+					"type": "basic"
+				},
+				{
+					"conditions": [
+						{
+							"bundle_identifiers": [
+								"^com\\.nexon\\.maplestoryna_exe$"
+							],
+							"type": "frontmost_application_if"
+						}
+					],
+					"from": {
+						"key_code": "f8",
+						"modifiers": { "optional": ["caps_lock", "command", "control", "option", "shift"] }
+					},
+					"to": [
+						{
+							"key_code": "f8",
+							"modifiers": ["fn"]
+						}
+					],
+					"type": "basic"
+				},
+				{
+					"conditions": [
+						{
+							"bundle_identifiers": [
+								"^com\\.nexon\\.maplestoryna_exe$"
+							],
+							"type": "frontmost_application_if"
+						}
+					],
+					"from": {
+						"key_code": "f8",
+						"modifiers": { "mandatory": ["fn"] }
+					},
+					"to": [{ "key_code": "f8" }],
+					"type": "basic"
+				},
+				{
+					"conditions": [
+						{
+							"bundle_identifiers": [
+								"^com\\.nexon\\.maplestoryna_exe$"
+							],
+							"type": "frontmost_application_if"
+						}
+					],
+					"from": {
+						"key_code": "f9",
+						"modifiers": { "optional": ["caps_lock", "command", "control", "option", "shift"] }
+					},
+					"to": [
+						{
+							"key_code": "f9",
+							"modifiers": ["fn"]
+						}
+					],
+					"type": "basic"
+				},
+				{
+					"conditions": [
+						{
+							"bundle_identifiers": [
+								"^com\\.nexon\\.maplestoryna_exe$"
+							],
+							"type": "frontmost_application_if"
+						}
+					],
+					"from": {
+						"key_code": "f9",
+						"modifiers": { "mandatory": ["fn"] }
+					},
+					"to": [{ "key_code": "f9" }],
+					"type": "basic"
+				},
+				{
+					"conditions": [
+						{
+							"bundle_identifiers": [
+								"^com\\.nexon\\.maplestoryna_exe$"
+							],
+							"type": "frontmost_application_if"
+						}
+					],
+					"from": {
+						"key_code": "f10",
+						"modifiers": { "optional": ["caps_lock", "command", "control", "option", "shift"] }
+					},
+					"to": [
+						{
+							"key_code": "f10",
+							"modifiers": ["fn"]
+						}
+					],
+					"type": "basic"
+				},
+				{
+					"conditions": [
+						{
+							"bundle_identifiers": [
+								"^com\\.nexon\\.maplestoryna_exe$"
+							],
+							"type": "frontmost_application_if"
+						}
+					],
+					"from": {
+						"key_code": "f10",
+						"modifiers": { "mandatory": ["fn"] }
+					},
+					"to": [{ "key_code": "f10" }],
+					"type": "basic"
+				},
+				{
+					"conditions": [
+						{
+							"bundle_identifiers": [
+								"^com\\.nexon\\.maplestoryna_exe$"
+							],
+							"type": "frontmost_application_if"
+						}
+					],
+					"from": {
+						"key_code": "f11",
+						"modifiers": { "optional": ["caps_lock", "command", "control", "option", "shift"] }
+					},
+					"to": [
+						{
+							"key_code": "f11",
+							"modifiers": ["fn"]
+						}
+					],
+					"type": "basic"
+				},
+				{
+					"conditions": [
+						{
+							"bundle_identifiers": [
+								"^com\\.nexon\\.maplestoryna_exe$"
+							],
+							"type": "frontmost_application_if"
+						}
+					],
+					"from": {
+						"key_code": "f11",
+						"modifiers": { "mandatory": ["fn"] }
+					},
+					"to": [{ "key_code": "f11" }],
+					"type": "basic"
+				},
+				{
+					"conditions": [
+						{
+							"bundle_identifiers": [
+								"^com\\.nexon\\.maplestoryna_exe$"
+							],
+							"type": "frontmost_application_if"
+						}
+					],
+					"from": {
+						"key_code": "f12",
+						"modifiers": { "optional": ["caps_lock", "command", "control", "option", "shift"] }
+					},
+					"to": [
+						{
+							"key_code": "f12",
+							"modifiers": ["fn"]
+						}
+					],
+					"type": "basic"
+				},
+				{
+					"conditions": [
+						{
+							"bundle_identifiers": [
+								"^com\\.nexon\\.maplestoryna_exe$"
+							],
+							"type": "frontmost_application_if"
+						}
+					],
+					"from": {
+						"key_code": "f12",
+						"modifiers": { "mandatory": ["fn"] }
+					},
+					"to": [{ "key_code": "f12" }],
+					"type": "basic"
+				}
+			]
+		},
+		{
+			"description": "When MapleStory focused, map Right ⌥ option to Right CTRL",
+			"manipulators": [
+				{
+					"conditions": [
+						{
+							"bundle_identifiers": [
+								"^com\\.nexon\\.maplestoryna_exe$"
+							],
+							"type": "frontmost_application_if"
+						}
+					],
+					"from": { "key_code": "right_option" },
+					"to": [{ "key_code": "right_control" }],
+					"type": "basic"
+				}
+			]
+		}
+	]
+}

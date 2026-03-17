@@ -1,0 +1,37 @@
+{
+  "title": "keyboard_plus to start for neovim / vim keyword search -> star * or shift + keyboard_plus for pound #",
+  "maintainers": ["pavelz"],
+  "rules": [
+    {
+      "description": "keyboard_plus to start for neovim / vim keyword search -> star * or shift + keyboard_plus for pound #",
+      "manipulators": [
+        {
+              "from": {
+                  "key_code": "keypad_plus",
+                  "modifiers": {}
+              },
+              "to": [
+                {
+                      "key_code": "8",
+                      "modifiers": ["left_shift"]
+                }
+              ],
+              "type": "basic"
+        },
+        {
+              "from": {
+                  "key_code": "keypad_plus",
+                  "modifiers": { "mandatory": ["left_shift"] }
+              },
+              "to": [
+                {
+                      "key_code": "3",
+                      "modifiers": ["left_shift"]
+                }
+              ],
+              "type": "basic"
+        }
+      ]
+    }
+  ]
+}

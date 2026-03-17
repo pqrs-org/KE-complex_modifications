@@ -1,0 +1,35 @@
+{
+  "title": "Russian Keyboard Remapping: Маленькая б на shift+б",
+  "maintainers": ["maxdzyubak"],
+  "rules": [
+    {
+      "description": "Russian Keyboard Remapping: Маленькая б на shift+б",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "input_sources": [
+                {
+                  "language": "ru"
+                }
+              ],
+              "type": "input_source_if"
+            }
+          ],
+          "from": {
+            "key_code": "comma",
+            "modifiers": {
+              "mandatory": ["shift"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "comma"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}

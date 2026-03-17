@@ -1,12 +1,11 @@
 all:
-	bash scripts/update-json.sh
-	python3 scripts/lint-public-json.py public/json
-	ruby scripts/lint-groups.rb
-	bash scripts/update-public-build.sh
+	make -C core
 
 rebuild:
-	touch src/json/*
-	$(MAKE) all
+	make -C core rebuild
 
-server:
-	ruby scripts/dev-server.rb
+update-dist:
+	make -C core update-dist
+
+preview-server:
+	make -C core preview-server

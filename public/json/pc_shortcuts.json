@@ -152,8 +152,11 @@
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
+                "^org\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$",
                 "^org\\.mozilla\\.firefox$",
+                "^org\\.mozilla\\.firefoxdeveloperedition$",
                 "^org\\.mozilla\\.nightly$",
                 "^com\\.microsoft\\.Edge",
                 "^com\\.microsoft\\.edgemac",
@@ -165,7 +168,7 @@
                 "^org\\.gnu\\.Emacs$",
                 "^org\\.gnu\\.AquamacsEmacs$",
                 "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$"
+                "^org\\.pqrs\\.unknownapp\\.conkeror$"
               ]
             }
           ]
@@ -193,6 +196,7 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^org\\.mozilla\\.firefox$",
+                "^org\\.mozilla\\.firefoxdeveloperedition$",
                 "^org\\.mozilla\\.nightly$",
                 "^com\\.microsoft\\.Edge",
                 "^com\\.microsoft\\.edgemac",
@@ -258,13 +262,15 @@
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
+                "^org\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$",
                 "^cz\\.or\\.repo\\.git-gui$",
                 "^com\\.jetbrains\\.",
                 "^org\\.gnu\\.Emacs$",
                 "^org\\.gnu\\.AquamacsEmacs$",
                 "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$"
+                "^org\\.pqrs\\.unknownapp\\.conkeror$"
               ]
             }
           ]
@@ -321,8 +327,11 @@
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
+                "^org\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$",
                 "^org\\.mozilla\\.firefox$",
+                "^org\\.mozilla\\.firefoxdeveloperedition$",
                 "^org\\.mozilla\\.nightly$",
                 "^com\\.microsoft\\.Edge",
                 "^com\\.microsoft\\.edgemac",
@@ -334,7 +343,7 @@
                 "^org\\.gnu\\.Emacs$",
                 "^org\\.gnu\\.AquamacsEmacs$",
                 "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$"
+                "^org\\.pqrs\\.unknownapp\\.conkeror$"
               ]
             }
           ]
@@ -362,6 +371,7 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^org\\.mozilla\\.firefox$",
+                "^org\\.mozilla\\.firefoxdeveloperedition$",
                 "^org\\.mozilla\\.nightly$",
                 "^com\\.microsoft\\.Edge",
                 "^com\\.microsoft\\.edgemac",
@@ -427,13 +437,15 @@
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
+                "^org\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$",
                 "^cz\\.or\\.repo\\.git-gui$",
                 "^com\\.jetbrains\\.",
                 "^org\\.gnu\\.Emacs$",
                 "^org\\.gnu\\.AquamacsEmacs$",
                 "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$"
+                "^org\\.pqrs\\.unknownapp\\.conkeror$"
               ]
             }
           ]
@@ -441,7 +453,34 @@
       ]
     },
     {
-      "description": "PC-Style Paste(Shift+Insert) for JIS keyboard",
+      "description": "PC-Style Copy (Ctrl+Insert) for JIS/PC keyboard",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "insert",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "c",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "PC-Style Paste (Shift+Insert) for JIS/PC keyboard",
       "manipulators": [
         {
           "type": "basic",
@@ -579,11 +618,13 @@
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
+                "^org\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$",
                 "^org\\.gnu\\.Emacs$",
                 "^org\\.gnu\\.AquamacsEmacs$",
                 "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$"
+                "^org\\.pqrs\\.unknownapp\\.conkeror$"
               ]
             }
           ]
@@ -643,11 +684,13 @@
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
+                "^org\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$",
                 "^org\\.gnu\\.Emacs$",
                 "^org\\.gnu\\.AquamacsEmacs$",
                 "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$"
+                "^org\\.pqrs\\.unknownapp\\.conkeror$"
               ]
             }
           ]
@@ -707,11 +750,13 @@
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
+                "^org\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$",
                 "^org\\.gnu\\.Emacs$",
                 "^org\\.gnu\\.AquamacsEmacs$",
                 "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$"
+                "^org\\.pqrs\\.unknownapp\\.conkeror$"
               ]
             }
           ]
@@ -771,11 +816,13 @@
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
+                "^org\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$",
                 "^org\\.gnu\\.Emacs$",
                 "^org\\.gnu\\.AquamacsEmacs$",
                 "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$"
+                "^org\\.pqrs\\.unknownapp\\.conkeror$"
               ]
             }
           ]
@@ -840,11 +887,13 @@
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
+                "^org\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$",
                 "^org\\.gnu\\.Emacs$",
                 "^org\\.gnu\\.AquamacsEmacs$",
                 "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$"
+                "^org\\.pqrs\\.unknownapp\\.conkeror$"
               ]
             }
           ]
@@ -904,11 +953,13 @@
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
+                "^org\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$",
                 "^org\\.gnu\\.Emacs$",
                 "^org\\.gnu\\.AquamacsEmacs$",
                 "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$"
+                "^org\\.pqrs\\.unknownapp\\.conkeror$"
               ]
             }
           ]
@@ -968,11 +1019,13 @@
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
+                "^org\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$",
                 "^org\\.gnu\\.Emacs$",
                 "^org\\.gnu\\.AquamacsEmacs$",
                 "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$"
+                "^org\\.pqrs\\.unknownapp\\.conkeror$"
               ]
             }
           ]
@@ -1037,11 +1090,13 @@
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
+                "^org\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$",
                 "^org\\.gnu\\.Emacs$",
                 "^org\\.gnu\\.AquamacsEmacs$",
                 "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$"
+                "^org\\.pqrs\\.unknownapp\\.conkeror$"
               ]
             }
           ]
@@ -1107,11 +1162,13 @@
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
+                "^org\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$",
                 "^org\\.gnu\\.Emacs$",
                 "^org\\.gnu\\.AquamacsEmacs$",
                 "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$"
+                "^org\\.pqrs\\.unknownapp\\.conkeror$"
               ]
             }
           ]
@@ -1176,11 +1233,13 @@
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
+                "^org\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$",
                 "^org\\.gnu\\.Emacs$",
                 "^org\\.gnu\\.AquamacsEmacs$",
                 "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$"
+                "^org\\.pqrs\\.unknownapp\\.conkeror$"
               ]
             }
           ]
@@ -1245,11 +1304,13 @@
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
+                "^org\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$",
                 "^org\\.gnu\\.Emacs$",
                 "^org\\.gnu\\.AquamacsEmacs$",
                 "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$"
+                "^org\\.pqrs\\.unknownapp\\.conkeror$"
               ]
             }
           ]
@@ -1314,11 +1375,13 @@
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
+                "^org\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$",
                 "^org\\.gnu\\.Emacs$",
                 "^org\\.gnu\\.AquamacsEmacs$",
                 "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$"
+                "^org\\.pqrs\\.unknownapp\\.conkeror$"
               ]
             }
           ]
@@ -1383,11 +1446,13 @@
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
+                "^org\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$",
                 "^org\\.gnu\\.Emacs$",
                 "^org\\.gnu\\.AquamacsEmacs$",
                 "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$"
+                "^org\\.pqrs\\.unknownapp\\.conkeror$"
               ]
             }
           ]
@@ -1444,11 +1509,13 @@
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
+                "^org\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$",
                 "^org\\.gnu\\.Emacs$",
                 "^org\\.gnu\\.AquamacsEmacs$",
                 "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$"
+                "^org\\.pqrs\\.unknownapp\\.conkeror$"
               ]
             }
           ]
@@ -1513,11 +1580,13 @@
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
+                "^org\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$",
                 "^org\\.gnu\\.Emacs$",
                 "^org\\.gnu\\.AquamacsEmacs$",
                 "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$"
+                "^org\\.pqrs\\.unknownapp\\.conkeror$"
               ]
             }
           ]
@@ -1582,11 +1651,13 @@
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
+                "^org\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$",
                 "^org\\.gnu\\.Emacs$",
                 "^org\\.gnu\\.AquamacsEmacs$",
                 "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$"
+                "^org\\.pqrs\\.unknownapp\\.conkeror$"
               ]
             }
           ]
@@ -1646,11 +1717,13 @@
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
+                "^org\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$",
                 "^org\\.gnu\\.Emacs$",
                 "^org\\.gnu\\.AquamacsEmacs$",
                 "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$"
+                "^org\\.pqrs\\.unknownapp\\.conkeror$"
               ]
             }
           ]
@@ -1715,11 +1788,13 @@
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
+                "^org\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$",
                 "^org\\.gnu\\.Emacs$",
                 "^org\\.gnu\\.AquamacsEmacs$",
                 "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$"
+                "^org\\.pqrs\\.unknownapp\\.conkeror$"
               ]
             }
           ]
@@ -1784,11 +1859,13 @@
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
+                "^org\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$",
                 "^org\\.gnu\\.Emacs$",
                 "^org\\.gnu\\.AquamacsEmacs$",
                 "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$"
+                "^org\\.pqrs\\.unknownapp\\.conkeror$"
               ]
             }
           ]
@@ -1848,11 +1925,13 @@
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
+                "^org\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$",
                 "^org\\.gnu\\.Emacs$",
                 "^org\\.gnu\\.AquamacsEmacs$",
                 "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$"
+                "^org\\.pqrs\\.unknownapp\\.conkeror$"
               ]
             }
           ]
@@ -1912,11 +1991,13 @@
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
+                "^org\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$",
                 "^org\\.gnu\\.Emacs$",
                 "^org\\.gnu\\.AquamacsEmacs$",
                 "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$"
+                "^org\\.pqrs\\.unknownapp\\.conkeror$"
               ]
             }
           ]
@@ -1981,11 +2062,13 @@
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
+                "^org\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$",
                 "^org\\.gnu\\.Emacs$",
                 "^org\\.gnu\\.AquamacsEmacs$",
                 "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$"
+                "^org\\.pqrs\\.unknownapp\\.conkeror$"
               ]
             }
           ]
@@ -2570,9 +2653,7 @@
           "to": [
             {
               "key_code": "launchpad",
-              "modifiers": [
-
-              ]
+              "modifiers": []
             }
           ],
           "conditions": [
@@ -2693,6 +2774,7 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^org\\.mozilla\\.firefox$",
+                "^org\\.mozilla\\.firefoxdeveloperedition$",
                 "^org\\.mozilla\\.nightly$",
                 "^com\\.microsoft\\.Edge",
                 "^com\\.microsoft\\.edgemac",
@@ -2734,6 +2816,7 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^org\\.mozilla\\.firefox$",
+                "^org\\.mozilla\\.firefoxdeveloperedition$",
                 "^org\\.mozilla\\.nightly$",
                 "^com\\.microsoft\\.Edge",
                 "^com\\.microsoft\\.edgemac",
@@ -2770,6 +2853,7 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^org\\.mozilla\\.firefox$",
+                "^org\\.mozilla\\.firefoxdeveloperedition$",
                 "^org\\.mozilla\\.nightly$",
                 "^com\\.microsoft\\.Edge",
                 "^com\\.microsoft\\.edgemac",
@@ -2811,6 +2895,7 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^org\\.mozilla\\.firefox$",
+                "^org\\.mozilla\\.firefoxdeveloperedition$",
                 "^org\\.mozilla\\.nightly$",
                 "^com\\.microsoft\\.Edge",
                 "^com\\.microsoft\\.edgemac",
@@ -2847,6 +2932,7 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^org\\.mozilla\\.firefox$",
+                "^org\\.mozilla\\.firefoxdeveloperedition$",
                 "^org\\.mozilla\\.nightly$",
                 "^com\\.microsoft\\.Edge",
                 "^com\\.microsoft\\.edgemac",
@@ -2883,6 +2969,7 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^org\\.mozilla\\.firefox$",
+                "^org\\.mozilla\\.firefoxdeveloperedition$",
                 "^org\\.mozilla\\.nightly$",
                 "^com\\.microsoft\\.Edge",
                 "^com\\.microsoft\\.edgemac",
@@ -2919,6 +3006,7 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^org\\.mozilla\\.firefox$",
+                "^org\\.mozilla\\.firefoxdeveloperedition$",
                 "^org\\.mozilla\\.nightly$",
                 "^com\\.microsoft\\.Edge",
                 "^com\\.microsoft\\.edgemac",
@@ -2955,6 +3043,7 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^org\\.mozilla\\.firefox$",
+                "^org\\.mozilla\\.firefoxdeveloperedition$",
                 "^org\\.mozilla\\.nightly$",
                 "^com\\.microsoft\\.Edge",
                 "^com\\.microsoft\\.edgemac",
@@ -2991,6 +3080,7 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^org\\.mozilla\\.firefox$",
+                "^org\\.mozilla\\.firefoxdeveloperedition$",
                 "^org\\.mozilla\\.nightly$",
                 "^com\\.microsoft\\.Edge",
                 "^com\\.microsoft\\.edgemac",
@@ -3061,11 +3151,13 @@
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
+                "^org\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$",
                 "^org\\.gnu\\.Emacs$",
                 "^org\\.gnu\\.AquamacsEmacs$",
                 "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$"
+                "^org\\.pqrs\\.unknownapp\\.conkeror$"
               ]
             }
           ]
@@ -3130,7 +3222,9 @@
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$"
+                "^org\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
               ]
             }
           ]
@@ -3195,11 +3289,13 @@
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
+                "^org\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$",
                 "^org\\.gnu\\.Emacs$",
                 "^org\\.gnu\\.AquamacsEmacs$",
                 "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$"
+                "^org\\.pqrs\\.unknownapp\\.conkeror$"
               ]
             }
           ]

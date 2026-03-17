@@ -1,0 +1,22 @@
+{
+  "title": "Bind unexistant key Slash (/) on Swiss KeyBoards (by using US keyboard for just one key)",
+  "rules": [
+    {
+      "description": "§ to / for Swiss Keyboards",
+      "enabled": false,
+      "manipulators": [
+        {
+          "from": { "key_code": "non_us_backslash" },
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 10,
+            "basic.to_if_held_down_threshold_milliseconds": 10
+          },
+          "to": { "select_input_source": { "input_source_id": "com.apple.keylayout.US" } },
+          "to_after_key_up": { "select_input_source": { "input_source_id": "com.apple.keylayout.SwissFrench" } },
+          "to_if_held_down": [{ "key_code": "slash" }],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}

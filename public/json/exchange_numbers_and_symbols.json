@@ -1,9 +1,31 @@
 {
   "title": "Exchange numbers and symbols",
+  "maintainers": [
+    "tekezo"
+  ],
   "rules": [
     {
       "description": "Exchange numbers and symbols (1234567890 and !@#$%^&*())",
       "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "0",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "0",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        },
         {
           "type": "basic",
           "from": {
@@ -180,6 +202,9 @@
           "from": {
             "key_code": "0",
             "modifiers": {
+              "mandatory": [
+                "shift"
+              ],
               "optional": [
                 "caps_lock"
               ]
@@ -187,10 +212,7 @@
           },
           "to": [
             {
-              "key_code": "0",
-              "modifiers": [
-                "left_shift"
-              ]
+              "key_code": "0"
             }
           ]
         },
@@ -362,25 +384,6 @@
           "to": [
             {
               "key_code": "9"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "0",
-            "modifiers": {
-              "mandatory": [
-                "shift"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "0"
             }
           ]
         }

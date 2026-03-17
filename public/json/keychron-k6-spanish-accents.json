@@ -1,0 +1,42 @@
+{
+  "title": "Keychron K6 Spanish",
+  "maintainers": ["bguzmanm"],
+  "rules": [
+    {
+      "description": "Add a, e, i, o or u with accent mark",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "quote",
+            "modifiers": { "mandatory": ["fn"] }
+          },
+          "to": [
+            {
+              "key_code": "e",
+              "modifiers": ["option"]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Add n with sign",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "n",
+            "modifiers": { "mandatory": ["fn"] }
+          },
+          "to": [
+            {
+              "key_code": "n",
+              "modifiers": ["option"]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "title": "Russian Keyboard Remapping: Маленькая ю на твёрдый знак (ъ). Твёрдый знак на shift + ю (в классическом исполнении на твёрдый знак)",
+  "maintainers": [
+    "maxdzyubak"
+  ],
+  "rules": [
+    {
+      "description": "Russian Keyboard Remapping: Маленькая ю на твёрдый знак (ъ). Твёрдый знак на shift + ю (в классическом исполнении на твёрдый знак)",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "input_sources": [
+                {
+                  "language": "ru"
+                }
+              ],
+              "type": "input_source_if"
+            }
+          ],
+          "from": {
+            "key_code": "close_bracket",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "close_bracket"
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "input_sources": [
+                {
+                  "language": "ru"
+                }
+              ],
+              "type": "input_source_if"
+            }
+          ],
+          "from": {
+            "key_code": "close_bracket"
+          },
+          "to": [
+            {
+              "key_code": "period"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "title": "MouseButton 11 to command + option + control + shift + t (don’t forget to enable your mouse under Devices)",
+  "rules": [
+    {
+      "description": "MouseButton 11 to command + option + control + shift + t",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button11",
+            "modifiers": {
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "t",
+              "modifiers": ["left_command", "left_option", "left_control", "left_shift"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

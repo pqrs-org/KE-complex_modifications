@@ -1,0 +1,33 @@
+{
+  "title": "Russian Keyboard Remapping: Точка на ю",
+  "maintainers": ["maxdzyubak"],
+  "rules": [
+    {
+      "description": "Russian Keyboard Remapping: Точка на ю",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "input_sources": [
+                {
+                  "language": "ru"
+                }
+              ],
+              "type": "input_source_if"
+            }
+          ],
+          "from": {
+            "key_code": "period"
+          },
+          "to": [
+            {
+              "key_code": "7",
+              "modifiers": ["shift"]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}

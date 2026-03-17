@@ -1,0 +1,1317 @@
+{
+  "title": "Multi-Layered Keymap for Japanese Keyboards: Cursor, Mouse, NumPad, Web Browser, etc.",
+  "maintainers": [
+    "susumuota"
+  ],
+  "rules": [
+    {
+      "description": "Layer - 1: [Cursor] 英数 + i, j, k, l to ↑, ←, ↓, →",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "japanese_eisuu"
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "1: [Cursor] 英数 + i, j, k, l to ↑, ←, ↓, →",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "__layer",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "1: [Cursor] 英数 + h, n, y, p to PageUp, PageDown, Home, End",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "1: [Cursor] 英数 + u, o to ⌥ + ←, → (Word Backward, Forward)",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "1: [Mouse] 英数 + e, s, d, f to Mouse ↑, ←, ↓, →",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "1: [Mouse] 英数 + g, b to Mouse Wheel ↑, ↓",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "1: [Mouse] 英数 + x, v to Mouse Button 1, 2",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "1: [Web Browser] 英数 + w, r to ⌘ + ←, → (Page Back, Forward)",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "1: [Web Browser] 英数 + q, t to ⌃⇧ + ⇥, ⌃ + ⇥ (Switch Tab)",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "1: [Mission Control] 英数 + m, comma, period to ⌃ + ←, ↑, → (Switch Desktop)",
+                "value": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "1: [Cursor] 英数 + i, j, k, l to ↑, ←, ↓, →",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "__layer",
+              "value": 1
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "japanese_eisuu"
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "1: [Cursor] 英数 + i, j, k, l to ↑, ←, ↓, →",
+                "value": 0
+              }
+            },
+            {
+              "set_variable": {
+                "name": "__layer",
+                "value": 0
+              }
+            },
+            {
+              "set_variable": {
+                "name": "1: [Cursor] 英数 + h, n, y, p to PageUp, PageDown, Home, End",
+                "value": 0
+              }
+            },
+            {
+              "set_variable": {
+                "name": "1: [Cursor] 英数 + u, o to ⌥ + ←, → (Word Backward, Forward)",
+                "value": 0
+              }
+            },
+            {
+              "set_variable": {
+                "name": "1: [Mouse] 英数 + e, s, d, f to Mouse ↑, ←, ↓, →",
+                "value": 0
+              }
+            },
+            {
+              "set_variable": {
+                "name": "1: [Mouse] 英数 + g, b to Mouse Wheel ↑, ↓",
+                "value": 0
+              }
+            },
+            {
+              "set_variable": {
+                "name": "1: [Mouse] 英数 + x, v to Mouse Button 1, 2",
+                "value": 0
+              }
+            },
+            {
+              "set_variable": {
+                "name": "1: [Web Browser] 英数 + w, r to ⌘ + ←, → (Page Back, Forward)",
+                "value": 0
+              }
+            },
+            {
+              "set_variable": {
+                "name": "1: [Web Browser] 英数 + q, t to ⌃⇧ + ⇥, ⌃ + ⇥ (Switch Tab)",
+                "value": 0
+              }
+            },
+            {
+              "set_variable": {
+                "name": "1: [Mission Control] 英数 + m, comma, period to ⌃ + ←, ↑, → (Switch Desktop)",
+                "value": 0
+              }
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "i"
+          },
+          "to": [
+            {
+              "key_code": "up_arrow"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "1: [Cursor] 英数 + i, j, k, l to ↑, ←, ↓, →",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "j"
+          },
+          "to": [
+            {
+              "key_code": "left_arrow"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "1: [Cursor] 英数 + i, j, k, l to ↑, ←, ↓, →",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "k"
+          },
+          "to": [
+            {
+              "key_code": "down_arrow"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "1: [Cursor] 英数 + i, j, k, l to ↑, ←, ↓, →",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "l"
+          },
+          "to": [
+            {
+              "key_code": "right_arrow"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "1: [Cursor] 英数 + i, j, k, l to ↑, ←, ↓, →",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Layer - 1: [Cursor] 英数 + h, n, y, p to PageUp, PageDown, Home, End",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "h"
+          },
+          "to": [
+            {
+              "key_code": "page_up"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "1: [Cursor] 英数 + h, n, y, p to PageUp, PageDown, Home, End",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "n"
+          },
+          "to": [
+            {
+              "key_code": "page_down"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "1: [Cursor] 英数 + h, n, y, p to PageUp, PageDown, Home, End",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "y"
+          },
+          "to": [
+            {
+              "key_code": "home"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "1: [Cursor] 英数 + h, n, y, p to PageUp, PageDown, Home, End",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "p"
+          },
+          "to": [
+            {
+              "key_code": "end"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "1: [Cursor] 英数 + h, n, y, p to PageUp, PageDown, Home, End",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Layer - 1: [Cursor] 英数 + u, o to ⌥ + ←, → (Word Backward, Forward)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "u"
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "left_option"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "1: [Cursor] 英数 + u, o to ⌥ + ←, → (Word Backward, Forward)",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "o"
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "left_option"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "1: [Cursor] 英数 + u, o to ⌥ + ←, → (Word Backward, Forward)",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Layer - 1: [Mouse] 英数 + e, s, d, f to Mouse ↑, ←, ↓, →",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "e"
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "y": -2000
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "1: [Mouse] 英数 + e, s, d, f to Mouse ↑, ←, ↓, →",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "s"
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "x": -2000
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "1: [Mouse] 英数 + e, s, d, f to Mouse ↑, ←, ↓, →",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "d"
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "y": 2000
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "1: [Mouse] 英数 + e, s, d, f to Mouse ↑, ←, ↓, →",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f"
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "x": 2000
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "1: [Mouse] 英数 + e, s, d, f to Mouse ↑, ←, ↓, →",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Layer - 1: [Mouse] 英数 + g, b to Mouse Wheel ↑, ↓",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "g"
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "vertical_wheel": 50
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "1: [Mouse] 英数 + g, b to Mouse Wheel ↑, ↓",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "b"
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "vertical_wheel": -50
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "1: [Mouse] 英数 + g, b to Mouse Wheel ↑, ↓",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Layer - 1: [Mouse] 英数 + x, v to Mouse Button 1, 2",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "x"
+          },
+          "to": [
+            {
+              "pointing_button": "button1"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "1: [Mouse] 英数 + x, v to Mouse Button 1, 2",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "v"
+          },
+          "to": [
+            {
+              "pointing_button": "button2"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "1: [Mouse] 英数 + x, v to Mouse Button 1, 2",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Layer - 1: [Web Browser] 英数 + w, r to ⌘ + ←, → (Page Back, Forward)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "w"
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "1: [Web Browser] 英数 + w, r to ⌘ + ←, → (Page Back, Forward)",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "r"
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "1: [Web Browser] 英数 + w, r to ⌘ + ←, → (Page Back, Forward)",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Layer - 1: [Web Browser] 英数 + q, t to ⌃⇧ + ⇥, ⌃ + ⇥ (Switch Tab)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "q"
+          },
+          "to": [
+            {
+              "key_code": "tab",
+              "modifiers": [
+                "left_control",
+                "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "1: [Web Browser] 英数 + q, t to ⌃⇧ + ⇥, ⌃ + ⇥ (Switch Tab)",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "t"
+          },
+          "to": [
+            {
+              "key_code": "tab",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "1: [Web Browser] 英数 + q, t to ⌃⇧ + ⇥, ⌃ + ⇥ (Switch Tab)",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Layer - 1: [Mission Control] 英数 + m, comma, period to ⌃ + ←, ↑, → (Switch Desktop)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "m"
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "1: [Mission Control] 英数 + m, comma, period to ⌃ + ←, ↑, → (Switch Desktop)",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "comma"
+          },
+          "to": [
+            {
+              "key_code": "up_arrow",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "1: [Mission Control] 英数 + m, comma, period to ⌃ + ←, ↑, → (Switch Desktop)",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "period"
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "1: [Mission Control] 英数 + m, comma, period to ⌃ + ←, ↑, → (Switch Desktop)",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Layer - 2: [NumPad] かな + nm,.jkluiop to Keypad 01234567890",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "japanese_kana"
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "2: [NumPad] かな + nm,.jkluiop to Keypad 01234567890",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "__layer",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "2: [NumPad] かな + qwertyuiop to Keypad 1234567890",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "2: [NumPad] かな + slash, semicolon to Keypad period, comma",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "2: [NumPad] かな + v, f, c, d, s to Keypad +, -, *, /, =",
+                "value": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "2: [NumPad] かな + nm,.jkluiop to Keypad 01234567890",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "__layer",
+              "value": 1
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "japanese_kana"
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "2: [NumPad] かな + nm,.jkluiop to Keypad 01234567890",
+                "value": 0
+              }
+            },
+            {
+              "set_variable": {
+                "name": "__layer",
+                "value": 0
+              }
+            },
+            {
+              "set_variable": {
+                "name": "2: [NumPad] かな + qwertyuiop to Keypad 1234567890",
+                "value": 0
+              }
+            },
+            {
+              "set_variable": {
+                "name": "2: [NumPad] かな + slash, semicolon to Keypad period, comma",
+                "value": 0
+              }
+            },
+            {
+              "set_variable": {
+                "name": "2: [NumPad] かな + v, f, c, d, s to Keypad +, -, *, /, =",
+                "value": 0
+              }
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "n"
+          },
+          "to": [
+            {
+              "key_code": "keypad_0"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "2: [NumPad] かな + nm,.jkluiop to Keypad 01234567890",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "m"
+          },
+          "to": [
+            {
+              "key_code": "keypad_1"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "2: [NumPad] かな + nm,.jkluiop to Keypad 01234567890",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "comma"
+          },
+          "to": [
+            {
+              "key_code": "keypad_2"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "2: [NumPad] かな + nm,.jkluiop to Keypad 01234567890",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "period"
+          },
+          "to": [
+            {
+              "key_code": "keypad_3"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "2: [NumPad] かな + nm,.jkluiop to Keypad 01234567890",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "j"
+          },
+          "to": [
+            {
+              "key_code": "keypad_4"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "2: [NumPad] かな + nm,.jkluiop to Keypad 01234567890",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "k"
+          },
+          "to": [
+            {
+              "key_code": "keypad_5"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "2: [NumPad] かな + nm,.jkluiop to Keypad 01234567890",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "l"
+          },
+          "to": [
+            {
+              "key_code": "keypad_6"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "2: [NumPad] かな + nm,.jkluiop to Keypad 01234567890",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "u"
+          },
+          "to": [
+            {
+              "key_code": "keypad_7"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "2: [NumPad] かな + nm,.jkluiop to Keypad 01234567890",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "i"
+          },
+          "to": [
+            {
+              "key_code": "keypad_8"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "2: [NumPad] かな + nm,.jkluiop to Keypad 01234567890",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "o"
+          },
+          "to": [
+            {
+              "key_code": "keypad_9"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "2: [NumPad] かな + nm,.jkluiop to Keypad 01234567890",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "p"
+          },
+          "to": [
+            {
+              "key_code": "keypad_0"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "2: [NumPad] かな + nm,.jkluiop to Keypad 01234567890",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Layer - 2: [NumPad] かな + qwertyuiop to Keypad 1234567890",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "q"
+          },
+          "to": [
+            {
+              "key_code": "keypad_1"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "2: [NumPad] かな + qwertyuiop to Keypad 1234567890",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "w"
+          },
+          "to": [
+            {
+              "key_code": "keypad_2"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "2: [NumPad] かな + qwertyuiop to Keypad 1234567890",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "e"
+          },
+          "to": [
+            {
+              "key_code": "keypad_3"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "2: [NumPad] かな + qwertyuiop to Keypad 1234567890",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "r"
+          },
+          "to": [
+            {
+              "key_code": "keypad_4"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "2: [NumPad] かな + qwertyuiop to Keypad 1234567890",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "t"
+          },
+          "to": [
+            {
+              "key_code": "keypad_5"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "2: [NumPad] かな + qwertyuiop to Keypad 1234567890",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "y"
+          },
+          "to": [
+            {
+              "key_code": "keypad_6"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "2: [NumPad] かな + qwertyuiop to Keypad 1234567890",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "u"
+          },
+          "to": [
+            {
+              "key_code": "keypad_7"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "2: [NumPad] かな + qwertyuiop to Keypad 1234567890",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "i"
+          },
+          "to": [
+            {
+              "key_code": "keypad_8"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "2: [NumPad] かな + qwertyuiop to Keypad 1234567890",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "o"
+          },
+          "to": [
+            {
+              "key_code": "keypad_9"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "2: [NumPad] かな + qwertyuiop to Keypad 1234567890",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "p"
+          },
+          "to": [
+            {
+              "key_code": "keypad_0"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "2: [NumPad] かな + qwertyuiop to Keypad 1234567890",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Layer - 2: [NumPad] かな + slash, semicolon to Keypad period, comma",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "slash"
+          },
+          "to": [
+            {
+              "key_code": "keypad_period"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "2: [NumPad] かな + slash, semicolon to Keypad period, comma",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "semicolon"
+          },
+          "to": [
+            {
+              "key_code": "keypad_comma"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "2: [NumPad] かな + slash, semicolon to Keypad period, comma",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Layer - 2: [NumPad] かな + v, f, c, d, s to Keypad +, -, *, /, =",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "v"
+          },
+          "to": [
+            {
+              "key_code": "keypad_plus"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "2: [NumPad] かな + v, f, c, d, s to Keypad +, -, *, /, =",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f"
+          },
+          "to": [
+            {
+              "key_code": "keypad_hyphen"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "2: [NumPad] かな + v, f, c, d, s to Keypad +, -, *, /, =",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "c"
+          },
+          "to": [
+            {
+              "key_code": "keypad_asterisk"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "2: [NumPad] かな + v, f, c, d, s to Keypad +, -, *, /, =",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "d"
+          },
+          "to": [
+            {
+              "key_code": "keypad_slash"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "2: [NumPad] かな + v, f, c, d, s to Keypad +, -, *, /, =",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "s"
+          },
+          "to": [
+            {
+              "key_code": "keypad_equal_sign"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "2: [NumPad] かな + v, f, c, d, s to Keypad +, -, *, /, =",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Layer - 0: [Optional] Right ⌘ to Backspace",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_command"
+          },
+          "to": [
+            {
+              "key_code": "delete_or_backspace"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "title": "Open a new Terminal window with ⌘ + ⌥ + T",
+  "maintainers": [
+    "SHi-ON"
+  ],
+  "rules": [
+    {
+      "description": "⌘ + ⌥ + T opens a new Terminal window",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "t",
+            "modifiers": {
+              "mandatory": [
+                "left_command",
+                "left_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "osascript -e 'tell application \"Terminal\" to do script \"\"'"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

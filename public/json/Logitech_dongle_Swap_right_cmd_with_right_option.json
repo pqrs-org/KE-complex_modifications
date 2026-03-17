@@ -1,0 +1,43 @@
+{
+  "title": "Logitech MX Keys with dongle - Swap right cmd with right option",
+  "maintainers": [
+    "damianjankowski"
+  ],
+  "rules": [{
+    "description": "Swap right cmd with right option. OS: MacOS. \nKeyboard: Logitech MX Keys with USB dongle \nOS: MacOS.",
+    "manipulators": [
+        {
+            "from": {
+                "key_code": "right_control",
+                "modifiers": {
+                    "optional": [
+                        "any"
+                    ]
+                }
+            },
+            "to": [
+                {
+                    "key_code": "right_command"
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "from": {
+                "key_code": "right_command",
+                "modifiers": {
+                    "optional": [
+                        "any"
+                    ]
+                }
+            },
+            "to": [
+                {
+                    "key_code": "right_control"
+                }
+            ],
+            "type": "basic"
+        }
+    ]
+  }]
+}

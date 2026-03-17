@@ -1,0 +1,65 @@
+{ "title": "Effective Utilization of Bottom Row", "rules": [
+
+  { "description": "Change Left Command to Enter if pressed alone", "manipulators": [
+
+    { "description": " LEFT COMMAND → ENTER ",
+      "from": { "key_code": "left_command", "modifiers": { "optional": [ "any" ] } }, "type": "basic",
+        "to_if_alone": [ { "key_code": "return_or_enter" } ],
+      "to": [ { "key_code": "left_command" } ]
+    }
+
+  ] },
+
+  { "description": "Change Right Command to Delete if pressed alone", "manipulators": [
+
+    { "description": " RIGHT COMMAND → DELETE ",
+      "from": { "key_code": "right_command", "modifiers": { "optional": [ "any" ] } }, "type": "basic",
+        "to_if_alone": [ { "key_code": "delete_or_backspace" } ],
+      "to": [ { "key_code": "right_command" } ]
+    }
+
+  ] },
+
+  { "description": "Change EISUU to Control if not pressed alone", "manipulators": [
+
+    { "description": " 英数 → RIGHT CONTROL ",
+      "from": { "key_code": "japanese_eisuu", "modifiers": { "optional": [ "any" ] } }, "type": "basic",
+        "to_if_alone": [ { "key_code": "japanese_eisuu" } ],
+      "to": [ { "key_code": "right_control" } ]
+    }
+
+  ] },
+
+  { "description": "Change KANA to Option if not pressed alone", "manipulators": [
+
+    { "description": " かな → RIGHT OPTION ",
+      "from": { "key_code": "japanese_kana", "modifiers": { "optional": [ "any" ] } }, "type": "basic",
+        "to_if_alone": [ { "key_code": "japanese_kana" } ],
+      "to": [ { "key_code": "right_option" } ]
+    }
+
+  ] },
+
+  { "description": "Space and Shift (SandS: Change Spacebar to Shift if not pressed alone), and Space Repeat by Holding Spacebar after Tapping", "manipulators": [
+
+    { "description": " SPACE HOLD AFTER TAPPING → SPACE REPEAT ",
+      "from": { "key_code": "spacebar", "modifiers": { "optional": [ "caps_lock", "shift" ] } }, "type": "basic",
+        "conditions": [ { "type": "variable_if", "name": "SPACE REPEAT", "value": 1 } ],
+        "to_after_key_up": [ { "set_variable": { "name": "SPACE REPEAT", "value": 0 } } ],
+      "to": [ { "key_code": "spacebar" } ]
+    },
+
+    { "description": " SPACE HOLD → RIGHT SHIFT ",
+      "from": { "key_code": "spacebar", "modifiers": { "optional": [ "any" ] } }, "type": "basic",
+        "conditions": [ { "type": "variable_if", "name": "SPACE REPEAT", "value": 0 } ],
+        "to_delayed_action": { "to_if_canceled": [ { "set_variable": { "name": "SPACE REPEAT", "value": 0 } } ],
+          "to_if_invoked": [ { "set_variable": { "name": "SPACE REPEAT", "value": 0 } } ] },
+        "to_if_alone": [ { "set_variable": { "name": "SPACE REPEAT", "value": 1 } }, { "key_code": "spacebar" } ],
+          "parameters": { "basic.to_delayed_action_delay_milliseconds": 200, "basic.to_if_alone_timeout_milliseconds": 200 },
+      "to": [ { "key_code": "right_shift" } ]
+    }
+
+  ] }
+
+] }
+

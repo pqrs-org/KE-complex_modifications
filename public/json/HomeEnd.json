@@ -37,15 +37,25 @@
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$"
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.jetbrains\\.intellij.ce$",
+                "^com\\.jetbrains\\.intellij$",
+                "^com\\.jetbrains\\.pycharm$",
+                "^com\\.jetbrains\\.webstorm$",
+                "^com\\.jetbrains\\.phpstorm$"
               ],
               "type": "frontmost_application_unless"
             }
           ],
           "type": "basic",
           "from": {
-              "key_code": "home"
-            },
+            "key_code": "home",
+            "modifiers": {
+              "optional": [
+                "shift"
+              ]
+            }
+          },
           "to": [
             {
             "key_code": "left_arrow",
@@ -91,15 +101,25 @@
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$"
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.jetbrains\\.intellij.ce$",
+                "^com\\.jetbrains\\.intellij$",
+                "^com\\.jetbrains\\.pycharm$",
+                "^com\\.jetbrains\\.webstorm$",
+                "^com\\.jetbrains\\.phpstorm$"
               ],
               "type": "frontmost_application_unless"
             }
           ],
           "type": "basic",
           "from": {
-              "key_code": "end"
-            },
+            "key_code": "end",
+            "modifiers": {
+              "optional": [
+                "shift"
+              ]
+            }
+          },
           "to": [
             {
             "key_code": "right_arrow",

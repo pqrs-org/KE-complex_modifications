@@ -1,0 +1,25 @@
+{
+  "title": "Language switching for vi style modification",
+  "rules": [
+    {
+      "description": "left_control+↩︎ › CAPS",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "return_or_enter",
+            "modifiers": {
+              "mandatory": ["left_control"], 
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "caps_lock"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "title": "UK→US Mac keyboard",
+  "maintainers": ["mngyuan"],
+  "rules": [
+    {
+      "description": "UK→US Mac. Remap `~ to left shift and §± to `~. Requires proper keyboard setup in System Preferences->Keyboard->Change Keyboard Type...",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "grave_accent_and_tilde",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_shift"
+            }
+          ],
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452
+                },
+                {
+                  "vendor_id": 76
+                },
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            },
+            {
+              "type": "device_unless",
+              "identifiers": [
+                {
+                  "product_id": 592
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "from": {
+            "key_code": "non_us_backslash",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde"
+            }
+          ],
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452
+                },
+                {
+                  "vendor_id": 76
+                },
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            },
+            {
+              "type": "device_unless",
+              "identifiers": [
+                {
+                  "product_id": 592
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "from": {
+            "key_code": "non_us_backslash",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_shift"
+            }
+          ],
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "product_id": 592
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

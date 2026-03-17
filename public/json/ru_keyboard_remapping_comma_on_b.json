@@ -1,0 +1,33 @@
+{
+  "title": "Russian Keyboard Remapping: Запятая на б",
+  "maintainers": ["maxdzyubak"],
+  "rules": [
+    {
+      "description": "Russian Keyboard Remapping: Запятая на б",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "input_sources": [
+                {
+                  "language": "ru"
+                }
+              ],
+              "type": "input_source_if"
+            }
+          ],
+          "from": {
+            "key_code": "comma"
+          },
+          "to": [
+            {
+              "key_code": "6",
+              "modifiers": ["shift"]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}

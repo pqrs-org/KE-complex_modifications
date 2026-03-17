@@ -1,0 +1,37 @@
+{
+    "title": "Exchange vertical bar pipe (|) and backslash (\\)",
+    "maintainers": [
+        "duleorlovic"
+    ],
+    "rules": [
+        {
+            "description": "Exchange vertical bar pipe (|) and backslash (\\)",
+            "manipulators": [
+                {
+                    "from": {
+                        "key_code": "backslash",
+                        "modifiers": { "optional": ["caps_lock"] }
+                    },
+                    "to": [
+                        {
+                            "key_code": "backslash",
+                            "modifiers": ["left_shift"]
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "from": {
+                        "key_code": "backslash",
+                        "modifiers": {
+                            "mandatory": ["shift"],
+                            "optional": ["caps_lock"]
+                        }
+                    },
+                    "to": [{ "key_code": "backslash" }],
+                    "type": "basic"
+                }
+            ]
+        }
+    ]
+}

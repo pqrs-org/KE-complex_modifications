@@ -1,0 +1,364 @@
+{
+  "title": "Mouse Emulation for Glove 80 Lower Layer",
+  "maintainers": ["yoyomeng2"],
+  "rules": [
+    {
+      "description": "Use the Glove 80's Layer key for mouse movement using the numpad (Mac Mouse Keys style) on right side and modifiers on left side.",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "name": "mouse_scroll_mode",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "keypad_1"
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "horizontal_wheel": 32,
+                "vertical_wheel": 32
+              }
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "name": "mouse_scroll_mode",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "keypad_2"
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "vertical_wheel": 32
+              }
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "name": "mouse_scroll_mode",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "keypad_3"
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "horizontal_wheel": -32,
+                "vertical_wheel": 32
+              }
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "name": "mouse_scroll_mode",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "keypad_4"
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "horizontal_wheel": 32
+              }
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "name": "mouse_scroll_mode",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "keypad_6"
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "horizontal_wheel": -32
+              }
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "name": "mouse_scroll_mode",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "keypad_7"
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "horizontal_wheel": 32,
+                "vertical_wheel": -32
+              }
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "name": "mouse_scroll_mode",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "keypad_8"
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "vertical_wheel": -32
+              }
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "name": "mouse_scroll_mode",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "keypad_9"
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "horizontal_wheel": -32,
+                "vertical_wheel": -32
+              }
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "from": {
+            "key_code": "keypad_1"
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "x": -1536,
+                "y": 1536
+              }
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "from": {
+            "key_code": "keypad_2"
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "y": 1536
+              }
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "from": {
+            "key_code": "keypad_3"
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "x": 1536,
+                "y": 1536
+              }
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "from": {
+            "key_code": "keypad_4"
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "x": -1536
+              }
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "from": {
+            "key_code": "keypad_6"
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "x": 1536
+              }
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "from": {
+            "key_code": "keypad_7"
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "x": -1536,
+                "y": -1536
+              }
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "from": {
+            "key_code": "keypad_8"
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "y": -1536
+              }
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "from": {
+            "key_code": "keypad_9"
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "x": 1536,
+                "y": -1536
+              }
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "from": {
+            "key_code": "keypad_5"
+          },
+          "to": [
+            {
+              "pointing_button": "button1"
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "from": {
+            "key_code": "f11"
+          },
+          "to": [
+            {
+              "pointing_button": "button1"
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "from": {
+            "key_code": "f12"
+          },
+          "to": [
+            {
+              "pointing_button": "button2"
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "from": {
+            "key_code": "page_down"
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "speed_multiplier": 0.3
+              }
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "from": {
+            "key_code": "page_up"
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "speed_multiplier": 2.0
+              }
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "from": {
+            "key_code": "end"
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "mouse_scroll_mode",
+                "value": 1
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "mouse_scroll_mode",
+                "value": 0
+              }
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}

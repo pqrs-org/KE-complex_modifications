@@ -1,0 +1,25 @@
+{
+  "title": "MouseButton8 to Command + minus (don’t forget to enable your mouse under Devices)",
+  "rules": [
+    {
+      "description": "MouseButton8 to Command + minus",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button8",
+            "modifiers": {
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "hyphen",
+              "modifiers": ["left_command"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
