@@ -1,0 +1,50 @@
+{
+  "title": "HyperJIS Accents: German Extension (Umlauts + Eszett)",
+  "rules": [
+    {
+      "description": "German umlauts (Fn + Option + a/o/u)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": { "key_code": "a", "modifiers": { "mandatory": ["fn", "left_option"], "optional": ["caps_lock"] } },
+          "to": [ { "key_code": "u", "modifiers": ["left_option"] }, { "key_code": "a" } ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "a", "modifiers": { "mandatory": ["fn", "left_option", "left_shift"], "optional": ["caps_lock"] } },
+          "to": [ { "key_code": "u", "modifiers": ["left_option"] }, { "key_code": "a", "modifiers": ["left_shift"] } ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "o", "modifiers": { "mandatory": ["fn", "left_option"], "optional": ["caps_lock"] } },
+          "to": [ { "key_code": "u", "modifiers": ["left_option"] }, { "key_code": "o" } ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "o", "modifiers": { "mandatory": ["fn", "left_option", "left_shift"], "optional": ["caps_lock"] } },
+          "to": [ { "key_code": "u", "modifiers": ["left_option"] }, { "key_code": "o", "modifiers": ["left_shift"] } ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "u", "modifiers": { "mandatory": ["fn", "left_option"], "optional": ["caps_lock"] } },
+          "to": [ { "key_code": "u", "modifiers": ["left_option"] }, { "key_code": "u" } ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "u", "modifiers": { "mandatory": ["fn", "left_option", "left_shift"], "optional": ["caps_lock"] } },
+          "to": [ { "key_code": "u", "modifiers": ["left_option"] }, { "key_code": "u", "modifiers": ["left_shift"] } ]
+        }
+      ]
+    },
+    {
+      "description": "German Eszett (Fn + s)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": { "key_code": "s", "modifiers": { "mandatory": ["fn"], "optional": ["caps_lock"] } },
+          "to": [ { "key_code": "s", "modifiers": ["left_option"] } ]
+        }
+      ]
+    }
+  ]
+}

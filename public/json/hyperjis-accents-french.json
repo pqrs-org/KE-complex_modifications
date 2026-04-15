@@ -1,0 +1,85 @@
+{
+  "title": "HyperJIS Accents: French Extension (Circumflex + Cedilla + Ligatures)",
+  "rules": [
+    {
+      "description": "French circumflex vowels (Fn + Option + vowel)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": { "key_code": "a", "modifiers": { "mandatory": ["fn", "left_option"], "optional": ["caps_lock"] } },
+          "to": [ { "key_code": "i", "modifiers": ["left_option"] }, { "key_code": "a" } ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "a", "modifiers": { "mandatory": ["fn", "left_option", "left_shift"], "optional": ["caps_lock"] } },
+          "to": [ { "key_code": "i", "modifiers": ["left_option"] }, { "key_code": "a", "modifiers": ["left_shift"] } ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "e", "modifiers": { "mandatory": ["fn", "left_option"], "optional": ["caps_lock"] } },
+          "to": [ { "key_code": "i", "modifiers": ["left_option"] }, { "key_code": "e" } ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "e", "modifiers": { "mandatory": ["fn", "left_option", "left_shift"], "optional": ["caps_lock"] } },
+          "to": [ { "key_code": "i", "modifiers": ["left_option"] }, { "key_code": "e", "modifiers": ["left_shift"] } ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "i", "modifiers": { "mandatory": ["fn", "left_option"], "optional": ["caps_lock"] } },
+          "to": [ { "key_code": "i", "modifiers": ["left_option"] }, { "key_code": "i" } ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "i", "modifiers": { "mandatory": ["fn", "left_option", "left_shift"], "optional": ["caps_lock"] } },
+          "to": [ { "key_code": "i", "modifiers": ["left_option"] }, { "key_code": "i", "modifiers": ["left_shift"] } ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "o", "modifiers": { "mandatory": ["fn", "left_option"], "optional": ["caps_lock"] } },
+          "to": [ { "key_code": "i", "modifiers": ["left_option"] }, { "key_code": "o" } ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "o", "modifiers": { "mandatory": ["fn", "left_option", "left_shift"], "optional": ["caps_lock"] } },
+          "to": [ { "key_code": "i", "modifiers": ["left_option"] }, { "key_code": "o", "modifiers": ["left_shift"] } ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "u", "modifiers": { "mandatory": ["fn", "left_option"], "optional": ["caps_lock"] } },
+          "to": [ { "key_code": "i", "modifiers": ["left_option"] }, { "key_code": "u" } ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "u", "modifiers": { "mandatory": ["fn", "left_option", "left_shift"], "optional": ["caps_lock"] } },
+          "to": [ { "key_code": "i", "modifiers": ["left_option"] }, { "key_code": "u", "modifiers": ["left_shift"] } ]
+        }
+      ]
+    },
+    {
+      "description": "French cedilla and ligatures (Fn + c/q)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": { "key_code": "c", "modifiers": { "mandatory": ["fn"], "optional": ["caps_lock"] } },
+          "to": [ { "key_code": "c", "modifiers": ["left_option"] } ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "c", "modifiers": { "mandatory": ["fn", "left_shift"], "optional": ["caps_lock"] } },
+          "to": [ { "key_code": "c", "modifiers": ["left_option", "left_shift"] } ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "q", "modifiers": { "mandatory": ["fn"], "optional": ["caps_lock"] } },
+          "to": [ { "key_code": "q", "modifiers": ["left_option"] } ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "q", "modifiers": { "mandatory": ["fn", "left_shift"], "optional": ["caps_lock"] } },
+          "to": [ { "key_code": "q", "modifiers": ["left_option", "left_shift"] } ]
+        }
+      ]
+    }
+  ]
+}
