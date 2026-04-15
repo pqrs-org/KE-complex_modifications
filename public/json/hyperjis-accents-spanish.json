@@ -1,0 +1,30 @@
+{
+  "title": "HyperJIS Accents: Spanish Extension (Ñ + Inverted Punctuation)",
+  "rules": [
+    {
+      "description": "Spanish characters (Fn + n/1//)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": { "key_code": "n", "modifiers": { "mandatory": ["fn"], "optional": ["caps_lock"] } },
+          "to": [ { "key_code": "n", "modifiers": ["left_option"] }, { "key_code": "n" } ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "n", "modifiers": { "mandatory": ["fn", "left_shift"], "optional": ["caps_lock"] } },
+          "to": [ { "key_code": "n", "modifiers": ["left_option"] }, { "key_code": "n", "modifiers": ["left_shift"] } ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "1", "modifiers": { "mandatory": ["fn"], "optional": ["caps_lock"] } },
+          "to": [ { "key_code": "1", "modifiers": ["left_option"] } ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "slash", "modifiers": { "mandatory": ["fn"], "optional": ["caps_lock"] } },
+          "to": [ { "key_code": "slash", "modifiers": ["left_option", "left_shift"] } ]
+        }
+      ]
+    }
+  ]
+}
