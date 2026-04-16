@@ -1,153 +1,11 @@
 {
   "title": "HyperJIS — Core Layout (JIS → US + Vim + Hyper + Tiling)",
+  "maintainers": [
+    "smnrg"
+  ],
   "rules": [
     {
-      "description": "HyperJIS: Caps Lock — tap for Escape, hold for Control",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "caps_lock",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to_if_alone": [
-            {
-              "key_code": "escape"
-            }
-          ],
-          "to_if_held_down": [
-            {
-              "key_code": "left_control"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "HyperJIS: Space — tap for Space, hold for Left Control",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "spacebar",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to_if_alone": [
-            {
-              "key_code": "spacebar"
-            }
-          ],
-          "to_if_held_down": [
-            {
-              "key_code": "left_control"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "HyperJIS: Left Control — tap for Escape, hold for Control",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "left_control",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to_if_alone": [
-            {
-              "key_code": "escape"
-            }
-          ],
-          "to_if_held_down": [
-            {
-              "key_code": "left_control"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "HyperJIS: Left Option → Hyper Key (⌃⌥⇧⌘)",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "left_option",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to_if_alone": [
-            {
-              "key_code": "left_shift",
-              "modifiers": [
-                "left_command",
-                "left_control",
-                "left_option"
-              ]
-            }
-          ],
-          "to_if_held_down": [
-            {
-              "key_code": "left_shift",
-              "modifiers": [
-                "left_command",
-                "left_control",
-                "left_option"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "HyperJIS: Fn — tap for Language Switch, hold for Hyper (⌃⌥⇧⌘)",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "fn",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to_if_alone": [
-            {
-              "apple_vendor_top_case_key_code": "keyboard_fn"
-            }
-          ],
-          "to_if_held_down": [
-            {
-              "key_code": "left_shift",
-              "modifiers": [
-                "left_command",
-                "left_control",
-                "left_option"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "HyperJIS: Vim Navigation — Left Ctrl + H/J/K/L → Arrow Keys",
+      "description": "HyperJIS: Vim navigation — Left Ctrl + H/J/K/L → Arrow keys",
       "manipulators": [
         {
           "type": "basic",
@@ -228,91 +86,7 @@
       ]
     },
     {
-      "description": "HyperJIS: JIS Bottom Row — Eisuu (英数) → Left Command",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "japanese_eisuu",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "left_command"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "HyperJIS: JIS Bottom Row — Kana (かな) → Right Command",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "japanese_kana",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "right_command"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "HyperJIS: Left Command → Left Option",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "left_command",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "left_option"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "HyperJIS: Right Command → Right Option",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "right_command",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "right_option"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "HyperJIS: International3 (¥) → Grave Accent / Tilde",
+      "description": "HyperJIS: International3 (¥) → Grave accent / Tilde",
       "manipulators": [
         {
           "type": "basic",
@@ -387,27 +161,7 @@
       ]
     },
     {
-      "description": "HyperJIS: International1 → Emoji Picker (⌃⌘Space)",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "international1"
-          },
-          "to": [
-            {
-              "key_code": "spacebar",
-              "modifiers": [
-                "left_command",
-                "left_control"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "HyperJIS: Escape — tap for Screenshot, hold for Hyper+W",
+      "description": "HyperJIS: Escape — tap for Screenshot (⇧⌘4), hold for ⌃⌥⇧⌘W",
       "manipulators": [
         {
           "type": "basic",
@@ -438,7 +192,230 @@
       ]
     },
     {
-      "description": "HyperJIS: Arrow Keys → Fn+HJKL (frees arrows for window tiling via Swish)",
+      "description": "HyperJIS: International1 (ろ) → Emoji picker (⌃⌘Space)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "international1"
+          },
+          "to": [
+            {
+              "key_code": "spacebar",
+              "modifiers": [
+                "left_command",
+                "left_control"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "HyperJIS: Space — tap for Space, hold for Left Control",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to_if_alone": [
+            {
+              "key_code": "spacebar"
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_control"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "HyperJIS: Left Control — tap for Escape, hold for Control",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_control",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to_if_alone": [
+            {
+              "key_code": "escape"
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_control"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "HyperJIS: Left Option → Hyper key (⌃⌥⇧⌘)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_option",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to_if_alone": [
+            {
+              "key_code": "left_shift",
+              "modifiers": [
+                "left_command",
+                "left_control",
+                "left_option"
+              ]
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_shift",
+              "modifiers": [
+                "left_command",
+                "left_control",
+                "left_option"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "HyperJIS: Fn — tap for Language Switch, hold for Hyper (⌃⌥⇧⌘)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "fn",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to_if_alone": [
+            {
+              "apple_vendor_top_case_key_code": "keyboard_fn"
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_shift",
+              "modifiers": [
+                "left_command",
+                "left_control",
+                "left_option"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "HyperJIS: Left Command → Left Option",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_command",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_option"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "HyperJIS: Eisuu (英数) → Left Command",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "japanese_eisuu",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_command"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "HyperJIS: Kana (かな) → Right Command",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "japanese_kana",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_command"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "HyperJIS: Right Command → Right Option",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_command",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_option"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "HyperJIS: Arrow keys → Fn+HJKL (frees arrows for window tiling)",
       "manipulators": [
         {
           "type": "basic",
@@ -513,6 +490,27 @@
               "modifiers": [
                 "fn"
               ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "HyperJIS: Caps Lock → Fn",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "fn"
             }
           ]
         }
