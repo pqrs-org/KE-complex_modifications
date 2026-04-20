@@ -1,0 +1,53 @@
+{
+    "title": "Hold right_control to activate Doubao voice input, switch back to WeChat input on release (rev 1)",
+    "maintainers": [
+        "Molunerfinn"
+    ],
+    "rules": [
+        {
+            "description": "Hold right_control: switch to Doubao input + activate fn; release: switch back to WeChat input",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "right_control",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "select_input_source": {
+                                "input_source_id": "^com\\.bytedance\\.inputmethod\\.doubaoime\\.pinyin$"
+                            },
+                            "hold_down_milliseconds": 50
+                        },
+                        {
+                            "key_code": "fn"
+                        }
+                    ],
+                    "to_after_key_up": [
+                        {
+                            "set_variable": {
+                                "name": "__delay__",
+                                "value": 1
+                            },
+                            "hold_down_milliseconds": 1000
+                        },
+                        {
+                            "select_input_source": {
+                                "input_source_id": "^com\\.tencent\\.inputmethod\\.wetype\\.pinyin$"
+                            },
+                            "hold_down_milliseconds": 50
+                        },
+                        {
+                            "key_code": "left_shift"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
