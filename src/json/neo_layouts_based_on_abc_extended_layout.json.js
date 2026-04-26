@@ -80,7 +80,7 @@ function neo2() {
           fromKeys: remapFromKeys.concat(['spacebar']),
           toKeys: remapToLayer4Keys.concat(['keypad_0']),
           fromModifiers: {
-            optional: ['control', 'option', 'command']
+            optional: ['control', 'option', 'command', 'shift']
           },
           conditions: [ifMod4On, isLayoutActive]
         }
@@ -146,7 +146,7 @@ function neoQwertz() {
           fromKeys: remapFromKeys.concat(['spacebar']),
           toKeys: remapToLayer4Keys.concat(['keypad_0']),
           fromModifiers: {
-            optional: ['control', 'option', 'command']
+            optional: ['control', 'option', 'command', 'shift']
           },
           conditions: [ifMod4On, isLayoutActive]
         }
@@ -212,7 +212,7 @@ function bone() {
           fromKeys: remapFromKeys.concat(['spacebar']),
           toKeys: remapToLayer4Keys.concat(['keypad_0']),
           fromModifiers: {
-            optional: ['control', 'option', 'command']
+            optional: ['control', 'option', 'command', 'shift']
           },
           conditions: [ifMod4On, isLayoutActive]
         }
@@ -438,7 +438,7 @@ function adnw() {
           fromKeys: remapFromKeys.concat(['spacebar']),
           toKeys: remapToLayer4Keys.concat(['keypad_0']),
           fromModifiers: {
-            optional: ['control', 'option', 'command']
+            optional: ['control', 'option', 'command', 'shift']
           },
           conditions: [ifMod4On, isLayoutActive]
         }
@@ -504,7 +504,7 @@ function koy() {
           fromKeys: remapFromKeys.concat(['spacebar']),
           toKeys: remapToLayer4Keys.concat(['keypad_0']),
           fromModifiers: {
-            optional: ['control', 'option', 'command']
+            optional: ['control', 'option', 'command', 'shift']
           },
           conditions: [ifMod4On, isLayoutActive]
         }
