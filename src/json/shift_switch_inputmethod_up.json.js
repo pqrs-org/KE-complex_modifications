@@ -1,0 +1,58 @@
+// JavaScript should be written in ECMAScript 5.1.
+
+function main() {
+  console.log(
+    JSON.stringify(
+      {
+        title: 'shift switch input method',
+        rules: [
+          {
+            description: "shift switch input method for Mac default up",
+            manipulators: [
+              {
+                from: {
+                  key_code: "left_shift",
+                },
+                to: [
+                  {
+                    key_code: "left_shift",
+                    lazy: true
+                  }
+                ],
+                to_if_alone: [
+                  {
+                    key_code: "spacebar",
+                    modifiers: ["control"]
+                  }
+                ],
+                type: "basic"
+              },
+              {
+                from: {
+                  key_code: "right_shift",
+                },
+                to: [
+                  {
+                    key_code: "right_shift",
+                    lazy: true
+                  }
+                ],
+                to_if_alone: [
+                  {
+                    key_code: "spacebar",
+                    modifiers: ["control"]
+                  }
+                ],
+                type: "basic"
+              }
+            ]
+          }
+        ],
+      },
+      null,
+      '  '
+    )
+  )
+}
+
+main()
