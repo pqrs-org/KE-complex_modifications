@@ -1,0 +1,113 @@
+{
+  "title": "Final Cut Pro: Productivity Power Pack",
+  "maintainers": ["thecarlo"],
+  "rules": [
+    {
+      "description": "Final Cut Pro: left option + left click → trim start (option + [)",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "bundle_identifiers": ["^com\\.apple\\.FinalCut$"],
+              "type": "frontmost_application_if"
+            }
+          ],
+          "from": {
+            "modifiers": {
+              "mandatory": ["left_option"],
+              "optional": []
+            },
+            "pointing_button": "button1"
+          },
+          "to": [
+            {
+              "key_code": "open_bracket",
+              "modifiers": ["left_option"]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Final Cut Pro: left option + right click → trim end (option + ])",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "bundle_identifiers": ["^com\\.apple\\.FinalCut$"],
+              "type": "frontmost_application_if"
+            }
+          ],
+          "from": {
+            "modifiers": {
+              "mandatory": ["left_option"],
+              "optional": []
+            },
+            "pointing_button": "button2"
+          },
+          "to": [
+            {
+              "key_code": "close_bracket",
+              "modifiers": ["left_option"]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Final Cut Pro: cmd + left click → cut (blade + click, then revert to select tool)",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "bundle_identifiers": ["^com\\.apple\\.FinalCut$"],
+              "type": "frontmost_application_if"
+            }
+          ],
+          "from": {
+            "modifiers": {
+              "mandatory": ["left_command"],
+              "optional": []
+            },
+            "pointing_button": "button1"
+          },
+          "to": [{ "key_code": "b" }, { "pointing_button": "button1" }],
+          "to_after_key_up": [{ "key_code": "a" }],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Final Cut Pro: left option + z → zoom to fit (shift + z), then zoom out (cmd + -)",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "bundle_identifiers": ["^com\\.apple\\.FinalCut$"],
+              "type": "frontmost_application_if"
+            }
+          ],
+          "from": {
+            "key_code": "z",
+            "modifiers": { "mandatory": ["left_option"] }
+          },
+          "to": [
+            {
+              "key_code": "z",
+              "modifiers": ["left_shift"]
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "key_code": "hyphen",
+              "modifiers": ["left_command"]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}
