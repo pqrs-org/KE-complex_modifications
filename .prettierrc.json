@@ -1,15 +1,37 @@
 {
-  "semi": false,
-  "singleQuote": true,
   "tabWidth": 2,
   "printWidth": 200,
-  "trailingComma": "es5",
-
   "overrides": [
     {
       "files": "*.md",
       "options": {
         "tabWidth": 4
+      }
+    },
+    {
+      "files": "*.js",
+      "options": {
+        "parser": "babel",
+        "semi": false,
+        "singleQuote": true,
+        "trailingComma": "es5"
+      }
+    },
+    {
+      "files": "*.html",
+      "options": {
+        "parser": "html",
+        "printWidth": 120,
+        "tabWidth": 2,
+        "htmlWhitespaceSensitivity": "css"
+      }
+    },
+    {
+      "files": "*.json",
+      "options": {
+        "parser": "json",
+        "tabWidth": 2,
+        "trailingComma": "none"
       }
     }
   ]
