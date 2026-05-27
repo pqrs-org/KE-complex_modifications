@@ -1,37 +1,103 @@
 <p style="margin-top: 20px; font-weight: bold">
- Use Function Keys in supported applications, else use Media Keys
+  How it works
 </p>
 
 <p>
-  These keybindings ensure that F keys work as intended in supported applications. <br/><br/>
-  In all other applications, the F keys will work as media keys.
+  By default on macOS, function keys (F1-F12) act as media/system keys (brightness, volume, etc.).
+  This rule overrides that so F keys always behave as true function keys inside supported
+  applications, with no need to hold <code>Fn</code>.
 </p>
 
 <p>
-  Current list of supported applications where function keys will work as intended:
+  The behaviour depends on two things: whether the active app is in the supported list, and
+  whether you are using a Logitech keyboard.
 </p>
 
-<ul>
-  <li>VS Code</li>
-  <li>Jetbrains Goland</li>
-  <li>Jetbrains Rider</li>
-  <li>Jetbrains PyCharm</li>
-  <li>Jetbrains IntelliJ IDEA</li>
-  <li>Jetbrains PhpStorm</li>
-  <li>Jetbrains CLion</li>
-  <li>Jetbrains WebStorm</li>
-  <li>Jetbrains RubyMine</li>
-  <li>Jetbrains Datagrip</li>
-  <li>Jetbrains RustRover</li>
-  <li>Eclipse</li>
-  <li>XCode</li>
-  <li>iTerm2</li>
-  <li>Terminal</li>
-  <li>Adobe Photoshop</li>
-  <li>Adobe Premiere Pro</li>
-  <li>Adobe Illustrator</li>
-  <li>Adobe Audition</li>
-  <li>Adobe After Effects</li>
-  <li>Davinci Resolve</li>
-  <li>Textmate</li>
-</ul>
+<p style="margin-top: 20px; font-weight: bold">
+  Behaviour by scenario
+</p>
+
+<table class="table">
+  <tr>
+    <th style="width: 220px;">Scenario</th>
+    <th style="width: 80px;">Keys</th>
+    <th>Result</th>
+  </tr>
+  <tr>
+    <td>Supported app - any keyboard</td>
+    <td>F1-F12</td>
+    <td>True function key. Karabiner passes the keypress through unchanged.</td>
+  </tr>
+  <tr>
+    <td>Non-supported app - any keyboard</td>
+    <td>F1, F2</td>
+    <td>Media key. F1 = brightness down, F2 = brightness up.</td>
+  </tr>
+  <tr>
+    <td>Non-supported app - non-Logitech keyboard</td>
+    <td>F3-F12</td>
+    <td>Media key (see mapping table below). Karabiner remaps these to system actions.</td>
+  </tr>
+  <tr>
+    <td>Non-supported app - Logitech keyboard</td>
+    <td>F3-F12</td>
+    <td>Passed through unchanged. Logi Options+ handles the media mapping natively, so Karabiner leaves these alone to avoid conflicts.</td>
+  </tr>
+</table>
+
+<p style="margin-top: 20px; font-weight: bold">
+  Media key mapping (non-supported app, non-Logitech keyboard)
+</p>
+
+<table class="table">
+  <tr>
+    <th style="width: 100px;">Key</th>
+    <th>Media action</th>
+  </tr>
+  <tr><td>F1</td><td>Brightness down (all keyboards)</td></tr>
+  <tr><td>F2</td><td>Brightness up (all keyboards)</td></tr>
+  <tr><td>F3</td><td>Mission Control</td></tr>
+  <tr><td>F4</td><td>Spotlight</td></tr>
+  <tr><td>F5</td><td>Dictation</td></tr>
+  <tr><td>F6</td><td>No media action assigned - passes through as F6</td></tr>
+  <tr><td>F7</td><td>Rewind</td></tr>
+  <tr><td>F8</td><td>Play / Pause</td></tr>
+  <tr><td>F9</td><td>Fast Forward</td></tr>
+  <tr><td>F10</td><td>Mute</td></tr>
+  <tr><td>F11</td><td>Volume down</td></tr>
+  <tr><td>F12</td><td>Volume up</td></tr>
+</table>
+
+<p style="margin-top: 20px; font-weight: bold">
+  Supported applications (F keys always behave as true function keys)
+</p>
+
+<table class="table">
+  <tr>
+    <th style="width: 220px;">Application</th>
+    <th>Notes</th>
+  </tr>
+  <tr><td>VS Code</td><td>Includes VS Code Insiders</td></tr>
+  <tr><td>Cursor</td><td></td></tr>
+  <tr><td>JetBrains GoLand</td><td></td></tr>
+  <tr><td>JetBrains Rider</td><td></td></tr>
+  <tr><td>JetBrains PyCharm</td><td>Includes Community Edition</td></tr>
+  <tr><td>JetBrains IntelliJ IDEA</td><td>Includes Community Edition</td></tr>
+  <tr><td>JetBrains PhpStorm</td><td></td></tr>
+  <tr><td>JetBrains CLion</td><td></td></tr>
+  <tr><td>JetBrains WebStorm</td><td></td></tr>
+  <tr><td>JetBrains RubyMine</td><td></td></tr>
+  <tr><td>JetBrains DataGrip</td><td></td></tr>
+  <tr><td>JetBrains RustRover</td><td>Includes EAP builds</td></tr>
+  <tr><td>Eclipse</td><td></td></tr>
+  <tr><td>Xcode</td><td></td></tr>
+  <tr><td>iTerm2</td><td></td></tr>
+  <tr><td>Terminal</td><td>macOS built-in Terminal</td></tr>
+  <tr><td>Adobe Photoshop</td><td></td></tr>
+  <tr><td>Adobe Premiere Pro</td><td>Versions 23 and 24</td></tr>
+  <tr><td>Adobe Illustrator</td><td></td></tr>
+  <tr><td>Adobe Audition</td><td></td></tr>
+  <tr><td>Adobe After Effects</td><td></td></tr>
+  <tr><td>DaVinci Resolve</td><td></td></tr>
+  <tr><td>TextMate</td><td></td></tr>
+</table>
