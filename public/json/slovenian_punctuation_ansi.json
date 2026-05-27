@@ -2,443 +2,443 @@
   "title": "Remap the punctuation & symbols for a virtual Slovene keyboard-layout back to the punctuation & symbol layout of a US/ANSI/ABC keyboard",
   "maintainers": ["FToThe3rdPower"],
   "rules": [
-      {
-        "description": "Slovenian symbols and punctuation → US symbols and punctuation",
-        "manipulators": [
+    {
+      "description": "Slovenian symbols and punctuation → US symbols and punctuation",
+      "manipulators": [
+        {
+          "conditions": [
             {
-                "conditions": [
-                    {
-                        "input_sources": [{ "input_source_id": "com.apple.keylayout.Slovenian" }],
-                        "type": "input_source_if"
-                    }
-                ],
-                "from": {
-                    "key_code": "grave_accent_and_tilde",
-                    "modifiers": { "optional": ["caps_lock"] }
-                },
-                "to": [
-                    {
-                        "key_code": "grave_accent_and_tilde",
-                        "modifiers": ["left_option"]
-                    },
-                    { "key_code": "spacebar" }
-                ],
-                "type": "basic"
-            },
-            {
-                "conditions": [
-                    {
-                        "input_sources": [{ "input_source_id": "com.apple.keylayout.Slovenian" }],
-                        "type": "input_source_if"
-                    }
-                ],
-                "from": {
-                    "key_code": "grave_accent_and_tilde",
-                    "modifiers": {
-                        "mandatory": ["shift"],
-                        "optional": ["caps_lock"]
-                    }
-                },
-                "to": [
-                    {
-                        "key_code": "n",
-                        "modifiers": ["left_option"]
-                    },
-                    { "key_code": "spacebar" }
-                ],
-                "type": "basic"
-            },
-            {
-                "conditions": [
-                    {
-                        "input_sources": [{ "input_source_id": "com.apple.keylayout.Slovenian" }],
-                        "type": "input_source_if"
-                    }
-                ],
-                "from": {
-                    "key_code": "2",
-                    "modifiers": {
-                        "mandatory": ["shift"],
-                        "optional": ["caps_lock"]
-                    }
-                },
-                "to": [
-                    {
-                        "key_code": "2",
-                        "modifiers": ["left_option", "left_shift"]
-                    }
-                ],
-                "type": "basic"
-            },
-            {
-                "conditions": [
-                    {
-                        "input_sources": [{ "input_source_id": "com.apple.keylayout.Slovenian" }],
-                        "type": "input_source_if"
-                    }
-                ],
-                "from": {
-                    "key_code": "6",
-                    "modifiers": {
-                        "mandatory": ["shift"],
-                        "optional": ["caps_lock"]
-                    }
-                },
-                "to": [
-                    {
-                        "key_code": "i",
-                        "modifiers": ["left_option"]
-                    },
-                    { "key_code": "spacebar" }
-                ],
-                "type": "basic"
-            },
-            {
-                "conditions": [
-                    {
-                        "input_sources": [{ "input_source_id": "com.apple.keylayout.Slovenian" }],
-                        "type": "input_source_if"
-                    }
-                ],
-                "from": {
-                    "key_code": "7",
-                    "modifiers": {
-                        "mandatory": ["shift"],
-                        "optional": ["caps_lock"]
-                    }
-                },
-                "to": [
-                    {
-                        "key_code": "6",
-                        "modifiers": ["left_shift"]
-                    }
-                ],
-                "type": "basic"
-            },
-            {
-                "conditions": [
-                    {
-                        "input_sources": [{ "input_source_id": "com.apple.keylayout.Slovenian" }],
-                        "type": "input_source_if"
-                    }
-                ],
-                "from": {
-                    "key_code": "8",
-                    "modifiers": {
-                        "mandatory": ["shift"],
-                        "optional": ["caps_lock"]
-                    }
-                },
-                "to": [
-                    {
-                        "key_code": "equal_sign",
-                        "modifiers": ["shift"]
-                    }
-                ],
-                "type": "basic"
-            },
-            {
-                "conditions": [
-                    {
-                        "input_sources": [{ "input_source_id": "com.apple.keylayout.Slovenian" }],
-                        "type": "input_source_if"
-                    }
-                ],
-                "from": {
-                    "key_code": "9",
-                    "modifiers": {
-                        "mandatory": ["shift"],
-                        "optional": ["caps_lock"]
-                    }
-                },
-                "to": [
-                    {
-                        "key_code": "8",
-                        "modifiers": ["left_shift"]
-                    }
-                ],
-                "type": "basic"
-            },
-            {
-                "conditions": [
-                    {
-                        "input_sources": [{ "input_source_id": "com.apple.keylayout.Slovenian" }],
-                        "type": "input_source_if"
-                    }
-                ],
-                "from": {
-                    "key_code": "0",
-                    "modifiers": {
-                        "mandatory": ["shift"],
-                        "optional": ["caps_lock"]
-                    }
-                },
-                "to": [
-                    {
-                        "key_code": "9",
-                        "modifiers": ["left_shift"]
-                    }
-                ],
-                "type": "basic"
-            },
-            {
-                "conditions": [
-                    {
-                        "input_sources": [{ "input_source_id": "com.apple.keylayout.Slovenian" }],
-                        "type": "input_source_if"
-                    }
-                ],
-                "from": {
-                    "key_code": "hyphen",
-                    "modifiers": { "optional": ["caps_lock"] }
-                },
-                "to": [{ "key_code": "slash" }],
-                "type": "basic"
-            },
-            {
-                "conditions": [
-                    {
-                        "input_sources": [{ "input_source_id": "com.apple.keylayout.Slovenian" }],
-                        "type": "input_source_if"
-                    }
-                ],
-                "from": {
-                    "key_code": "hyphen",
-                    "modifiers": {
-                        "mandatory": ["shift"],
-                        "optional": ["caps_lock"]
-                    }
-                },
-                "to": [
-                    {
-                        "key_code": "slash",
-                        "modifiers": ["left_shift"]
-                    }
-                ],
-                "type": "basic"
-            },
-            {
-                "conditions": [
-                    {
-                        "input_sources": [{ "input_source_id": "com.apple.keylayout.Slovenian" }],
-                        "type": "input_source_if"
-                    }
-                ],
-                "from": {
-                    "key_code": "slash",
-                    "modifiers": { "optional": ["caps_lock"] }
-                },
-                "to": [{ "key_code": "hyphen" }],
-                "type": "basic"
-            },
-            {
-                "conditions": [
-                    {
-                        "input_sources": [{ "input_source_id": "com.apple.keylayout.Slovenian" }],
-                        "type": "input_source_if"
-                    }
-                ],
-                "from": {
-                    "key_code": "slash",
-                    "modifiers": {
-                        "mandatory": ["shift"],
-                        "optional": ["caps_lock"]
-                    }
-                },
-                "to": [
-                    {
-                        "key_code": "hyphen",
-                        "modifiers": ["left_shift"]
-                    }
-                ],
-                "type": "basic"
-            },
-            {
-                "conditions": [
-                    {
-                        "input_sources": [{ "input_source_id": "com.apple.keylayout.Slovenian" }],
-                        "type": "input_source_if"
-                    }
-                ],
-                "from": {
-                    "key_code": "equal_sign",
-                    "modifiers": { "optional": ["caps_lock"] }
-                },
-                "to": [
-                    {
-                        "key_code": "0",
-                        "modifiers": ["left_shift"]
-                    }
-                ],
-                "type": "basic"
-            },
-            {
-                "conditions": [
-                    {
-                        "input_sources": [{ "input_source_id": "com.apple.keylayout.Slovenian" }],
-                        "type": "input_source_if"
-                    }
-                ],
-                "from": {
-                    "key_code": "equal_sign",
-                    "modifiers": {
-                        "mandatory": ["shift"],
-                        "optional": ["caps_lock"]
-                    }
-                },
-                "to": [{ "key_code": "equal_sign" }],
-                "type": "basic"
-            },
-            {
-                "conditions": [
-                    {
-                        "input_sources": [{ "input_source_id": "com.apple.keylayout.Slovenian" }],
-                        "type": "input_source_if"
-                    }
-                ],
-                "from": {
-                    "key_code": "comma",
-                    "modifiers": {
-                        "mandatory": ["shift"],
-                        "optional": ["caps_lock"]
-                    }
-                },
-                "to": [{ "key_code": "grave_accent_and_tilde" }],
-                "type": "basic"
-            },
-            {
-                "conditions": [
-                    {
-                        "input_sources": [{ "input_source_id": "com.apple.keylayout.Slovenian" }],
-                        "type": "input_source_if"
-                    }
-                ],
-                "from": {
-                    "key_code": "period",
-                    "modifiers": {
-                        "mandatory": ["shift"],
-                        "optional": ["caps_lock"]
-                    }
-                },
-                "to": [
-                    {
-                        "key_code": "grave_accent_and_tilde",
-                        "modifiers": ["left_shift"]
-                    }
-                ],
-                "type": "basic"
-            },
-            {
-                "conditions": [
-                    {
-                        "input_sources": [{ "input_source_id": "com.apple.keylayout.Slovenian" }],
-                        "type": "input_source_if"
-                    }
-                ],
-                "from": {
-                    "key_code": "slash",
-                    "modifiers": {
-                        "mandatory": ["shift"],
-                        "optional": ["caps_lock"]
-                    }
-                },
-                "to": [
-                    {
-                        "key_code": "hyphen",
-                        "modifiers": ["left_shift"]
-                    }
-                ],
-                "type": "basic"
-            },
-                    {
-                "conditions": [
-                    {
-                        "input_sources": [{ "input_source_id": "com.apple.keylayout.Slovenian" }],
-                        "type": "input_source_if"
-                    }
-                ],
-                "from": {
-                    "key_code": "semicolon",
-                    "modifiers": {
-                        "mandatory": ["option"],
-                        "optional": ["caps_lock"]
-                    }
-                },
-                "to": [
-                    {
-                        "key_code": "comma",
-                        "modifiers": ["left_shift"]
-                    }
-                ],
-                "type": "basic"
-            },
-            {
-                "conditions": [
-                    {
-                        "input_sources": [{ "input_source_id": "com.apple.keylayout.Slovenian" }],
-                        "type": "input_source_if"
-                    }
-                ],
-                "from": {
-                    "key_code": "semicolon",
-                    "modifiers": {
-                        "mandatory": ["shift", "option"],
-                        "optional": ["caps_lock"]
-                    }
-                },
-                "to": [
-                    {
-                        "key_code": "period",
-                        "modifiers": ["left_shift"]
-                    }
-                ],
-                "type": "basic"
-            },
-            {
-                "conditions": [
-                    {
-                        "input_sources": [{ "input_source_id": "com.apple.keylayout.Slovenian" }],
-                        "type": "input_source_if"
-                    }
-                ],
-                "from": {
-                    "key_code": "quote",
-                    "modifiers": {
-                        "mandatory": ["option"],
-                        "optional": ["caps_lock"]
-                    }
-                },
-                "to": [
-                    {
-                        "key_code": "7",
-                        "modifiers": ["left_shift"]
-                    }
-                ],
-                "type": "basic"
-            },
-            {
-                "conditions": [
-                    {
-                        "input_sources": [{ "input_source_id": "com.apple.keylayout.Slovenian" }],
-                        "type": "input_source_if"
-                    }
-                ],
-                "from": {
-                    "key_code": "quote",
-                    "modifiers": {
-                        "mandatory": ["shift", "option"],
-                        "optional": ["caps_lock"]
-                    }
-                },
-                "to": [
-                    {
-                        "key_code": "2",
-                        "modifiers": ["left_shift"]
-                    }
-                ],
-                "type": "basic"
+              "input_sources": [{ "input_source_id": "com.apple.keylayout.Slovenian" }],
+              "type": "input_source_if"
             }
-        ]
+          ],
+          "from": {
+            "key_code": "grave_accent_and_tilde",
+            "modifiers": { "optional": ["caps_lock"] }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": ["left_option"]
+            },
+            { "key_code": "spacebar" }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "input_sources": [{ "input_source_id": "com.apple.keylayout.Slovenian" }],
+              "type": "input_source_if"
+            }
+          ],
+          "from": {
+            "key_code": "grave_accent_and_tilde",
+            "modifiers": {
+              "mandatory": ["shift"],
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "n",
+              "modifiers": ["left_option"]
+            },
+            { "key_code": "spacebar" }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "input_sources": [{ "input_source_id": "com.apple.keylayout.Slovenian" }],
+              "type": "input_source_if"
+            }
+          ],
+          "from": {
+            "key_code": "2",
+            "modifiers": {
+              "mandatory": ["shift"],
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "2",
+              "modifiers": ["left_option", "left_shift"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "input_sources": [{ "input_source_id": "com.apple.keylayout.Slovenian" }],
+              "type": "input_source_if"
+            }
+          ],
+          "from": {
+            "key_code": "6",
+            "modifiers": {
+              "mandatory": ["shift"],
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "i",
+              "modifiers": ["left_option"]
+            },
+            { "key_code": "spacebar" }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "input_sources": [{ "input_source_id": "com.apple.keylayout.Slovenian" }],
+              "type": "input_source_if"
+            }
+          ],
+          "from": {
+            "key_code": "7",
+            "modifiers": {
+              "mandatory": ["shift"],
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "6",
+              "modifiers": ["left_shift"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "input_sources": [{ "input_source_id": "com.apple.keylayout.Slovenian" }],
+              "type": "input_source_if"
+            }
+          ],
+          "from": {
+            "key_code": "8",
+            "modifiers": {
+              "mandatory": ["shift"],
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "equal_sign",
+              "modifiers": ["shift"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "input_sources": [{ "input_source_id": "com.apple.keylayout.Slovenian" }],
+              "type": "input_source_if"
+            }
+          ],
+          "from": {
+            "key_code": "9",
+            "modifiers": {
+              "mandatory": ["shift"],
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "8",
+              "modifiers": ["left_shift"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "input_sources": [{ "input_source_id": "com.apple.keylayout.Slovenian" }],
+              "type": "input_source_if"
+            }
+          ],
+          "from": {
+            "key_code": "0",
+            "modifiers": {
+              "mandatory": ["shift"],
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "9",
+              "modifiers": ["left_shift"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "input_sources": [{ "input_source_id": "com.apple.keylayout.Slovenian" }],
+              "type": "input_source_if"
+            }
+          ],
+          "from": {
+            "key_code": "hyphen",
+            "modifiers": { "optional": ["caps_lock"] }
+          },
+          "to": [{ "key_code": "slash" }],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "input_sources": [{ "input_source_id": "com.apple.keylayout.Slovenian" }],
+              "type": "input_source_if"
+            }
+          ],
+          "from": {
+            "key_code": "hyphen",
+            "modifiers": {
+              "mandatory": ["shift"],
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "slash",
+              "modifiers": ["left_shift"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "input_sources": [{ "input_source_id": "com.apple.keylayout.Slovenian" }],
+              "type": "input_source_if"
+            }
+          ],
+          "from": {
+            "key_code": "slash",
+            "modifiers": { "optional": ["caps_lock"] }
+          },
+          "to": [{ "key_code": "hyphen" }],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "input_sources": [{ "input_source_id": "com.apple.keylayout.Slovenian" }],
+              "type": "input_source_if"
+            }
+          ],
+          "from": {
+            "key_code": "slash",
+            "modifiers": {
+              "mandatory": ["shift"],
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "hyphen",
+              "modifiers": ["left_shift"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "input_sources": [{ "input_source_id": "com.apple.keylayout.Slovenian" }],
+              "type": "input_source_if"
+            }
+          ],
+          "from": {
+            "key_code": "equal_sign",
+            "modifiers": { "optional": ["caps_lock"] }
+          },
+          "to": [
+            {
+              "key_code": "0",
+              "modifiers": ["left_shift"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "input_sources": [{ "input_source_id": "com.apple.keylayout.Slovenian" }],
+              "type": "input_source_if"
+            }
+          ],
+          "from": {
+            "key_code": "equal_sign",
+            "modifiers": {
+              "mandatory": ["shift"],
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [{ "key_code": "equal_sign" }],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "input_sources": [{ "input_source_id": "com.apple.keylayout.Slovenian" }],
+              "type": "input_source_if"
+            }
+          ],
+          "from": {
+            "key_code": "comma",
+            "modifiers": {
+              "mandatory": ["shift"],
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [{ "key_code": "grave_accent_and_tilde" }],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "input_sources": [{ "input_source_id": "com.apple.keylayout.Slovenian" }],
+              "type": "input_source_if"
+            }
+          ],
+          "from": {
+            "key_code": "period",
+            "modifiers": {
+              "mandatory": ["shift"],
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": ["left_shift"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "input_sources": [{ "input_source_id": "com.apple.keylayout.Slovenian" }],
+              "type": "input_source_if"
+            }
+          ],
+          "from": {
+            "key_code": "slash",
+            "modifiers": {
+              "mandatory": ["shift"],
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "hyphen",
+              "modifiers": ["left_shift"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "input_sources": [{ "input_source_id": "com.apple.keylayout.Slovenian" }],
+              "type": "input_source_if"
+            }
+          ],
+          "from": {
+            "key_code": "semicolon",
+            "modifiers": {
+              "mandatory": ["option"],
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "comma",
+              "modifiers": ["left_shift"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "input_sources": [{ "input_source_id": "com.apple.keylayout.Slovenian" }],
+              "type": "input_source_if"
+            }
+          ],
+          "from": {
+            "key_code": "semicolon",
+            "modifiers": {
+              "mandatory": ["shift", "option"],
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "period",
+              "modifiers": ["left_shift"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "input_sources": [{ "input_source_id": "com.apple.keylayout.Slovenian" }],
+              "type": "input_source_if"
+            }
+          ],
+          "from": {
+            "key_code": "quote",
+            "modifiers": {
+              "mandatory": ["option"],
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "7",
+              "modifiers": ["left_shift"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "conditions": [
+            {
+              "input_sources": [{ "input_source_id": "com.apple.keylayout.Slovenian" }],
+              "type": "input_source_if"
+            }
+          ],
+          "from": {
+            "key_code": "quote",
+            "modifiers": {
+              "mandatory": ["shift", "option"],
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "2",
+              "modifiers": ["left_shift"]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
     }
   ]
 }

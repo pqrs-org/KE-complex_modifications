@@ -1,8 +1,6 @@
 {
   "title": "Keychron K3 Remap £ to # for British Keyboard",
-  "maintainers": [
-    "fredericrous"
-  ],
+  "maintainers": ["fredericrous"],
   "rules": [
     {
       "description": "Remap £ to # only on your Keychron",
@@ -11,30 +9,26 @@
           "type": "basic",
           "conditions": [
             {
-                "type": "device_if",
-                "identifiers": [
+              "type": "device_if",
+              "identifiers": [
                 {
-                    "vendor_id": 1452,
-                    "product_id": 591
+                  "vendor_id": 1452,
+                  "product_id": 591
                 }
-                ]
+              ]
             }
-        ],
+          ],
           "from": {
             "key_code": "3",
             "modifiers": {
-              "mandatory": [ "option" ],
-              "optional": [
-                "caps_lock"
-              ]
+              "mandatory": ["option"],
+              "optional": ["caps_lock"]
             }
           },
           "to": [
             {
               "key_code": "3",
-              "modifiers": [
-                "left_shift"
-              ]
+              "modifiers": ["left_shift"]
             }
           ]
         },
@@ -42,32 +36,26 @@
           "type": "basic",
           "conditions": [
             {
-                "type": "device_if",
-                "identifiers": [
+              "type": "device_if",
+              "identifiers": [
                 {
-                    "vendor_id": 1452,
-                    "product_id": 591
+                  "vendor_id": 1452,
+                  "product_id": 591
                 }
-                ]
+              ]
             }
-        ],
+          ],
           "from": {
             "key_code": "3",
             "modifiers": {
-              "mandatory": [
-                "shift"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
+              "mandatory": ["shift"],
+              "optional": ["caps_lock"]
             }
           },
           "to": [
             {
               "key_code": "3",
-              "modifiers": [
-                "left_option"
-              ]
+              "modifiers": ["left_option"]
             }
           ]
         }

@@ -1,53 +1,51 @@
 {
-    "title": "Logitech R400 for Keynote",
-    "rules": [
+  "title": "Logitech R400 for Keynote",
+  "rules": [
+    {
+      "description": "Logitech R400 for Keynote presentation",
+      "manipulators": [
         {
-            "description": "Logitech R400 for Keynote presentation",
-    "manipulators": [
-        {
-            "conditions": [
+          "conditions": [
+            {
+              "identifiers": [
                 {
-                    "identifiers": [
-                        {
-                            "product_id": 50488,
-                            "vendor_id": 1133
-                        }
-                    ],
-                    "type": "device_if"
-                },
-                {
-                    "bundle_identifiers": [
-                        "^com\\.apple\\.Keynote"
-                    ],
-                    "type": "frontmost_application_if"
+                  "product_id": 50488,
+                  "vendor_id": 1133
                 }
-            ],
-            "from": { "key_code": "f5" },
-            "to": [
-                {
-                    "key_code": "p",
-                    "modifiers": ["left_option", "left_command"]
-                }
-            ],
-            "type": "basic"
+              ],
+              "type": "device_if"
+            },
+            {
+              "bundle_identifiers": ["^com\\.apple\\.Keynote"],
+              "type": "frontmost_application_if"
+            }
+          ],
+          "from": { "key_code": "f5" },
+          "to": [
+            {
+              "key_code": "p",
+              "modifiers": ["left_option", "left_command"]
+            }
+          ],
+          "type": "basic"
         },
         {
-            "conditions": [
+          "conditions": [
+            {
+              "identifiers": [
                 {
-                    "identifiers": [
-                        {
-                            "product_id": 50488,
-                            "vendor_id": 1133
-                        }
-                    ],
-                    "type": "device_if"
+                  "product_id": 50488,
+                  "vendor_id": 1133
                 }
-            ],
-            "from": { "key_code": "period" },
-            "to": [{ "key_code": "b" }],
-            "type": "basic"
+              ],
+              "type": "device_if"
+            }
+          ],
+          "from": { "key_code": "period" },
+          "to": [{ "key_code": "b" }],
+          "type": "basic"
         }
-    ]
-        }
-    ]
+      ]
+    }
+  ]
 }

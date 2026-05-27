@@ -2,26 +2,24 @@
   "title": "Change Ctrl+h to delete/backspace",
   "rules": [
     {
-        "description": "Ctrl+h = delete/backspace",
-        "manipulators": [
-            {
-                "from": {
-                    "key_code": "h",
-                    "modifiers": {
-                        "mandatory": [
-                            "control"
-                        ],
-                        "optional": []
-                    }
-                },
-                "to": [
-                    {
-                        "key_code": "delete_or_backspace"
-                    }
-                ],
-                "type": "basic"
+      "description": "Ctrl+h = delete/backspace",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "mandatory": ["control"],
+              "optional": []
             }
-        ]
+          },
+          "to": [
+            {
+              "key_code": "delete_or_backspace"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
     }
   ]
 }

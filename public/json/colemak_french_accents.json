@@ -8,9 +8,7 @@
           "type": "basic",
           "from": {
             "modifiers": {
-              "mandatory": [
-                "right_gui"
-              ]
+              "mandatory": ["right_gui"]
             },
             "key_code": "s"
           },
@@ -18,9 +16,7 @@
             {
               "repeat": false,
               "key_code": "grave_accent_and_tilde",
-              "modifiers": [
-                "right_alt"
-              ]
+              "modifiers": ["right_alt"]
             }
           ]
         }
@@ -33,9 +29,7 @@
           "type": "basic",
           "from": {
             "modifiers": {
-              "mandatory": [
-                "right_gui"
-              ]
+              "mandatory": ["right_gui"]
             },
             "key_code": "x"
           },
@@ -43,9 +37,7 @@
             {
               "repeat": false,
               "key_code": "l",
-              "modifiers": [
-                "right_alt"
-              ]
+              "modifiers": ["right_alt"]
             }
           ]
         }
@@ -58,9 +50,7 @@
           "type": "basic",
           "from": {
             "modifiers": {
-              "mandatory": [
-                "right_gui"
-              ]
+              "mandatory": ["right_gui"]
             },
             "key_code": "f"
           },
@@ -68,9 +58,7 @@
             {
               "repeat": false,
               "key_code": "i",
-              "modifiers": [
-                "right_alt"
-              ]
+              "modifiers": ["right_alt"]
             }
           ]
         }
@@ -83,9 +71,7 @@
           "type": "basic",
           "from": {
             "modifiers": {
-              "mandatory": [
-                "right_gui"
-              ]
+              "mandatory": ["right_gui"]
             },
             "key_code": "k"
           },
@@ -93,9 +79,7 @@
             {
               "repeat": false,
               "key_code": "k",
-              "modifiers": [
-                "right_alt"
-              ],
+              "modifiers": ["right_alt"],
               "hold_down_milliseconds": 1
             },
             {
@@ -115,9 +99,7 @@
           "type": "basic",
           "from": {
             "modifiers": {
-              "mandatory": [
-                "right_gui"
-              ]
+              "mandatory": ["right_gui"]
             },
             "key_code": "a"
           },
@@ -125,9 +107,7 @@
             {
               "repeat": false,
               "key_code": "grave_accent_and_tilde",
-              "modifiers": [
-                "right_alt"
-              ],
+              "modifiers": ["right_alt"],
               "hold_down_milliseconds": 1
             },
             {
@@ -140,38 +120,33 @@
         }
       ]
     },
+    {
+      "description": "specific: u grave / right command + u [physical command + i] =>> u grave [right option + `, i]  ",
+      "manipulators": [
         {
-          "description": "specific: u grave / right command + u [physical command + i] =>> u grave [right option + `, i]  ",
-          "manipulators": [
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": ["right_gui"]
+            },
+            "key_code": "i"
+          },
+          "to": [
             {
-              "type": "basic",
-              "from": {
-                "modifiers": {
-                  "mandatory": [
-                    "right_gui"
-                  ]
-                },
-                "key_code": "i"
-              },
-              "to": [
-                {
-                  "repeat": false,
-                  "key_code": "grave_accent_and_tilde",
-                  "modifiers": [
-                    "right_alt"
-                  ],
-                  "hold_down_milliseconds": 1
-                },
-                {
-                  "repeat": false,
-                  "key_code": "i",
-                  "lazy": true,
-                  "halt": false
-                }
-              ]
+              "repeat": false,
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": ["right_alt"],
+              "hold_down_milliseconds": 1
+            },
+            {
+              "repeat": false,
+              "key_code": "i",
+              "lazy": true,
+              "halt": false
             }
           ]
+        }
+      ]
     }
-
   ]
 }

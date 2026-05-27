@@ -1,8 +1,6 @@
 {
   "title": "Gmail send email shortcut fix (Cmd+Shift+D → Cmd+Return in browsers)",
-  "maintainers": [
-    "DanMelbourne"
-  ],
+  "maintainers": ["DanMelbourne"],
   "rules": [
     {
       "description": "Gmail send email shortcut fix: remap Cmd+Shift+D (Command+Shift+D) to Cmd+Return in web browsers, so the Mac-standard send shortcut sends the email in Gmail instead of discarding the draft.",
@@ -12,21 +10,14 @@
           "from": {
             "key_code": "d",
             "modifiers": {
-              "mandatory": [
-                "command",
-                "shift"
-              ],
-              "optional": [
-                "any"
-              ]
+              "mandatory": ["command", "shift"],
+              "optional": ["any"]
             }
           },
           "to": [
             {
               "key_code": "return_or_enter",
-              "modifiers": [
-                "command"
-              ]
+              "modifiers": ["command"]
             }
           ],
           "conditions": [

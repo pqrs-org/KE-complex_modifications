@@ -2,25 +2,23 @@
   "title": "Fn/Caps + WASD(↑←↓→) / QE(Home End) / RF(PageUp PageDown)",
   "rules": [
     {
-        "description": "Change Caps to Fn",
-        "manipulators": [
-          {
-            "type": "basic",
-            "from": {
-              "key_code": "caps_lock",
-              "modifiers": {
-                "optional": [
-                  "any"
-                ]
-              }
-            },
-            "to": [
-              {
-                "key_code": "fn"
-              }
-            ]
-          }
-        ]
+      "description": "Change Caps to Fn",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "fn"
+            }
+          ]
+        }
+      ]
     },
     {
       "description": "Change fn + W/A/S/D to Arrow Keys",
@@ -30,12 +28,8 @@
           "from": {
             "key_code": "w",
             "modifiers": {
-              "mandatory": [
-                "fn"
-              ],
-              "optional": [
-                "any"
-              ]
+              "mandatory": ["fn"],
+              "optional": ["any"]
             }
           },
           "to": [
@@ -49,12 +43,8 @@
           "from": {
             "key_code": "a",
             "modifiers": {
-              "mandatory": [
-                "fn"
-              ],
-              "optional": [
-                "any"
-              ]
+              "mandatory": ["fn"],
+              "optional": ["any"]
             }
           },
           "to": [
@@ -68,12 +58,8 @@
           "from": {
             "key_code": "s",
             "modifiers": {
-              "mandatory": [
-                "fn"
-              ],
-              "optional": [
-                "any"
-              ]
+              "mandatory": ["fn"],
+              "optional": ["any"]
             }
           },
           "to": [
@@ -87,12 +73,8 @@
           "from": {
             "key_code": "d",
             "modifiers": {
-              "mandatory": [
-                "fn"
-              ],
-              "optional": [
-                "any"
-              ]
+              "mandatory": ["fn"],
+              "optional": ["any"]
             }
           },
           "to": [
@@ -104,90 +86,74 @@
       ]
     },
     {
-        "description": "Change fn + Q/E to Home/End",
-        "manipulators": [
-          {
-            "type": "basic",
-            "from": {
-              "key_code": "q",
-              "modifiers": {
-                "mandatory": [
-                  "fn"
-                ],
-                "optional": [
-                  "any"
-                ]
-              }
-            },
-            "to": [
-              {
-                "key_code": "home"
-              }
-            ]
+      "description": "Change fn + Q/E to Home/End",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "mandatory": ["fn"],
+              "optional": ["any"]
+            }
           },
-          {
-            "type": "basic",
-            "from": {
-              "key_code": "e",
-              "modifiers": {
-                "mandatory": [
-                  "fn"
-                ],
-                "optional": [
-                  "any"
-                ]
-              }
-            },
-            "to": [
-              {
-                "key_code": "end"
-              }
-            ]
-          }
-        ]
+          "to": [
+            {
+              "key_code": "home"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "e",
+            "modifiers": {
+              "mandatory": ["fn"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "end"
+            }
+          ]
+        }
+      ]
     },
     {
-        "description": "Change fn + R/F to PageUp/PageDown",
-        "manipulators": [
-          {
-            "type": "basic",
-            "from": {
-              "key_code": "r",
-              "modifiers": {
-                "mandatory": [
-                  "fn"
-                ],
-                "optional": [
-                  "any"
-                ]
-              }
-            },
-            "to": [
-              {
-                "key_code": "page_up"
-              }
-            ]
+      "description": "Change fn + R/F to PageUp/PageDown",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "r",
+            "modifiers": {
+              "mandatory": ["fn"],
+              "optional": ["any"]
+            }
           },
-          {
-            "type": "basic",
-            "from": {
-              "key_code": "f",
-              "modifiers": {
-                "mandatory": [
-                  "fn"
-                ],
-                "optional": [
-                  "any"
-                ]
-              }
-            },
-            "to": [
-              {
-                "key_code": "page_down"
-              }
-            ]
-          }
-        ]
+          "to": [
+            {
+              "key_code": "page_up"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f",
+            "modifiers": {
+              "mandatory": ["fn"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "page_down"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

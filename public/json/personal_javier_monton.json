@@ -1,20 +1,22 @@
 {
   "title": "Personal rules (@JavierMonton)",
-  "maintainers": [
-    "JavierMonton"
-  ],
+  "maintainers": ["JavierMonton"],
   "rules": [
     {
       "description": "ScrollLock button → Lunch iTerm",
-      "manipulators": [{
-        "from": {
-          "key_code": "scroll_lock"
-        },
-        "to": [{
-          "shell_command": "open -a 'iTerm.app'"
-        }],
-        "type": "basic"
-      }]
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "scroll_lock"
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'iTerm.app'"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
     },
     {
       "description": "Pause button → On/Off GMeet microphone (using Meet Mute)",
@@ -28,9 +30,7 @@
           },
           "to": {
             "key_code": "z",
-            "modifiers": [
-              "right_option"
-            ]
+            "modifiers": ["right_option"]
           },
           "type": "basic"
         }
@@ -48,9 +48,7 @@
           },
           "to": {
             "key_code": "semicolon",
-            "modifiers": [
-              "right_option"
-            ]
+            "modifiers": ["right_option"]
           },
           "type": "basic"
         }

@@ -1,8 +1,6 @@
 {
   "title": "Google Chrome URL Copy",
-  "maintainers": [
-    "doxxx93"
-  ],
+  "maintainers": ["doxxx93"],
   "rules": [
     {
       "description": "Google Chrome: Command + Shift + C → Copy URL and unfocus address bar",
@@ -11,36 +9,25 @@
           "conditions": [
             {
               "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.google\\.Chrome$"
-              ]
+              "bundle_identifiers": ["^com\\.google\\.Chrome$"]
             }
           ],
           "type": "basic",
           "from": {
             "key_code": "c",
             "modifiers": {
-              "mandatory": [
-                "command",
-                "shift"
-              ],
-              "optional": [
-                "any"
-              ]
+              "mandatory": ["command", "shift"],
+              "optional": ["any"]
             }
           },
           "to": [
             {
               "key_code": "l",
-              "modifiers": [
-                "command"
-              ]
+              "modifiers": ["command"]
             },
             {
               "key_code": "c",
-              "modifiers": [
-                "command"
-              ]
+              "modifiers": ["command"]
             },
             {
               "key_code": "escape"

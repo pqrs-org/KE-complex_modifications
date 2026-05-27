@@ -8,9 +8,7 @@
           "from": {
             "key_code": "left_command",
             "modifiers": {
-              "optional": [
-                "any"
-              ]
+              "optional": ["any"]
             }
           },
           "to": [
@@ -22,9 +20,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^com\\.googlecode\\.iterm2"
-              ]
+              "bundle_identifiers": ["^com\\.googlecode\\.iterm2"]
             }
           ]
         },
@@ -32,9 +28,7 @@
           "from": {
             "key_code": "left_control",
             "modifiers": {
-              "optional": [
-                "any"
-              ]
+              "optional": ["any"]
             }
           },
           "to": [
@@ -46,15 +40,13 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^com\\.googlecode\\.iterm2"
-              ]
+              "bundle_identifiers": ["^com\\.googlecode\\.iterm2"]
             }
           ]
         }
       ]
-    }, 
-		{
+    },
+    {
       "description": "Change left_shift to caps_lock if pressed alone.",
       "manipulators": [
         {
@@ -79,42 +71,29 @@
         }
       ]
     },
-		{
-			"description": "Press the left command twice to activate Finder",
-			"manipulators": [
-				{
-					"type": "basic",
-					"from": { "key_code": "left_command" },
-					"to": [
-						{ "shell_command": "open -a 'finder'" }
-					],
-					"conditions": [
-						{ "type": "variable_if", "name": "left_command_key", "value": 1 }
-					]
-				},
-				{
-					"type": "basic",
-					"from": {
-						"key_code": "left_command",
-						"modifiers": { "optional": [ "any" ] }
-					},
-					"to": [
-						{ "set_variable": { "name": "left_command_key", "value": 1 } },
-						{ "key_code": "left_command" }
-					],
-					"to_delayed_action": {
-						"to_if_invoked": [
-							{ "set_variable": { "name": "left_command_key", "value": 0 } }
-						],
-						"to_if_canceled": [
-							{ "set_variable": { "name": "left_command_key", "value": 0 } }
-						]
-					},
-					"conditions": [
-						{ "type": "variable_if", "name": "left_command_key", "value": 0 }
-					]
-				}
-			]
-		}
+    {
+      "description": "Press the left command twice to activate Finder",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": { "key_code": "left_command" },
+          "to": [{ "shell_command": "open -a 'finder'" }],
+          "conditions": [{ "type": "variable_if", "name": "left_command_key", "value": 1 }]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_command",
+            "modifiers": { "optional": ["any"] }
+          },
+          "to": [{ "set_variable": { "name": "left_command_key", "value": 1 } }, { "key_code": "left_command" }],
+          "to_delayed_action": {
+            "to_if_invoked": [{ "set_variable": { "name": "left_command_key", "value": 0 } }],
+            "to_if_canceled": [{ "set_variable": { "name": "left_command_key", "value": 0 } }]
+          },
+          "conditions": [{ "type": "variable_if", "name": "left_command_key", "value": 0 }]
+        }
+      ]
+    }
   ]
 }

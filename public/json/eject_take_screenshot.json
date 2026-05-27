@@ -1,25 +1,22 @@
 {
-    "title": "Maps Eject to Screenshot",
-    "rules": [
+  "title": "Maps Eject to Screenshot",
+  "rules": [
+    {
+      "description": "Eject to Screenshot",
+      "manipulators": [
         {
-            "description": "Eject to Screenshot",
-            "manipulators": [
-                {
-                    "from": {
-                        "consumer_key_code": "eject"
-                    },
-                    "to": [
-                        {
-                            "key_code": "5",
-                            "modifiers": [
-                                "left_command",
-                                "left_shift"
-                            ]
-                        }
-                    ],
-                    "type": "basic"
-                }
-            ]
+          "from": {
+            "consumer_key_code": "eject"
+          },
+          "to": [
+            {
+              "key_code": "5",
+              "modifiers": ["left_command", "left_shift"]
+            }
+          ],
+          "type": "basic"
         }
-    ]
+      ]
+    }
+  ]
 }

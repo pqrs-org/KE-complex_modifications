@@ -1,34 +1,24 @@
 {
   "title": "mouse_key_gesture_for_microsoft_teams",
-  "rules":
-  [
+  "rules": [
     {
       "description": "MSTeams Back button4 to ⌥⌘ + ←",
-      "manipulators":
-      [
+      "manipulators": [
         {
           "type": "basic",
           "conditions": [
             {
               "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.microsoft\\.teams$"
-              ]
+              "bundle_identifiers": ["^com\\.microsoft\\.teams$"]
             }
           ],
-          "from":
-          {
-              "pointing_button": "button4"
+          "from": {
+            "pointing_button": "button4"
           },
-          "to":
-          [
+          "to": [
             {
               "key_code": "left_arrow",
-              "modifiers":
-              [
-                "left_command",
-                "left_option"
-              ]
+              "modifiers": ["left_command", "left_option"]
             }
           ]
         }
@@ -36,31 +26,22 @@
     },
     {
       "description": "MSTeams Forward button5 to ⌥⌘ + →",
-      "manipulators":
-      [
+      "manipulators": [
         {
           "type": "basic",
           "conditions": [
             {
               "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.microsoft\\.teams$"
-              ]
+              "bundle_identifiers": ["^com\\.microsoft\\.teams$"]
             }
           ],
-          "from":
-          {
-              "pointing_button": "button5"
+          "from": {
+            "pointing_button": "button5"
           },
-          "to":
-          [
+          "to": [
             {
               "key_code": "right_arrow",
-              "modifiers":
-              [
-                "left_command",
-								"left_option"
-              ]
+              "modifiers": ["left_command", "left_option"]
             }
           ]
         }

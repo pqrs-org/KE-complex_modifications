@@ -1,8 +1,6 @@
 {
   "title": "Caps Lock + Shift -> Caps Lock, Caps Lock -> LeftCommand+Control+Shift+Option",
-  "maintainers": [
-    "DeafSpy"
-  ],
+  "maintainers": ["DeafSpy"],
   "rules": [
     {
       "description": "Caps Lock -> LeftCommand+Control+Shift+Option, Caps Lock -> Escape (if held alone for > 500 ms)",
@@ -12,19 +10,13 @@
           "from": {
             "key_code": "caps_lock",
             "modifiers": {
-              "optional": [
-                "any"
-              ]
+              "optional": ["any"]
             }
           },
           "to": [
             {
               "key_code": "left_shift",
-              "modifiers": [
-                "left_option",
-                "left_command",
-                "left_control"
-              ]
+              "modifiers": ["left_option", "left_command", "left_control"]
             }
           ],
           "to_if_alone": [
@@ -44,12 +36,8 @@
           "from": {
             "key_code": "caps_lock",
             "modifiers": {
-              "mandatory": [
-                "shift"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
+              "mandatory": ["shift"],
+              "optional": ["caps_lock"]
             }
           },
           "to": [
@@ -63,19 +51,13 @@
           "from": {
             "key_code": "caps_lock",
             "modifiers": {
-              "optional": [
-                "any"
-              ]
+              "optional": ["any"]
             }
           },
           "to": [
             {
               "key_code": "left_shift",
-              "modifiers": [
-                "left_command",
-                "left_control",
-                "left_option"
-              ]
+              "modifiers": ["left_command", "left_control", "left_option"]
             }
           ]
         }
