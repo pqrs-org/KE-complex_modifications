@@ -97,6 +97,33 @@
       ]
     },
     {
+      "description": "Final Cut Pro: shift + cmd + left click → cut across all layers (shift + cmd + b)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button1",
+            "modifiers": {
+              "mandatory": ["left_shift", "left_command"],
+              "optional": []
+            }
+          },
+          "to": [
+            {
+              "key_code": "b",
+              "modifiers": ["left_shift", "left_command"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.apple\\.FinalCut$"]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "description": "Final Cut Pro: left option + z → zoom to fit (shift + z), then zoom out (cmd + -)",
       "manipulators": [
         {
