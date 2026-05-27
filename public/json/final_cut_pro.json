@@ -3,6 +3,23 @@
   "maintainers": ["thecarlo"],
   "rules": [
     {
+      "description": "Final Cut Pro: mouse button 3 → horizontal timeline scroll (hold to drag, release to revert to select tool)",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "bundle_identifiers": ["^com\\.apple\\.FinalCut$"],
+              "type": "frontmost_application_if"
+            }
+          ],
+          "from": { "pointing_button": "button3" },
+          "to": [{ "key_code": "h" }, { "pointing_button": "button1" }],
+          "to_after_key_up": [{ "key_code": "a" }],
+          "type": "basic"
+        }
+      ]
+    },
+    {
       "description": "Final Cut Pro: left option + left click → trim start (option + [)",
       "manipulators": [
         {
