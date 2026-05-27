@@ -137,7 +137,25 @@
         }
       ]
     },
-     {
+    {
+      "description": "Swedish keyboard, Right command + non_us_backslash => pipe char",
+      "manipulators": [
+          {
+              "from": {
+                  "key_code": "non_us_backslash",
+                  "modifiers": { "mandatory": ["right_command"] }
+              },
+              "to": [
+                  {
+                      "key_code": "7",
+                      "modifiers": ["right_option"]
+                  }
+              ],
+              "type": "basic"
+          }
+      ]
+    },
+    {
       "description": "Swedish keyboard, Right command + 4 => $ char",
       "manipulators": [
         {

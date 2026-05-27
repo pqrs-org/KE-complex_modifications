@@ -1,0 +1,158 @@
+{
+  "title": "Redragon Lakshmi 60% ABNT2 physical → macOS US International (rev 1)",
+  "maintainers": ["salesdbs"],
+  "rules": [
+    {
+      "description": "Redragon Lakshmi: swap Alt/Cmd and Win/Option (left & right) [device: VID 9610 / PID 42]",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": { "key_code": "left_option" },
+          "to": [{ "key_code": "left_command" }],
+          "conditions": [{ "type": "device_if", "identifiers": [{ "product_id": 42, "vendor_id": 9610 }] }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "left_command" },
+          "to": [{ "key_code": "left_option" }],
+          "conditions": [{ "type": "device_if", "identifiers": [{ "product_id": 42, "vendor_id": 9610 }] }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "right_option" },
+          "to": [{ "key_code": "right_command" }],
+          "conditions": [{ "type": "device_if", "identifiers": [{ "product_id": 42, "vendor_id": 9610 }] }]
+        }
+      ]
+    },
+    {
+      "description": "Redragon Lakshmi: ESC solo=Escape, ESC+Shift=double quote, ESC+Option=single quote [device: VID 9610 / PID 42]",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": { "key_code": "escape", "modifiers": { "mandatory": ["left_shift"] } },
+          "to": [{ "key_code": "quote", "modifiers": ["left_shift"] }],
+          "conditions": [{ "type": "device_if", "identifiers": [{ "product_id": 42, "vendor_id": 9610 }] }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "escape", "modifiers": { "mandatory": ["left_option"] } },
+          "to": [{ "key_code": "quote" }],
+          "conditions": [{ "type": "device_if", "identifiers": [{ "product_id": 42, "vendor_id": 9610 }] }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "escape" },
+          "to": [{ "key_code": "escape" }],
+          "conditions": [{ "type": "device_if", "identifiers": [{ "product_id": 42, "vendor_id": 9610 }] }]
+        }
+      ]
+    },
+    {
+      "description": "Redragon Lakshmi: cedilha (semicolon → ç), dead keys (trema, til, circunflexo, crase) [device: VID 9610 / PID 42]",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": { "key_code": "semicolon", "modifiers": { "optional": ["any"] } },
+          "to": [{ "key_code": "quote" }, { "key_code": "c" }],
+          "conditions": [{ "type": "device_if", "identifiers": [{ "product_id": 42, "vendor_id": 9610 }] }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "6", "modifiers": { "mandatory": ["shift"] } },
+          "to": [{ "key_code": "quote", "modifiers": ["left_shift"] }],
+          "conditions": [{ "type": "device_if", "identifiers": [{ "product_id": 42, "vendor_id": 9610 }] }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "quote", "modifiers": { "mandatory": ["shift"] } },
+          "to": [{ "key_code": "6", "modifiers": ["left_shift"] }],
+          "conditions": [{ "type": "device_if", "identifiers": [{ "product_id": 42, "vendor_id": 9610 }] }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "quote" },
+          "to": [{ "key_code": "grave_accent_and_tilde", "modifiers": ["left_shift"] }],
+          "conditions": [{ "type": "device_if", "identifiers": [{ "product_id": 42, "vendor_id": 9610 }] }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "open_bracket", "modifiers": { "mandatory": ["shift"] } },
+          "to": [{ "key_code": "grave_accent_and_tilde" }],
+          "conditions": [{ "type": "device_if", "identifiers": [{ "product_id": 42, "vendor_id": 9610 }] }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "open_bracket" },
+          "to": [{ "key_code": "quote" }],
+          "conditions": [{ "type": "device_if", "identifiers": [{ "product_id": 42, "vendor_id": 9610 }] }]
+        }
+      ]
+    },
+    {
+      "description": "Redragon Lakshmi: fix brackets, braces, backslash, pipe, colon, semicolon, slash [device: VID 9610 / PID 42]",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": { "key_code": "close_bracket", "modifiers": { "mandatory": ["shift"] } },
+          "to": [{ "key_code": "open_bracket", "modifiers": ["left_shift"] }],
+          "conditions": [{ "type": "device_if", "identifiers": [{ "product_id": 42, "vendor_id": 9610 }] }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "close_bracket" },
+          "to": [{ "key_code": "open_bracket" }],
+          "conditions": [{ "type": "device_if", "identifiers": [{ "product_id": 42, "vendor_id": 9610 }] }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "non_us_pound", "modifiers": { "mandatory": ["shift"] } },
+          "to": [{ "key_code": "close_bracket", "modifiers": ["left_shift"] }],
+          "conditions": [{ "type": "device_if", "identifiers": [{ "product_id": 42, "vendor_id": 9610 }] }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "non_us_pound" },
+          "to": [{ "key_code": "close_bracket" }],
+          "conditions": [{ "type": "device_if", "identifiers": [{ "product_id": 42, "vendor_id": 9610 }] }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "non_us_backslash", "modifiers": { "mandatory": ["shift"] } },
+          "to": [{ "key_code": "backslash", "modifiers": ["left_shift"] }],
+          "conditions": [{ "type": "device_if", "identifiers": [{ "product_id": 42, "vendor_id": 9610 }] }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "non_us_backslash" },
+          "to": [{ "key_code": "backslash" }],
+          "conditions": [{ "type": "device_if", "identifiers": [{ "product_id": 42, "vendor_id": 9610 }] }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "slash", "modifiers": { "mandatory": ["shift"] } },
+          "to": [{ "key_code": "semicolon", "modifiers": ["left_shift"] }],
+          "conditions": [{ "type": "device_if", "identifiers": [{ "product_id": 42, "vendor_id": 9610 }] }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "slash" },
+          "to": [{ "key_code": "semicolon" }],
+          "conditions": [{ "type": "device_if", "identifiers": [{ "product_id": 42, "vendor_id": 9610 }] }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "international1", "modifiers": { "mandatory": ["shift"] } },
+          "to": [{ "key_code": "slash", "modifiers": ["left_shift"] }],
+          "conditions": [{ "type": "device_if", "identifiers": [{ "product_id": 42, "vendor_id": 9610 }] }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "international1" },
+          "to": [{ "key_code": "slash" }],
+          "conditions": [{ "type": "device_if", "identifiers": [{ "product_id": 42, "vendor_id": 9610 }] }]
+        }
+      ]
+    }
+  ]
+}

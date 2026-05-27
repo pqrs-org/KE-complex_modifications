@@ -1,0 +1,59 @@
+<p>
+  <strong>Cmd+Shift+D</strong> (Command+Shift+D, ⌘+⇧+D) is the Mac convention
+  for "Send email" in most mail clients — Apple Mail, Microsoft Outlook,
+  Airmail, Spark, and others all use it. But in Gmail's web interface the same
+  shortcut <em>discards the draft</em> instead of sending it. Gmail's actual
+  send shortcut is <strong>Cmd+Return</strong> (Command+Enter, ⌘+⏎), and
+  Google does not expose the discard shortcut in Gmail's keyboard-shortcut
+  settings, so it cannot be disabled or rebound from within Gmail itself.
+</p>
+<p>
+  This Karabiner-Elements rule remaps <strong>Cmd+Shift+D</strong> to
+  <strong>Cmd+Return</strong> whenever a supported web browser is the
+  frontmost application, so muscle memory from other mail clients sends the
+  Gmail message instead of deleting it. Useful for anyone searching for
+  "Gmail send shortcut Mac", "Cmd Shift D discard Gmail fix", or
+  "Gmail keyboard shortcut send email Mac".
+</p>
+<p>
+  Supported browsers (the remap only fires when one of these is frontmost):
+  Google Chrome (including Chrome PWAs), Safari, Arc, Firefox, Microsoft Edge,
+  and Brave.
+</p>
+
+<h5 class="mt-4">Limiting the remap to Gmail only (optional)</h5>
+<p>
+  Because this rule fires in any supported browser, <strong>Cmd+Shift+D</strong>
+  is remapped on every website you visit — not just Gmail. If you rely on
+  <strong>Cmd+Shift+D</strong> for something else in your browser (for example,
+  bookmarking all open tabs in Chrome), you can scope the remap to a standalone
+  Gmail web app instead:
+</p>
+<ol>
+  <li>Open <a href="https://mail.google.com" rel="noopener noreferrer" target="_blank">mail.google.com</a> in Google Chrome.</li>
+  <li>
+    Click the <strong>⋮</strong> (three-dot) menu at the top-right of Chrome →
+    <strong>Cast, save, and share</strong> → <strong>Install page as app…</strong>,
+    name it <em>Gmail</em>, and click <strong>Install</strong>. (In older Chrome
+    versions this is under <em>Save and share → Install Gmail…</em>.)
+  </li>
+  <li>
+    Launch the new Gmail app once so macOS registers it, then find its bundle
+    identifier by running this in Terminal:
+    <pre><code>osascript -e 'id of app "Gmail"'</code></pre>
+    You should see something like <code>com.google.Chrome.app.fmgjjmmmlfnkbppncabfkddbjimcfncm</code>.
+  </li>
+  <li>
+    Edit the rule's <code>bundle_identifiers</code> list (in
+    <code>~/.config/karabiner/assets/complex_modifications/</code> or directly
+    in <code>~/.config/karabiner/karabiner.json</code>) and replace all the
+    browser entries with a single anchored entry for your Gmail PWA, for
+    example:
+    <pre><code>"bundle_identifiers": ["^com\\.google\\.Chrome\\.app\\.fmgjjmmmlfnkbppncabfkddbjimcfncm$"]</code></pre>
+  </li>
+</ol>
+<p>
+  With that change, <strong>Cmd+Shift+D</strong> still behaves normally in
+  regular browser windows and only gets remapped to <strong>Cmd+Return</strong>
+  inside the Gmail app.
+</p>

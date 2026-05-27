@@ -1,0 +1,477 @@
+{
+  "title": "Belgian AZERTY PC / Windows AltGr for macOS Belgian layout",
+  "rules": [
+    {
+      "description": "Belgian AZERTY PC keyboard: use Right Command as Windows AltGr on the built-in macOS Belgian layout",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "grave_accent_and_tilde",
+            "modifiers": {
+              "mandatory": [],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "non_us_backslash"
+            }
+          ],
+          "parameters": {
+            "basic.to_delayed_action_delay_milliseconds": 0
+          },
+          "description": "grave_accent_and_tilde -> <"
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "grave_accent_and_tilde",
+            "modifiers": {
+              "mandatory": [
+                "left_shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "non_us_backslash",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.to_delayed_action_delay_milliseconds": 0
+          },
+          "description": "Shift + grave_accent_and_tilde -> >"
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "1",
+            "modifiers": {
+              "mandatory": [
+                "right_command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "l",
+              "modifiers": [
+                "left_option",
+                "left_shift"
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.to_delayed_action_delay_milliseconds": 0
+          },
+          "description": "Right Cmd + 1 -> |"
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "2",
+            "modifiers": {
+              "mandatory": [
+                "right_command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde"
+            }
+          ],
+          "parameters": {
+            "basic.to_delayed_action_delay_milliseconds": 0
+          },
+          "description": "Right Cmd + 2 -> @"
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "3",
+            "modifiers": {
+              "mandatory": [
+                "right_command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.to_delayed_action_delay_milliseconds": 0
+          },
+          "description": "Right Cmd + 3 -> #"
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "4",
+            "modifiers": {
+              "mandatory": [
+                "right_command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "5",
+              "modifiers": [
+                "left_option"
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.to_delayed_action_delay_milliseconds": 0
+          },
+          "description": "Right Cmd + 4 -> {"
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "5",
+            "modifiers": {
+              "mandatory": [
+                "right_command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "5",
+              "modifiers": [
+                "left_option",
+                "left_shift"
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.to_delayed_action_delay_milliseconds": 0
+          },
+          "description": "Right Cmd + 5 -> ["
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "6",
+            "modifiers": {
+              "mandatory": [
+                "right_command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "open_bracket"
+            },
+            {
+              "key_code": "spacebar"
+            }
+          ],
+          "parameters": {
+            "basic.to_delayed_action_delay_milliseconds": 0
+          },
+          "description": "Right Cmd + 6 -> ^"
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "9",
+            "modifiers": {
+              "mandatory": [
+                "right_command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "5",
+              "modifiers": [
+                "left_option"
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.to_delayed_action_delay_milliseconds": 0
+          },
+          "description": "Right Cmd + 9 -> {"
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "0",
+            "modifiers": {
+              "mandatory": [
+                "right_command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "hyphen",
+              "modifiers": [
+                "left_option"
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.to_delayed_action_delay_milliseconds": 0
+          },
+          "description": "Right Cmd + 0 -> }"
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "open_bracket",
+            "modifiers": {
+              "mandatory": [
+                "right_command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "5",
+              "modifiers": [
+                "left_option",
+                "left_shift"
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.to_delayed_action_delay_milliseconds": 0
+          },
+          "description": "Right Cmd + open_bracket -> ["
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "close_bracket",
+            "modifiers": {
+              "mandatory": [
+                "right_command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "hyphen",
+              "modifiers": [
+                "left_option",
+                "left_shift"
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.to_delayed_action_delay_milliseconds": 0
+          },
+          "description": "Right Cmd + close_bracket -> ]"
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "backslash",
+            "modifiers": {
+              "mandatory": [
+                "right_command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "backslash"
+            }
+          ],
+          "parameters": {
+            "basic.to_delayed_action_delay_milliseconds": 0
+          },
+          "description": "Right Cmd + backslash -> `"
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "non_us_backslash",
+            "modifiers": {
+              "mandatory": [
+                "right_command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "period",
+              "modifiers": [
+                "left_option",
+                "left_shift"
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.to_delayed_action_delay_milliseconds": 0
+          },
+          "description": "Right Cmd + non_us_backslash -> \\"
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "grave_accent_and_tilde",
+            "modifiers": {
+              "mandatory": [
+                "right_command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "period",
+              "modifiers": [
+                "left_option",
+                "left_shift"
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.to_delayed_action_delay_milliseconds": 0
+          },
+          "description": "Right Cmd + grave_accent_and_tilde -> \\"
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "e",
+            "modifiers": {
+              "mandatory": [
+                "right_command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "close_bracket",
+              "modifiers": [
+                "left_option"
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.to_delayed_action_delay_milliseconds": 0
+          },
+          "description": "Right Cmd + e -> €"
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "slash",
+            "modifiers": {
+              "mandatory": [
+                "right_command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "n",
+              "modifiers": [
+                "left_option"
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.to_delayed_action_delay_milliseconds": 0
+          },
+          "description": "Right Cmd + slash -> ~"
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "quote",
+            "modifiers": {
+              "mandatory": [
+                "right_command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "1",
+              "modifiers": [
+                "left_option",
+                "left_shift"
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.to_delayed_action_delay_milliseconds": 0
+          },
+          "description": "Right Cmd + quote -> ´"
+        }
+      ]
+    }
+  ],
+  "maintainers": [
+    "davidvuy"
+  ]
+}
