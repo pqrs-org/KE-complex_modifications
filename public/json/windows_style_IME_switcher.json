@@ -1,0 +1,153 @@
+{
+  "title": "windows_style_IME_switcher",
+  "author": "Elias Lee (https://github.com/Elias-Lee-SC)",
+  "maintainers": [
+    "Elias-Lee-SC"
+  ],
+  "rules": [
+    {
+      "description": "Hold Control and tap Shift alone to switch input sources; pass Control+Shift through when another key follows",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_shift",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_shift",
+              "modifiers": [
+                "left_control"
+              ],
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "slash",
+              "modifiers": [
+                "left_control",
+                "left_shift"
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 10000
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_shift",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_shift",
+              "modifiers": [
+                "left_control"
+              ],
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "slash",
+              "modifiers": [
+                "left_control",
+                "left_shift"
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 10000
+          }
+        }
+      ]
+    },
+    {
+      "description": "Control+Space: English -> next input source, non-English -> English",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "slash",
+              "modifiers": [
+                "left_control",
+                "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                  "language": "^en$"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "select_input_source": {
+                "language": "^en$"
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "input_source_unless",
+              "input_sources": [
+                {
+                  "language": "^en$"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
