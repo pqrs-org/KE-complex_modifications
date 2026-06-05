@@ -1,0 +1,37 @@
+<p style="margin-top: 20px; font-weight: bold">
+  Requirements
+</p>
+
+<p>
+  This rule depends on the macOS Input Sources shortcuts. Before enabling the rule, open:
+</p>
+
+<p>
+  System Settings &gt; Keyboard &gt; Keyboard Shortcuts &gt; Input Sources
+</p>
+
+<table class="table">
+  <tr>
+    <td style="width: 300px;">Select the previous input source</td>
+    <td><kbd>Control + Space</kbd></td>
+  </tr>
+  <tr>
+    <td style="width: 300px;">Select next source in Input menu</td>
+    <td><kbd>Control + Shift + /</kbd></td>
+  </tr>
+</table>
+
+<p style="margin-top: 20px; font-weight: bold">
+  Input source order
+</p>
+
+<p>
+  From an English input source, <kbd>Control + Space</kbd> sends the macOS "next source in Input
+  menu" shortcut, so it switches to the next input source in your macOS input source order.
+</p>
+
+<p>
+  From a non-English input source, <kbd>Control + Space</kbd> selects English directly. If your
+  English input source is not detected, use Karabiner-EventViewer to inspect it and replace the
+  English matcher in the JSON with a more specific <code>input_source_id</code>.
+</p>
