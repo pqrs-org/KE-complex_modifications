@@ -8,7 +8,7 @@ function main() {
   console.log(
     JSON.stringify(
       {
-        title: 'Double tap right_command to switch DoubaoIME voice input (rev 1)',
+        title: 'Double tap right_command to switch DoubaoIME voice input (rev 2)',
         maintainers: ['Coldin04'],
         rules: [
           {
@@ -43,11 +43,7 @@ function main() {
                   },
                   {
                     key_code: 'vk_none',
-                    hold_down_milliseconds: 300,
-                  },
-                  {
-                    key_code: 'right_option',
-                    hold_down_milliseconds: 60,
+                    hold_down_milliseconds: 800,
                   },
                   {
                     key_code: 'right_option',
@@ -91,12 +87,8 @@ function main() {
                     hold_down_milliseconds: 60,
                   },
                   {
-                    key_code: 'right_option',
-                    hold_down_milliseconds: 60,
-                  },
-                  {
                     key_code: 'vk_none',
-                    hold_down_milliseconds: 5000,
+                    hold_down_milliseconds: 3500,
                   },
                   {
                     select_input_source: {
