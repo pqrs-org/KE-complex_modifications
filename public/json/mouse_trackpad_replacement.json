@@ -1,0 +1,67 @@
+{
+  "title": "Mouse as a trackpad replacement (side buttons switch Spaces, middle button for Mission Control / App Exposé) (rev 1)",
+  "maintainers": ["TyndaleLym"],
+  "rules": [
+    {
+      "description": "Side buttons to switch Spaces: button4 to next desktop (^→), button5 to previous desktop (^←) (rev 1)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button4",
+            "modifiers": { "optional": ["any"] }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": ["left_control"],
+              "repeat": false
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button5",
+            "modifiers": { "optional": ["any"] }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": ["left_control"],
+              "repeat": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Middle button (button3): single click for Mission Control / all windows (^↑), long press for App Exposé / windows of the front app (^↓) (rev 1)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button3",
+            "modifiers": { "optional": ["any"] }
+          },
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 300,
+            "basic.to_if_held_down_threshold_milliseconds": 300
+          },
+          "to_if_alone": [
+            {
+              "key_code": "up_arrow",
+              "modifiers": ["left_control"]
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "down_arrow",
+              "modifiers": ["left_control"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
