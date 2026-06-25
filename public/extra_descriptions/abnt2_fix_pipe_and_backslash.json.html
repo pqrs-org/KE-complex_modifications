@@ -1,0 +1,65 @@
+<h4>English</h4>
+<p>
+  When you use an external ABNT2 (Brazilian Portuguese) keyboard on a Mac, the
+  physical pipe / backslash key is reported as
+  <code>non_us_backslash</code> and the grave / tilde key is reported as
+  <code>grave_accent_and_tilde</code>. These two keys end up swapped compared to
+  what is printed on the keycaps.
+</p>
+<p>
+  This rule swaps the two keys back so they type the expected characters. It
+  works with any modifier held down (<code>optional: ["any"]</code>).
+</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Physical key (from)</th>
+      <th scope="col">Sends (to)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><kbd>\</kbd> / <kbd>|</kbd> (<code>non_us_backslash</code>)</td>
+      <td><kbd>`</kbd> / <kbd>~</kbd> (<code>grave_accent_and_tilde</code>)</td>
+    </tr>
+    <tr>
+      <td><kbd>`</kbd> / <kbd>~</kbd> (<code>grave_accent_and_tilde</code>)</td>
+      <td><kbd>\</kbd> / <kbd>|</kbd> (<code>non_us_backslash</code>)</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h4>Português</h4>
+<p>
+  Ao usar um teclado externo ABNT2 (português do Brasil) em um Mac, a tecla
+  física de barra / pipe é reportada como <code>non_us_backslash</code> e a tecla
+  de crase / til é reportada como <code>grave_accent_and_tilde</code>. Essas duas
+  teclas acabam trocadas em relação ao que está impresso no teclado.
+</p>
+<p>
+  Esta regra troca as duas teclas de volta para que digitem os caracteres
+  esperados. Funciona com qualquer modificador pressionado
+  (<code>optional: ["any"]</code>).
+</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Tecla física (de)</th>
+      <th scope="col">Envia (para)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><kbd>\</kbd> / <kbd>|</kbd> (<code>non_us_backslash</code>)</td>
+      <td><kbd>`</kbd> / <kbd>~</kbd> (<code>grave_accent_and_tilde</code>)</td>
+    </tr>
+    <tr>
+      <td><kbd>`</kbd> / <kbd>~</kbd> (<code>grave_accent_and_tilde</code>)</td>
+      <td><kbd>\</kbd> / <kbd>|</kbd> (<code>non_us_backslash</code>)</td>
+    </tr>
+  </tbody>
+</table>

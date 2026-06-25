@@ -1,0 +1,35 @@
+{
+  "title": "ABNT2 - Corrigir pipe e aspas",
+  "maintainers": ["mateuslecchi"],
+  "rules": [
+    {
+      "description": "ABNT2 - Corrigir pipe e aspas",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "non_us_backslash",
+            "modifiers": { "optional": ["any"] }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "grave_accent_and_tilde",
+            "modifiers": { "optional": ["any"] }
+          },
+          "to": [
+            {
+              "key_code": "non_us_backslash"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
