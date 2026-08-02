@@ -1,0 +1,257 @@
+{
+  "title": "Keychron V6 Special Keys",
+  "maintainers": ["jucrramirez"],
+  "rules": [
+    {
+      "description": "PC-Style Keys (Del, Home, End, PgUp, PgDn, Ins) for Keychron V6",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "bundle_identifiers": ["^com\\.apple\\.finder$"],
+              "type": "frontmost_application_if"
+            }
+          ],
+          "description": "Del: Send to Trash in Finder",
+          "from": {
+            "key_code": "delete_forward",
+            "modifiers": { "optional": ["any"] }
+          },
+          "to": [
+            {
+              "key_code": "delete_or_backspace",
+              "modifiers": ["left_command"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "description": "Ctrl + Shift + Home: Go and select to beginning of document",
+          "from": {
+            "key_code": "home",
+            "modifiers": {
+              "mandatory": ["left_control", "left_shift"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow",
+              "modifiers": ["left_command", "left_shift"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "description": "Ctrl + Home: Go to beginning of document",
+          "from": {
+            "key_code": "home",
+            "modifiers": {
+              "mandatory": ["left_control"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow",
+              "modifiers": ["left_command"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "description": "Shift + Home: Select to beginning of line",
+          "from": {
+            "key_code": "home",
+            "modifiers": {
+              "mandatory": ["left_shift"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": ["left_command", "left_shift"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "description": "Home: Go to beginning of line",
+          "from": {
+            "key_code": "home",
+            "modifiers": { "optional": ["any"] }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": ["left_command"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "description": "Ctrl + Shift + End: Go and select to end of document",
+          "from": {
+            "key_code": "end",
+            "modifiers": {
+              "mandatory": ["left_control", "left_shift"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "down_arrow",
+              "modifiers": ["left_command", "left_shift"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "description": "Ctrl + End: Go to end of document",
+          "from": {
+            "key_code": "end",
+            "modifiers": {
+              "mandatory": ["left_control"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "down_arrow",
+              "modifiers": ["left_command"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "description": "Shift + End: Select to end of line",
+          "from": {
+            "key_code": "end",
+            "modifiers": {
+              "mandatory": ["left_shift"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": ["left_command", "left_shift"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "description": "End: Go to end of line",
+          "from": {
+            "key_code": "end",
+            "modifiers": { "optional": ["any"] }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": ["left_command"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "description": "Shift + PgUp: PC-style page up selection",
+          "from": {
+            "key_code": "page_up",
+            "modifiers": {
+              "mandatory": ["left_shift"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "page_up",
+              "modifiers": ["left_option", "left_shift"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "description": "PgUp: PC-style page up (moves cursor)",
+          "from": {
+            "key_code": "page_up",
+            "modifiers": { "optional": ["any"] }
+          },
+          "to": [
+            {
+              "key_code": "page_up",
+              "modifiers": ["left_option"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "description": "Shift + PgDn: PC-style page down selection",
+          "from": {
+            "key_code": "page_down",
+            "modifiers": {
+              "mandatory": ["left_shift"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "page_down",
+              "modifiers": ["left_option", "left_shift"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "description": "PgDn: PC-style page down (moves cursor)",
+          "from": {
+            "key_code": "page_down",
+            "modifiers": { "optional": ["any"] }
+          },
+          "to": [
+            {
+              "key_code": "page_down",
+              "modifiers": ["left_option"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "description": "Shift + Ins: Paste",
+          "from": {
+            "key_code": "insert",
+            "modifiers": {
+              "mandatory": ["left_shift"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "v",
+              "modifiers": ["left_command"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "description": "Ctrl + Ins: Copy",
+          "from": {
+            "key_code": "insert",
+            "modifiers": {
+              "mandatory": ["left_control"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "c",
+              "modifiers": ["left_command"]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}
