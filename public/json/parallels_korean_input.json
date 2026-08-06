@@ -1,0 +1,70 @@
+{
+    "title": "Parallels Desktop: Korean input toggle (한/영)",
+    "maintainers": [
+        "renovys"
+    ],
+    "rules": [
+        {
+            "description": "Korean toggle: right_option to f19 on macOS, pass through natively in Parallels",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_unless",
+                            "bundle_identifiers": [
+                                "^com\\.parallels\\.desktop",
+                                "^com\\.parallels\\.vm",
+                                "^com\\.parallels\\.winapp\\."
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "right_option",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "f19"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Korean toggle: f19 to right_option inside Parallels (bridge for right_command based setups)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com\\.parallels\\.desktop",
+                                "^com\\.parallels\\.vm",
+                                "^com\\.parallels\\.winapp\\."
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "f19",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "right_option"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
