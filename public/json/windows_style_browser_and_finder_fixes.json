@@ -1,0 +1,105 @@
+{
+    "title": "Windows-style shortcuts: browser and Finder fixes (rev 1)",
+    "maintainers": ["renovys"],
+    "rules": [
+        {
+            "description": "Address bar: ⌘D to ⌘L, in browsers only (Windows Alt+D). Enable this BEFORE the Ctrl+D bookmark rule below. (rev 1)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com\\.apple\\.Safari$",
+                                "^com\\.google\\.Chrome$",
+                                "^com\\.microsoft\\.Edge",
+                                "^com\\.brave\\.Browser$",
+                                "^org\\.mozilla\\.firefox$",
+                                "^org\\.mozilla\\.firefoxdeveloperedition$",
+                                "^org\\.mozilla\\.nightly$",
+                                "^com\\.naver\\.Whale$"
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "d",
+                        "modifiers": {
+                            "mandatory": ["left_command"],
+                            "optional": ["any"]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "l",
+                            "modifiers": ["left_command"]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Bookmark: control+D to ⌘D, in browsers (Windows Ctrl+D). Safe to combine with the ⌘D address bar rule above. (rev 1)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com\\.apple\\.Safari$",
+                                "^com\\.google\\.Chrome$",
+                                "^com\\.microsoft\\.Edge",
+                                "^com\\.brave\\.Browser$",
+                                "^org\\.mozilla\\.firefox$",
+                                "^org\\.mozilla\\.firefoxdeveloperedition$",
+                                "^org\\.mozilla\\.nightly$",
+                                "^com\\.naver\\.Whale$"
+                            ]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "d",
+                        "modifiers": {
+                            "mandatory": ["control"],
+                            "optional": ["any"]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "d",
+                            "modifiers": ["right_command"]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Finder: ⌘F4 closes the window instead of doing nothing (Windows Alt+F4). Finder has no Quit, so ⌘Q is a no-op there. (rev 1)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": ["^com\\.apple\\.finder$"]
+                        }
+                    ],
+                    "from": {
+                        "key_code": "f4",
+                        "modifiers": {
+                            "mandatory": ["command"],
+                            "optional": ["any"]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "w",
+                            "modifiers": ["left_command"]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
