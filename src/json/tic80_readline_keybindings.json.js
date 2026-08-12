@@ -20,7 +20,7 @@
 //  CONFIGURATION
 //------------------------------------------------------------------------------
 
-const keyBindings = [
+const bindings = [
   { from: '<C-j>', to: 'return_or_enter' },
   { from: 'C-M-b', to: 'O-S-left_arrow' },
   { from: 'C-M-f', to: 'O-S-right_arrow' },
@@ -56,19 +56,19 @@ const appConditions = [
   },
 ]
 
-const ruleMetadata = {
+const metadata = {
   title: 'TIC-80 Readline-like keybindings',
 
-  description: 'Readline-like keybindings for the TIC-80 console and editor',
-
   maintainers: ['Athesto'],
+
+  description: 'Readline-like keybindings for the TIC-80 console and editor',
 }
 
 //------------------------------------------------------------------------------
 //  FUNCTIONS
 //------------------------------------------------------------------------------
 
-function generateKeyBindingPackage(keyBindings, conditions, ruleMetadata) {
+function generateKarabinerBindings(bindings, conditions, metadata) {
   const modifierBySymbol = {
     C: 'control',
     M: 'option',
@@ -87,7 +87,8 @@ function generateKeyBindingPackage(keyBindings, conditions, ruleMetadata) {
       const modifier = modifierBySymbol[modifierSymbol]
 
       if (!modifier) {
-        throw new Error('Unknown modifier "{modifier}" in shortcut "{shortcut}"'.replace('{modifier}', modifierSymbol).replace('{shortcut}', shortcut))
+        const errorMessage = 'Unknown modifier "{symbol}" in shortcut "{shortcut}"'
+        throw new Error(errorMessage.replace('{symbol}', modifierSymbol).replace('{shortcut}', shortcut))
       }
 
       return modifier
@@ -99,49 +100,45 @@ function generateKeyBindingPackage(keyBindings, conditions, ruleMetadata) {
     }
   }
 
-  function createManipulator(keyBinding) {
-    // Build from Event
-    const fromShortcut = parseShortcut(keyBinding.from)
-    const fromEvent = {
+  function createManipulator(binding) {
+    // Build from event
+    const fromShortcut = parseShortcut(binding.from)
+    const fromShortcutEvent = {
       key_code: fromShortcut.key,
     }
     if (fromShortcut.modifiers.length > 0) {
-      fromEvent.modifiers = {
+      fromShortcutEvent.modifiers = {
         mandatory: fromShortcut.modifiers,
       }
     }
 
-    // Build to Event
-    const toShortcut = parseShortcut(keyBinding.to)
-    const toEvent = {
+    // Build to event
+    const toShortcut = parseShortcut(binding.to)
+    const toShortcutEvent = {
       key_code: toShortcut.key,
     }
     if (toShortcut.modifiers.length > 0) {
-      toEvent.modifiers = toShortcut.modifiers
+      toShortcutEvent.modifiers = toShortcut.modifiers
     }
 
     return {
       type: 'basic',
-      from: fromEvent,
-      to: [toEvent],
-      conditions: conditions,
+      from: fromShortcutEvent,
+      to: [toShortcutEvent],
+      conditions,
     }
   }
 
-  const manipulators = keyBindings.map(createManipulator)
-
-  const rule = {
-    description: ruleMetadata.description,
-    manipulators: manipulators,
+  return {
+    title: metadata.title,
+    maintainers: metadata.maintainers,
+    rules: [
+      {
+        description: metadata.description,
+        manipulators: bindings.map(createManipulator),
+      },
+    ],
   }
-
-  const keyBindingPackage = {
-    title: ruleMetadata.title,
-    maintainers: ruleMetadata.maintainers,
-    rules: [rule],
-  }
-
-  return keyBindingPackage
 }
 
 //------------------------------------------------------------------------------
@@ -149,9 +146,9 @@ function generateKeyBindingPackage(keyBindings, conditions, ruleMetadata) {
 //------------------------------------------------------------------------------
 
 function main() {
-  const keyBindingPackage = generateKeyBindingPackage(keyBindings, appConditions, ruleMetadata)
+  const tic80Bindings = generateKarabinerBindings(bindings, appConditions, metadata)
 
-  console.log(JSON.stringify(keyBindingPackage, null, 2))
+  console.log(JSON.stringify(tic80Bindings, null, 2))
 }
 
 main()
