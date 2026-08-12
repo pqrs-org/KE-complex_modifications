@@ -1,0 +1,111 @@
+<h3>What it does</h3>
+
+<p>
+  In Korean input mode, typing a few English characters normally means a round trip:
+  switch to English, type, switch back. This rule removes the round trip.
+  While <code>Insert</code> is held the input source is English; when you release it,
+  Korean comes back. No mode is left behind.
+</p>
+
+<table>
+  <tr><th>Action</th><th>Result</th></tr>
+  <tr><td>Hold <code>Insert</code>, type letters</td><td>English, as many characters as you like (<code>a p i</code> &rarr; <code>api</code>)</td></tr>
+  <tr><td>Hold <code>Insert</code>, tap <code>Home</code></td><td>Toggle capitals on/off — following letters stay uppercase</td></tr>
+  <tr><td>Hold <code>Insert</code>, <code>shift</code>+letter</td><td>A single capital (still works)</td></tr>
+  <tr><td>Release <code>Insert</code></td><td>Back to Korean; the capital toggle is reset</td></tr>
+  <tr><td><code>Insert</code> in English mode</td><td>Rule does not fire — <code>Insert</code> keeps its normal behaviour</td></tr>
+  <tr><td><code>Home</code> outside the layer</td><td>Rule does not fire — <code>Home</code> keeps its normal behaviour</td></tr>
+</table>
+
+<h3>한국어 요약</h3>
+
+<p>
+  이 규칙을 쓸 사람은 대부분 한국어 입력기 사용자이므로 요약을 한글로도 적는다.
+  <em>(This section repeats the above in Korean, for the users this rule is aimed at.)</em>
+</p>
+
+<p>
+  한글 입력 중 영문 몇 글자를 치려고 <b>한/영 전환 &rarr; 입력 &rarr; 한/영 전환</b>을 왕복하는 대신,
+  <code>Insert</code> 를 <b>누르고 있는 동안만</b> 영문이 나간다. 손을 떼면 한글로 돌아오며 모드가 남지 않는다.
+  레이어 안에서 <code>Home</code> 을 <b>탭</b>하면 대문자가 토글되고, 레이어 밖 <code>Insert</code>·<code>Home</code> 은 평소대로 동작한다.
+  전환 단축키가 <code>⇧space</code> 든 무엇이든 <b>무관</b>하다 &mdash; 이 규칙은 입력소스를 직접 지정하지 단축키를 흉내내지 않는다.
+</p>
+
+<h3>Requirements</h3>
+
+<p>No hardware and no external application is required. What the rule does need:</p>
+
+<table>
+  <tr><th>#</th><th>Requirement</th></tr>
+  <tr>
+    <td>A</td>
+    <td>
+      A physical key that actually sends <code>insert</code>, not claimed by another rule.
+      Which physical key emits <code>insert</code> differs between keyboards — check in
+      <b>Karabiner-EventViewer</b> first. On keyboards without one, change
+      <code>from.key_code</code> before importing.
+    </td>
+  </tr>
+  <tr>
+    <td>B</td>
+    <td>
+      <code>Home</code> must be free <b>while the layer is active</b>.
+      Outside the layer <code>Home</code> is untouched — the rule borrows it with a
+      <code>variable_if</code> condition instead of taking it away, so no key is permanently spent.
+    </td>
+  </tr>
+  <tr>
+    <td>C</td>
+    <td>
+      Korean and English input sources identifiable as <code>^ko$</code> / <code>^en$</code>
+      (the macOS defaults).
+    </td>
+  </tr>
+  <tr>
+    <td>D</td>
+    <td>
+      A Hangul IME that commits the composing syllable when it receives a space — the standard
+      behaviour of the macOS Korean input sources.
+    </td>
+  </tr>
+</table>
+
+<p>
+  <b>Your Korean/English switching shortcut does not matter.</b>
+  The rule changes the input source with <code>select_input_source</code>, it never sends a
+  switching shortcut, and the layer key consumes modifiers
+  (<code>mandatory: ["any"]</code>) so nothing leaks onto the keys it emits.
+</p>
+
+<h3>Why a composing syllable would otherwise be lost</h3>
+
+<p>
+  Hangul commits a syllable only when the next initial consonant arrives. If the input source is
+  changed while a syllable is still composing, the IME discards it instead of committing —
+  type <code>아</code> and switch, and the <code>아</code> is gone.
+</p>
+
+<p>
+  So the rule sends <code>space</code> and <code>delete_or_backspace</code> immediately before
+  switching: the space forces the commit, the backspace removes the space itself. Karabiner has no
+  condition for "IME is composing", so this is done unconditionally.
+</p>
+
+<h3>Variables</h3>
+
+<p>
+  Two variables are set: <code>keyboardLayoutSettingIsEng</code> (1 while the layer is active) and
+  <code>engCharUpper</code> (1 while capitals are toggled on). Both are reset when
+  <code>Insert</code> is released. If you already use a variable with either name, rename it in the
+  JSON before importing.
+</p>
+
+<h3>Source and documentation</h3>
+
+<p>
+  This rule is maintained in the open, together with four other rules by the same author:
+  <a href="https://github.com/Finfra/karabiner-extensions/tree/main/engCharOnKor" target="_blank">Finfra/karabiner-extensions &mdash; EngCharOnKor</a>.
+  The repository records why <code>Insert</code> was chosen over six other candidate triggers,
+  and why the capital toggle uses a variable rather than <code>sticky_modifier</code>
+  &mdash; useful if you want to move the layer to a different key.
+</p>
