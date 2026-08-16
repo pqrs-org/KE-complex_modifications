@@ -13,7 +13,7 @@ function main() {
         rules: [
           {
             description: 'Simple Vi Mode v3 (rev 4)',
-            available_since: '13.6.0',
+            description_notes: ['- Available since Karabiner-Elements 13.6.0.'],
             manipulators: [].concat(
               generateSimpleVIMode('j', 'down_arrow'),
               generateSimpleVIMode('k', 'up_arrow'),

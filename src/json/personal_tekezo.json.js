@@ -11,7 +11,7 @@ function main() {
         rules: [
           {
             description: 'Personal rules (@tekezo) (rev 60)',
-            available_since: '15.2.3',
+            description_notes: ['- Available since Karabiner-Elements 15.2.3.'],
             manipulators: [].concat(
               coreConfiguration(),
               emacs(),

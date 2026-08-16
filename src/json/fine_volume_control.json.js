@@ -8,7 +8,7 @@ function main() {
         rules: [
           {
             description: 'Map volume controls to fine volume controls (Option + Shift + Volume)',
-            available_since: '15.3.0',
+            description_notes: ['- Available since Karabiner-Elements 15.3.0.'],
             manipulators: [].concat(
               //
               // volume_decrement

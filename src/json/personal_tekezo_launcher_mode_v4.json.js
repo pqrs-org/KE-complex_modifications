@@ -14,7 +14,7 @@ function main() {
         rules: [
           {
             description: 'Launcher Mode v4 (rev 33)',
-            available_since: '15.7.3',
+            description_notes: ['- Available since Karabiner-Elements 15.7.3.'],
             manipulators: [].concat(
               generateLauncherMode('a', { bundleIdentifier: 'com.apple.ActivityMonitor' }),
               generateLauncherMode('b', { bundleIdentifier: 'com.microsoft.teams2' }),

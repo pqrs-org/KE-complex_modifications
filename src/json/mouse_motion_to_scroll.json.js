@@ -9,7 +9,7 @@ function main() {
         rules: [
           {
             description: 'Change button3 + mouse motion to scroll wheel (rev 1)',
-            available_since: '12.3.0',
+            description_notes: ['- Available since Karabiner-Elements 12.3.0.'],
             manipulators: [
               {
                 type: 'basic',
@@ -55,7 +55,7 @@ function main() {
           },
           {
             description: 'Change button4 + mouse motion to scroll wheel (rev 1)',
-            available_since: '12.3.0',
+            description_notes: ['- Available since Karabiner-Elements 12.3.0.'],
             manipulators: [
               {
                 type: 'basic',
@@ -101,7 +101,7 @@ function main() {
           },
           {
             description: 'Change button5 + mouse motion to scroll wheel (rev 1)',
-            available_since: '12.3.0',
+            description_notes: ['- Available since Karabiner-Elements 12.3.0.'],
             manipulators: [
               {
                 type: 'basic',
@@ -147,7 +147,7 @@ function main() {
           },
           {
             description: 'Change control + mouse motion to scroll wheel (rev 1)',
-            available_since: '12.3.0',
+            description_notes: ['- Available since Karabiner-Elements 12.3.0.'],
             manipulators: [
               {
                 type: 'mouse_motion_to_scroll',
@@ -161,7 +161,7 @@ function main() {
           },
           {
             description: 'Change fn + mouse motion to scroll wheel (rev 1)',
-            available_since: '12.3.0',
+            description_notes: ['- Available since Karabiner-Elements 12.3.0.'],
             manipulators: [
               {
                 type: 'mouse_motion_to_scroll',
