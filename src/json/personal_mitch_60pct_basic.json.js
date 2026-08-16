@@ -12,7 +12,7 @@ function main() {
         rules: [
           {
             description: 'mitch 60% compatible arrows and keys',
-            available_since: '14.12.0',
+            description_notes: ['- Available since Karabiner-Elements 14.12.0.'],
             manipulators: [
               buildCapsBindings('i', 'up_arrow'),
               buildCapsBindings('k', 'down_arrow'),

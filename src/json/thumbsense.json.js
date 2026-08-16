@@ -9,7 +9,7 @@ function main() {
         rules: [
           {
             description: 'ThumbSense (rev 3)',
-            available_since: '12.6.9',
+            description_notes: ['- Available since Karabiner-Elements 12.6.9.'],
             manipulators: manipulators(),
           },
         ],

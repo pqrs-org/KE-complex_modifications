@@ -13,7 +13,7 @@ function main() {
         rules: [
           {
             description: 'Mouse Keys Mode v4 (rev 3)',
-            available_since: '13.6.0',
+            description_notes: ['- Available since Karabiner-Elements 13.6.0.'],
             manipulators: [].concat(
               // hjkl
 
