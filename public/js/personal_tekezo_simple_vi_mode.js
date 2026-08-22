@@ -6,7 +6,7 @@ const parameters = {
 
 function main() {
   return {
-    description: 'Personal rules (@tekezo) Simple Vi Mode (rev 4)',
+    description: 'Personal rules (@tekezo) Simple Vi Mode (rev 5)',
     description_notes: [
       '- Available since Karabiner-Elements 16.2.0.',
       // Usage
