@@ -13,9 +13,27 @@ complex_modifications for Karabiner-Elements.
     - [Typical complex_modifications examples](https://karabiner-elements.pqrs.org/docs/json/typical-complex-modifications-examples/)
     - [complex_modifications manipulator definition](https://karabiner-elements.pqrs.org/docs/json/complex-modifications-manipulator-definition/)
 
-## JSON file format in this repository
+## Rule file formats in this repository
 
-The JSON files in this repository bundle multiple rules into a single file so users can pick and enable what they need.
+Rule files can use any of the following formats:
+
+- A JSON package containing `title` and `rules` under `public/json`.
+- A JSON file containing one rule (`description` and `manipulators`) under
+  `public/json`.
+- A JavaScript file under `public/js` whose final expression returns one rule
+  (`description` and `manipulators`).
+
+During the build, single JSON rules are converted to the standard `title` and
+`rules` package format. The rule's `description` is also used as the package
+title. JavaScript is evaluated for validation and site metadata, while the source
+itself is distributed unchanged.
+
+- `public/json/example.json` → `dist/json/example.json`
+- `public/js/example.js` → `dist/js/example.js`
+
+### JSON package
+
+JSON packages bundle multiple rules into a single file so users can pick and enable what they need.
 For example, the "Emacs key bindings" package includes several rule sets for different use cases.
 
 | The distributed JSON file                                      | Complex Modifications                                          |
@@ -57,6 +75,64 @@ If you list GitHub usernames in the "maintainers" field, the distribution site w
 }
 ```
 
+### Single JSON rule
+
+The object normally placed inside `rules` can also be saved directly:
+
+```json
+{
+    "description": "Change caps_lock to escape",
+    "manipulators": [
+        {
+            "type": "basic",
+            "from": { "key_code": "caps_lock" },
+            "to": [{ "key_code": "escape" }]
+        }
+    ]
+}
+```
+
+Optional package attribution fields such as `maintainers` and `author` can be
+included in the same object. They are moved to the package level during the build.
+
+### JavaScript rule
+
+JavaScript is useful when a rule contains repeated definitions. Helper functions can
+be defined in the same file. The last expression must return a single rule
+(`description` and `manipulators`). JSON package objects containing `title` and
+`rules` are not supported under `public/js`. For example:
+
+```js
+// JavaScript must be written in ECMAScript 5.1.
+
+function main() {
+  return {
+    description: 'Change h/j/k/l to arrow keys',
+    manipulators: [
+      makeManipulator('h', 'left_arrow'),
+      makeManipulator('j', 'down_arrow'),
+      makeManipulator('k', 'up_arrow'),
+      makeManipulator('l', 'right_arrow'),
+    ],
+  }
+}
+
+function makeManipulator(from, to) {
+  return {
+    type: 'basic',
+    from: { key_code: from },
+    to: [{ key_code: to }],
+  }
+}
+
+main()
+```
+
+A source named `public/js/example.js` is distributed as `dist/js/example.js`.
+Use `js/example.js` as its path in `public/groups.json`.
+The build uses the value of the last JavaScript expression; standard output from
+the script is ignored.
+
 ## How to add your rules
 
 Follow the steps below to create a PR and add your settings!
@@ -76,8 +152,14 @@ Follow the steps below to create a PR and add your settings!
     git switch -c my-settings
     ```
 
-4.  Put a JSON generator file (`.js`) into [src/json](https://github.com/pqrs-org/KE-complex_modifications/tree/main/src/json).
-    (Or put a `.json` file directly into [public/json](https://github.com/pqrs-org/KE-complex_modifications/tree/main/public/json) directory.)
+4.  Put a JSON file into [public/json](https://github.com/pqrs-org/KE-complex_modifications/tree/main/public/json)
+    or a JavaScript file into [public/js](public/js). A JSON file can contain
+    either a full package or a single rule. A JavaScript file must return a
+    single rule.
+
+    Existing generator files in [src/json](https://github.com/pqrs-org/KE-complex_modifications/tree/main/src/json)
+    are also supported. Their names must end in `.json.js`; generated JSON is
+    written to `public/json` as before.
 5.  <details>
     <summary>
         (Optional) Update public/groups.json if you want to add your rules to a particular category.
@@ -96,7 +178,9 @@ Follow the steps below to create a PR and add your settings!
     </details>
 
 6.  Run `make` command in Terminal to validate your files.<br/>
-    If you placed a generator file into `src/json`, json file will be generated in the `public/json` by this command.
+    JavaScript files are evaluated for validation. JSON is written under
+    `dist/json`, and JavaScript is copied to `dist/js`. Files in `src/json` also
+    update their corresponding generated files under `public/json`.
 
     ```shell
     make all
@@ -112,10 +196,10 @@ Follow the steps below to create a PR and add your settings!
 
 7.  Test your files
 
-    Copy a json file to `~/.config/karabiner/assets/complex_modifications`.
+    Copy the built JSON file to `~/.config/karabiner/assets/complex_modifications`.
 
     ```shell
-    cp public/json/your_awesome_configuration.json ~/.config/karabiner/assets/complex_modifications
+    cp dist/json/your_awesome_configuration.json ~/.config/karabiner/assets/complex_modifications
     ```
 
     Import rules from `Karabiner-Elements Settings > Complex Modifications > Rules > Add rule`.
@@ -213,9 +297,9 @@ git clean -x -d -f .
 git push
 ```
 
-## Notes on creating your generators
+## Notes on JavaScript rule files and generators
 
-The code in `src/json/*.js` is executed by [Duktape](https://duktape.org/), which is built into the Karabiner-Elements's command line interface ( `karabiner_cli`).
+The code in `public/js/*.js` and `src/json/*.js` is executed by [Duktape](https://duktape.org/), which is built into the Karabiner-Elements command line interface (`karabiner_cli`).
 
 Unlike the latest Node.js, the basic language specification is ES5.1, so the following features cannot be used.
 
