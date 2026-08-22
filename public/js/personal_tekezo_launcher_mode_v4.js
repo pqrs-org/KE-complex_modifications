@@ -9,7 +9,7 @@ function main() {
   return {
     description: 'Personal rules (@tekezo) Launcher Mode v4 (rev 34)',
     description_notes: [
-      '- Available since Karabiner-Elements 16.2.0.',
+      '- Available since Karabiner-Elements 15.7.3.',
       // Usage
       '- Hold o and press another key to open or switch applications.',
     ],
