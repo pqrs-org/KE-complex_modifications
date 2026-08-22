@@ -5,32 +5,25 @@ const parameters = {
 }
 
 function main() {
-  console.log(
-    JSON.stringify(
-      {
-        title: 'Personal rules (@tekezo) simple_vi_mode (rev 4)',
-        maintainers: ['tekezo'],
-        rules: [
-          {
-            description: 'Simple Vi Mode v3 (rev 4)',
-            description_notes: ['- Available since Karabiner-Elements 13.6.0.'],
-            manipulators: [].concat(
-              generateSimpleVIMode('j', 'down_arrow'),
-              generateSimpleVIMode('k', 'up_arrow'),
-              generateSimpleVIMode('h', 'left_arrow'),
-              generateSimpleVIMode('l', 'right_arrow'),
-              generateSimpleVIMode('f', 'fn'),
-              generateSimpleVIMode('c', 'left_control'),
-              generateSimpleVIMode('v', 'left_option'),
-              generateSimpleVIMode('b', 'left_command')
-            ),
-          },
-        ],
-      },
-      null,
-      '  '
-    )
-  )
+  return {
+    description: 'Personal rules (@tekezo) Simple Vi Mode (rev 4)',
+    description_notes: [
+      '- Available since Karabiner-Elements 16.2.0.',
+      // Usage
+      '- Hold s and press h/j/k/l for arrow keys or f/c/v/b for fn/control/option/command.',
+    ],
+    maintainers: ['tekezo'],
+    manipulators: [].concat(
+      generateSimpleVIMode('j', 'down_arrow'),
+      generateSimpleVIMode('k', 'up_arrow'),
+      generateSimpleVIMode('h', 'left_arrow'),
+      generateSimpleVIMode('l', 'right_arrow'),
+      generateSimpleVIMode('f', 'fn'),
+      generateSimpleVIMode('c', 'left_control'),
+      generateSimpleVIMode('v', 'left_option'),
+      generateSimpleVIMode('b', 'left_command')
+    ),
+  }
 }
 
 function generateSimpleVIMode(from_key_code, to_key_code) {
