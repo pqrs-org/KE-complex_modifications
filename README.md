@@ -1,4 +1,4 @@
-[![Build Status](https://github.com/pqrs-org/KE-complex_modifications/workflows/KE-complex_modifications%20CI/badge.svg)](https://github.com/pqrs-org/KE-complex_modifications/actions)
+[![Build Status](https://github.com/pqrs-org/KE-complex_modifications/actions/workflows/ci.yml/badge.svg?branch=main&event=push)](https://github.com/pqrs-org/KE-complex_modifications/actions/workflows/ci.yml?query=branch%3Amain+event%3Apush)
 [![License](https://img.shields.io/badge/license-Public%20Domain-blue.svg)](https://github.com/pqrs-org/KE-complex_modifications/blob/main/LICENSE.md)
 
 # KE-complex_modifications
