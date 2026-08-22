@@ -6,62 +6,84 @@ const parameters = {
 }
 
 function main() {
-  console.log(
-    JSON.stringify(
-      {
-        title: 'Personal rules (@tekezo) Launcher Mode v4',
-        maintainers: ['tekezo'],
-        rules: [
-          {
-            description: 'Launcher Mode v4 (rev 33)',
-            description_notes: ['- Available since Karabiner-Elements 15.7.3.'],
-            manipulators: [].concat(
-              generateLauncherMode('a', { bundleIdentifier: 'com.apple.ActivityMonitor' }),
-              generateLauncherMode('b', { bundleIdentifier: 'com.microsoft.teams2' }),
-              generateLauncherMode('c', { bundleIdentifier: 'com.google.Chrome' }),
-              generateLauncherMode('d', { bundleIdentifier: 'org.mozilla.firefox' }),
-              generateLauncherMode('e', { bundleIdentifier: 'com.microsoft.VSCode' }),
-              generateLauncherMode('f', { bundleIdentifier: 'com.apple.finder' }),
-              generateLauncherMode('g', { bundleIdentifier: 'com.openai.chat' }),
-              generateLauncherMode('m', { bundleIdentifier: 'org.mozilla.thunderbird' }),
-              generateLauncherMode('q', { bundleIdentifier: 'com.apple.Dictionary' }),
-              generateLauncherMode('r', {
-                frontmostApplicationHistoryIndex: 1,
-                frontmostApplicationHistoryExclusionBundleIdentifiers: [
-                  '^com\\.1password\\.1password$',
-                  '^com\\.apple\\.ActivityMonitor$',
-                  '^com\\.apple\\.Dictionary$',
-                  '^com\\.apple\\.dock$',
-                  '^com\\.apple\\.dt\\.Xcode$',
-                  '^com\\.apple\\.finder$',
-                  '^com\\.apple\\.loginwindow$',
-                  '^com\\.apple\\.Safari$',
-                  '^com\\.apple\\.Terminal$',
-                  '^com\\.google\\.Chrome$',
-                  '^com\\.microsoft\\.teams2$',
-                  '^com\\.microsoft\\.VSCode$',
-                  '^com\\.openai\\.chat$',
-                  '^com\\.tinyspeck\\.slackmacgap$',
-                  '^org\\.mozilla\\.firefox$',
-                  '^org\\.mozilla\\.thunderbird$',
-                ],
-              }),
-              generateLauncherMode('s', { bundleIdentifier: 'com.apple.Safari' }),
-              generateLauncherMode('t', { bundleIdentifier: 'com.apple.Terminal' }),
-              generateLauncherMode('v', { bundleIdentifier: 'com.tinyspeck.slackmacgap' }),
-              generateLauncherMode('x', { bundleIdentifier: 'com.apple.dt.Xcode' }),
-
-              generateLauncherMode('left_control', { to: [{ key_code: 'mission_control' }] }),
-              // Show Apps shortcut
-              generateLauncherMode('left_shift', { to: [{ key_code: 'spacebar', modifiers: ['left_command'] }] })
-            ),
-          },
+  return {
+    description: 'Personal rules (@tekezo) Launcher Mode v4 (rev 34)',
+    description_notes: [
+      '- Available since Karabiner-Elements 16.2.0.',
+      // Usage
+      '- Hold o and press another key to open or switch applications.',
+    ],
+    maintainers: ['tekezo'],
+    manipulators: [].concat(
+      generateLauncherMode('a', {
+        bundleIdentifier: 'com.apple.ActivityMonitor',
+      }),
+      generateLauncherMode('b', {
+        bundleIdentifier: 'com.microsoft.teams2',
+      }),
+      generateLauncherMode('c', {
+        bundleIdentifier: 'com.google.Chrome',
+      }),
+      generateLauncherMode('d', {
+        // bundleIdentifier: 'com.figma.Desktop',
+        // bundleIdentifier: 'org.mozilla.firefox',
+      }),
+      generateLauncherMode('e', {
+        bundleIdentifier: 'com.microsoft.VSCode',
+      }),
+      generateLauncherMode('f', {
+        bundleIdentifier: 'com.apple.finder',
+      }),
+      generateLauncherMode('g', {
+        // bundleIdentifier: 'com.openai.codex',
+      }),
+      generateLauncherMode('m', {
+        bundleIdentifier: 'org.mozilla.thunderbird',
+      }),
+      generateLauncherMode('q', {
+        bundleIdentifier: 'com.apple.Dictionary',
+      }),
+      generateLauncherMode('r', {
+        frontmostApplicationHistoryIndex: 1,
+        frontmostApplicationHistoryExclusionBundleIdentifiers: [
+          '^com\\.1password\\.1password$',
+          '^com\\.apple\\.ActivityMonitor$',
+          '^com\\.apple\\.Dictionary$',
+          '^com\\.apple\\.dock$',
+          '^com\\.apple\\.finder$',
+          '^com\\.apple\\.loginwindow$',
+          // '^com\\.apple\\.Safari$',
+          '^com\\.apple\\.Terminal$',
+          '^com\\.figma\\.Desktop',
+          '^com\\.google\\.Chrome$',
+          '^com\\.microsoft\\.teams2$',
+          '^com\\.microsoft\\.VSCode$',
+          '^com\\.openai\\.chat$',
+          '^com\\.tinyspeck\\.slackmacgap$',
+          // '^org\\.mozilla\\.firefox$',
+          '^org\\.mozilla\\.thunderbird$',
         ],
-      },
-      null,
-      '  '
-    )
-  )
+      }),
+      generateLauncherMode('s', {
+        //   bundleIdentifier: 'com.apple.Safari',
+      }),
+      generateLauncherMode('t', {
+        bundleIdentifier: 'com.apple.Terminal',
+      }),
+      generateLauncherMode('v', {
+        bundleIdentifier: 'com.tinyspeck.slackmacgap',
+      }),
+      generateLauncherMode('left_control', {
+        to: [{ key_code: 'mission_control' }],
+      }),
+      // Show Apps shortcut
+      generateLauncherMode('left_shift', {
+        to: [{ key_code: 'spacebar', modifiers: ['left_command'] }],
+      }),
+      generateLauncherMode('x', {}),
+      generateLauncherMode('z', {})
+    ),
+  }
 }
 
 function generateLauncherMode(
