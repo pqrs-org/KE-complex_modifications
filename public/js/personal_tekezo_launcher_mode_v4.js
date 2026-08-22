@@ -114,7 +114,8 @@ function generateLauncherMode(
       software_function: {
         open_application: {
           frontmost_application_history_index: options.frontmostApplicationHistoryIndex,
-          frontmost_application_history_exclusion_bundle_identifiers: options.frontmostApplicationHistoryExclusionBundleIdentifiers,
+          frontmost_application_history_exclusion_bundle_identifiers:
+            options.frontmostApplicationHistoryExclusionBundleIdentifiers,
         },
       },
     })
