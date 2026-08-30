@@ -8,7 +8,7 @@ function main() {
   return {
     description: 'Mouse Keys Mode v4 (rev 4)',
     description_notes: [
-      '- Available since Karabiner-Elements 13.6.0.',
+      '- Available since Karabiner-Elements 16.0.0.',
       // Usage
       '- Hold d: h/j/k/l = move left/down/up/right; v/b/n = left/middle/right click',
       '- Hold d+s: h/j/k/l = scroll left/down/up/right',

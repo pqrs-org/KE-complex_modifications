@@ -8,7 +8,7 @@ function main() {
   return {
     description: 'Personal rules (@tekezo) Simple Vi Mode (rev 5)',
     description_notes: [
-      '- Available since Karabiner-Elements 13.6.0.',
+      '- Available since Karabiner-Elements 16.0.0.',
       // Usage
       '- Hold s and press h/j/k/l for arrow keys or f/c/v/b for fn/control/option/command.',
     ],

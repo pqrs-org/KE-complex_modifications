@@ -5,7 +5,7 @@
 function main() {
   return {
     description: 'Personal rules (@tekezo) (rev 61)',
-    description_notes: ['- Available since Karabiner-Elements 15.2.3.'],
+    description_notes: ['- Available since Karabiner-Elements 16.0.0.'],
     maintainers: ['tekezo'],
     manipulators: [].concat(
       coreConfiguration(),
