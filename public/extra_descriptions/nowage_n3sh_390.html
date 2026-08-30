@@ -1,0 +1,114 @@
+<h3>Read this first</h3>
+
+<p>
+  This rule is for the <b>Sebeolsik 390 (세벌식 390) Korean keyboard layout</b> and nothing else.
+  On Dubeolsik (두벌식) the same keys produce entirely different jamo, so the rule is not merely
+  useless there — it is wrong. It also stays asleep while you type in English, so it never gets in
+  the way of ordinary Latin typing.
+</p>
+
+<p>
+  What it does: press <b>two jamo keys at the same time</b> and one complete Hangul syllable is
+  emitted in a single stroke. 254 such chords are included, covering the particles, endings and
+  final-consonant syllables that dominate Korean text.
+</p>
+
+<p>
+  <b>The rest of this page is written in Korean.</b> What the rule produces <i>is</i> Hangul, and it
+  presumes a Korean layout the reader already types on — a translation would have no readers.
+  Installation, a one-page cheat sheet and a six-step learning drill are here:
+  <a href="https://finfra.github.io/karabiner-extensions/" target="_blank">finfra.github.io/karabiner-extensions</a>.
+</p>
+
+<h3>무엇을 하는 규칙인가</h3>
+
+<p>
+  세벌식 390 자판에서 <b>자모 2개를 동시에 눌러 완성형 한 글자를 한 번에 낸다.</b>
+  자주 나오는 조사·어미·받침 글자를 2타로 줄이는 것이 목적이고, 규칙은 254개다.
+</p>
+
+<table>
+  <tr><th>누르면</th><th>나온다</th><th>일반 타건</th></tr>
+  <tr><td><code>j</code> + <code>h</code></td><td>을␣</td><td>4타 (ㅇ ㅡ ㄹ ␣)</td></tr>
+  <tr><td><code>y</code> + <code>u</code></td><td>를␣</td><td>4타</td></tr>
+  <tr><td><code>h</code> + <code>l</code></td><td>는␣</td><td>4타</td></tr>
+  <tr><td><code>k</code> + <code>m</code></td><td>고␣</td><td>3타 (ㄱ ㅗ ␣)</td></tr>
+  <tr><td><code>j</code> + <code>i</code></td><td>있</td><td>3타 (ㅇ ㅣ ㅆ)</td></tr>
+</table>
+
+<ul>
+  <li><b>조사·어미는 뒤 공백까지 함께 나온다</b> — 그래서 <code>을</code>·<code>는</code>·<code>를</code> 의 일반 타건이 4타로 셈된다. <code>있</code> 처럼 공백이 안 붙는 규칙은 3타</li>
+  <li><b>두 키의 순서는 무관하다</b> — 모아치기(동시타)라 <code>j</code>+<code>h</code> 든 <code>h</code>+<code>j</code> 든 같다. 문서의 열 순서는 읽기 편의일 뿐</li>
+  <li>⇧·⌘·⌥ 로 층을 나눠 같은 자리에 다른 글자를 얹는다. <b>모디파이어는 자모보다 먼저 누른다</b> — 자모를 누른 뒤 모디파이어를 더하면 그 층이 잡히지 않는다</li>
+  <li>나오는 것은 대부분 <b>한 글자</b>다. 여러 글자가 나오는 규칙은 2건뿐이라 "단어를 펼치는" 도구는 아니다</li>
+</ul>
+
+<h3>쓰려면 무엇이 필요한가</h3>
+
+<table>
+  <tr><th>#</th><th>조건</th></tr>
+  <tr>
+    <td>A</td>
+    <td>
+      <b>세벌식 390 배열.</b> macOS 에 기본으로 들어 있다 (시스템 설정 → 키보드 → 입력 소스 →
+      편집 → <code>+</code> → 한국어 → 세벌식 390). 두벌식에서는 동작하지 않는다 —
+      <code>j</code>+<code>h</code> 가 "을" 이 되는 것은 그 자리에 ㅇ 과 ㅡㄹ 이 있기 때문이지
+      <code>j</code>·<code>h</code> 라는 글자에 의미가 있어서가 아니다
+    </td>
+  </tr>
+  <tr>
+    <td>B</td>
+    <td>
+      <b>한글 입력 상태.</b> 254건 전부가 조건 2개를 달고 있다 —
+      입력 소스가 <code>^ko$</code> 이고, 변수 <code>keyboardLayoutSettingIsEng</code> 가
+      <code>0</code> 일 것. 영문일 때는 규칙이 통째로 잠들어 Latin 타이핑을 방해하지 않는다
+    </td>
+  </tr>
+  <tr>
+    <td>C</td>
+    <td>
+      <b>두 키를 같은 순간에 받는 키보드.</b> 넣은 뒤 한글 상태에서 <code>c</code>+<code>v</code> 를
+      동시에 쳐서 <code>.</code> 하나가 나오면 준비가 끝난 것이다. 하나만 나오거나 순서가 뒤집히면
+      동시타 간격이 넓었던 것
+    </td>
+  </tr>
+  <tr>
+    <td>D</td>
+    <td>
+      ⚠️ <b>외우는 시간.</b> 254개는 설치해서 바로 쓰는 분량이 아니다 — 조사·어미(2단계)부터
+      익히면 나머지를 몰라도 이득이 나오도록 예비~6단계 커리큘럼을 짜 두었다.
+      하드웨어도 외부 앱도 필요 없다
+    </td>
+  </tr>
+</table>
+
+<h3>이 규칙이 하지 않는 것</h3>
+
+<p>
+  <b>변수를 쓰지 않는다 — 읽기만 한다.</b> <code>keyboardLayoutSettingIsEng</code> 를
+  조건으로 읽되 어디서도 세팅하지 않으므로(<code>set_variable</code> 0건), 그 변수를 쓰지 않는
+  환경에서는 값이 <code>0</code> 이라 그냥 동작한다. 같은 이름의 변수를 이미 쓰고 있다면
+  그쪽이 <code>1</code> 인 동안 이 규칙이 잠드는 것이 유일한 상호작용이다.
+</p>
+
+<p>
+  장치 조건(<code>device_if</code>)도 외부 앱 호출(<code>shell_command</code>)도 <b>0건</b>이다 —
+  하드웨어를 가리지 않고, 유료 앱을 요구하지 않으며, 규칙을 끄면 키보드는 완전히 평소대로
+  돌아온다. 254건 전부가 <code>simultaneous</code> 를 쓰는 <code>basic</code> manipulator 다.
+</p>
+
+<h3>문서와 소스</h3>
+
+<p>
+  자판 배치 치트시트·6단계 학습 드릴·규칙표 전문은
+  <a href="https://finfra.github.io/karabiner-extensions/" target="_blank">finfra.github.io/karabiner-extensions</a>
+  에 있다. 여기 요약만 읽고 254개를 마주하면 어디서 시작할지 알 수 없으므로,
+  <b>설치 → 치트시트 → 드릴</b> 순으로 읽기를 권한다.
+</p>
+
+<p>
+  규칙 정본(자모 조합표 md)과 그것을 이 JSON 으로 만드는 생성기는
+  <a href="https://github.com/Finfra/karabiner-extensions/tree/main/n3sh" target="_blank">Finfra/karabiner-extensions — n3sh</a>
+  에 공개돼 있다. 10년 넘게 개인 환경에서 굴려 온 체계이며, 여기 실린 것은
+  <b>390 판만</b>이다 (같은 저자의 최종식 배열 판은 수요가 확인되면 따로 낸다).
+</p>
