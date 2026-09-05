@@ -1,23 +1,16 @@
 // JavaScript should be written in ECMAScript 5.1.
 
 function main() {
-  console.log(
-    JSON.stringify(
-      {
-        title: 'ThumbSense (rev 3)',
-        maintainers: ['tekezo'],
-        rules: [
-          {
-            description: 'ThumbSense (rev 3)',
-            description_notes: ['- Available since Karabiner-Elements 12.6.9.'],
-            manipulators: manipulators(),
-          },
-        ],
-      },
-      null,
-      '  '
-    )
-  )
+  return {
+    description: 'ThumbSense (rev 3)',
+    description_notes: [
+      '- Available since Karabiner-Elements 16.0.0.',
+      // Usage
+      '- While touching the trackpad: f/j/space = left click; d/k = right click; g/h = forward/back in browsers; w = close window',
+    ],
+    maintainers: ['tekezo'],
+    manipulators: manipulators(),
+  }
 }
 
 function manipulators() {
