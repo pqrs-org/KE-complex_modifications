@@ -3,8 +3,8 @@
 function main() {
   return {
     description: 'Multitouch Vi Mode (rev 2)',
-    maintainers: ['tekezo'],
     description_notes: ['- Available since Karabiner-Elements 16.0.0.'],
+    maintainers: ['tekezo'],
     manipulators: manipulators(),
   }
 }
