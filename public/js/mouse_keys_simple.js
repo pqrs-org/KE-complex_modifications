@@ -1,6 +1,19 @@
 // JavaScript should be written in ECMAScript 5.1.
 
 function main() {
+  return {
+    description: 'Mouse keys (simple) (rev 1)',
+    description_notes: [
+      '- Available since Karabiner-Elements 16.0.0.',
+      // Usage
+      '- Hold right-shift: w/a/s/d = move cursor; r/v = scroll up/down; f/g = left/right click',
+    ],
+    maintainers: ['tekezo'],
+    manipulators: manipulators(),
+  }
+}
+
+function manipulators() {
   const definitions = [
     { from: 'w', to: [{ mouse_key: { y: -1536 } }] },
     { from: 'a', to: [{ mouse_key: { x: -1536 } }] },
@@ -12,9 +25,8 @@ function main() {
     { from: 'g', to: [{ pointing_button: 'button2' }] },
   ]
 
-  const manipulators = []
-  definitions.forEach(function (def) {
-    manipulators.push({
+  return definitions.map(function (def) {
+    return {
       type: 'basic',
       from: {
         key_code: def.from,
@@ -24,25 +36,8 @@ function main() {
         },
       },
       to: def.to,
-    })
+    }
   })
-
-  console.log(
-    JSON.stringify(
-      {
-        title: 'Mouse keys (simple) (rev 1)',
-        maintainers: ['tekezo'],
-        rules: [
-          {
-            description: 'Mouse keys (simple) (rev 1)',
-            manipulators: manipulators,
-          },
-        ],
-      },
-      null,
-      '  '
-    )
-  )
 }
 
 main()

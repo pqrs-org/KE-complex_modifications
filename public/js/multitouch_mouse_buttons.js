@@ -1,23 +1,16 @@
 // JavaScript should be written in ECMAScript 5.1.
 
 function main() {
-  console.log(
-    JSON.stringify(
-      {
-        title: 'Multitouch Mouse Buttons (rev 2)',
-        maintainers: ['tekezo'],
-        rules: [
-          {
-            description: 'Multitouch Mouse Buttons (rev 2)',
-            description_notes: ['- Available since Karabiner-Elements 12.6.9.'],
-            manipulators: manipulators(),
-          },
-        ],
-      },
-      null,
-      '  '
-    )
-  )
+  return {
+    description: 'Multitouch Mouse Buttons (rev 2)',
+    description_notes: [
+      '- Available since Karabiner-Elements 16.0.0.',
+      // Usage
+      '- While touching the trackpad: 1...9 = mouse buttons 1...9',
+    ],
+    maintainers: ['tekezo'],
+    manipulators: manipulators(),
+  }
 }
 
 function manipulators() {

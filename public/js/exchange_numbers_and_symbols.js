@@ -1,30 +1,19 @@
 // JavaScript should be written in ECMAScript 5.1.
 
-const karabiner = require('../lib/karabiner')
-
 function main() {
-  console.log(
-    JSON.stringify(
-      {
-        title: 'Exchange numbers and symbols',
-        maintainers: ['tekezo'],
-        rules: [
-          {
-            description: 'Exchange numbers and symbols (1234567890 and !@#$%^&*())',
-            manipulators: manipulators(),
-          },
-        ],
-      },
-      null,
-      '  '
-    )
-  )
+  return {
+    description: 'Exchange numbers and symbols (1234567890 and !@#$%^&*())',
+    description_notes: ['- Available since Karabiner-Elements 16.0.0.'],
+    maintainers: ['tekezo'],
+    manipulators: manipulators(),
+  }
 }
 
 function manipulators() {
   const result = []
+  const numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
-  karabiner.numbers.forEach(function (key) {
+  numbers.forEach(function (key) {
     result.push({
       type: 'basic',
       from: {
@@ -40,9 +29,7 @@ function manipulators() {
         },
       ],
     })
-  })
 
-  karabiner.numbers.forEach(function (key) {
     result.push({
       type: 'basic',
       from: {
