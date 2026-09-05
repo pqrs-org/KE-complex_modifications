@@ -1,23 +1,12 @@
 // JavaScript should be written in ECMAScript 5.1.
 
 function main() {
-  console.log(
-    JSON.stringify(
-      {
-        title: 'Multitouch Vi Mode (rev 2)',
-        maintainers: ['tekezo'],
-        rules: [
-          {
-            description: 'Multitouch Vi Mode (rev 2)',
-            description_notes: ['- Available since Karabiner-Elements 12.6.9.'],
-            manipulators: manipulators(),
-          },
-        ],
-      },
-      null,
-      '  '
-    )
-  )
+  return {
+    description: 'Multitouch Vi Mode (rev 2)',
+    maintainers: ['tekezo'],
+    description_notes: ['- Available since Karabiner-Elements 16.0.0.'],
+    manipulators: manipulators(),
+  }
 }
 
 function manipulators() {
