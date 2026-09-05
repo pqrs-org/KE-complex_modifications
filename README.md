@@ -116,6 +116,7 @@ be defined in the same file. The last expression must return a single rule
 (`description` and `manipulators`). JSON ruleset objects containing `title` and
 `rules` are not supported under `public/js`. For example:
 
+<!-- prettier-ignore -->
 ```js
 // JavaScript must be written in ECMAScript 5.1.
 
@@ -185,6 +186,7 @@ Follow the steps below to create a PR and add your settings!
     Existing generator files in [src/json](https://github.com/pqrs-org/KE-complex_modifications/tree/main/src/json)
     are also supported. Their names must end in `.json.js`; generated JSON is
     written to `public/json` as before.
+
 5.  <details>
     <summary>
         (Optional) Update public/groups.json if you want to add your rules to a particular category.
@@ -274,15 +276,15 @@ The additional description will then appear on the site as shown in the screensh
 | ![json-only](./files/site-rules@2x.png) | ![extra description](./files/site-description@2x.png) |
 
 - Example of extra description:
-    - <https://ke-complex-modifications.pqrs.org/?q=diamond#multitouch_diamond_cursor>
+    - <https://ke-complex-modifications.pqrs.org/?rule=json%2Femacs_key_bindings.json>
 - Example of HTML file:
-    - <https://github.com/pqrs-org/KE-complex_modifications/blob/main/public/extra_descriptions/multitouch_diamond_cursor.json.html>
+    - <https://github.com/pqrs-org/KE-complex_modifications/blob/main/public/extra_descriptions/emacs_key_bindings.json.html>
 - Example entry in groups.json:
 
 ```json
 {
-    "path": "json/multitouch_diamond_cursor.json",
-    "extra_description_path": "extra_descriptions/multitouch_diamond_cursor.json.html"
+    "path": "json/emacs_key_bindings.json",
+    "extra_description_path": "extra_descriptions/emacs_key_bindings.json.html"
 }
 ```
 

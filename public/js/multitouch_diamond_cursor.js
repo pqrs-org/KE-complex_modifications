@@ -1,23 +1,16 @@
 // JavaScript should be written in ECMAScript 5.1.
 
 function main() {
-  console.log(
-    JSON.stringify(
-      {
-        title: 'Multitouch Diamond Cursor (rev 2)',
-        maintainers: ['tekezo'],
-        rules: [
-          {
-            description: 'Multitouch Diamond Cursor (rev 2)',
-            description_notes: ['- Available since Karabiner-Elements 12.6.9.'],
-            manipulators: manipulators(),
-          },
-        ],
-      },
-      null,
-      '  '
-    )
-  )
+  return {
+    description: 'Multitouch Diamond Cursor (rev 2)',
+    description_notes: [
+      '- Available since Karabiner-Elements 16.0.0.',
+      // Usage
+      '- Touch the trackpad: 1 finger + w/a/s/d = arrow keys; 2+ fingers + w/s/a/d = page up/page down/home/end',
+    ],
+    maintainers: ['tekezo'],
+    manipulators: manipulators(),
+  }
 }
 
 function manipulators() {
