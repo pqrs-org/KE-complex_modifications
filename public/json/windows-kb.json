@@ -1,0 +1,674 @@
+{
+    "description": "windows 键盘风格 | Windows keyboard style",
+    "maintainers":["ellermister"],
+    "manipulators": [
+        {
+            "conditions": [
+                {
+                    "bundle_identifiers": [
+                        "com\\.microsoft\\.rdc\\.macos"
+                    ],
+                    "type": "frontmost_application_unless"
+                }
+            ],
+            "description": "基础 fn 调换为 command",
+            "from": {
+                "key_code": "fn",
+                "modifiers": { "optional": ["any"] }
+            },
+            "to": [
+                {
+                    "key_code": "left_command",
+                    "modifiers": []
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "bundle_identifiers": [
+                        "com\\.microsoft\\.rdc\\.macos"
+                    ],
+                    "type": "frontmost_application_unless"
+                }
+            ],
+            "description": "基础 fn 调换为 control",
+            "from": {
+                "key_code": "left_control",
+                "modifiers": { "optional": ["any"] }
+            },
+            "to": [
+                {
+                    "key_code": "fn",
+                    "modifiers": []
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "bundle_identifiers": [
+                        "com\\.microsoft\\.rdc\\.macos"
+                    ],
+                    "type": "frontmost_application_unless"
+                }
+            ],
+            "description": "基础 option(alt) 调换为 control",
+            "from": {
+                "key_code": "left_option",
+                "modifiers": { "optional": ["any"] }
+            },
+            "to": [
+                {
+                    "key_code": "left_control",
+                    "modifiers": []
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "bundle_identifiers": [
+                        "com\\.microsoft\\.rdc\\.macos"
+                    ],
+                    "type": "frontmost_application_unless"
+                }
+            ],
+            "description": "基础 command 调换为 option(alt)",
+            "from": {
+                "key_code": "left_command",
+                "modifiers": { "optional": ["any"] }
+            },
+            "to": [
+                {
+                    "key_code": "left_option",
+                    "modifiers": []
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "bundle_identifiers": [
+                        "com\\.microsoft\\.rdc\\.macos"
+                    ],
+                    "type": "frontmost_application_unless"
+                }
+            ],
+            "description": "command + tab 实现切换浏览器tab",
+            "from": {
+                "key_code": "tab",
+                "modifiers": {
+                    "mandatory": ["left_command"],
+                    "optional": ["any"]
+                }
+            },
+            "to": [
+                {
+                    "key_code": "tab",
+                    "modifiers": ["left_control"]
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "bundle_identifiers": [
+                        "com\\.microsoft\\.rdc\\.macos"
+                    ],
+                    "type": "frontmost_application_unless"
+                }
+            ],
+            "description": "option + tab 实现切换系统任务",
+            "from": {
+                "key_code": "tab",
+                "modifiers": {
+                    "mandatory": ["left_option"],
+                    "optional": ["any"]
+                }
+            },
+            "to": [
+                {
+                    "key_code": "tab",
+                    "modifiers": ["left_command"]
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "bundle_identifiers": [
+                        "com\\.microsoft\\.rdc\\.macos"
+                    ],
+                    "type": "frontmost_application_unless"
+                }
+            ],
+            "description": "alt + left 实现向左翻页（浏览器）",
+            "from": {
+                "key_code": "left_arrow",
+                "modifiers": {
+                    "mandatory": ["left_option"],
+                    "optional": ["any"]
+                }
+            },
+            "to": [
+                {
+                    "key_code": "left_arrow",
+                    "modifiers": ["left_command"]
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "bundle_identifiers": [
+                        "com\\.microsoft\\.rdc\\.macos"
+                    ],
+                    "type": "frontmost_application_unless"
+                }
+            ],
+            "description": "alt + right 实现向右翻页（浏览器）",
+            "from": {
+                "key_code": "right_arrow",
+                "modifiers": {
+                    "mandatory": ["left_option"],
+                    "optional": ["any"]
+                }
+            },
+            "to": [
+                {
+                    "key_code": "right_arrow",
+                    "modifiers": ["left_command"]
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "bundle_identifiers": [
+                        "com\\.microsoft\\.rdc\\.macos"
+                    ],
+                    "type": "frontmost_application_unless"
+                }
+            ],
+            "description": "alt + shift 实现切换输入法",
+            "from": {
+                "key_code": "left_shift",
+                "modifiers": {
+                    "mandatory": ["left_option"],
+                    "optional": ["any"]
+                }
+            },
+            "to": [{ "key_code": "fn" }],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "bundle_identifiers": [
+                        "com\\.apple\\.finder"
+                    ],
+                    "type": "frontmost_application_if"
+                },
+                {
+                    "name": "accessibility.focused_ui_element.role_string",
+                    "type": "variable_unless",
+                    "value": "AXTextField"
+                }
+            ],
+            "description": "backspace 实现返回上一层",
+            "from": { "key_code": "delete_or_backspace" },
+            "to": [
+                {
+                    "key_code": "up_arrow",
+                    "modifiers": ["left_command"]
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "bundle_identifiers": [
+                        "com\\.apple\\.finder"
+                    ],
+                    "type": "frontmost_application_if"
+                }
+            ],
+            "description": "ctrl+backspace 实现删除",
+            "from": {
+                "key_code": "delete_or_backspace",
+                "modifiers": {
+                    "mandatory": ["left_command"],
+                    "optional": ["any"]
+                }
+            },
+            "to": [
+                {
+                    "key_code": "delete_or_backspace",
+                    "modifiers": ["left_command"]
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "bundle_identifiers": [
+                        "com\\.apple\\.finder"
+                    ],
+                    "type": "frontmost_application_if"
+                },
+                {
+                    "name": "accessibility.focused_ui_element.role_string",
+                    "type": "variable_unless",
+                    "value": "AXTextField"
+                }
+            ],
+            "description": "Enter 实现打开目录文件",
+            "from": {
+                "key_code": "return_or_enter",
+                "modifiers": { "optional": ["caps_lock"] }
+            },
+            "to": [
+                {
+                    "key_code": "o",
+                    "modifiers": ["left_command"]
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "bundle_identifiers": [
+                        "com\\.microsoft\\.rdc\\.macos"
+                    ],
+                    "type": "frontmost_application_unless"
+                }
+            ],
+            "description": "F2 => Enter 实现文件改名",
+            "from": {
+                "key_code": "f2",
+                "modifiers": { "optional": ["any"] }
+            },
+            "to": [{ "key_code": "return_or_enter" }],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "bundle_identifiers": [
+                        "com\\.todesktop\\.230313mzl4w4u92"
+                    ],
+                    "type": "frontmost_application_if"
+                }
+            ],
+            "description": "ctrl + shift + ` in cursor",
+            "from": {
+                "key_code": "grave_accent_and_tilde",
+                "modifiers": {
+                    "mandatory": ["left_command", "left_shift"],
+                    "optional": ["any"]
+                }
+            },
+            "to": [
+                {
+                    "key_code": "grave_accent_and_tilde",
+                    "modifiers": ["left_control", "left_shift"]
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "bundle_identifiers": [
+                        "com\\.todesktop\\.230313mzl4w4u92"
+                    ],
+                    "type": "frontmost_application_if"
+                }
+            ],
+            "description": "command + shift + ` 在 cursor 中创建终端",
+            "from": {
+                "key_code": "grave_accent_and_tilde",
+                "modifiers": {
+                    "mandatory": ["left_control", "left_shift"],
+                    "optional": ["any"]
+                }
+            },
+            "to": [
+                {
+                    "key_code": "grave_accent_and_tilde",
+                    "modifiers": ["left_command", "left_shift"]
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "bundle_identifiers": [
+                        "com\\.microsoft\\.rdc\\.macos"
+                    ],
+                    "type": "frontmost_application_unless"
+                }
+            ],
+            "description": "按 ctrl+left 实现跳向左跳单词",
+            "from": {
+                "key_code": "left_arrow",
+                "modifiers": {
+                    "mandatory": ["left_command"],
+                    "optional": ["any"]
+                }
+            },
+            "to": [
+                {
+                    "key_code": "left_arrow",
+                    "modifiers": ["left_option"]
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "bundle_identifiers": [
+                        "com\\.microsoft\\.rdc\\.macos"
+                    ],
+                    "type": "frontmost_application_unless"
+                }
+            ],
+            "description": "按 ctrl+right 实现跳向右跳单词",
+            "from": {
+                "key_code": "right_arrow",
+                "modifiers": {
+                    "mandatory": ["left_command"],
+                    "optional": ["any"]
+                }
+            },
+            "to": [
+                {
+                    "key_code": "right_arrow",
+                    "modifiers": ["left_option"]
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "bundle_identifiers": [
+                        "com\\.microsoft\\.rdc\\.macos"
+                    ],
+                    "type": "frontmost_application_unless"
+                },
+                {
+                    "type": "variable_unless",
+                    "name": "accessibility.focused_ui_element.role_string",
+                    "value": "AXTextArea"
+                }
+            ],
+            "description": "按 fn+left 实现home切光标",
+            "from": {
+                "key_code": "left_arrow",
+                "modifiers": {
+                    "mandatory": ["fn"],
+                    "optional": ["any"]
+                }
+            },
+            "to": [
+                {
+                    "key_code": "left_arrow",
+                    "modifiers": ["left_command"]
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "bundle_identifiers": [
+                        "com\\.microsoft\\.rdc\\.macos"
+                    ],
+                    "type": "frontmost_application_unless"
+                },
+                {
+                    "type": "variable_unless",
+                    "name": "accessibility.focused_ui_element.role_string",
+                    "value": "AXTextArea"
+                }
+            ],
+            "description": "按 fn+right 实现end切光标",
+            "from": {
+                "key_code": "right_arrow",
+                "modifiers": {
+                    "mandatory": ["fn"],
+                    "optional": ["any"]
+                }
+            },
+            "to": [
+                {
+                    "key_code": "right_arrow",
+                    "modifiers": ["left_command"]
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "bundle_identifiers": [
+                        "com\\.microsoft\\.rdc\\.macos"
+                    ],
+                    "type": "frontmost_application_unless"
+                },
+                {
+                    "type": "variable_if",
+                    "name": "accessibility.focused_ui_element.role_string",
+                    "value": "AXTextArea"
+                }
+            ],
+            "description": "按 fn+left 实现home切光标（terminal）",
+            "from": {
+                "key_code": "left_arrow",
+                "modifiers": {
+                    "mandatory": ["fn"],
+                    "optional": ["any"]
+                }
+            },
+            "to": [
+                {
+                    "key_code": "a",
+                    "modifiers": ["left_control"]
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "bundle_identifiers": [
+                        "com\\.microsoft\\.rdc\\.macos"
+                    ],
+                    "type": "frontmost_application_unless"
+                },
+                {
+                    "type": "variable_if",
+                    "name": "accessibility.focused_ui_element.role_string",
+                    "value": "AXTextArea"
+                }
+            ],
+            "description": "按 fn+right 实现end切光标（terminal）",
+            "from": {
+                "key_code": "right_arrow",
+                "modifiers": {
+                    "mandatory": ["fn"],
+                    "optional": ["any"]
+                }
+            },
+            "to": [
+                {
+                    "key_code": "e",
+                    "modifiers": ["left_control"]
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "bundle_identifiers": [
+                        "com\\.microsoft\\.rdc\\.macos"
+                    ],
+                    "type": "frontmost_application_unless"
+                }
+            ],
+            "description": "按 ctrl + backsapce 实现删除当前单词",
+            "from": {
+                "key_code": "delete_or_backspace",
+                "modifiers": {
+                    "mandatory": ["left_command"],
+                    "optional": ["any"]
+                }
+            },
+            "to": [
+                {
+                    "key_code": "delete_or_backspace",
+                    "modifiers": ["left_option"]
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "bundle_identifiers": [
+                        "com\\.navicat\\.NavicatPremium"
+                    ],
+                    "type": "frontmost_application_if"
+                }
+            ],
+            "description": "按 ctrl + q 查询当前表语句，在 navicat 中使用",
+            "from": {
+                "key_code": "q",
+                "modifiers": {
+                    "mandatory": ["left_command"],
+                    "optional": ["any"]
+                }
+            },
+            "to": [
+                {
+                    "key_code": "y",
+                    "modifiers": ["left_command", "left_shift"]
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "bundle_identifiers": [
+                        "com\\.google\\.Chrome",
+                        "com\\.apple\\.Safari"
+                    ],
+                    "type": "frontmost_application_if"
+                }
+            ],
+            "description": "按 f5 刷新",
+            "from": { "key_code": "f5" },
+            "to": [
+                {
+                    "key_code": "r",
+                    "modifiers": ["left_command"]
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "bundle_identifiers": [
+                        "com\\.microsoft\\.rdc\\.macos"
+                    ],
+                    "type": "frontmost_application_unless"
+                },
+                {
+                    "input_sources": [{ "input_source_id": "^com\\.apple\\.inputmethod\\.SCIM\\.ITABC$" }],
+                    "type": "input_source_if"
+                }
+            ],
+            "description": "仅在中文下，单按 Shift 切换中英文（修复组合键与文本选中）",
+            "from": {
+                "key_code": "left_shift",
+                "modifiers": { "optional": ["any"] }
+            },
+            "to": [{ "key_code": "left_shift" }],
+            "to_if_alone": [
+                {
+                    "hold_down_milliseconds": 150,
+                    "key_code": "caps_lock"
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "bundle_identifiers": [
+                        "com\\.microsoft\\.rdc\\.macos"
+                    ],
+                    "type": "frontmost_application_unless"
+                }
+            ],
+            "description": "交换 ctrl+c 与 alt+c（alt+c → ctrl+c）",
+            "from": {
+                "key_code": "c",
+                "modifiers": {
+                    "mandatory": ["left_option"],
+                    "optional": ["any"]
+                }
+            },
+            "to": [
+                {
+                    "key_code": "c",
+                    "modifiers": ["left_control"]
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "bundle_identifiers": [
+                        "com\\.microsoft\\.rdc\\.macos"
+                    ],
+                    "type": "frontmost_application_unless"
+                }
+            ],
+            "description": "交换 ctrl+c 与 alt+c（ctrl+c → alt+v）",
+            "from": {
+                "key_code": "c",
+                "modifiers": {
+                    "mandatory": ["left_control"],
+                    "optional": ["any"]
+                }
+            },
+            "to": [
+                {
+                    "key_code": "c",
+                    "modifiers": ["left_option"]
+                }
+            ],
+            "type": "basic"
+        }
+    ]
+}
