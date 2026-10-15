@@ -1,0 +1,323 @@
+{
+    "title": "EarPods remote for Maimemo flashcards (墨墨背单词 / macOS)",
+    "maintainers": [
+        "FrutexYu"
+    ],
+    "rules": [
+        {
+            "description": "EarPods 音量 + ：未显示答案时先显示并发音，已显示时标记「认识」",
+            "description_notes": [
+                "仅在墨墨背单词处于最前台时生效，切到别的 App 会立刻恢复原生音量键功能。",
+                "需在 Karabiner-Elements 的 Devices 设置里确认耳机已被接管（详见 README）。"
+            ],
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "vendor_id": 1452,
+                                    "product_id": 4363
+                                }
+                            ]
+                        },
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com\\.maimemo\\.ios\\.momo$"
+                            ]
+                        },
+                        {
+                            "type": "variable_if",
+                            "name": "memo_shown",
+                            "value": 0
+                        }
+                    ],
+                    "from": {
+                        "consumer_key_code": "volume_increment"
+                    },
+                    "to": [
+                        {
+                            "key_code": "spacebar"
+                        },
+                        {
+                            "key_code": "p",
+                            "modifiers": [
+                                "left_command"
+                            ]
+                        },
+                        {
+                            "set_variable": {
+                                "name": "memo_shown",
+                                "value": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "vendor_id": 1452,
+                                    "product_id": 4363
+                                }
+                            ]
+                        },
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com\\.maimemo\\.ios\\.momo$"
+                            ]
+                        },
+                        {
+                            "type": "variable_if",
+                            "name": "memo_shown",
+                            "value": 1
+                        }
+                    ],
+                    "from": {
+                        "consumer_key_code": "volume_increment"
+                    },
+                    "to": [
+                        {
+                            "key_code": "1"
+                        },
+                        {
+                            "set_variable": {
+                                "name": "memo_shown",
+                                "value": 0
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "EarPods 音量 − ：未显示答案时先显示并发音，已显示时标记「忘记」",
+            "description_notes": [
+                "仅在墨墨背单词处于最前台时生效。",
+                "长按音量键可能触发系统连发，此时状态机会连续翻转；正常点按不受影响。"
+            ],
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "vendor_id": 1452,
+                                    "product_id": 4363
+                                }
+                            ]
+                        },
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com\\.maimemo\\.ios\\.momo$"
+                            ]
+                        },
+                        {
+                            "type": "variable_if",
+                            "name": "memo_shown",
+                            "value": 0
+                        }
+                    ],
+                    "from": {
+                        "consumer_key_code": "volume_decrement"
+                    },
+                    "to": [
+                        {
+                            "key_code": "spacebar"
+                        },
+                        {
+                            "key_code": "p",
+                            "modifiers": [
+                                "left_command"
+                            ]
+                        },
+                        {
+                            "set_variable": {
+                                "name": "memo_shown",
+                                "value": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "vendor_id": 1452,
+                                    "product_id": 4363
+                                }
+                            ]
+                        },
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com\\.maimemo\\.ios\\.momo$"
+                            ]
+                        },
+                        {
+                            "type": "variable_if",
+                            "name": "memo_shown",
+                            "value": 1
+                        }
+                    ],
+                    "from": {
+                        "consumer_key_code": "volume_decrement"
+                    },
+                    "to": [
+                        {
+                            "key_code": "3"
+                        },
+                        {
+                            "set_variable": {
+                                "name": "memo_shown",
+                                "value": 0
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "EarPods 中键：单击=显示答案 / 标记「模糊」，长按 0.4 秒=返回上一个单词",
+            "description_notes": [
+                "单击的响应发生在松手瞬间，这是长按功能的必然代价，并非延迟。",
+                "长按阈值与单击超时均为 400 毫秒，想调手感改 parameters 里的两个值。"
+            ],
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "vendor_id": 1452,
+                                    "product_id": 4363
+                                }
+                            ]
+                        },
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com\\.maimemo\\.ios\\.momo$"
+                            ]
+                        },
+                        {
+                            "type": "variable_if",
+                            "name": "memo_shown",
+                            "value": 0
+                        }
+                    ],
+                    "from": {
+                        "consumer_key_code": "play_or_pause"
+                    },
+                    "to_if_alone": [
+                        {
+                            "key_code": "spacebar"
+                        },
+                        {
+                            "key_code": "p",
+                            "modifiers": [
+                                "left_command"
+                            ]
+                        },
+                        {
+                            "set_variable": {
+                                "name": "memo_shown",
+                                "value": 1
+                            }
+                        }
+                    ],
+                    "to_if_held_down": [
+                        {
+                            "key_code": "x",
+                            "modifiers": [
+                                "left_command"
+                            ]
+                        },
+                        {
+                            "set_variable": {
+                                "name": "memo_shown",
+                                "value": 0
+                            }
+                        }
+                    ],
+                    "parameters": {
+                        "basic.to_if_alone_timeout_milliseconds": 400,
+                        "basic.to_if_held_down_threshold_milliseconds": 400
+                    }
+                },
+                {
+                    "type": "basic",
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "vendor_id": 1452,
+                                    "product_id": 4363
+                                }
+                            ]
+                        },
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com\\.maimemo\\.ios\\.momo$"
+                            ]
+                        },
+                        {
+                            "type": "variable_if",
+                            "name": "memo_shown",
+                            "value": 1
+                        }
+                    ],
+                    "from": {
+                        "consumer_key_code": "play_or_pause"
+                    },
+                    "to_if_alone": [
+                        {
+                            "key_code": "2"
+                        },
+                        {
+                            "set_variable": {
+                                "name": "memo_shown",
+                                "value": 0
+                            }
+                        }
+                    ],
+                    "to_if_held_down": [
+                        {
+                            "key_code": "x",
+                            "modifiers": [
+                                "left_command"
+                            ]
+                        },
+                        {
+                            "set_variable": {
+                                "name": "memo_shown",
+                                "value": 0
+                            }
+                        }
+                    ],
+                    "parameters": {
+                        "basic.to_if_alone_timeout_milliseconds": 400,
+                        "basic.to_if_held_down_threshold_milliseconds": 400
+                    }
+                }
+            ]
+        }
+    ]
+}
