@@ -1,0 +1,33 @@
+{
+  "title": "Claude desktop app: Enter only inserts new lines",
+  "maintainers": ["FToThe3rdPower"],
+  "rules": [
+    {
+      "description": "Claude desktop app: Enter and Shift+Enter both insert new lines. Send a prompt by clicking the button, like in the VScode's Claude code extension",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "return_or_enter",
+            "modifiers": { "optional": ["shift", "caps_lock"] }
+          },
+          "to": [{ "key_code": "return_or_enter", "modifiers": ["left_shift"] }],
+          "conditions": [
+            { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.anthropic\\.claudefordesktop$"] }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "keypad_enter",
+            "modifiers": { "optional": ["shift", "caps_lock"] }
+          },
+          "to": [{ "key_code": "return_or_enter", "modifiers": ["left_shift"] }],
+          "conditions": [
+            { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.anthropic\\.claudefordesktop$"] }
+          ]
+        }
+      ]
+    }
+  ]
+}
