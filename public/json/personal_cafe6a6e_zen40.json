@@ -5,7 +5,7 @@
   ],
   "rules": [
     {
-      "description": "Hold Tab: shifted numbers (! @ # …) on the left ⌘ numpad positions",
+      "description": "Hold Tab: shifted numbers (! @ # …) on the left ⌘ numpad positions, ? on h, _ on ;",
       "manipulators": [
         {
           "type": "basic",
@@ -267,11 +267,53 @@
               "value": 1
             }
           ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "h"
+          },
+          "to": [
+            {
+              "key_code": "slash",
+              "modifiers": [
+                "shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "layer-tab",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "semicolon"
+          },
+          "to": [
+            {
+              "key_code": "hyphen",
+              "modifiers": [
+                "shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "layer-tab",
+              "value": 1
+            }
+          ]
         }
       ]
     },
     {
-      "description": "Caps Lock: tap for Esc, hold for arrows (h j k l) and ` [ ] ( ) - = ' < > \\",
+      "description": "Caps Lock: tap for Esc, hold for arrows (h j k l) and ` [ ] ( ) / = ' < > \\",
       "manipulators": [
         {
           "type": "basic",
@@ -577,7 +619,7 @@
           },
           "to": [
             {
-              "key_code": "hyphen"
+              "key_code": "slash"
             }
           ],
           "conditions": [
@@ -1374,7 +1416,7 @@
       ]
     },
     {
-      "description": "[ → Delete, ' → Return, tap right ⌘ → ⌃Space (input source)",
+      "description": "[ → Delete, ' → Return, / → - (QWERTY), tap right ⌘ → ⌃Space (input source)",
       "manipulators": [
         {
           "type": "basic",
@@ -1411,6 +1453,31 @@
         {
           "type": "basic",
           "from": {
+            "key_code": "slash",
+            "modifiers": {
+              "optional": [
+                "command",
+                "control",
+                "shift"
+              ]
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "layer-dvorak",
+              "value": 0
+            }
+          ],
+          "to": [
+            {
+              "key_code": "hyphen"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
             "key_code": "right_command"
           },
           "to_if_alone": [
@@ -1430,7 +1497,7 @@
       ]
     },
     {
-      "description": "Left ⌥ + Esc toggles a Dvorak layer (/ on the q key)",
+      "description": "Left ⌥ + Esc toggles a Dvorak layer (- on the q key)",
       "manipulators": [
         {
           "type": "basic",
@@ -1602,7 +1669,7 @@
           },
           "to": [
             {
-              "key_code": "slash"
+              "key_code": "hyphen"
             }
           ],
           "conditions": [
