@@ -144,9 +144,9 @@ const sections = [
   {
     name: 'Dock app keys (hardcoded for my dock order, sorry!)',
     manipulators: [
-      getDockApplicationManipulator(1, 'Firefox'),
+      getDockApplicationManipulator(1, 'Brave Browser'),
       getDockApplicationManipulator(2, 'Google Chrome'),
-      getDockApplicationManipulator(3, 'Slack'),
+      getDockApplicationManipulator(3, 'Finder'),
       getDockApplicationManipulator(4, 'Visual Studio Code'),
       getDockApplicationManipulator(5, 'Mail'),
       getDockApplicationManipulator(6, 'Spotify'),
