@@ -61,6 +61,13 @@ function getDockApplicationManipulator(number, applicationName) {
   }
 }
 
+function getSwitchDesktopManipulator(digit, targetKey) {
+  return getBasicCapsManipulator({
+    from: { key_code: digit, modifiers: { mandatory: ['shift'] } },
+    to: { key: targetKey, modifiers: ['left_control', 'left_shift', 'left_option', 'left_command'] },
+  })
+}
+
 const sections = [
   {
     name: 'Capslock override & caps lock toggle replacement (caps+\\) (required by all other groups)',
@@ -142,11 +149,23 @@ const sections = [
     ],
   },
   {
+    // Must stay BEFORE the dock section: the dock bindings accept any modifier, so they would otherwise also match caps+shift+digit.
+    // In macOS (System Settings > Keyboard > Keyboard Shortcuts > Mission Control) "Switch to Desktop 1..5" must be set to ctrl+shift+opt+cmd + T, Y, U, G, H.
+    name: 'Switch desktops/spaces (caps+shift+1..5 → unreachable hotkeys)',
+    manipulators: [
+      getSwitchDesktopManipulator('1', 't'),
+      getSwitchDesktopManipulator('2', 'y'),
+      getSwitchDesktopManipulator('3', 'u'),
+      getSwitchDesktopManipulator('4', 'g'),
+      getSwitchDesktopManipulator('5', 'h'),
+    ],
+  },
+  {
     name: 'Dock app keys (hardcoded for my dock order, sorry!)',
     manipulators: [
-      getDockApplicationManipulator(1, 'Firefox'),
+      getDockApplicationManipulator(1, 'Brave Browser'),
       getDockApplicationManipulator(2, 'Google Chrome'),
-      getDockApplicationManipulator(3, 'Slack'),
+      getDockApplicationManipulator(3, 'Finder'),
       getDockApplicationManipulator(4, 'Visual Studio Code'),
       getDockApplicationManipulator(5, 'Mail'),
       getDockApplicationManipulator(6, 'Spotify'),
