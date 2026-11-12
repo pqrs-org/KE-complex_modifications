@@ -1,0 +1,37 @@
+{
+  "title": "optionOS (talk to and show your screen to your coding agents)",
+  "maintainers": ["yemreak"],
+  "rules": [
+    {
+      "description": "optionOS: caps_lock starts or stops a dictation",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": { "key_code": "caps_lock", "modifiers": { "optional": ["any"] } },
+          "to": [{ "shell_command": "open -g 'optionos-dictation://record'" }]
+        }
+      ]
+    },
+    {
+      "description": "optionOS: right_command (pressed alone) opens the Agents Deck",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": { "key_code": "right_command", "modifiers": { "optional": ["any"] } },
+          "to": [{ "key_code": "right_command" }],
+          "to_if_alone": [{ "shell_command": "open -g 'optionos-agent://deck'" }]
+        }
+      ]
+    },
+    {
+      "description": "optionOS: f13 takes a screenshot of the window under the cursor for your agent",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": { "key_code": "f13" },
+          "to": [{ "shell_command": "open -g 'optionos-screen://action/take-a-screenshot-of-the-window-under-the-cursor'" }]
+        }
+      ]
+    }
+  ]
+}
