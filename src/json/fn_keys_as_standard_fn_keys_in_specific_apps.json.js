@@ -10,7 +10,16 @@ function main() {
 		"net.blyt.phoenixslides",
 
 		// far2l
-		"com.far2l"
+		"com.far2l",
+
+		// DOSBox-X
+		"com.dosbox-x",
+
+		// 86Box
+		"net.86Box.86Box",
+
+		// Covert Reaction
+		"org.bert.covertreaction"
 	];
 
 	fn_keys = [];
