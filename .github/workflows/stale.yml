@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run stale
-        uses: actions/stale@v10
+        uses: actions/stale@v11
         with:
           operations-per-run: ${{ github.event.inputs.operations-per-run || 30 }}
           days-before-stale: 180
