@@ -2,7 +2,7 @@
 
 function main() {
   return {
-    description: 'ComboStick (rev 1)',
+    description: 'ComboStick (rev 2)',
     description_notes: ['- Available since Karabiner-Elements 16.0.0.'],
     maintainers: ['tekezo'],
     manipulators: manipulators(),
@@ -86,13 +86,35 @@ function manipulators() {
       type: 'basic',
       conditions,
       from: { pointing_button: 'button11', modifiers: { optional: ['any'] } },
-      to: [{ software_function: { set_mouse_cursor_position: { screen: 0, x: '50%', y: '50%' } } }],
+      to: [
+        {
+          software_function: {
+            set_mouse_cursor_position: {
+              x: '50%',
+              y: '50%',
+              relative_to: 'focused_window',
+              fallback_to: 'screen',
+            },
+          },
+        },
+      ],
     },
     {
       type: 'basic',
       conditions,
       from: { pointing_button: 'button12', modifiers: { optional: ['any'] } },
-      to: [{ software_function: { set_mouse_cursor_position: { screen: 0, x: '50%', y: '50%' } } }],
+      to: [
+        {
+          software_function: {
+            set_mouse_cursor_position: {
+              x: '50%',
+              y: '50%',
+              relative_to: 'focused_window',
+              fallback_to: 'screen',
+            },
+          },
+        },
+      ],
     },
   ]
 }
