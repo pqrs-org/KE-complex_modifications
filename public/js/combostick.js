@@ -3,7 +3,14 @@
 function main() {
   return {
     description: 'ComboStick (rev 2)',
-    description_notes: ['- Available since Karabiner-Elements 16.0.0.'],
+    description_notes: [
+      '- Available since Karabiner-Elements 16.0.0.',
+      '- ComboStick remaps the buttons of the Logitech F310 gamepad.',
+      '- Press button5 for a primary click (button1).',
+      '- Press button6 for a secondary click (button2).',
+      '- Press button5 and button6 together for a middle click (button3).',
+      '- Press either stick to move the mouse cursor to the center of the focused window.',
+    ],
     maintainers: ['tekezo'],
     manipulators: manipulators(),
   }
